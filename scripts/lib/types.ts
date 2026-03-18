@@ -2,7 +2,7 @@
 
 export interface FeedSource {
   id: string;
-  type: "folo" | "rss" | "api";
+  type: "folo" | "folo-list" | "rss" | "api";
   url: string;
   category: string;
   name: string;

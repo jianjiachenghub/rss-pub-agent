@@ -1,6 +1,6 @@
 import type { PipelineStateType } from "../state.js";
 import { fetchRSS } from "../lib/rss.js";
-import { fetchFolo } from "../lib/folo.js";
+import { fetchViaFolo, fetchFoloByList } from "../lib/folo.js";
 import type { RawNewsItem, PipelineError } from "../lib/types.js";
 
 const CONCURRENCY = 5;
@@ -41,16 +41,23 @@ export async function fetchNode(
     try {
       let items: RawNewsItem[];
       switch (feed.type) {
-        case "rss":
-          items = await fetchRSS(feed.url, feed.id, feed.name, feed.category);
-          break;
         case "folo":
-          items = await fetchFolo(
+          // 通过 Folo API 拉取 RSS（不需要认证，Folo 帮解析+缓存+摘要）
+          items = await fetchViaFolo(feed.url, feed.id, feed.name, feed.category);
+          break;
+        case "folo-list":
+          // 按 Folo 列表拉取（需要 session token）
+          items = await fetchFoloByList(
             process.env.FOLO_SESSION_TOKEN ?? "",
+            feed.listId ?? "",
             feed.id,
             feed.name,
             feed.category
           );
+          break;
+        case "rss":
+          // 直连 RSS（备用方案）
+          items = await fetchRSS(feed.url, feed.id, feed.name, feed.category);
           break;
         default:
           items = [];
