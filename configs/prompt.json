@@ -1,0 +1,32 @@
+{
+  "interests": [
+    {
+      "topic": "大语言模型",
+      "level": "must",
+      "keywords": ["LLM", "GPT", "Claude", "Gemini", "Llama", "大模型"]
+    },
+    {
+      "topic": "AI 工具和应用",
+      "level": "must",
+      "keywords": ["AI Agent", "Copilot", "AI 编程", "提示工程", "RAG"]
+    },
+    {
+      "topic": "开源项目",
+      "level": "high",
+      "keywords": ["GitHub", "开源", "框架", "SDK"]
+    },
+    {
+      "topic": "AI 商业化",
+      "level": "high",
+      "keywords": ["融资", "估值", "商业模式", "落地", "创业"]
+    },
+    {
+      "topic": "AI 芯片和算力",
+      "level": "medium",
+      "keywords": ["GPU", "NVIDIA", "芯片", "算力"]
+    }
+  ],
+  "topN": 10,
+  "language": "zh",
+  "outputStyle": "professional"
+}

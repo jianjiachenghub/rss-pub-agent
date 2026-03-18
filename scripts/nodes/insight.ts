@@ -1,0 +1,85 @@
+import type { PipelineStateType } from "../state.js";
+import { callLLMJson } from "../lib/llm.js";
+import { insightSystemPrompt, insightUserPrompt } from "../lib/prompts.js";
+import type { NewsInsight } from "../lib/types.js";
+
+interface InsightResult {
+  id: string;
+  oneLiner: string;
+  whyItMatters: string;
+  whoShouldCare: string[];
+  actionableAdvice: string;
+  deepDive: string;
+}
+
+export async function insightNode(
+  state: PipelineStateType
+): Promise<Partial<PipelineStateType>> {
+  const { scoredItems } = state;
+  if (!scoredItems.length) {
+    return { insights: [] };
+  }
+
+  try {
+    const batchInput = scoredItems.map((item) => ({
+      id: item.id,
+      title: item.title,
+      content: item.content,
+      source: item.source,
+      weightedScore: item.weightedScore,
+    }));
+
+    const results = await callLLMJson<InsightResult[]>({
+      systemPrompt: insightSystemPrompt(),
+      prompt: insightUserPrompt(batchInput),
+      model: "pro",
+      jsonSchema: {
+        type: "ARRAY",
+        items: {
+          type: "OBJECT",
+          properties: {
+            id: { type: "STRING" },
+            oneLiner: { type: "STRING" },
+            whyItMatters: { type: "STRING" },
+            whoShouldCare: { type: "ARRAY", items: { type: "STRING" } },
+            actionableAdvice: { type: "STRING" },
+            deepDive: { type: "STRING" },
+          },
+          required: ["id", "oneLiner", "whyItMatters", "whoShouldCare", "actionableAdvice", "deepDive"],
+        },
+      },
+    });
+
+    const insightMap = new Map(results.map((r) => [r.id, r]));
+    const insights: NewsInsight[] = scoredItems
+      .map((item) => {
+        const insight = insightMap.get(item.id);
+        if (!insight) return null;
+        return {
+          id: item.id,
+          title: item.title,
+          url: item.url,
+          source: item.source,
+          category: item.category,
+          publishedAt: item.publishedAt,
+          oneLiner: insight.oneLiner,
+          whyItMatters: insight.whyItMatters,
+          whoShouldCare: insight.whoShouldCare,
+          actionableAdvice: insight.actionableAdvice,
+          deepDive: insight.deepDive,
+          scores: item.scores,
+          weightedScore: item.weightedScore,
+        };
+      })
+      .filter((x): x is NewsInsight => x !== null);
+
+    console.log(`[insight] Generated ${insights.length} structured insights`);
+    return { insights };
+  } catch (err) {
+    console.error("[insight] Failed:", err);
+    return {
+      insights: [],
+      errors: [{ node: "insight", message: (err as Error).message, timestamp: new Date().toISOString() }],
+    };
+  }
+}

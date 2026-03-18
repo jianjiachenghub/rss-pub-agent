@@ -1,0 +1,28 @@
+{
+  "feeds": [
+    {
+      "id": "folo-ai",
+      "type": "folo",
+      "url": "https://api.follow.is/entries",
+      "category": "AI",
+      "name": "Folo AI Feed",
+      "weight": 90
+    },
+    {
+      "id": "huggingface-blog",
+      "type": "rss",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "category": "AI/ML",
+      "name": "HuggingFace Blog",
+      "weight": 85
+    },
+    {
+      "id": "openai-blog",
+      "type": "rss",
+      "url": "https://openai.com/blog/rss.xml",
+      "category": "AI",
+      "name": "OpenAI Blog",
+      "weight": 95
+    }
+  ]
+}
