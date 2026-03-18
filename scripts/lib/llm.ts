@@ -1,9 +1,13 @@
 import { GoogleGenAI } from "@google/genai";
 import OpenAI from "openai";
 
-const gemini = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY,
-});
+let _gemini: GoogleGenAI | null = null;
+function getGemini(): GoogleGenAI {
+  if (!_gemini) {
+    _gemini = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
+  }
+  return _gemini;
+}
 
 let _openai: OpenAI | null = null;
 function getOpenAI(): OpenAI {
@@ -55,7 +59,7 @@ async function callGemini(req: LLMRequest): Promise<LLMResponse> {
     config.maxOutputTokens = req.maxTokens;
   }
 
-  const response = await gemini.models.generateContent({
+  const response = await getGemini().models.generateContent({
     model,
     contents,
     config,

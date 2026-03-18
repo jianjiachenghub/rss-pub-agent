@@ -1,6 +1,6 @@
 import type { RawNewsItem } from "./types.js";
 
-const FOLO_API = "https://api.follow.is/entries";
+const FOLO_API = "https://api.follow.is";
 
 function randomDelay(min: number, max: number): Promise<void> {
   const ms = Math.floor(Math.random() * (max - min) + min);
@@ -11,23 +11,34 @@ export async function fetchFolo(
   sessionToken: string,
   sourceId: string,
   sourceName: string,
-  category: string
+  category: string,
+  listId?: string
 ): Promise<RawNewsItem[]> {
+  if (!sessionToken) {
+    throw new Error("FOLO_SESSION_TOKEN not set");
+  }
+
   const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
   const now = new Date().toISOString();
 
-  await randomDelay(1000, 3000);
+  await randomDelay(500, 1500);
 
-  const res = await fetch(FOLO_API, {
+  const body: Record<string, unknown> = {
+    publishedAfter: yesterday,
+  };
+  if (listId) {
+    body.listId = listId;
+  }
+
+  const res = await fetch(`${FOLO_API}/entries`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Cookie: `authjs.session-token=${sessionToken}`,
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "User-Agent": "Mozilla/5.0 LLM-News-Flow/1.0",
     },
-    body: JSON.stringify({
-      publishedAfter: yesterday,
-    }),
+    body: JSON.stringify(body),
+    signal: AbortSignal.timeout(15000),
   });
 
   if (res.status === 401) {

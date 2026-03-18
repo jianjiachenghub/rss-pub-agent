@@ -3,6 +3,27 @@ import { fetchRSS } from "../lib/rss.js";
 import { fetchFolo } from "../lib/folo.js";
 import type { RawNewsItem, PipelineError } from "../lib/types.js";
 
+const CONCURRENCY = 5;
+
+async function runWithConcurrency<T>(
+  tasks: (() => Promise<T>)[],
+  limit: number
+): Promise<T[]> {
+  const results: T[] = [];
+  let idx = 0;
+
+  async function worker() {
+    while (idx < tasks.length) {
+      const i = idx++;
+      results[i] = await tasks[i]();
+    }
+  }
+
+  const workers = Array.from({ length: Math.min(limit, tasks.length) }, () => worker());
+  await Promise.all(workers);
+  return results;
+}
+
 export async function fetchNode(
   state: PipelineStateType
 ): Promise<Partial<PipelineStateType>> {
@@ -16,7 +37,7 @@ export async function fetchNode(
   const results: RawNewsItem[] = [];
   const errors: PipelineError[] = [];
 
-  const promises = config.feeds.map(async (feed) => {
+  const tasks = config.feeds.map((feed) => async () => {
     try {
       let items: RawNewsItem[];
       switch (feed.type) {
@@ -34,7 +55,7 @@ export async function fetchNode(
         default:
           items = [];
       }
-      return { items, error: null };
+      return { items, error: null as PipelineError | null };
     } catch (err) {
       return {
         items: [] as RawNewsItem[],
@@ -42,12 +63,12 @@ export async function fetchNode(
           node: "fetch",
           message: `[${feed.name}] ${(err as Error).message}`,
           timestamp: new Date().toISOString(),
-        },
+        } as PipelineError,
       };
     }
   });
 
-  const settled = await Promise.all(promises);
+  const settled = await runWithConcurrency(tasks, CONCURRENCY);
   for (const result of settled) {
     results.push(...result.items);
     if (result.error) errors.push(result.error);
@@ -55,8 +76,9 @@ export async function fetchNode(
 
   const seen = new Set<string>();
   const deduped = results.filter((item) => {
-    if (seen.has(item.url)) return false;
-    seen.add(item.url);
+    const key = item.url || item.title;
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
     return true;
   });
 

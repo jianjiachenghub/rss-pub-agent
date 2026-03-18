@@ -1,128 +1,69 @@
-● 你分析得很对，当前数据采集层确实有几个问题：
+# LLM News Flow - TODO 清单
 
-  现状分析
+> 更新日期：2026-03-18
 
-  1. Folo API 调用方式太粗糙
+---
 
-  - 只调了一个 POST /entries，没传 listId 或 feedId，等于是拉整个账号所有订阅的最近 24h 内容
-  - 没有分类/列表筛选能力，1633 条全混在一起
-  - 依赖 session token 认证（容易过期）
+## 已完成
 
-  2. RSS 源配置太少
+### 1. ~~配置 API Keys 基础设施~~
+- [x] 创建了 `.env.example` 模板文件
+- [x] 添加了 `dotenv` 依赖，`graph.ts` 自动加载 `.env`
+- [x] `.env` 已配置 GEMINI_API_KEY
 
-  - 只有 HuggingFace 和 OpenAI 两个 RSS，远不够覆盖 AI 生态
+### 2. ~~初始化 Git 仓库~~
+- [x] `git init` + 首次提交，统一 frontend 子仓库
+- [x] `.gitignore` 完善
 
-  3. Follow 的正确用法
+### 3. ~~验证前端构建~~
+- [x] 修复 `content/index.json` dates 为空的 bug
+- [x] `npm run build` 通过
 
-  你说的对，Follow（Folo）本身就是一个 RSS 阅读器，核心玩法是：
-  - 在 Follow 里按主题创建列表（List），比如 "AI 前沿"、"开源动态"、"商业融资"
-  - 每个列表里订阅对应的 RSS/Atom/JSON Feed 源
-  - 然后通过 API 按 listId 拉取，天然就是分好类的
+### 4. ~~试跑管线~~
+- [x] 管线连接成功，fetch 节点正常抓取 1638 条
+- [x] 修复了 Gemini SDK 延迟初始化问题
+- ⚠️ Gemini 免费版配额耗尽 (429)，需升级付费版或配置 OPENAI_API_KEY
 
-  这样做比在 feeds.json 里手动维护 RSS 列表优雅得多 — 让 Follow 做信息源管理，Pipeline 只负责拉取和处理。
+### 5. ~~补全 RSS 源列表~~
+- [x] 从 3 个源扩展到 24 个高质量源
+- [x] 覆盖：AI 实验室 (6) + 开源 (3) + AI 新闻 (6) + 中文 (1) + 学术 (2) + 博客 (4) + 社区 (2)
+- [x] 参考了 foorilla/allainews_sources、RSS-Renaissance/awesome-AI-feeds 等开源项目
+- [x] 研究报告保存在 `scripts/rss-feeds-research/`
 
-  ---
-  你想让我重构数据采集层吗？主要方向是：
+### 6. ~~重构数据采集层~~
+- [x] `folo.ts` — 支持 listId 参数、AbortSignal 超时、更好的错误处理
+- [x] `rss.ts` — 添加 24h 时间过滤、Accept header
+- [x] `fetch.ts` — 添加并发控制 (CONCURRENCY=5)、改进去重逻辑
+- [x] `types.ts` — FeedSource 添加可选 listId 字段
 
-  1. 研究 Follow API，支持按 list/feed/inbox 等维度拉取
-  2. 丰富 feeds.json 配置，支持映射 Follow 里的不同列表到不同 category
-  3. 改进认证方式，看看 Follow 有没有 API Token（比 session token 稳定）
-  4. 顺便把独立 RSS 源也补全（Anthropic、Google DeepMind、The Verge AI 等）
+### 7. ~~重构前端导航~~
+- [x] `Sidebar.tsx` — 年→月折叠树导航，替代扁平日期列表
+- [x] `content-loader.ts` — 支持 getGroupedByYear() 层级数据
+- [x] 所有页面更新传递 years prop
+- [x] `npm run build` 通过
 
-> 对 先研究一下Follow的API 咱们这个项目可以做一个双线数据采集：
-1. 一条线路是从 Follow 里面去订阅各种各样的一些新闻 然后另外一条线路是，你可以去参考一些开源的新闻采集
-GitHub，看看他们是走了什么样的方式去订阅的。
+---
 
-● 好的，我来并行研究这两条线路。
+## 待完成
 
-● 2 agents launched (ctrl+o to expand)
-   ├─ 研究 Follow API 文档
-   │  ⎿  Running in the background
-   └─ 研究开源新闻采集方案
-      ⎿  Running in the background
+### 8. Gemini 配额问题
+当前 GEMINI_API_KEY 是免费版，配额已耗尽。解决方案：
+- 方案A：在 Google AI Studio 升级为付费版
+- 方案B：配置 `OPENAI_API_KEY` 作为 fallback
+- 方案C：等待免费配额每日刷新
 
-● 已经并行派出两个研究 agent：
+### 9. 推到 GitHub
+```bash
+git remote add origin https://github.com/你的用户名/llm-news-flow.git
+git push -u origin master
+```
+然后在 Settings → Secrets 配置 Actions secrets。
 
-  1. Follow API 研究 — 研究 Follow 的 API 文档、认证方式、按列表拉取条目的接口
-  2. 开源新闻采集研究 — 搜索 GitHub 上优秀的 AI 新闻聚合项目，收集高质量 RSS 源列表和采集策略
+### 10. 调优 Prompt
+管线跑通后根据输出调整：
+- `configs/prompt.json` — 兴趣偏好
+- `scripts/lib/prompts.ts` — Prompt 模板
 
-  等两边结果回来后，我会整合成一个完整的双线数据采集方案给你。
-
-> 好的，那现在我们再来考虑一下整体的网页设计吧。
-
-理论上来说，我们需要：
-1. 日报
-2. 周报
-3. 月报你看看现在的这个 Web
-视图展示，能够去展示到这些吗？因为我们这个项目会跑很多年，所以总的会有一个以年为单位的目录分级。
-
-你研究一下这个分类应该怎么展示法？
-
-● 好的，让我先看看当前前端的完整代码，了解现在的展示能力。
-
-● Read 5 files (ctrl+o to expand)
-
-● 现在完全了解了。当前前端的问题很明显：
-
-  当前问题
-
-  1. Sidebar 是扁平日期列表 — 2026-03-16, 2026-03-15... 跑几个月就会有几百个日期堆在一起，完全不可用
-  2. 只有日报 — 没有周报、月报的概念和页面
-  3. 没有年/月分级 — 没有目录层级，无法在多年数据中导航
-  4. 内容模型太简单 — content/index.json 里只有 dates: string[]，没有层级结构
-
-  设计思路
-
-  对于一个跑很多年的新闻系统，需要这样的信息架构：
-
-  2026/
-  ├── 2026 年度总览（年报？或年度目录）
-  ├── 01 月/
-  │   ├── 月报 (月度趋势总结)
-  │   ├── W1 周报 (1.1-1.5)
-  │   ├── W2 周报 (1.6-1.12)
-  │   ├── ...
-  │   ├── 01-01 日报
-  │   ├── 01-02 日报
-  │   └── ...
-  ├── 02 月/
-  │   └── ...
-  └── 03 月/
-      └── ...
-
-  导航方式参考
-
-  我觉得适合这个项目的是时间线 + 面包屑 + 折叠树的组合：
-
-  方案：侧边栏按年→月折叠，内容区分 Tab（日/周/月）
-
-  ┌──────────────────┬──────────────────────────────────────┐
-  │  AI News Flow    │  [日报]  [周报]  [月报]  [播客]      │
-  │                  │                                       │
-  │  ▼ 2026          │  2026年3月 第3周 · 周报               │
-  │    ▼ 3月         │  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
-  │      16 日 ●     │                                       │
-  │      15 日       │  本周概要                              │
-  │      14 日       │  本周 AI 领域共处理 847 条资讯...      │
-  │    ▶ 2月         │                                       │
-  │    ▶ 1月         │  重点事件                              │
-  │  ▶ 2025          │  1. Claude 4 发布...                  │
-  │                  │  2. ...                                │
-  │  ──────────      │                                       │
-  │  播客            │  趋势洞察                              │
-  │  关于            │  ...                                   │
-  └──────────────────┴──────────────────────────────────────┘
-
-  路由结构：
-  - /2026/03/16 — 日报
-  - /2026/03/w3 — 第3周周报
-  - /2026/03 — 3月月报
-  - /2026 — 年度目录
-  - /podcast — 播客
-  - / — 重定向到最新日报
-
-  侧边栏：
-  - 年份折叠（默认展开当前年）
-  - 月份折叠（默认展开当前月）
-  - 当前月内显示每天的日期，带小圆点表示有内容
-  - 周报/月报入口在月份标题旁显示
+### 11. Follow API 集成 (低优先级)
+Follow (Folo) 没有公开 API 文档，依赖 session token 认证不稳定。
+当前策略：纯 RSS 直接采集。以后在 Follow 里管理好列表后再接入。

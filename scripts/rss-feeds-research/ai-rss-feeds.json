@@ -1,0 +1,383 @@
+{
+  "metadata": {
+    "description": "Curated AI/Tech RSS feeds compiled from GitHub open-source projects",
+    "date": "2026-03-18",
+    "sources_analyzed": [
+      "foorilla/allainews_sources",
+      "RSS-Renaissance/awesome-AI-feeds",
+      "vishalshar/awesome_ML_AI_RSS_feed",
+      "hrnrxb/AI-News-Aggregator-Bot",
+      "mehdi1514/My-AI-News-Aggregator",
+      "finaldie/auto-news"
+    ]
+  },
+  "feeds": [
+    {
+      "url": "https://openai.com/blog/rss",
+      "name": "OpenAI Blog",
+      "category": "ai_research_labs"
+    },
+    {
+      "url": "https://openai.com/news/rss.xml",
+      "name": "OpenAI News",
+      "category": "ai_research_labs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/taobojlen/anthropic-rss-feed/main/anthropic_news_rss.xml",
+      "name": "Anthropic News (community-maintained)",
+      "category": "ai_research_labs",
+      "note": "Anthropic has no official RSS; this is scraped via GitHub Actions"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/conoro/anthropic-engineering-rss-feed/main/anthropic_engineering_rss.xml",
+      "name": "Anthropic Engineering Blog (community-maintained)",
+      "category": "ai_research_labs",
+      "note": "Scraped hourly via GitHub Actions + Playwright"
+    },
+    {
+      "url": "https://deepmind.google/blog/rss.xml",
+      "name": "Google DeepMind Blog",
+      "category": "ai_research_labs"
+    },
+    {
+      "url": "https://blog.google/technology/ai/rss",
+      "name": "Google AI Blog",
+      "category": "ai_research_labs"
+    },
+    {
+      "url": "https://ai.meta.com/blog/rss/",
+      "name": "Meta AI Blog",
+      "category": "ai_research_labs"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/research/feed",
+      "name": "Microsoft Research",
+      "category": "ai_research_labs"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/ai/feed",
+      "name": "AWS AI Blog",
+      "category": "ai_research_labs"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/feed",
+      "name": "AWS Machine Learning Blog",
+      "category": "ai_research_labs"
+    },
+    {
+      "url": "https://blogs.nvidia.com/feed",
+      "name": "NVIDIA Blog",
+      "category": "ai_research_labs"
+    },
+    {
+      "url": "http://bair.berkeley.edu/blog/feed.xml",
+      "name": "BAIR (Berkeley AI Research)",
+      "category": "ai_research_labs"
+    },
+    {
+      "url": "https://intelligence.org/blog/feed",
+      "name": "MIRI (Machine Intelligence Research Institute)",
+      "category": "ai_research_labs"
+    },
+
+    {
+      "url": "https://www.theverge.com/rss/index.xml",
+      "name": "The Verge",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://techcrunch.com/feed/",
+      "name": "TechCrunch",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+      "name": "TechCrunch AI",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://venturebeat.com/category/ai/feed/",
+      "name": "VentureBeat AI",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://www.technologyreview.com/stories.rss",
+      "name": "MIT Technology Review (All Stories)",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://www.technologyreview.com/topnews.rss",
+      "name": "MIT Technology Review (Top News)",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://www.wired.com/feed/tag/ai/latest/rss",
+      "name": "Wired AI",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://feeds.arstechnica.com/arstechnica/index",
+      "name": "Ars Technica",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://www.artificialintelligence-news.com/feed/rss/",
+      "name": "AI News",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://www.marktechpost.com/feed",
+      "name": "MarkTechPost",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://www.sciencedaily.com/rss/computers_math/artificial_intelligence.xml",
+      "name": "ScienceDaily AI",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://www.theguardian.com/technology/artificialintelligenceai/rss",
+      "name": "The Guardian AI",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+      "name": "New York Times Technology",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://feeds.bloomberg.com/technology/news.rss",
+      "name": "Bloomberg Technology",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://www.404media.co/rss",
+      "name": "404 Media",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://aibusiness.com/rss.xml",
+      "name": "AI Business",
+      "category": "ai_news_sites"
+    },
+    {
+      "url": "https://www.kdnuggets.com/feed",
+      "name": "KDnuggets",
+      "category": "ai_news_sites"
+    },
+
+    {
+      "url": "https://arxiv.org/rss/cs.AI",
+      "name": "arXiv CS.AI (Artificial Intelligence)",
+      "category": "academic_research"
+    },
+    {
+      "url": "https://arxiv.org/rss/cs.CL",
+      "name": "arXiv CS.CL (Computation and Language / NLP)",
+      "category": "academic_research"
+    },
+    {
+      "url": "https://arxiv.org/rss/cs.CV",
+      "name": "arXiv CS.CV (Computer Vision)",
+      "category": "academic_research"
+    },
+    {
+      "url": "https://arxiv.org/rss/cs.LG",
+      "name": "arXiv CS.LG (Machine Learning)",
+      "category": "academic_research"
+    },
+    {
+      "url": "https://arxiv.org/rss/stat.ML",
+      "name": "arXiv Stat.ML (Statistics - Machine Learning)",
+      "category": "academic_research"
+    },
+    {
+      "url": "http://news.mit.edu/rss/topic/artificial-intelligence2",
+      "name": "MIT News - AI",
+      "category": "academic_research"
+    },
+    {
+      "url": "https://www.jmlr.org/jmlr.xml",
+      "name": "JMLR (Journal of Machine Learning Research)",
+      "category": "academic_research"
+    },
+    {
+      "url": "https://distill.pub/rss.xml",
+      "name": "Distill.pub",
+      "category": "academic_research"
+    },
+
+    {
+      "url": "https://huggingface.co/blog/feed.xml",
+      "name": "Hugging Face Blog",
+      "category": "open_source"
+    },
+    {
+      "url": "https://github.blog/feed/",
+      "name": "GitHub Blog",
+      "category": "open_source"
+    },
+    {
+      "url": "https://blog.tensorflow.org/feeds/posts/default?alt=rss",
+      "name": "TensorFlow Blog",
+      "category": "open_source"
+    },
+    {
+      "url": "https://blog.langchain.dev/rss/",
+      "name": "LangChain Blog",
+      "category": "open_source"
+    },
+    {
+      "url": "https://blog.eleuther.ai/index.xml",
+      "name": "EleutherAI Blog",
+      "category": "open_source"
+    },
+    {
+      "url": "http://www.fast.ai/atom.xml",
+      "name": "fast.ai",
+      "category": "open_source"
+    },
+
+    {
+      "url": "https://www.jiqizhixin.com/rss",
+      "name": "机器之心 (Synced/Jiqizhixin)",
+      "category": "chinese_ai_media"
+    },
+    {
+      "url": "https://rsshub.app/qbitai",
+      "name": "量子位 (QbitAI) via RSSHub",
+      "category": "chinese_ai_media",
+      "note": "Requires RSSHub instance; official site: qbitai.com"
+    },
+    {
+      "url": "https://rsshub.app/leiphone/category/ai",
+      "name": "雷锋网 AI科技评论 via RSSHub",
+      "category": "chinese_ai_media",
+      "note": "AI科技评论 is a channel under leiphone.com"
+    },
+    {
+      "url": "https://www.leiphone.com/feed",
+      "name": "雷锋网 (Leiphone)",
+      "category": "chinese_ai_media"
+    },
+    {
+      "url": "https://rsshub.app/36kr/motif/ai",
+      "name": "36氪 AI频道 via RSSHub",
+      "category": "chinese_ai_media"
+    },
+
+    {
+      "url": "https://simonwillison.net/atom/everything/",
+      "name": "Simon Willison's Weblog",
+      "category": "newsletters_blogs"
+    },
+    {
+      "url": "https://www.deeplearning.ai/the-batch/rss/",
+      "name": "The Batch (Andrew Ng / DeepLearning.AI)",
+      "category": "newsletters_blogs",
+      "note": "Ghost-based; may require verification"
+    },
+    {
+      "url": "https://lastweekin.ai/feed",
+      "name": "Last Week in AI",
+      "category": "newsletters_blogs"
+    },
+    {
+      "url": "https://www.latent.space/feed",
+      "name": "Latent Space (Substack)",
+      "category": "newsletters_blogs"
+    },
+    {
+      "url": "https://huyenchip.com/feed",
+      "name": "Huyen Chip's Blog",
+      "category": "newsletters_blogs"
+    },
+    {
+      "url": "https://aisnakeoil.substack.com/feed",
+      "name": "AI Snake Oil (Substack)",
+      "category": "newsletters_blogs"
+    },
+    {
+      "url": "https://magazine.sebastianraschka.com/feed",
+      "name": "Sebastian Raschka's Magazine",
+      "category": "newsletters_blogs"
+    },
+    {
+      "url": "https://every.to/chain-of-thought/feed.xml",
+      "name": "Chain of Thought (Every)",
+      "category": "newsletters_blogs"
+    },
+    {
+      "url": "https://thesequence.substack.com/feed",
+      "name": "TheSequence (Substack)",
+      "category": "newsletters_blogs"
+    },
+    {
+      "url": "https://thealgorithmicbridge.substack.com/feed",
+      "name": "The Algorithmic Bridge (Substack)",
+      "category": "newsletters_blogs"
+    },
+    {
+      "url": "https://unwindai.substack.com/feed",
+      "name": "Unwind AI (Substack)",
+      "category": "newsletters_blogs"
+    },
+    {
+      "url": "https://jalammar.github.io/feed.xml",
+      "name": "Jay Alammar's Blog",
+      "category": "newsletters_blogs"
+    },
+    {
+      "url": "https://machinelearningmastery.com/blog/feed",
+      "name": "Machine Learning Mastery",
+      "category": "newsletters_blogs"
+    },
+    {
+      "url": "https://neptune.ai/blog/feed",
+      "name": "Neptune.ai Blog",
+      "category": "newsletters_blogs"
+    },
+    {
+      "url": "https://medium.com/feed/@karpathy",
+      "name": "Andrej Karpathy (Medium)",
+      "category": "newsletters_blogs"
+    },
+    {
+      "url": "https://aimodels.substack.com/feed",
+      "name": "AI Models (Substack)",
+      "category": "newsletters_blogs"
+    },
+
+    {
+      "url": "https://www.reddit.com/r/MachineLearning/.rss",
+      "name": "Reddit r/MachineLearning",
+      "category": "community"
+    },
+    {
+      "url": "https://www.reddit.com/r/artificial/.rss",
+      "name": "Reddit r/artificial",
+      "category": "community"
+    },
+    {
+      "url": "https://hnrss.org/newest?q=AI+OR+LLM+OR+%22machine+learning%22",
+      "name": "Hacker News (AI/LLM/ML filter)",
+      "category": "community",
+      "note": "hnrss.org provides filtered HN RSS feeds"
+    },
+    {
+      "url": "https://towardsdatascience.com/feed",
+      "name": "Towards Data Science (Medium)",
+      "category": "community"
+    },
+    {
+      "url": "https://pub.towardsai.net/feed",
+      "name": "Towards AI (Medium)",
+      "category": "community"
+    },
+    {
+      "url": "https://becominghuman.ai/feed",
+      "name": "Becoming Human (Medium)",
+      "category": "community"
+    }
+  ]
+}

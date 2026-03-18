@@ -1,9 +1,10 @@
-import { getAllDates, getDailyMeta, getPodcastScript } from "@/lib/content-loader";
+import { getAllDates, getDailyMeta, getPodcastScript, getGroupedByYear } from "@/lib/content-loader";
 import Sidebar from "@/components/Sidebar";
 import PodcastPlayer from "@/components/PodcastPlayer";
 
 export default function PodcastPage() {
   const dates = getAllDates();
+  const years = getGroupedByYear();
   const podcasts = dates
     .map((date) => {
       const meta = getDailyMeta(date);
@@ -14,9 +15,9 @@ export default function PodcastPage() {
 
   return (
     <>
-      <Sidebar currentDate="" />
+      <Sidebar currentDate="" years={years} />
       <main className="flex-1 p-6 md:p-10 max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8">Podcast</h1>
+        <h1 className="text-3xl font-bold mb-8">🎙 播客</h1>
         {podcasts.length === 0 ? (
           <p className="text-gray-500">暂无播客内容</p>
         ) : (

@@ -7,6 +7,7 @@ export interface FeedSource {
   category: string;
   name: string;
   weight: number;
+  listId?: string;
 }
 
 export interface UserInterest {
