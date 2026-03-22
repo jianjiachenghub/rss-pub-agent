@@ -50,7 +50,21 @@ export async function insightNode(
       },
     });
 
-    const insightMap = new Map(results.map((r) => [r.id, r]));
+    // Ensure results is an array - handle both direct array and wrapped object
+    let resultsArray: InsightResult[] = [];
+    if (Array.isArray(results)) {
+      resultsArray = results;
+    } else if (typeof results === 'object' && results !== null) {
+      const values = Object.values(results);
+      const arrayValue = values.find((v) => Array.isArray(v));
+      if (arrayValue) {
+        resultsArray = arrayValue as InsightResult[];
+      }
+    }
+    if (!Array.isArray(results)) {
+      console.warn(`[insight] Expected array but got ${typeof results}, attempting extraction`);
+    }
+    const insightMap = new Map(resultsArray.map((r) => [r.id, r]));
     const insights: NewsInsight[] = scoredItems
       .map((item) => {
         const insight = insightMap.get(item.id);

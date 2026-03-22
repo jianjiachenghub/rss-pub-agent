@@ -1,163 +1,27 @@
 {
   "feeds": [
     {
-      "id": "openai-blog",
-      "type": "folo",
-      "url": "https://openai.com/blog/rss.xml",
-      "category": "ai_labs",
-      "name": "OpenAI Blog",
-      "weight": 95
+      "_id": "folo-ai-list",
+      "_type": "folo-list",
+      "_listId": "258516112881818624",
+      "_category": "ai",
+      "_name": "Follow AI 列表",
+      "_weight": 100,
+      "_comment": "需要有效的 FOLO_SESSION_TOKEN，暂时禁用"
     },
     {
-      "id": "anthropic-news",
+      "id": "hn-top",
       "type": "folo",
-      "url": "https://raw.githubusercontent.com/taobojlen/anthropic-rss-feed/main/anthropic_news_rss.xml",
-      "category": "ai_labs",
-      "name": "Anthropic News",
-      "weight": 95
-    },
-    {
-      "id": "google-deepmind",
-      "type": "folo",
-      "url": "https://deepmind.google/blog/rss.xml",
-      "category": "ai_labs",
-      "name": "Google DeepMind",
-      "weight": 90
-    },
-    {
-      "id": "google-ai",
-      "type": "folo",
-      "url": "https://blog.google/technology/ai/rss",
-      "category": "ai_labs",
-      "name": "Google AI Blog",
-      "weight": 88
-    },
-    {
-      "id": "microsoft-research",
-      "type": "folo",
-      "url": "https://www.microsoft.com/en-us/research/feed",
-      "category": "ai_labs",
-      "name": "Microsoft Research",
-      "weight": 82
-    },
-    {
-      "id": "nvidia-blog",
-      "type": "folo",
-      "url": "https://blogs.nvidia.com/feed",
-      "category": "ai_labs",
-      "name": "NVIDIA Blog",
+      "url": "https://rsshub.app/hackernews",
+      "category": "tech",
+      "name": "Hacker News",
       "weight": 80
     },
-    {
-      "id": "huggingface-blog",
-      "type": "folo",
-      "url": "https://huggingface.co/blog/feed.xml",
-      "category": "open_source",
-      "name": "Hugging Face Blog",
-      "weight": 85
-    },
-    {
-      "id": "langchain-blog",
-      "type": "folo",
-      "url": "https://blog.langchain.dev/rss/",
-      "category": "open_source",
-      "name": "LangChain Blog",
-      "weight": 82
-    },
-    {
-      "id": "github-blog",
-      "type": "folo",
-      "url": "https://github.blog/feed/",
-      "category": "open_source",
-      "name": "GitHub Blog",
-      "weight": 75
-    },
-    {
-      "id": "techcrunch-ai",
-      "type": "folo",
-      "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
-      "category": "ai_news",
-      "name": "TechCrunch AI",
-      "weight": 85
-    },
-    {
-      "id": "venturebeat-ai",
-      "type": "folo",
-      "url": "https://venturebeat.com/category/ai/feed/",
-      "category": "ai_news",
-      "name": "VentureBeat AI",
-      "weight": 82
-    },
-    {
-      "id": "theverge",
-      "type": "folo",
-      "url": "https://www.theverge.com/rss/index.xml",
-      "category": "ai_news",
-      "name": "The Verge",
-      "weight": 78
-    },
-    {
-      "id": "wired-ai",
-      "type": "folo",
-      "url": "https://www.wired.com/feed/tag/ai/latest/rss",
-      "category": "ai_news",
-      "name": "Wired AI",
-      "weight": 78
-    },
-    {
-      "id": "mit-tech-review",
-      "type": "folo",
-      "url": "https://www.technologyreview.com/topnews.rss",
-      "category": "ai_news",
-      "name": "MIT Technology Review",
-      "weight": 85
-    },
-    {
-      "id": "ars-technica",
-      "type": "folo",
-      "url": "https://feeds.arstechnica.com/arstechnica/index",
-      "category": "ai_news",
-      "name": "Ars Technica",
-      "weight": 75
-    },
-    {
-      "id": "simon-willison",
-      "type": "folo",
-      "url": "https://simonwillison.net/atom/everything/",
-      "category": "blogs",
-      "name": "Simon Willison",
-      "weight": 85
-    },
-    {
-      "id": "last-week-in-ai",
-      "type": "folo",
-      "url": "https://lastweekin.ai/feed",
-      "category": "blogs",
-      "name": "Last Week in AI",
-      "weight": 80
-    },
-    {
-      "id": "latent-space",
-      "type": "folo",
-      "url": "https://www.latent.space/feed",
-      "category": "blogs",
-      "name": "Latent Space",
-      "weight": 80
-    },
-    {
-      "id": "hn-ai",
-      "type": "folo",
-      "url": "https://hnrss.org/newest?q=AI+OR+LLM+OR+%22machine+learning%22",
-      "category": "community",
-      "name": "Hacker News (AI/LLM)",
-      "weight": 75
-    },
-
     {
       "id": "weibo-hot",
       "type": "folo",
       "url": "https://rsshub.app/weibo/search/hot",
-      "category": "cn_trending",
+      "category": "social",
       "name": "微博热搜",
       "weight": 60
     },
@@ -165,25 +29,17 @@
       "id": "zhihu-hot",
       "type": "folo",
       "url": "https://rsshub.app/zhihu/hotlist",
-      "category": "cn_trending",
+      "category": "social",
       "name": "知乎热榜",
       "weight": 60
     },
     {
-      "id": "36kr-ai",
+      "id": "solidot",
       "type": "folo",
-      "url": "https://rsshub.app/36kr/motif/ai",
-      "category": "cn_tech",
-      "name": "36氪 AI",
-      "weight": 78
-    },
-    {
-      "id": "douyin-hot",
-      "type": "folo",
-      "url": "https://rsshub.app/douyin/trending",
-      "category": "cn_trending",
-      "name": "抖音热搜",
-      "weight": 55
+      "url": "https://rsshub.app/solidot",
+      "category": "tech",
+      "name": "Solidot",
+      "weight": 70
     }
   ]
 }

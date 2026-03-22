@@ -44,7 +44,24 @@ export async function gateKeepNode(
         },
       });
 
-      allResults.push(...results);
+      // Ensure results is an array - handle both direct array and wrapped object
+      let resultsArray: GateKeepResult[] = [];
+      if (Array.isArray(results)) {
+        resultsArray = results;
+      } else if (typeof results === 'object' && results !== null) {
+        // Try to extract array from object (e.g., { results: [...] } or { items: [...] })
+        const values = Object.values(results);
+        const arrayValue = values.find((v) => Array.isArray(v));
+        if (arrayValue) {
+          resultsArray = arrayValue as GateKeepResult[];
+        } else {
+          console.warn(`[gate-keep] Could not find array in object, keys: ${Object.keys(results).join(', ')}`);
+        }
+      }
+      if (!Array.isArray(results)) {
+        console.warn(`[gate-keep] Expected array but got ${typeof results}, attempting extraction`);
+      }
+      allResults.push(...resultsArray);
     }
 
     const passIds = new Set(

@@ -69,7 +69,21 @@ export async function scoreNode(
         },
       });
 
-      allScores.push(...results);
+      // Ensure results is an array - handle both direct array and wrapped object
+      let resultsArray: ScoreResult[] = [];
+      if (Array.isArray(results)) {
+        resultsArray = results;
+      } else if (typeof results === 'object' && results !== null) {
+        const values = Object.values(results);
+        const arrayValue = values.find((v) => Array.isArray(v));
+        if (arrayValue) {
+          resultsArray = arrayValue as ScoreResult[];
+        }
+      }
+      if (!Array.isArray(results)) {
+        console.warn(`[score] Expected array but got ${typeof results}, attempting extraction`);
+      }
+      allScores.push(...resultsArray);
     }
 
     const scoreMap = new Map(allScores.map((s) => [s.id, s]));

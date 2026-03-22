@@ -30,10 +30,13 @@ jobs:
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
           R2_BUCKET: ${{ secrets.R2_BUCKET }}
 
+      - name: Generate index
+        run: cd scripts && npx tsx generate-index.ts
+
       - name: Commit and push content
         run: |
           git config user.name "AI News Bot"
           git config user.email "bot@example.com"
-          git add content/
+          git add reports/ content/
           git diff --staged --quiet || git commit -m "daily: $(date +%Y-%m-%d)"
           git push

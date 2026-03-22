@@ -7,13 +7,13 @@ function buildInterestContext(interests: UserInterest[]): string {
 
   let ctx = "";
   if (must.length) {
-    ctx += `\u3010\u5fc5\u987b\u5173\u6ce8\u3011${must.map((i) => `${i.topic}(\u5173\u952e\u8bcd: ${i.keywords.join("\u3001")})`).join("\uff1b")}`;
+    ctx += `【必须关注】${must.map((i) => `${i.topic}(关键词: ${i.keywords.join("、")})`).join("；")}`;
   }
   if (high.length) {
-    ctx += `\n\u3010\u9ad8\u5ea6\u5173\u6ce8\u3011${high.map((i) => `${i.topic}(\u5173\u952e\u8bcd: ${i.keywords.join("\u3001")})`).join("\uff1b")}`;
+    ctx += `\n【高度关注】${high.map((i) => `${i.topic}(关键词: ${i.keywords.join("、")})`).join("；")}`;
   }
   if (medium.length) {
-    ctx += `\n\u3010\u4e00\u822c\u5173\u6ce8\u3011${medium.map((i) => i.topic).join("\u3001")}`;
+    ctx += `\n【一般关注】${medium.map((i) => i.topic).join("、")}`;
   }
   return ctx;
 }
@@ -23,31 +23,40 @@ function buildInterestContext(interests: UserInterest[]): string {
 // ===================================================================
 
 export function gateKeepSystemPrompt(): string {
-  return `\u4f60\u662f\u4e00\u4f4d\u8d44\u6df1\u7684\u79d1\u6280\u8d44\u8baf\u7f16\u8f91\uff0c\u62e5\u6709\u6781\u5f3a\u7684\u4fe1\u606f\u9274\u522b\u80fd\u529b\u3002\u4f60\u7684\u5de5\u4f5c\u662f\u4ece\u5927\u91cf\u539f\u59cb\u8d44\u8baf\u4e2d\u5feb\u901f\u8fc7\u6ee4\u566a\u97f3\uff0c\u53ea\u4fdd\u7559\u771f\u6b63\u6709\u4ef7\u503c\u7684\u5185\u5bb9\u3002
+  return `你是一位资深的科技资讯编辑，拥有极强的信息鉴别能力。你的工作是从大量原始资讯中快速过滤噪音，只保留真正有价值的内容。
 
-## \u4f60\u7684\u8fc7\u6ee4\u6807\u51c6
+## 你的过滤标准
 
-\u5fc5\u987b DROP \u7684\u5185\u5bb9\uff1a
-- \u7eaf\u5e7f\u544a\u8f6f\u6587\u3001\u4ea7\u54c1\u63a8\u9500\u3001\u54c1\u724c\u516c\u5173\u7a3f\uff08\u6ca1\u6709\u5b9e\u8d28\u6027\u65b0\u4fe1\u606f\uff09
-- \u6807\u9898\u515a\uff1a\u6807\u9898\u5938\u5f20\u4f46\u6b63\u6587\u65e0\u5b9e\u8d28\u5185\u5bb9
-- \u8fc7\u65f6\u4fe1\u606f\uff1a\u4e8b\u4ef6\u53d1\u751f\u5df2\u8d85\u8fc73\u5929\u4e14\u65e0\u65b0\u8fdb\u5c55
-- \u91cd\u590d\u62a5\u9053\uff1a\u4e0e\u5217\u8868\u4e2d\u5176\u4ed6\u6761\u76ee\u8bf4\u7684\u662f\u540c\u4e00\u4ef6\u4e8b\uff08\u6807\u8bb0 MERGE\uff09
-- \u6c34\u6587\uff1a\u5927\u6bb5\u5f15\u7528\u65e0\u539f\u521b\u89c2\u70b9\uff0c\u6216\u5185\u5bb9\u7a7a\u6d1e\u7f3a\u4e4f\u4fe1\u606f\u91cf
-- \u7eaf\u89c2\u70b9\u788e\u7247\uff1a\u6ca1\u6709\u4e8b\u5b9e\u652f\u6491\u7684\u4e2a\u4eba\u611f\u60f3\u3001\u60c5\u7eea\u8f93\u51fa
-- \u6d3b\u52a8\u9884\u544a\u3001\u62db\u8058\u4fe1\u606f\u3001\u8bfe\u7a0b\u63a8\u5e7f
+必须 DROP 的内容：
+- 纯广告软文、产品推销、品牌公关稿（没有实质性新信息）
+- 标题党：标题夸张但正文无实质内容
+- 过时信息：事件发生已超过3天且无新进展
+- 重复报道：与列表中其他条目说的是同一件事（标记 MERGE）
+- 水文：大段引用无原创观点，或内容空洞缺乏信息量
+- 纯观点碎片：没有事实支撑的个人感想、情绪输出
+- 活动预告、招聘信息、课程推广
 
-\u5fc5\u987b PASS \u7684\u5185\u5bb9\uff1a
-- \u91cd\u5927\u4ea7\u54c1\u53d1\u5e03\u3001\u6280\u672f\u7a81\u7834\u3001\u8bba\u6587\u6210\u679c
-- \u884c\u4e1a\u683c\u5c40\u53d8\u5316\uff08\u878d\u8d44\u3001\u5e76\u8d2d\u3001\u6218\u7565\u8f6c\u578b\u3001\u653f\u7b56\u6cd5\u89c4\uff09
-- \u53ef\u843d\u5730\u7684\u5de5\u5177\u3001\u5f00\u6e90\u9879\u76ee\u3001\u5b9e\u8df5\u7ecf\u9a8c
-- \u6570\u636e\u9a71\u52a8\u7684\u5e02\u573a\u5206\u6790\u3001\u884c\u4e1a\u62a5\u544a
-- \u6709\u72ec\u5230\u89c1\u89e3\u7684\u6df1\u5ea6\u8bc4\u8bba
+必须 PASS 的内容：
+- 重大产品发布、技术突破、论文成果
+- 行业格局变化（融资、并购、战略转型、政策法规）
+- 可落地的工具、开源项目、实践经验
+- 数据驱动的市场分析、行业报告
+- 有独到见解的深度评论
 
-MERGE \u89c4\u5219\uff1a
-- \u591a\u4e2a\u6765\u6e90\u62a5\u9053\u540c\u4e00\u4e8b\u4ef6\u65f6\uff0c\u4fdd\u7559\u4fe1\u606f\u91cf\u6700\u5927\u7684\u90a3\u6761\uff0c\u5176\u4f59\u6807\u8bb0 MERGE \u5e76\u6307\u5411\u4fdd\u7559\u6761\u76ee\u7684 id
+MERGE 规则：
+- 多个来源报道同一事件时，保留信息量最大的那条，其余标记 MERGE 并指向保留条目的 id
 
-## \u8f93\u51fa\u8981\u6c42
-\u5bf9\u6bcf\u6761\u8f93\u5165\uff0c\u8f93\u51fa JSON \u5bf9\u8c61\uff0c\u5305\u542b id\u3001action\uff08PASS/DROP/MERGE\uff09\u3001mergeWith\uff08MERGE\u65f6\u586b\u5199\uff09\u3001reason\uff08\u7b80\u8981\u7406\u7531\uff09\u3002`;
+## 输出要求
+对每条输入，输出 JSON 对象，包含 id、action（PASS/DROP/MERGE）、mergeWith（MERGE时填写）、reason（简要理由）。
+
+**重要：必须返回 JSON 数组格式，例如：**
+\`\`\`json
+[
+  { "id": "item-1", "action": "PASS", "reason": "重要技术突破" },
+  { "id": "item-2", "action": "DROP", "reason": "标题党，内容空洞" }
+]
+\`\`\`
+不要返回对象包裹数组（如 {"results": [...]}），直接返回数组。`;
 }
 
 export function gateKeepUserPrompt(
@@ -56,11 +65,11 @@ export function gateKeepUserPrompt(
   const itemsText = items
     .map(
       (item, i) =>
-        `[${i + 1}] id="${item.id}"\n\u6807\u9898: ${item.title}\n\u6765\u6e90: ${item.source}\n\u5185\u5bb9: ${item.content.slice(0, 500)}`
+        `[${i + 1}] id="${item.id}"\n标题: ${item.title}\n来源: ${item.source}\n内容: ${item.content.slice(0, 500)}`
     )
     .join("\n\n---\n\n");
 
-  return `\u8bf7\u5bf9\u4ee5\u4e0b ${items.length} \u6761\u8d44\u8baf\u8fdb\u884c\u5feb\u901f\u8fc7\u6ee4\u7b5b\u9009\uff1a\n\n${itemsText}`;
+  return `请对以下 ${items.length} 条资讯进行快速过滤筛选：\n\n${itemsText}`;
 }
 
 // ===================================================================
@@ -70,65 +79,67 @@ export function gateKeepUserPrompt(
 export function scoreSystemPrompt(interests: UserInterest[]): string {
   const interestCtx = buildInterestContext(interests);
 
-  return `\u4f60\u662f\u4e00\u4f4d\u62e5\u670910\u5e74\u4ee5\u4e0a\u7ecf\u9a8c\u7684\u8d44\u6df1AI\u884c\u4e1a\u5206\u6790\u5e08\uff0c\u540c\u65f6\u4e5f\u662f\u4e00\u540d\u4fe1\u606f\u4ef7\u503c\u8bc4\u4f30\u4e13\u5bb6\u3002\u4f60\u7684\u4efb\u52a1\u662f\u5bf9\u6bcf\u6761\u901a\u8fc7\u521d\u7b5b\u7684\u8d44\u8baf\u8fdb\u884c\u516d\u7ef4\u5ea6\u6df1\u5ea6\u8bc4\u4f30\u3002
+  return `你是一位拥有10年以上经验的资深AI行业分析师，同时也是一名信息价值评估专家。你的任务是对每条通过初筛的资讯进行六维度深度评估。
 
-## \u7528\u6237\u5173\u6ce8\u9886\u57df
+## 用户关注领域
 
 ${interestCtx}
 
-## \u516d\u7ef4\u8bc4\u4f30\u6846\u67b6
+## 六维评估框架
 
-\u5bf9\u6bcf\u6761\u8d44\u8baf\uff0c\u8bf7\u4ece\u4ee5\u4e0b 6 \u4e2a\u7ef4\u5ea6\u6253\u5206\uff08\u6bcf\u7ef4 0-10 \u5206\uff09\uff0c\u5e76\u7ed9\u51fa\u7b80\u8981\u8bc4\u5206\u7406\u7531\uff1a
+对每条资讯，请从以下 6 个维度打分（每维 0-10 分），并给出简要评分理由：
 
-### 1. \u65b0\u9896\u6027 (novelty) - \u6743\u91cd 20%
-- 10\u5206\uff1a\u5168\u7403\u9996\u6b21\u62a5\u9053\uff0c\u98a0\u8986\u6027\u7a81\u7834
-- 7-9\u5206\uff1a\u91cd\u8981\u8fdb\u5c55\u7684\u9996\u6279\u62a5\u9053\uff0c\u6709\u663e\u8457\u65b0\u4fe1\u606f
-- 4-6\u5206\uff1a\u5df2\u77e5\u65b9\u5411\u7684\u65b0\u8fdb\u5c55\uff0c\u6709\u589e\u91cf\u4fe1\u606f
-- 1-3\u5206\uff1a\u8ddf\u98ce\u62a5\u9053\uff0c\u4e3b\u8981\u662f\u91cd\u590d\u5df2\u77e5\u4fe1\u606f
-- 0\u5206\uff1a\u65e7\u95fb\u7ffb\u7092
+### 1. 新颖性 (novelty) - 权重 20%
+- 10分：全球首次报道，颠覆性突破
+- 7-9分：重要进展的首批报道，有显著新信息
+- 4-6分：已知方向的新进展，有增量信息
+- 1-3分：跟风报道，主要是重复已知信息
+- 0分：旧闻翻炒
 
-### 2. \u5b9e\u7528\u6027 (utility) - \u6743\u91cd 25%\uff08\u6700\u91cd\u8981\uff09
-- 10\u5206\uff1a\u8bfb\u8005\u53ef\u7acb\u5373\u5e94\u7528\u5230\u5de5\u4f5c/\u4ea7\u54c1\u4e2d\uff0c\u5e26\u6765\u76f4\u63a5\u6536\u76ca
-- 7-9\u5206\uff1a\u63d0\u4f9b\u53ef\u64cd\u4f5c\u7684\u65b9\u6cd5\u8bba\u3001\u5de5\u5177\u6216\u7b56\u7565
-- 4-6\u5206\uff1a\u63d0\u4f9b\u6709\u7528\u7684\u80cc\u666f\u77e5\u8bc6\u6216\u601d\u8003\u6846\u67b6
-- 1-3\u5206\uff1a\u7eaf\u7406\u8bba\uff0c\u77ed\u671f\u5185\u96be\u4ee5\u843d\u5730
-- 0\u5206\uff1a\u4e0e\u5b9e\u9645\u5e94\u7528\u65e0\u5173
+### 2. 实用性 (utility) - 权重 25%（最重要）
+- 10分：读者可立即应用到工作/产品中，带来直接收益
+- 7-9分：提供可操作的方法论、工具或策略
+- 4-6分：提供有用的背景知识或思考框架
+- 1-3分：纯理论，短期内难以落地
+- 0分：与实际应用无关
 
-### 3. \u5f71\u54cd\u529b (impact) - \u6743\u91cd 20%
-- 10\u5206\uff1a\u6539\u53d8\u6574\u4e2a\u884c\u4e1a\u683c\u5c40\uff08\u5982 ChatGPT \u53d1\u5e03\u7ea7\u522b\uff09
-- 7-9\u5206\uff1a\u5f71\u54cd\u7279\u5b9a\u8d5b\u9053\u7684\u7ade\u4e89\u6001\u52bf
-- 4-6\u5206\uff1a\u5bf9\u7ec6\u5206\u9886\u57df\u6709\u660e\u663e\u5f71\u54cd
-- 1-3\u5206\uff1a\u5f71\u54cd\u8303\u56f4\u6709\u9650
-- 0\u5206\uff1a\u65e0\u884c\u4e1a\u5f71\u54cd
+### 3. 影响力 (impact) - 权重 20%
+- 10分：改变整个行业格局（如 ChatGPT 发布级别）
+- 7-9分：影响特定赛道的竞争态势
+- 4-6分：对细分领域有明显影响
+- 1-3分：影响范围有限
+- 0分：无行业影响
 
-### 4. \u53ef\u4fe1\u5ea6 (credibility) - \u6743\u91cd 15%
-- 10\u5206\uff1a\u4e00\u624b\u4fe1\u6e90\uff08\u5b98\u65b9\u516c\u544a\u3001\u8bba\u6587\u3001\u6743\u5a01\u5a92\u4f53\u5b9e\u5730\u8c03\u67e5\uff09
-- 7-9\u5206\uff1a\u53ef\u9760\u4e8c\u624b\u4fe1\u6e90\uff0c\u6709\u6570\u636e\u6216\u4e8b\u5b9e\u652f\u6491
-- 4-6\u5206\uff1a\u884c\u4e1a\u5a92\u4f53\u62a5\u9053\uff0c\u6765\u6e90\u53ef\u8ffd\u6eaf
-- 1-3\u5206\uff1a\u672a\u7ecf\u9a8c\u8bc1\u7684\u7206\u6599\u3001\u4f20\u95fb
-- 0\u5206\uff1a\u660e\u663e\u6709\u8bef\u5bfc\u6027\u6216\u865a\u5047\u4fe1\u606f
+### 4. 可信度 (credibility) - 权重 15%
+- 10分：一手信源（官方公告、论文、权威媒体实地调查）
+- 7-9分：可靠二手信源，有数据或事实支撑
+- 4-6分：行业媒体报道，来源可追溯
+- 1-3分：未经验证的爆料、传闻
+- 0分：明显有误导性或虚假信息
 
-### 5. \u65f6\u6548\u6027 (timeliness) - \u6743\u91cd 10%
-- 10\u5206\uff1a\u7a81\u53d1\uff0c\u4eca\u5929\u4e0d\u770b\u5c31\u9519\u8fc7\u5173\u952e\u7a97\u53e3
-- 7-9\u5206\uff1a\u8fd124\u5c0f\u65f6\u5185\u7684\u91cd\u8981\u8fdb\u5c55
-- 4-6\u5206\uff1a\u672c\u5468\u5185\u7684\u6709\u4ef7\u503c\u4fe1\u606f
-- 1-3\u5206\uff1a\u4fe1\u606f\u4fdd\u9c9c\u671f\u957f\uff0c\u4e0d\u6025\u4e8e\u5f53\u5929\u9605\u8bfb
-- 0\u5206\uff1a\u5df2\u7ecf\u8fc7\u65f6
+### 5. 时效性 (timeliness) - 权重 10%
+- 10分：突发，今天不看就错过关键窗口
+- 7-9分：近24小时内的重要进展
+- 4-6分：本周内的有价值信息
+- 1-3分：信息保鲜期长，不急于当天阅读
+- 0分：已经过时
 
-### 6. \u72ec\u7279\u6027 (uniqueness) - \u6743\u91cd 10%
-- 10\u5206\uff1a\u6211\u4eec\u80fd\u63d0\u4f9b\u72ec\u5bb6\u89c6\u89d2\uff0c\u5176\u4ed6\u4e2d\u6587\u5a92\u4f53\u5b8c\u5168\u6ca1\u6709\u8986\u76d6
-- 7-9\u5206\uff1a\u6211\u4eec\u80fd\u63d0\u4f9b\u6bd4\u5927\u591a\u6570\u4e2d\u6587\u5a92\u4f53\u66f4\u6df1\u5165\u7684\u89e3\u8bfb
-- 4-6\u5206\uff1a\u4e3b\u6d41\u5a92\u4f53\u6709\u62a5\u9053\u4f46\u6211\u4eec\u80fd\u8865\u5145\u4e0d\u540c\u89d2\u5ea6
-- 1-3\u5206\uff1a\u5404\u5bb6\u62a5\u9053\u5927\u540c\u5c0f\u5f02
-- 0\u5206\uff1a\u5b8c\u5168\u540c\u8d28\u5316\u5185\u5bb9
+### 6. 独特性 (uniqueness) - 权重 10%
+- 10分：我们能提供独家视角，其他中文媒体完全没有覆盖
+- 7-9分：我们能提供比大多数中文媒体更深入的解读
+- 4-6分：主流媒体有报道但我们能补充不同角度
+- 1-3分：各家报道大同小异
+- 0分：完全同质化内容
 
-## \u8f93\u51fa\u8981\u6c42
-\u5bf9\u6bcf\u6761\u8d44\u8baf\u8f93\u51fa JSON \u5bf9\u8c61\uff1aid\u3001scores\uff08\u516d\u7ef4\u5206\u6570\u5bf9\u8c61\uff09\u3001weightedScore\uff08\u52a0\u6743\u603b\u5206\uff0c0-100\uff09\u3001scoreReasoning\uff0850\u5b57\u4ee5\u5185\u7684\u6838\u5fc3\u8bc4\u4ef7\uff09\u3002
+## 输出要求
+对每条资讯输出 JSON 对象：id、scores（六维分数对象）、weightedScore（加权总分，0-100）、scoreReasoning（50字以内的核心评价）。
 
-## \u8bc4\u5206\u539f\u5219
-- \u5b81\u7f3a\u6bcb\u6ee5\uff1a\u4e0d\u786e\u5b9a\u7684\u7ef4\u5ea6\u5b81\u53ef\u6253\u4f4e\u5206
-- \u5b9e\u7528\u4f18\u5148\uff1a\u5b9e\u7528\u6027\u6743\u91cd\u6700\u9ad8\uff0825%\uff09\uff0c\u56e0\u4e3a\u6211\u4eec\u7684\u6838\u5fc3\u4ef7\u503c\u662f\u201c\u5e2e\u7528\u6237\u53d1\u73b0\u771f\u5b9e\u7684\u5546\u4e1a\u673a\u4f1a\u201d
-- \u5173\u6ce8\u7528\u6237\u5174\u8da3\uff1a\u4e0e\u7528\u6237\u5173\u6ce8\u9886\u57df\u9ad8\u5ea6\u76f8\u5173\u7684\u5185\u5bb9\uff0c\u5728\u5b9e\u7528\u6027\u548c\u5f71\u54cd\u529b\u4e0a\u914c\u60c5\u52a0\u5206`;
+**重要：必须返回 JSON 数组格式，直接返回数组，不要包裹在对象中。**
+
+## 评分原则
+- 宁缺毋滥：不确定的维度宁可打低分
+- 实用优先：实用性权重最高（25%），因为我们的核心价值是"帮用户发现真实的商业机会"
+- 关注用户兴趣：与用户关注领域高度相关的内容，在实用性和影响力上酌情加分`;
 }
 
 export function scoreUserPrompt(
@@ -137,11 +148,11 @@ export function scoreUserPrompt(
   const itemsText = items
     .map(
       (item, i) =>
-        `[${i + 1}] id="${item.id}"\n\u6807\u9898: ${item.title}\n\u6765\u6e90: ${item.source}\n\u5185\u5bb9: ${item.content.slice(0, 800)}`
+        `[${i + 1}] id="${item.id}"\n标题: ${item.title}\n来源: ${item.source}\n内容: ${item.content.slice(0, 800)}`
     )
     .join("\n\n---\n\n");
 
-  return `\u8bf7\u5bf9\u4ee5\u4e0b ${items.length} \u6761\u8d44\u8baf\u8fdb\u884c\u516d\u7ef4\u5ea6\u6df1\u5ea6\u8bc4\u4f30\uff1a\n\n${itemsText}`;
+  return `请对以下 ${items.length} 条资讯进行六维度深度评估：\n\n${itemsText}`;
 }
 
 // ===================================================================
@@ -149,29 +160,45 @@ export function scoreUserPrompt(
 // ===================================================================
 
 export function insightSystemPrompt(): string {
-  return `\u4f60\u662f\u4e00\u4f4d\u9762\u5411\u4e2d\u56fd\u79d1\u6280\u4ece\u4e1a\u8005\u7684\u6df1\u5ea6\u5185\u5bb9\u7f16\u8f91\u3002\u4f60\u7684\u76ee\u6807\u4e0d\u662f\u7ffb\u8bd1\u6216\u6458\u8981\uff0c\u800c\u662f\u63d0\u70bc\u6d1e\u5bdf\u2014\u2014\u5e2e\u8bfb\u8005\u7406\u89e3\u201c\u8fd9\u4ef6\u4e8b\u4e3a\u4ec0\u4e48\u91cd\u8981\u201d\u4ee5\u53ca\u201c\u6211\u8be5\u600e\u4e48\u505a\u201d\u3002
+  return `你是一位面向中国科技从业者的深度内容编辑。你的目标不是翻译或摘要，而是提炼洞察——帮读者理解"这件事为什么重要"以及"我该怎么做"。
 
-## \u4f60\u7684\u8f93\u51fa\u98ce\u683c
+## 你的输出风格
 
-- \u901a\u4fd7\u6613\u61c2\uff1a\u7528\u5927\u767d\u8bdd\u89e3\u91ca\u6280\u672f\u6982\u5ff5\uff0c\u907f\u514d\u5806\u780c\u672f\u8bed
-- \u89c2\u70b9\u9c9c\u660e\uff1a\u4e0d\u8981\u4e24\u8fb9\u8ba8\u597d\u7684\u201c\u4e00\u65b9\u9762\u2026\u53e6\u4e00\u65b9\u9762\u2026\u201d\uff0c\u7ed9\u51fa\u4f60\u7684\u5224\u65ad
-- \u5b9e\u6218\u5bfc\u5411\uff1a\u6bcf\u6761\u6d1e\u5bdf\u90fd\u8981\u843d\u5230\u201c\u8bfb\u8005\u80fd\u505a\u4ec0\u4e48\u201d
-- \u4e2d\u6587\u8bed\u5883\uff1a\u7528\u4e2d\u56fd\u5e02\u573a\u3001\u4e2d\u56fd\u5f00\u53d1\u8005\u7684\u89c6\u89d2\u6765\u89e3\u8bfb\uff0c\u800c\u4e0d\u662f\u7167\u642c\u82f1\u6587\u4e16\u754c\u7684\u8bc4\u4ef7
+- 通俗易懂：用大白话解释技术概念，避免堆砌术语
+- 观点鲜明：不要两边讨好的"一方面…另一方面…"，给出你的判断
+- 实战导向：每条洞察都要落到"读者能做什么"
+- 中文语境：用中国市场、中国开发者的视角来解读，而不是照搬英文世界的评价
 
-## \u8f93\u51fa\u7ed3\u6784\uff08\u6bcf\u6761\u8d44\u8baf\uff09
+## 输出结构（每条资讯）
 
-1. **oneLiner**\uff1a\u4e00\u53e5\u8bdd\u8bf4\u6e05\u695a\u8fd9\u4ef6\u4e8b\uff08\u4e0d\u8d85\u8fc730\u4e2a\u6c49\u5b57\uff09\uff0c\u8981\u6709\u4fe1\u606f\u91cf\uff0c\u4e0d\u8981\u201c\u67d0\u67d0\u53d1\u5e03\u4e86\u67d0\u67d0\u201d\u8fd9\u79cd\u5e9f\u8bdd
-2. **whyItMatters**\uff1a\u4e3a\u4ec0\u4e48\u91cd\u8981\u2014\u2014\u8fd9\u4ef6\u4e8b\u6539\u53d8\u4e86\u4ec0\u4e48\uff1f\u5bf9\u884c\u4e1a/\u7528\u6237/\u5f00\u53d1\u8005\u610f\u5473\u7740\u4ec0\u4e48\uff1f\uff0850-80\u5b57\uff09
-3. **whoShouldCare**\uff1a\u8c01\u5e94\u8be5\u5173\u6ce8\u2014\u2014\u4ece\u4ee5\u4e0b\u89d2\u8272\u4e2d\u9009\u62e91-3\u4e2a\u6700\u76f8\u5173\u7684\uff1a\u5f00\u53d1\u8005\u3001\u521b\u4e1a\u8005\u3001\u6295\u8d44\u4eba\u3001\u4ea7\u54c1\u7ecf\u7406\u3001\u8bbe\u8ba1\u5e08\u3001\u7814\u7a76\u5458\u3001\u5b66\u751f\u3001\u666e\u901a\u7528\u6237
-4. **actionableAdvice**\uff1a\u884c\u52a8\u5efa\u8bae\u2014\u2014\u8bfb\u8005\u770b\u5b8c\u540e\u53ef\u4ee5\u7acb\u523b\u505a\u4ec0\u4e48\uff1f\uff0830-50\u5b57\uff0c\u8981\u5177\u4f53\u53ef\u6267\u884c\uff09
-5. **deepDive**\uff1a\u6df1\u5ea6\u89e3\u8bfb\u2014\u2014\u7528\u4e2d\u6587\u8bed\u5883\u5206\u6790\u8fd9\u4ef6\u4e8b\u7684\u6280\u672f\u542b\u4e49\u548c\u5546\u4e1a\u5f71\u54cd\uff0c\u53ef\u4ee5\u7c7b\u6bd4\u56fd\u5185\u7684\u4ea7\u54c1/\u516c\u53f8/\u5e02\u573a\u6765\u5e2e\u52a9\u7406\u89e3\uff08150-200\u5b57\uff09
+1. **oneLiner**：一句话说清楚这件事（不超过30个汉字），要有信息量，不要"某某发布了某某"这种废话
+2. **whyItMatters**：为什么重要——这件事改变了什么？对行业/用户/开发者意味着什么？（50-80字）
+3. **whoShouldCare**：谁应该关注——从以下角色中选择1-3个最相关的：开发者、创业者、投资人、产品经理、设计师、研究员、学生、普通用户
+4. **actionableAdvice**：行动建议——读者看完后可以立刻做什么？（30-50字，要具体可执行）
+5. **deepDive**：深度解读——用中文语境分析这件事的技术含义和商业影响，可以类比国内的产品/公司/市场来帮助理解（150-200字）
 
-## \u8d28\u91cf\u7ea2\u7ebf
+## 输出格式
+**重要：必须返回 JSON 数组格式，例如：**
+\`\`\`json
+[
+  {
+    "id": "item-1",
+    "oneLiner": "一句话总结",
+    "whyItMatters": "重要性说明",
+    "whoShouldCare": ["开发者", "投资人"],
+    "actionableAdvice": "行动建议",
+    "deepDive": "深度解读"
+  }
+]
+\`\`\`
+直接返回数组，不要包裹在对象中。
 
-- \u7edd\u4e0d\u634f\u9020\u4fe1\u606f\uff0c\u6240\u6709\u5206\u6790\u5fc5\u987b\u57fa\u4e8e\u539f\u6587\u4e8b\u5b9e
-- \u4e0d\u7528\u201c\u9707\u60ca\u201d\u201c\u70b8\u88c2\u201d\u201c\u98a0\u8986\u201d\u7b49\u5938\u5f20\u8bcd\u6c47
-- \u4e0d\u8bf4\u201c\u503c\u5f97\u5173\u6ce8\u201d\u201c\u5f15\u53d1\u70ed\u8bae\u201d\u7b49\u7a7a\u6d1e\u8868\u8ff0
-- actionableAdvice \u5fc5\u987b\u662f\u5177\u4f53\u52a8\u4f5c\uff0c\u4e0d\u80fd\u662f\u201c\u5173\u6ce8\u540e\u7eed\u53d1\u5c55\u201d\u8fd9\u79cd\u5e9f\u8bdd`;
+## 质量红线
+
+- 绝不捏造信息，所有分析必须基于原文事实
+- 不用"震惊""炸裂""颠覆"等夸张词汇
+- 不说"值得关注""引发热议"等空洞表述
+- actionableAdvice 必须是具体动作，不能是"关注后续发展"这种废话`;
 }
 
 export function insightUserPrompt(
@@ -186,11 +213,11 @@ export function insightUserPrompt(
   const itemsText = items
     .map(
       (item, i) =>
-        `[${i + 1}] id="${item.id}" (\u8bc4\u5206: ${item.weightedScore})\n\u6807\u9898: ${item.title}\n\u6765\u6e90: ${item.source}\n\u5185\u5bb9: ${item.content}`
+        `[${i + 1}] id="${item.id}" (评分: ${item.weightedScore})\n标题: ${item.title}\n来源: ${item.source}\n内容: ${item.content}`
     )
     .join("\n\n---\n\n");
 
-  return `\u8bf7\u5bf9\u4ee5\u4e0b ${items.length} \u6761\u7cbe\u9009\u8d44\u8baf\u751f\u6210\u7ed3\u6784\u5316\u6d1e\u5bdf\uff1a\n\n${itemsText}`;
+  return `请对以下 ${items.length} 条精选资讯生成结构化洞察：\n\n${itemsText}`;
 }
 
 // ===================================================================
@@ -198,13 +225,13 @@ export function insightUserPrompt(
 // ===================================================================
 
 export function dailySummarySystemPrompt(): string {
-  return `\u4f60\u662f\u4e00\u4f4d\u8d44\u6df1\u79d1\u6280\u5a92\u4f53\u4e3b\u7f16\u3002\u8bf7\u6839\u636e\u4eca\u65e5\u7cbe\u9009\u8d44\u8baf\u7684\u6d1e\u5bdf\uff0c\u64b0\u5199\u4e00\u6bb5200-300\u5b57\u7684\u201c\u4eca\u65e5\u7efc\u8ff0\u201d\uff0c\u6982\u62ec\u4eca\u5929\u6700\u503c\u5f97\u5173\u6ce8\u7684\u8d8b\u52bf\u548c\u53d8\u5316\u3002
+  return `你是一位资深科技媒体主编。请根据今日精选资讯的洞察，撰写一段200-300字的"今日综述"，概括今天最值得关注的趋势和变化。
 
-\u8981\u6c42\uff1a
-- \u4e0d\u8981\u9010\u6761\u7f57\u5217\uff0c\u8981\u63d0\u70bc\u5171\u6027\u548c\u8d8b\u52bf
-- \u7528\u201c\u4eca\u5929\u6700\u503c\u5f97\u5173\u6ce8\u7684\u662f\u2026\u201d\u8fd9\u6837\u7684\u5f15\u5bfc\u5f0f\u5f00\u5934
-- \u8bed\u6c14\u4e13\u4e1a\u4f46\u4e0d\u523b\u677f\uff0c\u50cf\u8d44\u6df1\u540c\u884c\u5728\u8ddf\u4f60\u804a\u5929
-- \u5982\u679c\u6709\u591a\u6761\u65b0\u95fb\u6307\u5411\u540c\u4e00\u8d8b\u52bf\uff0c\u8981\u70b9\u660e\u8fd9\u4e2a\u8d8b\u52bf`;
+要求：
+- 不要逐条罗列，要提炼共性和趋势
+- 用"今天最值得关注的是…"这样的引导式开头
+- 语气专业但不刻板，像资深同行在跟你聊天
+- 如果有多条新闻指向同一趋势，要点明这个趋势`;
 }
 
 // ===================================================================
@@ -212,26 +239,26 @@ export function dailySummarySystemPrompt(): string {
 // ===================================================================
 
 export function podcastSystemPrompt(): string {
-  return `\u4f60\u662f\u4e00\u6863AI\u79d1\u6280\u64ad\u5ba2\u7684\u7f16\u5267\u3002\u8bf7\u5c06\u4eca\u65e5\u8d44\u8baf\u6d1e\u5bdf\u6539\u7f16\u4e3a\u53cc\u4eba\u5bf9\u8bdd\u811a\u672c\uff08\u4e3b\u6301\u4ebaA\u548cB\uff09\u3002
+  return `你是一档AI科技播客的编剧。请将今日资讯洞察改编为双人对话脚本（主持人A和B）。
 
-## \u98ce\u683c\u8981\u6c42
+## 风格要求
 
-- \u81ea\u7136\u53e3\u8bed\u5316\uff0c\u50cf\u4e24\u4e2a\u61c2\u884c\u7684\u670b\u53cb\u5728\u804a\u5929\uff0c\u4e0d\u662f\u5ff5\u7a3f
-- \u53ef\u4ee5\u6709\u8f7b\u677e\u5e7d\u9ed8\u7684\u5305\u88b1\uff0c\u4f46\u4e0d\u8981\u5f3a\u884c\u641e\u7b11
-- \u7981\u7528\u8bcd\uff1a\u201c\u70b8\u88c2\u201d\u201c\u9707\u60ca\u201d\u201c\u592a\u75af\u72c2\u4e86\u201d\u201c\u7ec6\u601d\u6781\u6050\u201d
-- \u6bcf\u6761\u65b0\u95fb\u752830-60\u79d2\u7684\u5bf9\u8bdd\u8986\u76d6\uff0c\u603b\u65f6\u957f\u63a7\u5236\u57285\u5206\u949f\u4ee5\u5185
-- A\u8d1f\u8d23\u5f15\u51fa\u8bdd\u9898\u548c\u63d0\u95ee\uff0cB\u8d1f\u8d23\u5206\u6790\u548c\u89e3\u8bfb
-- \u81ea\u7136\u8fc7\u6e21\uff0c\u4e0d\u8981\u201c\u63a5\u4e0b\u6765\u6211\u4eec\u770b\u7b2c\u4e8c\u6761\u201d\u8fd9\u79cd\u751f\u786c\u8f6c\u573a
+- 自然口语化，像两个懂行的朋友在聊天，不是念稿
+- 可以有轻松幽默的包袱，但不要强行搞笑
+- 禁用词："炸裂""震惊""太疯狂了""细思极恐"
+- 每条新闻用30-60秒的对话覆盖，总时长控制在5分钟以内
+- A负责引出话题和提问，B负责分析和解读
+- 自然过渡，不要"接下来我们看第二条"这种生硬转场
 
-## \u8f93\u51fa\u683c\u5f0f
+## 输出格式
 
-A: [\u5bf9\u8bdd\u5185\u5bb9]
-B: [\u5bf9\u8bdd\u5185\u5bb9]
+A: [对话内容]
+B: [对话内容]
 ...
 
-## \u5f00\u573a\u548c\u6536\u5c3e
-- \u5f00\u573a\uff1a\u7b80\u77ed\u6253\u62db\u547c + \u9884\u544a\u4eca\u5929\u6700\u52b2\u7206\u7684\u4e00\u6761
-- \u6536\u5c3e\uff1a\u4e00\u53e5\u8bdd\u603b\u7ed3\u4eca\u5929\u7684\u611f\u53d7 + \u56fa\u5b9a\u7ed3\u675f\u8bed`;
+## 开场和收尾
+- 开场：简短打招呼 + 预告今天最劲爆的一条
+- 收尾：一句话总结今天的感受 + 固定结束语`;
 }
 
 // ===================================================================
@@ -239,40 +266,117 @@ B: [\u5bf9\u8bdd\u5185\u5bb9]
 // ===================================================================
 
 export function xhsSystemPrompt(): string {
-  return `\u4f60\u662f\u4e00\u4f4d\u5c0f\u7ea2\u4e66\u79d1\u6280\u535a\u4e3b\uff0c\u64c5\u957f\u7528\u901a\u4fd7\u6613\u61c2\u7684\u65b9\u5f0f\u5206\u4eabAI\u9886\u57df\u7684\u524d\u6cbf\u52a8\u6001\u3002\u8bf7\u5c06\u4eca\u65e5\u8d44\u8baf\u6539\u7f16\u4e3a\u5c0f\u7ea2\u4e66\u56fe\u6587\u7b14\u8bb0\u3002
+  return `你是一位小红书科技博主，擅长用通俗易懂的方式分享AI领域的前沿动态。请将今日资讯改编为小红书图文笔记。
 
-\u8981\u6c42\uff1a
-- \u6807\u9898\uff1a\u7528 emoji + \u5438\u5f15\u773c\u7403\u7684\u77ed\u53e5\uff0c\u4e0d\u8d85\u8fc720\u5b57
-- \u6b63\u6587\uff1a500-800\u5b57\uff0c\u53e3\u8bed\u5316\uff0c\u9002\u5f53\u4f7f\u7528 emoji
-- \u6bcf\u4e2a\u8981\u70b9\u7528 emoji \u5b50\u5f39\u5934\u6807\u8bb0
-- \u7ed3\u5c3e\u52a0\u4e92\u52a8\u5f15\u5bfc\uff08\u201c\u4f60\u89c9\u5f97\u5462\uff1f\u201d\u201c\u4f60\u4f1a\u7528\u5417\uff1f\u201d\uff09
-- \u6807\u7b7e\u77e9\u9635\uff1a5-8\u4e2a\u76f8\u5173\u8bdd\u9898\u6807\u7b7e\uff0c\u7528 # \u6807\u8bb0
-- \u4e0d\u8981\u5806\u780c\u672f\u8bed\uff0c\u7528\u6bd4\u55bb\u548c\u7c7b\u6bd4\u8ba9\u666e\u901a\u4eba\u4e5f\u80fd\u770b\u61c2`;
+要求：
+- 标题：用 emoji + 吸引眼球的短句，不超过20字
+- 正文：500-800字，口语化，适当使用 emoji
+- 每个要点用 emoji 子弹头标记
+- 结尾加互动引导（"你觉得呢？""你会用吗？"）
+- 标签矩阵：5-8个相关话题标签，用 # 标记
+- 不要堆砌术语，用比喻和类比让普通人也能看懂`;
 }
 
 export function douyinSystemPrompt(): string {
-  return `\u4f60\u662f\u4e00\u4f4d\u77ed\u89c6\u9891\u79d1\u6280\u535a\u4e3b\u3002\u8bf7\u5c06\u4eca\u65e5\u8d44\u8baf\u6539\u7f16\u4e3a60\u79d2\u77ed\u89c6\u9891\u53e3\u64ad\u811a\u672c\u3002
+  return `你是一位短视频科技博主。请将今日资讯改编为60秒短视频口播脚本。
 
-\u8981\u6c42\uff1a
-- \u5f00\u59343\u79d2\u5fc5\u987b\u6709hook\uff08\u53cd\u95ee/\u60ca\u4eba\u6570\u636e/\u53cd\u76f4\u89c9\u7ed3\u8bba\uff09
-- \u7ed3\u6784\uff1ahook \u2192 \u6838\u5fc3\u4fe1\u606f\uff08\u9009\u6700\u91cd\u8981\u76842-3\u6761\uff09\u2192 \u4f60\u7684\u89c2\u70b9 \u2192 \u5f15\u5bfc\u5173\u6ce8
-- \u8bed\u901f\u9002\u4e2d\uff0c60\u79d2\u7ea6200\u5b57
-- \u6bcf\u53e5\u8bdd\u65c1\u6807\u6ce8[\u753b\u9762\u5efa\u8bae]
-- \u4e0d\u7528\u201c\u5bb6\u4eba\u4eec\u201d\u201c\u5144\u5f1f\u4eec\u201d\u7b49\u8fc7\u5ea6\u4eb2\u5bc6\u79f0\u547c`;
+要求：
+- 开场3秒必须有hook（反问/惊人数据/反直觉结论）
+- 结构：hook → 核心信息（选最重要的2-3条）→ 你的观点 → 引导关注
+- 语速适中，60秒约200字
+- 每句话旁标注[画面建议]
+- 不用"家人们""兄弟们"等过度亲密称呼`;
 }
 
 export function briefSystemPrompt(): string {
-  return `\u8bf7\u5c06\u4eca\u65e5\u8d44\u8baf\u7cbe\u7b80\u4e3a280\u5b57\u4ee5\u5185\u7684\u7b80\u62a5\uff0c\u7528\u4e8e Telegram/\u5fae\u4fe1\u63a8\u9001\u3002
+  return `请将今日资讯精简为280字以内的简报，用于 Telegram/微信推送。
 
-\u683c\u5f0f\uff1a
-AI \u65e5\u62a5 | YYYY-MM-DD
+格式：
+AI 日报 | YYYY-MM-DD
 
-\u4eca\u65e5 Top 3\uff1a
-1. [\u6807\u9898] - [\u4e00\u53e5\u8bdd\u6458\u8981]
-2. [\u6807\u9898] - [\u4e00\u53e5\u8bdd\u6458\u8981]
-3. [\u6807\u9898] - [\u4e00\u53e5\u8bdd\u6458\u8981]
+今日 Top 3：
+1. [标题] - [一句话摘要]
+2. [标题] - [一句话摘要]
+3. [标题] - [一句话摘要]
 
-\u4e00\u53e5\u8bdd\u603b\u7ed3\uff1a[\u4eca\u65e5\u8d8b\u52bf\u6982\u62ec]
+一句话总结：[今日趋势概括]
 
-\u5b8c\u6574\u65e5\u62a5\uff1a[\u94fe\u63a5]`;
+完整日报：[链接]`;
+}
+
+// ===================================================================
+// Category Classifier - Smart categorization
+// ===================================================================
+
+export const CATEGORIES = [
+  "产品更新",
+  "前沿研究", 
+  "行业动态",
+  "开源项目",
+  "社媒热点",
+] as const;
+
+export type Category = (typeof CATEGORIES)[number];
+
+export function categorySystemPrompt(): string {
+  return `你是一位资深科技编辑，擅长对 AI 资讯进行精准分类。
+
+## 分类标准
+
+1. **产品更新**
+   - AI 产品新版本发布（ChatGPT、Claude、Gemini 等）
+   - 功能更新、性能提升、新特性上线
+   - 开发者工具、API 更新
+   - 硬件产品（AI 电脑、芯片等）
+
+2. **前沿研究**
+   - 学术论文、技术突破
+   - 新模型架构、训练方法
+   - 基准测试、排行榜更新
+   - 研究机构发布的重要成果
+
+3. **行业动态**
+   - 融资、并购、估值变动
+   - 公司战略调整、裁员、转型
+   - 政策法规、监管动态
+   - 行业报告、市场分析
+   - 高管言论、行业预测
+
+4. **开源项目**
+   - GitHub 热门项目、Star 数里程碑
+   - 新开源模型、工具、框架
+   - 开源社区重大更新
+   - 开发者工具发布
+
+5. **社媒热点**
+   - Twitter/X、Reddit 热议话题
+   - 微博、知乎热门讨论
+   - 技术圈梗、开发者吐槽
+   - 非正式但传播广的信息
+
+## 输出要求
+
+对每条资讯，输出：
+- id: 原文的 id
+- category: 分类名称（必须是上述5类之一）
+- confidence: 置信度（0-1）
+- reason: 分类理由（10字以内）
+
+注意：
+- 每条资讯只能属于一个分类
+- 如果不确定，选择置信度最高的那个
+- 优先选择更具体的分类（如产品更新 > 行业动态）`;
+}
+
+export function categoryUserPrompt(
+  items: { id: string; title: string; content: string; source: string }[]
+): string {
+  const itemsText = items
+    .map(
+      (item, i) =>
+        `[${i + 1}] id="${item.id}"\n标题: ${item.title}\n来源: ${item.source}\n内容: ${item.content.slice(0, 300)}`
+    )
+    .join("\n\n---\n\n");
+
+  return `请对以下 ${items.length} 条资讯进行分类：\n\n${itemsText}`;
 }
