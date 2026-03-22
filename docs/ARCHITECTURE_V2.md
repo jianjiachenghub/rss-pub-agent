@@ -190,7 +190,7 @@ const deduped = deduplicate(results);
 
 ### 4.4 insight（深度分析）
 
-为每条资讯生成结构化洞察：
+为每条资讯生成结构化洞察（利用 LLM 提取视觉和排版增强信息）：
 
 ```typescript
 interface NewsInsight {
@@ -198,76 +198,97 @@ interface NewsInsight {
   title: string;
   url: string;
   source: string;
-  category: string;  // 产品/研究/行业/开源
+  category: string;  // 机器人/科技/软件工程/商业财经/投资理财/时政军事/社交媒体
   
-  // LLM 生成
+  // LLM 生成核心信息
   oneLiner: string;        // 一句话总结
   whyItMatters: string;    // 为什么重要
   whoShouldCare: string[]; // 谁应该关注
   actionableAdvice: string; // 行动建议
   deepDive: string;        // 深度解读
   
+  // 视觉与结构增强字段 (Optional)
+  imageUrl?: string;        // 核心配图 URL
+  codeSnippet?: string;     // 相关代码及语言
+  comparisonTable?: string; // Markdown 格式的对比级参数表格
+  
   scores: {...};
   weightedScore: number;
 }
 ```
 
-### 4.5 generate-daily（生成日报）
+### 4.5 generate-daily 与 建档渲染机制
 
-**分类逻辑：**
+**结构化建档：**
+- 最终生成的字符串会被直接写入文件系统，按日期建档，路径为 `content/YYYY-MM-DD/daily.md`。
+- Next.js (或者其他前端架构) 直接读取按日期归档整理的 `.md` 文件供用户访问。
+
+**智能分类器：**
 
 ```
-输入：20-30 条带 insight 的资讯
+输入：20-30 条带富媒体 insight 的资讯
        │
        ▼
 ┌─────────────────────────────────────┐
-│  LLM 分类器                          │
+│  规则与LLM 联合分类器                  │
 │                                     │
-│  "Replit Agent 4 发布" → 产品更新    │
-│  "ColQwen3.5-v1 登顶" → 前沿研究     │
-│  "Atlassian 裁员 1600 人" → 行业动态 │
-│  "FishSpeech 万星" → 开源项目        │
+│  "Replit Agent 4 发布" → ⚙️ 软件工程 │
+│  "Claude 3.5 发布" → 🤖 AI 领域      │
+│  "英伟达财报超预期" → 💼 商业财经    │
+│  "美联储宣布降息" → 📈 投资理财      │
 └─────────────────────────────────────┘
        │
        ▼
-输出：按分类组织的结构化日报
+输出：按 7 大固定分类组织的图文并茂的日报
 ```
 
-**日报结构：**
+**Markdown 渲染排版结构：**
 
 ```markdown
-# AI 日报 | 2026年3月22日
+# AI资讯流 | 2026年3月22日
 
-## 今日综述
-（LLM 生成的 200 字摘要）
+## 📊 今日数据概览
+（Markdown 表格统计各分类的数量及最高分资讯标题）
 
 ---
 
-## 产品更新
+## 🤖 AI 领域
 
-### Replit Agent 4 正式上线
-**★★★★★ 95分** | 来源: [Replit Blog](url)
+### Claude 3.5 Sonnet 正式发布
+**★★★★★ 95分** | 来源: [Anthropic Blog](url)
 
-**一句话：** Replit 推出第四代智能体，支持无限画布和跨端协作
+（如 LLM 提取了 imageUrl，直接渲染为 Markdown 图片）
+![核心配图](imageUrl)
+
+**一句话总结：** 速度翻倍，能力全面超越 GPT-4o。
+
+（如果有技术对比/规格，渲染为 Markdown 表格）
+| 特性 | Claude 3.5 | GPT-4o |
+|------|------------|--------|
+...
 
 **为什么重要：** ...
 
-**谁应该关注：** 全栈开发者、AI 编程工具用户
+**代码展示：**
+```python
+import anthropic
+...
+```
 
-**行动建议：** 明天有直播演示，建议预约观看
-
-**深度解读：** ...
+<details>
+<summary><b>点击展开深度解读 (Deep Dive)</b></summary>
+(200字深度解析，利用 HTML details 标签默认折叠防止页面过长)
+</details>
 
 ---
 
-## 前沿研究
-...
+## 💻 科技 ...
+## ⚙️ 软件工程 ...
+（按照固定 7 大分类依次输出各版块内容，排版规范与 AI 领域中保持一致）
 
-## 行业动态
-...
-
-## 开源项目
-...
+---
+## 🏆 今日价值评分总榜
+（在末尾附上当日所有采集+筛选完成的 Insights 按照最终分数的全局排名明细表格）
 ```
 
 ## 5. 配置文件

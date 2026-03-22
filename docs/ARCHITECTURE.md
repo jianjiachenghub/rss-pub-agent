@@ -179,6 +179,24 @@ const provider = createOpenAICompatibleProvider({
 - `whoShouldCare` — 谁应该关注
 - `actionableAdvice` — 可执行建议
 - `deepDive` — 200 字深度解读
+- `imageUrl`（可选） — 核心配图
+- `codeSnippet`（可选） — 代码示例及语言标识
+- `comparisonTable`（可选） — 对比级信息数据表
+
+### 5.4 结构化渲染与建档机制 (Rendering & Archiving)
+
+- **输入**: 包含深度洞察与长文本格式的聚合新闻
+- **加工与渲染**: 
+  1. 系统将新闻按 **7 大标准分类**（🤖 AI 领域、💻 科技、⚙️ 软件工程、💼 商业财经、📈 投资理财、🌍 时政军事、📱 社交媒体）进行归类聚合。
+  2. 生成富文本的 Markdown 排版，遵循：
+     - **概览表格**：顶层展示各类目的新闻计数与核心标题
+     - **图文并茂**：自动插入有效 `imageUrl`
+     - **代码与表格渲染**：对特定的开发者新闻使用带有语法高亮的代码块，产品对比使用 Markdown 表格
+     - **折叠交互**：将占位极大的 `deepDive`（深度解读）放入 `<details>` HTML 标签折叠，保持报表清爽
+     - **六维评分榜单**：在报告尾部生成全局的价值评分排行榜
+- **建档存档**:
+  - 生成结果以日期为目录持久化至 `content/YYYY-MM-DD/daily.md`。
+  - 此存档由 Vercel/Next.js (SSG) 读取并直接路由至前端页面进行展示。
 
 ## 6. 前端架构
 

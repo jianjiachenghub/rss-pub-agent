@@ -10,6 +10,9 @@ interface InsightResult {
   whoShouldCare: string[];
   actionableAdvice: string;
   deepDive: string;
+  imageUrl?: string;
+  codeSnippet?: { lang: string; code: string } | null;
+  comparisonTable?: { headers: string[]; rows: string[][] } | null;
 }
 
 export async function insightNode(
@@ -44,6 +47,21 @@ export async function insightNode(
             whoShouldCare: { type: "ARRAY", items: { type: "STRING" } },
             actionableAdvice: { type: "STRING" },
             deepDive: { type: "STRING" },
+            imageUrl: { type: "STRING" },
+            codeSnippet: {
+              type: "OBJECT",
+              properties: {
+                lang: { type: "STRING" },
+                code: { type: "STRING" },
+              },
+            },
+            comparisonTable: {
+              type: "OBJECT",
+              properties: {
+                headers: { type: "ARRAY", items: { type: "STRING" } },
+                rows: { type: "ARRAY", items: { type: "ARRAY", items: { type: "STRING" } } },
+              },
+            },
           },
           required: ["id", "oneLiner", "whyItMatters", "whoShouldCare", "actionableAdvice", "deepDive"],
         },
@@ -65,11 +83,11 @@ export async function insightNode(
       console.warn(`[insight] Expected array but got ${typeof results}, attempting extraction`);
     }
     const insightMap = new Map(resultsArray.map((r) => [r.id, r]));
-    const insights: NewsInsight[] = scoredItems
+    const insights = scoredItems
       .map((item) => {
         const insight = insightMap.get(item.id);
         if (!insight) return null;
-        return {
+        const result: NewsInsight = {
           id: item.id,
           title: item.title,
           url: item.url,
@@ -81,9 +99,13 @@ export async function insightNode(
           whoShouldCare: insight.whoShouldCare,
           actionableAdvice: insight.actionableAdvice,
           deepDive: insight.deepDive,
+          imageUrl: insight.imageUrl || undefined,
+          codeSnippet: insight.codeSnippet ?? undefined,
+          comparisonTable: insight.comparisonTable ?? undefined,
           scores: item.scores,
           weightedScore: item.weightedScore,
         };
+        return result;
       })
       .filter((x): x is NewsInsight => x !== null);
 

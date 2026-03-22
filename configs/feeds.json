@@ -9,14 +9,173 @@
       "_weight": 100,
       "_comment": "需要有效的 FOLO_SESSION_TOKEN，暂时禁用"
     },
+
+    {
+      "id": "openai-blog",
+      "type": "folo",
+      "url": "https://openai.com/blog/rss",
+      "category": "ai",
+      "name": "OpenAI Blog",
+      "weight": 95
+    },
+    {
+      "id": "deepmind-blog",
+      "type": "folo",
+      "url": "https://deepmind.google/blog/rss.xml",
+      "category": "ai",
+      "name": "Google DeepMind",
+      "weight": 90
+    },
+    {
+      "id": "huggingface-blog",
+      "type": "folo",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "category": "ai",
+      "name": "Hugging Face Blog",
+      "weight": 85
+    },
+    {
+      "id": "jiqizhixin",
+      "type": "folo",
+      "url": "https://www.jiqizhixin.com/rss",
+      "category": "ai",
+      "name": "机器之心",
+      "weight": 90
+    },
+    {
+      "id": "lastweekinai",
+      "type": "folo",
+      "url": "https://lastweekin.ai/feed",
+      "category": "ai",
+      "name": "Last Week in AI",
+      "weight": 80
+    },
+
+    {
+      "id": "qbitai",
+      "type": "folo",
+      "url": "https://rsshub.app/qbitai",
+      "category": "ai",
+      "name": "量子位",
+      "weight": 85
+    },
+
     {
       "id": "hn-top",
       "type": "folo",
       "url": "https://rsshub.app/hackernews",
       "category": "tech",
       "name": "Hacker News",
+      "weight": 85
+    },
+    {
+      "id": "solidot",
+      "type": "folo",
+      "url": "https://rsshub.app/solidot",
+      "category": "tech",
+      "name": "Solidot",
+      "weight": 75
+    },
+    {
+      "id": "arstechnica",
+      "type": "folo",
+      "url": "https://feeds.arstechnica.com/arstechnica/index",
+      "category": "tech",
+      "name": "Ars Technica",
+      "weight": 70
+    },
+    {
+      "id": "techcrunch-ai",
+      "type": "folo",
+      "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+      "category": "tech",
+      "name": "TechCrunch AI",
+      "weight": 75
+    },
+
+    {
+      "id": "github-blog",
+      "type": "folo",
+      "url": "https://github.blog/feed/",
+      "category": "software",
+      "name": "GitHub Blog",
+      "weight": 70
+    },
+    {
+      "id": "langchain-blog",
+      "type": "folo",
+      "url": "https://blog.langchain.dev/rss/",
+      "category": "software",
+      "name": "LangChain Blog",
+      "weight": 65
+    },
+    {
+      "id": "hellogithub",
+      "type": "folo",
+      "url": "https://rsshub.app/hellogithub/volume",
+      "category": "software",
+      "name": "HelloGitHub",
+      "weight": 60
+    },
+
+    {
+      "id": "feedx-ft",
+      "type": "folo",
+      "url": "https://feedx.net/rss/ft.xml",
+      "category": "business",
+      "name": "FT中文网",
       "weight": 80
     },
+    {
+      "id": "feedx-nikkei",
+      "type": "folo",
+      "url": "https://feedx.net/rss/nikkei.xml",
+      "category": "business",
+      "name": "日经中文网",
+      "weight": 65
+    },
+    {
+      "id": "feedx-reuters",
+      "type": "folo",
+      "url": "https://feedx.net/rss/reuters.xml",
+      "category": "business",
+      "name": "路透中文网",
+      "weight": 75
+    },
+
+    {
+      "id": "feedx-nytimes",
+      "type": "folo",
+      "url": "https://feedx.net/rss/nytimes.xml",
+      "category": "politics",
+      "name": "纽约时报中文网",
+      "weight": 70
+    },
+    {
+      "id": "feedx-bbc",
+      "type": "folo",
+      "url": "https://feedx.net/rss/bbc.xml",
+      "category": "politics",
+      "name": "BBC News 中文",
+      "weight": 70
+    },
+    {
+      "id": "feedx-thepaper",
+      "type": "folo",
+      "url": "https://feedx.net/rss/thepaper.xml",
+      "category": "politics",
+      "name": "澎湃新闻",
+      "weight": 65
+    },
+    {
+      "id": "feedx-zaobao",
+      "type": "folo",
+      "url": "https://feedx.net/rss/zaobaotoday.xml",
+      "category": "politics",
+      "name": "联合早报",
+      "weight": 60
+    },
+
     {
       "id": "weibo-hot",
       "type": "folo",
@@ -34,12 +193,12 @@
       "weight": 60
     },
     {
-      "id": "solidot",
+      "id": "twitter-elonmusk",
       "type": "folo",
-      "url": "https://rsshub.app/solidot",
-      "category": "tech",
-      "name": "Solidot",
-      "weight": 70
+      "url": "https://rsshub.app/twitter/user/elonmusk",
+      "category": "social",
+      "name": "X: Elon Musk",
+      "weight": 55
     }
   ]
 }

@@ -78,6 +78,9 @@ export interface NewsInsight {
   whoShouldCare: string[];
   actionableAdvice: string;
   deepDive: string;
+  imageUrl?: string;
+  codeSnippet?: { lang: string; code: string };
+  comparisonTable?: { headers: string[]; rows: string[][] };
   scores: ScoredNewsItem["scores"];
   weightedScore: number;
 }
