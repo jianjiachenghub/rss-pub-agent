@@ -6,10 +6,7 @@ import type { NewsInsight } from "../lib/types.js";
 interface InsightResult {
   id: string;
   oneLiner: string;
-  whyItMatters: string;
-  whoShouldCare: string[];
-  actionableAdvice: string;
-  deepDive: string;
+  content: string;
   imageUrl?: string;
   codeSnippet?: { lang: string; code: string } | null;
   comparisonTable?: { headers: string[]; rows: string[][] } | null;
@@ -43,10 +40,7 @@ export async function insightNode(
           properties: {
             id: { type: "STRING" },
             oneLiner: { type: "STRING" },
-            whyItMatters: { type: "STRING" },
-            whoShouldCare: { type: "ARRAY", items: { type: "STRING" } },
-            actionableAdvice: { type: "STRING" },
-            deepDive: { type: "STRING" },
+            content: { type: "STRING" },
             imageUrl: { type: "STRING" },
             codeSnippet: {
               type: "OBJECT",
@@ -63,7 +57,7 @@ export async function insightNode(
               },
             },
           },
-          required: ["id", "oneLiner", "whyItMatters", "whoShouldCare", "actionableAdvice", "deepDive"],
+          required: ["id", "oneLiner", "content"],
         },
       },
     });
@@ -95,10 +89,7 @@ export async function insightNode(
           category: item.category,
           publishedAt: item.publishedAt,
           oneLiner: insight.oneLiner,
-          whyItMatters: insight.whyItMatters,
-          whoShouldCare: insight.whoShouldCare,
-          actionableAdvice: insight.actionableAdvice,
-          deepDive: insight.deepDive,
+          content: insight.content,
           imageUrl: insight.imageUrl || undefined,
           codeSnippet: insight.codeSnippet ?? undefined,
           comparisonTable: insight.comparisonTable ?? undefined,

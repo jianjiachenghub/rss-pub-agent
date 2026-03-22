@@ -6,8 +6,7 @@
       "_listId": "258516112881818624",
       "_category": "ai",
       "_name": "Follow AI 列表",
-      "_weight": 100,
-      "_comment": "需要有效的 FOLO_SESSION_TOKEN，暂时禁用"
+      "_weight": 100
     },
 
     {

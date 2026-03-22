@@ -20,7 +20,7 @@ export async function platformsNode(
   const insightsSummary = insights
     .map(
       (i) =>
-        `- ${i.oneLiner}: ${i.whyItMatters}\n  行动建议: ${i.actionableAdvice}`
+        `- ${i.oneLiner}: ${i.content}`
     )
     .join("\n");
 

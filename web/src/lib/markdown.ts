@@ -28,10 +28,6 @@ export interface NewsItem {
   url: string;
   source: string;
   description?: string;
-  whyItMatters?: string;
-  whoShouldCare?: string[];
-  actionableAdvice?: string;
-  deepDive?: string;
 }
 
 export interface ReportIndex {
@@ -158,7 +154,7 @@ export function parseReportMarkdown(content: string, date: string): ParsedReport
         if (scoreMatch && parseInt(scoreMatch[1]) >= 70) {
           featured.push({
             title: newsItem.title.replace(/^###\s*/, ""),
-            description: newsItem.whyItMatters || newsItem.description || "",
+            description: newsItem.description || "",
             url: newsItem.url,
             source: newsItem.source,
             score: scoreMatch[1],
@@ -192,10 +188,6 @@ interface ParsedNewsItem {
   url: string;
   source: string;
   description?: string;
-  whyItMatters?: string;
-  whoShouldCare?: string[];
-  actionableAdvice?: string;
-  deepDive?: string;
   nextIndex: number;
 }
 
@@ -213,10 +205,6 @@ function parseNewsItem(lines: string[], startIndex: number): ParsedNewsItem | nu
   let url = "";
   let source = "";
   let description = "";
-  let whyItMatters = "";
-  let whoShouldCare: string[] = [];
-  let actionableAdvice = "";
-  let deepDive = "";
 
   // 解析后续行
   while (i < lines.length) {
@@ -236,46 +224,22 @@ function parseNewsItem(lines: string[], startIndex: number): ParsedNewsItem | nu
       }
     }
 
-    // 提取"为什么重要"
-    if (line.startsWith("**为什么重要：**")) {
-      whyItMatters = line.replace("**为什么重要：**", "").trim();
-      // 也可能在下一行
-      if (!whyItMatters && i + 1 < lines.length && !lines[i + 1].trim().startsWith("**")) {
-        whyItMatters = lines[i + 1].trim();
-      }
-    }
-
-    // 提取"谁应该关注"
-    if (line.startsWith("**谁应该关注：**")) {
-      const whoText = line.replace("**谁应该关注：**", "").trim();
-      whoShouldCare = whoText.split("、").map(s => s.trim()).filter(Boolean);
-    }
-
-    // 提取"行动建议"
-    if (line.startsWith("**行动建议：**")) {
-      actionableAdvice = line.replace("**行动建议：**", "").trim();
-      if (!actionableAdvice && i + 1 < lines.length && !lines[i + 1].trim().startsWith("**")) {
-        actionableAdvice = lines[i + 1].trim();
-      }
-    }
-
-    // 提取深度分析（长段落，非标记行）
-    if (line.length > 50 && !line.startsWith("**") && !line.startsWith("-")) {
-      deepDive = line;
+    // 如果不是评分行，且不为空行，追加到 description
+    if (line && !line.includes("分") && !line.includes("来源:")) {
+      description += lines[i] + "\n";
     }
 
     i++;
   }
+
+  // 清理多余空行
+  description = description.trim();
 
   return {
     title,
     url: url || "#",
     source: source || "未知来源",
     description,
-    whyItMatters,
-    whoShouldCare,
-    actionableAdvice,
-    deepDive,
     nextIndex: i,
   };
 }

@@ -74,10 +74,7 @@ export interface NewsInsight {
   category: string;
   publishedAt: string;
   oneLiner: string;
-  whyItMatters: string;
-  whoShouldCare: string[];
-  actionableAdvice: string;
-  deepDive: string;
+  content: string;
   imageUrl?: string;
   codeSnippet?: { lang: string; code: string };
   comparisonTable?: { headers: string[]; rows: string[][] };

@@ -125,10 +125,8 @@ itemCount: ${insights.length}
           md += `![${item.oneLiner}](${item.imageUrl})\n\n`;
         }
 
-        // 核心信息
-        md += `**🔍 为什么重要：** ${item.whyItMatters}\n\n`;
-        md += `**👥 谁应该关注：** ${item.whoShouldCare.join("、")}\n\n`;
-        md += `**🎯 行动建议：** ${item.actionableAdvice}\n\n`;
+        // 深度解读 (直接渲染为正文)
+        md += `${item.content}\n\n`;
 
         // 对比表格（如果有）
         if (
@@ -154,9 +152,6 @@ itemCount: ${insights.length}
           md += `${item.codeSnippet.code}\n`;
           md += `\`\`\`\n\n`;
         }
-
-        // 深度解读
-        md += `<details>\n<summary>📖 深度解读</summary>\n\n${item.deepDive}\n\n</details>\n\n`;
 
         md += `---\n\n`;
       }

@@ -119,7 +119,7 @@ export async function fetchFoloByList(
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Cookie: `authjs.session-token=${sessionToken}`,
+      Cookie: `__Secure-better-auth.session_token=${sessionToken}`,
       "User-Agent": "Mozilla/5.0 LLM-News-Flow/1.0",
     },
     body: JSON.stringify({ listId }),

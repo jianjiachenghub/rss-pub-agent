@@ -17,7 +17,7 @@ export async function podcastNode(
     const insightsSummary = insights
       .map(
         (i) =>
-          `标题: ${i.oneLiner}\n为什么重要: ${i.whyItMatters}\n深度解读: ${i.deepDive}`
+          `标题: ${i.oneLiner}\n具体内容: ${i.content}`
       )
       .join("\n\n---\n\n");
 
