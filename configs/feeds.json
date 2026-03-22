@@ -1,12 +1,12 @@
 {
   "feeds": [
     {
-      "_id": "folo-ai-list",
-      "_type": "folo-list",
-      "_listId": "258516112881818624",
-      "_category": "ai",
-      "_name": "Follow AI 列表",
-      "_weight": 100
+      "id": "folo-ai-list",
+      "type": "folo-list",
+      "listId": "258516112881818624",
+      "category": "ai",
+      "name": "Follow AI 列表",
+      "weight": 100
     },
 
     {

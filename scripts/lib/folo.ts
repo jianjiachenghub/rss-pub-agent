@@ -115,6 +115,10 @@ export async function fetchFoloByList(
 
   console.log(`[folo-list] Fetching list: ${sourceName} (listId: ${listId})`);
 
+  console.log(`[folo-list] Requesting entries for listId: ${listId}`);
+  console.log(`[folo-list] Using session token: ${sessionToken.substring(0, 20)}...`);
+  
+  // 尝试获取更多新闻，添加 limit 参数
   const res = await fetch(`${FOLO_API}/entries`, {
     method: "POST",
     headers: {
@@ -122,10 +126,16 @@ export async function fetchFoloByList(
       Cookie: `__Secure-better-auth.session_token=${sessionToken}`,
       "User-Agent": "Mozilla/5.0 LLM-News-Flow/1.0",
     },
-    body: JSON.stringify({ listId }),
-    signal: AbortSignal.timeout(30000), // 列表可能内容较多，增加超时
+    body: JSON.stringify({ 
+      listId, 
+      limit: 100, // 增加返回数量
+      offset: 0 
+    }),
+    signal: AbortSignal.timeout(60000), // 增加超时时间
   });
 
+  console.log(`[folo-list] Response status: ${res.status}`);
+  
   if (res.status === 401) {
     throw new Error("Folo session token expired or invalid");
   }
@@ -136,38 +146,66 @@ export async function fetchFoloByList(
 
   const json = await res.json() as {
     code: number;
-    data?: {
-      entries?: FoloListEntry[];
-    };
+    data?: Array<{
+      entries: FoloListEntry;
+      feeds: {
+        title: string;
+        id: string;
+      };
+    }>;
   };
+
+  console.log(`[folo-list] API response code: ${json.code}`);
+  console.log(`[folo-list] API response data length: ${json.data?.length || 0}`);
 
   if (json.code !== 0) {
     throw new Error(`Folo API returned code ${json.code}`);
   }
 
-  const entries = json.data?.entries ?? [];
+  const entries = Array.isArray(json.data) ? json.data : [];
 
   console.log(`[folo-list] Got ${entries.length} entries from list: ${sourceName}`);
 
   // 过滤最近 24 小时的内容
   const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
-  const recentEntries = entries.filter((entry) => {
+  const recentEntries = entries.filter((item) => {
+    const entry = item.entries;
     if (!entry.publishedAt) return true;
-    return new Date(entry.publishedAt).getTime() > oneDayAgo;
+    const entryTime = new Date(entry.publishedAt).getTime();
+    const isRecent = entryTime > oneDayAgo;
+    if (!isRecent) {
+      console.log(`[folo-list] Filtering out entry: ${entry.title} (${entry.publishedAt})`);
+    }
+    return isRecent;
   });
 
   console.log(`[folo-list] ${recentEntries.length} entries within 24h`);
 
-  return recentEntries.map((entry, i) => ({
-    id: `folo-list-${entry.id || i}-${Date.now()}`,
-    title: entry.title ?? "Untitled",
-    url: entry.url ?? "",
-    content: entry.summary || entry.content || entry.description || "",
-    // 使用原始 feed 的名称作为 source，让用户知道内容来自哪个具体源
-    source: entry.feed?.title || sourceName,
-    sourceId: `${sourceId}-${entry.feed?.id || i}`,
-    category,
-    publishedAt: entry.publishedAt ?? now,
-    fetchedAt: now,
-  }));
+  // 输出每条新闻的详细信息
+  recentEntries.forEach((item, index) => {
+    const entry = item.entries;
+    console.log(`[folo-list] Entry ${index + 1}:`);
+    console.log(`  Title: ${entry.title}`);
+    console.log(`  URL: ${entry.url}`);
+    console.log(`  Source: ${item.feeds?.title || sourceName}`);
+    console.log(`  Published: ${entry.publishedAt}`);
+    console.log(`  Content preview: ${(entry.summary || entry.content || entry.description || "").substring(0, 100)}...`);
+    console.log(`  --------------------`);
+  });
+
+  return recentEntries.map((item, i) => {
+    const entry = item.entries;
+    return {
+      id: `folo-list-${entry.id || i}-${Date.now()}`,
+      title: entry.title ?? "Untitled",
+      url: entry.url ?? "",
+      content: entry.summary || entry.content || entry.description || "",
+      // 使用原始 feed 的名称作为 source，让用户知道内容来自哪个具体源
+      source: item.feeds?.title || sourceName,
+      sourceId: `${sourceId}-${item.feeds?.id || i}`,
+      category,
+      publishedAt: entry.publishedAt ?? now,
+      fetchedAt: now,
+    };
+  });
 }

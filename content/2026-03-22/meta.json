@@ -1,11 +1,11 @@
 {
   "date": "2026-03-22",
-  "itemCount": 6,
+  "itemCount": 4,
   "categories": [
-    "tech"
+    "ai"
   ],
-  "avgScore": 31,
+  "avgScore": 54,
   "hasPodcast": false,
-  "errors": 5,
-  "generatedAt": "2026-03-22T13:13:41.198Z"
+  "errors": 0,
+  "generatedAt": "2026-03-22T16:05:19.791Z"
 }

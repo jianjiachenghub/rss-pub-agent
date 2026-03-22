@@ -1,6 +1,6 @@
 import type { PipelineStateType } from "../state.js";
 import { callLLMJson } from "../lib/llm.js";
-import { insightSystemPrompt, insightUserPrompt } from "../lib/prompts.js";
+import { insightSystemPrompt, insightUserPrompt, categorySystemPrompt, categoryUserPrompt, CATEGORIES } from "../lib/prompts.js";
 import type { NewsInsight } from "../lib/types.js";
 
 interface InsightResult {
@@ -12,6 +12,13 @@ interface InsightResult {
   comparisonTable?: { headers: string[]; rows: string[][] } | null;
 }
 
+interface CategoryResult {
+  id: string;
+  category: string;
+  confidence: number;
+  reason: string;
+}
+
 export async function insightNode(
   state: PipelineStateType
 ): Promise<Partial<PipelineStateType>> {
@@ -21,6 +28,7 @@ export async function insightNode(
   }
 
   try {
+    // Step 1: 生成洞察内容
     const batchInput = scoredItems.map((item) => ({
       id: item.id,
       title: item.title,
@@ -76,17 +84,68 @@ export async function insightNode(
     if (!Array.isArray(results)) {
       console.warn(`[insight] Expected array but got ${typeof results}, attempting extraction`);
     }
+
+    // Step 2: 自动分类
+    const categoryInput = scoredItems.map((item) => ({
+      id: item.id,
+      title: item.title,
+      content: item.content,
+      source: item.source,
+    }));
+
+    const categoryResults = await callLLMJson<CategoryResult[]>({
+      systemPrompt: categorySystemPrompt(),
+      prompt: categoryUserPrompt(categoryInput),
+      model: "flash",
+      jsonSchema: {
+        type: "ARRAY",
+        items: {
+          type: "OBJECT",
+          properties: {
+            id: { type: "STRING" },
+            category: { type: "STRING", enum: CATEGORIES },
+            confidence: { type: "NUMBER" },
+            reason: { type: "STRING" },
+          },
+          required: ["id", "category", "confidence", "reason"],
+        },
+      },
+    });
+
+    // Ensure category results is an array
+    let categoryArray: CategoryResult[] = [];
+    if (Array.isArray(categoryResults)) {
+      categoryArray = categoryResults;
+    } else if (typeof categoryResults === 'object' && categoryResults !== null) {
+      const values = Object.values(categoryResults);
+      const arrayValue = values.find((v) => Array.isArray(v));
+      if (arrayValue) {
+        categoryArray = arrayValue as CategoryResult[];
+      }
+    }
+
     const insightMap = new Map(resultsArray.map((r) => [r.id, r]));
+    const categoryMap = new Map(categoryArray.map((c) => [c.id, c]));
+
     const insights = scoredItems
       .map((item) => {
         const insight = insightMap.get(item.id);
+        const categoryResult = categoryMap.get(item.id);
         if (!insight) return null;
+
+        // 使用 AI 自动分类的结果，如果没有则使用原始分类
+        const finalCategory = categoryResult?.category || item.category;
+
+        if (categoryResult) {
+          console.log(`[insight] Item "${item.title.substring(0, 40)}..." classified as "${finalCategory}" (${categoryResult.reason}, confidence: ${categoryResult.confidence})`);
+        }
+
         const result: NewsInsight = {
           id: item.id,
           title: item.title,
           url: item.url,
           source: item.source,
-          category: item.category,
+          category: finalCategory,
           publishedAt: item.publishedAt,
           oneLiner: insight.oneLiner,
           content: insight.content,
@@ -99,6 +158,14 @@ export async function insightNode(
         return result;
       })
       .filter((x): x is NewsInsight => x !== null);
+
+    // 统计各分类的数量
+    const categoryCounts = new Map<string, number>();
+    for (const insight of insights) {
+      const count = categoryCounts.get(insight.category) || 0;
+      categoryCounts.set(insight.category, count + 1);
+    }
+    console.log(`[insight] Category distribution:`, Object.fromEntries(categoryCounts));
 
     console.log(`[insight] Generated ${insights.length} structured insights`);
     return { insights };
