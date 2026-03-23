@@ -5,6 +5,31 @@ import type { ScoredNewsItem } from "../lib/types.js";
 
 const BATCH_SIZE = 10;
 
+// 每个分类的最小配额
+const CATEGORY_MIN_QUOTA: Record<string, number> = {
+  ai: 3,
+  tech: 2,
+  software: 2,
+  business: 2,
+  investment: 2,
+  politics: 2,
+  social: 2,
+};
+
+// 每个分类的最大数量
+const CATEGORY_MAX_LIMIT: Record<string, number> = {
+  ai: 8,
+  tech: 5,
+  software: 5,
+  business: 5,
+  investment: 5,
+  politics: 5,
+  social: 5,
+};
+
+// 总目标新闻数
+const TARGET_TOTAL_ITEMS = 25;
+
 interface ScoreResult {
   id: string;
   scores: {
@@ -87,7 +112,9 @@ export async function scoreNode(
     }
 
     const scoreMap = new Map(allScores.map((s) => [s.id, s]));
-    const scoredItems: ScoredNewsItem[] = passedItems
+    
+    // 先给所有新闻打分
+    const allScoredItems: ScoredNewsItem[] = passedItems
       .map((item) => {
         const score = scoreMap.get(item.id);
         if (!score) return null;
@@ -99,17 +126,61 @@ export async function scoreNode(
         };
       })
       .filter((x): x is ScoredNewsItem => x !== null)
-      .sort((a, b) => b.weightedScore - a.weightedScore)
-      .slice(0, config.topN);
+      .sort((a, b) => b.weightedScore - a.weightedScore);
 
-    console.log(
-      `[score] Scored ${allScores.length} items, selected top ${scoredItems.length} (cutoff: ${scoredItems[scoredItems.length - 1]?.weightedScore ?? 0})`
+    // 按分类分组
+    const byCategory = new Map<string, ScoredNewsItem[]>();
+    for (const item of allScoredItems) {
+      const cat = item.category || "social";
+      if (!byCategory.has(cat)) {
+        byCategory.set(cat, []);
+      }
+      byCategory.get(cat)!.push(item);
+    }
+
+    // 分类配额选择
+    const selectedItems: ScoredNewsItem[] = [];
+    const categoryCounts = new Map<string, number>();
+
+    // 第一轮：确保每个分类达到最小配额
+    for (const [cat, minQuota] of Object.entries(CATEGORY_MIN_QUOTA)) {
+      const catItems = byCategory.get(cat) || [];
+      const selected = catItems.slice(0, minQuota);
+      selectedItems.push(...selected);
+      categoryCounts.set(cat, selected.length);
+      console.log(`[score] Category ${cat}: selected ${selected.length}/${catItems.length} (min quota: ${minQuota})`);
+    }
+
+    // 第二轮：按分数补充，直到达到目标总数
+    const remainingItems = allScoredItems.filter(
+      (item) => !selectedItems.some((s) => s.id === item.id)
     );
 
-    return { scoredItems };
+    for (const item of remainingItems) {
+      if (selectedItems.length >= TARGET_TOTAL_ITEMS) break;
+      
+      const cat = item.category || "social";
+      const currentCount = categoryCounts.get(cat) || 0;
+      const maxLimit = CATEGORY_MAX_LIMIT[cat] || 5;
+      
+      if (currentCount < maxLimit) {
+        selectedItems.push(item);
+        categoryCounts.set(cat, currentCount + 1);
+      }
+    }
+
+    // 最终排序
+    selectedItems.sort((a, b) => b.weightedScore - a.weightedScore);
+
+    console.log(
+      `[score] Scored ${allScores.length} items, selected ${selectedItems.length} with category quotas`
+    );
+    console.log(`[score] Category distribution:`, Object.fromEntries(categoryCounts));
+
+    return { scoredItems: selectedItems };
   } catch (err) {
     console.error("[score] Failed:", err);
-    const fallback: ScoredNewsItem[] = passedItems.slice(0, config.topN).map((item) => ({
+    const fallback: ScoredNewsItem[] = passedItems.slice(0, TARGET_TOTAL_ITEMS).map((item) => ({
       ...item,
       scores: { novelty: 5, utility: 5, impact: 5, credibility: 5, timeliness: 5, uniqueness: 5 },
       weightedScore: 50,
