@@ -17,7 +17,7 @@ const CATEGORY_ORDER = [
 export async function generateDailyNode(
   state: PipelineStateType
 ): Promise<Partial<PipelineStateType>> {
-  const { insights, date } = state;
+  const { insights, secondaryItems, date } = state;
   if (!insights.length) {
     return { dailyMarkdown: "" };
   }
@@ -172,6 +172,33 @@ itemCount: ${insights.length}
     });
 
     md += `\n`;
+
+    // --- 更多 24h 资讯 (Secondary List) ---
+    if (secondaryItems && secondaryItems.length > 0) {
+      md += `\n---\n\n## 📝 更多 24h 资讯\n\n`;
+      md += `> 以下是过去 24 小时内筛选出的其他动态，暂未做深度解读：\n\n`;
+
+      // 按领域分组
+      const secondaryByCategory = new Map<string, typeof secondaryItems>();
+      for (const item of secondaryItems) {
+        const cat = item.category || "social";
+        if (!secondaryByCategory.has(cat)) secondaryByCategory.set(cat, []);
+        secondaryByCategory.get(cat)!.push(item);
+      }
+
+      for (const catKey of CATEGORY_ORDER) {
+        const items = secondaryByCategory.get(catKey) || [];
+        if (items.length === 0) continue;
+
+        const label = CATEGORY_LABELS[catKey] || catKey;
+        md += `#### ${label}\n`;
+        for (const item of items) {
+          const timeStr = dayjs(item.publishedAt).format("HH:mm");
+          md += `- [${timeStr}] [${item.title}](${item.url}) — *${item.source}*\n`;
+        }
+        md += `\n`;
+      }
+    }
 
     console.log(
       `[generate-daily] Rendered ${insights.length} items across ${activeCats.length} categories`

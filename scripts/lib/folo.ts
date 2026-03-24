@@ -3,7 +3,7 @@ import type { RawNewsItem } from "./types.js";
 const FOLO_API = "https://api.folo.is";
 
 // 分页配置
-const MAX_PAGES = 10; // 最多抓取 10 页
+const MAX_PAGES = 30; // 增加页数以确保覆盖 24 小时所有资讯
 const PAGE_DELAY_MS = 2000; // 每页间隔 2 秒，防止反爬
 
 /**

@@ -194,13 +194,20 @@ export function insightSystemPrompt(): string {
 \`\`\`
 直接返回数组，不要包裹在对象中。imageUrl 没有时为空字符串，codeSnippet 和 comparisonTable 没有时为 null。
 
+## 分领域特殊要求
+
+- **投资理财 (investment)**：必须分析该资讯对 **金融市场 (股市/债市/币市)** 的具体影响，并给出明确的 **风险提示** 或 **操作建议**（如：长线持有、短期观望、关注某板块等）。
+- **AI 领域 (ai)**：侧重技术演进逻辑和对现有工具鏈的颠覆性分析。
+- **软件工程 (software)**：必须包含对开发者生产力的实际影响评估。
+
 ## 质量红线
 
 - 绝不捏造信息，所有分析必须基于原文事实
 - 不用"震惊""炸裂""颠覆"等夸张词汇
 - content 内给出的行动建议必须是具体动作，不能是"关注后续发展"这种废话
 - imageUrl 必须是原文中实际存在的图片链接，绝不能编造 URL
-- codeSnippet 必须来自原文或原文引用的代码仓库，不能自行编写`;
+- codeSnippet 必须来自原文或原文引用的代码仓库，不能自行编写
+`;
 }
 
 export function insightUserPrompt(

@@ -1,10 +1,10 @@
 AI 日报 | 2026-03-24
 
 今日 Top 3：
-1. Claude原生支持电脑操控，Anthropic将AI代理产品化 - Claude Computer Use功能让AI直接操作电脑，降低部署门槛。
-2. 开源插件解决多账号切换痛点，但存在封号风险 - 插件可切换AI服务账号，但需注意隐私和数据安全。
-3. 美团BI实现「定义即研发」，指标自动转SQL - 通过自动语义能力，业务人员可定义复杂指标，研发无需写SQL。
+1. Meta收购明星团队，AI Agent赛道人才竞争加剧 - Meta收购Hugo Barra和David Singleton团队，强化AI Agent布局。
+2. Claude原生支持电脑操控，OpenClaw面临挑战 - Anthropic的Claude推出计算机使用功能，降低AI Agent使用门槛。
+3. Loonflow 3.1.0发布，企业工单系统升级 - Loonflow新版本增强拖拽配置和多租户功能，提升企业应用灵活性。
 
-一句话总结：AI代理技术不断进步，但需关注安全与隐私问题。
+一句话总结：AI Agent技术快速发展，人才竞争加剧，应用场景不断拓展。
 
 完整日报：[链接]

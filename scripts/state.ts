@@ -30,6 +30,10 @@ export const PipelineState = Annotation.Root({
     reducer: (_, y) => y,
     default: () => [],
   }),
+  secondaryItems: Annotation<ScoredNewsItem[]>({
+    reducer: (_, y) => y,
+    default: () => [],
+  }),
   insights: Annotation<NewsInsight[]>({
     reducer: (_, y) => y,
     default: () => [],

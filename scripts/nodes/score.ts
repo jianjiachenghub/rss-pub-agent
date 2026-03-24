@@ -18,17 +18,17 @@ const CATEGORY_MIN_QUOTA: Record<string, number> = {
 
 // 每个分类的最大数量
 const CATEGORY_MAX_LIMIT: Record<string, number> = {
-  ai: 8,
-  tech: 5,
-  software: 5,
-  business: 5,
-  investment: 5,
-  politics: 5,
-  social: 5,
+  ai: 12,
+  tech: 6,
+  software: 6,
+  business: 6,
+  investment: 6,
+  politics: 6,
+  social: 6,
 };
 
-// 总目标新闻数
-const TARGET_TOTAL_ITEMS = 25;
+// 总目标新闻数 (深度解读的)
+const TARGET_TOTAL_ITEMS = 30;
 
 interface ScoreResult {
   id: string;
@@ -174,12 +174,21 @@ export async function scoreNode(
     // 最终排序
     selectedItems.sort((a, b) => b.weightedScore - a.weightedScore);
 
+    // 筛选出“备选/参考”新闻：不在 selectedItems 中，但分数还可以 (>30) 的。
+    const secondaryItems = allScoredItems
+      .filter((item) => !selectedItems.some((s) => s.id === item.id))
+      .filter((item) => item.weightedScore >= 35) // 只要不是太烂的（噪声）都放进列表
+      .slice(0, 50); // 最多再放 50 条
+
     console.log(
-      `[score] Scored ${allScores.length} items, selected ${selectedItems.length} with category quotas`
+      `[score] Scored ${allScores.length} items, selected ${selectedItems.length} for insights, ${secondaryItems.length} for secondary list`
     );
     console.log(`[score] Category distribution:`, Object.fromEntries(categoryCounts));
 
-    return { scoredItems: selectedItems };
+    return { 
+      scoredItems: selectedItems,
+      secondaryItems: secondaryItems 
+    };
   } catch (err) {
     console.error("[score] Failed:", err);
     const fallback: ScoredNewsItem[] = passedItems.slice(0, TARGET_TOTAL_ITEMS).map((item) => ({
