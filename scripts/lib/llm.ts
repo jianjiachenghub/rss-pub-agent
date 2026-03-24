@@ -76,9 +76,13 @@ function createOpenAICompatibleProvider(opts: {
 
       const response = await getClient().chat.completions.create(params);
       const choice = response.choices[0];
+      const message = choice?.message as any;
+
+      // GLM-5 等推理模型可能会把主要内容放在 reasoning_content 里（或者 content 为空）
+      const text = message?.content || message?.reasoning_content || "";
 
       return {
-        text: choice?.message?.content ?? "",
+        text,
         provider: opts.name,
         model,
         tokensUsed: response.usage?.total_tokens,
@@ -226,6 +230,7 @@ export async function callLLM(req: LLMRequest): Promise<LLMResponse> {
 
   for (let i = 0; i < chain.length; i++) {
     const provider = chain[i];
+    console.log(`[LLM] Calling ${provider.name} (${req.model ?? "flash"})...`);
     try {
       return await callWithRetry(provider, req);
     } catch (err) {

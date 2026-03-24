@@ -37,6 +37,8 @@ export async function insightNode(
       weightedScore: item.weightedScore,
     }));
 
+    console.log(`[insight] Generating insights for ${batchInput.length} items...`);
+
     const results = await callLLMJson<InsightResult[]>({
       systemPrompt: insightSystemPrompt(),
       prompt: insightUserPrompt(batchInput),

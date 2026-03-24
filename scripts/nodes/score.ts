@@ -64,6 +64,8 @@ export async function scoreNode(
         source: item.source,
       }));
 
+      console.log(`[score] Scoring batch ${i / BATCH_SIZE + 1} (${batch.length} items)...`);
+
       const results = await callLLMJson<ScoreResult[]>({
         systemPrompt: scoreSystemPrompt(config.interests),
         prompt: scoreUserPrompt(batchInput),
