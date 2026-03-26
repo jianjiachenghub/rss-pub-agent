@@ -1,12 +1,9 @@
 import { readFile } from "fs/promises";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
+import { join } from "path";
 import type { PipelineStateType } from "../state.js";
 import type { PipelineConfig, PlatformConfig } from "../lib/types.js";
+import { CONFIGS_DIR } from "../lib/runtime-paths.js";
 import dayjs from "dayjs";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const CONFIGS_DIR = join(__dirname, "../../configs");
 
 function resolveEnvVars(obj: unknown): unknown {
   if (typeof obj === "string") {
@@ -27,6 +24,7 @@ export async function loadConfig(
   _state: PipelineStateType
 ): Promise<Partial<PipelineStateType>> {
   try {
+    // Runtime config still lives in repo-level JSON so product tuning does not require code edits.
     const feedsRaw = await readFile(join(CONFIGS_DIR, "feeds.json"), "utf-8");
     const promptRaw = await readFile(join(CONFIGS_DIR, "prompt.json"), "utf-8");
     const platformsRaw = await readFile(join(CONFIGS_DIR, "platforms.json"), "utf-8");

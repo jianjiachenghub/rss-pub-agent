@@ -1,13 +1,21 @@
 // ===== Config Types =====
 
+export type FeedTier = "core" | "signal" | "watch";
+
 export interface FeedSource {
   id: string;
   type: "folo" | "folo-list" | "rss" | "api";
-  url: string;
+  url?: string;
   category: string;
   name: string;
   weight: number;
   listId?: string;
+  // Source priority tier used by fetch governance.
+  tier?: FeedTier;
+  // Max number of 24h items this source can contribute to the raw candidate pool.
+  dailyCap?: number;
+  // When false, the source is treated as watchlist/fallback instead of main daily input.
+  keepInMainPool?: boolean;
 }
 
 export interface UserInterest {
@@ -44,6 +52,51 @@ export interface RawNewsItem {
   category: string;
   publishedAt: string;
   fetchedAt: string;
+}
+
+export interface EventCandidate extends RawNewsItem {
+  eventKey: string;
+  normalizedTitle: string;
+  duplicateCount: number;
+  sourceCount: number;
+  representativeSources: string[];
+  preFilterScore: number;
+}
+
+export type FetchDegradeMode = "none" | "soft" | "hard";
+
+export interface FetchCheckpoint {
+  sourceId: string;
+  listId?: string;
+  publishedAfter: string | null;
+  pagesFetched: number;
+  pagesSucceeded: number;
+  consecutiveFailures: number;
+  stoppedReason: string;
+  degradedMode: FetchDegradeMode;
+  lastSuccessfulPublishedAt?: string;
+  updatedAt: string;
+}
+
+export interface FetchMetrics {
+  startedAt: string;
+  finishedAt?: string;
+  primaryItemsFetched: number;
+  primaryItemsRetained: number;
+  eventCandidates: number;
+  rawCandidates: number;
+  backfillItemsFetched: number;
+  sourceErrors: number;
+  degradedMode: FetchDegradeMode;
+}
+
+export interface CoverageStats {
+  observedByCategory: Record<string, number>;
+  selectedByCategory: Record<string, number>;
+  finalByCategory: Record<string, number>;
+  deficitCategories: string[];
+  totalObservedEvents: number;
+  totalSelectedEvents: number;
 }
 
 export interface GateKeepResult {

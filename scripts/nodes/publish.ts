@@ -1,11 +1,8 @@
 import { writeFile, mkdir, readFile } from "fs/promises";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
+import { join } from "path";
 import { existsSync } from "fs";
 import type { PipelineStateType } from "../state.js";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const CONTENT_DIR = join(__dirname, "../../content");
+import { CONTENT_DIR } from "../lib/runtime-paths.js";
 
 export async function publishNode(
   state: PipelineStateType

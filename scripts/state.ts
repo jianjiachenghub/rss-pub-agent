@@ -6,8 +6,12 @@ import type {
   GateKeepResult,
   ScoredNewsItem,
   NewsInsight,
+  EventCandidate,
   PlatformContents,
   PodcastData,
+  CoverageStats,
+  FetchCheckpoint,
+  FetchMetrics,
   PipelineError,
 } from "./lib/types.js";
 
@@ -17,6 +21,42 @@ export const PipelineState = Annotation.Root({
   rawItems: Annotation<RawNewsItem[]>({
     reducer: (_, y) => y,
     default: () => [],
+  }),
+  primaryRawItems: Annotation<RawNewsItem[]>({
+    reducer: (_, y) => y,
+    default: () => [],
+  }),
+  eventCandidates: Annotation<EventCandidate[]>({
+    reducer: (_, y) => y,
+    default: () => [],
+  }),
+  coverageStats: Annotation<CoverageStats>({
+    reducer: (_, y) => y,
+    default: () => ({
+      observedByCategory: {},
+      selectedByCategory: {},
+      finalByCategory: {},
+      deficitCategories: [],
+      totalObservedEvents: 0,
+      totalSelectedEvents: 0,
+    }),
+  }),
+  fetchCheckpoint: Annotation<FetchCheckpoint | null>({
+    reducer: (_, y) => y,
+    default: () => null,
+  }),
+  fetchMetrics: Annotation<FetchMetrics>({
+    reducer: (_, y) => y,
+    default: () => ({
+      startedAt: "",
+      primaryItemsFetched: 0,
+      primaryItemsRetained: 0,
+      eventCandidates: 0,
+      rawCandidates: 0,
+      backfillItemsFetched: 0,
+      sourceErrors: 0,
+      degradedMode: "none",
+    }),
   }),
   gateKeepResults: Annotation<GateKeepResult[]>({
     reducer: (_, y) => y,

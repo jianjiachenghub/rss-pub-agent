@@ -3,10 +3,12 @@
     {
       "id": "folo-ai-list",
       "type": "folo-list",
-      "listId": "258516112881818624",
+      "listId": "260024685080717312",
       "category": "ai",
       "name": "Follow AI 列表",
-      "weight": 100
+      "weight": 100,
+      "tier": "core",
+      "dailyCap": 2500
     },
 
     {
@@ -15,7 +17,9 @@
       "url": "https://openai.com/blog/rss",
       "category": "ai",
       "name": "OpenAI Blog",
-      "weight": 95
+      "weight": 95,
+      "tier": "core",
+      "dailyCap": 8
     },
     {
       "id": "deepmind-blog",
@@ -23,7 +27,9 @@
       "url": "https://deepmind.google/blog/rss.xml",
       "category": "ai",
       "name": "Google DeepMind",
-      "weight": 90
+      "weight": 90,
+      "tier": "core",
+      "dailyCap": 6
     },
     {
       "id": "huggingface-blog",
@@ -31,7 +37,9 @@
       "url": "https://huggingface.co/blog/feed.xml",
       "category": "ai",
       "name": "Hugging Face Blog",
-      "weight": 85
+      "weight": 85,
+      "tier": "core",
+      "dailyCap": 8
     },
     {
       "id": "jiqizhixin",
@@ -39,7 +47,9 @@
       "url": "https://www.jiqizhixin.com/rss",
       "category": "ai",
       "name": "机器之心",
-      "weight": 90
+      "weight": 90,
+      "tier": "signal",
+      "dailyCap": 12
     },
     {
       "id": "lastweekinai",
@@ -47,7 +57,9 @@
       "url": "https://lastweekin.ai/feed",
       "category": "ai",
       "name": "Last Week in AI",
-      "weight": 80
+      "weight": 80,
+      "tier": "signal",
+      "dailyCap": 4
     },
 
     {
@@ -56,7 +68,9 @@
       "url": "https://rsshub.app/qbitai",
       "category": "ai",
       "name": "量子位",
-      "weight": 85
+      "weight": 85,
+      "tier": "signal",
+      "dailyCap": 10
     },
 
     {
@@ -65,7 +79,9 @@
       "url": "https://rsshub.app/hackernews",
       "category": "tech",
       "name": "Hacker News",
-      "weight": 85
+      "weight": 85,
+      "tier": "signal",
+      "dailyCap": 15
     },
     {
       "id": "solidot",
@@ -73,7 +89,9 @@
       "url": "https://rsshub.app/solidot",
       "category": "tech",
       "name": "Solidot",
-      "weight": 75
+      "weight": 75,
+      "tier": "signal",
+      "dailyCap": 8
     },
     {
       "id": "arstechnica",
@@ -81,7 +99,9 @@
       "url": "https://feeds.arstechnica.com/arstechnica/index",
       "category": "tech",
       "name": "Ars Technica",
-      "weight": 70
+      "weight": 70,
+      "tier": "core",
+      "dailyCap": 10
     },
     {
       "id": "techcrunch-ai",
@@ -89,7 +109,9 @@
       "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
       "category": "tech",
       "name": "TechCrunch AI",
-      "weight": 75
+      "weight": 75,
+      "tier": "signal",
+      "dailyCap": 10
     },
 
     {
@@ -98,7 +120,9 @@
       "url": "https://github.blog/feed/",
       "category": "software",
       "name": "GitHub Blog",
-      "weight": 70
+      "weight": 70,
+      "tier": "core",
+      "dailyCap": 6
     },
     {
       "id": "langchain-blog",
@@ -106,7 +130,9 @@
       "url": "https://blog.langchain.dev/rss/",
       "category": "software",
       "name": "LangChain Blog",
-      "weight": 65
+      "weight": 65,
+      "tier": "signal",
+      "dailyCap": 6
     },
     {
       "id": "hellogithub",
@@ -114,7 +140,9 @@
       "url": "https://rsshub.app/hellogithub/volume",
       "category": "software",
       "name": "HelloGitHub",
-      "weight": 60
+      "weight": 60,
+      "tier": "signal",
+      "dailyCap": 4
     },
 
     {
@@ -123,7 +151,9 @@
       "url": "https://feedx.net/rss/ft.xml",
       "category": "business",
       "name": "FT中文网",
-      "weight": 80
+      "weight": 80,
+      "tier": "core",
+      "dailyCap": 10
     },
     {
       "id": "feedx-nikkei",
@@ -131,7 +161,9 @@
       "url": "https://feedx.net/rss/nikkei.xml",
       "category": "business",
       "name": "日经中文网",
-      "weight": 65
+      "weight": 65,
+      "tier": "signal",
+      "dailyCap": 8
     },
     {
       "id": "feedx-reuters",
@@ -139,7 +171,9 @@
       "url": "https://feedx.net/rss/reuters.xml",
       "category": "business",
       "name": "路透中文网",
-      "weight": 75
+      "weight": 75,
+      "tier": "core",
+      "dailyCap": 10
     },
 
     {
@@ -148,7 +182,9 @@
       "url": "https://feedx.net/rss/nytimes.xml",
       "category": "politics",
       "name": "纽约时报中文网",
-      "weight": 70
+      "weight": 70,
+      "tier": "signal",
+      "dailyCap": 8
     },
     {
       "id": "feedx-bbc",
@@ -156,7 +192,9 @@
       "url": "https://feedx.net/rss/bbc.xml",
       "category": "politics",
       "name": "BBC News 中文",
-      "weight": 70
+      "weight": 70,
+      "tier": "signal",
+      "dailyCap": 8
     },
     {
       "id": "feedx-thepaper",
@@ -164,7 +202,9 @@
       "url": "https://feedx.net/rss/thepaper.xml",
       "category": "politics",
       "name": "澎湃新闻",
-      "weight": 65
+      "weight": 65,
+      "tier": "signal",
+      "dailyCap": 8
     },
     {
       "id": "feedx-zaobao",
@@ -172,7 +212,9 @@
       "url": "https://feedx.net/rss/zaobaotoday.xml",
       "category": "politics",
       "name": "联合早报",
-      "weight": 60
+      "weight": 60,
+      "tier": "signal",
+      "dailyCap": 8
     },
 
     {
@@ -181,7 +223,10 @@
       "url": "https://rsshub.app/weibo/search/hot",
       "category": "social",
       "name": "微博热搜",
-      "weight": 60
+      "weight": 60,
+      "tier": "watch",
+      "dailyCap": 8,
+      "keepInMainPool": false
     },
     {
       "id": "zhihu-hot",
@@ -189,7 +234,10 @@
       "url": "https://rsshub.app/zhihu/hotlist",
       "category": "social",
       "name": "知乎热榜",
-      "weight": 60
+      "weight": 60,
+      "tier": "watch",
+      "dailyCap": 8,
+      "keepInMainPool": false
     },
     {
       "id": "twitter-elonmusk",
@@ -197,7 +245,10 @@
       "url": "https://rsshub.app/twitter/user/elonmusk",
       "category": "social",
       "name": "X: Elon Musk",
-      "weight": 55
+      "weight": 55,
+      "tier": "watch",
+      "dailyCap": 5,
+      "keepInMainPool": false
     }
   ]
 }

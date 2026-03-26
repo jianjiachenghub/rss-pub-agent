@@ -1,0 +1,11 @@
+{
+  "startedAt": "2026-03-26T16:37:03.141Z",
+  "primaryItemsFetched": 724,
+  "primaryItemsRetained": 713,
+  "eventCandidates": 698,
+  "rawCandidates": 110,
+  "backfillItemsFetched": 0,
+  "sourceErrors": 0,
+  "degradedMode": "none",
+  "finishedAt": "2026-03-26T16:37:48.595Z"
+}

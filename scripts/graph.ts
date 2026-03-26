@@ -1,14 +1,34 @@
 import { config } from "dotenv";
+import { existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-config({ path: resolve(__dirname, "../.env") });
+
+function resolveEnvPath(): string | undefined {
+  // Support both source execution (`scripts/graph.ts`) and compiled execution (`scripts/dist/graph.js`).
+  const candidates = [
+    resolve(__dirname, "../.env"),
+    resolve(__dirname, "../../.env"),
+  ];
+
+  return candidates.find((candidate) => existsSync(candidate));
+}
+
+const envPath = resolveEnvPath();
+if (envPath) {
+  config({ path: envPath });
+} else {
+  // Fall back to dotenv's default lookup when no repo-level .env is found.
+  config();
+}
 
 import { StateGraph, START, END } from "@langchain/langgraph";
 import { PipelineState } from "./state.js";
 import { loadConfig } from "./nodes/load-config.js";
-import { fetchNode } from "./nodes/fetch.js";
+import { fetchPrimaryNode } from "./nodes/fetch-primary.js";
+import { preFilterNode } from "./nodes/pre-filter.js";
+import { fetchCoverageNode } from "./nodes/fetch-coverage.js";
 import { gateKeepNode } from "./nodes/gate-keep.js";
 import { scoreNode } from "./nodes/score.js";
 import { insightNode } from "./nodes/insight.js";
@@ -20,7 +40,9 @@ import { notifyNode } from "./nodes/notify.js";
 
 const graph = new StateGraph(PipelineState)
   .addNode("loadConfig", loadConfig)
-  .addNode("fetch", fetchNode)
+  .addNode("fetchPrimary", fetchPrimaryNode)
+  .addNode("preFilter", preFilterNode)
+  .addNode("fetchCoverage", fetchCoverageNode)
   .addNode("gateKeep", gateKeepNode)
   .addNode("score", scoreNode)
   .addNode("insight", insightNode)
@@ -31,8 +53,10 @@ const graph = new StateGraph(PipelineState)
   .addNode("notify", notifyNode)
 
   .addEdge(START, "loadConfig")
-  .addEdge("loadConfig", "fetch")
-  .addEdge("fetch", "gateKeep")
+  .addEdge("loadConfig", "fetchPrimary")
+  .addEdge("fetchPrimary", "preFilter")
+  .addEdge("preFilter", "fetchCoverage")
+  .addEdge("fetchCoverage", "gateKeep")
   .addEdge("gateKeep", "score")
   .addEdge("score", "insight")
   .addEdge("insight", "generateDaily")
@@ -53,6 +77,8 @@ async function main() {
 
   console.log("\n=== Pipeline Complete ===");
   console.log(`Date: ${result.date}`);
+  console.log(`Primary raw items: ${result.primaryRawItems?.length ?? 0}`);
+  console.log(`Event candidates: ${result.eventCandidates?.length ?? 0}`);
   console.log(`Raw items: ${result.rawItems?.length ?? 0}`);
   console.log(`After gate-keep: ${result.passedItems?.length ?? 0}`);
   console.log(`After scoring (top N): ${result.scoredItems?.length ?? 0}`);

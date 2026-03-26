@@ -1,11 +1,39 @@
 import type { PipelineStateType } from "../state.js";
 import { fetchRSS } from "../lib/rss.js";
 import { fetchViaFolo, fetchFoloByList } from "../lib/folo.js";
-import type { RawNewsItem, PipelineError } from "../lib/types.js";
+import type {
+  FeedSource,
+  FeedTier,
+  RawNewsItem,
+  PipelineError,
+} from "../lib/types.js";
 
 const CONCURRENCY = 5;
-// 如果 folo-list 抓取到的新闻数量超过这个阈值，就不再抓取其他源
-const FOLI_LIST_MIN_ITEMS = 50;
+const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+const MIN_MAIN_POOL_ITEMS = 60;
+const GLOBAL_RAW_CAP = 140;
+
+const DEFAULT_DAILY_CAP_BY_TIER: Record<FeedTier, number> = {
+  core: 12,
+  signal: 8,
+  watch: 4,
+};
+
+const TIER_PRIORITY: Record<FeedTier, number> = {
+  core: 0,
+  signal: 1,
+  watch: 2,
+};
+
+const CATEGORY_RAW_CAP: Record<string, number> = {
+  ai: 45,
+  tech: 20,
+  software: 18,
+  business: 18,
+  investment: 12,
+  politics: 14,
+  social: 10,
+};
 
 async function runWithConcurrency<T>(
   tasks: (() => Promise<T>)[],
@@ -26,6 +54,144 @@ async function runWithConcurrency<T>(
   return results;
 }
 
+function getFeedTier(feed: FeedSource): FeedTier {
+  if (feed.tier) return feed.tier;
+  return feed.keepInMainPool === false ? "watch" : "signal";
+}
+
+function shouldKeepInMainPool(feed: FeedSource): boolean {
+  // `watch` feeds stay out of the main daily pool unless the core/signal pool is too thin.
+  return feed.keepInMainPool !== false && getFeedTier(feed) !== "watch";
+}
+
+function getFeedDailyCap(feed: FeedSource): number {
+  const cap = feed.dailyCap ?? DEFAULT_DAILY_CAP_BY_TIER[getFeedTier(feed)];
+  return Math.max(1, cap);
+}
+
+function getPublishedTime(publishedAt?: string): number {
+  if (!publishedAt) return 0;
+  const time = new Date(publishedAt).getTime();
+  return Number.isFinite(time) ? time : 0;
+}
+
+function isRecentItem(item: RawNewsItem): boolean {
+  if (!item.publishedAt) return true;
+  return getPublishedTime(item.publishedAt) >= Date.now() - ONE_DAY_MS;
+}
+
+function normalizeFeedItems(feed: FeedSource, items: RawNewsItem[]): RawNewsItem[] {
+  // Every source is normalized the same way: 24h filter -> newest first -> source cap.
+  return items
+    .filter(isRecentItem)
+    .sort((a, b) => getPublishedTime(b.publishedAt) - getPublishedTime(a.publishedAt))
+    .slice(0, getFeedDailyCap(feed));
+}
+
+function dedupeItems(items: RawNewsItem[]): RawNewsItem[] {
+  const seen = new Set<string>();
+  return items.filter((item) => {
+    const key = item.url || `${item.sourceId}:${item.title}`;
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function applyCategoryCaps(items: RawNewsItem[]): RawNewsItem[] {
+  const counts = new Map<string, number>();
+  const selected: RawNewsItem[] = [];
+
+  for (const item of items) {
+    // Raw-stage category caps keep a single topic from consuming the whole daily candidate budget.
+    if (selected.length >= GLOBAL_RAW_CAP) break;
+
+    const category = item.category || "social";
+    const limit = CATEGORY_RAW_CAP[category] ?? 10;
+    const current = counts.get(category) ?? 0;
+
+    if (current >= limit) continue;
+
+    counts.set(category, current + 1);
+    selected.push(item);
+  }
+
+  return selected;
+}
+
+function summarizeCategoryCounts(items: RawNewsItem[]): Record<string, number> {
+  const counts = new Map<string, number>();
+  for (const item of items) {
+    const category = item.category || "social";
+    counts.set(category, (counts.get(category) ?? 0) + 1);
+  }
+  return Object.fromEntries(counts);
+}
+
+function finalizeItems(items: RawNewsItem[]): RawNewsItem[] {
+  // Cross-source governance happens here after all fetches complete.
+  const sorted = [...items].sort(
+    (a, b) => getPublishedTime(b.publishedAt) - getPublishedTime(a.publishedAt)
+  );
+  const deduped = dedupeItems(sorted);
+  return applyCategoryCaps(deduped);
+}
+
+function compareFeeds(a: FeedSource, b: FeedSource): number {
+  const tierDiff = TIER_PRIORITY[getFeedTier(a)] - TIER_PRIORITY[getFeedTier(b)];
+  if (tierDiff !== 0) return tierDiff;
+  return b.weight - a.weight;
+}
+
+async function fetchSingleFeed(
+  feed: FeedSource
+): Promise<{ items: RawNewsItem[]; error: PipelineError | null }> {
+  try {
+    const cap = getFeedDailyCap(feed);
+    let items: RawNewsItem[];
+
+    switch (feed.type) {
+      case "folo-list":
+        items = await fetchFoloByList(
+          process.env.FOLO_SESSION_TOKEN ?? "",
+          feed.listId ?? "",
+          feed.id,
+          feed.name,
+          feed.category,
+          cap
+        );
+        break;
+      case "folo":
+        if (!feed.url) throw new Error("feed.url is required for folo sources");
+        items = await fetchViaFolo(feed.url, feed.id, feed.name, feed.category, cap);
+        break;
+      case "rss":
+        if (!feed.url) throw new Error("feed.url is required for rss sources");
+        items = await fetchRSS(feed.url, feed.id, feed.name, feed.category);
+        break;
+      default:
+        items = [];
+    }
+
+    const normalizedItems = normalizeFeedItems(feed, items);
+    const scope = shouldKeepInMainPool(feed) ? "main" : "watch";
+    console.log(
+      `[fetch] ${scope}/${getFeedTier(feed)} ${feed.type} "${feed.name}" kept ${normalizedItems.length} items (cap ${cap})`
+    );
+    return { items: normalizedItems, error: null };
+  } catch (err) {
+    console.error(`[fetch] ${feed.type} "${feed.name}" failed: ${(err as Error).message}`);
+    return {
+      items: [],
+      error: {
+        node: "fetch",
+        message: `[${feed.name}] ${(err as Error).message}`,
+        timestamp: new Date().toISOString(),
+      },
+    };
+  }
+}
+
 export async function fetchNode(
   state: PipelineStateType
 ): Promise<Partial<PipelineStateType>> {
@@ -39,101 +205,55 @@ export async function fetchNode(
   const results: RawNewsItem[] = [];
   const errors: PipelineError[] = [];
 
-  // 第一步：优先抓取 folo-list 类型的新闻源
-  const foloListFeeds = config.feeds.filter((feed) => feed.type === "folo-list");
-  const otherFeeds = config.feeds.filter((feed) => feed.type !== "folo-list");
+  const orderedFeeds = [...config.feeds].sort(compareFeeds);
+  // Core/signal feeds define the main daily input; watch feeds are only used as low-priority backfill.
+  const mainPoolFeeds = orderedFeeds.filter(shouldKeepInMainPool);
+  const watchFeeds = orderedFeeds.filter((feed) => !shouldKeepInMainPool(feed));
 
-  console.log(`[fetch] Step 1: Fetching ${foloListFeeds.length} folo-list feeds...`);
+  console.log(
+    `[fetch] Main pool feeds: ${mainPoolFeeds.length}, watch feeds: ${watchFeeds.length}`
+  );
 
-  // 先抓取所有 folo-list 源
-  const foloListTasks = foloListFeeds.map((feed) => async () => {
-    try {
-      const items = await fetchFoloByList(
-        process.env.FOLO_SESSION_TOKEN ?? "",
-        feed.listId ?? "",
-        feed.id,
-        feed.name,
-        feed.category
-      );
-      console.log(`[fetch] Folo-list "${feed.name}" returned ${items.length} items`);
-      return { items, error: null as PipelineError | null, feedName: feed.name };
-    } catch (err) {
-      console.error(`[fetch] Folo-list "${feed.name}" failed: ${(err as Error).message}`);
-      return {
-        items: [] as RawNewsItem[],
-        error: {
-          node: "fetch",
-          message: `[${feed.name}] ${(err as Error).message}`,
-          timestamp: new Date().toISOString(),
-        } as PipelineError,
-        feedName: feed.name,
-      };
-    }
-  });
+  const mainPoolTasks = mainPoolFeeds.map((feed) => async () => fetchSingleFeed(feed));
+  const mainPoolResults = await runWithConcurrency(mainPoolTasks, CONCURRENCY);
 
-  const foloListResults = await runWithConcurrency(foloListTasks, CONCURRENCY);
-  let foloListTotalItems = 0;
-
-  for (const result of foloListResults) {
+  for (const result of mainPoolResults) {
     results.push(...result.items);
-    foloListTotalItems += result.items.length;
     if (result.error) errors.push(result.error);
   }
 
-  console.log(`[fetch] Folo-list total: ${foloListTotalItems} items`);
+  // Finalize once before backfill so we can decide whether the main pool is already healthy enough.
+  let finalItems = finalizeItems(results);
 
-  // 第二步：检查 folo-list 是否抓取到足够的新闻
-  // 如果 folo-list 抓取成功且数量充足，跳过其他源的抓取
-  if (foloListTotalItems >= FOLI_LIST_MIN_ITEMS) {
-    console.log(`[fetch] Folo-list returned ${foloListTotalItems} items (>= ${FOLI_LIST_MIN_ITEMS}), skipping other feeds.`);
-  } else {
-    console.log(`[fetch] Step 2: Folo-list only returned ${foloListTotalItems} items (< ${FOLI_LIST_MIN_ITEMS}), fetching other feeds...`);
+  console.log(
+    `[fetch] Main pool produced ${finalItems.length} items after dedupe/caps`
+  );
+  console.log(`[fetch] Main pool category distribution:`, summarizeCategoryCounts(finalItems));
 
-    // 抓取其他类型的源（folo 和 rss）
-    const otherTasks = otherFeeds.map((feed) => async () => {
-      try {
-        let items: RawNewsItem[];
-        switch (feed.type) {
-          case "folo":
-            items = await fetchViaFolo(feed.url, feed.id, feed.name, feed.category);
-            break;
-          case "rss":
-            items = await fetchRSS(feed.url, feed.id, feed.name, feed.category);
-            break;
-          default:
-            items = [];
-        }
-        console.log(`[fetch] ${feed.type} "${feed.name}" returned ${items.length} items`);
-        return { items, error: null as PipelineError | null };
-      } catch (err) {
-        console.error(`[fetch] ${feed.type} "${feed.name}" failed: ${(err as Error).message}`);
-        return {
-          items: [] as RawNewsItem[],
-          error: {
-            node: "fetch",
-            message: `[${feed.name}] ${(err as Error).message}`,
-            timestamp: new Date().toISOString(),
-          } as PipelineError,
-        };
-      }
-    });
+  if (finalItems.length < MIN_MAIN_POOL_ITEMS && watchFeeds.length > 0) {
+    console.log(
+      `[fetch] Main pool below threshold (${finalItems.length} < ${MIN_MAIN_POOL_ITEMS}), backfilling from watch feeds...`
+    );
 
-    const otherResults = await runWithConcurrency(otherTasks, CONCURRENCY);
-    for (const result of otherResults) {
+    const watchTasks = watchFeeds.map((feed) => async () => fetchSingleFeed(feed));
+    const watchResults = await runWithConcurrency(watchTasks, CONCURRENCY);
+
+    for (const result of watchResults) {
       results.push(...result.items);
       if (result.error) errors.push(result.error);
     }
+
+    finalItems = finalizeItems(results);
+    console.log(
+      `[fetch] After watch backfill: ${finalItems.length} items after dedupe/caps`
+    );
+    console.log(`[fetch] Final category distribution:`, summarizeCategoryCounts(finalItems));
+  } else if (watchFeeds.length > 0) {
+    console.log(`[fetch] Skipping watch feeds because main pool is sufficient.`);
   }
 
-  // 去重
-  const seen = new Set<string>();
-  const deduped = results.filter((item) => {
-    const key = item.url || item.title;
-    if (!key || seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-
-  console.log(`[fetch] Got ${results.length} items, ${deduped.length} after dedup, ${errors.length} source errors`);
-  return { rawItems: deduped, errors };
+  console.log(
+    `[fetch] Got ${results.length} raw items, kept ${finalItems.length} after governance, ${errors.length} source errors`
+  );
+  return { rawItems: finalItems, errors };
 }

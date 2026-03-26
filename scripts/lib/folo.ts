@@ -1,21 +1,59 @@
-import type { RawNewsItem } from "./types.js";
+import type { FetchCheckpoint, RawNewsItem } from "./types.js";
 
 const FOLO_API = "https://api.folo.is";
 
-// 分页配置
-const MAX_PAGES = 30; // 增加页数以确保覆盖 24 小时所有资讯
-const PAGE_DELAY_MS = 2000; // 每页间隔 2 秒，防止反爬
+// Pagination stays serial so the primary list fetch remains stable under rate limits.
+const MAX_PAGES = 30;
+const PAGE_DELAY_MS = 2000;
+const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+const MAX_RETRIES = 3;
+const MAX_CONSECUTIVE_FAILURES = 5;
+const DEFAULT_PAGE_LIMIT = 100;
+const MAX_CONSECUTIVE_OLD_PAGES = 2;
 
-/**
- * 延时函数
- */
+interface FoloListFetchOptions {
+  maxItems?: number;
+  maxPages?: number;
+  maxRetries?: number;
+  maxConsecutiveFailures?: number;
+  maxConsecutiveOldPages?: number;
+  pageTimeoutMs?: number;
+  pageLimit?: number;
+  withContent?: boolean;
+}
+
+interface FoloListFetchDetailedResult {
+  items: RawNewsItem[];
+  checkpoint: FetchCheckpoint;
+}
+
+interface FoloEntry {
+  id: string;
+  title?: string;
+  url?: string;
+  content?: string;
+  description?: string;
+  summary?: string;
+  publishedAt?: string;
+  insertedAt?: string;
+  author?: string;
+}
+
+interface FoloFeed {
+  id: string;
+  title: string;
+  url: string;
+}
+
+interface FoloEntryEnvelope {
+  entries?: FoloEntry;
+  feeds?: FoloFeed;
+}
+
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-/**
- * 生成随机用户代理
- */
 function getRandomUserAgent(): string {
   const userAgents = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
@@ -26,35 +64,55 @@ function getRandomUserAgent(): string {
   return userAgents[Math.floor(Math.random() * userAgents.length)];
 }
 
-/**
- * 通过 Folo API 获取 RSS 源的最新条目
- * 使用 GET /feeds?url=<rss_url>，不需要认证
- * Folo 会返回解析好的条目，部分条目还有 AI 生成的 summary
- */
+function buildFoloHeaders(sessionToken: string): Record<string, string> {
+  return {
+    "User-Agent": getRandomUserAgent(),
+    "Content-Type": "application/json",
+    accept: "application/json",
+    "accept-language": "zh-CN,zh;q=0.9",
+    origin: "https://app.folo.is",
+    "sec-ch-ua": '"Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-site",
+    "x-app-name": "Folo Web",
+    "x-app-version": "0.4.9",
+    Cookie: `__Secure-better-auth.session_token=${sessionToken}`,
+  };
+}
+
+function getEntryTimestamp(entry?: {
+  publishedAt?: string;
+  insertedAt?: string;
+}): string | null {
+  return entry?.publishedAt ?? entry?.insertedAt ?? null;
+}
+
 export async function fetchViaFolo(
   feedUrl: string,
   sourceId: string,
   sourceName: string,
-  category: string
+  category: string,
+  maxItems = 100
 ): Promise<RawNewsItem[]> {
   const now = new Date().toISOString();
+  const oneDayAgo = Date.now() - ONE_DAY_MS;
 
-  const res = await fetch(
-    `${FOLO_API}/feeds?url=${encodeURIComponent(feedUrl)}`,
-    {
-      headers: {
-        Accept: "application/json",
-        "User-Agent": getRandomUserAgent(),
-      },
-      signal: AbortSignal.timeout(20000),
-    }
-  );
+  const res = await fetch(`${FOLO_API}/feeds?url=${encodeURIComponent(feedUrl)}`, {
+    headers: {
+      Accept: "application/json",
+      "User-Agent": getRandomUserAgent(),
+    },
+    signal: AbortSignal.timeout(20000),
+  });
 
   if (!res.ok) {
     throw new Error(`Folo API error: ${res.status} ${res.statusText}`);
   }
 
-  const json = await res.json() as {
+  const json = (await res.json()) as {
     code: number;
     data?: {
       feed?: { id: string; title: string };
@@ -75,39 +133,58 @@ export async function fetchViaFolo(
     throw new Error(`Folo API returned code ${json.code}`);
   }
 
-  return json.data.entries.map((entry) => ({
-    id: `folo-${entry.id}`,
-    title: entry.title ?? "Untitled",
-    url: entry.url ?? "",
-    content: entry.summary || entry.content || entry.description || "",
-    source: sourceName,
-    sourceId,
-    category,
-    publishedAt: entry.publishedAt ?? now,
-    fetchedAt: now,
-  }));
+  return json.data.entries
+    .filter((entry) => {
+      if (!entry.publishedAt) return true;
+      return new Date(entry.publishedAt).getTime() > oneDayAgo;
+    })
+    .map((entry) => ({
+      id: `folo-${entry.id}`,
+      title: entry.title ?? "Untitled",
+      url: entry.url ?? "",
+      content: entry.summary || entry.content || entry.description || "",
+      source: sourceName,
+      sourceId,
+      category,
+      publishedAt: entry.publishedAt ?? now,
+      fetchedAt: now,
+    }))
+    .sort((a, b) => {
+      const timeA = new Date(a.publishedAt).getTime();
+      const timeB = new Date(b.publishedAt).getTime();
+      return timeB - timeA;
+    })
+    .slice(0, maxItems);
 }
 
-/**
- * 通过 Folo API 按 listId 拉取（需要 session token 认证）
- * 
- * 直接通过 POST /entries 获取列表中所有订阅源的最新条目
- * 使用 publishedAfter 游标实现分页抓取
- * 
- * @param sessionToken - Follow 的 session token（从浏览器 Cookie 获取）
- * @param listId - Follow 列表 ID
- * @param sourceId - 配置中的源 ID
- * @param sourceName - 配置中的源名称（列表名称）
- * @param category - 分类
- * @returns 原始新闻条目数组
- */
 export async function fetchFoloByList(
   sessionToken: string,
   listId: string,
   sourceId: string,
   sourceName: string,
-  category: string
+  category: string,
+  maxItems = 120
 ): Promise<RawNewsItem[]> {
+  const result = await fetchFoloByListDetailed(
+    sessionToken,
+    listId,
+    sourceId,
+    sourceName,
+    category,
+    { maxItems }
+  );
+
+  return result.items;
+}
+
+export async function fetchFoloByListDetailed(
+  sessionToken: string,
+  listId: string,
+  sourceId: string,
+  sourceName: string,
+  category: string,
+  options: FoloListFetchOptions = {}
+): Promise<FoloListFetchDetailedResult> {
   if (!sessionToken) {
     throw new Error("FOLO_SESSION_TOKEN not set");
   }
@@ -118,183 +195,248 @@ export async function fetchFoloByList(
 
   const now = new Date().toISOString();
   const allEntries: RawNewsItem[] = [];
-
-  // 计算 24 小时前的时间戳
-  const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
+  const maxItems = options.maxItems ?? 120;
+  const maxPages = options.maxPages ?? MAX_PAGES;
+  const maxRetries = options.maxRetries ?? MAX_RETRIES;
+  const maxConsecutiveFailures =
+    options.maxConsecutiveFailures ?? MAX_CONSECUTIVE_FAILURES;
+  const maxConsecutiveOldPages =
+    options.maxConsecutiveOldPages ?? MAX_CONSECUTIVE_OLD_PAGES;
+  const pageTimeoutMs = options.pageTimeoutMs ?? 30000;
+  const pageLimit = options.pageLimit ?? DEFAULT_PAGE_LIMIT;
+  // Metadata-first fetch is more reliable for large read-heavy lists: Folo can return
+  // empty `entries` objects for read items when `withContent: true` is requested.
+  const withContent = options.withContent ?? false;
+  const oneDayAgo = Date.now() - ONE_DAY_MS;
 
   console.log(`[folo-list] Fetching list: ${sourceName} (listId: ${listId})`);
   console.log(`[folo-list] Using session token: ${sessionToken.substring(0, 20)}...`);
-  console.log(`[folo-list] Target: fetch all news within 24h, up to ${MAX_PAGES} pages`);
+  console.log(
+    `[folo-list] Target: fetch recent news within 24h, up to ${maxPages} pages, ${pageLimit} items/page and ${maxItems} items total`
+  );
 
   let publishedAfter: string | null = null;
+  let consecutiveOldPages = 0;
+  const checkpoint: FetchCheckpoint = {
+    sourceId,
+    listId,
+    publishedAfter,
+    pagesFetched: 0,
+    pagesSucceeded: 0,
+    consecutiveFailures: 0,
+    stoppedReason: "running",
+    degradedMode: "none",
+    updatedAt: now,
+  };
 
-  for (let page = 0; page < MAX_PAGES; page++) {
-    const userAgent = getRandomUserAgent();
-    const headers: Record<string, string> = {
-      'User-Agent': userAgent,
-      'Content-Type': 'application/json',
-      'accept': 'application/json',
-      'accept-language': 'zh-CN,zh;q=0.9',
-      'origin': 'https://app.folo.is',
-      'sec-ch-ua': '"Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"',
-      'sec-ch-ua-mobile': '?0',
-      'sec-ch-ua-platform': '"Windows"',
-      'sec-fetch-dest': 'empty',
-      'sec-fetch-mode': 'cors',
-      'sec-fetch-site': 'same-site',
-      'x-app-name': 'Folo Web',
-      'x-app-version': '0.4.9',
-      'Cookie': `__Secure-better-auth.session_token=${sessionToken}`,
-    };
+  for (let page = 0; page < maxPages; page++) {
+    checkpoint.pagesFetched = page + 1;
+    checkpoint.updatedAt = new Date().toISOString();
 
     const body: Record<string, unknown> = {
       listId,
       view: 0,
-      withContent: true,
+      withContent,
+      limit: pageLimit,
     };
 
     if (publishedAfter) {
       body.publishedAfter = publishedAfter;
     }
 
-    console.log(`[folo-list] Fetching page ${page + 1}/${MAX_PAGES}...`);
+    console.log(`[folo-list] Fetching page ${page + 1}/${maxPages}...`);
     console.log(`[folo-list] POST body:`, JSON.stringify(body));
 
-    try {
-      const res = await fetch(`${FOLO_API}/entries`, {
-        method: "POST",
-        headers,
-        body: JSON.stringify(body),
-        signal: AbortSignal.timeout(30000),
-      });
+    let pageData: FoloEntryEnvelope[] | null = null;
 
-      console.log(`[folo-list] HTTP status: ${res.status} ${res.statusText}`);
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        const res = await fetch(`${FOLO_API}/entries`, {
+          method: "POST",
+          headers: buildFoloHeaders(sessionToken),
+          body: JSON.stringify(body),
+          signal: AbortSignal.timeout(pageTimeoutMs),
+        });
 
-      if (res.status === 401) {
-        throw new Error("Folo session token expired or invalid");
-      }
+        console.log(`[folo-list] HTTP status: ${res.status} ${res.statusText}`);
 
-      if (!res.ok) {
-        const errorText = await res.text();
-        console.error(`[folo-list] API error on page ${page + 1}: ${res.status} ${res.statusText}`);
-        console.error(`[folo-list] Error response body:`, errorText.substring(0, 500));
+        if (res.status === 401) {
+          checkpoint.degradedMode = "hard";
+          throw new Error("Folo session token expired or invalid");
+        }
+
+        if (!res.ok) {
+          const errorText = await res.text();
+          throw new Error(
+            `Folo API error: ${res.status} ${res.statusText} | ${errorText.substring(0, 200)}`
+          );
+        }
+
+        const json = (await res.json()) as {
+          code: number;
+          data?: FoloEntryEnvelope[];
+        };
+
+        console.log(
+          `[folo-list] Response code: ${json.code}, data length: ${Array.isArray(json.data) ? json.data.length : "N/A"}`
+        );
+
+        if (json.code !== 0) {
+          throw new Error(`Folo API returned code ${json.code}`);
+        }
+
+        pageData = Array.isArray(json.data) ? json.data : [];
+        checkpoint.pagesSucceeded += 1;
+        checkpoint.consecutiveFailures = 0;
         break;
-      }
+      } catch (error) {
+        console.error(
+          `[folo-list] Error on page ${page + 1}, attempt ${attempt}/${maxRetries}:`,
+          error
+        );
 
-      const json = await res.json() as {
-        code: number;
-        data?: Array<{
-          entries: {
-            id: string;
-            title?: string;
-            url?: string;
-            content?: string;
-            description?: string;
-            publishedAt?: string;
-            author?: string;
-          };
-          feeds: {
-            id: string;
-            title: string;
-            url: string;
-          };
-        }>;
-      };
-
-      console.log(`[folo-list] Response code: ${json.code}, data length: ${Array.isArray(json.data) ? json.data.length : 'N/A'}`);
-
-      if (json.code !== 0) {
-        console.error(`[folo-list] API returned code ${json.code} on page ${page + 1}`);
-        console.error(`[folo-list] Full response:`, JSON.stringify(json).substring(0, 500));
-        break;
-      }
-
-      const pageData = Array.isArray(json.data) ? json.data : [];
-      if (pageData.length === 0) {
-        console.log(`[folo-list] No more data on page ${page + 1}, stopping.`);
-        break;
-      }
-
-      // 过滤 24 小时内的条目，直接使用 entries 数据
-      let recentCount = 0;
-      let tooOldCount = 0;
-
-      for (const item of pageData) {
-        const entry = item.entries;
-        const feed = item.feeds;
-
-        if (!entry) continue;
-
-        const publishedTime = entry.publishedAt
-          ? new Date(entry.publishedAt).getTime()
-          : 0;
-
-        if (publishedTime < oneDayAgo) {
-          tooOldCount++;
+        if (attempt < maxRetries) {
+          checkpoint.degradedMode = "soft";
+          await sleep(attempt === 1 ? 2000 : attempt === 2 ? 5000 : 10000);
           continue;
         }
 
-        recentCount++;
-        allEntries.push({
-          id: `folo-${entry.id}`,
-          title: entry.title ?? "Untitled",
-          url: entry.url ?? "",
-          content: entry.content || entry.description || "",
-          source: entry.author
-            ? `${feed?.title ?? sourceName} - ${entry.author}`
-            : (feed?.title ?? sourceName),
-          sourceId: `${sourceId}-${feed?.id ?? "unknown"}`,
-          category,
-          publishedAt: entry.publishedAt ?? now,
-          fetchedAt: now,
-        });
+        checkpoint.consecutiveFailures += 1;
+        if (checkpoint.consecutiveFailures >= maxConsecutiveFailures) {
+          checkpoint.degradedMode = "hard";
+          checkpoint.stoppedReason = "consecutive_failures";
+          checkpoint.updatedAt = new Date().toISOString();
+          console.error("[folo-list] Too many consecutive failures, stopping primary fetch.");
+          pageData = null;
+          break;
+        }
+      }
+    }
+
+    if (pageData === null) {
+      if (checkpoint.degradedMode === "hard") break;
+      continue;
+    }
+
+    if (pageData.length === 0) {
+      checkpoint.stoppedReason = "no_more_data";
+      console.log(`[folo-list] No more data on page ${page + 1}, stopping.`);
+      break;
+    }
+
+    let recentCount = 0;
+    let tooOldCount = 0;
+    let missingEntryCount = 0;
+    let missingTimestampCount = 0;
+
+    for (const item of pageData) {
+      const entry = item.entries;
+      const feed = item.feeds;
+
+      if (!entry?.id) {
+        missingEntryCount++;
+        continue;
       }
 
-      console.log(
-        `[folo-list] Page ${page + 1}: ${pageData.length} items, ${recentCount} within 24h, ${tooOldCount} too old`
+      const publishedAt = getEntryTimestamp(entry);
+      if (!publishedAt) {
+        missingTimestampCount++;
+        continue;
+      }
+
+      const publishedTime = new Date(publishedAt).getTime();
+      if (Number.isNaN(publishedTime)) {
+        missingTimestampCount++;
+        continue;
+      }
+
+      if (publishedTime < oneDayAgo) {
+        tooOldCount++;
+        continue;
+      }
+
+      recentCount++;
+      allEntries.push({
+        id: `folo-${entry.id}`,
+        title: entry.title ?? "Untitled",
+        url: entry.url ?? "",
+        content: entry.summary || entry.description || entry.content || "",
+        source: entry.author
+          ? `${feed?.title ?? sourceName} - ${entry.author}`
+          : feed?.title ?? sourceName,
+        sourceId: `${sourceId}-${feed?.id ?? "unknown"}`,
+        category,
+        publishedAt,
+        fetchedAt: new Date().toISOString(),
+      });
+    }
+
+    console.log(
+      `[folo-list] Page ${page + 1}: ${pageData.length} items, ${recentCount} within 24h, ${tooOldCount} too old, ${missingEntryCount} empty entries, ${missingTimestampCount} missing timestamps`
+    );
+
+    if (allEntries.length >= maxItems) {
+      checkpoint.stoppedReason = "max_items";
+      console.log(`[folo-list] Reached max item limit (${maxItems}), stopping.`);
+      break;
+    }
+
+    // Some lists are not ordered exactly like the original AI list, so we only stop
+    // after multiple fully stale pages instead of bailing on the first old page.
+    const usableEntries = recentCount + tooOldCount;
+    if (usableEntries > 0 && recentCount === 0) {
+      consecutiveOldPages += 1;
+      if (consecutiveOldPages >= maxConsecutiveOldPages) {
+        checkpoint.stoppedReason = "older_than_24h";
+        console.log(
+          `[folo-list] Saw ${consecutiveOldPages} consecutive pages without 24h entries, stopping.`
+        );
+        break;
+      }
+    } else {
+      consecutiveOldPages = 0;
+    }
+
+    const cursorTimestamp =
+      getEntryTimestamp(pageData[pageData.length - 1]?.entries) ??
+      getEntryTimestamp(
+        [...pageData]
+          .reverse()
+          .find((item) => Boolean(item.entries?.id && getEntryTimestamp(item.entries)))?.entries
       );
 
-      // 如果本页数据大部分已超过 24 小时，停止翻页
-      if (tooOldCount > 0 && recentCount === 0) {
-        console.log(`[folo-list] All items on page ${page + 1} are older than 24h, stopping.`);
-        break;
-      }
-
-      // 使用最后一条的 publishedAt 作为下一页游标
-      const lastEntry = pageData[pageData.length - 1]?.entries;
-      if (lastEntry?.publishedAt) {
-        publishedAfter = lastEntry.publishedAt;
-      } else {
-        console.log(`[folo-list] No publishedAt on last entry, stopping pagination.`);
-        break;
-      }
-
-      // 延时防止请求过快
-      if (page < MAX_PAGES - 1) {
-        await sleep(PAGE_DELAY_MS + Math.random() * 3000);
-      }
-    } catch (error) {
-      console.error(`[folo-list] Error on page ${page + 1}:`, error);
+    if (cursorTimestamp) {
+      publishedAfter = cursorTimestamp;
+      checkpoint.publishedAfter = publishedAfter;
+      checkpoint.lastSuccessfulPublishedAt = cursorTimestamp;
+    } else {
+      checkpoint.stoppedReason = "missing_cursor";
+      console.log("[folo-list] No usable timestamp in page payload, stopping pagination.");
       break;
+    }
+
+    if (page < maxPages - 1) {
+      await sleep(PAGE_DELAY_MS + Math.random() * 3000);
     }
   }
 
+  if (checkpoint.stoppedReason === "running") {
+    checkpoint.stoppedReason = checkpoint.pagesFetched >= maxPages ? "max_pages" : "completed";
+  }
+  checkpoint.updatedAt = new Date().toISOString();
+
   console.log(`[folo-list] Total entries within 24h: ${allEntries.length}`);
 
-  // 按发布时间排序（最新的在前）
   allEntries.sort((a, b) => {
     const timeA = new Date(a.publishedAt).getTime();
     const timeB = new Date(b.publishedAt).getTime();
     return timeB - timeA;
   });
 
-  // 限制总数量，避免过多
-  const MAX_TOTAL_ITEMS = 300;
-  const finalEntries = allEntries.slice(0, MAX_TOTAL_ITEMS);
+  const finalEntries = allEntries.slice(0, maxItems);
 
   console.log(`[folo-list] Returning ${finalEntries.length} entries (from ${allEntries.length} total)`);
 
-  // 输出前 5 条新闻的详细信息
   finalEntries.slice(0, 5).forEach((entry, index) => {
     console.log(`[folo-list] Entry ${index + 1}:`);
     console.log(`  Title: ${entry.title}`);
@@ -304,5 +446,5 @@ export async function fetchFoloByList(
     console.log(`  Content preview: ${entry.content.substring(0, 100)}...`);
   });
 
-  return finalEntries;
+  return { items: finalEntries, checkpoint };
 }
