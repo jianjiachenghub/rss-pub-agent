@@ -29,6 +29,7 @@ import { loadConfig } from "./nodes/load-config.js";
 import { fetchPrimaryNode } from "./nodes/fetch-primary.js";
 import { preFilterNode } from "./nodes/pre-filter.js";
 import { fetchCoverageNode } from "./nodes/fetch-coverage.js";
+import { editorialAgendaNode } from "./nodes/editorial-agenda.js";
 import { gateKeepNode } from "./nodes/gate-keep.js";
 import { scoreNode } from "./nodes/score.js";
 import { insightNode } from "./nodes/insight.js";
@@ -43,6 +44,7 @@ const graph = new StateGraph(PipelineState)
   .addNode("fetchPrimary", fetchPrimaryNode)
   .addNode("preFilter", preFilterNode)
   .addNode("fetchCoverage", fetchCoverageNode)
+  .addNode("buildEditorialAgenda", editorialAgendaNode)
   .addNode("gateKeep", gateKeepNode)
   .addNode("score", scoreNode)
   .addNode("insight", insightNode)
@@ -56,7 +58,8 @@ const graph = new StateGraph(PipelineState)
   .addEdge("loadConfig", "fetchPrimary")
   .addEdge("fetchPrimary", "preFilter")
   .addEdge("preFilter", "fetchCoverage")
-  .addEdge("fetchCoverage", "gateKeep")
+  .addEdge("fetchCoverage", "buildEditorialAgenda")
+  .addEdge("buildEditorialAgenda", "gateKeep")
   .addEdge("gateKeep", "score")
   .addEdge("score", "insight")
   .addEdge("insight", "generateDaily")

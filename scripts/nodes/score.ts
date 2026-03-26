@@ -1,53 +1,82 @@
 import type { PipelineStateType } from "../state.js";
 import { callLLMJson } from "../lib/llm.js";
-import { scoreSystemPrompt, scoreUserPrompt } from "../lib/prompts.js";
-import type { ScoredNewsItem } from "../lib/types.js";
+import { CATEGORIES, scoreSystemPrompt, scoreUserPrompt } from "../lib/prompts.js";
+import type {
+  EditorialStrategyConfig,
+  NewsCategory,
+  ScoredNewsItem,
+  ScoringDimensions,
+} from "../lib/types.js";
 
 const BATCH_SIZE = 10;
-
-// 每个分类的最小配额
-const CATEGORY_MIN_QUOTA: Record<string, number> = {
-  ai: 3,
-  tech: 2,
-  software: 2,
-  business: 2,
-  investment: 2,
-  politics: 2,
-  social: 2,
-};
-
-// 每个分类的最大数量
-const CATEGORY_MAX_LIMIT: Record<string, number> = {
-  ai: 12,
-  tech: 6,
-  software: 6,
-  business: 6,
-  investment: 6,
-  politics: 6,
-  social: 6,
-};
-
-// 总目标新闻数 (深度解读的)
-const TARGET_TOTAL_ITEMS = 30;
+const SECONDARY_SCORE_THRESHOLD = 45;
 
 interface ScoreResult {
   id: string;
-  scores: {
-    novelty: number;
-    utility: number;
-    impact: number;
-    credibility: number;
-    timeliness: number;
-    uniqueness: number;
-  };
-  weightedScore: number;
+  scores: ScoringDimensions;
   scoreReasoning: string;
+}
+
+function computeBaseScore(
+  scores: ScoringDimensions,
+  weights: EditorialStrategyConfig["scoringWeights"]
+): number {
+  return Math.round(
+    (scores.signalStrength * weights.signalStrength +
+      scores.futureImpact * weights.futureImpact +
+      scores.personalRelevance * weights.personalRelevance +
+      scores.decisionUsefulness * weights.decisionUsefulness +
+      scores.credibility * weights.credibility +
+      scores.timeliness * weights.timeliness) * 10
+  );
+}
+
+function getCategoryBonus(
+  category: string,
+  state: PipelineStateType
+): number {
+  const strategy = state.config?.editorial;
+  if (!strategy) return 0;
+
+  const baseWeight = strategy.baseCategoryWeights[category as NewsCategory] ?? 0.5;
+  const dailyBoost = state.editorialAgenda.categoryBoosts[category as NewsCategory] ?? 0;
+
+  return Math.round((baseWeight - 0.5) * 18 + dailyBoost * 15);
+}
+
+function buildCategoryCaps(state: PipelineStateType): Record<NewsCategory, number> {
+  const topN = state.config?.topN ?? 18;
+  const strategy = state.config?.editorial;
+  const effectiveWeights = CATEGORIES.reduce((acc, category) => {
+    const baseWeight = strategy?.baseCategoryWeights[category] ?? 0.5;
+    const dailyBoost = state.editorialAgenda.categoryBoosts[category] ?? 0;
+    acc[category] = Math.max(0.05, baseWeight + dailyBoost);
+    return acc;
+  }, {} as Record<NewsCategory, number>);
+
+  const totalWeight = Object.values(effectiveWeights).reduce(
+    (sum, value) => sum + value,
+    0
+  );
+
+  return CATEGORIES.reduce((acc, category) => {
+    const minimum = strategy?.minimumCategoryCoverage[category] ?? 0;
+    const target = Math.round((effectiveWeights[category] / totalWeight) * topN);
+    acc[category] = Math.max(minimum, target + 1);
+    return acc;
+  }, {} as Record<NewsCategory, number>);
+}
+
+function normalizeCategory(category: string): NewsCategory {
+  return CATEGORIES.includes(category as NewsCategory)
+    ? (category as NewsCategory)
+    : "social";
 }
 
 export async function scoreNode(
   state: PipelineStateType
 ): Promise<Partial<PipelineStateType>> {
-  const { passedItems, config } = state;
+  const { passedItems, config, editorialAgenda } = state;
   if (!passedItems.length || !config) {
     return { scoredItems: [] };
   }
@@ -62,12 +91,18 @@ export async function scoreNode(
         title: item.title,
         content: item.content,
         source: item.source,
+        category: item.category,
+        publishedAt: item.publishedAt,
       }));
 
       console.log(`[score] Scoring batch ${i / BATCH_SIZE + 1} (${batch.length} items)...`);
 
       const results = await callLLMJson<ScoreResult[]>({
-        systemPrompt: scoreSystemPrompt(config.interests),
+        systemPrompt: scoreSystemPrompt(
+          config.interests,
+          config.editorial,
+          editorialAgenda
+        ),
         prompt: scoreUserPrompt(batchInput),
         model: "flash",
         jsonSchema: {
@@ -79,127 +114,166 @@ export async function scoreNode(
               scores: {
                 type: "OBJECT",
                 properties: {
-                  novelty: { type: "NUMBER" },
-                  utility: { type: "NUMBER" },
-                  impact: { type: "NUMBER" },
+                  signalStrength: { type: "NUMBER" },
+                  futureImpact: { type: "NUMBER" },
+                  personalRelevance: { type: "NUMBER" },
+                  decisionUsefulness: { type: "NUMBER" },
                   credibility: { type: "NUMBER" },
                   timeliness: { type: "NUMBER" },
-                  uniqueness: { type: "NUMBER" },
                 },
-                required: ["novelty", "utility", "impact", "credibility", "timeliness", "uniqueness"],
+                required: [
+                  "signalStrength",
+                  "futureImpact",
+                  "personalRelevance",
+                  "decisionUsefulness",
+                  "credibility",
+                  "timeliness",
+                ],
               },
-              weightedScore: { type: "NUMBER" },
               scoreReasoning: { type: "STRING" },
             },
-            required: ["id", "scores", "weightedScore", "scoreReasoning"],
+            required: ["id", "scores", "scoreReasoning"],
           },
         },
       });
 
-      // Ensure results is an array - handle both direct array and wrapped object
       let resultsArray: ScoreResult[] = [];
       if (Array.isArray(results)) {
         resultsArray = results;
-      } else if (typeof results === 'object' && results !== null) {
+      } else if (typeof results === "object" && results !== null) {
         const values = Object.values(results);
-        const arrayValue = values.find((v) => Array.isArray(v));
+        const arrayValue = values.find((value) => Array.isArray(value));
         if (arrayValue) {
           resultsArray = arrayValue as ScoreResult[];
         }
       }
+
       if (!Array.isArray(results)) {
         console.warn(`[score] Expected array but got ${typeof results}, attempting extraction`);
       }
+
       allScores.push(...resultsArray);
     }
 
-    const scoreMap = new Map(allScores.map((s) => [s.id, s]));
-    
-    // 先给所有新闻打分
+    const scoreMap = new Map(allScores.map((score) => [score.id, score]));
+    const mustCoverIds = new Set(editorialAgenda.mustCoverIds ?? []);
     const allScoredItems: ScoredNewsItem[] = passedItems
       .map((item) => {
         const score = scoreMap.get(item.id);
         if (!score) return null;
+
+        const baseScore = computeBaseScore(score.scores, config.editorial.scoringWeights);
+        const categoryBonus = getCategoryBonus(item.category, state);
+        const mustCoverBonus = mustCoverIds.has(item.id) ? 8 : 0;
+        const weightedScore = Math.max(
+          0,
+          Math.min(100, baseScore + categoryBonus + mustCoverBonus)
+        );
+
         return {
           ...item,
           scores: score.scores,
-          weightedScore: score.weightedScore,
+          weightedScore,
           scoreReasoning: score.scoreReasoning,
         };
       })
-      .filter((x): x is ScoredNewsItem => x !== null)
+      .filter((item): item is ScoredNewsItem => item !== null)
       .sort((a, b) => b.weightedScore - a.weightedScore);
 
-    // 按分类分组
-    const byCategory = new Map<string, ScoredNewsItem[]>();
+    const topN = config.topN;
+    const minimumCoverage = config.editorial.minimumCategoryCoverage;
+    const categoryCaps = buildCategoryCaps(state);
+    const byCategory = new Map<NewsCategory, ScoredNewsItem[]>();
+
     for (const item of allScoredItems) {
-      const cat = item.category || "social";
-      if (!byCategory.has(cat)) {
-        byCategory.set(cat, []);
+      const category = normalizeCategory(item.category);
+      if (!byCategory.has(category)) {
+        byCategory.set(category, []);
       }
-      byCategory.get(cat)!.push(item);
+      byCategory.get(category)!.push(item);
     }
 
-    // 分类配额选择
     const selectedItems: ScoredNewsItem[] = [];
-    const categoryCounts = new Map<string, number>();
+    const selectedIds = new Set<string>();
+    const categoryCounts = new Map<NewsCategory, number>();
 
-    // 第一轮：确保每个分类达到最小配额
-    for (const [cat, minQuota] of Object.entries(CATEGORY_MIN_QUOTA)) {
-      const catItems = byCategory.get(cat) || [];
-      const selected = catItems.slice(0, minQuota);
-      selectedItems.push(...selected);
-      categoryCounts.set(cat, selected.length);
-      console.log(`[score] Category ${cat}: selected ${selected.length}/${catItems.length} (min quota: ${minQuota})`);
-    }
-
-    // 第二轮：按分数补充，直到达到目标总数
-    const remainingItems = allScoredItems.filter(
-      (item) => !selectedItems.some((s) => s.id === item.id)
-    );
-
-    for (const item of remainingItems) {
-      if (selectedItems.length >= TARGET_TOTAL_ITEMS) break;
-      
-      const cat = item.category || "social";
-      const currentCount = categoryCounts.get(cat) || 0;
-      const maxLimit = CATEGORY_MAX_LIMIT[cat] || 5;
-      
-      if (currentCount < maxLimit) {
+    // Keep baseline category coverage so the report remains multi-category even on AI-heavy days.
+    for (const category of CATEGORIES) {
+      const minimum = minimumCoverage[category] ?? 0;
+      const candidates = byCategory.get(category) ?? [];
+      for (const item of candidates.slice(0, minimum)) {
+        if (selectedItems.length >= topN || selectedIds.has(item.id)) break;
         selectedItems.push(item);
-        categoryCounts.set(cat, currentCount + 1);
+        selectedIds.add(item.id);
+        categoryCounts.set(category, (categoryCounts.get(category) ?? 0) + 1);
       }
     }
 
-    // 最终排序
+    for (const item of allScoredItems) {
+      if (selectedItems.length >= topN || selectedIds.has(item.id)) continue;
+      const category = normalizeCategory(item.category);
+      const currentCount = categoryCounts.get(category) ?? 0;
+      const cap = categoryCaps[category];
+
+      if (currentCount < cap) {
+        selectedItems.push(item);
+        selectedIds.add(item.id);
+        categoryCounts.set(category, currentCount + 1);
+      }
+    }
+
+    for (const item of allScoredItems) {
+      if (selectedItems.length >= topN || selectedIds.has(item.id)) continue;
+      selectedItems.push(item);
+      selectedIds.add(item.id);
+      const category = normalizeCategory(item.category);
+      categoryCounts.set(category, (categoryCounts.get(category) ?? 0) + 1);
+    }
+
     selectedItems.sort((a, b) => b.weightedScore - a.weightedScore);
 
-    // 筛选出“备选/参考”新闻：不在 selectedItems 中，但分数还可以 (>30) 的。
     const secondaryItems = allScoredItems
-      .filter((item) => !selectedItems.some((s) => s.id === item.id))
-      .filter((item) => item.weightedScore >= 35) // 只要不是太烂的（噪声）都放进列表
-      .slice(0, 50); // 最多再放 50 条
+      .filter((item) => !selectedIds.has(item.id))
+      .filter((item) => item.weightedScore >= SECONDARY_SCORE_THRESHOLD)
+      .slice(0, 60);
 
     console.log(
-      `[score] Scored ${allScores.length} items, selected ${selectedItems.length} for insights, ${secondaryItems.length} for secondary list`
+      `[score] Scored ${allScores.length} items, selected ${selectedItems.length} deep dives, ${secondaryItems.length} secondary items`
     );
-    console.log(`[score] Category distribution:`, Object.fromEntries(categoryCounts));
+    console.log("[score] Category caps:", categoryCaps);
+    console.log("[score] Category distribution:", Object.fromEntries(categoryCounts));
 
-    return { 
+    return {
       scoredItems: selectedItems,
-      secondaryItems: secondaryItems 
+      secondaryItems,
     };
   } catch (err) {
     console.error("[score] Failed:", err);
-    const fallback: ScoredNewsItem[] = passedItems.slice(0, TARGET_TOTAL_ITEMS).map((item) => ({
-      ...item,
-      scores: { novelty: 5, utility: 5, impact: 5, credibility: 5, timeliness: 5, uniqueness: 5 },
-      weightedScore: 50,
-      scoreReasoning: "Scoring failed, using default",
-    }));
+    const fallback: ScoredNewsItem[] = passedItems
+      .slice(0, config.topN)
+      .map((item) => ({
+        ...item,
+        scores: {
+          signalStrength: 5,
+          futureImpact: 5,
+          personalRelevance: 5,
+          decisionUsefulness: 5,
+          credibility: 5,
+          timeliness: 5,
+        },
+        weightedScore: 50,
+        scoreReasoning: "Scoring failed, using default values.",
+      }));
+
     return {
       scoredItems: fallback,
-      errors: [{ node: "score", message: (err as Error).message, timestamp: new Date().toISOString() }],
+      errors: [
+        {
+          node: "score",
+          message: (err as Error).message,
+          timestamp: new Date().toISOString(),
+        },
+      ],
     };
   }
 }

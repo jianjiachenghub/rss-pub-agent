@@ -1,6 +1,14 @@
 // ===== Config Types =====
 
 export type FeedTier = "core" | "signal" | "watch";
+export type NewsCategory =
+  | "ai"
+  | "tech"
+  | "software"
+  | "business"
+  | "investment"
+  | "politics"
+  | "social";
 
 export interface FeedSource {
   id: string;
@@ -24,12 +32,31 @@ export interface UserInterest {
   keywords: string[];
 }
 
+export interface EditorialStrategyConfig {
+  positioning: string;
+  dailyObjective: string;
+  baseCategoryWeights: Partial<Record<NewsCategory, number>>;
+  minimumCategoryCoverage: Partial<Record<NewsCategory, number>>;
+  scoringWeights: {
+    signalStrength: number;
+    futureImpact: number;
+    personalRelevance: number;
+    decisionUsefulness: number;
+    credibility: number;
+    timeliness: number;
+  };
+  mustWatchThemes: string[];
+  selectionPrinciples: string[];
+}
+
 export interface PipelineConfig {
   feeds: FeedSource[];
   interests: UserInterest[];
   topN: number;
   language: "zh" | "en";
   outputStyle: "professional" | "casual";
+  reportName?: string;
+  editorial: EditorialStrategyConfig;
 }
 
 export interface PlatformConfig {
@@ -99,6 +126,17 @@ export interface CoverageStats {
   totalSelectedEvents: number;
 }
 
+export interface EditorialAgenda {
+  dominantNarrative: string;
+  openingAngle: string;
+  closingOutlookAngle: string;
+  mustCoverThemes: string[];
+  watchSignals: string[];
+  mustCoverIds: string[];
+  categoryBoosts: Partial<Record<NewsCategory, number>>;
+  rationale: string;
+}
+
 export interface GateKeepResult {
   id: string;
   action: "PASS" | "DROP" | "MERGE";
@@ -106,15 +144,17 @@ export interface GateKeepResult {
   reason: string;
 }
 
+export interface ScoringDimensions {
+  signalStrength: number;
+  futureImpact: number;
+  personalRelevance: number;
+  decisionUsefulness: number;
+  credibility: number;
+  timeliness: number;
+}
+
 export interface ScoredNewsItem extends RawNewsItem {
-  scores: {
-    novelty: number;
-    utility: number;
-    impact: number;
-    credibility: number;
-    timeliness: number;
-    uniqueness: number;
-  };
+  scores: ScoringDimensions;
   weightedScore: number;
   scoreReasoning: string;
 }

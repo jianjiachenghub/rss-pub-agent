@@ -1,213 +1,336 @@
-import { UserInterest } from "./types.js";
+import type {
+  CoverageStats,
+  EditorialAgenda,
+  EditorialStrategyConfig,
+  NewsCategory,
+  UserInterest,
+} from "./types.js";
+
+function truncateText(text: string, limit: number): string {
+  const normalized = text.replace(/\s+/g, " ").trim();
+  return normalized.length > limit
+    ? `${normalized.slice(0, limit)}...`
+    : normalized;
+}
 
 function buildInterestContext(interests: UserInterest[]): string {
-  const must = interests.filter((i) => i.level === "must");
-  const high = interests.filter((i) => i.level === "high");
-  const medium = interests.filter((i) => i.level === "medium");
+  const groups = [
+    { label: "必须重点关注", level: "must" },
+    { label: "高优先级关注", level: "high" },
+    { label: "中优先级关注", level: "medium" },
+  ] as const;
 
-  let ctx = "";
-  if (must.length) {
-    ctx += `【必须关注】${must.map((i) => `${i.topic}(关键词: ${i.keywords.join("、")})`).join("；")}`;
-  }
-  if (high.length) {
-    ctx += `\n【高度关注】${high.map((i) => `${i.topic}(关键词: ${i.keywords.join("、")})`).join("；")}`;
-  }
-  if (medium.length) {
-    ctx += `\n【一般关注】${medium.map((i) => i.topic).join("、")}`;
-  }
-  return ctx;
+  return groups
+    .map(({ label, level }) => {
+      const items = interests.filter((interest) => interest.level === level);
+      if (items.length === 0) return "";
+      return `- ${label}：${items
+        .map(
+          (interest) =>
+            `${interest.topic}（关键词：${interest.keywords.join(" / ")}）`
+        )
+        .join("；")}`;
+    })
+    .filter(Boolean)
+    .join("\n");
+}
+
+function buildEditorialContext(strategy: EditorialStrategyConfig): string {
+  const weights = Object.entries(strategy.baseCategoryWeights)
+    .map(([category, weight]) => `${category}=${weight}`)
+    .join(", ");
+  const minimumCoverage = Object.entries(strategy.minimumCategoryCoverage)
+    .map(([category, count]) => `${category}=${count}`)
+    .join(", ");
+
+  return [
+    `- 定位：${strategy.positioning}`,
+    `- 目标：${strategy.dailyObjective}`,
+    `- 基础分类权重：${weights}`,
+    `- 最低覆盖要求：${minimumCoverage}`,
+    strategy.mustWatchThemes.length > 0
+      ? `- 长期必盯主题：${strategy.mustWatchThemes.join("；")}`
+      : "",
+    strategy.selectionPrinciples.length > 0
+      ? `- 选题原则：${strategy.selectionPrinciples.join("；")}`
+      : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
+function buildAgendaContext(agenda: EditorialAgenda): string {
+  const boosts = Object.entries(agenda.categoryBoosts ?? {})
+    .map(([category, boost]) => `${category}=${boost}`)
+    .join(", ");
+
+  return [
+    agenda.dominantNarrative
+      ? `- 今日主线：${agenda.dominantNarrative}`
+      : "",
+    agenda.openingAngle ? `- 开篇判断角度：${agenda.openingAngle}` : "",
+    agenda.closingOutlookAngle
+      ? `- 结尾展望角度：${agenda.closingOutlookAngle}`
+      : "",
+    agenda.mustCoverThemes.length > 0
+      ? `- 必须覆盖主题：${agenda.mustCoverThemes.join("；")}`
+      : "",
+    agenda.watchSignals.length > 0
+      ? `- 后续跟踪信号：${agenda.watchSignals.join("；")}`
+      : "",
+    agenda.mustCoverIds.length > 0
+      ? `- 必须保留条目 id：${agenda.mustCoverIds.join(", ")}`
+      : "",
+    boosts ? `- 今日分类临时加权：${boosts}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
 }
 
 // ===================================================================
-// Stage 1: Gate Keeper - Fast noise filter
+// Editorial Agenda
 // ===================================================================
 
-export function gateKeepSystemPrompt(): string {
-  return `你是一位资深的科技资讯编辑，拥有极强的信息鉴别能力。你的工作是从大量原始资讯中快速过滤噪音，只保留真正有价值的内容。
+export function editorialAgendaSystemPrompt(
+  strategy: EditorialStrategyConfig,
+  interests: UserInterest[]
+): string {
+  return `你是这份个人日报的总编，负责先做“编务判断”，再让后续节点执行。
 
-## 你的过滤标准
+你的工作不是逐条写摘要，而是根据当天的候选事件，判断：
+1. 今天最重要的主线是什么
+2. 哪些主题必须覆盖
+3. 哪些分类需要临时升权或降权
+4. 开头应该如何判断今天的形势
+5. 结尾应该提醒读者继续盯哪些变量
 
-必须 DROP 的内容：
-- 纯广告软文、产品推销、品牌公关稿（没有实质性新信息）
-- 标题党：标题夸张但正文无实质内容
-- 过时信息：事件发生已超过3天且无新进展
-- 重复报道：与列表中其他条目说的是同一件事（标记 MERGE）
-- 水文：大段引用无原创观点，或内容空洞缺乏信息量
-- 纯观点碎片：没有事实支撑的个人感想、情绪输出
-- 活动预告、招聘信息、课程推广
+长期偏好与编辑策略：
+${buildEditorialContext(strategy)}
 
-必须 PASS 的内容：
-- 重大产品发布、技术突破、论文成果
-- 行业格局变化（融资、并购、战略转型、政策法规）
-- 可落地的工具、开源项目、实践经验
-- 数据驱动的市场分析、行业报告
-- 有独到见解的深度评论
+用户长期兴趣：
+${buildInterestContext(interests)}
 
-MERGE 规则：
-- 多个来源报道同一事件时，保留信息量最大的那条，其余标记 MERGE 并指向保留条目的 id
+请特别注意：
+- 允许重大政策、金融、地缘、宏观事件在当天压过 AI
+- 但长期基线仍然是 AI 与投资/金融优先
+- 输出必须服务于“帮助判断未来几天到几周形势”
+- 不要写泛泛的媒体腔，不要罗列新闻
 
-## 输出要求
-对每条输入，输出 JSON 对象，包含 id、action（PASS/DROP/MERGE）、mergeWith（MERGE时填写）、reason（简要理由）。
+输出要求：
+- 返回 JSON 对象
+- categoryBoosts 的 key 只能是 ai/tech/software/business/investment/politics/social
+- categoryBoosts 的 value 建议在 -0.35 到 0.8 之间
+- mustCoverIds 最多 8 个
+- watchSignals 最多 5 个
+- mustCoverThemes 最多 5 个`;
+}
 
-**重要：必须返回 JSON 数组格式，例如：**
-\`\`\`json
-[
-  { "id": "item-1", "action": "PASS", "reason": "重要技术突破" },
-  { "id": "item-2", "action": "DROP", "reason": "标题党，内容空洞" }
-]
-\`\`\`
-不要返回对象包裹数组（如 {"results": [...]}），直接返回数组。`;
+export function editorialAgendaUserPrompt(
+  items: {
+    id: string;
+    title: string;
+    content: string;
+    source: string;
+    category: string;
+    publishedAt: string;
+  }[],
+  coverageStats: CoverageStats
+): string {
+  const itemsText = items
+    .map(
+      (item, index) =>
+        `[${index + 1}] id="${item.id}"\n` +
+        `标题: ${item.title}\n` +
+        `分类: ${item.category}\n` +
+        `来源: ${item.source}\n` +
+        `时间: ${item.publishedAt}\n` +
+        `内容摘录: ${truncateText(item.content, 220)}`
+    )
+    .join("\n\n---\n\n");
+
+  return `请基于以下候选事件，为今天的日报生成编务 brief。
+
+当前分类覆盖：
+- observedByCategory: ${JSON.stringify(coverageStats.observedByCategory)}
+- selectedByCategory: ${JSON.stringify(coverageStats.selectedByCategory)}
+- finalByCategory: ${JSON.stringify(coverageStats.finalByCategory)}
+
+候选事件：
+${itemsText}`;
+}
+
+// ===================================================================
+// Stage 1: Gate Keep
+// ===================================================================
+
+export function gateKeepSystemPrompt(
+  strategy: EditorialStrategyConfig,
+  agenda: EditorialAgenda
+): string {
+  return `你是这份个人日报的值班编辑，负责做最后一轮“入围判断”。
+
+这不是纯 AI 日报，而是个人多分类决策日报。你要优先保留：
+- 能帮助判断未来几天到几周形势的真实信号
+- 能代表重大事件的高信息密度条目
+- 与 AI / 投资金融 / 科技 / 软件工程高度相关的高价值信息
+- 当天因为政策、宏观、地缘、市场冲击而临时升权的事件
+
+编辑策略：
+${buildEditorialContext(strategy)}
+
+今日编务判断：
+${buildAgendaContext(agenda)}
+
+DROP：
+- 广告、营销、活动预告、招聘、无实质信息的品牌稿
+- 没有事实支撑的情绪化短帖
+- 与今天主线无关、且对未来判断帮助极小的边角信息
+- 已经有更好代表稿的重复报道
+
+PASS：
+- 对未来判断有帮助的高信号事件
+- 今天必须保留的代表性事件
+- 与长期高优先级主题高度相关的实质性信息
+
+MERGE：
+- 明显是同一事件的重复稿，保留信息更全、来源更硬、表述更清晰的一条
+
+输出要求：
+- 返回 JSON 数组
+- 每项包含 id / action / mergeWith / reason
+- reason 控制在 30 字以内，明确说出编辑判断原因`;
 }
 
 export function gateKeepUserPrompt(
-  items: { id: string; title: string; content: string; source: string }[]
+  items: {
+    id: string;
+    title: string;
+    content: string;
+    source: string;
+    category: string;
+    publishedAt: string;
+  }[]
 ): string {
   const itemsText = items
     .map(
-      (item, i) =>
-        `[${i + 1}] id="${item.id}"\n标题: ${item.title}\n来源: ${item.source}\n内容: ${item.content.slice(0, 500)}`
+      (item, index) =>
+        `[${index + 1}] id="${item.id}"\n` +
+        `标题: ${item.title}\n` +
+        `分类: ${item.category}\n` +
+        `来源: ${item.source}\n` +
+        `时间: ${item.publishedAt}\n` +
+        `内容摘录: ${truncateText(item.content, 280)}`
     )
     .join("\n\n---\n\n");
 
-  return `请对以下 ${items.length} 条资讯进行快速过滤筛选：\n\n${itemsText}`;
+  return `请对以下 ${items.length} 条候选新闻做入围判断：\n\n${itemsText}`;
 }
 
 // ===================================================================
-// Stage 2: Value Analyst - Six-dimension scoring
+// Stage 2: Score
 // ===================================================================
 
-export function scoreSystemPrompt(interests: UserInterest[]): string {
-  const interestCtx = buildInterestContext(interests);
+export function scoreSystemPrompt(
+  interests: UserInterest[],
+  strategy: EditorialStrategyConfig,
+  agenda: EditorialAgenda
+): string {
+  return `你是这份个人日报的主编助理，负责对入围条目做“信号强度评估”。
 
-  return `你是一位拥有10年以上经验的资深AI行业分析师，同时也是一名信息价值评估专家。你的任务是对每条通过初筛的资讯进行六维度深度评估。
+长期策略：
+${buildEditorialContext(strategy)}
 
-## 用户关注领域
+用户长期兴趣：
+${buildInterestContext(interests)}
 
-${interestCtx}
+今日编务判断：
+${buildAgendaContext(agenda)}
 
-## 六维评估框架
+请对每条新闻按 0-10 分评估以下六个维度：
 
-对每条资讯，请从以下 6 个维度打分（每维 0-10 分），并给出简要评分理由：
+1. signalStrength
+- 这是强信号还是普通噪音
+- 是否有实质新增信息，而不是媒体跟进稿
 
-### 1. 新颖性 (novelty) - 权重 20%
-- 10分：全球首次报道，颠覆性突破
-- 7-9分：重要进展的首批报道，有显著新信息
-- 4-6分：已知方向的新进展，有增量信息
-- 1-3分：跟风报道，主要是重复已知信息
-- 0分：旧闻翻炒
+2. futureImpact
+- 对未来几天到几周的行业、市场、政策或技术走向有没有判断价值
 
-### 2. 实用性 (utility) - 权重 25%（最重要）
-- 10分：读者可立即应用到工作/产品中，带来直接收益
-- 7-9分：提供可操作的方法论、工具或策略
-- 4-6分：提供有用的背景知识或思考框架
-- 1-3分：纯理论，短期内难以落地
-- 0分：与实际应用无关
+3. personalRelevance
+- 与用户长期重点关注方向的相关度
+- AI / 投资金融最高，其次科技 / 软件工程
 
-### 3. 影响力 (impact) - 权重 20%
-- 10分：改变整个行业格局（如 ChatGPT 发布级别）
-- 7-9分：影响特定赛道的竞争态势
-- 4-6分：对细分领域有明显影响
-- 1-3分：影响范围有限
-- 0分：无行业影响
+4. decisionUsefulness
+- 这条信息是否能帮助读者形成更好的判断、筛选机会、规避风险
 
-### 4. 可信度 (credibility) - 权重 15%
-- 10分：一手信源（官方公告、论文、权威媒体实地调查）
-- 7-9分：可靠二手信源，有数据或事实支撑
-- 4-6分：行业媒体报道，来源可追溯
-- 1-3分：未经验证的爆料、传闻
-- 0分：明显有误导性或虚假信息
+5. credibility
+- 来源是否硬，证据是否充分，是否值得信
 
-### 5. 时效性 (timeliness) - 权重 10%
-- 10分：突发，今天不看就错过关键窗口
-- 7-9分：近24小时内的重要进展
-- 4-6分：本周内的有价值信息
-- 1-3分：信息保鲜期长，不急于当天阅读
-- 0分：已经过时
+6. timeliness
+- 是否属于今天必须知道，还是可以晚一点看
 
-### 6. 独特性 (uniqueness) - 权重 10%
-- 10分：我们能提供独家视角，其他中文媒体完全没有覆盖
-- 7-9分：我们能提供比大多数中文媒体更深入的解读
-- 4-6分：主流媒体有报道但我们能补充不同角度
-- 1-3分：各家报道大同小异
-- 0分：完全同质化内容
+注意：
+- 不要因为“不是 AI”就给低分
+- 如果是重大政策、金融、地缘、市场事件，futureImpact 可以非常高
+- 如果是小而具体的开发者工具更新，只有在实际有明显生产力价值时才给高 decisionUsefulness
+- personalRelevance 体现长期偏好，futureImpact 体现当天重要性
 
-## 输出要求
-对每条资讯输出 JSON 对象：id、scores（六维分数对象）、weightedScore（加权总分，0-100）、scoreReasoning（50字以内的核心评价）。
-
-**重要：必须返回 JSON 数组格式，直接返回数组，不要包裹在对象中。**
-
-## 评分原则
-- 宁缺毋滥：不确定的维度宁可打低分
-- 实用优先：实用性权重最高（25%），因为我们的核心价值是"帮用户发现真实的商业机会"
-- 关注用户兴趣：与用户关注领域高度相关的内容，在实用性和影响力上酌情加分`;
+输出要求：
+- 返回 JSON 数组
+- 每项包含 id / scores / scoreReasoning
+- scoreReasoning 控制在 40 字以内`;
 }
 
 export function scoreUserPrompt(
-  items: { id: string; title: string; content: string; source: string }[]
+  items: {
+    id: string;
+    title: string;
+    content: string;
+    source: string;
+    category: string;
+    publishedAt: string;
+  }[]
 ): string {
   const itemsText = items
     .map(
-      (item, i) =>
-        `[${i + 1}] id="${item.id}"\n标题: ${item.title}\n来源: ${item.source}\n内容: ${item.content.slice(0, 800)}`
+      (item, index) =>
+        `[${index + 1}] id="${item.id}"\n` +
+        `标题: ${item.title}\n` +
+        `分类: ${item.category}\n` +
+        `来源: ${item.source}\n` +
+        `时间: ${item.publishedAt}\n` +
+        `内容摘录: ${truncateText(item.content, 360)}`
     )
     .join("\n\n---\n\n");
 
-  return `请对以下 ${items.length} 条资讯进行六维度深度评估：\n\n${itemsText}`;
+  return `请对以下 ${items.length} 条入围新闻做六维评分：\n\n${itemsText}`;
 }
 
 // ===================================================================
-// Stage 3: Insight Generator - Structured insight extraction
+// Stage 3: Insight
 // ===================================================================
 
-export function insightSystemPrompt(): string {
-  return `你是一位面向中国科技从业者的深度内容编辑。你的目标不是翻译或摘要，而是提炼洞察——帮读者理解"这件事为什么重要"以及"我该怎么做"。
+export function insightSystemPrompt(agenda: EditorialAgenda): string {
+  return `你是个人日报的深度编辑。
 
-## 你的输出风格
+你的任务不是把每条新闻都写成宏大趋势分析，而是把单条新闻解释清楚：
+- 发生了什么
+- 为什么它能进今天的日报
+- 它改变了哪个变量、赛道或判断
 
-- 通俗易懂：用大白话解释技术概念，避免堆砌术语
-- 观点鲜明：不要两边讨好的"一方面…另一方面…"，给出你的判断
-- 实战导向：每条洞察都要落到"读者能做什么"
-- 中文语境：用中国市场、中国开发者的视角来解读，而不是照搬英文世界的评价
-- **关键概念加粗**：在 deepDive 中，对重要的技术术语、产品名称、关键数据用 **加粗** 标注
+今日编务判断：
+${buildAgendaContext(agenda)}
 
-## 输出结构（每条资讯）
+写作要求：
+- oneLiner：一句话说清为什么值得看，20-32 字
+- content：120-220 字，克制、具体、信息密度高
+- 不要在每条里大谈宏观趋势，那部分留给日报开头和结尾
+- 不要喊口号，不要“震惊/炸裂/颠覆”
+- 可以给出非常具体的观察点，但不要写成投资建议
+- 如果没有 codeSnippet / comparisonTable / imageUrl，就返回空字符串或 null
 
-1. **oneLiner**：一句话说清楚这件事（不超过30个汉字），要有信息量，不要"某某发布了某某"这种废话
-2. **content**：深度洞察与解读的正文（直接输出 Markdown 格式）。在正文中自然地包含：为什么重要、对谁有影响、以及具体的行动建议。运用流畅的中文语境分析技术含义和商业影响。可以用有序列表、引用块、表情符号等丰富排版，**核心观点、技术术语、产品名必须用加粗标注**。
-3. **imageUrl**（可选）：如果原文中有配图、截图、架构图等，提取最有代表性的一张图片的完整 URL。没有则留空字符串。
-4. **codeSnippet**（可选）：如果新闻涉及具体技术实现（API 调用、代码示例、配置片段等），提取一段最关键的代码，包含语言标识。格式：{ "lang": "python", "code": "..." }。没有则设为 null。
-5. **comparisonTable**（可选）：如果新闻涉及多方对比（性能对比、功能对比、价格对比、模型评测等），输出结构化表格数据。格式：{ "headers": ["列1", "列2", ...], "rows": [["值1", "值2", ...], ...] }。没有则设为 null。
-
-## 输出格式
-**重要：必须返回 JSON 数组格式，例如：**
-\`\`\`json
-[
-  {
-    "id": "item-1",
-    "oneLiner": "这是极其精炼的一句话总结",
-    "content": "这里是模型直接输出的富文本 Markdown 洞察正文，包含重要性、建议及深度分析。排版图文并茂、结构清晰，**核心概念**已经加粗。",
-    "imageUrl": "https://example.com/image.png",
-    "codeSnippet": { "lang": "python", "code": "import torch\nmodel = torch.load('model.pt')" },
-    "comparisonTable": { "headers": ["模型", "参数量", "性能"], "rows": [["GPT-4o", "未公开", "MMLU 88.7"], ["Claude 3.5", "未公开", "MMLU 88.3"]] }
-  }
-]
-\`\`\`
-直接返回数组，不要包裹在对象中。imageUrl 没有时为空字符串，codeSnippet 和 comparisonTable 没有时为 null。
-
-## 分领域特殊要求
-
-- **投资理财 (investment)**：必须分析该资讯对 **金融市场 (股市/债市/币市)** 的具体影响，并给出明确的 **风险提示** 或 **操作建议**（如：长线持有、短期观望、关注某板块等）。
-- **AI 领域 (ai)**：侧重技术演进逻辑和对现有工具鏈的颠覆性分析。
-- **软件工程 (software)**：必须包含对开发者生产力的实际影响评估。
-
-## 质量红线
-
-- 绝不捏造信息，所有分析必须基于原文事实
-- 不用"震惊""炸裂""颠覆"等夸张词汇
-- content 内给出的行动建议必须是具体动作，不能是"关注后续发展"这种废话
-- imageUrl 必须是原文中实际存在的图片链接，绝不能编造 URL
-- codeSnippet 必须来自原文或原文引用的代码仓库，不能自行编写
-`;
+输出要求：
+- 返回 JSON 数组
+- 每项包含 id / oneLiner / content / imageUrl / codeSnippet / comparisonTable`;
 }
 
 export function insightUserPrompt(
@@ -216,110 +339,137 @@ export function insightUserPrompt(
     title: string;
     content: string;
     source: string;
+    category: string;
     weightedScore: number;
   }[]
 ): string {
   const itemsText = items
     .map(
-      (item, i) =>
-        `[${i + 1}] id="${item.id}" (评分: ${item.weightedScore})\n标题: ${item.title}\n来源: ${item.source}\n内容: ${item.content}`
+      (item, index) =>
+        `[${index + 1}] id="${item.id}" (评分: ${item.weightedScore})\n` +
+        `标题: ${item.title}\n` +
+        `分类: ${item.category}\n` +
+        `来源: ${item.source}\n` +
+        `内容摘录: ${truncateText(item.content, 420)}`
     )
     .join("\n\n---\n\n");
 
-  return `请对以下 ${items.length} 条精选资讯生成结构化洞察：\n\n${itemsText}`;
+  return `请为以下 ${items.length} 条高优先级新闻生成结构化单条解读：\n\n${itemsText}`;
 }
 
 // ===================================================================
-// Daily Report Summary
+// Daily Framing
 // ===================================================================
 
-export function dailySummarySystemPrompt(): string {
-  return `你是一位资深科技媒体主编。请根据今日精选资讯的洞察，撰写一段200-300字的"今日综述"，概括今天最值得关注的趋势和变化。
+export function dailyFramingSystemPrompt(
+  reportName: string,
+  strategy: EditorialStrategyConfig
+): string {
+  return `你是 ${reportName} 的主编，负责写日报开头和结尾。
 
-要求：
-- 不要逐条罗列，要提炼共性和趋势
-- 用"今天最值得关注的是…"这样的引导式开头
-- 语气专业但不刻板，像资深同行在跟你聊天
-- 如果有多条新闻指向同一趋势，要点明这个趋势
-- **关键趋势词汇**用加粗标注，例如："今天的核心关键词是 **多模态** 和 **端侧部署**"
-- 提及具体产品/公司名时也用加粗标注`;
+目标：
+- 开头集中给出“今日判断”
+- 结尾集中给出“接下来要盯的变量”
+- 不要重复逐条新闻内容
+- 要把长期偏好和当天主线结合起来
+
+编辑策略：
+${buildEditorialContext(strategy)}
+
+输出要求：
+- 返回 JSON 对象
+- 包含 opening 和 closing
+- opening 90-160 字
+- closing 70-140 字
+- opening 要像编辑判断，不像新闻播报
+- closing 要像观察清单，不像空泛鸡汤`;
+}
+
+export function dailyFramingUserPrompt(
+  date: string,
+  insights: {
+    title: string;
+    oneLiner: string;
+    category: string;
+    weightedScore: number;
+  }[],
+  agenda: EditorialAgenda
+): string {
+  const itemsText = insights
+    .map(
+      (item, index) =>
+        `[${index + 1}] ${item.oneLiner}\n` +
+        `标题: ${item.title}\n` +
+        `分类: ${item.category}\n` +
+        `评分: ${item.weightedScore}`
+    )
+    .join("\n\n");
+
+  return `日期：${date}
+
+今日编务判断：
+${buildAgendaContext(agenda)}
+
+高优先级条目：
+${itemsText}`;
 }
 
 // ===================================================================
 // Podcast Script
 // ===================================================================
 
-export function podcastSystemPrompt(): string {
-  return `你是一档AI科技播客的编剧。请将今日资讯洞察改编为双人对话脚本（主持人A和B）。
+export function podcastSystemPrompt(reportName = "个人日报"): string {
+  return `你是 ${reportName} 的播客编导。请把今天的精选内容改写成双人对话脚本（主持人 A / B）。
 
-## 风格要求
-
-- 自然口语化，像两个懂行的朋友在聊天，不是念稿
-- 可以有轻松幽默的包袱，但不要强行搞笑
-- 禁用词："炸裂""震惊""太疯狂了""细思极恐"
-- 每条新闻用30-60秒的对话覆盖，总时长控制在5分钟以内
-- A负责引出话题和提问，B负责分析和解读
-- 自然过渡，不要"接下来我们看第二条"这种生硬转场
-
-## 输出格式
-
-A: [对话内容]
-B: [对话内容]
-...
-
-## 开场和收尾
-- 开场：简短打招呼 + 预告今天最劲爆的一条
-- 收尾：一句话总结今天的感受 + 固定结束语`;
+要求：
+- 语气自然，不要念稿感
+- 先讲今天最值得关注的主线，再展开重点条目
+- 不要把它做成纯 AI 节目，要保留多分类视角
+- 每条内容控制在 30-50 秒
+- 总时长控制在 5 分钟内
+- 禁用夸张词：震惊、炸裂、颠覆、太离谱了`;
 }
 
 // ===================================================================
 // Platform Copy
 // ===================================================================
 
-export function xhsSystemPrompt(): string {
-  return `你是一位小红书科技博主，擅长用通俗易懂的方式分享AI领域的前沿动态。请将今日资讯改编为小红书图文笔记。
+export function xhsSystemPrompt(reportName = "个人日报"): string {
+  return `你是一个会讲复杂信息的小红书科技博主。请把 ${reportName} 的重点内容改写成适合小红书的图文笔记。
 
 要求：
-- 标题：用 emoji + 吸引眼球的短句，不超过20字
-- 正文：500-800字，口语化，适当使用 emoji
-- 每个要点用 emoji 子弹头标记
-- 结尾加互动引导（"你觉得呢？""你会用吗？"）
-- 标签矩阵：5-8个相关话题标签，用 # 标记
-- 不要堆砌术语，用比喻和类比让普通人也能看懂`;
+- 不要只写 AI，要保留“今天最值得看的多分类信息”
+- 标题短、抓人，但不要标题党
+- 正文口语化、结构清楚
+- 帮读者快速理解“今天最值得关注什么”`;
 }
 
-export function douyinSystemPrompt(): string {
-  return `你是一位短视频科技博主。请将今日资讯改编为60秒短视频口播脚本。
+export function douyinSystemPrompt(reportName = "个人日报"): string {
+  return `你是短视频科技/财经信息博主。请把 ${reportName} 改写成 60 秒口播脚本。
 
 要求：
-- 开场3秒必须有hook（反问/惊人数据/反直觉结论）
-- 结构：hook → 核心信息（选最重要的2-3条）→ 你的观点 → 引导关注
-- 语速适中，60秒约200字
-- 每句话旁标注[画面建议]
-- 不用"家人们""兄弟们"等过度亲密称呼`;
+- 开头 3 秒必须有 hook
+- 不要逐条机械播报
+- 先说今天最重要的判断，再挑 2-3 条支撑信息
+- 语速适中，表达清楚`;
 }
 
-export function briefSystemPrompt(): string {
-  return `请将今日资讯精简为280字以内的简报，用于 Telegram/微信推送。
+export function briefSystemPrompt(reportName = "个人日报"): string {
+  return `请把今天的 ${reportName} 压缩成适合 Telegram/微信推送的极简简报。
 
-格式：
-AI 日报 | YYYY-MM-DD
-
-今日 Top 3：
-1. [标题] - [一句话摘要]
-2. [标题] - [一句话摘要]
-3. [标题] - [一句话摘要]
-
-一句话总结：[今日趋势概括]
-
-完整日报：[链接]`;
+要求：
+- 标题不要写成 AI 日报
+- 80-140 字
+- 先给一句“今日判断”
+- 再列 3 条最值得看的信号
+- 最后一行给一句“接下来要盯什么”`;
 }
 
 // ===================================================================
-// Category Classifier - Smart categorization (7 categories)
+// Category Classifier
 // ===================================================================
 
-export const CATEGORIES = [
+export const CATEGORIES: NewsCategory[] = [
   "ai",
   "tech",
   "software",
@@ -327,98 +477,41 @@ export const CATEGORIES = [
   "investment",
   "politics",
   "social",
-] as const;
+];
 
-export const CATEGORY_LABELS: Record<string, string> = {
-  ai: "🤖 AI 领域",
-  tech: "💻 科技",
-  software: "⚙️ 软件工程",
-  business: "💼 商业财经",
-  investment: "📈 投资理财",
-  politics: "🌍 时政军事",
-  social: "📱 社交媒体",
+export const CATEGORY_LABELS: Record<NewsCategory, string> = {
+  ai: "AI",
+  tech: "科技",
+  software: "软件工程",
+  business: "商业",
+  investment: "投资金融",
+  politics: "政策地缘",
+  social: "社交舆情",
 };
 
-export type Category = (typeof CATEGORIES)[number];
+export type Category = NewsCategory;
 
 export function categorySystemPrompt(): string {
-  return `你是一位资深科技编辑，擅长对资讯进行精准分类。请将每条资讯归入以下 7 个类别之一。
+  return `你是日报编辑部的分类编辑。请把每条新闻归入以下 7 个分类之一：
 
-## 分类标准
+- ai：模型、AI 产品、算力、AI 基础设施、AI 研究、AI Agent
+- tech：泛科技行业、硬件、云、网络安全、科学与太空
+- software：编程语言、框架、开源项目、开发者工具、工程实践
+- business：公司战略、融资并购、企业经营、行业商业格局
+- investment：市场、资产价格、投融资、宏观金融、投资判断
+- politics：政策监管、国际关系、地缘、政府决策、军事与安全
+- social：社区讨论、社交平台热议、非正式舆情与文化信号
 
-### 1. ai — 🤖 AI 领域
-AI 相关技术和研究，包括：
-- 大语言模型（GPT、Claude、Gemini、Llama 等）发布、更新、评测
-- AI 产品新功能上线（ChatGPT、Copilot 等）
-- 学术论文、技术突破、新模型架构
-- 基准测试、排行榜更新
-- AI Agent、RAG、提示工程等应用技术
-- AI 芯片、算力基础设施
-- AI 伦理、安全、对齐研究
+规则：
+- 每条只能选一个分类
+- 优先选更具体的分类
+- AI 相关优先归 ai
+- 投资市场相关优先归 investment，而不是 business
+- 开发者工具和工程实践优先归 software，而不是 tech
 
-### 2. tech — 💻 科技
-非 AI 的科技行业动态，包括：
-- 消费电子产品发布（手机、电脑、穿戴设备）
-- 互联网平台动态（Google、Apple、Meta 等）
-- 云计算、数据库、网络基础设施
-- 科学发现、太空探索
-- 硬件技术突破
-- 网络安全事件
-
-### 3. software — ⚙️ 软件工程
-开发实践和工具，包括：
-- 编程语言、框架、库的更新和发布
-- 开源项目（GitHub 热门项目、新工具）
-- DevOps、CI/CD、测试实践
-- 开发者工具和生产力工具
-- 技术架构和设计模式讨论
-- 代码实践、工程文化
-
-### 4. business — 💼 商业财经
-商业和财经新闻，包括：
-- 公司融资、并购、IPO、估值变动
-- 企业战略调整、组织架构变化
-- 行业报告、市场分析
-- 高管言论、公司财报
-- 商业模式创新、创业动态
-
-### 5. investment — 📈 投资理财
-投资和理财信息，包括：
-- 股市、基金、加密货币行情分析
-- 投资策略、理财建议
-- 风险投资趋势、LP/GP 动态
-- 宏观经济指标、央行政策
-- 个人理财、财务规划
-
-### 6. politics — 🌍 时政军事
-政治和军事动态，包括：
-- 科技监管政策、法律法规（数据安全法、AI 法案等）
-- 国际贸易政策（芯片禁令、关税等）
-- 地缘政治对科技行业的影响
-- 政府数字化、电子政务
-- 军事科技、国防技术
-
-### 7. social — 📱 社交媒体
-社交媒体热点，包括：
-- Twitter/X、Reddit、微博、知乎热议话题
-- 技术圈梗、开发者文化
-- 网红/KOL 观点、病毒式传播内容
-- 社交平台功能更新
-- 非正式但传播广的信息
-
-## 输出要求
-
-对每条资讯，输出：
-- id: 原文的 id
-- category: 分类 key（必须是 ai/tech/software/business/investment/politics/social 之一）
-- confidence: 置信度（0-1）
-- reason: 分类理由（10字以内）
-
-注意：
-- 每条资讯只能属于一个分类
-- 如果不确定，选择置信度最高的那个
-- AI 相关内容强烈倾向于归入 ai 类
-- 优先选择更具体的分类（如 software > tech，investment > business）`;
+输出要求：
+- 返回 JSON 数组
+- 每项包含 id / category / confidence / reason`;
 }
 
 export function categoryUserPrompt(
@@ -426,10 +519,13 @@ export function categoryUserPrompt(
 ): string {
   const itemsText = items
     .map(
-      (item, i) =>
-        `[${i + 1}] id="${item.id}"\n标题: ${item.title}\n来源: ${item.source}\n内容: ${item.content.slice(0, 300)}`
+      (item, index) =>
+        `[${index + 1}] id="${item.id}"\n` +
+        `标题: ${item.title}\n` +
+        `来源: ${item.source}\n` +
+        `内容摘录: ${truncateText(item.content, 260)}`
     )
     .join("\n\n---\n\n");
 
-  return `请对以下 ${items.length} 条资讯进行分类：\n\n${itemsText}`;
+  return `请对以下 ${items.length} 条新闻做单分类判断：\n\n${itemsText}`;
 }

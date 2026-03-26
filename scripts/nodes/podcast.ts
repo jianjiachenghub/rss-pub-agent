@@ -1,29 +1,30 @@
 import type { PipelineStateType } from "../state.js";
 import { callLLM } from "../lib/llm.js";
+import { uploadToR2 } from "../lib/r2.js";
 import { podcastSystemPrompt } from "../lib/prompts.js";
 import { synthesizeSpeech } from "../lib/tts.js";
-import { uploadToR2 } from "../lib/r2.js";
 
 export async function podcastNode(
   state: PipelineStateType
 ): Promise<Partial<PipelineStateType>> {
-  const { insights, date, platformConfig } = state;
+  const { insights, date, platformConfig, config } = state;
 
   if (!insights.length || !platformConfig?.podcast?.enabled) {
     return { podcast: { script: "" } };
   }
 
   try {
+    const reportName = config?.reportName ?? "个人日报";
     const insightsSummary = insights
       .map(
-        (i) =>
-          `标题: ${i.oneLiner}\n具体内容: ${i.content}`
+        (insight) =>
+          `标题: ${insight.oneLiner}\n具体内容: ${insight.content}`
       )
       .join("\n\n---\n\n");
 
     const scriptResponse = await callLLM({
-      systemPrompt: podcastSystemPrompt(),
-      prompt: `请根据以下今日精选资讯生成播客脚本：\n\n${insightsSummary}`,
+      systemPrompt: podcastSystemPrompt(reportName),
+      prompt: `请根据以下今日精选生成播客脚本：\n\n${insightsSummary}`,
       model: "pro",
     });
 

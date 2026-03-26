@@ -1,209 +1,201 @@
 import type { PipelineStateType } from "../state.js";
-import { callLLM } from "../lib/llm.js";
-import { dailySummarySystemPrompt, CATEGORY_LABELS } from "../lib/prompts.js";
+import { callLLMJson } from "../lib/llm.js";
+import {
+  CATEGORY_LABELS,
+  CATEGORIES,
+  dailyFramingSystemPrompt,
+  dailyFramingUserPrompt,
+} from "../lib/prompts.js";
 import dayjs from "dayjs";
 
-// 领域排序（固定顺序）
-const CATEGORY_ORDER = [
-  "ai",
-  "tech",
-  "software",
-  "business",
-  "investment",
-  "politics",
-  "social",
-];
+interface DailyFramingResult {
+  opening: string;
+  closing: string;
+}
 
 export async function generateDailyNode(
   state: PipelineStateType
 ): Promise<Partial<PipelineStateType>> {
-  const { insights, secondaryItems, date } = state;
-  if (!insights.length) {
+  const { insights, secondaryItems, date, config, editorialAgenda } = state;
+  if (!insights.length || !config) {
     return { dailyMarkdown: "" };
   }
 
   try {
-    // 生成简短摘要（50-150字）
-    const insightsSummary = insights
-      .slice(0, 3)
-      .map((i) => i.oneLiner)
-      .join("；");
+    let dailyOpening = editorialAgenda.openingAngle;
+    let dailyClosing = editorialAgenda.closingOutlookAngle;
 
-    const summaryResponse = await callLLM({
-      systemPrompt: dailySummarySystemPrompt(),
-      prompt: `今日精选资讯：${insightsSummary}\n\n请用50-150字撰写今日综述，关键趋势词汇用 **加粗** 标注：`,
-      model: "pro",
-    });
+    try {
+      const framing = await callLLMJson<DailyFramingResult>({
+        systemPrompt: dailyFramingSystemPrompt(
+          config.reportName ?? "个人日报",
+          config.editorial
+        ),
+        prompt: dailyFramingUserPrompt(
+          date,
+          insights.slice(0, 8).map((insight) => ({
+            title: insight.title,
+            oneLiner: insight.oneLiner,
+            category: insight.category,
+            weightedScore: insight.weightedScore,
+          })),
+          editorialAgenda
+        ),
+        model: "pro",
+        jsonSchema: {
+          type: "OBJECT",
+          properties: {
+            opening: { type: "STRING" },
+            closing: { type: "STRING" },
+          },
+          required: ["opening", "closing"],
+        },
+      });
 
-    const dailySummary = summaryResponse.text;
+      dailyOpening = framing.opening || dailyOpening;
+      dailyClosing = framing.closing || dailyClosing;
+    } catch (framingError) {
+      console.warn(
+        "[generate-daily] Daily framing failed, using editorial agenda fallback:",
+        (framingError as Error).message
+      );
+    }
 
-    // 按领域分类
     const byCategory = new Map<string, typeof insights>();
 
-    // 初始化所有领域
-    for (const key of CATEGORY_ORDER) {
-      byCategory.set(key, []);
+    for (const category of CATEGORIES) {
+      byCategory.set(category, []);
     }
 
-    // 分配资讯到各领域
     for (const insight of insights) {
-      const cat = insight.category || "social";
-      // 映射旧分类到新分类
-      let mappedCat = cat;
-      if (cat === "cn_trending") mappedCat = "social";
-      if (cat === "community") mappedCat = "tech";
-
-      if (!byCategory.has(mappedCat)) {
-        byCategory.set(mappedCat, []);
-      }
-      byCategory.get(mappedCat)!.push(insight);
+      const category = byCategory.has(insight.category)
+        ? insight.category
+        : "social";
+      byCategory.get(category)!.push(insight);
     }
 
-    const displayDate = dayjs(date).format("YYYY年MM月DD日");
+    const displayDate = dayjs(date).format("YYYY年M月D日");
+    const reportName = config.reportName ?? "个人日报";
+    const activeCategories = CATEGORIES.filter(
+      (category) => (byCategory.get(category) ?? []).length > 0
+    );
 
-    // ========== 构建 Markdown ==========
-
-    // --- Frontmatter ---
-    let md = `---
-title: "AI 日报 | ${displayDate}"
+    let markdown = `---
+title: "${reportName} | ${displayDate}"
 date: "${date}"
 itemCount: ${insights.length}
 ---
 
-# 🗞️ AI 日报 | ${displayDate}
+# ${reportName} | ${displayDate}
 
-> ${dailySummary}
+## 今日判断
+
+> ${dailyOpening}
 
 ---
 
 `;
 
-    // --- 📊 今日概览表格 ---
-    const activeCats = CATEGORY_ORDER.filter(
-      (k) => (byCategory.get(k) || []).length > 0
-    );
+    if (activeCategories.length > 0) {
+      markdown += `## 今日概览\n\n`;
+      markdown += `| 分类 | 条数 | 最高分 | 头条 |\n`;
+      markdown += `|:-----|:----:|:------:|:-----|\n`;
 
-    if (activeCats.length > 0) {
-      md += `## 📊 今日概览\n\n`;
-      md += `| 领域 | 条数 | 最高分 | 头条 |\n`;
-      md += `|:-----|:----:|:------:|:-----|\n`;
-
-      for (const catKey of activeCats) {
-        const items = byCategory.get(catKey) || [];
-        const label = CATEGORY_LABELS[catKey] || catKey;
-        const topItem = items.reduce((a, b) =>
-          a.weightedScore >= b.weightedScore ? a : b
+      for (const category of activeCategories) {
+        const items = byCategory.get(category) ?? [];
+        const topItem = items.reduce((left, right) =>
+          left.weightedScore >= right.weightedScore ? left : right
         );
-        const maxScore = topItem.weightedScore;
-        md += `| ${label} | ${items.length} | **${maxScore}分** | ${topItem.oneLiner} |\n`;
+        markdown += `| ${CATEGORY_LABELS[category]} | ${items.length} | **${topItem.weightedScore}** | ${topItem.oneLiner} |\n`;
       }
 
-      md += `\n---\n\n`;
+      markdown += `\n`;
     }
 
-    // --- 各领域详情 ---
-    for (const catKey of CATEGORY_ORDER) {
-      const items = byCategory.get(catKey) || [];
+    for (const category of CATEGORIES) {
+      const items = byCategory.get(category) ?? [];
       if (items.length === 0) continue;
 
-      const categoryName = CATEGORY_LABELS[catKey] || catKey;
-      md += `## ${categoryName}\n\n`;
-
+      markdown += `## ${CATEGORY_LABELS[category]}\n\n`;
       for (const item of items) {
-        const scoreBar =
-          "★".repeat(Math.round(item.weightedScore / 20)) +
-          "☆".repeat(5 - Math.round(item.weightedScore / 20));
+        markdown += `### ${item.oneLiner}\n\n`;
+        markdown += `> **${item.weightedScore} 分** | 来源: [${item.source}](${item.url})\n\n`;
 
-        // 标题
-        md += `### 📌 ${item.oneLiner}\n\n`;
-
-        // 评分 + 来源
-        md += `> ${scoreBar} **${item.weightedScore}分** | 来源: [${item.source}](${item.url})\n\n`;
-
-        // 配图（如果有）
         if (item.imageUrl) {
-          md += `![${item.oneLiner}](${item.imageUrl})\n\n`;
+          markdown += `![${item.oneLiner}](${item.imageUrl})\n\n`;
         }
 
-        // 深度解读 (直接渲染为正文)
-        md += `${item.content}\n\n`;
+        markdown += `${item.content}\n\n`;
 
-        // 对比表格（如果有）
         if (
           item.comparisonTable &&
           item.comparisonTable.headers &&
           item.comparisonTable.rows &&
           item.comparisonTable.rows.length > 0
         ) {
-          md += `#### 📊 对比分析\n\n`;
-          const headers = item.comparisonTable.headers;
-          md += `| ${headers.join(" | ")} |\n`;
-          md += `|${headers.map(() => ":---").join("|")}|\n`;
+          markdown += `#### 对比\n\n`;
+          markdown += `| ${item.comparisonTable.headers.join(" | ")} |\n`;
+          markdown += `|${item.comparisonTable.headers.map(() => ":---").join("|")}|\n`;
           for (const row of item.comparisonTable.rows) {
-            md += `| ${row.join(" | ")} |\n`;
+            markdown += `| ${row.join(" | ")} |\n`;
           }
-          md += `\n`;
+          markdown += `\n`;
         }
 
-        // 代码示例（如果有）
-        if (item.codeSnippet && item.codeSnippet.code) {
-          md += `#### 💻 代码示例\n\n`;
-          md += `\`\`\`${item.codeSnippet.lang || ""}\n`;
-          md += `${item.codeSnippet.code}\n`;
-          md += `\`\`\`\n\n`;
+        if (item.codeSnippet?.code) {
+          markdown += `#### 代码片段\n\n`;
+          markdown += `\`\`\`${item.codeSnippet.lang || ""}\n${item.codeSnippet.code}\n\`\`\`\n\n`;
         }
 
-        md += `---\n\n`;
+        markdown += `---\n\n`;
       }
     }
 
-    // --- 📈 今日评分分布 ---
-    const sortedAll = [...insights].sort(
-      (a, b) => b.weightedScore - a.weightedScore
-    );
+    markdown += `## 接下来要盯的变量\n\n`;
+    const watchSignals = editorialAgenda.watchSignals.slice(0, 5);
+    if (watchSignals.length > 0) {
+      for (const signal of watchSignals) {
+        markdown += `- ${signal}\n`;
+      }
+      markdown += `\n`;
+    }
+    markdown += `> ${dailyClosing}\n\n`;
 
-    md += `## 📈 今日评分排行\n\n`;
-    md += `| 排名 | 领域 | 新闻 | 评分 |\n`;
-    md += `|:----:|:----:|:-----|:----:|\n`;
-
-    sortedAll.forEach((item, idx) => {
-      const catLabel = CATEGORY_LABELS[item.category] || item.category;
-      md += `| ${idx + 1} | ${catLabel} | ${item.oneLiner} | **${item.weightedScore}** |\n`;
-    });
-
-    md += `\n`;
-
-    // --- 更多 24h 资讯 (Secondary List) ---
     if (secondaryItems && secondaryItems.length > 0) {
-      md += `\n---\n\n## 📝 更多 24h 资讯\n\n`;
-      md += `> 以下是过去 24 小时内筛选出的其他动态，暂未做深度解读：\n\n`;
+      markdown += `---\n\n## 更多 24h 资讯\n\n`;
+      markdown += `> 以下条目进入了候选池，但没有进入今天的深度解读。\n\n`;
 
-      // 按领域分组
       const secondaryByCategory = new Map<string, typeof secondaryItems>();
       for (const item of secondaryItems) {
-        const cat = item.category || "social";
-        if (!secondaryByCategory.has(cat)) secondaryByCategory.set(cat, []);
-        secondaryByCategory.get(cat)!.push(item);
+        const category = CATEGORIES.includes(item.category as (typeof CATEGORIES)[number])
+          ? item.category
+          : "social";
+        if (!secondaryByCategory.has(category)) {
+          secondaryByCategory.set(category, []);
+        }
+        secondaryByCategory.get(category)!.push(item);
       }
 
-      for (const catKey of CATEGORY_ORDER) {
-        const items = secondaryByCategory.get(catKey) || [];
+      for (const category of CATEGORIES) {
+        const items = secondaryByCategory.get(category) ?? [];
         if (items.length === 0) continue;
 
-        const label = CATEGORY_LABELS[catKey] || catKey;
-        md += `#### ${label}\n`;
+        markdown += `#### ${CATEGORY_LABELS[category]}\n`;
         for (const item of items) {
-          const timeStr = dayjs(item.publishedAt).format("HH:mm");
-          md += `- [${timeStr}] [${item.title}](${item.url}) — *${item.source}*\n`;
+          markdown += `- [${dayjs(item.publishedAt).format("HH:mm")}] [${item.title}](${item.url}) | *${item.source}*\n`;
         }
-        md += `\n`;
+        markdown += `\n`;
       }
     }
 
     console.log(
-      `[generate-daily] Rendered ${insights.length} items across ${activeCats.length} categories`
+      `[generate-daily] Rendered ${insights.length} items across ${activeCategories.length} categories`
     );
-    return { dailyMarkdown: md, dailySummary };
+
+    return {
+      dailyMarkdown: markdown,
+      dailySummary: dailyOpening,
+    };
   } catch (err) {
     console.error("[generate-daily] Failed:", err);
     return {

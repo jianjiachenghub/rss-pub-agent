@@ -1,32 +1,76 @@
 {
+  "reportName": "个人日报",
   "interests": [
     {
-      "topic": "大语言模型",
+      "topic": "AI 模型与产品",
       "level": "must",
-      "keywords": ["LLM", "GPT", "Claude", "Gemini", "Llama", "大模型"]
+      "keywords": ["LLM", "GPT", "Claude", "Gemini", "Llama", "Agent", "推理", "模型能力"]
     },
     {
-      "topic": "AI 工具和应用",
+      "topic": "金融市场与投资判断",
       "level": "must",
-      "keywords": ["AI Agent", "Copilot", "AI 编程", "提示工程", "RAG"]
+      "keywords": ["宏观", "利率", "市场情绪", "风险偏好", "资金流向", "股市", "债市", "加密市场"]
     },
     {
-      "topic": "开源项目",
+      "topic": "科技行业与平台格局",
       "level": "high",
-      "keywords": ["GitHub", "开源", "框架", "SDK"]
+      "keywords": ["芯片", "云", "平台战略", "消费科技", "网络安全", "大公司动向"]
     },
     {
-      "topic": "AI 商业化",
+      "topic": "软件工程与开发者工具",
       "level": "high",
-      "keywords": ["融资", "估值", "商业模式", "落地", "创业"]
+      "keywords": ["开源", "GitHub", "编程语言", "框架", "SDK", "开发者工具", "工程效率"]
     },
     {
-      "topic": "AI 芯片和算力",
+      "topic": "政策监管与地缘变化",
       "level": "medium",
-      "keywords": ["GPU", "NVIDIA", "芯片", "算力"]
+      "keywords": ["监管", "关税", "出口限制", "地缘政治", "产业政策", "央行"]
     }
   ],
-  "topN": 10,
+  "topN": 18,
   "language": "zh",
-  "outputStyle": "professional"
+  "outputStyle": "professional",
+  "editorial": {
+    "positioning": "personal-multi-category-daily",
+    "dailyObjective": "从过去 24 小时的海量资讯中提炼最有价值、最能帮助判断未来形势的信息。",
+    "baseCategoryWeights": {
+      "ai": 1.0,
+      "investment": 0.95,
+      "tech": 0.75,
+      "software": 0.7,
+      "business": 0.6,
+      "politics": 0.55,
+      "social": 0.25
+    },
+    "minimumCategoryCoverage": {
+      "ai": 3,
+      "investment": 3,
+      "tech": 2,
+      "software": 2,
+      "business": 1,
+      "politics": 1,
+      "social": 0
+    },
+    "scoringWeights": {
+      "signalStrength": 0.24,
+      "futureImpact": 0.23,
+      "personalRelevance": 0.18,
+      "decisionUsefulness": 0.17,
+      "credibility": 0.12,
+      "timeliness": 0.06
+    },
+    "mustWatchThemes": [
+      "AI 模型能力与产品形态变化",
+      "金融市场风险偏好与资金流向",
+      "关键政策与监管变化",
+      "科技平台与芯片格局变化",
+      "开发者工具和工程效率跃迁"
+    ],
+    "selectionPrinciples": [
+      "允许重大政策、金融、宏观、地缘事件在当天压过 AI",
+      "优先选择能帮助判断未来几天到几周走势的信号",
+      "单条新闻不追求面面俱到，日报开头和结尾负责趋势判断",
+      "避免热闹但无判断价值的流量型内容"
+    ]
+  }
 }

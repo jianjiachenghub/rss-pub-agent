@@ -10,6 +10,7 @@ import type {
   PlatformContents,
   PodcastData,
   CoverageStats,
+  EditorialAgenda,
   FetchCheckpoint,
   FetchMetrics,
   PipelineError,
@@ -73,6 +74,19 @@ export const PipelineState = Annotation.Root({
   secondaryItems: Annotation<ScoredNewsItem[]>({
     reducer: (_, y) => y,
     default: () => [],
+  }),
+  editorialAgenda: Annotation<EditorialAgenda>({
+    reducer: (_, y) => y,
+    default: () => ({
+      dominantNarrative: "",
+      openingAngle: "",
+      closingOutlookAngle: "",
+      mustCoverThemes: [],
+      watchSignals: [],
+      mustCoverIds: [],
+      categoryBoosts: {},
+      rationale: "",
+    }),
   }),
   insights: Annotation<NewsInsight[]>({
     reducer: (_, y) => y,
