@@ -21,6 +21,40 @@ export interface LLMResponse {
   tokensUsed?: number;
 }
 
+function getSchemaRootType(
+  schema?: Record<string, unknown>
+): string | undefined {
+  const rawType = schema?.type;
+  return typeof rawType === "string" ? rawType.toUpperCase() : undefined;
+}
+
+function buildJsonOnlyInstruction(
+  schema?: Record<string, unknown>
+): string | undefined {
+  if (!schema) return undefined;
+
+  const rootType = getSchemaRootType(schema);
+  if (rootType === "ARRAY") {
+    return "Return valid JSON only. The top-level value must be a raw JSON array. Do not wrap it in an object, markdown, or explanation.";
+  }
+  if (rootType === "OBJECT") {
+    return "Return valid JSON only. The top-level value must be a JSON object. Do not include markdown or explanation.";
+  }
+  return "Return valid JSON only. Do not include markdown or explanation.";
+}
+
+function withJsonOnlyInstruction(req: LLMRequest): LLMRequest {
+  const instruction = buildJsonOnlyInstruction(req.jsonSchema);
+  if (!instruction) return req;
+
+  return {
+    ...req,
+    systemPrompt: req.systemPrompt
+      ? `${req.systemPrompt}\n\n${instruction}`
+      : instruction,
+  };
+}
+
 // ---------- Provider 定义 ----------
 
 interface ProviderConfig {
@@ -57,20 +91,21 @@ function createOpenAICompatibleProvider(opts: {
     models: opts.models,
     async call(req: LLMRequest): Promise<LLMResponse> {
       const model = opts.models[req.model ?? "flash"];
+      const effectiveReq = withJsonOnlyInstruction(req);
       const messages: OpenAI.Chat.ChatCompletionMessageParam[] = [];
 
-      if (req.systemPrompt) {
-        messages.push({ role: "system", content: req.systemPrompt });
+      if (effectiveReq.systemPrompt) {
+        messages.push({ role: "system", content: effectiveReq.systemPrompt });
       }
-      messages.push({ role: "user", content: req.prompt });
+      messages.push({ role: "user", content: effectiveReq.prompt });
 
       const params: OpenAI.Chat.ChatCompletionCreateParams = {
         model,
         messages,
-        max_tokens: req.maxTokens ?? 4096,
+        max_tokens: effectiveReq.maxTokens ?? 4096,
       };
 
-      if (req.jsonSchema) {
+      if (getSchemaRootType(effectiveReq.jsonSchema) === "OBJECT") {
         params.response_format = { type: "json_object" };
       }
 
@@ -112,17 +147,18 @@ function createGeminiProvider(): ProviderConfig {
     models,
     async call(req: LLMRequest): Promise<LLMResponse> {
       const model = models[req.model ?? "flash"];
-      const contents = req.systemPrompt
-        ? `${req.systemPrompt}\n\n---\n\n${req.prompt}`
-        : req.prompt;
+      const effectiveReq = withJsonOnlyInstruction(req);
+      const contents = effectiveReq.systemPrompt
+        ? `${effectiveReq.systemPrompt}\n\n---\n\n${effectiveReq.prompt}`
+        : effectiveReq.prompt;
 
       const config: Record<string, unknown> = {};
-      if (req.jsonSchema) {
+      if (effectiveReq.jsonSchema) {
         config.responseMimeType = "application/json";
-        config.responseJsonSchema = req.jsonSchema;
+        config.responseJsonSchema = effectiveReq.jsonSchema;
       }
-      if (req.maxTokens) {
-        config.maxOutputTokens = req.maxTokens;
+      if (effectiveReq.maxTokens) {
+        config.maxOutputTokens = effectiveReq.maxTokens;
       }
 
       const response = await getClient().models.generateContent({
@@ -261,22 +297,105 @@ export async function callLLMJson<T>(req: LLMRequest): Promise<T> {
   }
 }
 
-function parseJsonResponse<T>(text: string): T {
-  // Strip markdown code fences if present
-  let cleaned = text.trim();
+function stripCodeFences(text: string): string {
+  const cleaned = text.trim();
   if (cleaned.startsWith("```")) {
-    cleaned = cleaned.replace(/^```(?:json)?\n?/, "").replace(/\n?```$/, "");
+    return cleaned
+      .replace(/^```(?:json)?\s*/i, "")
+      .replace(/\s*```$/, "");
+  }
+  return cleaned;
+}
+
+function tryParseJson(text: string): unknown {
+  return JSON.parse(text);
+}
+
+function findBalancedJsonSlice(text: string, start: number): string | null {
+  const opening = text[start];
+  const closing = opening === "[" ? "]" : opening === "{" ? "}" : "";
+  if (!closing) return null;
+
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+
+  for (let i = start; i < text.length; i++) {
+    const char = text[i];
+
+    if (inString) {
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (char === "\\") {
+        escaped = true;
+        continue;
+      }
+      if (char === "\"") {
+        inString = false;
+      }
+      continue;
+    }
+
+    if (char === "\"") {
+      inString = true;
+      continue;
+    }
+
+    if (char === opening) {
+      depth++;
+      continue;
+    }
+
+    if (char === closing) {
+      depth--;
+      if (depth === 0) {
+        return text.slice(start, i + 1);
+      }
+    }
   }
 
-  let parsed: unknown;
+  return null;
+}
+
+function extractEmbeddedJson(text: string): string | null {
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] !== "{" && text[i] !== "[") continue;
+    const candidate = findBalancedJsonSlice(text, i);
+    if (!candidate) continue;
+    try {
+      const parsed = tryParseJson(candidate);
+      if (typeof parsed === "object" && parsed !== null) {
+        return candidate;
+      }
+    } catch {
+      // Ignore invalid slices and keep scanning.
+    }
+  }
+
+  return null;
+}
+
+export function parseJsonResponse<T>(text: string): T {
+  const cleaned = stripCodeFences(text);
+
   try {
-    parsed = JSON.parse(cleaned);
+    return normalizeParsedJson<T>(tryParseJson(cleaned));
   } catch (e) {
-    console.error("[LLM] JSON parse failed. Raw text (first 500 chars):", cleaned.slice(0, 500));
+    const embeddedJson = extractEmbeddedJson(cleaned);
+    if (embeddedJson) {
+      return normalizeParsedJson<T>(tryParseJson(embeddedJson));
+    }
+    console.error(
+      "[LLM] JSON parse failed. Raw text (first 500 chars):",
+      cleaned.slice(0, 500)
+    );
     throw e;
   }
+}
 
-  // If we expected an array but got an object, try to extract the array value
+function normalizeParsedJson<T>(parsed: unknown): T {
   if (Array.isArray(parsed)) {
     return parsed as T;
   }

@@ -25,6 +25,21 @@ interface CategoryResult {
   reason: string;
 }
 
+function extractArrayResults<T>(value: unknown): T[] {
+  if (Array.isArray(value)) {
+    return value as T[];
+  }
+
+  if (typeof value === "object" && value !== null) {
+    const arrayValue = Object.values(value).find((item) => Array.isArray(item));
+    if (arrayValue) {
+      return arrayValue as T[];
+    }
+  }
+
+  return [];
+}
+
 function buildFallbackInsight(
   item: PipelineStateType["scoredItems"][number]
 ): NewsInsight {
@@ -38,15 +53,13 @@ function buildFallbackInsight(
     oneLiner: item.title.slice(0, 28),
     content:
       `这条新闻入选今日日报，核心原因是：${item.scoreReasoning}。` +
-      `它主要影响的是 ${item.category} 这条观察线，值得继续跟踪后续增量信息。`,
+      `它主要影响 ${item.category} 这条观察线，后续值得继续跟踪新增信息和落地进展。`,
     scores: item.scores,
     weightedScore: item.weightedScore,
   };
 }
 
-function buildFallbackInsights(
-  state: PipelineStateType
-): NewsInsight[] {
+function buildFallbackInsights(state: PipelineStateType): NewsInsight[] {
   return state.scoredItems.map((item) => buildFallbackInsight(item));
 }
 
@@ -106,19 +119,11 @@ export async function insightNode(
       },
     });
 
-    let resultsArray: InsightResult[] = [];
-    if (Array.isArray(results)) {
-      resultsArray = results;
-    } else if (typeof results === "object" && results !== null) {
-      const values = Object.values(results);
-      const arrayValue = values.find((value) => Array.isArray(value));
-      if (arrayValue) {
-        resultsArray = arrayValue as InsightResult[];
-      }
-    }
-
+    const resultsArray = extractArrayResults<InsightResult>(results);
     if (!Array.isArray(results)) {
-      console.warn(`[insight] Expected array but got ${typeof results}, attempting extraction`);
+      console.warn(
+        `[insight] Expected array but got ${typeof results}, attempting extraction`
+      );
     }
 
     const categoryInput = scoredItems.map((item) => ({
@@ -147,47 +152,34 @@ export async function insightNode(
       },
     });
 
-    let categoryArray: CategoryResult[] = [];
-    if (Array.isArray(categoryResults)) {
-      categoryArray = categoryResults;
-    } else if (typeof categoryResults === "object" && categoryResults !== null) {
-      const values = Object.values(categoryResults);
-      const arrayValue = values.find((value) => Array.isArray(value));
-      if (arrayValue) {
-        categoryArray = arrayValue as CategoryResult[];
-      }
-    }
+    const categoryArray = extractArrayResults<CategoryResult>(categoryResults);
 
     const insightMap = new Map(resultsArray.map((result) => [result.id, result]));
     const categoryMap = new Map(categoryArray.map((result) => [result.id, result]));
 
-    const insights = scoredItems
-      .map((item) => {
-        const insight = insightMap.get(item.id);
-        const categoryResult = categoryMap.get(item.id);
-        if (!insight) {
-          return buildFallbackInsight(item);
-        }
+    const insights = scoredItems.map((item) => {
+      const insight = insightMap.get(item.id);
+      const categoryResult = categoryMap.get(item.id);
+      if (!insight) {
+        return buildFallbackInsight(item);
+      }
 
-        const finalCategory = categoryResult?.category || item.category;
-        const result: NewsInsight = {
-          id: item.id,
-          title: item.title,
-          url: item.url,
-          source: item.source,
-          category: finalCategory,
-          publishedAt: item.publishedAt,
-          oneLiner: insight.oneLiner,
-          content: insight.content,
-          imageUrl: insight.imageUrl || undefined,
-          codeSnippet: insight.codeSnippet ?? undefined,
-          comparisonTable: insight.comparisonTable ?? undefined,
-          scores: item.scores,
-          weightedScore: item.weightedScore,
-        };
-        return result;
-      })
-      .filter((item): item is NewsInsight => item !== null);
+      return {
+        id: item.id,
+        title: item.title,
+        url: item.url,
+        source: item.source,
+        category: categoryResult?.category || item.category,
+        publishedAt: item.publishedAt,
+        oneLiner: insight.oneLiner,
+        content: insight.content,
+        imageUrl: insight.imageUrl || undefined,
+        codeSnippet: insight.codeSnippet ?? undefined,
+        comparisonTable: insight.comparisonTable ?? undefined,
+        scores: item.scores,
+        weightedScore: item.weightedScore,
+      } satisfies NewsInsight;
+    });
 
     const categoryCounts = new Map<string, number>();
     for (const insight of insights) {
