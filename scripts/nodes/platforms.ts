@@ -18,8 +18,13 @@ export async function platformsNode(
   const reportName = config?.reportName ?? "个人日报";
   const contents: PlatformContents = {};
   const insightsSummary = insights
-    .map((insight) => `- ${insight.oneLiner}: ${insight.content}`)
-    .join("\n");
+    .map(
+      (insight) =>
+        `标题: ${insight.title}\n` +
+        `一句话: ${insight.oneLiner}\n` +
+        `${insight.content}`
+    )
+    .join("\n\n---\n\n");
 
   const tasks: Promise<void>[] = [];
 
@@ -27,7 +32,7 @@ export async function platformsNode(
     tasks.push(
       callLLM({
         systemPrompt: xhsSystemPrompt(reportName),
-        prompt: `今日精选（${date}）：\n\n${insightsSummary}`,
+        prompt: `今日日报精选（${date}）：\n\n${insightsSummary}`,
         model: "flash",
       })
         .then((response) => {
@@ -43,7 +48,7 @@ export async function platformsNode(
     tasks.push(
       callLLM({
         systemPrompt: douyinSystemPrompt(reportName),
-        prompt: `今日精选（${date}）：\n\n${insightsSummary}`,
+        prompt: `今日日报精选（${date}）：\n\n${insightsSummary}`,
         model: "flash",
       })
         .then((response) => {
@@ -58,7 +63,7 @@ export async function platformsNode(
   tasks.push(
     callLLM({
       systemPrompt: briefSystemPrompt(reportName),
-      prompt: `今日精选（${date}）：\n\n${insightsSummary}`,
+      prompt: `今日日报精选（${date}）：\n\n${insightsSummary}`,
       model: "flash",
     })
       .then((response) => {

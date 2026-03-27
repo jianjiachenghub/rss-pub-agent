@@ -176,6 +176,10 @@ export interface NewsInsight {
   category: string;
   publishedAt: string;
   oneLiner: string;
+  fact: string;
+  impact: string;
+  judgment: string;
+  action: string;
   content: string;
   imageUrl?: string;
   codeSnippet?: { lang: string; code: string };

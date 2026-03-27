@@ -260,7 +260,13 @@ async function callWithRetry(
         msg.includes("503") ||
         msg.includes("UNAVAILABLE") ||
         msg.includes("overloaded") ||
-        msg.includes("rate");
+        msg.includes("rate") ||
+        msg.includes("Premature close") ||
+        msg.includes("ERR_STREAM_PREMATURE_CLOSE") ||
+        msg.includes("ECONNRESET") ||
+        msg.includes("ETIMEDOUT") ||
+        msg.includes("socket hang up") ||
+        msg.includes("network");
       if (isRetryable && i < retries) {
         const delay = (i + 1) * 3000;
         console.warn(

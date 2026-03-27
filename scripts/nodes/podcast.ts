@@ -18,13 +18,15 @@ export async function podcastNode(
     const insightsSummary = insights
       .map(
         (insight) =>
-          `标题: ${insight.oneLiner}\n具体内容: ${insight.content}`
+          `标题: ${insight.title}\n` +
+          `一句话: ${insight.oneLiner}\n` +
+          `${insight.content}`
       )
       .join("\n\n---\n\n");
 
     const scriptResponse = await callLLM({
       systemPrompt: podcastSystemPrompt(reportName),
-      prompt: `请根据以下今日精选生成播客脚本：\n\n${insightsSummary}`,
+      prompt: `请根据以下今日日报精选生成播客脚本：\n\n${insightsSummary}`,
       model: "pro",
     });
 

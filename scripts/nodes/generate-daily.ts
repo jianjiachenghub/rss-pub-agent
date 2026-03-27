@@ -1,5 +1,6 @@
 import type { PipelineStateType } from "../state.js";
 import { callLLMJson } from "../lib/llm.js";
+import { truncateSummaryText } from "../lib/insight-format.js";
 import {
   CATEGORY_LABELS,
   CATEGORIES,
@@ -62,7 +63,6 @@ export async function generateDailyNode(
     }
 
     const byCategory = new Map<string, typeof insights>();
-
     for (const category of CATEGORIES) {
       byCategory.set(category, []);
     }
@@ -106,7 +106,7 @@ itemCount: ${insights.length}
         const topItem = items.reduce((left, right) =>
           left.weightedScore >= right.weightedScore ? left : right
         );
-        markdown += `| ${CATEGORY_LABELS[category]} | ${items.length} | **${topItem.weightedScore}** | ${topItem.oneLiner} |\n`;
+        markdown += `| ${CATEGORY_LABELS[category]} | ${items.length} | **${topItem.weightedScore}** | ${truncateSummaryText(topItem.title, 34)} |\n`;
       }
 
       markdown += `\n`;
@@ -118,14 +118,18 @@ itemCount: ${insights.length}
 
       markdown += `## ${CATEGORY_LABELS[category]}\n\n`;
       for (const item of items) {
-        markdown += `### ${item.oneLiner}\n\n`;
-        markdown += `> **${item.weightedScore} 分** | 来源: [${item.source}](${item.url})\n\n`;
+        markdown += `### ${item.title}\n\n`;
+        markdown += `> **${item.weightedScore} 分** | 来源: [${item.source}](${item.url})\n`;
+        markdown += `> ${item.oneLiner}\n\n`;
 
         if (item.imageUrl) {
-          markdown += `![${item.oneLiner}](${item.imageUrl})\n\n`;
+          markdown += `![${item.title}](${item.imageUrl})\n\n`;
         }
 
-        markdown += `${item.content}\n\n`;
+        markdown += `**事实：** ${item.fact}\n\n`;
+        markdown += `**影响：** ${item.impact}\n\n`;
+        markdown += `**判断：** ${item.judgment}\n\n`;
+        markdown += `**动作：** ${item.action}\n\n`;
 
         if (
           item.comparisonTable &&
