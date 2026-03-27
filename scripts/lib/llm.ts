@@ -55,6 +55,20 @@ function withJsonOnlyInstruction(req: LLMRequest): LLMRequest {
   };
 }
 
+export function getErrorMessage(err: unknown): string {
+  if (err instanceof Error) return err.message;
+  return String(err);
+}
+
+export function isContentSafetyError(err: unknown): boolean {
+  const message = getErrorMessage(err);
+  return (
+    message.includes("1301") ||
+    message.includes("不安全或敏感内容") ||
+    message.toLowerCase().includes("content safety")
+  );
+}
+
 // ---------- Provider 定义 ----------
 
 interface ProviderConfig {

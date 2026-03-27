@@ -1,5 +1,6 @@
 import type { PipelineStateType } from "../state.js";
-import { callLLMJson } from "../lib/llm.js";
+import { buildFallbackScores } from "../lib/editorial-fallback.js";
+import { callLLMJson, isContentSafetyError } from "../lib/llm.js";
 import { CATEGORIES, scoreSystemPrompt, scoreUserPrompt } from "../lib/prompts.js";
 import type {
   EditorialStrategyConfig,
@@ -248,6 +249,26 @@ export async function scoreNode(
       secondaryItems,
     };
   } catch (err) {
+    if (config && isContentSafetyError(err)) {
+      // Reuse the same editorial weights/caps locally so a moderation block does
+      // not collapse selection quality or category balance for the daily report.
+      const fallback = buildFallbackScores(passedItems, config, editorialAgenda);
+      console.warn(
+        `[score] Content safety blocked LLM scoring, using heuristic fallback for ${fallback.selectedItems.length} selected and ${fallback.secondaryItems.length} secondary items`
+      );
+      return {
+        scoredItems: fallback.selectedItems,
+        secondaryItems: fallback.secondaryItems,
+        errors: [
+          {
+            node: "score",
+            message: (err as Error).message,
+            timestamp: new Date().toISOString(),
+          },
+        ],
+      };
+    }
+
     console.error("[score] Failed:", err);
     const fallback: ScoredNewsItem[] = passedItems
       .slice(0, config.topN)

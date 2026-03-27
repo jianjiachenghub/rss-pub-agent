@@ -1,5 +1,6 @@
 import type { PipelineStateType } from "../state.js";
-import { callLLMJson } from "../lib/llm.js";
+import { buildFallbackGateKeep } from "../lib/editorial-fallback.js";
+import { callLLMJson, isContentSafetyError } from "../lib/llm.js";
 import { gateKeepSystemPrompt, gateKeepUserPrompt } from "../lib/prompts.js";
 import type { GateKeepResult } from "../lib/types.js";
 
@@ -89,6 +90,25 @@ export async function gateKeepNode(
 
     return { passedItems, gateKeepResults: allResults };
   } catch (err) {
+    if (config && isContentSafetyError(err)) {
+      // When the provider blocks on moderation, keep the pipeline moving with a
+      // deterministic filter instead of passing the whole pool straight through.
+      const fallback = buildFallbackGateKeep(rawItems, config, editorialAgenda);
+      console.warn(
+        `[gate-keep] Content safety blocked LLM review, using heuristic fallback for ${fallback.passedItems.length}/${rawItems.length} items`
+      );
+      return {
+        ...fallback,
+        errors: [
+          {
+            node: "gateKeep",
+            message: (err as Error).message,
+            timestamp: new Date().toISOString(),
+          },
+        ],
+      };
+    }
+
     console.error("[gate-keep] Failed, passing all items through:", err);
     return {
       passedItems: rawItems,
