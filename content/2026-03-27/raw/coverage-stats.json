@@ -1,32 +1,32 @@
 {
   "observedByCategory": {
-    "tech": 394,
-    "social": 43,
-    "software": 46,
-    "ai": 48,
-    "investment": 52,
-    "business": 56,
-    "politics": 64
+    "social": 40,
+    "tech": 224,
+    "software": 43,
+    "ai": 58,
+    "business": 26,
+    "investment": 31,
+    "politics": 20
   },
   "selectedByCategory": {
-    "tech": 16,
     "social": 8,
+    "tech": 16,
     "software": 14,
     "ai": 38,
-    "investment": 8,
     "business": 14,
+    "investment": 8,
     "politics": 12
   },
   "finalByCategory": {
+    "tech": 16,
     "software": 14,
     "ai": 38,
-    "tech": 16,
+    "business": 14,
     "social": 8,
     "investment": 8,
-    "business": 14,
     "politics": 12
   },
   "deficitCategories": [],
-  "totalObservedEvents": 703,
+  "totalObservedEvents": 442,
   "totalSelectedEvents": 110
 }
