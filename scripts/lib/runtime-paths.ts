@@ -12,6 +12,7 @@ function resolveRepoSubdir(name: string): string {
 
 export const CONTENT_DIR = resolveRepoSubdir("content");
 export const CONFIGS_DIR = resolveRepoSubdir("configs");
+export const RUNTIME_DIR = resolveRepoSubdir(".runtime");
 
 export function getContentDayDir(date: string): string {
   return join(CONTENT_DIR, date);
@@ -19,4 +20,8 @@ export function getContentDayDir(date: string): string {
 
 export function getRawContentDir(date: string): string {
   return join(getContentDayDir(date), "raw");
+}
+
+export function getDeliveryRecordPath(date: string): string {
+  return join(RUNTIME_DIR, "delivery", `${date}.json`);
 }

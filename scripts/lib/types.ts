@@ -59,9 +59,18 @@ export interface PipelineConfig {
   editorial: EditorialStrategyConfig;
 }
 
+export interface FeishuPlatformConfig {
+  enabled: boolean;
+  webhookUrl: string;
+  maxHighlights?: number;
+  targetName?: string;
+}
+
 export interface PlatformConfig {
+  reportBaseUrl?: string;
   telegram: { enabled: boolean; botToken: string; chatId: string };
   wechat: { enabled: boolean; webhookUrl: string };
+  feishu?: FeishuPlatformConfig;
   xhs: { enabled: boolean; style: string };
   douyin: { enabled: boolean; style: string };
   podcast: { enabled: boolean; voices: string[]; maxMinutes: number };
@@ -184,6 +193,21 @@ export interface PlatformContents {
 export interface PodcastData {
   script: string;
   audioUrl?: string;
+}
+
+export type DeliveryStatus = "pending" | "sent" | "failed" | "skipped";
+
+export interface DeliveryRecord {
+  date: string;
+  channel: "feishu";
+  target: string;
+  status: DeliveryStatus;
+  attempts: number;
+  summaryPreview?: string;
+  url?: string;
+  sentAt?: string;
+  externalId?: string;
+  lastError?: string;
 }
 
 export interface PipelineError {

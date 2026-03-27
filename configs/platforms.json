@@ -1,4 +1,11 @@
 {
+  "reportBaseUrl": "${REPORT_BASE_URL}",
+  "feishu": {
+    "enabled": true,
+    "webhookUrl": "${FEISHU_WEBHOOK_URL}",
+    "maxHighlights": 3,
+    "targetName": "daily-report"
+  },
   "telegram": {
     "enabled": true,
     "botToken": "${TELEGRAM_BOT_TOKEN}",
