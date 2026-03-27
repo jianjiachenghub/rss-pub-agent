@@ -38,6 +38,7 @@ import { podcastNode } from "./nodes/podcast.js";
 import { platformsNode } from "./nodes/platforms.js";
 import { publishNode } from "./nodes/publish.js";
 import { notifyNode } from "./nodes/notify.js";
+import { getRuntimeOptions } from "./lib/runtime-options.js";
 
 const graph = new StateGraph(PipelineState)
   .addNode("loadConfig", loadConfig)
@@ -73,8 +74,15 @@ const graph = new StateGraph(PipelineState)
 const pipeline = graph.compile();
 
 async function main() {
+  const runtimeOptions = getRuntimeOptions();
+
   console.log("=== LLM News Flow Pipeline ===");
   console.log(`Started at: ${new Date().toISOString()}`);
+  if (runtimeOptions.resumeFromRaw) {
+    console.log(
+      `[runtime] Resume-from-raw enabled for ${runtimeOptions.date ?? "today"}`
+    );
+  }
 
   const result = await pipeline.invoke({});
 

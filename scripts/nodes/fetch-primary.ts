@@ -1,7 +1,14 @@
 import type { PipelineStateType } from "../state.js";
 import { compareFeeds, dedupeRawItems } from "../lib/feed-fetch.js";
 import { fetchFoloByListDetailed } from "../lib/folo.js";
+import {
+  rawSnapshotExists,
+  readFetchCheckpoint,
+  readFetchMetrics,
+  readPrimaryRawItems,
+} from "../lib/raw-input.js";
 import { writeRawJson, writeRawJsonLines } from "../lib/raw-output.js";
+import { shouldResumeFromRaw } from "../lib/runtime-options.js";
 import type { FetchMetrics } from "../lib/types.js";
 
 const PRIMARY_FETCH_SAFETY_MAX_ITEMS = 2500;
@@ -33,6 +40,36 @@ export async function fetchPrimaryNode(
     sourceErrors: 0,
     degradedMode: "none",
   };
+
+  if (
+    shouldResumeFromRaw(date) &&
+    rawSnapshotExists(date, "folo-list.jsonl") &&
+    rawSnapshotExists(date, "fetch-metrics.json")
+  ) {
+    try {
+      const [primaryRawItems, cachedMetrics] = await Promise.all([
+        readPrimaryRawItems(date),
+        readFetchMetrics(date),
+      ]);
+      const fetchCheckpoint = rawSnapshotExists(date, "checkpoint.json")
+        ? await readFetchCheckpoint(date)
+        : null;
+
+      console.log(
+        `[fetchPrimary] Resumed ${primaryRawItems.length} items from content/${date}/raw/`
+      );
+
+      return {
+        primaryRawItems,
+        fetchCheckpoint,
+        fetchMetrics: cachedMetrics,
+      };
+    } catch (err) {
+      console.warn(
+        `[fetchPrimary] Resume failed, falling back to fresh fetch: ${(err as Error).message}`
+      );
+    }
+  }
 
   const primaryFeed = [...config.feeds]
     .filter((feed) => feed.type === "folo-list")

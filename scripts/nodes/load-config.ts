@@ -7,7 +7,7 @@ import type {
   PlatformConfig,
 } from "../lib/types.js";
 import { CONFIGS_DIR } from "../lib/runtime-paths.js";
-import dayjs from "dayjs";
+import { getTargetDate } from "../lib/runtime-options.js";
 
 function resolveEnvVars(obj: unknown): unknown {
   if (typeof obj === "string") {
@@ -94,7 +94,7 @@ export async function loadConfig(
     return {
       config,
       platformConfig: platforms,
-      date: dayjs().format("YYYY-MM-DD"),
+      date: getTargetDate(),
     };
   } catch (err) {
     return {

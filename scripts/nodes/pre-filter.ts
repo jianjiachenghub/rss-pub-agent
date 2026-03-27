@@ -1,12 +1,49 @@
 import type { PipelineStateType } from "../state.js";
 import { compressPrimaryItems } from "../lib/pre-filter.js";
+import {
+  rawSnapshotExists,
+  readCoverageStats,
+  readEventCandidates,
+  readFetchMetrics,
+} from "../lib/raw-input.js";
 import { writeRawJson } from "../lib/raw-output.js";
+import { shouldResumeFromRaw } from "../lib/runtime-options.js";
 
 export async function preFilterNode(
   state: PipelineStateType
 ): Promise<Partial<PipelineStateType>> {
   const { primaryRawItems, date, fetchMetrics } = state;
   if (!date) return {};
+
+  if (
+    shouldResumeFromRaw(date) &&
+    rawSnapshotExists(date, "event-candidates.json") &&
+    rawSnapshotExists(date, "coverage-stats.json")
+  ) {
+    try {
+      const [eventCandidates, coverageStats, cachedMetrics] = await Promise.all([
+        readEventCandidates(date),
+        readCoverageStats(date),
+        rawSnapshotExists(date, "fetch-metrics.json")
+          ? readFetchMetrics(date)
+          : Promise.resolve(fetchMetrics),
+      ]);
+
+      console.log(
+        `[preFilter] Resumed ${eventCandidates.length} candidates from content/${date}/raw/`
+      );
+
+      return {
+        eventCandidates,
+        coverageStats,
+        fetchMetrics: cachedMetrics,
+      };
+    } catch (err) {
+      console.warn(
+        `[preFilter] Resume failed, recomputing candidates: ${(err as Error).message}`
+      );
+    }
+  }
 
   if (!primaryRawItems.length) {
     return {

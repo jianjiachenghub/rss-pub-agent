@@ -9,7 +9,14 @@ import {
   summarizeCategoryCounts,
 } from "../lib/feed-fetch.js";
 import { COVERAGE_MIN_TARGETS } from "../lib/pre-filter.js";
+import {
+  rawSnapshotExists,
+  readCoverageStats,
+  readFetchMetrics,
+  readRawCandidates,
+} from "../lib/raw-input.js";
 import { writeRawJson } from "../lib/raw-output.js";
+import { shouldResumeFromRaw } from "../lib/runtime-options.js";
 
 export async function fetchCoverageNode(
   state: PipelineStateType
@@ -25,6 +32,36 @@ export async function fetchCoverageNode(
         },
       ],
     };
+  }
+
+  if (
+    shouldResumeFromRaw(date) &&
+    rawSnapshotExists(date, "raw-candidates.json") &&
+    rawSnapshotExists(date, "coverage-stats.json")
+  ) {
+    try {
+      const [rawItems, nextCoverageStats, nextMetrics] = await Promise.all([
+        readRawCandidates(date),
+        readCoverageStats(date),
+        rawSnapshotExists(date, "fetch-metrics.json")
+          ? readFetchMetrics(date)
+          : Promise.resolve(fetchMetrics),
+      ]);
+
+      console.log(
+        `[fetchCoverage] Resumed ${rawItems.length} raw candidates from content/${date}/raw/`
+      );
+
+      return {
+        rawItems,
+        coverageStats: nextCoverageStats,
+        fetchMetrics: nextMetrics,
+      };
+    } catch (err) {
+      console.warn(
+        `[fetchCoverage] Resume failed, continuing with live coverage fetch: ${(err as Error).message}`
+      );
+    }
   }
 
   if (!eventCandidates.length) {
