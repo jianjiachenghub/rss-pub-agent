@@ -1,0 +1,124 @@
+import Link from "next/link";
+import dayjs from "dayjs";
+import type { WeeklyIssue } from "@/lib/content-loader";
+
+function buildWeeklyNote(issue: WeeklyIssue): string {
+  const themes = issue.categories.slice(0, 3).join(" / ");
+  const issueLabel = `${issue.issueCount} issue${issue.issueCount === 1 ? "" : "s"}`;
+  const storyLabel = `${issue.itemCount} stories`;
+
+  if (!themes) {
+    return `This weekly brief composes ${issueLabel} and ${storyLabel} from the archive without altering the underlying daily markdown sources.`;
+  }
+
+  return `This weekly brief composes ${issueLabel} and ${storyLabel}. The most recurring themes this week were ${themes}. Use the day index below to jump back into each raw daily issue.`;
+}
+
+export default function WeeklyDigest({ issue }: { issue: WeeklyIssue }) {
+  return (
+    <article className="space-y-10">
+      <section className="editorial-card p-6 md:p-8">
+        <div className="section-label">Weekly Brief</div>
+        <div className="mt-8 space-y-5">
+          <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-black/45">
+            {issue.rangeLabel}
+          </div>
+          <h1 className="display-title max-w-4xl">{issue.label}</h1>
+          <p className="max-w-4xl text-lg leading-9 text-black/68">
+            {issue.summary || buildWeeklyNote(issue)}
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {issue.categories.map((category) => (
+              <span key={category} className="outline-chip">
+                {category}
+              </span>
+            ))}
+          </div>
+          {issue.heroImageUrl ? (
+            <img
+              alt={issue.label}
+              className="h-[24rem] w-full border border-black/10 object-cover"
+              src={issue.heroImageUrl}
+            />
+          ) : null}
+        </div>
+      </section>
+
+      <section className="grid gap-4 md:grid-cols-4">
+        <div className="metric-card">
+          <div className="metric-value">{issue.issueCount}</div>
+          <div className="metric-label">Issues</div>
+        </div>
+        <div className="metric-card">
+          <div className="metric-value">{issue.itemCount}</div>
+          <div className="metric-label">Stories</div>
+        </div>
+        <div className="metric-card">
+          <div className="metric-value">{issue.avgScore}</div>
+          <div className="metric-label">Avg Score</div>
+        </div>
+        <div className="metric-card">
+          <div className="metric-value">{issue.keyTitles.length}</div>
+          <div className="metric-label">Anchors</div>
+        </div>
+      </section>
+
+      <section className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]">
+        <div className="editorial-card p-6 md:p-8">
+          <div className="section-label">Week Anchors</div>
+          <div className="mt-7 space-y-4">
+            {issue.keyTitles.map((title, index) => (
+              <div key={`${title}-${index}`} className="border-t border-black/10 pt-4">
+                <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-black/35">
+                  Anchor {String(index + 1).padStart(2, "0")}
+                </div>
+                <div className="mt-2 text-lg font-semibold leading-snug text-black">
+                  {title}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="editorial-card p-6 md:p-8">
+          <div className="section-label">Archive Note</div>
+          <p className="mt-7 text-sm leading-8 text-black/64">{buildWeeklyNote(issue)}</p>
+        </div>
+      </section>
+
+      <section className="editorial-card p-6 md:p-8">
+        <div className="section-label">Daily Issues</div>
+        <div className="mt-8 space-y-5">
+          {issue.days.map((day) => (
+            <Link
+              key={day.date}
+              href={`/${day.date}`}
+              className="grid gap-5 border-t border-black/10 pt-5 transition-transform hover:-translate-y-0.5 md:grid-cols-[9rem_minmax(0,1fr)]"
+            >
+              <div className="font-mono text-[11px] uppercase tracking-[0.26em] text-black/42">
+                <div>{dayjs(day.date).format("YYYY.MM.DD")}</div>
+                <div className="mt-2">{day.meta?.itemCount ?? 0} items</div>
+              </div>
+              <div>
+                <h2 className="text-2xl font-semibold leading-tight text-black">{day.title}</h2>
+                <p className="mt-3 max-w-3xl text-sm leading-7 text-black/65">
+                  {day.summary}
+                </p>
+                <div className="mt-4 grid gap-2 md:grid-cols-2">
+                  {day.keyTitles.slice(0, 4).map((title, index) => (
+                    <div
+                      key={`${day.date}-${index}`}
+                      className="border-t border-black/10 pt-3 text-sm leading-6 text-black/68"
+                    >
+                      {title}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </article>
+  );
+}

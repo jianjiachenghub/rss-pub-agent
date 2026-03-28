@@ -1,7 +1,12 @@
-import { getAllDates, getDailyContent, getDailyMeta, getGroupedByYear } from "@/lib/content-loader";
-import Sidebar from "@/components/Sidebar";
-import DailyReport from "@/components/DailyReport";
 import { notFound } from "next/navigation";
+import DailyReport from "@/components/DailyReport";
+import PublicationShell from "@/components/PublicationShell";
+import {
+  getAllDates,
+  getAllDailyIssues,
+  getDailyIssue,
+  getWeeklyIssues,
+} from "@/lib/content-loader";
 
 export const dynamicParams = false;
 
@@ -15,28 +20,60 @@ export default async function DailyPage({
   params: Promise<{ date: string }>;
 }) {
   const { date } = await params;
-  const content = getDailyContent(date);
-  if (!content) notFound();
+  const issue = getDailyIssue(date);
 
-  const meta = getDailyMeta(date);
-  const years = getGroupedByYear();
+  if (!issue) notFound();
+
+  const dailyIssues = getAllDailyIssues();
+  const weeklyIssues = getWeeklyIssues();
 
   return (
-    <>
-      <Sidebar currentDate={date} years={years} />
-      <main className="flex-1 p-6 md:p-10 max-w-4xl mx-auto overflow-y-auto">
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold">{date} · 日报</h1>
-          {meta && (
-            <div className="flex gap-4 mt-2 text-sm text-gray-500">
-              <span>{meta.itemCount} 条精选</span>
-              <span>均分 {meta.avgScore}</span>
-              {meta.hasPodcast && <span>🎙 有播客</span>}
-            </div>
-          )}
+    <PublicationShell
+      currentDate={date}
+      dailyIssues={dailyIssues}
+      masthead={
+        <div className="w-full max-w-3xl text-center">
+          <div className="font-mono text-[10px] uppercase tracking-[0.34em] text-black/45">
+            Daily Issue / Raw Markdown Reading
+          </div>
+          <div className="mt-2 text-sm leading-6 text-black/62">
+            This page renders the original markdown source without restructuring its
+            content blocks.
+          </div>
         </div>
-        <DailyReport content={content} />
-      </main>
-    </>
+      }
+      weeklyIssues={weeklyIssues}
+    >
+      <section className="editorial-card px-6 py-6 md:px-8 md:py-8">
+        <div className="font-mono text-[11px] uppercase tracking-[0.28em] text-black/42">
+          {issue.date}
+        </div>
+        <div className="mt-4 grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(18rem,0.7fr)]">
+          <div>
+            <div className="section-label">Issue Note</div>
+            <p className="mt-6 max-w-3xl text-base leading-8 text-black/68">
+              {issue.summary || "Read the full markdown issue below."}
+            </p>
+          </div>
+          <div className="space-y-3 border-l border-black/10 pl-0 xl:pl-6">
+            <div className="section-label">Issue Meta</div>
+            <div className="grid grid-cols-2 gap-3 pt-3">
+              <div className="metric-card">
+                <div className="metric-value">{issue.meta?.itemCount ?? 0}</div>
+                <div className="metric-label">Items</div>
+              </div>
+              <div className="metric-card">
+                <div className="metric-value">{issue.meta?.avgScore ?? 0}</div>
+                <div className="metric-label">Avg Score</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-8">
+        <DailyReport content={issue.content} />
+      </section>
+    </PublicationShell>
   );
 }

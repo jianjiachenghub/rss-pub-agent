@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 interface Props {
   date: string;
@@ -9,28 +9,32 @@ interface Props {
 }
 
 export default function PodcastPlayer({ date, audioUrl, script }: Props) {
-  const audioRef = useRef<HTMLAudioElement>(null);
   const [showScript, setShowScript] = useState(false);
 
   return (
-    <div className="border rounded-xl p-6 mb-4 dark:border-gray-700">
-      <h3 className="text-lg font-semibold mb-2">{date}</h3>
-      {audioUrl ? (
-        <audio ref={audioRef} controls className="w-full mb-3" src={audioUrl} />
-      ) : (
-        <p className="text-sm text-gray-400 mb-3">音频生成中...</p>
-      )}
-      <button
-        onClick={() => setShowScript(!showScript)}
-        className="text-sm text-indigo-500 hover:underline"
-      >
-        {showScript ? "收起脚本" : "查看脚本"}
-      </button>
-      {showScript && (
-        <pre className="mt-3 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg text-sm whitespace-pre-wrap">
+    <article className="border border-black/10 bg-white/70 px-5 py-5">
+      <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-black/42">
+        {date}
+      </div>
+      <div className="mt-4 flex flex-wrap items-center gap-3">
+        {audioUrl ? (
+          <audio controls className="w-full max-w-xl" src={audioUrl} />
+        ) : (
+          <span className="outline-chip">Script Only</span>
+        )}
+        <button
+          type="button"
+          onClick={() => setShowScript((value) => !value)}
+          className="action-chip"
+        >
+          {showScript ? "Hide Script" : "Show Script"}
+        </button>
+      </div>
+      {showScript ? (
+        <pre className="mt-5 overflow-x-auto border border-black/10 bg-[#111] px-4 py-4 text-sm leading-7 whitespace-pre-wrap text-[#f8f6ef]">
           {script}
         </pre>
-      )}
-    </div>
+      ) : null}
+    </article>
   );
 }

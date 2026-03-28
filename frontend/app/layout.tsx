@@ -1,9 +1,32 @@
 import type { Metadata } from "next";
+import {
+  Bebas_Neue,
+  IBM_Plex_Mono,
+  Noto_Serif_SC,
+} from "next/font/google";
 import "./globals.css";
 
+const displayFont = Bebas_Neue({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const bodyFont = Noto_Serif_SC({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const monoFont = IBM_Plex_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
 export const metadata: Metadata = {
-  title: "AI 日报 - 更准、更快、更有用",
-  description: "高效降噪 · 深度解读 · 实战导向 -- LLM 驱动的 AI 资讯精选",
+  title: "AI News Flow",
+  description: "Editorial archive for daily markdown issues, weekly briefs, and timeline views.",
 };
 
 export default function RootLayout({
@@ -13,10 +36,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className="min-h-screen antialiased bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
-        <div className="flex min-h-screen">
-          {children}
-        </div>
+      <body
+        className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable} min-h-screen bg-[#f4f1ea] text-stone-900 antialiased`}
+      >
+        {children}
       </body>
     </html>
   );
