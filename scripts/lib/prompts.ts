@@ -65,18 +65,14 @@ function buildAgendaContext(agenda: EditorialAgenda): string {
     .join(", ");
 
   return [
-    agenda.dominantNarrative
-      ? `- 今日主线：${agenda.dominantNarrative}`
-      : "",
-    agenda.openingAngle ? `- 开篇判断角度：${agenda.openingAngle}` : "",
-    agenda.closingOutlookAngle
-      ? `- 结尾展望角度：${agenda.closingOutlookAngle}`
-      : "",
+    agenda.dominantNarrative ? `- 今日主线：${agenda.dominantNarrative}` : "",
+    agenda.openingAngle ? `- 开篇判断：${agenda.openingAngle}` : "",
+    agenda.closingOutlookAngle ? `- 结尾展望：${agenda.closingOutlookAngle}` : "",
     agenda.mustCoverThemes.length > 0
       ? `- 必须覆盖主题：${agenda.mustCoverThemes.join("；")}`
       : "",
     agenda.watchSignals.length > 0
-      ? `- 后续跟踪信号：${agenda.watchSignals.join("；")}`
+      ? `- 后续观察信号：${agenda.watchSignals.join("；")}`
       : "",
     agenda.mustCoverIds.length > 0
       ? `- 必须保留条目 id：${agenda.mustCoverIds.join(", ")}`
@@ -87,24 +83,19 @@ function buildAgendaContext(agenda: EditorialAgenda): string {
     .join("\n");
 }
 
-// ===================================================================
-// Editorial Agenda
-// ===================================================================
-
 export function editorialAgendaSystemPrompt(
   strategy: EditorialStrategyConfig,
   interests: UserInterest[]
 ): string {
   return `你是这份个人日报的总编，负责先做“编务判断”，再让后续节点执行。
-
-你的工作不是逐条写摘要，而是根据当天的候选事件，判断：
+你的工作不是逐条写摘要，而是根据当天的候选事件判断：
 1. 今天最重要的主线是什么
 2. 哪些主题必须覆盖
 3. 哪些分类需要临时升权或降权
 4. 开头应该如何判断今天的形势
 5. 结尾应该提醒读者继续盯哪些变量
 
-长期偏好与编辑策略：
+长期编辑策略：
 ${buildEditorialContext(strategy)}
 
 用户长期兴趣：
@@ -112,9 +103,9 @@ ${buildInterestContext(interests)}
 
 请特别注意：
 - 允许重大政策、金融、地缘、宏观事件在当天压过 AI
-- 但长期基线仍然是 AI 与投资/金融优先
+- 但长期基础偏好仍然是 AI 与投资金融优先
 - 输出必须服务于“帮助判断未来几天到几周形势”
-- 不要写泛泛的媒体腔，不要罗列新闻
+- 不要写泛泛媒体腔，不要罗列新闻
 
 输出要求：
 - 返回 JSON 对象
@@ -149,7 +140,6 @@ export function editorialAgendaUserPrompt(
     .join("\n\n---\n\n");
 
   return `请基于以下候选事件，为今天的日报生成编务 brief。
-
 当前分类覆盖：
 - observedByCategory: ${JSON.stringify(coverageStats.observedByCategory)}
 - selectedByCategory: ${JSON.stringify(coverageStats.selectedByCategory)}
@@ -159,21 +149,16 @@ export function editorialAgendaUserPrompt(
 ${itemsText}`;
 }
 
-// ===================================================================
-// Stage 1: Gate Keep
-// ===================================================================
-
 export function gateKeepSystemPrompt(
   strategy: EditorialStrategyConfig,
   agenda: EditorialAgenda
 ): string {
   return `你是这份个人日报的值班编辑，负责做最后一轮“入围判断”。
-
-这不是纯 AI 日报，而是个人多分类决策日报。你要优先保留：
+这不是纯 AI 日报，而是服务于 AI、产品、研发和投资判断的多分类日报。你要优先保留：
 - 能帮助判断未来几天到几周形势的真实信号
-- 能代表重大事件的高信息密度条目
-- 与 AI / 投资金融 / 科技 / 软件工程高度相关的高价值信息
-- 当天因为政策、宏观、地缘、市场冲击而临时升权的事件
+- 信息密度高、能代表重要事件的条目
+- 与 AI / 投资金融 / 科技平台 / 软件工程高度相关的高价值信息
+- 因政策、宏观、地缘、市场冲击而当天临时升权的事件
 
 编辑策略：
 ${buildEditorialContext(strategy)}
@@ -184,7 +169,7 @@ ${buildAgendaContext(agenda)}
 DROP：
 - 广告、营销、活动预告、招聘、无实质信息的品牌稿
 - 没有事实支撑的情绪化短帖
-- 与今天主线无关、且对未来判断帮助极小的边角信息
+- 与今日主线无关且对未来判断帮助极小的边角信息
 - 已经有更好代表稿的重复报道
 
 PASS：
@@ -198,7 +183,7 @@ MERGE：
 输出要求：
 - 返回 JSON 数组
 - 每项包含 id / action / mergeWith / reason
-- reason 控制在 30 字以内，明确说出编辑判断原因`;
+- reason 控制在 30 字以内，明确说明编辑判断原因`;
 }
 
 export function gateKeepUserPrompt(
@@ -226,17 +211,12 @@ export function gateKeepUserPrompt(
   return `请对以下 ${items.length} 条候选新闻做入围判断：\n\n${itemsText}`;
 }
 
-// ===================================================================
-// Stage 2: Score
-// ===================================================================
-
 export function scoreSystemPrompt(
   interests: UserInterest[],
   strategy: EditorialStrategyConfig,
   agenda: EditorialAgenda
 ): string {
   return `你是这份个人日报的主编助理，负责对入围条目做“信号强度评估”。
-
 长期策略：
 ${buildEditorialContext(strategy)}
 
@@ -260,7 +240,7 @@ ${buildAgendaContext(agenda)}
 - AI / 投资金融最高，其次科技 / 软件工程
 
 4. decisionUsefulness
-- 这条信息是否能帮助读者形成更好的判断、筛选机会、规避风险
+- 这条信息是否能帮助读者形成更好的判断、筛选机会或规避风险
 
 5. credibility
 - 来源是否硬，证据是否充分，是否值得信
@@ -271,7 +251,7 @@ ${buildAgendaContext(agenda)}
 注意：
 - 不要因为“不是 AI”就给低分
 - 如果是重大政策、金融、地缘、市场事件，futureImpact 可以非常高
-- 如果是小而具体的开发者工具更新，只有在实际有明显生产力价值时才给高 decisionUsefulness
+- 如果是小而具体的开发者工具更新，只有在明显带来生产力价值时才给高 decisionUsefulness
 - personalRelevance 体现长期偏好，futureImpact 体现当天重要性
 
 输出要求：
@@ -305,26 +285,21 @@ export function scoreUserPrompt(
   return `请对以下 ${items.length} 条入围新闻做六维评分：\n\n${itemsText}`;
 }
 
-// ===================================================================
-// Stage 3: Insight
-// ===================================================================
-
 export function insightSystemPrompt(agenda: EditorialAgenda): string {
   return `你是个人日报的深度编辑。
-
 你的任务不是把每条新闻都写成宏大趋势分析，而是把单条新闻解释清楚：
 - 发生了什么
-- 为什么它能进今天的日报
+- 为什么它能进入今天的日报
 - 它改变了哪个变量、赛道或判断
 
 今日编务判断：
 ${buildAgendaContext(agenda)}
 
 写作要求：
-- oneLiner：一句话说清为什么值得看，20-32 字
+- oneLiner：一句话说明为什么值得看，20-32 字
 - content：120-220 字，克制、具体、信息密度高
 - 不要在每条里大谈宏观趋势，那部分留给日报开头和结尾
-- 不要喊口号，不要“震惊/炸裂/颠覆”
+- 不要喊口号，不要“震惊 / 炸裂 / 颠覆”
 - 可以给出非常具体的观察点，但不要写成投资建议
 - 如果没有 codeSnippet / comparisonTable / imageUrl，就返回空字符串或 null
 
@@ -357,16 +332,11 @@ export function insightUserPrompt(
   return `请为以下 ${items.length} 条高优先级新闻生成结构化单条解读：\n\n${itemsText}`;
 }
 
-// ===================================================================
-// Daily Framing
-// ===================================================================
-
 export function dailyFramingSystemPrompt(
   reportName: string,
   strategy: EditorialStrategyConfig
 ): string {
   return `你是 ${reportName} 的主编，负责写日报开头和结尾。
-
 目标：
 - 开头集中给出“今日判断”
 - 结尾集中给出“接下来要盯的变量”
@@ -414,13 +384,8 @@ ${buildAgendaContext(agenda)}
 ${itemsText}`;
 }
 
-// ===================================================================
-// Podcast Script
-// ===================================================================
-
 export function podcastSystemPrompt(reportName = "个人日报"): string {
   return `你是 ${reportName} 的播客编导。请把今天的精选内容改写成双人对话脚本（主持人 A / B）。
-
 要求：
 - 语气自然，不要念稿感
 - 先讲今天最值得关注的主线，再展开重点条目
@@ -430,13 +395,8 @@ export function podcastSystemPrompt(reportName = "个人日报"): string {
 - 禁用夸张词：震惊、炸裂、颠覆、太离谱了`;
 }
 
-// ===================================================================
-// Platform Copy
-// ===================================================================
-
 export function xhsSystemPrompt(reportName = "个人日报"): string {
   return `你是一个会讲复杂信息的小红书科技博主。请把 ${reportName} 的重点内容改写成适合小红书的图文笔记。
-
 要求：
 - 不要只写 AI，要保留“今天最值得看的多分类信息”
 - 标题短、抓人，但不要标题党
@@ -446,7 +406,6 @@ export function xhsSystemPrompt(reportName = "个人日报"): string {
 
 export function douyinSystemPrompt(reportName = "个人日报"): string {
   return `你是短视频科技/财经信息博主。请把 ${reportName} 改写成 60 秒口播脚本。
-
 要求：
 - 开头 3 秒必须有 hook
 - 不要逐条机械播报
@@ -456,7 +415,6 @@ export function douyinSystemPrompt(reportName = "个人日报"): string {
 
 export function briefSystemPrompt(reportName = "个人日报"): string {
   return `请把今天的 ${reportName} 压缩成适合 Telegram/微信推送的极简简报。
-
 要求：
 - 标题不要写成 AI 日报
 - 80-140 字
@@ -464,10 +422,6 @@ export function briefSystemPrompt(reportName = "个人日报"): string {
 - 再列 3 条最值得看的信号
 - 最后一行给一句“接下来要盯什么”`;
 }
-
-// ===================================================================
-// Category Classifier
-// ===================================================================
 
 export const CATEGORIES: NewsCategory[] = [
   "ai",
@@ -486,14 +440,13 @@ export const CATEGORY_LABELS: Record<NewsCategory, string> = {
   business: "商业",
   investment: "投资金融",
   politics: "政策地缘",
-  social: "社交舆情",
+  social: "社区舆情",
 };
 
 export type Category = NewsCategory;
 
 export function categorySystemPrompt(): string {
   return `你是日报编辑部的分类编辑。请把每条新闻归入以下 7 个分类之一：
-
 - ai：模型、AI 产品、算力、AI 基础设施、AI 研究、AI Agent
 - tech：泛科技行业、硬件、云、网络安全、科学与太空
 - software：编程语言、框架、开源项目、开发者工具、工程实践

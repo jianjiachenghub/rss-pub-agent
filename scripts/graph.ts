@@ -32,6 +32,7 @@ import { fetchCoverageNode } from "./nodes/fetch-coverage.js";
 import { editorialAgendaNode } from "./nodes/editorial-agenda.js";
 import { gateKeepNode } from "./nodes/gate-keep.js";
 import { scoreNode } from "./nodes/score.js";
+import { enrichSelectedNode } from "./nodes/enrich-selected.js";
 import { insightNode } from "./nodes/insight.js";
 import { generateDailyNode } from "./nodes/generate-daily.js";
 import { podcastNode } from "./nodes/podcast.js";
@@ -48,6 +49,7 @@ const graph = new StateGraph(PipelineState)
   .addNode("buildEditorialAgenda", editorialAgendaNode)
   .addNode("gateKeep", gateKeepNode)
   .addNode("score", scoreNode)
+  .addNode("enrichSelected", enrichSelectedNode)
   .addNode("insight", insightNode)
   .addNode("generateDaily", generateDailyNode)
   .addNode("podcastGen", podcastNode)
@@ -62,7 +64,8 @@ const graph = new StateGraph(PipelineState)
   .addEdge("fetchCoverage", "buildEditorialAgenda")
   .addEdge("buildEditorialAgenda", "gateKeep")
   .addEdge("gateKeep", "score")
-  .addEdge("score", "insight")
+  .addEdge("score", "enrichSelected")
+  .addEdge("enrichSelected", "insight")
   .addEdge("insight", "generateDaily")
   .addEdge("generateDaily", "podcastGen")
   .addEdge("generateDaily", "platformsGen")

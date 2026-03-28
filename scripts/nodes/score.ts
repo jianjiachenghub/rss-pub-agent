@@ -12,6 +12,11 @@ import type {
 const BATCH_SIZE = 10;
 const SECONDARY_SCORE_THRESHOLD = 45;
 
+function getCandidatePoolLimit(baselineTopN: number): number {
+  const baseline = Math.max(16, baselineTopN);
+  return Math.min(Math.max(baseline * 2, baseline + 12), baseline + 18);
+}
+
 interface ScoreResult {
   id: string;
   scores: ScoringDimensions;
@@ -83,78 +88,86 @@ export async function scoreNode(
   }
 
   try {
-    const allScores: ScoreResult[] = [];
-
+    const batches: typeof passedItems[] = [];
     for (let i = 0; i < passedItems.length; i += BATCH_SIZE) {
-      const batch = passedItems.slice(i, i + BATCH_SIZE);
-      const batchInput = batch.map((item) => ({
-        id: item.id,
-        title: item.title,
-        content: item.content,
-        source: item.source,
-        category: item.category,
-        publishedAt: item.publishedAt,
-      }));
-
-      console.log(`[score] Scoring batch ${i / BATCH_SIZE + 1} (${batch.length} items)...`);
-
-      const results = await callLLMJson<ScoreResult[]>({
-        systemPrompt: scoreSystemPrompt(
-          config.interests,
-          config.editorial,
-          editorialAgenda
-        ),
-        prompt: scoreUserPrompt(batchInput),
-        model: "flash",
-        jsonSchema: {
-          type: "ARRAY",
-          items: {
-            type: "OBJECT",
-            properties: {
-              id: { type: "STRING" },
-              scores: {
-                type: "OBJECT",
-                properties: {
-                  signalStrength: { type: "NUMBER" },
-                  futureImpact: { type: "NUMBER" },
-                  personalRelevance: { type: "NUMBER" },
-                  decisionUsefulness: { type: "NUMBER" },
-                  credibility: { type: "NUMBER" },
-                  timeliness: { type: "NUMBER" },
-                },
-                required: [
-                  "signalStrength",
-                  "futureImpact",
-                  "personalRelevance",
-                  "decisionUsefulness",
-                  "credibility",
-                  "timeliness",
-                ],
-              },
-              scoreReasoning: { type: "STRING" },
-            },
-            required: ["id", "scores", "scoreReasoning"],
-          },
-        },
-      });
-
-      let resultsArray: ScoreResult[] = [];
-      if (Array.isArray(results)) {
-        resultsArray = results;
-      } else if (typeof results === "object" && results !== null) {
-        const values = Object.values(results);
-        const arrayValue = values.find((value) => Array.isArray(value));
-        if (arrayValue) {
-          resultsArray = arrayValue as ScoreResult[];
-        }
-      }
-
-      if (!Array.isArray(results)) {
-        console.warn(`[score] Expected array but got ${typeof results}, attempting extraction`);
-      }
-
-      allScores.push(...resultsArray);
+      batches.push(passedItems.slice(i, i + BATCH_SIZE));
     }
+
+    const batchResults = await Promise.all(
+      batches.map(async (batch, index) => {
+        const batchInput = batch.map((item) => ({
+          id: item.id,
+          title: item.title,
+          content: item.content,
+          source: item.source,
+          category: item.category,
+          publishedAt: item.publishedAt,
+        }));
+
+        console.log(
+          `[score] Scoring batch ${index + 1}/${batches.length} (${batch.length} items)...`
+        );
+
+        const results = await callLLMJson<ScoreResult[]>({
+          systemPrompt: scoreSystemPrompt(
+            config.interests,
+            config.editorial,
+            editorialAgenda
+          ),
+          prompt: scoreUserPrompt(batchInput),
+          model: "flash",
+          jsonSchema: {
+            type: "ARRAY",
+            items: {
+              type: "OBJECT",
+              properties: {
+                id: { type: "STRING" },
+                scores: {
+                  type: "OBJECT",
+                  properties: {
+                    signalStrength: { type: "NUMBER" },
+                    futureImpact: { type: "NUMBER" },
+                    personalRelevance: { type: "NUMBER" },
+                    decisionUsefulness: { type: "NUMBER" },
+                    credibility: { type: "NUMBER" },
+                    timeliness: { type: "NUMBER" },
+                  },
+                  required: [
+                    "signalStrength",
+                    "futureImpact",
+                    "personalRelevance",
+                    "decisionUsefulness",
+                    "credibility",
+                    "timeliness",
+                  ],
+                },
+                scoreReasoning: { type: "STRING" },
+              },
+              required: ["id", "scores", "scoreReasoning"],
+            },
+          },
+        });
+
+        let resultsArray: ScoreResult[] = [];
+        if (Array.isArray(results)) {
+          resultsArray = results;
+        } else if (typeof results === "object" && results !== null) {
+          const values = Object.values(results);
+          const arrayValue = values.find((value) => Array.isArray(value));
+          if (arrayValue) {
+            resultsArray = arrayValue as ScoreResult[];
+          }
+        }
+
+        if (!Array.isArray(results)) {
+          console.warn(`[score] Expected array but got ${typeof results}, attempting extraction`);
+        }
+
+        return resultsArray;
+      })
+    );
+
+    const allScores = batchResults.flat();
 
     const scoreMap = new Map(allScores.map((score) => [score.id, score]));
     const mustCoverIds = new Set(editorialAgenda.mustCoverIds ?? []);
@@ -181,7 +194,10 @@ export async function scoreNode(
       .filter((item): item is ScoredNewsItem => item !== null)
       .sort((a, b) => b.weightedScore - a.weightedScore);
 
-    const topN = config.topN;
+    const candidatePoolLimit = Math.min(
+      allScoredItems.length,
+      getCandidatePoolLimit(config.topN)
+    );
     const minimumCoverage = config.editorial.minimumCategoryCoverage;
     const categoryCaps = buildCategoryCaps(state);
     const byCategory = new Map<NewsCategory, ScoredNewsItem[]>();
@@ -203,7 +219,7 @@ export async function scoreNode(
       const minimum = minimumCoverage[category] ?? 0;
       const candidates = byCategory.get(category) ?? [];
       for (const item of candidates.slice(0, minimum)) {
-        if (selectedItems.length >= topN || selectedIds.has(item.id)) break;
+        if (selectedItems.length >= candidatePoolLimit || selectedIds.has(item.id)) break;
         selectedItems.push(item);
         selectedIds.add(item.id);
         categoryCounts.set(category, (categoryCounts.get(category) ?? 0) + 1);
@@ -211,7 +227,7 @@ export async function scoreNode(
     }
 
     for (const item of allScoredItems) {
-      if (selectedItems.length >= topN || selectedIds.has(item.id)) continue;
+      if (selectedItems.length >= candidatePoolLimit || selectedIds.has(item.id)) continue;
       const category = normalizeCategory(item.category);
       const currentCount = categoryCounts.get(category) ?? 0;
       const cap = categoryCaps[category];
@@ -224,7 +240,7 @@ export async function scoreNode(
     }
 
     for (const item of allScoredItems) {
-      if (selectedItems.length >= topN || selectedIds.has(item.id)) continue;
+      if (selectedItems.length >= candidatePoolLimit || selectedIds.has(item.id)) continue;
       selectedItems.push(item);
       selectedIds.add(item.id);
       const category = normalizeCategory(item.category);
@@ -239,7 +255,7 @@ export async function scoreNode(
       .slice(0, 60);
 
     console.log(
-      `[score] Scored ${allScores.length} items, selected ${selectedItems.length} deep dives, ${secondaryItems.length} secondary items`
+      `[score] Scored ${allScores.length} items, selected ${selectedItems.length} enriched candidates, ${secondaryItems.length} secondary items`
     );
     console.log("[score] Category caps:", categoryCaps);
     console.log("[score] Category distribution:", Object.fromEntries(categoryCounts));

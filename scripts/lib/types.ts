@@ -83,11 +83,15 @@ export interface RawNewsItem {
   title: string;
   url: string;
   content: string;
+  summary?: string;
   source: string;
   sourceId: string;
   category: string;
   publishedAt: string;
   fetchedAt: string;
+  imageUrl?: string;
+  contentSource?: "summary" | "page";
+  contentDepth?: number;
 }
 
 export interface EventCandidate extends RawNewsItem {
@@ -176,10 +180,8 @@ export interface NewsInsight {
   category: string;
   publishedAt: string;
   oneLiner: string;
-  fact: string;
-  impact: string;
-  judgment: string;
-  action: string;
+  event: string;
+  interpretation?: string;
   content: string;
   imageUrl?: string;
   codeSnippet?: { lang: string; code: string };

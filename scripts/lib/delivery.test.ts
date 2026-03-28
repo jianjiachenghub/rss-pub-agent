@@ -6,7 +6,7 @@ import {
 } from "./delivery.js";
 import type { NewsInsight } from "./types.js";
 
-function createInsight(overrides: Partial<NewsInsight>): NewsInsight {
+function createInsight(overrides: Partial<NewsInsight> = {}): NewsInsight {
   return {
     id: overrides.id ?? "id",
     title: overrides.title ?? "Title",
@@ -15,11 +15,9 @@ function createInsight(overrides: Partial<NewsInsight>): NewsInsight {
     category: overrides.category ?? "ai",
     publishedAt: overrides.publishedAt ?? "2026-03-27T00:00:00.000Z",
     oneLiner: overrides.oneLiner ?? "一句话亮点",
-    fact: overrides.fact ?? "事实",
-    impact: overrides.impact ?? "影响",
-    judgment: overrides.judgment ?? "判断",
-    action: overrides.action ?? "行动",
-    content: overrides.content ?? "内容",
+    event: overrides.event ?? "事件",
+    interpretation: overrides.interpretation ?? "解读",
+    content: overrides.content ?? "事件：事件\n\n解读：解读",
     imageUrl: overrides.imageUrl,
     codeSnippet: overrides.codeSnippet,
     comparisonTable: overrides.comparisonTable,
@@ -61,7 +59,7 @@ describe("delivery helpers", () => {
         createInsight({
           id: "3",
           category: "investment",
-          oneLiner: "投资异动",
+          oneLiner: "资本市场异动",
           weightedScore: 89,
         }),
         createInsight({
@@ -83,7 +81,10 @@ describe("delivery helpers", () => {
       date: "2026-03-27",
       dailySummary: "今天最重要的判断是 Agent 工程化继续提速。",
       insights: [
-        createInsight({ id: "1", oneLiner: "模型侧变化开始传导到应用层" }),
+        createInsight({
+          id: "1",
+          oneLiner: "模型侧变化开始传导到应用层",
+        }),
         createInsight({
           id: "2",
           category: "investment",

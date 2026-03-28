@@ -2,55 +2,131 @@ import { describe, expect, it } from "vitest";
 import {
   buildFallbackSections,
   buildInsightContent,
+  computeDailyInsightTarget,
   getInvalidInsightFields,
-  sanitizeInsightSections,
+  hasThinContent,
+  isInformativeImage,
+  shouldWriteInterpretation,
 } from "./insight-format.js";
 
 describe("insight-format", () => {
-  it("builds compatibility content from four sections", () => {
+  it("builds compatibility content from event and interpretation", () => {
     expect(
       buildInsightContent({
-        fact: "事件已经发生。",
-        impact: "对产品：入口被改写。",
-        judgment: "变量转向入口分配。",
-        action: "未来 1-2 周盯接口是否开放。",
+        event: "苹果计划在 iOS 27 向第三方 AI 助手开放 Siri 接口。",
+        interpretation:
+          "这会把竞争重点从模型单点能力转到系统入口、调用频率和默认分发位置。",
       })
-    ).toContain("动作：未来 1-2 周盯接口是否开放。");
+    ).toContain("解读：这会把竞争重点从模型单点能力转到系统入口");
   });
 
-  it("flags generic sections as invalid", () => {
+  it("flags generic or non-Chinese insight fields as invalid", () => {
     expect(
-      getInvalidInsightFields("苹果开放接口", {
-        fact: "这条新闻讲的是苹果开放接口。",
-        impact: "有重要影响，值得关注。",
-        judgment: "值得关注。",
-        action: "持续关注后续进展。",
+      getInvalidInsightFields("苹果开放 Siri 接口", {
+        event:
+          "The company announced a new change to Siri that may impact the market.",
+        interpretation: "值得关注后续进展。",
       })
-    ).toEqual(["fact", "impact", "judgment", "action"]);
+    ).toEqual(["event", "interpretation"]);
   });
 
-  it("falls back only for invalid fields", () => {
+  it("treats short forum questions as not suitable for interpretation", () => {
+    const item = {
+      title: "请问什么工具可以测数据库 C 接口的性能，以及稳定性？",
+      source: "V2EX - 技术",
+      content:
+        "The user asks what tools can be used to test the performance and stability of an embedded database’s C API.",
+      contentDepth: 104,
+    };
+
+    expect(hasThinContent(item)).toBe(true);
+    expect(shouldWriteInterpretation(item)).toBe(false);
+  });
+
+  it("keeps only informative image candidates", () => {
+    expect(
+      isInformativeImage(
+        "https://example.com/assets/model-leaderboard-chart.png",
+        "这篇文章给出了模型梯队和 benchmark 对比。"
+      )
+    ).toBe(true);
+
+    expect(
+      isInformativeImage(
+        "https://example.com/assets/company-logo.png",
+        "这是一篇公司新闻。"
+      )
+    ).toBe(false);
+  });
+
+  it("computes a dynamic deep-dive target from score distribution", () => {
+    expect(
+      computeDailyInsightTarget(18, [
+        { weightedScore: 82 },
+        { weightedScore: 80 },
+        { weightedScore: 79 },
+        { weightedScore: 78 },
+        { weightedScore: 77 },
+        { weightedScore: 76 },
+        { weightedScore: 75 },
+        { weightedScore: 74 },
+        { weightedScore: 74 },
+        { weightedScore: 73 },
+        { weightedScore: 72 },
+        { weightedScore: 71 },
+        { weightedScore: 70 },
+        { weightedScore: 69 },
+        { weightedScore: 69 },
+        { weightedScore: 68 },
+        { weightedScore: 68 },
+        { weightedScore: 68 },
+        { weightedScore: 68 },
+        { weightedScore: 68 },
+      ])
+    ).toBe(20);
+
+    expect(
+      computeDailyInsightTarget(18, [
+        { weightedScore: 86 },
+        { weightedScore: 84 },
+        { weightedScore: 83 },
+        { weightedScore: 82 },
+        { weightedScore: 81 },
+        { weightedScore: 80 },
+        { weightedScore: 79 },
+        { weightedScore: 78 },
+        { weightedScore: 77 },
+        { weightedScore: 76 },
+        { weightedScore: 75 },
+        { weightedScore: 74 },
+        { weightedScore: 73 },
+        { weightedScore: 72 },
+        { weightedScore: 72 },
+        { weightedScore: 71 },
+        { weightedScore: 70 },
+        { weightedScore: 70 },
+        { weightedScore: 69 },
+        { weightedScore: 69 },
+        { weightedScore: 68 },
+        { weightedScore: 68 },
+        { weightedScore: 68 },
+        { weightedScore: 68 },
+      ])
+    ).toBe(24);
+  });
+
+  it("builds conservative fallback content for thin items", () => {
     const fallback = buildFallbackSections({
-      title: "苹果开放 Siri 接口",
-      content: "Apple is opening Siri interfaces for third-party assistants.",
+      title: "请问什么工具可以测数据库 C 接口的性能，以及稳定性？",
+      content:
+        "The user asks what tools can be used to test the performance and stability of an embedded database’s C API.",
       category: "software",
-      source: "Bloomberg",
-      scoreReasoning: "入口层变化开始影响产品与研发",
+      source: "V2EX - 技术",
+      scoreReasoning: "和工程实践相关，但原始内容较薄。",
+      contentDepth: 104,
     });
 
-    const sanitized = sanitizeInsightSections(
-      "苹果开放 Siri 接口",
-      {
-        fact: "苹果准备开放系统级 Siri 接口给第三方助手。",
-        impact: "有重要影响。",
-        judgment: "变量从能力竞争转向入口竞争。",
-        action: "未来 1-2 周盯是否披露接口范围和默认入口。",
-      },
-      fallback
-    );
-
-    expect(sanitized.fact).toContain("苹果准备开放系统级 Siri 接口");
-    expect(sanitized.impact).toBe(fallback.impact);
-    expect(sanitized.action).toContain("未来 1-2 周");
+    expect(fallback.event).toContain("V2EX");
+    expect(fallback.interpretation).toBeUndefined();
   });
 });

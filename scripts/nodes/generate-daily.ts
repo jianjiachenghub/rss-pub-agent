@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import type { PipelineStateType } from "../state.js";
 import { callLLMJson } from "../lib/llm.js";
 import { truncateSummaryText } from "../lib/insight-format.js";
@@ -7,11 +8,18 @@ import {
   dailyFramingSystemPrompt,
   dailyFramingUserPrompt,
 } from "../lib/prompts.js";
-import dayjs from "dayjs";
 
 interface DailyFramingResult {
   opening: string;
   closing: string;
+}
+
+function getDisplayTitle(title: string, oneLiner: string): string {
+  const normalizedTitle = title.trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(normalizedTitle)) {
+    return oneLiner.trim() || normalizedTitle;
+  }
+  return normalizedTitle;
 }
 
 export async function generateDailyNode(
@@ -106,7 +114,7 @@ itemCount: ${insights.length}
         const topItem = items.reduce((left, right) =>
           left.weightedScore >= right.weightedScore ? left : right
         );
-        markdown += `| ${CATEGORY_LABELS[category]} | ${items.length} | **${topItem.weightedScore}** | ${truncateSummaryText(topItem.title, 34)} |\n`;
+        markdown += `| ${CATEGORY_LABELS[category]} | ${items.length} | **${topItem.weightedScore}** | ${truncateSummaryText(getDisplayTitle(topItem.title, topItem.oneLiner), 34)} |\n`;
       }
 
       markdown += `\n`;
@@ -118,18 +126,19 @@ itemCount: ${insights.length}
 
       markdown += `## ${CATEGORY_LABELS[category]}\n\n`;
       for (const item of items) {
-        markdown += `### ${item.title}\n\n`;
+        const displayTitle = getDisplayTitle(item.title, item.oneLiner);
+        markdown += `### ${displayTitle}\n\n`;
         markdown += `> **${item.weightedScore} 分** | 来源: [${item.source}](${item.url})\n`;
         markdown += `> ${item.oneLiner}\n\n`;
 
         if (item.imageUrl) {
-          markdown += `![${item.title}](${item.imageUrl})\n\n`;
+          markdown += `![${displayTitle}](${item.imageUrl})\n\n`;
         }
 
-        markdown += `**事实：** ${item.fact}\n\n`;
-        markdown += `**影响：** ${item.impact}\n\n`;
-        markdown += `**判断：** ${item.judgment}\n\n`;
-        markdown += `**动作：** ${item.action}\n\n`;
+        markdown += `**事件：** ${item.event}\n\n`;
+        if (item.interpretation) {
+          markdown += `**解读：** ${item.interpretation}\n\n`;
+        }
 
         if (
           item.comparisonTable &&
@@ -167,7 +176,7 @@ itemCount: ${insights.length}
 
     if (secondaryItems && secondaryItems.length > 0) {
       markdown += `---\n\n## 更多 24h 资讯\n\n`;
-      markdown += `> 以下条目进入了候选池，但没有进入今天的深度解读。\n\n`;
+      markdown += `> 以下条目进入了候选池，但没有进入今天的主深度解读区。\n\n`;
 
       const secondaryByCategory = new Map<string, typeof secondaryItems>();
       for (const item of secondaryItems) {

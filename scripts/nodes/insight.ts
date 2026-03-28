@@ -3,23 +3,24 @@ import { callLLMJson } from "../lib/llm.js";
 import {
   buildFallbackSections,
   buildInsightContent,
-  getInvalidInsightFields,
+  computeDailyInsightTarget,
+  isWeakEventNarrative,
   sanitizeInsightSections,
   sanitizeOneLiner,
+  shouldWriteInterpretation,
 } from "../lib/insight-format.js";
-import { CATEGORIES, categorySystemPrompt, categoryUserPrompt } from "../lib/prompts.js";
-import type { NewsInsight } from "../lib/types.js";
+import {
+  CATEGORIES,
+  categorySystemPrompt,
+  categoryUserPrompt,
+} from "../lib/prompts.js";
+import type { NewsInsight, ScoredNewsItem } from "../lib/types.js";
 
 interface InsightResult {
   id: string;
   oneLiner: string;
-  fact: string;
-  impact: string;
-  judgment: string;
-  action: string;
-  imageUrl?: string;
-  codeSnippet?: { lang: string; code: string } | null;
-  comparisonTable?: { headers: string[]; rows: string[][] } | null;
+  event: string;
+  interpretation?: string;
 }
 
 interface CategoryResult {
@@ -28,6 +29,9 @@ interface CategoryResult {
   confidence: number;
   reason: string;
 }
+
+const REPAIR_BATCH_SIZE = 6;
+const SENSITIVE_REPAIR_PATTERN = /成人|色情|露骨|未成年人|自杀|性侵|身亡/i;
 
 function extractArrayResults<T>(value: unknown): T[] {
   if (Array.isArray(value)) {
@@ -44,11 +48,13 @@ function extractArrayResults<T>(value: unknown): T[] {
   return [];
 }
 
-function buildInsightSystemPrompt(agenda: PipelineStateType["editorialAgenda"]): string {
+function buildInsightSystemPrompt(
+  agenda: PipelineStateType["editorialAgenda"]
+): string {
   const agendaLines = [
     agenda.dominantNarrative ? `- 今日主线：${agenda.dominantNarrative}` : "",
     agenda.openingAngle ? `- 开篇判断：${agenda.openingAngle}` : "",
-    agenda.closingOutlookAngle ? `- 收尾展望：${agenda.closingOutlookAngle}` : "",
+    agenda.closingOutlookAngle ? `- 结尾展望：${agenda.closingOutlookAngle}` : "",
     agenda.mustCoverThemes.length > 0
       ? `- 必须覆盖主题：${agenda.mustCoverThemes.join("；")}`
       : "",
@@ -60,97 +66,149 @@ function buildInsightSystemPrompt(agenda: PipelineStateType["editorialAgenda"]):
     .join("\n");
 
   return `你是个人日报的深度编辑，服务对象是同时关心 AI、产品、研发和投资判断的读者。
-你的任务不是解释“为什么这条新闻入选”，也不是把每条写成宏大趋势评论，而是把单条新闻写成可用于更新判断的四格分析。
+你现在只需要为每条新闻生成两段内容：
+- event：中文，直接写发生了什么
+- interpretation：中文，写这条信息为什么会改变判断；如果证据不够、信息太薄、或你没有足够把握，请返回空字符串
 
 今日日报的编务判断：
 ${agendaLines}
 
-每条新闻必须输出这些字段：
-- oneLiner：20-32 个汉字，作为概览区的一句话决策钩子
-- fact：40-70 个汉字，直接说明发生了什么
-- impact：50-90 个汉字，只写最相关的 1-2 个视角，可写成“对产品：... 对研发：...”
-- judgment：50-90 个汉字，说清哪个变量变了，例如入口、监管预期、资金流向、供给格局、研发成本
-- action：40-80 个汉字，必须包含时间窗和观察点，例如“未来 1-2 周盯 ... 是否披露/上线/扩大”
-
 硬性要求：
-- 不要写“为什么值得看”“入选原因”“这条新闻讲的是”这种句式
-- fact 不能只是把标题换个说法
-- impact 不要四个视角全写，只写最相关的 1-2 个
-- judgment 不能重复 impact，必须点明变量变化
-- action 不能写“持续关注后续进展”，必须具体、可观察、与读者决策相关
-- 不要给投资建议，只给判断更新和观察动作
-- 如果没有 codeSnippet / comparisonTable / imageUrl，就返回空字符串或 null
+- 不要写“为什么值得看”“入选原因”
+- event 必须是中文，不能直接输出英文摘要
+- interpretation 只在你有足够把握时才写
+- 对论坛提问、内容过薄、信息不完整的条目，interpretation 必须留空
+- interpretation 必须点出一个具体变量或决策含义，例如入口、审核周期、估值锚点、监管边界、利率路径、成本结构
+- 禁止使用“信号强”“信息可靠”“影响深远”“相关度高”“有实质信息”这类空话
+- 不给投资建议，不写空泛口号
 
-输出要求：
-- 返回 JSON 数组
-- 每项包含 id / oneLiner / fact / impact / judgment / action / imageUrl / codeSnippet / comparisonTable`;
+输出必须是 JSON 数组，每项包含：
+- id
+- oneLiner
+- event
+- interpretation`;
 }
 
 function buildInsightUserPrompt(
-  items: {
+  items: Array<{
     id: string;
     title: string;
+    summary: string;
     content: string;
     source: string;
     category: string;
     weightedScore: number;
-  }[],
-  invalidFieldsById?: Map<string, string[]>
+    contentSource?: string;
+  }>
 ): string {
-  const itemsText = items
-    .map((item, index) => {
-      const failedFields = invalidFieldsById?.get(item.id);
-      const repairHint =
-        failedFields && failedFields.length > 0
-          ? `\n上一次失败字段: ${failedFields.join(", ")}`
-          : "";
-
-      return (
+  const body = items
+    .map(
+      (item, index) =>
         `[${index + 1}] id="${item.id}" (评分: ${item.weightedScore})\n` +
         `标题: ${item.title}\n` +
         `分类: ${item.category}\n` +
         `来源: ${item.source}\n` +
-        `内容摘录: ${item.content.replace(/\s+/g, " ").trim().slice(0, 420)}${repairHint}`
-      );
-    })
+        `内容来源: ${item.contentSource ?? "summary"}\n` +
+        `摘要: ${item.summary.replace(/\s+/g, " ").trim().slice(0, 240)}\n` +
+        `正文摘录: ${item.content.replace(/\s+/g, " ").trim().slice(0, 900)}`
+    )
     .join("\n\n---\n\n");
 
-  const repairInstruction =
-    invalidFieldsById && invalidFieldsById.size > 0
-      ? `\n\n这是修复重写，不合格字段必须重写到可直接给读者使用。`
-      : "";
+  return `请为以下 ${items.length} 条新闻生成结构化解读。
+要求：
+- oneLiner：20-32 个中文字符
+- event：45-90 个中文字符
+- interpretation：0-140 个中文字符；如果拿不准就返回空字符串
+- interpretation 必须具体，不要写“影响深远”“信号强”“信息可靠”“相关度高”
 
-  return `请为以下 ${items.length} 条高优先级新闻生成结构化单条解读。
-
-输出必须是 JSON 数组，每个对象都对应一条新闻。
-每条都按四格写：
-- fact：先讲事件本身，不要复述标题空话
-- impact：只写这条新闻最相关的 1-2 个视角
-- judgment：明确哪个变量变了
-- action：给出未来 1-2 周或相近时间窗内要盯的观察信号
-
-不要输出“入选原因”式的句子，不要泛泛而谈，不要写成投资建议。${repairInstruction}
-
+不要输出 Markdown，不要解释你的做法，只返回 JSON。
 新闻列表：
+${body}`;
+}
 
-${itemsText}`;
+function buildRepairSystemPrompt(
+  agenda: PipelineStateType["editorialAgenda"]
+): string {
+  const agendaLines = [
+    agenda.dominantNarrative ? `- 今日主线：${agenda.dominantNarrative}` : "",
+    agenda.mustCoverThemes.length > 0
+      ? `- 必须覆盖主题：${agenda.mustCoverThemes.join("；")}`
+      : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  return `你是个人日报的资深编辑，负责修复不合格的单条解读。
+你会收到标题、来源、摘要、正文摘录，以及当前草稿。请把输出修成能直接发日报的中文版本。
+
+要求：
+- event：必须直接写发生了什么，不要写“某媒体报道”“出现了一条动态”
+- interpretation：只在有足够把握时才写；要说明哪个变量变了，或对 AI / 产品 / 研发 / 投资判断意味着什么
+- interpretation 至少落到一个具体点：系统入口、审核周期、估值锚点、监管边界、成本结构、科研验证周期、利率路径、默认分发权
+- interpretation 不能只是“对某领域有影响”
+- 禁止使用“信号强”“信息可靠”“影响深远”“相关度高”“有实质信息”这类空话
+- 如果信息不足或拿不准，interpretation 返回空字符串
+- 允许保留英文专有名词，但整句必须以中文为主
+
+今日日报主线：
+${agendaLines}
+
+输出必须是 JSON 数组，每项包含：
+- id
+- oneLiner
+- event
+- interpretation`;
+}
+
+function buildRepairUserPrompt(
+  items: Array<{
+    id: string;
+    title: string;
+    source: string;
+    summary: string;
+    content: string;
+    currentOneLiner: string;
+    currentEvent: string;
+    currentInterpretation?: string;
+  }>
+): string {
+  const body = items
+    .map(
+      (item, index) =>
+        `[${index + 1}] id="${item.id}"\n` +
+        `标题: ${item.title}\n` +
+        `来源: ${item.source}\n` +
+        `摘要: ${item.summary.replace(/\s+/g, " ").trim().slice(0, 220)}\n` +
+        `正文摘录: ${item.content.replace(/\s+/g, " ").trim().slice(0, 900)}\n` +
+        `当前一句话: ${item.currentOneLiner}\n` +
+        `当前事件草稿: ${item.currentEvent}\n` +
+        `当前解读草稿: ${item.currentInterpretation ?? ""}`
+    )
+    .join("\n\n---\n\n");
+
+  return `下面这些条目当前草稿不合格，请只重写成更好的中文版本。
+如果信息不够，请把 interpretation 留空，不要硬写。
+
+条目列表：
+${body}`;
 }
 
 async function requestInsights(
-  items: {
+  items: Array<{
     id: string;
     title: string;
+    summary: string;
     content: string;
     source: string;
     category: string;
     weightedScore: number;
-  }[],
-  agenda: PipelineStateType["editorialAgenda"],
-  invalidFieldsById?: Map<string, string[]>
+    contentSource?: string;
+  }>,
+  agenda: PipelineStateType["editorialAgenda"]
 ): Promise<InsightResult[]> {
   const results = await callLLMJson<InsightResult[]>({
     systemPrompt: buildInsightSystemPrompt(agenda),
-    prompt: buildInsightUserPrompt(items, invalidFieldsById),
+    prompt: buildInsightUserPrompt(items),
     model: "pro",
     jsonSchema: {
       type: "ARRAY",
@@ -159,30 +217,10 @@ async function requestInsights(
         properties: {
           id: { type: "STRING" },
           oneLiner: { type: "STRING" },
-          fact: { type: "STRING" },
-          impact: { type: "STRING" },
-          judgment: { type: "STRING" },
-          action: { type: "STRING" },
-          imageUrl: { type: "STRING" },
-          codeSnippet: {
-            type: "OBJECT",
-            properties: {
-              lang: { type: "STRING" },
-              code: { type: "STRING" },
-            },
-          },
-          comparisonTable: {
-            type: "OBJECT",
-            properties: {
-              headers: { type: "ARRAY", items: { type: "STRING" } },
-              rows: {
-                type: "ARRAY",
-                items: { type: "ARRAY", items: { type: "STRING" } },
-              },
-            },
-          },
+          event: { type: "STRING" },
+          interpretation: { type: "STRING" },
         },
-        required: ["id", "oneLiner", "fact", "impact", "judgment", "action"],
+        required: ["id", "oneLiner", "event", "interpretation"],
       },
     },
   });
@@ -190,9 +228,80 @@ async function requestInsights(
   return extractArrayResults<InsightResult>(results);
 }
 
-function buildFallbackInsight(
-  item: PipelineStateType["scoredItems"][number]
-): NewsInsight {
+async function requestRepairInsights(
+  items: Array<{
+    id: string;
+    title: string;
+    source: string;
+    summary: string;
+    content: string;
+    currentOneLiner: string;
+    currentEvent: string;
+    currentInterpretation?: string;
+  }>,
+  agenda: PipelineStateType["editorialAgenda"]
+): Promise<InsightResult[]> {
+  if (!items.length) {
+    return [];
+  }
+
+  const batches: typeof items[] = [];
+  for (let index = 0; index < items.length; index += REPAIR_BATCH_SIZE) {
+    batches.push(items.slice(index, index + REPAIR_BATCH_SIZE));
+  }
+
+  const results = await Promise.all(
+    batches.map(async (batch) => {
+      try {
+        const response = await callLLMJson<InsightResult[]>({
+          systemPrompt: buildRepairSystemPrompt(agenda),
+          prompt: buildRepairUserPrompt(batch),
+          model: "pro",
+          jsonSchema: {
+            type: "ARRAY",
+            items: {
+              type: "OBJECT",
+              properties: {
+                id: { type: "STRING" },
+                oneLiner: { type: "STRING" },
+                event: { type: "STRING" },
+                interpretation: { type: "STRING" },
+              },
+              required: ["id", "oneLiner", "event", "interpretation"],
+            },
+          },
+        });
+
+        return extractArrayResults<InsightResult>(response);
+      } catch (error) {
+        console.warn(
+          "[insight] Repair batch failed, keeping first-pass drafts:",
+          (error as Error).message
+        );
+        return [];
+      }
+    })
+  );
+
+  return results.flat();
+}
+
+function mergeSecondaryItems(
+  existingSecondaryItems: PipelineStateType["secondaryItems"],
+  demotedCandidates: ScoredNewsItem[]
+): ScoredNewsItem[] {
+  const merged = [...demotedCandidates, ...existingSecondaryItems];
+  const seen = new Set<string>();
+  return merged
+    .filter((item) => {
+      if (seen.has(item.id)) return false;
+      seen.add(item.id);
+      return true;
+    })
+    .sort((left, right) => right.weightedScore - left.weightedScore);
+}
+
+function buildFallbackInsight(item: ScoredNewsItem): NewsInsight {
   const sections = buildFallbackSections(item);
   return {
     id: item.id,
@@ -202,88 +311,79 @@ function buildFallbackInsight(
     category: item.category,
     publishedAt: item.publishedAt,
     oneLiner: sanitizeOneLiner(undefined, item.title),
-    fact: sections.fact,
-    impact: sections.impact,
-    judgment: sections.judgment,
-    action: sections.action,
+    event: sections.event,
+    interpretation: sections.interpretation,
     content: buildInsightContent(sections),
+    imageUrl: item.imageUrl,
     scores: item.scores,
     weightedScore: item.weightedScore,
   };
 }
 
-function buildFallbackInsights(state: PipelineStateType): NewsInsight[] {
-  return state.scoredItems.map((item) => buildFallbackInsight(item));
+function shouldKeepAsDeepDive(
+  item: ScoredNewsItem,
+  event: string,
+  interpretation: string | undefined
+): boolean {
+  return (
+    shouldWriteInterpretation(item) &&
+    !isWeakEventNarrative(event) &&
+    Boolean(interpretation?.trim())
+  );
 }
 
-function collectInvalidFields(
-  items: PipelineStateType["scoredItems"],
-  insightMap: Map<string, InsightResult>
-): Map<string, string[]> {
-  const invalidFieldsById = new Map<string, string[]>();
+function finalizeInsights(
+  scoredItems: ScoredNewsItem[],
+  candidateInsights: NewsInsight[],
+  configTopN: number,
+  existingSecondaryItems: PipelineStateType["secondaryItems"]
+): Pick<PipelineStateType, "insights" | "secondaryItems"> {
+  const itemMap = new Map(scoredItems.map((item) => [item.id, item]));
+  const eligibleInsights = candidateInsights.filter((insight) =>
+    shouldKeepAsDeepDive(
+      itemMap.get(insight.id)!,
+      insight.event,
+      insight.interpretation
+    )
+  );
 
-  for (const item of items) {
-    const insight = insightMap.get(item.id);
-    if (!insight) {
-      invalidFieldsById.set(item.id, ["fact", "impact", "judgment", "action"]);
-      continue;
-    }
+  const targetCount = Math.min(
+    computeDailyInsightTarget(configTopN, eligibleInsights),
+    eligibleInsights.length
+  );
 
-    const invalidFields = getInvalidInsightFields(item.title, {
-      fact: insight.fact,
-      impact: insight.impact,
-      judgment: insight.judgment,
-      action: insight.action,
-    });
+  const finalInsights = eligibleInsights
+    .sort((left, right) => right.weightedScore - left.weightedScore)
+    .slice(0, targetCount);
 
-    if (invalidFields.length > 0) {
-      invalidFieldsById.set(item.id, invalidFields);
-    }
-  }
+  const finalInsightIds = new Set(finalInsights.map((item) => item.id));
+  const demotedCandidates = scoredItems.filter((item) => !finalInsightIds.has(item.id));
 
-  return invalidFieldsById;
+  return {
+    insights: finalInsights,
+    secondaryItems: mergeSecondaryItems(existingSecondaryItems, demotedCandidates),
+  };
 }
 
 export async function insightNode(
   state: PipelineStateType
 ): Promise<Partial<PipelineStateType>> {
-  const { scoredItems, editorialAgenda } = state;
-  if (!scoredItems.length) {
+  const { scoredItems, editorialAgenda, secondaryItems, config } = state;
+  if (!scoredItems.length || !config) {
     return { insights: [] };
   }
 
   try {
-    const batchInput = scoredItems.map((item) => ({
+    const insightInput = scoredItems.map((item) => ({
       id: item.id,
       title: item.title,
+      summary: item.summary ?? item.content,
       content: item.content,
       source: item.source,
       category: item.category,
       weightedScore: item.weightedScore,
+      contentSource: item.contentSource,
     }));
-
-    console.log(`[insight] Generating insights for ${batchInput.length} items...`);
-
-    const initialResults = await requestInsights(batchInput, editorialAgenda);
-    const insightMap = new Map(initialResults.map((result) => [result.id, result]));
-    const invalidFieldsById = collectInvalidFields(scoredItems, insightMap);
-
-    if (invalidFieldsById.size > 0) {
-      console.warn(
-        `[insight] Repairing ${invalidFieldsById.size} items with weak fields`
-      );
-
-      const repairItems = batchInput.filter((item) => invalidFieldsById.has(item.id));
-      const repairedResults = await requestInsights(
-        repairItems,
-        editorialAgenda,
-        invalidFieldsById
-      );
-
-      for (const result of repairedResults) {
-        insightMap.set(result.id, result);
-      }
-    }
 
     const categoryInput = scoredItems.map((item) => ({
       id: item.id,
@@ -292,68 +392,143 @@ export async function insightNode(
       source: item.source,
     }));
 
-    const categoryResults = await callLLMJson<CategoryResult[]>({
-      systemPrompt: categorySystemPrompt(),
-      prompt: categoryUserPrompt(categoryInput),
-      model: "flash",
-      jsonSchema: {
-        type: "ARRAY",
-        items: {
-          type: "OBJECT",
-          properties: {
-            id: { type: "STRING" },
-            category: { type: "STRING", enum: CATEGORIES },
-            confidence: { type: "NUMBER" },
-            reason: { type: "STRING" },
-          },
-          required: ["id", "category", "confidence", "reason"],
-        },
-      },
-    });
+    console.log(
+      `[insight] Generating event/interpretation for ${insightInput.length} candidates...`
+    );
 
-    const categoryArray = extractArrayResults<CategoryResult>(categoryResults);
-    const categoryMap = new Map(categoryArray.map((result) => [result.id, result]));
-
-    const insights = scoredItems.map((item) => {
-      const insight = insightMap.get(item.id);
-      const categoryResult = categoryMap.get(item.id);
-      const fallbackSections = buildFallbackSections(item);
-      const sections = insight
-        ? sanitizeInsightSections(
-            item.title,
-            {
-              fact: insight.fact,
-              impact: insight.impact,
-              judgment: insight.judgment,
-              action: insight.action,
+    const [insightResults, categoryResults] = await Promise.all([
+      requestInsights(insightInput, editorialAgenda),
+      callLLMJson<CategoryResult[]>({
+        systemPrompt: categorySystemPrompt(),
+        prompt: categoryUserPrompt(categoryInput),
+        model: "flash",
+        jsonSchema: {
+          type: "ARRAY",
+          items: {
+            type: "OBJECT",
+            properties: {
+              id: { type: "STRING" },
+              category: { type: "STRING", enum: CATEGORIES },
+              confidence: { type: "NUMBER" },
+              reason: { type: "STRING" },
             },
-            fallbackSections
-          )
-        : fallbackSections;
+            required: ["id", "category", "confidence", "reason"],
+          },
+        },
+      }),
+    ]);
+
+    const insightMap = new Map(insightResults.map((item) => [item.id, item]));
+    const categoryMap = new Map(
+      extractArrayResults<CategoryResult>(categoryResults).map((item) => [item.id, item])
+    );
+
+    let candidateInsights = scoredItems.map((item) => {
+      const llmResult = insightMap.get(item.id);
+      const fallbackSections = buildFallbackSections(item);
+      const sections = sanitizeInsightSections(
+        item.title,
+        {
+          event: llmResult?.event ?? fallbackSections.event,
+          interpretation: llmResult?.interpretation ?? fallbackSections.interpretation,
+        },
+        fallbackSections,
+        shouldWriteInterpretation(item)
+      );
+
+      const category = categoryMap.get(item.id)?.category || item.category;
+      const normalizedInterpretation = sections.interpretation?.trim() || undefined;
 
       return {
         id: item.id,
         title: item.title,
         url: item.url,
         source: item.source,
-        category: categoryResult?.category || item.category,
+        category,
         publishedAt: item.publishedAt,
-        oneLiner: sanitizeOneLiner(insight?.oneLiner, item.title),
-        fact: sections.fact,
-        impact: sections.impact,
-        judgment: sections.judgment,
-        action: sections.action,
+        oneLiner: sanitizeOneLiner(llmResult?.oneLiner, item.title),
+        event: sections.event,
+        interpretation: normalizedInterpretation,
         content: buildInsightContent(sections),
-        imageUrl: insight?.imageUrl || undefined,
-        codeSnippet: insight?.codeSnippet ?? undefined,
-        comparisonTable: insight?.comparisonTable ?? undefined,
+        imageUrl: item.imageUrl,
         scores: item.scores,
         weightedScore: item.weightedScore,
       } satisfies NewsInsight;
     });
 
+    const repairCandidates = candidateInsights
+      .map((insight) => ({
+        insight,
+        item: scoredItems.find((candidate) => candidate.id === insight.id)!,
+      }))
+      .filter(
+        ({ insight, item }) =>
+          shouldWriteInterpretation(item) &&
+          !SENSITIVE_REPAIR_PATTERN.test(`${item.title}\n${item.content}`) &&
+          (isWeakEventNarrative(insight.event) || !insight.interpretation)
+      )
+      .sort((left, right) => right.item.weightedScore - left.item.weightedScore)
+      .slice(0, 16);
+
+    if (repairCandidates.length > 0) {
+      console.log(
+        `[insight] Repairing ${repairCandidates.length} borderline candidates...`
+      );
+
+      const repairResults = await requestRepairInsights(
+        repairCandidates.map(({ insight, item }) => ({
+          id: item.id,
+          title: item.title,
+          source: item.source,
+          summary: item.summary ?? item.content,
+          content: item.content,
+          currentOneLiner: insight.oneLiner,
+          currentEvent: insight.event,
+          currentInterpretation: insight.interpretation,
+        })),
+        editorialAgenda
+      );
+
+      if (repairResults.length > 0) {
+        const repairMap = new Map(repairResults.map((item) => [item.id, item]));
+        candidateInsights = scoredItems.map((item) => {
+          const current = candidateInsights.find((candidate) => candidate.id === item.id)!;
+          const repair = repairMap.get(item.id);
+          if (!repair) return current;
+
+          const fallbackSections = buildFallbackSections(item);
+          const sections = sanitizeInsightSections(
+            item.title,
+            {
+              event: repair.event,
+              interpretation: repair.interpretation,
+            },
+            fallbackSections,
+            shouldWriteInterpretation(item)
+          );
+
+          const normalizedInterpretation = sections.interpretation?.trim() || undefined;
+
+          return {
+            ...current,
+            oneLiner: sanitizeOneLiner(repair.oneLiner || current.oneLiner, item.title),
+            event: sections.event,
+            interpretation: normalizedInterpretation,
+            content: buildInsightContent(sections),
+          };
+        });
+      }
+    }
+
+    const finalState = finalizeInsights(
+      scoredItems,
+      candidateInsights,
+      config.topN,
+      secondaryItems
+    );
+
     const categoryCounts = new Map<string, number>();
-    for (const insight of insights) {
+    for (const insight of finalState.insights) {
       categoryCounts.set(
         insight.category,
         (categoryCounts.get(insight.category) ?? 0) + 1
@@ -361,13 +536,25 @@ export async function insightNode(
     }
 
     console.log("[insight] Category distribution:", Object.fromEntries(categoryCounts));
-    console.log(`[insight] Generated ${insights.length} structured insights`);
+    const demotedCount = scoredItems.length - finalState.insights.length;
+    console.log(
+      `[insight] Generated ${finalState.insights.length} deep dives, demoted ${demotedCount} candidates into more 24h news pool`
+    );
 
-    return { insights };
+    return finalState;
   } catch (err) {
     console.error("[insight] Failed:", err);
+
+    const fallbackCandidates = scoredItems.map((item) => buildFallbackInsight(item));
+    const finalState = finalizeInsights(
+      scoredItems,
+      fallbackCandidates,
+      config.topN,
+      secondaryItems
+    );
+
     return {
-      insights: buildFallbackInsights(state),
+      ...finalState,
       errors: [
         {
           node: "insight",
