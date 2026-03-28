@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { notFound } from "next/navigation";
 import DailyReport from "@/components/DailyReport";
 import PublicationShell from "@/components/PublicationShell";
@@ -26,22 +27,23 @@ export default async function DailyPage({
 
   const dailyIssues = getAllDailyIssues();
   const weeklyIssues = getWeeklyIssues();
+  const headerMeta = [
+    dayjs(issue.date).format("YYYY.MM.DD"),
+    issue.meta ? `${issue.meta.itemCount} items` : null,
+    issue.meta ? `avg ${issue.meta.avgScore}` : null,
+    issue.heroImageUrl ? "image" : null,
+    issue.meta?.hasPodcast ? "podcast" : null,
+  ].filter((value): value is string => Boolean(value));
 
   return (
     <PublicationShell
       currentDate={date}
       dailyIssues={dailyIssues}
-      masthead={
-        <div className="w-full max-w-3xl text-center">
-          <div className="font-mono text-[10px] uppercase tracking-[0.34em] text-black/45">
-            Daily Issue / Raw Markdown Reading
-          </div>
-          <div className="mt-2 text-sm leading-6 text-black/62">
-            This page renders the original markdown source without restructuring its
-            content blocks.
-          </div>
-        </div>
-      }
+      header={{
+        section: "Daily Issue",
+        title: issue.title,
+        meta: headerMeta,
+      }}
       weeklyIssues={weeklyIssues}
     >
       <section className="editorial-card px-6 py-6 md:px-8 md:py-8">

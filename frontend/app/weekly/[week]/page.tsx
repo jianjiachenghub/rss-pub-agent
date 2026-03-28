@@ -25,22 +25,22 @@ export default async function WeeklyPage({
 
   const dailyIssues = getAllDailyIssues();
   const weeklyIssues = getWeeklyIssues();
+  const headerMeta = [
+    weeklyIssue.rangeLabel,
+    `${weeklyIssue.issueCount} daily issues`,
+    `${weeklyIssue.itemCount} stories`,
+    `avg ${weeklyIssue.avgScore}`,
+  ];
 
   return (
     <PublicationShell
       currentWeekId={weeklyIssue.weekId}
       dailyIssues={dailyIssues}
-      masthead={
-        <div className="w-full max-w-3xl text-center">
-          <div className="font-mono text-[10px] uppercase tracking-[0.34em] text-black/45">
-            Weekly Brief / Archive Composite
-          </div>
-          <div className="mt-2 text-sm leading-6 text-black/62">
-            This weekly view is composed on the frontend from archived daily issues
-            without writing back into the shared content source.
-          </div>
-        </div>
-      }
+      header={{
+        section: "Weekly Brief",
+        title: weeklyIssue.label,
+        meta: headerMeta,
+      }}
       weeklyIssues={weeklyIssues}
     >
       <WeeklyDigest issue={weeklyIssue} />

@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import HomeTabs from "@/components/HomeTabs";
 import PublicationShell from "@/components/PublicationShell";
 import {
@@ -10,22 +11,23 @@ export default function HomePage() {
   const dailyIssues = getAllDailyIssues();
   const weeklyIssues = getWeeklyIssues();
   const timelineDays = getTimelineDays(14);
+  const leadIssue = dailyIssues[0];
+  const headerMeta = [
+    leadIssue ? dayjs(leadIssue.date).format("YYYY.MM.DD") : null,
+    dailyIssues.length > 0 ? `${dailyIssues.length} daily issues` : null,
+    weeklyIssues.length > 0 ? `${weeklyIssues.length} weekly briefs` : null,
+    timelineDays.length > 0 ? `${timelineDays.length} timeline days` : null,
+  ].filter((value): value is string => Boolean(value));
 
   return (
     <PublicationShell
       currentDate={dailyIssues[0]?.date}
       dailyIssues={dailyIssues}
-      masthead={
-        <div className="w-full max-w-3xl text-center">
-          <div className="font-mono text-[10px] uppercase tracking-[0.34em] text-black/45">
-            Front Page / Daily Weekly Timeline
-          </div>
-          <div className="mt-2 text-sm leading-6 text-black/62">
-            A black-and-white editorial archive for scanning the latest issue,
-            weekly briefings, and day-level shifts.
-          </div>
-        </div>
-      }
+      header={{
+        section: "Front Page",
+        title: leadIssue?.title ?? "Editorial Archive",
+        meta: headerMeta,
+      }}
       weeklyIssues={weeklyIssues}
     >
       {dailyIssues.length > 0 ? (

@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import PodcastPlayer from "@/components/PodcastPlayer";
 import PublicationShell from "@/components/PublicationShell";
 import {
@@ -18,21 +19,22 @@ export default function PodcastPage() {
       return script ? { date, script, hasPodcast: meta?.hasPodcast ?? false } : null;
     })
     .filter((podcast): podcast is NonNullable<typeof podcast> => podcast !== null);
+  const latestPodcastDate = podcasts[0]?.date;
+  const headerMeta = [
+    latestPodcastDate ? dayjs(latestPodcastDate).format("YYYY.MM.DD") : null,
+    podcasts.length > 0 ? `${podcasts.length} scripts` : null,
+  ].filter((value): value is string => Boolean(value));
 
   return (
     <PublicationShell
       currentDate={dailyIssues[0]?.date}
       dailyIssues={dailyIssues}
-      masthead={
-        <div className="w-full max-w-3xl text-center">
-          <div className="font-mono text-[10px] uppercase tracking-[0.34em] text-black/45">
-            Podcast Scripts / Archive Playback
-          </div>
-          <div className="mt-2 text-sm leading-6 text-black/62">
-            Browse generated scripts alongside the editorial issue archive.
-          </div>
-        </div>
-      }
+      activeNav="podcast"
+      header={{
+        section: "Podcast Archive",
+        title: podcasts.length > 0 ? "Generated Script Playback" : "No Podcast Scripts Yet",
+        meta: headerMeta,
+      }}
       weeklyIssues={weeklyIssues}
     >
       <section className="editorial-card p-6 md:p-8">
