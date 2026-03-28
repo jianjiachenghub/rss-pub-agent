@@ -15,61 +15,71 @@ export async function gateKeepNode(
   }
 
   try {
-    const allResults: GateKeepResult[] = [];
-
+    const batches: typeof rawItems[] = [];
     for (let i = 0; i < rawItems.length; i += BATCH_SIZE) {
-      const batch = rawItems.slice(i, i + BATCH_SIZE);
-      const batchInput = batch.map((item) => ({
-        id: item.id,
-        title: item.title,
-        content: item.content,
-        source: item.source,
-        category: item.category,
-        publishedAt: item.publishedAt,
-      }));
+      batches.push(rawItems.slice(i, i + BATCH_SIZE));
+    }
 
-      const results = await callLLMJson<GateKeepResult[]>({
-        systemPrompt: gateKeepSystemPrompt(config.editorial, editorialAgenda),
-        prompt: gateKeepUserPrompt(batchInput),
-        model: "flash",
-        jsonSchema: {
-          type: "ARRAY",
-          items: {
-            type: "OBJECT",
-            properties: {
-              id: { type: "STRING" },
-              action: { type: "STRING", enum: ["PASS", "DROP", "MERGE"] },
-              mergeWith: { type: "STRING" },
-              reason: { type: "STRING" },
+    const batchResults = await Promise.all(
+      batches.map(async (batch, index) => {
+        console.log(
+          `[gate-keep] Reviewing batch ${index + 1}/${batches.length} (${batch.length} items)...`
+        );
+
+        const batchInput = batch.map((item) => ({
+          id: item.id,
+          title: item.title,
+          content: item.content,
+          source: item.source,
+          category: item.category,
+          publishedAt: item.publishedAt,
+        }));
+
+        const results = await callLLMJson<GateKeepResult[]>({
+          systemPrompt: gateKeepSystemPrompt(config.editorial, editorialAgenda),
+          prompt: gateKeepUserPrompt(batchInput),
+          model: "flash",
+          jsonSchema: {
+            type: "ARRAY",
+            items: {
+              type: "OBJECT",
+              properties: {
+                id: { type: "STRING" },
+                action: { type: "STRING", enum: ["PASS", "DROP", "MERGE"] },
+                mergeWith: { type: "STRING" },
+                reason: { type: "STRING" },
+              },
+              required: ["id", "action", "reason"],
             },
-            required: ["id", "action", "reason"],
           },
-        },
-      });
+        });
 
-      let resultsArray: GateKeepResult[] = [];
-      if (Array.isArray(results)) {
-        resultsArray = results;
-      } else if (typeof results === "object" && results !== null) {
-        const values = Object.values(results);
-        const arrayValue = values.find((value) => Array.isArray(value));
-        if (arrayValue) {
-          resultsArray = arrayValue as GateKeepResult[];
-        } else {
+        let resultsArray: GateKeepResult[] = [];
+        if (Array.isArray(results)) {
+          resultsArray = results;
+        } else if (typeof results === "object" && results !== null) {
+          const values = Object.values(results);
+          const arrayValue = values.find((value) => Array.isArray(value));
+          if (arrayValue) {
+            resultsArray = arrayValue as GateKeepResult[];
+          } else {
+            console.warn(
+              `[gate-keep] Could not find array in object, keys: ${Object.keys(results).join(", ")}`
+            );
+          }
+        }
+
+        if (!Array.isArray(results)) {
           console.warn(
-            `[gate-keep] Could not find array in object, keys: ${Object.keys(results).join(", ")}`
+            `[gate-keep] Expected array but got ${typeof results}, attempting extraction`
           );
         }
-      }
 
-      if (!Array.isArray(results)) {
-        console.warn(
-          `[gate-keep] Expected array but got ${typeof results}, attempting extraction`
-        );
-      }
+        return resultsArray;
+      })
+    );
 
-      allResults.push(...resultsArray);
-    }
+    const allResults = batchResults.flat();
 
     const passIds = new Set(
       allResults.filter((result) => result.action === "PASS").map((result) => result.id)

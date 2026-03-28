@@ -1,5 +1,10 @@
 import OpenAI from "openai";
 import { GoogleGenAI } from "@google/genai";
+import {
+  isProviderCoolingDown,
+  noteProviderCooldown,
+  runWithLLMConcurrency,
+} from "./llm-concurrency.js";
 
 // ============================================================
 // LLM Provider 统一接入层
@@ -252,9 +257,13 @@ async function callWithRetry(
 ): Promise<LLMResponse> {
   for (let i = 0; i <= retries; i++) {
     try {
-      return await provider.call(req);
+      return await runWithLLMConcurrency(
+        provider.name,
+        req.model ?? "flash",
+        () => provider.call(req)
+      );
     } catch (err) {
-      const msg = (err as Error).message;
+      const msg = getErrorMessage(err);
       const isRetryable =
         msg.includes("429") ||
         msg.includes("503") ||
@@ -269,6 +278,7 @@ async function callWithRetry(
         msg.includes("network");
       if (isRetryable && i < retries) {
         const delay = (i + 1) * 3000;
+        noteProviderCooldown(provider.name, delay);
         console.warn(
           `[LLM] ${provider.name} retrying in ${delay / 1000}s... (attempt ${i + 1}/${retries})`
         );
@@ -286,6 +296,15 @@ export async function callLLM(req: LLMRequest): Promise<LLMResponse> {
 
   for (let i = 0; i < chain.length; i++) {
     const provider = chain[i];
+    const nextProvider = chain[i + 1];
+
+    if (nextProvider && isProviderCoolingDown(provider.name)) {
+      console.warn(
+        `[LLM] ${provider.name} cooling down (${req.model ?? "flash"}), trying ${nextProvider.name}`
+      );
+      continue;
+    }
+
     console.log(`[LLM] Calling ${provider.name} (${req.model ?? "flash"})...`);
     try {
       return await callWithRetry(provider, req);
@@ -293,8 +312,8 @@ export async function callLLM(req: LLMRequest): Promise<LLMResponse> {
       const isLast = i === chain.length - 1;
       if (isLast) throw err;
       console.warn(
-        `[LLM] ${provider.name} failed (${req.model ?? "flash"}), trying ${chain[i + 1].name}:`,
-        (err as Error).message
+        `[LLM] ${provider.name} failed (${req.model ?? "flash"}), trying ${nextProvider.name}:`,
+        getErrorMessage(err)
       );
     }
   }
