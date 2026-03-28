@@ -12,7 +12,7 @@ export default function PodcastPlayer({ date, audioUrl, script }: Props) {
   const [showScript, setShowScript] = useState(false);
 
   return (
-    <article className="border border-black/10 bg-white/70 px-5 py-5">
+    <article className="editorial-card interactive-panel px-5 py-5">
       <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-black/42">
         {date}
       </div>
@@ -20,14 +20,14 @@ export default function PodcastPlayer({ date, audioUrl, script }: Props) {
         {audioUrl ? (
           <audio controls className="w-full max-w-xl" src={audioUrl} />
         ) : (
-          <span className="outline-chip">Script Only</span>
+          <span className="outline-chip">仅脚本</span>
         )}
         <button
           type="button"
           onClick={() => setShowScript((value) => !value)}
           className="action-chip"
         >
-          {showScript ? "Hide Script" : "Show Script"}
+          {showScript ? "收起脚本" : "查看脚本"}
         </button>
       </div>
       {showScript ? (

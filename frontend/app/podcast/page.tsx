@@ -22,7 +22,7 @@ export default function PodcastPage() {
   const latestPodcastDate = podcasts[0]?.date;
   const headerMeta = [
     latestPodcastDate ? dayjs(latestPodcastDate).format("YYYY.MM.DD") : null,
-    podcasts.length > 0 ? `${podcasts.length} scripts` : null,
+    podcasts.length > 0 ? `${podcasts.length} 份脚本` : null,
   ].filter((value): value is string => Boolean(value));
 
   return (
@@ -31,17 +31,17 @@ export default function PodcastPage() {
       dailyIssues={dailyIssues}
       activeNav="podcast"
       header={{
-        section: "Podcast Archive",
-        title: podcasts.length > 0 ? "Generated Script Playback" : "No Podcast Scripts Yet",
+        section: "播客存档",
+        title: podcasts.length > 0 ? "播客脚本回放" : "暂无播客脚本",
         meta: headerMeta,
       }}
       weeklyIssues={weeklyIssues}
     >
-      <section className="editorial-card p-6 md:p-8">
-        <div className="section-label">Podcast Archive</div>
+      <section className="editorial-card hero-card p-6 md:p-8">
+        <div className="section-label">播客存档</div>
         <div className="mt-8 space-y-4">
           {podcasts.length === 0 ? (
-            <p className="text-sm leading-7 text-black/62">No podcast script has been published yet.</p>
+            <p className="text-sm leading-7 text-black/62">暂时还没有可播放的播客脚本。</p>
           ) : (
             podcasts.map((podcast) => (
               <PodcastPlayer key={podcast.date} date={podcast.date} script={podcast.script} />

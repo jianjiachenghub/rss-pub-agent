@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import isoWeek from "dayjs/plugin/isoWeek";
 import type { ReactNode } from "react";
 import type { DailyIssue, WeeklyIssue } from "@/lib/content-loader";
+import { formatDisplayWeekLabel } from "@/lib/display-text";
 
 dayjs.extend(isoWeek);
 
@@ -45,7 +46,7 @@ function getIssueWeekId(date: string): string {
 }
 
 function formatWeekLabel(weekId: string): string {
-  return weekId.replace("-W", " / WEEK ");
+  return formatDisplayWeekLabel(weekId);
 }
 
 function formatWeekRange(dates: string[]): string {
@@ -133,11 +134,7 @@ function IssueStamp({
   active?: boolean;
 }) {
   return (
-    <span
-      className={`inline-flex min-w-11 items-center justify-center border px-2 py-1 text-[10px] tracking-[0.25em] ${
-        active ? "border-black bg-black text-white" : "border-black/20 text-black/55"
-      }`}
-    >
+    <span className={`issue-stamp ${active ? "issue-stamp-active" : ""}`}>
       {children}
     </span>
   );
@@ -163,7 +160,7 @@ export default function IssueRail({
   return (
     <div className={`text-[13px] text-stone-700 ${compact ? "space-y-6" : "space-y-7"}`}>
       <section className="space-y-4">
-        <div className="rail-label">Archive Index</div>
+        <div className="rail-label">资讯归档</div>
 
         {archiveTree.map((yearGroup) => {
           const yearActive = yearGroup.year === focusYear;
@@ -173,12 +170,10 @@ export default function IssueRail({
             <details
               key={yearGroup.year}
               open={yearOpen}
-              className="group border border-black/10 bg-white"
+              className="rail-panel group"
             >
               <summary
-                className={`flex cursor-pointer items-center justify-between gap-3 px-3 py-3 list-none ${
-                  yearActive ? "bg-black text-white" : "bg-white"
-                }`}
+                className={`rail-summary rail-summary-year ${yearActive ? "is-active" : ""}`}
               >
                 <div>
                   <div
@@ -211,9 +206,7 @@ export default function IssueRail({
                       className="border-b border-black/8 last:border-b-0"
                     >
                       <summary
-                        className={`flex cursor-pointer items-center justify-between gap-3 px-3 py-3 list-none ${
-                          monthActive ? "bg-stone-100" : "bg-[#fcfbf8]"
-                        }`}
+                        className={`rail-summary rail-summary-month ${monthActive ? "is-active" : ""}`}
                       >
                         <div>
                           <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-black/38">
@@ -238,9 +231,7 @@ export default function IssueRail({
                               className="border-b border-black/8 last:border-b-0"
                             >
                               <summary
-                                className={`flex cursor-pointer items-start justify-between gap-3 px-3 py-3 list-none ${
-                                  weekActive ? "bg-stone-50" : "bg-white"
-                                }`}
+                                className={`rail-summary rail-summary-week ${weekActive ? "is-active" : ""}`}
                               >
                                 <div>
                                   <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-black/40">
@@ -257,10 +248,8 @@ export default function IssueRail({
                                 {weekGroup.weeklyIssue ? (
                                   <Link
                                     href={`/weekly/${weekGroup.weekId}`}
-                                    className={`block border-b border-black/8 px-3 py-3 transition-colors ${
-                                      currentWeekId === weekGroup.weekId
-                                        ? "bg-black text-white"
-                                        : "bg-[#f7f4ee] hover:bg-stone-100"
+                                    className={`rail-feature-link ${
+                                      currentWeekId === weekGroup.weekId ? "is-active" : ""
                                     }`}
                                   >
                                     <div
@@ -270,10 +259,10 @@ export default function IssueRail({
                                           : "text-black/42"
                                       }`}
                                     >
-                                      Weekly Brief
+                                      本周综览
                                     </div>
                                     <div
-                                      className={`mt-1 text-sm font-semibold leading-snug ${
+                                      className={`rail-entry-title mt-1 text-sm font-semibold leading-snug ${
                                         currentWeekId === weekGroup.weekId
                                           ? "text-white"
                                           : "text-black"
@@ -293,11 +282,7 @@ export default function IssueRail({
                                     <Link
                                       key={issue.date}
                                       href={`/${issue.date}`}
-                                      className={`block border-b border-black/8 px-3 py-3 transition-colors last:border-b-0 ${
-                                        active
-                                          ? "bg-black text-white"
-                                          : "bg-white hover:bg-stone-50"
-                                      }`}
+                                      className={`rail-entry ${active ? "is-active" : ""}`}
                                     >
                                       <div className="flex items-start justify-between gap-3">
                                         <div>
@@ -309,7 +294,7 @@ export default function IssueRail({
                                             {dayjs(issue.date).format("MM.DD")}
                                           </div>
                                           <div
-                                            className={`mt-1 text-sm font-semibold leading-snug ${
+                                            className={`rail-entry-title mt-1 text-sm font-semibold leading-snug ${
                                               active ? "text-white" : "text-black"
                                             }`}
                                           >
@@ -331,7 +316,7 @@ export default function IssueRail({
                                         }`}
                                       >
                                         {issue.summary ||
-                                          "Open this issue to read the full daily report."}
+                                          "打开查看当日完整内容。"}
                                       </div>
                                     </Link>
                                   );

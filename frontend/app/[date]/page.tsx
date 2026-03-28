@@ -29,10 +29,10 @@ export default async function DailyPage({
   const weeklyIssues = getWeeklyIssues();
   const headerMeta = [
     dayjs(issue.date).format("YYYY.MM.DD"),
-    issue.meta ? `${issue.meta.itemCount} items` : null,
-    issue.meta ? `avg ${issue.meta.avgScore}` : null,
-    issue.heroImageUrl ? "image" : null,
-    issue.meta?.hasPodcast ? "podcast" : null,
+    issue.meta ? `${issue.meta.itemCount} 条资讯` : null,
+    issue.meta ? `均分 ${issue.meta.avgScore}` : null,
+    issue.heroImageUrl ? "图片" : null,
+    issue.meta?.hasPodcast ? "播客" : null,
   ].filter((value): value is string => Boolean(value));
 
   return (
@@ -40,33 +40,33 @@ export default async function DailyPage({
       currentDate={date}
       dailyIssues={dailyIssues}
       header={{
-        section: "Daily Issue",
+        section: "Day",
         title: issue.title,
         meta: headerMeta,
       }}
       weeklyIssues={weeklyIssues}
     >
-      <section className="editorial-card px-6 py-6 md:px-8 md:py-8">
+      <section className="editorial-card hero-card px-6 py-6 md:px-8 md:py-8">
         <div className="font-mono text-[11px] uppercase tracking-[0.28em] text-black/42">
           {issue.date}
         </div>
         <div className="mt-4 grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(18rem,0.7fr)]">
           <div>
-            <div className="section-label">Issue Note</div>
+            <div className="section-label">内容摘要</div>
             <p className="mt-6 max-w-3xl text-base leading-8 text-black/68">
-              {issue.summary || "Read the full markdown issue below."}
+              {issue.summary || "下方可查看完整 Markdown 内容。"}
             </p>
           </div>
           <div className="space-y-3 border-l border-black/10 pl-0 xl:pl-6">
-            <div className="section-label">Issue Meta</div>
+            <div className="section-label">内容概览</div>
             <div className="grid grid-cols-2 gap-3 pt-3">
               <div className="metric-card">
                 <div className="metric-value">{issue.meta?.itemCount ?? 0}</div>
-                <div className="metric-label">Items</div>
+                <div className="metric-label">资讯数</div>
               </div>
               <div className="metric-card">
                 <div className="metric-value">{issue.meta?.avgScore ?? 0}</div>
-                <div className="metric-label">Avg Score</div>
+                <div className="metric-label">均分</div>
               </div>
             </div>
           </div>

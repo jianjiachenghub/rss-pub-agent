@@ -2,12 +2,15 @@
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { stripGenericIssueHeading } from "@/lib/display-text";
 
 export default function DailyReport({ content }: { content: string }) {
-  const body = content.replace(/^---[\s\S]*?---\n?/, "").trim();
+  const body = stripGenericIssueHeading(
+    content.replace(/^---[\s\S]*?---\n?/, "").trim()
+  );
 
   return (
-    <article className="editorial-card markdown-sheet px-5 py-8 md:px-8 md:py-10">
+    <article className="editorial-card reading-surface markdown-sheet px-5 py-8 md:px-8 md:py-10">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{

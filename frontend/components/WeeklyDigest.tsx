@@ -4,21 +4,21 @@ import type { WeeklyIssue } from "@/lib/content-loader";
 
 function buildWeeklyNote(issue: WeeklyIssue): string {
   const themes = issue.categories.slice(0, 3).join(" / ");
-  const issueLabel = `${issue.issueCount} issue${issue.issueCount === 1 ? "" : "s"}`;
-  const storyLabel = `${issue.itemCount} stories`;
+  const issueLabel = `${issue.issueCount} 期日更`;
+  const storyLabel = `${issue.itemCount} 条资讯`;
 
   if (!themes) {
-    return `This weekly brief composes ${issueLabel} and ${storyLabel} from the archive without altering the underlying daily markdown sources.`;
+    return `这份周度综览基于现有归档内容整理而成，覆盖了 ${issueLabel} 和 ${storyLabel}。`;
   }
 
-  return `This weekly brief composes ${issueLabel} and ${storyLabel}. The most recurring themes this week were ${themes}. Use the day index below to jump back into each raw daily issue.`;
+  return `这份周度综览整理了 ${issueLabel} 和 ${storyLabel}。本周反复出现的主题包括 ${themes}，下方可以继续跳回每天的原始内容。`;
 }
 
 export default function WeeklyDigest({ issue }: { issue: WeeklyIssue }) {
   return (
     <article className="space-y-10">
-      <section className="editorial-card p-6 md:p-8">
-        <div className="section-label">Weekly Brief</div>
+      <section className="editorial-card hero-card p-6 md:p-8">
+        <div className="section-label">本周综览</div>
         <div className="mt-8 space-y-5">
           <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-black/45">
             {issue.rangeLabel}
@@ -37,7 +37,7 @@ export default function WeeklyDigest({ issue }: { issue: WeeklyIssue }) {
           {issue.heroImageUrl ? (
             <img
               alt={issue.label}
-              className="h-[24rem] w-full border border-black/10 object-cover"
+              className="hero-media h-[24rem] w-full object-cover"
               src={issue.heroImageUrl}
             />
           ) : null}
@@ -47,30 +47,30 @@ export default function WeeklyDigest({ issue }: { issue: WeeklyIssue }) {
       <section className="grid gap-4 md:grid-cols-4">
         <div className="metric-card">
           <div className="metric-value">{issue.issueCount}</div>
-          <div className="metric-label">Issues</div>
+          <div className="metric-label">日更数</div>
         </div>
         <div className="metric-card">
           <div className="metric-value">{issue.itemCount}</div>
-          <div className="metric-label">Stories</div>
+          <div className="metric-label">资讯数</div>
         </div>
         <div className="metric-card">
           <div className="metric-value">{issue.avgScore}</div>
-          <div className="metric-label">Avg Score</div>
+          <div className="metric-label">均分</div>
         </div>
         <div className="metric-card">
           <div className="metric-value">{issue.keyTitles.length}</div>
-          <div className="metric-label">Anchors</div>
+          <div className="metric-label">重点数</div>
         </div>
       </section>
 
       <section className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]">
         <div className="editorial-card p-6 md:p-8">
-          <div className="section-label">Week Anchors</div>
+          <div className="section-label">本周重点</div>
           <div className="mt-7 space-y-4">
             {issue.keyTitles.map((title, index) => (
               <div key={`${title}-${index}`} className="border-t border-black/10 pt-4">
                 <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-black/35">
-                  Anchor {String(index + 1).padStart(2, "0")}
+                  重点 {String(index + 1).padStart(2, "0")}
                 </div>
                 <div className="mt-2 text-lg font-semibold leading-snug text-black">
                   {title}
@@ -81,26 +81,28 @@ export default function WeeklyDigest({ issue }: { issue: WeeklyIssue }) {
         </div>
 
         <div className="editorial-card p-6 md:p-8">
-          <div className="section-label">Archive Note</div>
+          <div className="section-label">归档说明</div>
           <p className="mt-7 text-sm leading-8 text-black/64">{buildWeeklyNote(issue)}</p>
         </div>
       </section>
 
       <section className="editorial-card p-6 md:p-8">
-        <div className="section-label">Daily Issues</div>
+        <div className="section-label">每日内容</div>
         <div className="mt-8 space-y-5">
           {issue.days.map((day) => (
             <Link
               key={day.date}
               href={`/${day.date}`}
-              className="grid gap-5 border-t border-black/10 pt-5 transition-transform hover:-translate-y-0.5 md:grid-cols-[9rem_minmax(0,1fr)]"
+              className="interactive-panel surface-link grid gap-5 border-t border-black/10 pt-5 md:grid-cols-[9rem_minmax(0,1fr)]"
             >
               <div className="font-mono text-[11px] uppercase tracking-[0.26em] text-black/42">
                 <div>{dayjs(day.date).format("YYYY.MM.DD")}</div>
-                <div className="mt-2">{day.meta?.itemCount ?? 0} items</div>
+                <div className="mt-2">{day.meta?.itemCount ?? 0} 条资讯</div>
               </div>
               <div>
-                <h2 className="text-2xl font-semibold leading-tight text-black">{day.title}</h2>
+                <h2 className="text-2xl font-semibold leading-tight text-black">
+                  <span className="hover-underline">{day.title}</span>
+                </h2>
                 <p className="mt-3 max-w-3xl text-sm leading-7 text-black/65">
                   {day.summary}
                 </p>
