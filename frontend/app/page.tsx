@@ -14,9 +14,9 @@ export default function HomePage() {
   const leadIssue = dailyIssues[0];
   const headerMeta = [
     leadIssue ? dayjs(leadIssue.date).format("YYYY.MM.DD") : null,
-    dailyIssues.length > 0 ? `${dailyIssues.length} daily issues` : null,
-    weeklyIssues.length > 0 ? `${weeklyIssues.length} weekly briefs` : null,
-    timelineDays.length > 0 ? `${timelineDays.length} timeline days` : null,
+    dailyIssues.length > 0 ? `${dailyIssues.length} 期日更` : null,
+    weeklyIssues.length > 0 ? `${weeklyIssues.length} 期周度综览` : null,
+    timelineDays.length > 0 ? `${timelineDays.length} 天时间线` : null,
   ].filter((value): value is string => Boolean(value));
 
   return (
@@ -24,8 +24,8 @@ export default function HomePage() {
       currentDate={dailyIssues[0]?.date}
       dailyIssues={dailyIssues}
       header={{
-        section: "Front Page",
-        title: leadIssue?.title ?? "Editorial Archive",
+        section: "首页",
+        title: leadIssue ? "最新资讯" : "资讯归档",
         meta: headerMeta,
       }}
       weeklyIssues={weeklyIssues}
@@ -38,12 +38,10 @@ export default function HomePage() {
         />
       ) : (
         <section className="editorial-card px-6 py-14 md:px-10">
-          <div className="section-label">No Issues Yet</div>
-          <h1 className="display-title mt-8">Run the pipeline to populate the archive.</h1>
+          <div className="section-label">暂无内容</div>
+          <h1 className="display-title mt-8">先运行一次流水线，归档内容才会出现在这里。</h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-black/65">
-            This front page expects daily markdown issues under the shared content
-            directory. Once they exist, the home shell will automatically populate
-            daily, weekly, and timeline views.
+            首页会自动读取共享内容目录下的每日内容，并生成首页、周度综览和时间线视图。
           </p>
         </section>
       )}

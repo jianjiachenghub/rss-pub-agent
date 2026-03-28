@@ -2,6 +2,10 @@ import { existsSync, readFileSync } from "fs";
 import { join } from "path";
 import dayjs from "dayjs";
 import isoWeek from "dayjs/plugin/isoWeek";
+import {
+  formatDisplayWeekLabel,
+  getDisplayIssueTitle,
+} from "@/lib/display-text";
 
 dayjs.extend(isoWeek);
 
@@ -139,7 +143,7 @@ function getWeekId(date: string): string {
 }
 
 function formatWeekLabel(weekId: string): string {
-  return weekId.replace("-W", " / WEEK ");
+  return formatDisplayWeekLabel(weekId);
 }
 
 function formatWeekRange(dates: string[]): string {
@@ -151,11 +155,12 @@ function formatWeekRange(dates: string[]): string {
 }
 
 function getIssueTitle(content: string, date: string): string {
-  return (
+  const rawTitle =
     extractFrontmatterField(content, "title") ??
     extractFirstHeading(stripFrontmatter(content)) ??
-    date
-  );
+    date;
+
+  return getDisplayIssueTitle(rawTitle, date);
 }
 
 function getContentPath(date: string, fileName: string): string {

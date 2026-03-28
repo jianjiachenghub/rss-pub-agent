@@ -27,9 +27,9 @@ export default async function WeeklyPage({
   const weeklyIssues = getWeeklyIssues();
   const headerMeta = [
     weeklyIssue.rangeLabel,
-    `${weeklyIssue.issueCount} daily issues`,
-    `${weeklyIssue.itemCount} stories`,
-    `avg ${weeklyIssue.avgScore}`,
+    `${weeklyIssue.issueCount} 期日更`,
+    `${weeklyIssue.itemCount} 条资讯`,
+    `均分 ${weeklyIssue.avgScore}`,
   ];
 
   return (
@@ -37,7 +37,7 @@ export default async function WeeklyPage({
       currentWeekId={weeklyIssue.weekId}
       dailyIssues={dailyIssues}
       header={{
-        section: "Weekly Brief",
+        section: "本周综览",
         title: weeklyIssue.label,
         meta: headerMeta,
       }}
