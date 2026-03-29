@@ -2,7 +2,6 @@ export const SITE_TITLE_EN = "AI NEWS FLOW";
 export const SITE_TITLE_ZH = "新闻日报系统";
 export const SITE_SLOGAN = "从噪音中提炼可执行判断";
 export const SITE_REPO_URL = "https://github.com/jianjiachenghub/rss-pub-agent";
-export const SITE_REPO_AVATAR = "https://github.com/jianjiachenghub.png?size=96";
 
 export const PROJECT_FLOW_LABEL =
   "抓取 -> Gate-Keep -> Score -> Insight -> 日报 / 周报 / 播客 -> 发布";
