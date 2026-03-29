@@ -1,9 +1,9 @@
 "use client";
 
+import dayjs from "dayjs";
 import Link from "next/link";
 import { useState } from "react";
 import type { ReactNode } from "react";
-import dayjs from "dayjs";
 import type { DailyIssue, TimelineDay, WeeklyIssue } from "@/lib/content-loader";
 import ResilientImage from "@/components/ResilientImage";
 
@@ -32,6 +32,22 @@ function TabButton({
     >
       {children}
     </button>
+  );
+}
+
+function CTAArrow() {
+  return (
+    <span className="action-chip-arrow" aria-hidden="true">
+      <svg viewBox="0 0 16 16" fill="none">
+        <path
+          d="M3.5 8H12.5M8.5 4L12.5 8L8.5 12"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.45"
+        />
+      </svg>
+    </span>
   );
 }
 
@@ -87,8 +103,9 @@ function DailyPanel({ dailyIssues }: { dailyIssues: DailyIssue[] }) {
               />
             ) : null}
             <div className="flex flex-wrap items-center gap-3">
-              <Link href={`/${leadIssue.date}`} className="action-chip">
-                进入详细阅读
+              <Link href={`/${leadIssue.date}`} className="action-chip action-chip-cta">
+                <span>进入详细阅读</span>
+                <CTAArrow />
               </Link>
               <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-black/60">
                 {leadIssue.keyTitles.length} 个重点条目
@@ -183,13 +200,19 @@ function WeeklyPanel({ weeklyIssues }: { weeklyIssues: WeeklyIssue[] }) {
           <div className="mt-8 font-mono text-[11px] uppercase tracking-[0.22em] text-black/60">
             {leadIssue.rangeLabel}
           </div>
-          <h1 className="display-title mt-4 max-w-4xl">{leadIssue.label}</h1>
+          <h1 className="display-title display-title-compact mt-4 max-w-4xl">
+            {leadIssue.label}
+          </h1>
           <p className="mt-5 max-w-3xl text-lg leading-9 text-black/78">
             {leadIssue.summary || "这里会基于当前归档日报，整理出这一周的摘要和重点。"}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href={`/weekly/${leadIssue.weekId}`} className="action-chip">
-              打开本周周报
+            <Link
+              href={`/weekly/${leadIssue.weekId}`}
+              className="action-chip action-chip-cta"
+            >
+              <span>打开本周周报</span>
+              <CTAArrow />
             </Link>
             {leadIssue.categories.map((category) => (
               <span key={category} className="outline-chip">
@@ -273,7 +296,9 @@ function TimelinePanel({ timelineDays }: { timelineDays: TimelineDay[] }) {
               >
                 <span className="hover-underline">{day.title}</span>
               </Link>
-              <p className="mt-3 max-w-3xl text-sm leading-7 text-black/74">{day.summary}</p>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-black/74">
+                {day.summary}
+              </p>
               <div className="mt-4 grid gap-2 md:grid-cols-2">
                 {day.keyTitles.map((title, itemIndex) => (
                   <div
@@ -308,10 +333,7 @@ export default function HomeTabs({
         <TabButton active={activeTab === "weekly"} onClick={() => setActiveTab("weekly")}>
           周报
         </TabButton>
-        <TabButton
-          active={activeTab === "timeline"}
-          onClick={() => setActiveTab("timeline")}
-        >
+        <TabButton active={activeTab === "timeline"} onClick={() => setActiveTab("timeline")}>
           时间线
         </TabButton>
       </div>
