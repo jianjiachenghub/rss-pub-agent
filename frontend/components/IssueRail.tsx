@@ -43,7 +43,6 @@ interface ArchiveYearGroup {
 
 function formatWeekRange(dates: string[]): string {
   const ordered = [...dates].sort();
-
   if (ordered.length === 0) return "";
 
   const lastDate = ordered[ordered.length - 1];
@@ -247,7 +246,10 @@ export default function IssueRail({
                                     currentWeekId === weekGroup.weekId ? "is-active" : ""
                                   }`}
                                 >
-                                  周报详情
+                                  <span>周报详情</span>
+                                  <span className="rail-week-action-arrow" aria-hidden="true">
+                                    →
+                                  </span>
                                 </Link>
                               ) : null}
 
