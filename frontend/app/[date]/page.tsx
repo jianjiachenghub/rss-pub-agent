@@ -27,6 +27,8 @@ export default async function DailyPage({
 
   const dailyIssues = getAllDailyIssues();
   const weeklyIssues = getWeeklyIssues();
+  const focusTitles = issue.keyTitles.slice(0, 3);
+  const categoryList = issue.meta?.categories ?? [];
 
   return (
     <PublicationShell currentDate={date} dailyIssues={dailyIssues} weeklyIssues={weeklyIssues}>
@@ -49,16 +51,27 @@ export default async function DailyPage({
           </div>
         </div>
 
-        <div className="mt-6 grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(18rem,0.7fr)]">
+        <div className="mt-6 grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(18rem,0.72fr)]">
           <div>
-            <div className="section-label">本期摘要</div>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-black/78">
-              {issue.summary || "下方保留原始 Markdown 正文，可直接进入完整阅读。"}
-            </p>
+            <div className="section-label">本期焦点</div>
+            {focusTitles.length > 0 ? (
+              <ol className="hero-focus-list" aria-label="本期焦点">
+                {focusTitles.map((title, index) => (
+                  <li key={`${index + 1}-${title}`} className="hero-focus-item">
+                    <span className="hero-focus-index">{String(index + 1).padStart(2, "0")}</span>
+                    <span className="hero-focus-title">{title}</span>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <p className="hero-summary-fallback">
+                {issue.summary || "下方保留原始 Markdown 正文，可直接进入完整阅读。"}
+              </p>
+            )}
           </div>
-          <div className="space-y-3 border-l border-black/10 pl-0 xl:pl-6">
+          <div className="hero-overview-stack xl:border-l xl:border-black/10 xl:pl-6">
             <div className="section-label">内容概览</div>
-            <div className="grid grid-cols-2 gap-3 pt-3">
+            <div className="grid grid-cols-2 gap-3 pt-1">
               <div className="metric-card">
                 <div className="metric-value">{issue.meta?.itemCount ?? 0}</div>
                 <div className="metric-label">资讯数</div>
@@ -68,6 +81,18 @@ export default async function DailyPage({
                 <div className="metric-label">均分</div>
               </div>
             </div>
+            {categoryList.length > 0 ? (
+              <div className="hero-chip-panel">
+                <div className="hero-chip-label">覆盖分类</div>
+                <div className="hero-chip-list">
+                  {categoryList.map((category) => (
+                    <span key={category} className="hero-chip">
+                      {category}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ) : null}
           </div>
         </div>
       </section>

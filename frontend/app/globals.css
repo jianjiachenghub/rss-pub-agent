@@ -1035,6 +1035,115 @@ img {
   color: rgba(12, 18, 32, 0.62);
 }
 
+.hero-focus-list {
+  margin: 1.3rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.hero-focus-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: flex-start;
+  gap: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(245, 249, 255, 0.62)),
+    rgba(255, 255, 255, 0.68);
+  padding: 0.95rem 1rem;
+  box-shadow:
+    0 16px 30px rgba(18, 24, 38, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.88) inset;
+}
+
+.hero-focus-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(10, 16, 26, 0.96), rgba(30, 38, 56, 0.9));
+  color: white;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+  box-shadow: 0 10px 20px rgba(8, 12, 20, 0.14);
+}
+
+.hero-focus-title {
+  color: rgba(10, 16, 26, 0.96);
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.62;
+}
+
+.hero-summary-fallback {
+  margin: 1.3rem 0 0;
+  max-width: 42rem;
+  color: rgba(12, 18, 32, 0.78);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.9;
+}
+
+.hero-overview-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.hero-chip-panel {
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(245, 248, 253, 0.54)),
+    rgba(255, 255, 255, 0.56);
+  padding: 0.95rem 1rem 1rem;
+  box-shadow:
+    0 14px 28px rgba(18, 24, 38, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.84) inset;
+}
+
+.hero-chip-label {
+  color: rgba(12, 18, 32, 0.58);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 650;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-chip-list {
+  margin-top: 0.72rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
+  border: 1px solid rgba(12, 18, 32, 0.08);
+  border-radius: 999px;
+  background: rgba(244, 247, 252, 0.94);
+  padding: 0 0.8rem;
+  color: rgba(12, 18, 32, 0.82);
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 8px 18px rgba(18, 24, 38, 0.05);
+}
+
 .about-metric-note {
   margin: 0.75rem 0 0;
   color: rgba(12, 18, 32, 0.76);
@@ -1770,11 +1879,14 @@ details[open] > .rail-head .rail-chevron {
 }
 
 .markdown-h2 {
-  margin: 3rem 0 1.35rem;
+  margin: 3.2rem 0 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
   border-top: 1px solid rgba(12, 18, 32, 0.09);
   border-radius: 26px 26px 0 0;
   background: linear-gradient(180deg, rgba(232, 239, 250, 0.82), rgba(255, 255, 255, 0));
-  padding: 1.05rem 1.15rem 0.15rem;
+  padding: 1.05rem 1.15rem 0.45rem;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
 }
 
@@ -1788,33 +1900,50 @@ details[open] > .rail-head .rail-chevron {
   box-shadow: none;
 }
 
+.markdown-h2::after {
+  content: "";
+  flex: 1;
+  min-width: 2rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(12, 18, 32, 0.18), rgba(109, 140, 255, 0.08));
+}
+
+.markdown-sheet > .markdown-h2:first-child::after {
+  display: none;
+}
+
 .markdown-h1 + .markdown-h2 {
   margin-top: 1.75rem;
 }
 
 .markdown-h2 > span {
   display: inline-flex;
+  align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   background: linear-gradient(135deg, rgba(10, 16, 26, 0.96), rgba(30, 38, 56, 0.9));
   color: white;
   font-family: var(--font-display), var(--font-body), sans-serif;
-  font-size: 0.84rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   line-height: 1;
-  padding: 0.62rem 0.92rem 0.56rem;
+  padding: 0.76rem 1.14rem 0.7rem;
   text-transform: uppercase;
+  box-shadow:
+    0 14px 28px rgba(10, 16, 26, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
 }
 
 .markdown-h3 {
-  margin: 2.2rem 0 0.95rem;
+  margin: 1.7rem 0 0.8rem;
   border-top: 1px dashed rgba(12, 18, 32, 0.12);
-  padding-top: 0.95rem;
-  font-size: clamp(1.52rem, 1.34rem + 0.7vw, 2.2rem);
-  line-height: 1.16;
-  font-weight: 600;
-  letter-spacing: -0.025em;
+  padding-top: 0.82rem;
+  font-size: clamp(1.18rem, 1.08rem + 0.45vw, 1.48rem);
+  line-height: 1.38;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: rgba(10, 16, 26, 0.94);
 }
 
 .markdown-h4 {
@@ -1828,7 +1957,7 @@ details[open] > .rail-head .rail-chevron {
 }
 
 .markdown-h2 + .markdown-h3 {
-  margin-top: 1.4rem;
+  margin-top: 1.15rem;
   border-top: 0;
   padding-top: 0;
 }
@@ -1989,6 +2118,42 @@ details[open] > .rail-head .rail-chevron {
   .rail-label {
     font-size: 0.78rem;
     letter-spacing: 0.18em;
+  }
+
+  .hero-focus-item {
+    padding: 0.82rem 0.9rem;
+  }
+
+  .hero-focus-title {
+    font-size: 0.94rem;
+    line-height: 1.54;
+  }
+
+  .hero-focus-index {
+    min-width: 2rem;
+    height: 2rem;
+    font-size: 0.62rem;
+  }
+
+  .hero-chip {
+    min-height: 1.8rem;
+    font-size: 0.78rem;
+  }
+
+  .markdown-h2 {
+    gap: 0.6rem;
+    padding: 0.9rem 0.95rem 0.38rem;
+  }
+
+  .markdown-h2 > span {
+    font-size: 0.88rem;
+    letter-spacing: 0.1em;
+    padding: 0.7rem 0.95rem 0.64rem;
+  }
+
+  .markdown-h3 {
+    font-size: 1.08rem;
+    line-height: 1.45;
   }
 
   .header-topbar {
