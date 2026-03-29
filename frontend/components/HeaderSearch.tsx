@@ -119,10 +119,11 @@ export default function HeaderSearch({
   }, []);
 
   const trimmedQuery = query.trim();
-  const latestDaily = dailyIssues.slice(0, 4).map(buildDailyResult);
-  const latestWeekly = weeklyIssues.slice(0, 3).map(buildWeeklyResult);
+  const isPreview = trimmedQuery.length === 0;
+  const latestDaily = dailyIssues.slice(0, 2).map(buildDailyResult);
+  const latestWeekly = weeklyIssues.slice(0, 2).map(buildWeeklyResult);
   const results =
-    trimmedQuery.length === 0
+    isPreview
       ? []
       : [
           ...dailyIssues
@@ -134,7 +135,7 @@ export default function HeaderSearch({
                 issue.date.replace(/-/g, ""),
               ])
             )
-            .slice(0, 6)
+            .slice(0, 4)
             .map(buildDailyResult),
           ...weeklyIssues
             .filter((issue) =>
@@ -146,9 +147,9 @@ export default function HeaderSearch({
                 issue.latestDate,
               ])
             )
-            .slice(0, 4)
+            .slice(0, 2)
             .map(buildWeeklyResult),
-        ].slice(0, 8);
+        ].slice(0, 6);
 
   const showPanel =
     open &&
@@ -174,7 +175,7 @@ export default function HeaderSearch({
       </label>
 
       {showPanel ? (
-        <div className="header-search-panel">
+        <div className={`header-search-panel ${isPreview ? "is-preview" : ""}`}>
           {trimmedQuery.length > 0 ? (
             results.length > 0 ? (
               <div className="header-search-section">
@@ -191,7 +192,9 @@ export default function HeaderSearch({
                         <span>{result.kicker}</span>
                       </div>
                       <div className="header-search-item-title">{result.title}</div>
-                      <div className="header-search-item-summary">{result.summary}</div>
+                      {!isPreview ? (
+                        <div className="header-search-item-summary">{result.summary}</div>
+                      ) : null}
                     </Link>
                   ))}
                 </div>
@@ -217,7 +220,6 @@ export default function HeaderSearch({
                         <span>{result.kicker}</span>
                       </div>
                       <div className="header-search-item-title">{result.title}</div>
-                      <div className="header-search-item-summary">{result.summary}</div>
                     </Link>
                   ))}
                 </div>
@@ -237,7 +239,6 @@ export default function HeaderSearch({
                         <span>{result.kicker}</span>
                       </div>
                       <div className="header-search-item-title">{result.title}</div>
-                      <div className="header-search-item-summary">{result.summary}</div>
                     </Link>
                   ))}
                 </div>
