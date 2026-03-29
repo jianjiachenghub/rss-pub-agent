@@ -1,287 +1,199 @@
-# LLM News Flow — 架构设计文档
+# LLM News Flow Architecture
 
-## 1. 系统概述
+本文档描述仓库当前生效的系统架构，而不是历史方案或重构草案。
 
-LLM News Flow 是一个 LLM 驱动的个人新闻聚合系统，每日自动运行以下流程：
+## 1. System Overview
 
-1. **数据采集** — 通过 Folo API 从 20+ 数据源并发拉取新闻
-2. **三阶筛选** — Gate-Keep 去噪 → Score 六维评分 → Insight 深度洞察
-3. **内容生成** — Markdown 日报 + 播客脚本 + 多平台文案
-4. **分发推送** — 文件写入 + Telegram/微信通知
+系统目标是把每日新闻处理成一套可发布资产：
 
-## 2. 管线架构
+- 抓取原始新闻与候选事件
+- 用 LLM 完成筛选、评分、正文补全和解读
+- 生成日报、播客脚本和平台文案
+- 写入 `content/`，由前端直接读取展示
 
-### 2.1 LangGraph 编排
+当前生产路径的核心组件：
 
-管线采用 [LangGraph.js](https://github.com/langchain-ai/langgraphjs) 编排，10 个节点形成 DAG：
+- `scripts/`：LangGraph 编排的数据管线
+- `configs/`：抓取源、兴趣偏好、平台配置
+- `content/`：每日生成产物与索引
+- `frontend/`：Next.js 16 展示站点
+- `.github/workflows/daily-pipeline.yml`：定时执行与提交产物
 
-```
-START → loadConfig → fetch → gateKeep → score → insight → generateDaily
-                                                              │
-                                                      ┌───────┴───────┐
-                                                      ▼               ▼
-                                                 podcastGen      platformsGen
-                                                      │               │
-                                                      └───────┬───────┘
-                                                              ▼
-                                                          publish → notify → END
-```
+## 2. Runtime Topology
 
-- **顺序段**：loadConfig → fetch → gateKeep → score → insight → generateDaily
-- **并行扇出**：generateDaily 完成后，podcastGen 和 platformsGen 并行执行
-- **扇入汇合**：两者都完成后进入 publish → notify
+当前 graph 定义在 [scripts/graph.ts](../scripts/graph.ts)：
 
-### 2.2 State 定义 (`scripts/state.ts`)
+```text
+START
+  -> loadConfig
+  -> fetchPrimary
+  -> preFilter
+  -> fetchCoverage
+  -> buildEditorialAgenda
+  -> gateKeep
+  -> score
+  -> enrichSelected
+  -> insight
+  -> generateDaily
+  -> podcastGen
+  -> publish
+  -> notify
+  -> END
 
-使用 LangGraph `Annotation.Root` 定义管线状态：
-
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `config` | `PipelineConfig` | feeds + interests 配置 |
-| `platformConfig` | `PlatformConfig` | 平台分发配置 |
-| `rawItems` | `RawNewsItem[]` | 原始抓取的新闻条目 |
-| `gateKeepResults` | `GateKeepResult[]` | Gate-Keep 判定结果 |
-| `passedItems` | `RawNewsItem[]` | 通过筛选的条目 |
-| `scoredItems` | `ScoredNewsItem[]` | 带六维评分的条目 |
-| `insights` | `NewsInsight[]` | 结构化洞察 |
-| `dailyMarkdown` | `string` | 日报 Markdown |
-| `podcast` | `PodcastData` | 播客脚本 + 音频 URL |
-| `platformContents` | `PlatformContents` | 各平台分发文案 |
-| `date` | `string` | 当天日期 (YYYY-MM-DD) |
-| `errors` | `PipelineError[]` | 累积错误 (concat reducer) |
-| `tokenUsage` | `number` | LLM token 消耗 (sum reducer) |
-
-## 3. 数据采集层
-
-### 3.1 Folo API（主力方案）
-
-所有数据源默认通过 [Folo API](https://follow.is) 拉取：
-
-```
-GET https://api.follow.is/feeds?url={rss_url}
+generateDaily -> platformsGen -> publish
 ```
 
-优势：
-- **无需认证** — 公开 API，直接传 RSS URL
-- **无需部署** — Folo 服务端完成 RSS 解析、缓存
-- **AI 摘要** — 部分条目自带 Folo 生成的 `summary` 字段
-- **稳定性高** — Folo 有容错和重试机制
+说明：
 
-### 3.2 数据源类型
+- `generateDaily` 之后分叉执行 `podcastGen` 和 `platformsGen`
+- `publish` 是扇入点，等待两个分支结果后统一落盘
+- 每个节点独立处理错误，并把错误追加到 `state.errors`
 
-| 类型 | 方式 | 认证 | 场景 |
-|------|------|------|------|
-| `folo` | `GET /feeds?url=<rss_url>` | 无 | 大部分 RSS 源 |
-| `folo-list` | `POST /entries` + session token | 需要 | Folo 列表订阅 |
-| `rss` | 直连 RSS 解析 (xml2js) | 无 | 备用方案 |
+## 3. Pipeline Stages
 
-### 3.3 中文数据源
+### 3.1 Input and Candidate Building
 
-通过 [RSSHub](https://docs.rsshub.app/) 提供的公开路由接入国内平台：
+`loadConfig`
+- 读取 `configs/feeds.json`、`configs/prompt.json`、`configs/platforms.json`
+- 解析运行期选项，例如 `PIPELINE_DATE`、`PIPELINE_RESUME_FROM_RAW`
 
-- 微博热搜: `https://rsshub.app/weibo/search/hot`
-- 知乎热榜: `https://rsshub.app/zhihu/hotlist`
-- 抖音热搜: `https://rsshub.app/douyin/trending`
-- 36氪 AI: `https://rsshub.app/36kr/motif/ai`
+`fetchPrimary`
+- 拉取主新闻流
+- 支持原始快照恢复，避免失败后重新抓取
 
-这些 RSSHub URL 同样通过 Folo API 代理拉取。
+`preFilter`
+- 从主流中提取事件候选，降低后续成本
 
-### 3.4 并发控制
+`fetchCoverage`
+- 为候选事件补齐来源和覆盖信息
 
-`fetch.ts` 使用自定义 `runWithConcurrency()` 限制并发度为 5，避免对 Folo API 造成过大压力。抓取后按 URL + Title 去重。
+`buildEditorialAgenda`
+- 生成当天的编务主线和选题框架，作为后续筛选与解读的上下文
 
-## 4. LLM 统一接入层
+### 3.2 Selection and Analysis
 
-### 4.1 架构设计 (`scripts/lib/llm.ts`)
+`gateKeep`
+- 对候选做快速去噪、合并与丢弃
+- 目标是保留值得进入评分环节的条目
 
-```
-┌────────────────────────────────────────────┐
-│             callLLM() / callLLMJson()      │  统一入口
-├────────────────────────────────────────────┤
-│             Provider Chain                 │  按优先级尝试
-│  ┌─────┐  ┌──────┐  ┌──────┐  ┌────────┐  │
-│  │zhipu│→ │gemini│→ │openai│→ │deepseek│  │  auto-fallback
-│  └─────┘  └──────┘  └──────┘  └────────┘  │
-├────────────────────────────────────────────┤
-│         callWithRetry() per provider       │  429/503 自动重试
-└────────────────────────────────────────────┘
-```
+`score`
+- 对通过项做价值评分与排序
+- 当前支持动态主列表，而不是硬编码单一条数
 
-### 4.2 Provider 抽象
+`enrichSelected`
+- 只对精选候选补抓源站正文、原站图片和更完整摘要
+- 这是“只抓摘要”与“可写解读”之间的关键补全层
 
-每个 Provider 实现统一的 `ProviderConfig` 接口：
+`insight`
+- 生成主日报条目的 `事件 + 解读`
+- 对内容过薄或模型把握不足的条目，不强行写解读
 
-```typescript
-interface ProviderConfig {
-  name: string;
-  envKey: string;
-  models: { flash: string; pro: string };
-  call: (req: LLMRequest) => Promise<LLMResponse>;
-}
-```
+### 3.3 Output Generation
 
-- **Flash 模型** — 用于 gate-keep、score 等高吞吐低成本场景
-- **Pro 模型** — 用于 insight、播客脚本等需要深度推理的场景
+`generateDaily`
+- 把主条目渲染为 `daily.md`
+- 将不适合深度解读但仍值得保留的条目放入 `更多 24h 资讯`
 
-### 4.3 OpenAI-Compatible 工厂
+`podcastGen`
+- 生成播客脚本
+- 如果 TTS 可用，再产出音频 URL；否则保留脚本
 
-智谱、DeepSeek、SiliconFlow 都兼容 OpenAI API 协议，通过 `createOpenAICompatibleProvider()` 工厂函数一行即可接入：
+`platformsGen`
+- 生成 `brief`、`douyin`、`xhs` 等分发文案
 
-```typescript
-const provider = createOpenAICompatibleProvider({
-  name: "zhipu",
-  envKey: "ZHIPU_API_KEY",
-  baseURL: "https://open.bigmodel.cn/api/paas/v4/",
-  models: { flash: "glm-4-flash", pro: "glm-5" },
-});
-```
+`publish`
+- 写入 `content/YYYY-MM-DD/`
+- 更新 `content/index.json`
 
-### 4.4 JSON 响应解析
+`notify`
+- 发送外部通知
 
-`callLLMJson<T>()` 包含智能 JSON 解析：
-1. 去除 markdown 代码围栏 (\`\`\`json ... \`\`\`)
-2. 如果解析结果是对象但期望数组，自动提取第一个数组属性
-3. 首次失败后追加强化 prompt 重试一次
+## 4. LLM Layer
 
-## 5. 三阶决策引擎
+统一入口在 [scripts/lib/llm.ts](../scripts/lib/llm.ts)。
 
-### 5.1 Stage 1: Gate-Keep
+### 4.1 Provider Strategy
 
-- **输入**: 全部 rawItems
-- **输出**: 每条的 PASS / DROP / MERGE 判定
-- **模型**: Flash（速度优先）
-- **过滤率**: 约 70-80%
+支持的 provider：
 
-### 5.2 Stage 2: Score
+- `zhipu`
+- `gemini`
+- `openai`
+- `deepseek`
+- `siliconflow`
 
-- **输入**: 通过 gate-keep 的条目
-- **输出**: 六维评分 + 加权总分
-- **模型**: Flash
-- **排序**: 按加权总分取 Top N（默认 10 条）
+默认优先级由 `LLM_PROVIDERS` 控制，未显式配置时默认为：
 
-六维评分：
-- `novelty` (20%) — 新颖性
-- `utility` (25%) — 实用性
-- `impact` (20%) — 影响力
-- `credibility` (15%) — 可信度
-- `timeliness` (10%) — 时效性
-- `uniqueness` (10%) — 独特性
-
-### 5.3 Stage 3: Insight
-
-- **输入**: Top N 高分新闻
-- **输出**: 结构化洞察
-- **模型**: Pro（深度推理）
-
-每条洞察包含：
-- `oneLiner` — 一句话摘要
-- `whyItMatters` — 为什么重要
-- `whoShouldCare` — 谁应该关注
-- `actionableAdvice` — 可执行建议
-- `deepDive` — 200 字深度解读
-- `imageUrl`（可选） — 核心配图
-- `codeSnippet`（可选） — 代码示例及语言标识
-- `comparisonTable`（可选） — 对比级信息数据表
-
-### 5.4 结构化渲染与建档机制 (Rendering & Archiving)
-
-- **输入**: 包含深度洞察与长文本格式的聚合新闻
-- **加工与渲染**: 
-  1. 系统将新闻按 **7 大标准分类**（🤖 AI 领域、💻 科技、⚙️ 软件工程、💼 商业财经、📈 投资理财、🌍 时政军事、📱 社交媒体）进行归类聚合。
-  2. 生成富文本的 Markdown 排版，遵循：
-     - **概览表格**：顶层展示各类目的新闻计数与核心标题
-     - **图文并茂**：自动插入有效 `imageUrl`
-     - **代码与表格渲染**：对特定的开发者新闻使用带有语法高亮的代码块，产品对比使用 Markdown 表格
-     - **折叠交互**：将占位极大的 `deepDive`（深度解读）放入 `<details>` HTML 标签折叠，保持报表清爽
-     - **六维评分榜单**：在报告尾部生成全局的价值评分排行榜
-- **建档存档**:
-  - 生成结果以日期为目录持久化至 `content/YYYY-MM-DD/daily.md`。
-  - 此存档由 Vercel/Next.js (SSG) 读取并直接路由至前端页面进行展示。
-
-## 6. 前端架构
-
-### 6.1 技术选型
-
-- **Next.js 16** — Static Site Generation (`output: "export"`)
-- **Tailwind CSS** — 样式
-- **`generateStaticParams`** — 基于 `content/index.json` 生成静态路由
-
-### 6.2 页面结构
-
-| 路由 | 功能 |
-|------|------|
-| `/` | 重定向到最新日报 |
-| `/[date]` | 日报详情页 |
-| `/podcast` | 播客列表页 |
-
-### 6.3 侧边栏导航
-
-客户端组件 `Sidebar.tsx`，实现年→月→日三级可折叠导航树：
-
-```
-▼ 2026
-  ▼ 3月
-    • 03-18 ✦
-    • 03-16
-  ▶ 2月
-  ▶ 1月
+```text
+zhipu,gemini,openai
 ```
 
-- 当前年/月自动展开
-- 当前日期高亮标记
+### 4.2 Reliability Rules
 
-## 7. 部署架构
+- `429/503/overloaded/network` 走自动重试
+- provider 进入短暂 cooldown 后，调度器会跳过该 provider
+- 命中内容安全拦截时，非 Gemini provider 会优先尝试 Gemini 兜底
+- 如果所有 provider 都失败，节点仍保留本地 heuristic fallback
 
+### 4.3 Concurrency
+
+LLM 调用已接入全局受控并发调度：
+
+- 总并发、单 provider 并发、`flash/pro` 并发分开控制
+- 重点提速节点是 `gateKeep`、`score`、`insight`
+
+## 5. Data and Storage Model
+
+### 5.1 Primary Output
+
+当前对外主数据目录是 `content/`：
+
+```text
+content/
+├── index.json
+└── YYYY-MM-DD/
+    ├── daily.md
+    ├── brief.md
+    ├── douyin.md
+    ├── xhs.md
+    ├── podcast-script.md
+    ├── meta.json
+    └── raw/
 ```
-┌──────────────┐    每日 7:00 UTC+8    ┌──────────────┐
-│ GitHub       │ ──────────────────── │ GitHub       │
-│ Actions      │    npx tsx graph.ts   │ Actions      │
-│ (Cron)       │                      │ (Runner)     │
-└──────┬───────┘                      └──────┬───────┘
-       │                                      │
-       │  git push content/                   │
-       ▼                                      ▼
-┌──────────────┐                      ┌──────────────┐
-│ GitHub Repo  │ ──── auto-deploy ──→ │   Vercel     │
-│ (content/)   │                      │  (Next.js    │
-│              │                      │   SSG)       │
-└──────────────┘                      └──────────────┘
-       │
-       ▼
-┌──────────────┐         ┌──────────────┐
-│ Cloudflare   │         │ Telegram /   │
-│ R2           │         │ 微信         │
-│ (播客音频)    │         │ (通知推送)    │
-└──────────────┘         └──────────────┘
-```
 
-## 8. 配置文件说明
+`raw/` 里的快照用于失败恢复，不是前端直接消费的内容。
 
-### `configs/feeds.json`
+### 5.2 Compatibility Artifacts
 
-数据源配置，每个源包含：
-- `id` — 唯一标识
-- `type` — `folo` | `folo-list` | `rss`
-- `url` — RSS 源 URL
-- `category` — 分类标签
-- `name` — 显示名称
-- `weight` — 源权重 (0-100)，影响评分
+`reports/` 目录仍存在，用于历史兼容和少量索引脚本；但当前前端主路径读取的是 `content/`，不是 `reports/`。
 
-### `configs/prompt.json`
+## 6. Frontend Architecture
 
-用户兴趣配置：
-- `interests[]` — 兴趣列表，`level` 支持 `must` / `high` / `medium` / `low`
-- `topN` — 每日精选数量
-- `language` — 输出语言 (`zh` / `en`)
-- `outputStyle` — 风格 (`professional` / `casual`)
+当前前端是 [frontend/](../frontend/) 下的 Next.js 16 应用。
 
-### `configs/platforms.json`
+关键事实：
 
-各平台分发开关（Telegram、微信、小红书、抖音、播客）。
+- 根命令 `npm run dev/build/start` 默认代理到 `frontend/`
+- 首页读取 `content/index.json`
+- 详情页按日期读取 `content/YYYY-MM-DD/daily.md`
+- 内容加载逻辑集中在 [frontend/lib/content-loader.ts](../frontend/lib/content-loader.ts)
 
-### `.env`
+`web/` 目录下的 Vite 应用仍在仓库中，但目前不是默认入口，也不在根 `package.json` 的脚本链路里。
 
-环境变量，参见 `.env.example`。核心配置：
-- `LLM_PROVIDERS` — 提供商优先级链
-- `ZHIPU_API_KEY` / `GEMINI_API_KEY` / `OPENAI_API_KEY` 等 — API 密钥
-- `FOLO_SESSION_TOKEN` — Folo 列表认证（可选）
+## 7. Operations
+
+GitHub Actions 工作流位于 [daily-pipeline.yml](../.github/workflows/daily-pipeline.yml)。
+
+当前行为：
+
+- 定时运行 `scripts/graph.ts`
+- 生成兼容索引
+- 提交 `content/` 和 `reports/` 变更
+
+## 8. Documentation Policy
+
+为了避免文档漂移，仓库文档分三类：
+
+- 当前事实：`README.md`、`docs/ARCHITECTURE.md`、`frontend/README.md`
+- 设计历史：`docs/plans/`
+- 过时方案与旧结构：`docs/archive/`

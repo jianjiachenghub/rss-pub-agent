@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend
 
-## Getting Started
+当前前端是一个 Next.js 16 应用，也是仓库根脚本默认指向的展示层。
 
-First, run the development server:
+## Responsibility
+
+- 读取 `../content/` 下的日报与索引
+- 渲染首页、日报详情和播客入口
+- 不负责跑新闻管线，也不直接生成内容
+
+## Key Paths
+
+- [app/](app) 页面路由
+- [components/](components) 展示组件
+- [lib/content-loader.ts](lib/content-loader.ts) 内容读取与聚合逻辑
+
+## Commands
+
+```bash
+cd frontend
+npm run dev
+npm run build
+npm run lint
+```
+
+或在仓库根目录：
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Data Contract
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+前端默认依赖以下文件存在：
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `content/index.json`
+- `content/YYYY-MM-DD/daily.md`
+- `content/YYYY-MM-DD/meta.json`
+- `content/YYYY-MM-DD/podcast-script.md`（可选）
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+如果首页没有内容，优先检查数据管线是否已生成这些文件。
