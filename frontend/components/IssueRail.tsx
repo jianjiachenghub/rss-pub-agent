@@ -234,24 +234,22 @@ export default function IssueRail({
                                     <div className="rail-meta">{weekGroup.rangeLabel}</div>
                                   </div>
                                 </div>
-                                {weekGroup.weeklyIssue ? null : (
+                                {weekGroup.weeklyIssue ? (
+                                  <Link
+                                    href={`/weekly/${weekGroup.weekId}`}
+                                    className={`rail-week-action ${
+                                      currentWeekId === weekGroup.weekId ? "is-active" : ""
+                                    }`}
+                                  >
+                                    <span>周报详情</span>
+                                    <span className="rail-week-action-arrow" aria-hidden="true">
+                                      →
+                                    </span>
+                                  </Link>
+                                ) : (
                                   <IssueStamp active={weekActive}>{weekGroup.issueCount}</IssueStamp>
                                 )}
                               </summary>
-
-                              {weekGroup.weeklyIssue ? (
-                                <Link
-                                  href={`/weekly/${weekGroup.weekId}`}
-                                  className={`rail-week-action ${
-                                    currentWeekId === weekGroup.weekId ? "is-active" : ""
-                                  }`}
-                                >
-                                  <span>周报详情</span>
-                                  <span className="rail-week-action-arrow" aria-hidden="true">
-                                    →
-                                  </span>
-                                </Link>
-                              ) : null}
 
                               <div className="rail-children rail-children-day">
                                 <div className="rail-day-list">
