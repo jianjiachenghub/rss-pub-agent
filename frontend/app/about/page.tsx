@@ -105,6 +105,56 @@ export default function AboutPage() {
             里显式配置。系统不会在运行时临时抓陌生来源，而是基于已知信源做持续追踪。
           </p>
 
+          {guide.primarySource ? (
+            <section className="about-primary-card">
+              <div className="about-primary-head">
+                <div>
+                  <div className="about-primary-kicker">首要信源</div>
+                  <h2 className="about-primary-title">{guide.primarySource.name}</h2>
+                  <p className="about-primary-copy">
+                    旧的 `Follow AI 列表` 现在已经迁移到 Folo，这也是整套系统最重要的一层新闻发现入口。
+                    为了兼容早期配置，源码里的旧别名仍然叫 “{guide.primarySource.alias}”，但界面和说明统一按 Folo 来表达。
+                  </p>
+                </div>
+                <div className="about-primary-meta">
+                  <span className="page-meta-pill">{TIER_LABELS[guide.primarySource.tier]}</span>
+                  <span className="page-meta-pill">权重 {guide.primarySource.weight}</span>
+                  {typeof guide.primarySource.dailyCap === "number" ? (
+                    <span className="page-meta-pill">cap {guide.primarySource.dailyCap}</span>
+                  ) : null}
+                </div>
+              </div>
+
+              <div className="about-primary-grid">
+                <div className="about-primary-panel">
+                  <div className="about-bullet-title">它在系统里的角色</div>
+                  <p className="about-summary-copy">{guide.primarySource.description}</p>
+                </div>
+
+                <div className="about-primary-panel">
+                  <div className="about-bullet-title">为什么优先说明它</div>
+                  <ul className="about-bullet-list">
+                    {guide.primarySource.highlights.map((highlight) => (
+                      <li key={highlight}>{highlight}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="about-rule-row">
+                <span className="outline-chip">Buzzing.cc</span>
+                <span className="outline-chip">金融时报</span>
+                <span className="outline-chip">知乎热榜</span>
+                <span className="outline-chip">Hacker News</span>
+                <span className="outline-chip">OpenAI News</span>
+                <span className="outline-chip">The GitHub Blog</span>
+                <span className="outline-chip">Google Research Blog</span>
+                <span className="outline-chip">Last Week in AI</span>
+                <span className="outline-chip">Anthropic News</span>
+              </div>
+            </section>
+          ) : null}
+
           <div className="mt-7 grid gap-4 md:grid-cols-3">
             <div className="metric-card">
               <div className="metric-value">{guide.tierCounts.core}</div>

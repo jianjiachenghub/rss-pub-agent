@@ -79,7 +79,9 @@ export default function PublicationShell({
                 <div className="header-brand-copy">
                   <div className="header-brandline">
                     <span className="wordmark">{SITE_TITLE_EN}</span>
-                    <span className="brand-caption-inline">{SITE_TITLE_ZH}</span>
+                    {SITE_TITLE_ZH ? (
+                      <span className="brand-caption-inline">{SITE_TITLE_ZH}</span>
+                    ) : null}
                   </div>
                   <div className="header-brand-subline">{SITE_SLOGAN}</div>
                 </div>

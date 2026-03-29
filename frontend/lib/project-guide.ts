@@ -73,6 +73,17 @@ interface AboutMetric {
   value: string;
 }
 
+interface PrimarySourceInfo {
+  name: string;
+  alias: string;
+  weight: number;
+  tier: FeedTier;
+  dailyCap?: number;
+  category: FeedCategory;
+  description: string;
+  highlights: string[];
+}
+
 interface ScoreDimension {
   key: keyof PromptConfigFile["editorial"]["scoringWeights"];
   label: string;
@@ -150,6 +161,14 @@ function readJsonFile<T>(fileName: string): T {
   return JSON.parse(readFileSync(join(CONFIG_DIR, fileName), "utf-8")) as T;
 }
 
+function getDisplayFeedName(feed: FeedSource): string {
+  if (feed.id === "folo-ai-list") {
+    return "Folo 列表";
+  }
+
+  return feed.name;
+}
+
 function getTierCounts(feeds: FeedSource[]) {
   return feeds.reduce(
     (acc, feed) => {
@@ -177,7 +196,7 @@ function getSourceGroups(feeds: FeedSource[]): SourceGroup[] {
         .filter((feed) => feed.category === category)
         .sort((left, right) => right.weight - left.weight)
         .map((feed) => ({
-          name: feed.name,
+          name: getDisplayFeedName(feed),
           tier: feed.tier ?? "signal",
           weight: feed.weight,
           dailyCap: feed.dailyCap,
@@ -211,6 +230,7 @@ export function getProjectGuideData() {
   const sourceGroups = getSourceGroups(feeds);
   const mainPoolSources = feeds.filter((feed) => feed.keepInMainPool !== false).length;
   const watchOnlySources = feeds.filter((feed) => feed.keepInMainPool === false).length;
+  const primarySourceFeed = feeds.find((feed) => feed.id === "folo-ai-list");
 
   const scoreDimensions = getScoreDimensions(promptConfig);
   const categoryWeights = Object.entries(promptConfig.editorial.baseCategoryWeights)
@@ -229,6 +249,25 @@ export function getProjectGuideData() {
     { label: "观察源", value: `${watchOnlySources}` },
     { label: "日报主池上限", value: `${promptConfig.topN}` },
   ];
+
+  const primarySource: PrimarySourceInfo | null = primarySourceFeed
+    ? {
+        name: "Folo 列表",
+        alias: primarySourceFeed.name,
+        weight: primarySourceFeed.weight,
+        tier: primarySourceFeed.tier ?? "signal",
+        dailyCap: primarySourceFeed.dailyCap,
+        category: primarySourceFeed.category,
+        description:
+          "这是整套系统最重要的一级发现层。它不只是一个单独 RSS，而是一份在 Folo 里持续维护的高优先级主题列表，用来优先捕捉 AI、开发者工具、宏观、投资和热点交叉区域里的高价值信号。",
+        highlights: [
+          "它位于抓取链最前面，承担“先发现，再验证”的角色。",
+          "列表里可以同时混合媒体、博客、热榜、社区和研究源，覆盖面明显大于单一 RSS。",
+          "单源更新太慢或太窄时，Folo 列表能更早把异动推到日报主输入池里。",
+          "后续系统再用独立 RSS 和补源逻辑做交叉验证，避免只靠单条热榜直接成稿。",
+        ],
+      }
+    : null;
 
   const pipelineSteps: PipelineStep[] = [
     {
@@ -271,6 +310,7 @@ export function getProjectGuideData() {
 
   return {
     metrics,
+    primarySource,
     tierCounts,
     sourceGroups,
     scoreDimensions,
