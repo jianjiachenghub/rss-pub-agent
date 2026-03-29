@@ -1459,101 +1459,120 @@ details[open] > .rail-head .rail-chevron {
 
 .rail-children {
   position: relative;
-  margin-left: 0.4rem;
+  margin-left: 0;
   border-top: 1px solid rgba(12, 18, 32, 0.08);
-  padding: 0.7rem 0 0.85rem 0.7rem;
+  padding: 0.6rem 0 0.8rem;
 }
 
 .rail-children::before {
-  content: "";
-  position: absolute;
-  bottom: 0.9rem;
-  left: 0.15rem;
-  top: 0.7rem;
-  width: 1px;
-  background: linear-gradient(180deg, rgba(109, 140, 255, 0.26), rgba(12, 18, 32, 0.08));
+  display: none;
 }
 
-.rail-children-year {
-  margin-left: 0;
-  padding-left: 0.55rem;
-}
-
+.rail-children-year,
 .rail-children-month {
   margin-left: 0;
-  padding-left: 0.46rem;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
 }
 
 .rail-children-day {
   margin-left: 0;
-  padding-left: 0.22rem;
+  padding: 0.68rem 0 0.05rem;
 }
 
 .rail-children-day::before {
   display: none;
 }
 
-.rail-week-link {
-  display: block;
-  margin: 0 0.2rem 0.45rem;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
-  background: linear-gradient(180deg, rgba(240, 245, 255, 0.9), rgba(255, 255, 255, 0.74));
-  padding: 0.78rem 0.82rem;
+.rail-tier-week {
+  position: relative;
+}
+
+.rail-head-week.has-inline-link {
+  padding-right: 8.4rem;
+}
+
+.rail-week-inline-wrap {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.42rem;
+  transform: translateY(-50%);
+}
+
+.rail-week-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.85rem;
+  border: 1px solid rgba(12, 18, 32, 0.08);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(241, 246, 255, 0.96), rgba(255, 255, 255, 0.82));
+  padding: 0 0.82rem;
+  color: rgba(12, 18, 32, 0.76);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  box-shadow:
+    0 10px 20px rgba(18, 24, 38, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
   transition:
     transform 220ms ease,
+    border-color 220ms ease,
     box-shadow 220ms ease,
     background-color 220ms ease;
 }
 
-.rail-week-link:hover {
+.rail-week-inline:hover {
   transform: translateY(-1px);
-  box-shadow: 0 12px 24px rgba(18, 24, 38, 0.08);
+  border-color: rgba(109, 140, 255, 0.24);
+  box-shadow:
+    0 14px 24px rgba(18, 24, 38, 0.08),
+    0 0 0 1px rgba(127, 165, 255, 0.08) inset;
 }
 
-.rail-week-link.is-active {
+.rail-week-inline.is-active {
+  border-color: rgba(255, 255, 255, 0.14);
   background: linear-gradient(135deg, rgba(10, 16, 26, 0.96), rgba(28, 36, 52, 0.9));
-  box-shadow: 0 16px 28px rgba(10, 16, 26, 0.16);
-}
-
-.rail-week-link-kicker {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(12, 18, 32, 0.56);
-}
-
-.rail-week-link.is-active .rail-week-link-kicker {
-  color: rgba(255, 255, 255, 0.68);
-}
-
-.rail-week-link-title {
-  margin-top: 0.3rem;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.35;
-  color: rgba(12, 18, 32, 0.94);
-}
-
-.rail-week-link.is-active .rail-week-link-title {
   color: white;
+  box-shadow:
+    0 16px 28px rgba(10, 16, 26, 0.16),
+    0 0 0 1px rgba(127, 165, 255, 0.1) inset;
+}
+
+.rail-week-link {
+  display: none;
 }
 
 .rail-day-list {
+  margin: 0 0.2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.62rem;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(232, 239, 250, 0.74), rgba(255, 255, 255, 0.48));
+  padding: 0.52rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
 }
 
 .rail-day-card {
   display: block;
-  margin: 0 0.2rem;
-  border: 1px solid transparent;
+  margin: 0;
+  border: 1px solid rgba(198, 209, 226, 0.48);
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.58);
-  padding: 0.68rem 0.82rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(247, 250, 255, 0.86));
+  padding: 0.82rem 0.88rem;
+  box-shadow:
+    0 12px 24px rgba(18, 24, 38, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.88) inset;
   transition:
     transform 220ms ease,
     border-color 220ms ease,
@@ -1563,15 +1582,19 @@ details[open] > .rail-head .rail-chevron {
 
 .rail-day-card:hover {
   transform: translateX(2px);
-  border-color: rgba(109, 140, 255, 0.16);
-  background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 12px 24px rgba(18, 24, 38, 0.08);
+  border-color: rgba(109, 140, 255, 0.24);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow:
+    0 16px 28px rgba(18, 24, 38, 0.08),
+    0 0 0 1px rgba(127, 165, 255, 0.06) inset;
 }
 
 .rail-day-card.is-active {
   border-color: rgba(255, 255, 255, 0.12);
   background: linear-gradient(135deg, rgba(10, 16, 26, 0.96), rgba(28, 36, 52, 0.9));
-  box-shadow: 0 18px 30px rgba(8, 12, 20, 0.18);
+  box-shadow:
+    0 18px 30px rgba(8, 12, 20, 0.18),
+    0 0 0 1px rgba(127, 165, 255, 0.08) inset;
   color: white;
 }
 
@@ -1583,10 +1606,10 @@ details[open] > .rail-head .rail-chevron {
 }
 
 .rail-day-footer {
-  margin-top: 0.48rem;
+  margin-top: 0.62rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.46rem;
 }
 
 .rail-day-stat {
@@ -1594,9 +1617,9 @@ details[open] > .rail-head .rail-chevron {
   align-items: center;
   justify-content: center;
   min-height: 1.5rem;
-  border: 1px solid rgba(12, 18, 32, 0.08);
+  border: 1px solid rgba(12, 18, 32, 0.09);
   border-radius: 999px;
-  background: rgba(247, 249, 253, 0.86);
+  background: rgba(244, 247, 252, 0.92);
   padding: 0 0.58rem;
   font-family: var(--font-mono);
   font-size: 0.6rem;
@@ -1691,15 +1714,26 @@ details[open] > .rail-head .rail-chevron {
 }
 
 .markdown-h2 {
-  margin: 2rem 0 1rem;
+  margin: 3rem 0 1.35rem;
   border-top: 1px solid rgba(12, 18, 32, 0.09);
-  padding-top: 0.9rem;
+  border-radius: 26px 26px 0 0;
+  background: linear-gradient(180deg, rgba(232, 239, 250, 0.82), rgba(255, 255, 255, 0));
+  padding: 1.05rem 1.15rem 0.15rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
 }
 
 .markdown-sheet > .markdown-h2:first-child {
   margin-top: 0;
   border-top: 0;
   padding-top: 0;
+  padding-inline: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.markdown-h1 + .markdown-h2 {
+  margin-top: 1.75rem;
 }
 
 .markdown-h2 > span {
@@ -1718,7 +1752,9 @@ details[open] > .rail-head .rail-chevron {
 }
 
 .markdown-h3 {
-  margin: 1.8rem 0 0.75rem;
+  margin: 2.2rem 0 0.95rem;
+  border-top: 1px dashed rgba(12, 18, 32, 0.12);
+  padding-top: 0.95rem;
   font-size: clamp(1.52rem, 1.34rem + 0.7vw, 2.2rem);
   line-height: 1.16;
   font-weight: 600;
@@ -1726,13 +1762,19 @@ details[open] > .rail-head .rail-chevron {
 }
 
 .markdown-h4 {
-  margin: 1.7rem 0 0.7rem;
+  margin: 1.1rem 0 0.82rem;
   font-size: 0.92rem;
   line-height: 1.2;
   font-family: var(--font-mono);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(12, 18, 32, 0.78);
+}
+
+.markdown-h2 + .markdown-h3 {
+  margin-top: 1.4rem;
+  border-top: 0;
+  padding-top: 0;
 }
 
 .markdown-p,
@@ -1929,8 +1971,16 @@ details[open] > .rail-head .rail-chevron {
   }
 
   .rail-children {
-    margin-left: 0.85rem;
-    padding-left: 0.8rem;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .rail-head-week.has-inline-link {
+    padding-right: 7.6rem;
+  }
+
+  .rail-week-inline-wrap {
+    right: 0.82rem;
   }
 
   .about-source-grid,

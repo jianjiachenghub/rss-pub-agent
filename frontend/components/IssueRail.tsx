@@ -220,7 +220,11 @@ export default function IssueRail({
                               open={weekOpen}
                               className="rail-tier rail-tier-week"
                             >
-                              <summary className={`rail-head ${weekActive ? "is-active" : ""}`}>
+                              <summary
+                                className={`rail-head rail-head-week ${
+                                  weekGroup.weeklyIssue ? "has-inline-link" : ""
+                                } ${weekActive ? "is-active" : ""}`}
+                              >
                                 <div className="rail-head-main">
                                   <DisclosureChevron />
                                   <div className="rail-copy">
@@ -229,8 +233,24 @@ export default function IssueRail({
                                     <div className="rail-meta">{weekGroup.rangeLabel}</div>
                                   </div>
                                 </div>
-                                <IssueStamp active={weekActive}>{weekGroup.issueCount}</IssueStamp>
+                                {weekGroup.weeklyIssue ? null : (
+                                  <IssueStamp active={weekActive}>{weekGroup.issueCount}</IssueStamp>
+                                )}
                               </summary>
+
+                              {weekGroup.weeklyIssue ? (
+                                <div className="rail-week-inline-wrap">
+                                  <Link
+                                    href={`/weekly/${weekGroup.weekId}`}
+                                    className={`rail-week-inline ${
+                                      currentWeekId === weekGroup.weekId ? "is-active" : ""
+                                    }`}
+                                  >
+                                    周报
+                                  </Link>
+                                  <IssueStamp active={weekActive}>{weekGroup.issueCount}</IssueStamp>
+                                </div>
+                              ) : null}
 
                               <div className="rail-children rail-children-day">
                                 {weekGroup.weeklyIssue ? (
