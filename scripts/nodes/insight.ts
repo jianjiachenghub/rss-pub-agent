@@ -18,6 +18,7 @@ import type { NewsInsight, ScoredNewsItem } from "../lib/types.js";
 
 interface InsightResult {
   id: string;
+  titleZh: string;
   oneLiner: string;
   event: string;
   interpretation?: string;
@@ -31,7 +32,7 @@ interface CategoryResult {
 }
 
 const REPAIR_BATCH_SIZE = 6;
-const SENSITIVE_REPAIR_PATTERN = /成人|色情|露骨|未成年人|自杀|性侵|身亡/i;
+const SENSITIVE_REPAIR_PATTERN = /成人|色情|裸露|未成年人|自杀|性侵|身亡/i;
 
 function extractArrayResults<T>(value: unknown): T[] {
   if (Array.isArray(value)) {
@@ -48,34 +49,68 @@ function extractArrayResults<T>(value: unknown): T[] {
   return [];
 }
 
+function looksMostlyChinese(value: string | undefined): boolean {
+  const normalized = (value ?? "").replace(/\s+/g, "").trim();
+  if (!normalized) return false;
+
+  const chineseCount = normalized.match(/[\u4e00-\u9fff]/g)?.length ?? 0;
+  return chineseCount >= Math.max(2, Math.ceil(normalized.length * 0.3));
+}
+
+function sanitizeChineseTitle(
+  rawTitleZh: string | undefined,
+  fallbackTitle: string,
+  fallbackOneLiner?: string
+): string {
+  const normalizedTitleZh = rawTitleZh?.replace(/\s+/g, " ").trim() ?? "";
+  if (normalizedTitleZh) {
+    return normalizedTitleZh.replace(/[。！？]+$/u, "");
+  }
+
+  const normalizedFallbackTitle = fallbackTitle.replace(/\s+/g, " ").trim();
+  if (looksMostlyChinese(normalizedFallbackTitle)) {
+    return normalizedFallbackTitle.replace(/[。！？]+$/u, "");
+  }
+
+  const normalizedOneLiner = fallbackOneLiner?.replace(/\s+/g, " ").trim() ?? "";
+  if (normalizedOneLiner) {
+    return normalizedOneLiner.replace(/[。！？]+$/u, "");
+  }
+
+  return normalizedFallbackTitle;
+}
+
 function buildInsightSystemPrompt(
   agenda: PipelineStateType["editorialAgenda"]
 ): string {
   const agendaLines = [
     agenda.dominantNarrative ? `- 今日主线：${agenda.dominantNarrative}` : "",
     agenda.openingAngle ? `- 开篇判断：${agenda.openingAngle}` : "",
-    agenda.closingOutlookAngle ? `- 结尾展望：${agenda.closingOutlookAngle}` : "",
+    agenda.closingOutlookAngle ? `- 收尾展望：${agenda.closingOutlookAngle}` : "",
     agenda.mustCoverThemes.length > 0
-      ? `- 必须覆盖主题：${agenda.mustCoverThemes.join("；")}`
+      ? `- 必须覆盖主题：${agenda.mustCoverThemes.join("、")}`
       : "",
     agenda.watchSignals.length > 0
-      ? `- 后续观察信号：${agenda.watchSignals.join("；")}`
+      ? `- 后续观察信号：${agenda.watchSignals.join("、")}`
       : "",
   ]
     .filter(Boolean)
     .join("\n");
 
-  return `你是个人日报的深度编辑，服务对象是同时关心 AI、产品、研发和投资判断的读者。
-你现在只需要为每条新闻生成两段内容：
+  return `你是个人日报的深度编辑，服务对象同时关注 AI、产品、研发和投资判断。
+你现在要为每条新闻输出四个字段：
+- titleZh：中文新闻标题，用标题写法，不要写成摘要句
+- oneLiner：一句话中文导语，说明这条新闻为什么值得看
 - event：中文，直接写发生了什么
-- interpretation：中文，写这条信息为什么会改变判断；如果证据不够、信息太薄、或你没有足够把握，请返回空字符串
+- interpretation：中文，写这条信息改变了哪个变量或判断；如果证据不足、信息太薄，或你没有足够把握，就返回空字符串
 
 今日日报的编务判断：
 ${agendaLines}
 
 硬性要求：
-- 不要写“为什么值得看”“入选原因”
-- event 必须是中文，不能直接输出英文摘要
+- titleZh 必须是中文标题，可保留必要的英文专有名词、产品名、公司名
+- titleZh 不要直接照抄英文原标题，不要写成“某公司宣布了……”
+- oneLiner、event、interpretation 都必须是中文
 - interpretation 只在你有足够把握时才写
 - 对论坛提问、内容过薄、信息不完整的条目，interpretation 必须留空
 - interpretation 必须点出一个具体变量或决策含义，例如入口、审核周期、估值锚点、监管边界、利率路径、成本结构
@@ -84,6 +119,7 @@ ${agendaLines}
 
 输出必须是 JSON 数组，每项包含：
 - id
+- titleZh
 - oneLiner
 - event
 - interpretation`;
@@ -116,9 +152,10 @@ function buildInsightUserPrompt(
 
   return `请为以下 ${items.length} 条新闻生成结构化解读。
 要求：
-- oneLiner：20-32 个中文字符
-- event：45-90 个中文字符
-- interpretation：0-140 个中文字符；如果拿不准就返回空字符串
+- titleZh：12-32 个中文字符，写成新闻标题，不要写成完整长句
+- oneLiner：10-32 个中文字符
+- event：25-90 个中文字符
+- interpretation：40-140 个中文字符；如果拿不准就返回空字符串
 - interpretation 必须具体，不要写“影响深远”“信号强”“信息可靠”“相关度高”
 
 不要输出 Markdown，不要解释你的做法，只返回 JSON。
@@ -132,16 +169,17 @@ function buildRepairSystemPrompt(
   const agendaLines = [
     agenda.dominantNarrative ? `- 今日主线：${agenda.dominantNarrative}` : "",
     agenda.mustCoverThemes.length > 0
-      ? `- 必须覆盖主题：${agenda.mustCoverThemes.join("；")}`
+      ? `- 必须覆盖主题：${agenda.mustCoverThemes.join("、")}`
       : "",
   ]
     .filter(Boolean)
     .join("\n");
 
   return `你是个人日报的资深编辑，负责修复不合格的单条解读。
-你会收到标题、来源、摘要、正文摘录，以及当前草稿。请把输出修成能直接发日报的中文版本。
+你会收到标题、来源、摘要、正文摘录，以及当前草稿。请把输出修成能直接发日报的中文版。
 
 要求：
+- titleZh：中文标题，允许保留英文专有名词，但不要直接照抄英文原标题
 - event：必须直接写发生了什么，不要写“某媒体报道”“出现了一条动态”
 - interpretation：只在有足够把握时才写；要说明哪个变量变了，或对 AI / 产品 / 研发 / 投资判断意味着什么
 - interpretation 至少落到一个具体点：系统入口、审核周期、估值锚点、监管边界、成本结构、科研验证周期、利率路径、默认分发权
@@ -155,6 +193,7 @@ ${agendaLines}
 
 输出必须是 JSON 数组，每项包含：
 - id
+- titleZh
 - oneLiner
 - event
 - interpretation`;
@@ -167,6 +206,7 @@ function buildRepairUserPrompt(
     source: string;
     summary: string;
     content: string;
+    currentTitleZh: string;
     currentOneLiner: string;
     currentEvent: string;
     currentInterpretation?: string;
@@ -180,13 +220,14 @@ function buildRepairUserPrompt(
         `来源: ${item.source}\n` +
         `摘要: ${item.summary.replace(/\s+/g, " ").trim().slice(0, 220)}\n` +
         `正文摘录: ${item.content.replace(/\s+/g, " ").trim().slice(0, 900)}\n` +
+        `当前中文标题: ${item.currentTitleZh}\n` +
         `当前一句话: ${item.currentOneLiner}\n` +
         `当前事件草稿: ${item.currentEvent}\n` +
         `当前解读草稿: ${item.currentInterpretation ?? ""}`
     )
     .join("\n\n---\n\n");
 
-  return `下面这些条目当前草稿不合格，请只重写成更好的中文版本。
+  return `下面这些条目当前草稿不合格，请只重写成更好的中文版。
 如果信息不够，请把 interpretation 留空，不要硬写。
 
 条目列表：
@@ -216,11 +257,12 @@ async function requestInsights(
         type: "OBJECT",
         properties: {
           id: { type: "STRING" },
+          titleZh: { type: "STRING" },
           oneLiner: { type: "STRING" },
           event: { type: "STRING" },
           interpretation: { type: "STRING" },
         },
-        required: ["id", "oneLiner", "event", "interpretation"],
+        required: ["id", "titleZh", "oneLiner", "event", "interpretation"],
       },
     },
   });
@@ -235,6 +277,7 @@ async function requestRepairInsights(
     source: string;
     summary: string;
     content: string;
+    currentTitleZh: string;
     currentOneLiner: string;
     currentEvent: string;
     currentInterpretation?: string;
@@ -263,11 +306,12 @@ async function requestRepairInsights(
               type: "OBJECT",
               properties: {
                 id: { type: "STRING" },
+                titleZh: { type: "STRING" },
                 oneLiner: { type: "STRING" },
                 event: { type: "STRING" },
                 interpretation: { type: "STRING" },
               },
-              required: ["id", "oneLiner", "event", "interpretation"],
+              required: ["id", "titleZh", "oneLiner", "event", "interpretation"],
             },
           },
         });
@@ -303,14 +347,17 @@ function mergeSecondaryItems(
 
 function buildFallbackInsight(item: ScoredNewsItem): NewsInsight {
   const sections = buildFallbackSections(item);
+  const fallbackOneLiner = sanitizeOneLiner(undefined, item.title);
+
   return {
     id: item.id,
     title: item.title,
+    titleZh: sanitizeChineseTitle(undefined, item.title, fallbackOneLiner),
     url: item.url,
     source: item.source,
     category: item.category,
     publishedAt: item.publishedAt,
-    oneLiner: sanitizeOneLiner(undefined, item.title),
+    oneLiner: fallbackOneLiner,
     event: sections.event,
     interpretation: sections.interpretation,
     content: buildInsightContent(sections),
@@ -438,15 +485,17 @@ export async function insightNode(
 
       const category = categoryMap.get(item.id)?.category || item.category;
       const normalizedInterpretation = sections.interpretation?.trim() || undefined;
+      const oneLiner = sanitizeOneLiner(llmResult?.oneLiner, item.title);
 
       return {
         id: item.id,
         title: item.title,
+        titleZh: sanitizeChineseTitle(llmResult?.titleZh, item.title, oneLiner),
         url: item.url,
         source: item.source,
         category,
         publishedAt: item.publishedAt,
-        oneLiner: sanitizeOneLiner(llmResult?.oneLiner, item.title),
+        oneLiner,
         event: sections.event,
         interpretation: normalizedInterpretation,
         content: buildInsightContent(sections),
@@ -465,7 +514,11 @@ export async function insightNode(
         ({ insight, item }) =>
           shouldWriteInterpretation(item) &&
           !SENSITIVE_REPAIR_PATTERN.test(`${item.title}\n${item.content}`) &&
-          (isWeakEventNarrative(insight.event) || !insight.interpretation)
+          (
+            isWeakEventNarrative(insight.event) ||
+            !insight.interpretation ||
+            !looksMostlyChinese(insight.titleZh)
+          )
       )
       .sort((left, right) => right.item.weightedScore - left.item.weightedScore)
       .slice(0, 16);
@@ -482,6 +535,7 @@ export async function insightNode(
           source: item.source,
           summary: item.summary ?? item.content,
           content: item.content,
+          currentTitleZh: insight.titleZh ?? item.title,
           currentOneLiner: insight.oneLiner,
           currentEvent: insight.event,
           currentInterpretation: insight.interpretation,
@@ -511,6 +565,11 @@ export async function insightNode(
 
           return {
             ...current,
+            titleZh: sanitizeChineseTitle(
+              repair.titleZh || current.titleZh,
+              item.title,
+              repair.oneLiner || current.oneLiner
+            ),
             oneLiner: sanitizeOneLiner(repair.oneLiner || current.oneLiner, item.title),
             event: sections.event,
             interpretation: normalizedInterpretation,

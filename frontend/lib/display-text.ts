@@ -1,12 +1,22 @@
 import dayjs from "dayjs";
 
 const GENERIC_ISSUE_TITLE_PATTERN =
-  /^(?:🗞️\s*)?(?:AI\s*日报|个人日报)\s*(?:[|｜:：\-–—]\s*)?(.*)$/i;
+  /^(?:🗞️\s*)?(?:AI\s*日报|个人日报)\s*(?:[|｜:：\-—–]\s*)?(.*)$/i;
 
 const GENERIC_ISSUE_HEADING_PATTERN =
-  /^#\s*(?:🗞️\s*)?(?:AI\s*日报|个人日报)\s*(?:[|｜:：\-–—]\s*)?.*(?:\r?\n)+/;
+  /^#\s*(?:🗞️\s*)?(?:AI\s*日报|个人日报)\s*(?:[|｜:：\-—–]\s*)?.*(?:\r?\n)+/;
 
 const CHINESE_WEEK_NUMBERS = ["一", "二", "三", "四"];
+
+export const CATEGORY_DISPLAY_LABELS = {
+  ai: "AI",
+  tech: "科技",
+  software: "软件工程",
+  business: "商业",
+  investment: "投资金融",
+  politics: "政策地缘",
+  social: "社区舆情",
+} as const;
 
 function buildDailyHeadline(date: string): string {
   return `${dayjs(date).format("YYYY.MM.DD")} 要闻`;
@@ -18,7 +28,6 @@ function getChineseWeekNumber(weekNumber: number): string {
 
 function parseMonthScopedWeekId(weekId: string) {
   const match = weekId.match(/^(\d{4})-(\d{2})-W([1-4])$/);
-
   if (!match) return null;
 
   return {
@@ -73,4 +82,14 @@ export function getDisplayIssueTitle(title: string, date: string): string {
 
 export function stripGenericIssueHeading(markdown: string): string {
   return markdown.replace(GENERIC_ISSUE_HEADING_PATTERN, "").trim();
+}
+
+export function getCategoryDisplayLabel(category: string): string {
+  return CATEGORY_DISPLAY_LABELS[category as keyof typeof CATEGORY_DISPLAY_LABELS] ?? category;
+}
+
+export function isCategoryDisplayLabel(label: string): boolean {
+  return Object.values(CATEGORY_DISPLAY_LABELS).includes(
+    label as (typeof CATEGORY_DISPLAY_LABELS)[keyof typeof CATEGORY_DISPLAY_LABELS]
+  );
 }

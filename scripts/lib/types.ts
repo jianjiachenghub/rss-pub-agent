@@ -175,6 +175,7 @@ export interface ScoredNewsItem extends RawNewsItem {
 export interface NewsInsight {
   id: string;
   title: string;
+  titleZh?: string;
   url: string;
   source: string;
   category: string;

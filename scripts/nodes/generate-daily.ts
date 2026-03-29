@@ -1,7 +1,6 @@
 import dayjs from "dayjs";
 import type { PipelineStateType } from "../state.js";
 import { callLLMJson } from "../lib/llm.js";
-import { truncateSummaryText } from "../lib/insight-format.js";
 import {
   CATEGORY_LABELS,
   CATEGORIES,
@@ -14,11 +13,21 @@ interface DailyFramingResult {
   closing: string;
 }
 
-function getDisplayTitle(title: string, oneLiner: string): string {
+function getDisplayTitle(
+  title: string,
+  titleZh: string | undefined,
+  oneLiner: string
+): string {
+  const normalizedTitleZh = titleZh?.trim();
+  if (normalizedTitleZh) {
+    return normalizedTitleZh;
+  }
+
   const normalizedTitle = title.trim();
   if (/^\d{4}-\d{2}-\d{2}$/.test(normalizedTitle)) {
     return oneLiner.trim() || normalizedTitle;
   }
+
   return normalizedTitle;
 }
 
@@ -43,7 +52,7 @@ export async function generateDailyNode(
         prompt: dailyFramingUserPrompt(
           date,
           insights.slice(0, 8).map((insight) => ({
-            title: insight.title,
+            title: insight.titleZh ?? insight.title,
             oneLiner: insight.oneLiner,
             category: insight.category,
             weightedScore: insight.weightedScore,
@@ -104,32 +113,16 @@ itemCount: ${insights.length}
 
 `;
 
-    if (activeCategories.length > 0) {
-      markdown += `## 今日概览\n\n`;
-      markdown += `| 分类 | 条数 | 最高分 | 头条 |\n`;
-      markdown += `|:-----|:----:|:------:|:-----|\n`;
-
-      for (const category of activeCategories) {
-        const items = byCategory.get(category) ?? [];
-        const topItem = items.reduce((left, right) =>
-          left.weightedScore >= right.weightedScore ? left : right
-        );
-        markdown += `| ${CATEGORY_LABELS[category]} | ${items.length} | **${topItem.weightedScore}** | ${truncateSummaryText(getDisplayTitle(topItem.title, topItem.oneLiner), 34)} |\n`;
-      }
-
-      markdown += `\n`;
-    }
-
     for (const category of CATEGORIES) {
       const items = byCategory.get(category) ?? [];
       if (items.length === 0) continue;
 
       markdown += `## ${CATEGORY_LABELS[category]}\n\n`;
       for (const item of items) {
-        const displayTitle = getDisplayTitle(item.title, item.oneLiner);
+        const displayTitle = getDisplayTitle(item.title, item.titleZh, item.oneLiner);
         markdown += `### ${displayTitle}\n\n`;
-        markdown += `> **${item.weightedScore} 分** | 来源: [${item.source}](${item.url})\n`;
-        markdown += `> ${item.oneLiner}\n\n`;
+        markdown += `评分 ${item.weightedScore} · 来源 [${item.source}](${item.url})\n\n`;
+        markdown += `${item.oneLiner}\n\n`;
 
         if (item.imageUrl) {
           markdown += `![${displayTitle}](${item.imageUrl})\n\n`;
