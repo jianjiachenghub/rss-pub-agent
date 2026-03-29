@@ -193,7 +193,7 @@ img {
 
 .header-topbar {
   display: grid;
-  grid-template-columns: auto minmax(18rem, 34rem) auto;
+  grid-template-columns: auto minmax(14rem, 25rem) auto;
   align-items: center;
   gap: 1rem;
 }
@@ -277,11 +277,14 @@ img {
 
 .header-search-area {
   min-width: 0;
+  width: min(100%, 25rem);
+  justify-self: center;
 }
 
 .header-search-wrap {
   position: relative;
   width: 100%;
+  max-width: 25rem;
 }
 
 .header-search-shell {
