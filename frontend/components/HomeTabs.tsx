@@ -5,6 +5,7 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 import dayjs from "dayjs";
 import type { DailyIssue, TimelineDay, WeeklyIssue } from "@/lib/content-loader";
+import ResilientImage from "@/components/ResilientImage";
 
 type HomeTab = "daily" | "weekly" | "timeline";
 
@@ -69,15 +70,19 @@ function DailyPanel({ dailyIssues }: { dailyIssues: DailyIssue[] }) {
           <div className="mt-8 space-y-6">
             <MetaLine issue={leadIssue} />
             <div className="space-y-4">
-              <h1 className="display-title max-w-4xl">{leadIssue.title}</h1>
+              <h1 className="display-title display-title-compact max-w-4xl">
+                {leadIssue.title}
+              </h1>
               <p className="max-w-3xl text-lg leading-9 text-black/78">
                 {leadIssue.summary || "打开最新一期，查看当日关键信号和完整正文。"}
               </p>
             </div>
             {leadIssue.heroImageUrl ? (
-              <img
+              <ResilientImage
                 alt={leadIssue.title}
                 className="hero-media h-[22rem] w-full object-cover"
+                fallback="placeholder"
+                placeholderHint="头图暂不可用"
                 src={leadIssue.heroImageUrl}
               />
             ) : null}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import dayjs from "dayjs";
 import type { WeeklyIssue } from "@/lib/content-loader";
+import ResilientImage from "@/components/ResilientImage";
 
 function buildWeeklyNote(issue: WeeklyIssue): string {
   const themes = issue.categories.slice(0, 3).join(" / ");
@@ -23,7 +24,9 @@ export default function WeeklyDigest({ issue }: { issue: WeeklyIssue }) {
           <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-black/60">
             {issue.rangeLabel}
           </div>
-          <h1 className="display-title max-w-4xl">{issue.label}</h1>
+          <h1 className="display-title display-title-compact max-w-4xl">
+            {issue.label}
+          </h1>
           <p className="max-w-4xl text-lg leading-9 text-black/78">
             {issue.summary || buildWeeklyNote(issue)}
           </p>
@@ -35,9 +38,11 @@ export default function WeeklyDigest({ issue }: { issue: WeeklyIssue }) {
             ))}
           </div>
           {issue.heroImageUrl ? (
-            <img
+            <ResilientImage
               alt={issue.label}
               className="hero-media h-[24rem] w-full object-cover"
+              fallback="placeholder"
+              placeholderHint="周报头图暂不可用"
               src={issue.heroImageUrl}
             />
           ) : null}

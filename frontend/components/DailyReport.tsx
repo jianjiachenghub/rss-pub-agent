@@ -3,6 +3,7 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { stripGenericIssueHeading } from "@/lib/display-text";
+import ResilientImage from "@/components/ResilientImage";
 
 export default function DailyReport({ content }: { content: string }) {
   const body = stripGenericIssueHeading(
@@ -41,8 +42,12 @@ export default function DailyReport({ content }: { content: string }) {
             </a>
           ),
           img: ({ src, alt }) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img alt={alt ?? ""} className="markdown-image" src={src ?? ""} />
+            <ResilientImage
+              alt={alt ?? ""}
+              className="markdown-image"
+              fallback="hide"
+              src={typeof src === "string" ? src : undefined}
+            />
           ),
           table: ({ children }) => <table className="markdown-table">{children}</table>,
           thead: ({ children }) => <thead className="markdown-thead">{children}</thead>,
