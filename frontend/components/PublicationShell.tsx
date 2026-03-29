@@ -2,20 +2,22 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { DailyIssue, WeeklyIssue } from "@/lib/content-loader";
 import IssueRail from "@/components/IssueRail";
-
-export interface PublicationHeader {
-  section: string;
-  title: string;
-  meta?: string[];
-}
+import {
+  PROJECT_FLOW_LABEL,
+  PROJECT_VALUE_LABEL,
+  SITE_REPO_AVATAR,
+  SITE_REPO_URL,
+  SITE_SLOGAN,
+  SITE_TITLE_EN,
+  SITE_TITLE_ZH,
+} from "@/lib/site";
 
 interface PublicationShellProps {
   dailyIssues: DailyIssue[];
   weeklyIssues: WeeklyIssue[];
   currentDate?: string;
   currentWeekId?: string;
-  header: PublicationHeader;
-  activeNav?: "archive" | "podcast";
+  activeNav?: "home" | "about" | "podcast";
   children: ReactNode;
 }
 
@@ -24,14 +26,10 @@ export default function PublicationShell({
   weeklyIssues,
   currentDate,
   currentWeekId,
-  header,
-  activeNav = "archive",
+  activeNav = "home",
   children,
 }: PublicationShellProps) {
   const latestDate = dailyIssues[0]?.date;
-  const metaItems = (header.meta ?? []).filter(
-    (item): item is string => Boolean(item)
-  );
 
   return (
     <div className="publication-shell min-h-screen text-stone-900">
@@ -55,53 +53,73 @@ export default function PublicationShell({
               </details>
 
               <Link href="/" className="header-brand-link min-w-0">
-                <div className="wordmark">AI NEWS FLOW</div>
-                <div className="brand-caption">新闻日报系统</div>
+                <div className="header-brandline">
+                  <span className="wordmark">{SITE_TITLE_EN}</span>
+                  <span className="brand-caption-inline">{SITE_TITLE_ZH}</span>
+                </div>
               </Link>
             </div>
 
-            <nav className="header-nav">
-              <Link
-                href="/"
-                className={`header-pill ${activeNav === "archive" ? "header-pill-active" : ""}`}
-              >
-                首页
-              </Link>
-              {latestDate ? (
-                <Link href={`/${latestDate}`} className="header-pill">
-                  最新
+            <div className="header-slogan">{SITE_SLOGAN}</div>
+
+            <div className="header-actions">
+              <nav className="header-nav">
+                <Link
+                  href="/"
+                  className={`header-pill ${activeNav === "home" ? "header-pill-active" : ""}`}
+                >
+                  首页
                 </Link>
-              ) : null}
-              <Link
-                href="/podcast"
-                className={`header-pill ${activeNav === "podcast" ? "header-pill-active" : ""}`}
+                <Link
+                  href="/about"
+                  className={`header-pill ${activeNav === "about" ? "header-pill-active" : ""}`}
+                >
+                  项目说明
+                </Link>
+                {latestDate ? (
+                  <Link href={`/${latestDate}`} className="header-pill">
+                    最新日报
+                  </Link>
+                ) : null}
+                <Link
+                  href="/podcast"
+                  className={`header-pill ${activeNav === "podcast" ? "header-pill-active" : ""}`}
+                >
+                  播客
+                </Link>
+              </nav>
+
+              <a
+                href={SITE_REPO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="header-avatar-link"
+                aria-label="GitHub source code"
               >
-                播客
-              </Link>
-            </nav>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img alt="GitHub avatar" className="header-avatar" src={SITE_REPO_AVATAR} />
+              </a>
+            </div>
           </div>
 
           <div className="header-board">
-            <div className="header-copy">
-              <div className="header-section">{header.section}</div>
-              <div className="header-title">{header.title}</div>
+            <div className="project-note">
+              <div className="project-note-label">项目说明</div>
+              <div className="project-note-flow">{PROJECT_FLOW_LABEL}</div>
+              <p className="project-note-text">{PROJECT_VALUE_LABEL}</p>
             </div>
 
-            {metaItems.length > 0 ? (
-              <div className="header-metrics">
-                {metaItems.map((item) => (
-                  <span key={item} className="header-stat">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            ) : null}
+            <div className="header-metrics">
+              <span className="header-stat">{dailyIssues.length} 份日报</span>
+              <span className="header-stat">{weeklyIssues.length} 份周报</span>
+              {latestDate ? <span className="header-stat">最新 {latestDate}</span> : null}
+            </div>
           </div>
         </div>
       </header>
 
       <div className="publication-main page-frame flex gap-10 py-8">
-        <aside className="archive-rail sticky top-36 hidden h-[calc(100vh-10rem)] w-[23rem] shrink-0 overflow-y-auto pr-2 md:block">
+        <aside className="archive-rail sticky top-44 hidden h-[calc(100vh-12rem)] w-[23rem] shrink-0 overflow-y-auto pr-2 md:block">
           <IssueRail
             currentDate={currentDate}
             currentWeekId={currentWeekId}

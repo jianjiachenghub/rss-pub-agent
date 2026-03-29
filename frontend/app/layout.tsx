@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-import {
-  IBM_Plex_Mono,
-  Noto_Sans_SC,
-  Outfit,
-} from "next/font/google";
+import { IBM_Plex_Mono, Noto_Sans_SC, Outfit } from "next/font/google";
 import "./globals.css";
 
 const displayFont = Outfit({
@@ -26,7 +22,8 @@ const monoFont = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: "AI News Flow | 新闻日报系统",
-  description: "面向中文用户的新闻日报系统，提供每日内容、周度综览和时间线视图。",
+  description:
+    "面向中文用户的 AI 新闻日报系统，提供日报、周报、时间线和播客存档。",
 };
 
 export default function RootLayout({

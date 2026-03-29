@@ -27,30 +27,29 @@ export default async function DailyPage({
 
   const dailyIssues = getAllDailyIssues();
   const weeklyIssues = getWeeklyIssues();
-  const headerMeta = [
-    `发布日期 ${dayjs(issue.date).format("YYYY.MM.DD")}`,
-    issue.meta ? `${issue.meta.itemCount} 条资讯` : null,
-    issue.meta ? `均分 ${issue.meta.avgScore}` : null,
-    issue.heroImageUrl ? "含图片" : null,
-    issue.meta?.hasPodcast ? "含播客" : null,
-  ].filter((value): value is string => Boolean(value));
 
   return (
-    <PublicationShell
-      currentDate={date}
-      dailyIssues={dailyIssues}
-      header={{
-        section: "日报阅读",
-        title: issue.title,
-        meta: headerMeta,
-      }}
-      weeklyIssues={weeklyIssues}
-    >
+    <PublicationShell currentDate={date} dailyIssues={dailyIssues} weeklyIssues={weeklyIssues}>
       <section className="editorial-card hero-card px-6 py-6 md:px-8 md:py-8">
-        <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-black/58">
-          {issue.date}
+        <div className="page-intro">
+          <div className="page-kicker">日报阅读</div>
+          <h1 className="page-title">{issue.title}</h1>
+          <div className="page-meta-row">
+            <span className="page-meta-pill">
+              发布于 {dayjs(issue.date).format("YYYY.MM.DD")}
+            </span>
+            {issue.meta ? (
+              <span className="page-meta-pill">{issue.meta.itemCount} 条资讯</span>
+            ) : null}
+            {issue.meta ? (
+              <span className="page-meta-pill">均分 {issue.meta.avgScore}</span>
+            ) : null}
+            {issue.heroImageUrl ? <span className="page-meta-pill">含图片</span> : null}
+            {issue.meta?.hasPodcast ? <span className="page-meta-pill">含播客</span> : null}
+          </div>
         </div>
-        <div className="mt-4 grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(18rem,0.7fr)]">
+
+        <div className="mt-6 grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(18rem,0.7fr)]">
           <div>
             <div className="section-label">本期摘要</div>
             <p className="mt-6 max-w-3xl text-base leading-8 text-black/78">

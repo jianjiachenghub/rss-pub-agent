@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import HomeTabs from "@/components/HomeTabs";
 import PublicationShell from "@/components/PublicationShell";
 import {
@@ -11,23 +10,12 @@ export default function HomePage() {
   const dailyIssues = getAllDailyIssues();
   const weeklyIssues = getWeeklyIssues();
   const timelineDays = getTimelineDays(14);
-  const leadIssue = dailyIssues[0];
-  const headerMeta = [
-    leadIssue ? `最新一期 ${dayjs(leadIssue.date).format("YYYY.MM.DD")}` : null,
-    dailyIssues.length > 0 ? `${dailyIssues.length} 份日报` : null,
-    weeklyIssues.length > 0 ? `${weeklyIssues.length} 份周报` : null,
-    timelineDays.length > 0 ? `${timelineDays.length} 天时间线` : null,
-  ].filter((value): value is string => Boolean(value));
 
   return (
     <PublicationShell
       currentDate={dailyIssues[0]?.date}
       dailyIssues={dailyIssues}
-      header={{
-        section: "AI 新闻编辑台",
-        title: "新闻日报系统首页",
-        meta: headerMeta,
-      }}
+      activeNav="home"
       weeklyIssues={weeklyIssues}
     >
       {dailyIssues.length > 0 ? (
