@@ -43,7 +43,9 @@ interface ArchiveYearGroup {
 
 function formatWeekRange(dates: string[]): string {
   const ordered = [...dates].sort();
+
   if (ordered.length === 0) return "";
+
   const lastDate = ordered[ordered.length - 1];
 
   return `${dayjs(ordered[0]).format("MM.DD")} - ${dayjs(lastDate).format("MM.DD")}`;
@@ -222,7 +224,7 @@ export default function IssueRail({
                             >
                               <summary
                                 className={`rail-head rail-head-week ${
-                                  weekGroup.weeklyIssue ? "has-inline-link" : ""
+                                  weekGroup.weeklyIssue ? "has-week-action" : ""
                                 } ${weekActive ? "is-active" : ""}`}
                               >
                                 <div className="rail-head-main">
@@ -239,34 +241,17 @@ export default function IssueRail({
                               </summary>
 
                               {weekGroup.weeklyIssue ? (
-                                <div className="rail-week-inline-wrap">
-                                  <Link
-                                    href={`/weekly/${weekGroup.weekId}`}
-                                    className={`rail-week-inline ${
-                                      currentWeekId === weekGroup.weekId ? "is-active" : ""
-                                    }`}
-                                  >
-                                    周报
-                                  </Link>
-                                  <IssueStamp active={weekActive}>{weekGroup.issueCount}</IssueStamp>
-                                </div>
+                                <Link
+                                  href={`/weekly/${weekGroup.weekId}`}
+                                  className={`rail-week-action ${
+                                    currentWeekId === weekGroup.weekId ? "is-active" : ""
+                                  }`}
+                                >
+                                  周报详情
+                                </Link>
                               ) : null}
 
                               <div className="rail-children rail-children-day">
-                                {weekGroup.weeklyIssue ? (
-                                  <Link
-                                    href={`/weekly/${weekGroup.weekId}`}
-                                    className={`rail-week-link ${
-                                      currentWeekId === weekGroup.weekId ? "is-active" : ""
-                                    }`}
-                                  >
-                                    <div className="rail-week-link-kicker">周报</div>
-                                    <div className="rail-week-link-title">
-                                      {weekGroup.weeklyIssue.label}
-                                    </div>
-                                  </Link>
-                                ) : null}
-
                                 <div className="rail-day-list">
                                   {weekGroup.dailyIssues.map((issue) => {
                                     const active = issue.date === currentDate;
