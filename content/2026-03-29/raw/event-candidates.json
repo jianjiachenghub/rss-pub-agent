@@ -1,0 +1,1807 @@
+[
+  {
+    "id": "folo-260935817316273152",
+    "title": "今天双倍快乐🎉结束了 感觉用量刷刷往上涨",
+    "url": "https://www.v2ex.com/t/1201964#reply0",
+    "content": "The day ended with double joy, and it feels like usage has increased. They don't have enough of the MAX 5X.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "tech",
+    "publishedAt": "2026-03-29T04:24:59.880Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "今天双倍快乐🎉结束了-感觉用量刷刷往上涨",
+    "normalizedTitle": "今天双倍快乐🎉结束了 感觉用量刷刷往上涨",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 108.77475829988
+  },
+  {
+    "id": "folo-260935817316273157",
+    "title": "Windows 不能触发 \"在 Claude 需要输入时获得通知\"",
+    "url": "https://www.v2ex.com/t/1201963#reply0",
+    "content": "我看官方文档提供了这个 hooks, 加进去发现 windows 不会触发系统通知, 是不是缺少了哪方面的设置",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-03-29T04:00:27.613Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "windows-不能触发-claude-需要输入时获得通知",
+    "normalizedTitle": "windows 不能触发 在 claude 需要输入时获得通知",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 56.774756827613
+  },
+  {
+    "id": "folo-260935817316273158",
+    "title": "Obsidian 写作环境搭建：这 6 款插件让我的博客管理效率翻倍",
+    "url": "https://www.v2ex.com/t/1201962#reply0",
+    "content": "前段时间 Obsidian 非常的火，所以我准备上手学习一下，就看到我自己其实有挺多文章需要归纳和处理的，所以准备花时间尝尝鲜。 现在的主要工作就是设置 Obsidian 然后把我博客文章里面的文章全部从 Halo 迁移到了 Obsidian 管理，折腾了一圈之后发现这套组合比想象中顺手很多。这篇记录一下我现在的配置，顺便把迁移途中踩的几个坑也说清楚，省得你重踩。\n\n其实最主要的点，还是因为我想配合 AI 去使用，在 Obsidian 结合 AI 使用会非常的便利。我也是看中了这一点，花了一些时间主动学习了这个工具\n\n安装\n\n其实直接搜索 Obsidian…",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-03-29T03:59:09.304Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "obsidian-写作环境搭建-款插件让我的博客管理效率翻倍",
+    "normalizedTitle": "obsidian 写作环境搭建 这 6 款插件让我的博客管理效率翻倍",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 283.774756749304
+  },
+  {
+    "id": "folo-260935817316273156",
+    "title": "Claude Mythos! 比 Claude Opus 更强大",
+    "url": "https://www.v2ex.com/t/1201959#reply1",
+    "content": "Anthropic 失误暴露了他们还藏有一个比 Claude Opus 更强大，代际超越的模型： Claude Mythos 。 将会成为 Claude Haiku 、Sonnet 、Opus 之后的第四档。\n\n该模型在编程、网络安全等方面，超越 Opus 4.6 。\n\n有人用了吗？真的这么牛逼吗",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-03-29T03:48:10.365Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "claude-mythos-claude-opus-更强大",
+    "normalizedTitle": "claude mythos 比 claude opus 更强大",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 150.774756090365
+  },
+  {
+    "id": "folo-260935817316273154",
+    "title": "mac 上免费的录屏软件",
+    "url": "https://www.v2ex.com/t/1201957#reply6",
+    "content": "大家使用的都是啥录屏软件呀？ ScreenStudio 很经典，太贵了，一年 100 多美金\n\nv2ex 社区伙伴开发的 QuickRecorder 还不错，不过不支持 zoom ，不支持画中画\n\n我在 reddit 上找了 2 款软件，不过还没有深度体验，功能和 ScreenStudio 差不多\n\nrecordly https://recordly.dev/\n\nscreenkite https://www.screenkite.com/\n\n大家多推荐一下",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-03-29T03:45:56.203Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "mac-上免费的录屏软件",
+    "normalizedTitle": "mac 上免费的录屏软件",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 231.774755956203
+  },
+  {
+    "id": "folo-260925241739446272",
+    "title": "德比市发生车辆撞击“多名行人”事件，警方逮捕一名男子",
+    "url": "https://www.ft.com/content/37707b35-dc9b-4711-b8a7-75ef83e2f863",
+    "content": "Police arrest man after car strikes ‘multiple pedestrians’ in Derby (www.ft.com) 11:15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-03-29T03:25:28.461Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "德比市发生车辆撞击“多名行人”事件-警方逮捕一名男子",
+    "normalizedTitle": "德比市发生车辆撞击“多名行人”事件 警方逮捕一名男子",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 87.774754728461
+  },
+  {
+    "id": "folo-260915278677779458",
+    "title": "Alzheimer's disease mortality among taxi and ambulance drivers (2024)",
+    "url": "https://www.bmj.com/content/387/bmj-2024-082194",
+    "content": "A 2024 commentary examines Alzheimer’s disease mortality rates among taxi and ambulance drivers, referencing a discussion on Hacker News.",
+    "source": "Hacker News - bookofjoe",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-03-29T03:07:35.479Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "alzheimer-disease-mortality-among-taxi-ambulance",
+    "normalizedTitle": "alzheimer s disease mortality among taxi and ambulance drivers 2024",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - bookofjoe"
+    ],
+    "preFilterScore": 138.774753655479
+  },
+  {
+    "id": "folo-260915278677779463",
+    "title": "The 667MHz Machine",
+    "url": "https://www.0xsid.com/blog/667mhz-machine",
+    "content": "The article titled “The 667 MHz Machine” is a discussion on Hacker News, where readers share comments and perspectives about the topic.",
+    "source": "Hacker News - ssiddharth",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-03-29T03:07:35.474Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "667mhz-machine",
+    "normalizedTitle": "the 667mhz machine",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - ssiddharth"
+    ],
+    "preFilterScore": 136.774753655474
+  },
+  {
+    "id": "folo-260915278677779471",
+    "title": "Cat Itecture: Better Cat Window Boxes",
+    "url": "https://gwern.net/catitecture",
+    "content": "A discussion on Hacker News about improving cat window boxes.",
+    "source": "Hacker News - gggscript",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-03-29T03:07:35.466Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "cat-itecture-better-cat-window-boxes",
+    "normalizedTitle": "cat itecture better cat window boxes",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - gggscript"
+    ],
+    "preFilterScore": 62.774753655466
+  },
+  {
+    "id": "folo-260915278677779473",
+    "title": "A Verilog to Factorio Compiler and Simulator (Working RISC-V CPU)",
+    "url": "https://github.com/ben-j-c/verilog2factorio",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - signa11",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-03-29T03:07:35.464Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "verilog-factorio-compiler-simulator-working-risc-v",
+    "normalizedTitle": "a verilog to factorio compiler and simulator working risc-v cpu",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - signa11"
+    ],
+    "preFilterScore": 33.774753655463996
+  },
+  {
+    "id": "folo-260915278677779474",
+    "title": "Will the AI data centre boom become a $9T bust?",
+    "url": "https://www.ft.com/content/805f78f3-8da3-4fc0-b860-207a859ac723",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - 1vuio0pswjnm7",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-03-29T03:07:35.463Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "will-data-centre-boom-become-bust",
+    "normalizedTitle": "will the ai data centre boom become a 9t bust",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - 1vuio0pswjnm7"
+    ],
+    "preFilterScore": 33.774753655463
+  },
+  {
+    "id": "folo-260915278677779481",
+    "title": "Show HN: PeriodicTableOfElements.org",
+    "url": "https://periodictableofelements.org/?lang=en",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - nadermx",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-03-29T03:07:35.456Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "show-periodictableofelements-org",
+    "normalizedTitle": "show hn periodictableofelements org",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - nadermx"
+    ],
+    "preFilterScore": 33.774753655456
+  },
+  {
+    "id": "folo-260915188336692224",
+    "title": "一般用 api key 来访问的话，都没有联网查询功能吗？",
+    "url": "https://www.v2ex.com/t/1201947#reply2",
+    "content": "The materials explain that APIs such as GPT‑5.4 and Minimax‑2.7 used in OpenCat have no web‑access or live‑search capability. They can answer based on training data and generate content, but they cannot browse the internet, get real‑time data, or perform online searches. For up‑to‑date information, users must provide the data themselves for analysis.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-03-29T02:56:02.420Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "一般用-api-key-来访问的话-都没有联网查询功能吗",
+    "normalizedTitle": "一般用 api key 来访问的话 都没有联网查询功能吗",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 353.77475296242
+  },
+  {
+    "id": "folo-260915188336692226",
+    "title": "fnos 飞牛 os 一个很奇怪的 bug",
+    "url": "https://www.v2ex.com/t/1201943#reply0",
+    "content": "After upgrading to version 1.1.26, binding a network interface causes the system to freeze; unbinding restores normal operation.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "tech",
+    "publishedAt": "2026-03-29T02:40:04.882Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "fnos-一个很奇怪的-bug",
+    "normalizedTitle": "fnos 飞牛 os 一个很奇怪的 bug",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 129.774752004882
+  },
+  {
+    "id": "folo-260927828651945984",
+    "title": "随着油价上涨，澳大利亚两个州将提供免费交通服务",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-29/two-australia-states-to-offer-free-transport-as-fuel-prices-rise",
+    "content": "Two Australian states will provide free public transport to help residents cope with rising fuel costs.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-03-29T02:21:38.434Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "随着油价上涨-澳大利亚两个州将提供免费交通服务",
+    "normalizedTitle": "随着油价上涨 澳大利亚两个州将提供免费交通服务",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 104.774750898434
+  },
+  {
+    "id": "folo-260915188336692227",
+    "title": "当大模型失去“品牌光环”，你还能分辨出谁更聪明吗？——我做了一个 AI 盲测竞技场",
+    "url": "https://www.v2ex.com/t/1201937#reply1",
+    "content": "The author created the AI Evolution Arena, a blind‑test platform that randomly pits two anonymous large language models against the same user query. Participants judge each answer as better, worse, equal, or poor, only then learning which model produced it. The site removes brand bias and emphasizes content quality, aiming to gather authentic human preferences without registration or complex scoring. It offers a smooth, real‑time experience and plans to develop a leaderboard to capture user voting data.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-03-29T02:14:11.062Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "当大模型失去“品牌光环”-你还能分辨出谁更聪明吗-——我做了一个-盲测竞技场",
+    "normalizedTitle": "当大模型失去“品牌光环” 你还能分辨出谁更聪明吗 ——我做了一个 ai 盲测竞技场",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 509.774750451062
+  },
+  {
+    "id": "folo-260905400441782272",
+    "title": "给 AI 配张银行卡：Stripe 半年搭完的 Agent 支付全景 | 原文",
+    "url": "https://t.me/wxbyg/6896",
+    "content": "The piece discusses Stripe’s expansion into agent payments. In mid‑March, the AgentCard product gained popularity on X, issuing virtual Visa debit cards for AI agents to use and automatically canceling them after use. Stripe has since released six products for agent payments, creating a complete financial infrastructure for AI agents. On March 18, Stripe launched its Machine Payments Protocol (MPP), aligned with the Tempo mainnet and Visa, further advancing this ecosystem.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-03-29T02:10:19.544Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "配张银行卡-stripe-半年搭完的-agent-支付全景",
+    "normalizedTitle": "给 ai 配张银行卡 stripe 半年搭完的 agent 支付全景 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 478.774750219544
+  },
+  {
+    "id": "folo-260905400441782273",
+    "title": "跨种杂交主要发生在尼安德特男性与现代人女性之间 | 原文",
+    "url": "https://t.me/wxbyg/6895",
+    "content": "The study published in *Science* finds that interbreeding between Neanderthals and early modern humans was predominantly between Neanderthal males and modern human females. This pattern explains why Neanderthal ancestry in present-day humans is uneven, especially the pronounced scarcity of Neanderthal DNA on the X chromosome. The scarcity may result from either deleterious Neanderthal X‑chromosome variants removed by natural selection or from the male‑female mating pattern that limited Neanderthal X DNA contribution.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-03-29T02:09:47.955Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "跨种杂交主要发生在尼安德特男性与现代人女性之间",
+    "normalizedTitle": "跨种杂交主要发生在尼安德特男性与现代人女性之间 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 523.774750187955
+  },
+  {
+    "id": "folo-260905400441782274",
+    "title": "一天涨 2685 个 Stars！last30days-skill让我看到了普通人消除信息差机会 | 原文",
+    "url": "https://t.me/wxbyg/6894",
+    "content": "The piece reports that an AI research tool called “last30days-skill” gained 2,685 stars in a single day, highlighting how ordinary users can reduce information gaps by leveraging such tools.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-03-29T02:08:35.302Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "一天涨-2685-stars-last30days-skill让我看到了普通人消除信息差机会",
+    "normalizedTitle": "一天涨 2685 个 stars last30days-skill让我看到了普通人消除信息差机会 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 191.774750115302
+  },
+  {
+    "id": "folo-260903913120598016",
+    "title": "韩国根据账面价值而非市场价格计算遗产税",
+    "url": "https://www.ft.com/content/b8b01813-bd6b-493f-876b-8a7f1df2291b",
+    "content": "Korea weighs inheritance tax based on book value, not market prices (www.ft.com) 09:23",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "business",
+    "publishedAt": "2026-03-29T01:33:33.865Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "韩国根据账面价值而非市场价格计算遗产税",
+    "normalizedTitle": "韩国根据账面价值而非市场价格计算遗产税",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 87.774748013865
+  },
+  {
+    "id": "folo-260936178437449728",
+    "title": "你的AI，按“词”收费",
+    "url": "https://www.36kr.com/p/3743326045765892",
+    "content": "Tokens are now the unit of value and consumption for AI models, comparable to kilowatt-hours for electricity. As AI agents like OpenClaw surge, daily token usage has climbed from 100 billion in early 2024 to over 140 trillion today, driving exponential demand. Pricing is tiered per token or package, with costs ranging from a few cents to several yuan. Token economics reshape business models toward pay‑per‑use, emphasizing efficient compute and infrastructure, while future growth hinges on scalable token production and renewable energy.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "social",
+    "publishedAt": "2026-03-29T01:21:09.716Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "你的ai-按“词”收费",
+    "normalizedTitle": "你的ai 按“词”收费",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 542.774747269716
+  },
+  {
+    "id": "folo-260903913120598017",
+    "title": "印度综合企业韦丹塔将于下月拆分为五家独立公司",
+    "url": "https://www.ft.com/content/951cd2b2-b965-42c0-9b19-a6641b95c063",
+    "content": "Indian conglomerate Vedanta to split in five next month (www.ft.com) 09:00",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-03-29T01:17:22.164Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "印度综合企业韦丹塔将于下月拆分为五家独立公司",
+    "normalizedTitle": "印度综合企业韦丹塔将于下月拆分为五家独立公司",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 75.774747042164
+  },
+  {
+    "id": "folo-260903913120598018",
+    "title": "菲律宾因能源价格飙升而“进退两难”",
+    "url": "https://www.ft.com/content/436edf55-9b19-4ac7-9004-94eb13581c51",
+    "content": "Philippines ‘between rock and a hard place’ over surging energy prices (www.ft.com) 09:00",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-03-29T01:17:21.520Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "菲律宾因能源价格飙升而“进退两难”",
+    "normalizedTitle": "菲律宾因能源价格飙升而“进退两难”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 90.77474704152
+  },
+  {
+    "id": "folo-260893919763500032",
+    "title": "有了 AI 之后，感觉老板挺傻逼的",
+    "url": "https://www.v2ex.com/t/1201924#reply4",
+    "content": "After adopting Opus 4.6 and learning a bit of Python, the speaker feels overconfident but quickly discovers many mistakes, realizing their knowledge is only superficial. They note that basic web scraping and data analysis remain difficult. Despite relentless hype about AI replacing jobs, the speaker senses impending layoffs yet hopes to wait for future optimizations.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-03-29T01:16:58.912Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "感觉老板挺傻逼的",
+    "normalizedTitle": "有了 ai 之后 感觉老板挺傻逼的",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 370.774747018912
+  },
+  {
+    "id": "folo-260893919763500033",
+    "title": "Deep Research MCP/SKILL 哪个好",
+    "url": "https://www.v2ex.com/t/1201923#reply0",
+    "content": "Which of the MCP or SKILL Deep Research features is most effective for scientific literature reviews? Seek recommendations from users’ practical experience. Also ask whether any of these tools can match the output quality of ChatGPT, Gemini, and similar Deep Research systems.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-03-29T01:16:29.063Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "deep-research-mcp-skill-哪个好",
+    "normalizedTitle": "deep research mcp skill 哪个好",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 277.774746989063
+  },
+  {
+    "id": "folo-260914146349916160",
+    "title": "女子被羁押821天后无罪释放，申请国赔13天被叫停，当地成立联合调查组，最该查清什么？带来哪些深思？",
+    "url": "https://www.zhihu.com/question/2021515727467803576",
+    "content": "In March, authorities in Hainan’s Changjiang Li Autonomous County announced a joint investigative team to review the case of 41‑year‑old Shi Yuhui. Shi had been detained 821 days for alleged participation in a criminal organization, but a 2025 court decision concluded there was insufficient evidence, and no charges were filed. A compensation decree followed, but after 13 days the order was suspended when police reopened a case alleging she fraudulently obtained a loan. The investigation will determine the grounds for the suspension and the appropriate resolution.",
+    "source": "知乎热榜",
+    "sourceId": "folo-ai-list-41358761177015296",
+    "category": "social",
+    "publishedAt": "2026-03-29T01:15:07.887Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "女子被羁押821天后无罪释放-申请国赔13天被叫停-当地成立联合调查组-最该查清什么-带来哪些深思",
+    "normalizedTitle": "女子被羁押821天后无罪释放 申请国赔13天被叫停 当地成立联合调查组 最该查清什么 带来哪些深思",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "知乎热榜"
+    ],
+    "preFilterScore": 570.774746907887
+  },
+  {
+    "id": "folo-260936178437449729",
+    "title": "字节前高管，融资几个亿",
+    "url": "https://www.36kr.com/p/3742526226333700",
+    "content": "字节前高管卢山，创办了一家芯片公司蓝芯算力，刚刚融资数亿。 蓝芯算力做的是RISC-V（第五代指令集架构）AI算力芯片，特别适合大模型推理。\n\n如今，蓝芯算力已获得了联想、中国移动、腾讯云等超过20万片的订单。\n\n从不被看好的地方起步\n\n又是一位清华校友创业的故事。\n\n蓝芯算力的创始人卢山本科毕业于清华大学自动化系，之后又在美国波士顿大学获得电气与计算机工程博士学位。\n\n早年在英特尔、高通这些国际顶尖芯片公司，在高性能CPU、SoC（系统级芯片）设计领域干了二十多年。\n\n2019年，卢山加入字节跳动在美国圣迭戈办公室的芯片团队…",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "social",
+    "publishedAt": "2026-03-29T01:09:50.611Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "字节前高管-融资几个亿",
+    "normalizedTitle": "字节前高管 融资几个亿",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 268.774746590611
+  },
+  {
+    "id": "folo-260882653498024960",
+    "title": "South Korea Mandates Solar Panels for Public Parking Lots",
+    "url": "https://www.reutersconnect.com/item/south-korea-mandates-solar-panels-for-public-parking-lots/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX01UMU5VUlBITzAwMFZKRjFZQQ",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - _____k",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-03-29T00:57:54.203Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "south-korea-mandates-solar-panels-public",
+    "normalizedTitle": "south korea mandates solar panels for public parking lots",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - _____k"
+    ],
+    "preFilterScore": 33.774745874203
+  },
+  {
+    "id": "folo-260882653498024961",
+    "title": "Founder of GitLab battles cancer by founding companies",
+    "url": "https://sytse.com/cancer/",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - bob_theslob646",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-03-29T00:57:54.202Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "founder-gitlab-battles-cancer-founding-companies",
+    "normalizedTitle": "founder of gitlab battles cancer by founding companies",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - bob_theslob646"
+    ],
+    "preFilterScore": 33.774745874202
+  },
+  {
+    "id": "folo-260882653498024962",
+    "title": "CSS is DOOMed",
+    "url": "https://nielsleenheer.com/articles/2026/css-is-doomed-rendering-doom-in-3d-with-css/",
+    "content": "The article titled “CSS is DOOMed” discusses criticisms and concerns about CSS, suggesting its flaws may limit its future viability.",
+    "source": "Hacker News - msephton",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-03-29T00:57:54.201Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "css-doomed",
+    "normalizedTitle": "css is doomed",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - msephton"
+    ],
+    "preFilterScore": 133.774745874201
+  },
+  {
+    "id": "folo-260882653498024963",
+    "title": "OpenBSD on Motorola 88000 Processors",
+    "url": "http://miod.online.fr/software/openbsd/stories/m88k1.html",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - rbanffy",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-03-29T00:57:54.200Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "openbsd-motorola-88000-processors",
+    "normalizedTitle": "openbsd on motorola 88000 processors",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - rbanffy"
+    ],
+    "preFilterScore": 33.7747458742
+  },
+  {
+    "id": "folo-260882653498024964",
+    "title": "Further human + AI + proof assistant work on Knuth's \"Claude Cycles\" problem",
+    "url": "https://twitter.com/BoWang87/status/2037648937453232504",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - mean_mistreater",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-03-29T00:57:54.199Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "further-human-proof-assistant-work-knuth",
+    "normalizedTitle": "further human ai proof assistant work on knuth s claude cycles problem",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - mean_mistreater"
+    ],
+    "preFilterScore": 33.774745874199
+  },
+  {
+    "id": "folo-260882653498024965",
+    "title": "AI overly affirms users asking for personal advice",
+    "url": "https://news.stanford.edu/stories/2026/03/ai-advice-sycophantic-models-research",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - oldfrenchfries",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-03-29T00:57:54.198Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "overly-affirms-users-asking-personal-advice",
+    "normalizedTitle": "ai overly affirms users asking for personal advice",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - oldfrenchfries"
+    ],
+    "preFilterScore": 33.774745874198
+  },
+  {
+    "id": "folo-260882653498024966",
+    "title": "The first 40 months of the AI era",
+    "url": "https://lzon.ca/posts/other/thoughts-ai-era/",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - jpmitchell",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-03-29T00:57:54.197Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "first-months-era",
+    "normalizedTitle": "the first 40 months of the ai era",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - jpmitchell"
+    ],
+    "preFilterScore": 33.774745874197
+  },
+  {
+    "id": "folo-260882653498024967",
+    "title": "Linux is an interpreter",
+    "url": "https://astrid.tech/2026/03/28/0/linux-is-an-interpreter/",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - frizlab",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-03-29T00:57:54.196Z",
+    "fetchedAt": "2026-03-29T05:00:27.978Z",
+    "eventKey": "linux-interpreter",
+    "normalizedTitle": "linux is an interpreter",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - frizlab"
+    ],
+    "preFilterScore": 33.774745874196
+  },
+  {
+    "id": "folo-260882653498024977",
+    "title": "Computer chip material inspired by the human brain could slash AI energy use",
+    "url": "https://www.cam.ac.uk/research/news/new-computer-chip-material-inspired-by-the-human-brain-could-slash-ai-energy-use",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - hhs",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-03-29T00:57:54.186Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "computer-chip-material-inspired-human-brain",
+    "normalizedTitle": "computer chip material inspired by the human brain could slash ai energy use",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - hhs"
+    ],
+    "preFilterScore": 33.774745874186
+  },
+  {
+    "id": "folo-260905400441782275",
+    "title": "【读书】【互联网】字节跳动从0到1的秘密 | 原文",
+    "url": "https://t.me/wxbyg/6893",
+    "content": "The article is an in‑depth review of a book that chronicles ByteDance’s evolution from its founding to its rise and challenges, covering product launches such as “Inner Meaning Jokes,” “Toutiao,” “Douyin,” and “TikTok.” It highlights founder Zhang Yiming’s background, emphasizing his rational thinking, lifelong learning, and early reading habits. The text praises the book’s thorough research, logical structure, and comprehensive coverage of the company’s history, offering valuable insights into ByteDance’s growth strategy.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-03-29T00:55:23.351Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "互联网-字节跳动从0到1的秘密",
+    "normalizedTitle": "读书 互联网 字节跳动从0到1的秘密 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 529.774745723351
+  },
+  {
+    "id": "folo-260903910973129728",
+    "title": "2026 03 29 HackerNews",
+    "url": "https://supertechfans.com/cn/post/2026-03-29-HackerNews/",
+    "content": "Spanish legislation is stored as a Git repository, with each law as a Markdown file and each amendment as a commit, preserving the full history since 1960. Stanford released “Jai,” a lightweight Linux sandbox that isolates AI agents using copy‑on‑write layers to prevent file system damage. macOS window‑corner consistency was fixed via dynamic library injection that standardizes corner rounding without disabling SIP. Stanford research found AI giving interpersonal advice tends to over‑affirm users, reducing empathy and conflict‑resolution skills. Britain’s renewables now supply >90% of electricity, with the grid relying on wind, solar, and storage to replace coal. CERN deploys ultra‑compact AI models on FPGAs for sub‑nanosecond LHC data filtering. AMD’s Ryzen 9 9950X3D2 Dual Edition packs 208 MB of 3D V‑Cache across two chips, boosting gaming performance. Further HN discussions cover AI sandbox settings, Spanish legal Git projects, and critiques of macOS design assumptions.",
+    "source": "HackerNews每日摘要 on SuperTechFans",
+    "sourceId": "folo-ai-list-41359648684677132",
+    "category": "software",
+    "publishedAt": "2026-03-29T00:53:46.475Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "2026-hackernews",
+    "normalizedTitle": "2026 03 29 hackernews",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "HackerNews每日摘要 on SuperTechFans"
+    ],
+    "preFilterScore": 601.774745626475
+  },
+  {
+    "id": "folo-260905400441782276",
+    "title": "5 亿变 300 亿：加密疯子 SBF 如何投中了 AI 时代最值钱的公司？ | 原文",
+    "url": "https://t.me/wxbyg/6892",
+    "content": "Anthropic, a leading AI company whose Claude model powers U.S. intelligence and military analysis, grew from a $5 million investment to a $300 million G‑round round, reaching a $38 billion post‑money valuation. Its revenue rose from zero to $14 billion in under three years, attracting top tech firms like Amazon, Google, Nvidia, and Microsoft. The company is now negotiating with the Pentagon on AI weaponization, drawing global attention.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-03-29T00:50:24.367Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "300-加密疯子-sbf-如何投中了-时代最值钱的公司",
+    "normalizedTitle": "5 亿变 300 亿 加密疯子 sbf 如何投中了 ai 时代最值钱的公司 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 441.774745424367
+  },
+  {
+    "id": "folo-260875305342220288",
+    "title": "2026-03-29",
+    "url": "https://imjuya.github.io/juya-ai-daily/issue-43/",
+    "content": "OpenAI released a “Codex Use Cases” library covering data, engineering, front‑end, and more, showing practical programming and non‑programming applications. Feishu (Lark) launched an open‑source CLI tool, lark‑cli, enabling AI agents to interact across 11 core business domains without extra configuration. OpenAI announced that its AI video tool Sora will shut down in April, with its API following in September. fnOS added an OpenClaw app installation route, while the RaBitQ team criticized Google’s TurboQuant paper for alleged academic misconduct. Reports suggest Google may invest over $5 billion in Anthropic’s Texas data center, and Google DeepMind’s new Gemma 4 model is expected soon.",
+    "source": "橘鸦AI早报",
+    "sourceId": "folo-ai-list-249743826993702912",
+    "category": "ai",
+    "publishedAt": "2026-03-29T00:26:06.515Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "2026-03-29",
+    "normalizedTitle": "2026-03-29",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "橘鸦AI早报"
+    ],
+    "preFilterScore": 601.774743966515
+  },
+  {
+    "id": "folo-260872544348802048",
+    "title": "如果 5x 持续限额，是否不犹豫的升级到 20x 之后再考虑其他方案？",
+    "url": "https://www.v2ex.com/t/1201916#reply1",
+    "content": "The post discusses the author's experience using Opus for coding and Sonnet for running data, with multiple agents (e.g., 39) leading to frequent hour limits. They tried Codex 5.4 but found it much slower than Claude. The author also asks whether domestic large models have strong data‑crawling capabilities.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-03-28T23:53:42.371Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "持续限额-是否不犹豫的升级到-20x-之后再考虑其他方案",
+    "normalizedTitle": "如果 5x 持续限额 是否不犹豫的升级到 20x 之后再考虑其他方案",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 309.774742022371
+  },
+  {
+    "id": "folo-260852572251770889",
+    "title": "特斯拉辟谣 Model 3 标准版在华上市：暂无引入计划",
+    "url": "https://readhub.cn/topic/8rrBFxmGhfK",
+    "content": "Tesla clarified that the Model 3 Standard‑Range is not being released in China, stating the vehicle is sold only in selected overseas markets and there are no current plans to bring it to the domestic market.",
+    "source": "Readhub - 每日早报",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "software",
+    "publishedAt": "2026-03-28T22:58:25.518Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "特斯拉辟谣-model-标准版在华上市-暂无引入计划",
+    "normalizedTitle": "特斯拉辟谣 model 3 标准版在华上市 暂无引入计划",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报"
+    ],
+    "preFilterScore": 209.774738705518
+  },
+  {
+    "id": "folo-260852572255965184",
+    "title": "奥地利拟立法禁止 14 岁以下儿童使用社交媒体，6 月底出草案",
+    "url": "https://readhub.cn/topic/8rq4dAP60uj",
+    "content": "Austria plans to pass a law banning users under 14 from social media, with a draft due by the end of June. The move follows concerns that platform algorithms harm children. The bill will use a “feature restriction” approach for various high‑risk online apps and introduce a two‑step online age verification system to prevent privacy leaks. Simultaneously, primary and secondary schools will add online media literacy and AI courses, while trimming Latin and some foreign languages to strengthen digital skills for minors.",
+    "source": "Readhub - 每日早报",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "ai",
+    "publishedAt": "2026-03-28T22:58:25.517Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "奥地利拟立法禁止-岁以下儿童使用社交媒体-月底出草案",
+    "normalizedTitle": "奥地利拟立法禁止 14 岁以下儿童使用社交媒体 6 月底出草案",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报"
+    ],
+    "preFilterScore": 522.774738705517
+  },
+  {
+    "id": "folo-260841530352185344",
+    "title": "胡塞武装对以色列的袭击预示着与伊朗的战争将大幅升级",
+    "url": "https://www.economist.com/middle-east-and-africa/2026/03/28/the-houthis-attack-on-israel-heralds-a-significant-escalation-in-the-war-with-iran",
+    "content": "The Houthi attack on Israel marks a major intensification of hostilities with Iran.",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "politics",
+    "publishedAt": "2026-03-28T21:49:24.922Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "胡塞武装对以色列的袭击预示着与伊朗的战争将大幅升级",
+    "normalizedTitle": "胡塞武装对以色列的袭击预示着与伊朗的战争将大幅升级",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 84.774734564922
+  },
+  {
+    "id": "folo-260927828651945989",
+    "title": "继2月份的寒意之后，美国就业市场本月可能已回暖",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/us-job-market-probably-thawed-out-this-month-after-february-chill",
+    "content": "US Job Market Likely Thawed Out This Month After February Chill (www.bloomberg.com) 04:00",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-03-28T21:01:17.213Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "继2月份的寒意之后-美国就业市场本月可能已回暖",
+    "normalizedTitle": "继2月份的寒意之后 美国就业市场本月可能已回暖",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.774731677213
+  },
+  {
+    "id": "folo-260852572251770880",
+    "title": "遭中国学界集体「拉黑」后 NeurIPS 道歉",
+    "url": "https://readhub.cn/topic/8rqGn4MXvbF",
+    "content": "NeurIPS issued a public apology after it barred submissions from certain U.S.‑sanctioned institutions, a decision that sparked backlash from Chinese academic societies such as the China Computer Federation. These groups called for a boycott of the conference and refusal to provide services or accept papers. Media outlets reported the incident and the subsequent apology by NeurIPS, highlighting the controversy over the organization’s submission guidelines.",
+    "source": "Readhub - 每日早报 - 界面",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "politics",
+    "publishedAt": "2026-03-28T18:59:59.848Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "遭中国学界集体「拉黑」后-neurips",
+    "normalizedTitle": "遭中国学界集体「拉黑」后 neurips 道歉",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 界面"
+    ],
+    "preFilterScore": 460.774724399848
+  },
+  {
+    "id": "folo-260852572251770881",
+    "title": "谷歌即将达成协议，将为 Anthropic 数据中心提供融资支持",
+    "url": "https://readhub.cn/topic/8rqeQsS9bsB",
+    "content": "Google is reportedly nearing a deal to finance data center operations for AI company Anthropic. The agreement would provide capital for the facility, supporting Anthropic’s expansion in artificial intelligence infrastructure.",
+    "source": "Readhub - 每日早报 - 界面",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "business",
+    "publishedAt": "2026-03-28T18:56:17.351Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "谷歌即将达成协议-anthropic-数据中心提供融资支持",
+    "normalizedTitle": "谷歌即将达成协议 将为 anthropic 数据中心提供融资支持",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 界面"
+    ],
+    "preFilterScore": 226.774724177351
+  },
+  {
+    "id": "folo-260852572251770882",
+    "title": "杭州、三亚和苏州入选联合国「迈向零废物的城市」名单",
+    "url": "https://readhub.cn/topic/8rrO74y4Bza",
+    "content": "Three Chinese cities—Hangzhou, Sanya, and Suzhou—have been named in the United Nations’ inaugural list of “Cities Moving Towards Zero Waste.” Hangzhou employs digital tools to improve waste segregation and resource recovery while encouraging green lifestyles. Sanya integrates a zero‑waste model into its tourism‑heavy “Waste‑Free City” plan to protect its ecosystem. Suzhou has achieved comprehensive coverage for collection, transport, and treatment of rural and urban waste, addressing large‑scale waste-management challenges.",
+    "source": "Readhub - 每日早报 - 财联社",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "ai",
+    "publishedAt": "2026-03-28T18:53:02.751Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "三亚和苏州入选联合国「迈向零废物的城市」名单",
+    "normalizedTitle": "杭州 三亚和苏州入选联合国「迈向零废物的城市」名单",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 财联社"
+    ],
+    "preFilterScore": 530.774723982751
+  },
+  {
+    "id": "folo-260790730053651459",
+    "title": "大家帮忙看看跑本地大模型哪个方法更好点, 以及云端调用 api 的方法.",
+    "url": "https://www.v2ex.com/t/1201912#reply0",
+    "content": "Compare two local‑model setups: cherry Studio with Ollama extends beyond plain chat, while AnythingLLM plus llama.cpp offers flexible GPU/CPU allocation and lower resource usage. To use 80% of work locally and hand off the final 20% to cloud APIs for higher precision, integrate local inference for bulk processing and switch to cloud calls only for the refined outputs. For cost‑saving on cloud APIs, consider solutions like cc‑switch or set up a local proxy such as sub2api, though no specific registration tool is endorsed.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-03-28T17:34:01.692Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "大家帮忙看看跑本地大模型哪个方法更好点-以及云端调用-api-的方法",
+    "normalizedTitle": "大家帮忙看看跑本地大模型哪个方法更好点 以及云端调用 api 的方法",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 527.774719241692
+  },
+  {
+    "id": "folo-260925433360404481",
+    "title": "心动2025年报点评和26年展望",
+    "url": "https://xueqiu.com/1936609590/381626042",
+    "content": "一、tap +adn 为什么把tap+adn放一起？\n\n财报里adn收入放在游戏分部里其它下面，这是因为adn的股权是心动网络持有的，而不是tap持有的（tap目前有11%左右股权在外面，所以由心动持有更好，而不是tap，由tap持有话归母利润会被双重稀释）\n\n1、二个业务有协同，而且性质类似，都是广告业务\n\n2、在回收龙成的少数股东权益后，目前在外的少数股东权益就是tap的11.5%左右（主要是吉比特的）、adn的三分之一左右，即24年下半年和25年报表里的少数股东权益就是来自这二个，这意味着可以用它们来反推出tap+adn这个组合的盈利能力…",
+    "source": "热帖 - 雪球 - 逸修1",
+    "sourceId": "folo-ai-list-53033422584152064",
+    "category": "business",
+    "publishedAt": "2026-03-28T17:21:20.925Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "心动2025年报点评和26年展望",
+    "normalizedTitle": "心动2025年报点评和26年展望",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "热帖 - 雪球 - 逸修1"
+    ],
+    "preFilterScore": 277.774718480925
+  },
+  {
+    "id": "folo-260816913940106240",
+    "title": "Will AI Replace Software Developers?",
+    "url": "https://dev.to/empiree/will-ai-replace-software-developers-1fo0",
+    "content": "Lately, the question “Will AI replace us?” has worried many people. We can see how LLMs handle programming tasks very well and write code at a middle to senior level. This makes many software developers concerned about their future. Introduction\n\nTo be honest, I…",
+    "source": "dev.to top (week) - Oleg Dubovoi",
+    "sourceId": "folo-ai-list-151151136731356160",
+    "category": "ai",
+    "publishedAt": "2026-03-28T16:29:57.910Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "will-replace-software-developers",
+    "normalizedTitle": "will ai replace software developers",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "dev.to top (week) - Oleg Dubovoi"
+    ],
+    "preFilterScore": 264.77471539791
+  },
+  {
+    "id": "folo-260749414208900111",
+    "title": "Kiro 免费用上 Claude Sonnet 4.5",
+    "url": "https://www.v2ex.com/t/1201903#reply0",
+    "content": "Kiro is an AI IDE from Amazon based on VS Code, using Claude Sonnet 4.5. It offers a free monthly allotment of 500 AI interactions (chat, agent, code completion) on macOS, Windows, and Linux, and requires an AWS Builder ID (no credit card). After downloading and logging in, users access Claude via a chat panel. Code completion doesn’t consume quota. Compared to Cursor’s free plan (50 interactions, GPT‑4o/Claude mix), Kiro’s 500 interactions provide a more generous free tier.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-03-28T15:59:12.882Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "kiro-免费用上-claude-sonnet",
+    "normalizedTitle": "kiro 免费用上 claude sonnet 4 5",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 480.774713552882
+  },
+  {
+    "id": "folo-260751685973979136",
+    "title": "印度称伊朗战争可能拖累经济增长，并加剧财政赤字",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/india-says-iran-war-could-hit-growth-widen-fiscal-deficit",
+    "content": "India has warned that a potential war in Iran could negatively affect its economic growth and increase the fiscal deficit. The government cautions that heightened global uncertainty and higher defense and diplomatic costs would slow domestic development.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-03-28T15:57:22.313Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "印度称伊朗战争可能拖累经济增长-并加剧财政赤字",
+    "normalizedTitle": "印度称伊朗战争可能拖累经济增长 并加剧财政赤字",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 255.774713442313
+  },
+  {
+    "id": "folo-260759316662847489",
+    "title": "社交媒体具有民粹主义色彩且容易引发两极分化；人工智能或许恰恰相反",
+    "url": "https://www.ft.com/content/3880176e-d3ac-4311-9052-fdfeaed56a0e",
+    "content": "Social media is populist and polarising; AI may be the opposite (www.ft.com) 03-28",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "ai",
+    "publishedAt": "2026-03-28T15:25:32.972Z",
+    "fetchedAt": "2026-03-29T05:00:27.979Z",
+    "eventKey": "社交媒体具有民粹主义色彩且容易引发两极分化-人工智能或许恰恰相反",
+    "normalizedTitle": "社交媒体具有民粹主义色彩且容易引发两极分化 人工智能或许恰恰相反",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 83.774711532972
+  },
+  {
+    "id": "folo-260729019598638083",
+    "title": "koog 中文文档",
+    "url": "https://www.v2ex.com/t/1201898#reply0",
+    "content": "A Chinese translation of Koog’s documentation has been created by forking the official repository and adding a `zh` directory. The translator notes that there was no original Chinese support and uses DeepSeek for translation. The new docs are available at `https://koog.marquez.top`, and will be updated in sync with future Koog releases. Users can report errors through issues.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-03-28T14:41:11.919Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "koog-中文文档",
+    "normalizedTitle": "koog 中文文档",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 379.774708871919
+  },
+  {
+    "id": "folo-260731532435533824",
+    "title": "法国称巴黎未遂的美国银行爆炸案与中东战争有关",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/france-probes-attempted-attack-near-bofa-headquarters-in-paris",
+    "content": "A French investigation looks into a failed attack that took place near the Bank of America headquarters in Paris.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-03-28T14:37:21.140Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "法国称巴黎未遂的美国银行爆炸案与中东战争有关",
+    "normalizedTitle": "法国称巴黎未遂的美国银行爆炸案与中东战争有关",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 114.77470864114
+  },
+  {
+    "id": "folo-260731532435533826",
+    "title": "演员工会正就人工智能电影角色“蒂莉税”进行谈判",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/sag-aftra-actors-union-bargaining-for-tilly-tax-on-ai-film-characters",
+    "content": "Actors’ unions are negotiating a new “Tilly tax” for the use of AI-generated characters in film. The tax would compensate performers whose likenesses are replicated by artificial intelligence. The initiative aims to protect actors’ rights in the growing AI‑driven film industry.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-03-28T14:21:35.082Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "演员工会正就人工智能电影角色“蒂莉税”进行谈判",
+    "normalizedTitle": "演员工会正就人工智能电影角色“蒂莉税”进行谈判",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 279.774707695082
+  },
+  {
+    "id": "folo-260729019598638086",
+    "title": "AI 时代， Java CURD Boy 出路在哪里？",
+    "url": "https://www.v2ex.com/t/1201889#reply4",
+    "content": "The author uses Claude Opus 4.6 MAX for development and feels uncertain about future prospects. They ask experienced developers for their views on Java and backend development careers.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-03-28T13:38:42.176Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "java-curd-boy-出路在哪里",
+    "normalizedTitle": "ai 时代 java curd boy 出路在哪里",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 185.774705122176
+  },
+  {
+    "id": "folo-260731532435533829",
+    "title": "为何私募信贷正面临投资者突然撤离",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/why-investors-are-rushing-to-exit-the-private-credit-market-now",
+    "content": "Why Private Credit Is Facing a Sudden Investor Exodus (www.bloomberg.com) 03-28",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-03-28T13:33:34.051Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "为何私募信贷正面临投资者突然撤离",
+    "normalizedTitle": "为何私募信贷正面临投资者突然撤离",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 80.774704814051
+  },
+  {
+    "id": "folo-260731532435533833",
+    "title": "科技界与劳工界争夺主导权，AI分歧席卷华盛顿",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/ai-schism-grips-washington-as-tech-labor-vie-for-upper-hand",
+    "content": "AI Schism Grips Washington as Tech, Labor Vie for Upper Hand (www.bloomberg.com) 03-28",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-03-28T13:17:32.476Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "科技界与劳工界争夺主导权-ai分歧席卷华盛顿",
+    "normalizedTitle": "科技界与劳工界争夺主导权 ai分歧席卷华盛顿",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.774703852476
+  },
+  {
+    "id": "folo-260739248348450816",
+    "title": "保险行业年报全览：市赚率体系下，高估卖出的保险股，是否值得回补？",
+    "url": "https://xueqiu.com/9363345092/381615746",
+    "content": "The article introduces “price‑earnings rate” (PR), a ratio of PE to ROE, and its adjustments for dividend payout. Using PR, the author evaluates insurance stocks, noting that unstable ROE requires adjusting the formula with industry averages. In January 2026, the author liquidated the insurance sector after the industry leader Ping An surpassed a 1 PR threshold. Following a 30% drop, Ping An’s PR fell to ~0.88, close to a target of 0.6. Dividend yields, even after tax, remain above the risk‑free rate, suggesting potential value.",
+    "source": "热帖 - 雪球 - ericwarn丁宁",
+    "sourceId": "folo-ai-list-53033422584152064",
+    "category": "business",
+    "publishedAt": "2026-03-28T13:00:29.341Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "保险行业年报全览-市赚率体系下-高估卖出的保险股-是否值得回补",
+    "normalizedTitle": "保险行业年报全览 市赚率体系下 高估卖出的保险股 是否值得回补",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "热帖 - 雪球 - ericwarn丁宁"
+    ],
+    "preFilterScore": 535.774702829341
+  },
+  {
+    "id": "folo-260731532435533835",
+    "title": "因与伊朗的战争导致油价上涨，给特朗普在拉丁美洲的盟国政府带来压力",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/guerra-de-trump-con-iran-golpea-a-america-latina-y-presiona-a-gobiernos",
+    "content": "Alza del petróleo por guerra con Irán presiona a gobiernos aliados de Trump en América Latina (www.bloomberg.com) 03-28",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-03-28T12:45:24.886Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "因与伊朗的战争导致油价上涨-给特朗普在拉丁美洲的盟国政府带来压力",
+    "normalizedTitle": "因与伊朗的战争导致油价上涨 给特朗普在拉丁美洲的盟国政府带来压力",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 120.774701924886
+  },
+  {
+    "id": "folo-260709085325822981",
+    "title": "Claude Pro 信用卡频频被拒？用 N26 + Apple Pay 丝滑升级保姆级教程",
+    "url": "https://www.v2ex.com/t/1201877#reply4",
+    "content": "To subscribe to Claude Pro using a N26 virtual card, first set up an N26 EU account with a verified address, then transfer funds from a ZA Bank Hong Kong account to Wise, convert HKD to EUR, and transfer the EUR to N26 via SEPA. Register an account on claude.ai with a Gmail address, verify a foreign‑number (e.g., an eSIM or European SIM), and then upgrade to Pro using the N26 card or Apple Pay. Ensure your billing address matches the N26 address, keep a stable network connection, and maintain enough balance for automatic monthly renewal.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-03-28T12:19:18.459Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "claude-pro-信用卡频频被拒-n26-apple-pay",
+    "normalizedTitle": "claude pro 信用卡频频被拒 用 n26 apple pay 丝滑升级保姆级教程",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 544.774700358459
+  },
+  {
+    "id": "folo-260731532435533839",
+    "title": "伊朗战争正在考验美国的盟友关系，并令农民感到担忧",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-03-28/the-iran-war-is-testing-us-alliances-and-alarming-farmers",
+    "content": "The Iran War Is Testing US Alliances and Alarming Farmers (www.bloomberg.com) 03-28",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-03-28T12:13:33.598Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "伊朗战争正在考验美国的盟友关系-并令农民感到担忧",
+    "normalizedTitle": "伊朗战争正在考验美国的盟友关系 并令农民感到担忧",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 84.774700013598
+  },
+  {
+    "id": "folo-260687942439120896",
+    "title": "《制衡》通讯：特朗普伊朗战略的三大问题",
+    "url": "https://www.economist.com/united-states/2026/03/28/checks-and-balance-newsletter-three-problems-with-trumps-iran-strategy",
+    "content": "The newsletter points out three main issues with Trump's approach to Iran: (1) the absence of a comprehensive diplomatic plan following the U.S. withdrawal from the nuclear deal; (2) a mixed‑signal posture that undermines trust and limits leverage over Iran’s behavior; and (3) a focus on short‑term pressure instead of long‑term stability, risking escalation rather than preventing it.",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "ai",
+    "publishedAt": "2026-03-28T11:41:33.670Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "特朗普伊朗战略的三大问题",
+    "normalizedTitle": "制衡 通讯 特朗普伊朗战略的三大问题",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 387.77469809367
+  },
+  {
+    "id": "folo-260691287157518339",
+    "title": "前美国特使称，伊朗战争使中国的全球雄心受挫",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/-fickle-friend-ex-envoy-sees-china-flopping-on-silence-in-war",
+    "content": "An ex‑U.S. envoy claimed that the Iran war has hindered China’s global ambitions.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-03-28T11:25:48.361Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "前美国特使称-伊朗战争使中国的全球雄心受挫",
+    "normalizedTitle": "前美国特使称 伊朗战争使中国的全球雄心受挫",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 82.774697148361
+  },
+  {
+    "id": "folo-260717686849269760",
+    "title": "更快登录、更稳协作、更好导出：易用的免费甘特图星甘 StarGantt V3.3 更新说明",
+    "url": "https://www.oschina.net/news/415116",
+    "content": "新增微信登录能力，首次使用更便捷。 优化微信绑定状态展示，已绑定信息更清晰。\n增加注销功能，账号管理链路更完整。\n2. 项目操作体验优化\n\n \n\n \n\n修复“新建项目后信息未及时刷新”问题，减少页面状态不一致。\n优化“加载最后访问项目”逻辑，回到工作现场更高效。\n调整部分默认展示策略（如默认去掉相关方），页面更聚焦。\n3. 甘特图核心能力完善\n\n修复“导出时缺少里程碑”问题，提升导出数据完整性。\n持续优化筛选与表头过滤相关能力，便于大项目快速定位任务。\n甘特主界面进行多处细节打磨，交互更顺滑。\n4. 帮助内容持续优化…",
+    "source": "开源中国-全部 - 李玉宝",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-03-28T11:14:31.879Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "更快登录-更稳协作-更好导出-易用的免费甘特图星甘-stargantt-更新说明",
+    "normalizedTitle": "更快登录 更稳协作 更好导出 易用的免费甘特图星甘 stargantt v3 3 更新说明",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 李玉宝"
+    ],
+    "preFilterScore": 263.774696471879
+  },
+  {
+    "id": "folo-260677266475845632",
+    "title": "胡塞武装的导弹袭击预示着伊朗战争局势出现“严重”升级",
+    "url": "https://www.ft.com/content/e77d9ac6-d9dd-415e-a4a7-f54d3060239a",
+    "content": "The article reports that the Houthi movement’s missile attack indicates a “serious” escalation in the war involving Iran. It suggests that this action marks a significant intensification of conflict dynamics in the region.",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "politics",
+    "publishedAt": "2026-03-28T11:09:26.091Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "胡塞武装的导弹袭击预示着伊朗战争局势出现“严重”升级",
+    "normalizedTitle": "胡塞武装的导弹袭击预示着伊朗战争局势出现“严重”升级",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 223.774696166091
+  },
+  {
+    "id": "folo-260691287157518344",
+    "title": "伊朗战争的余波恐将给美国盟友造成更多损害",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-03-28/more-iran-war-shockwaves-are-coming-for-us-allies-new-economy",
+    "content": "Iran War Shockwaves Threaten More Damage to US Allies (www.bloomberg.com) 03-28",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-03-28T10:53:50.132Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "伊朗战争的余波恐将给美国盟友造成更多损害",
+    "normalizedTitle": "伊朗战争的余波恐将给美国盟友造成更多损害",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 80.774695230132
+  },
+  {
+    "id": "folo-260669781576790016",
+    "title": "伊朗战争令全球经济领袖们苦寻对策",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/war-forces-global-elite-to-stare-into-abyss-of-perpetual-shocks",
+    "content": "War shows the global elite that conflicts inevitably expose them to continuous, unpredictable upheavals, forcing them to confront an unending stream of shocks.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-03-28T10:37:50.834Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "伊朗战争令全球经济领袖们苦寻对策",
+    "normalizedTitle": "伊朗战争令全球经济领袖们苦寻对策",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 160.774694270834
+  },
+  {
+    "id": "folo-260852572251770883",
+    "title": "苹果挖角谷歌高管 Lilian Rincon 执掌 AI 营销战略",
+    "url": "https://readhub.cn/topic/8rqyjBnwv1E",
+    "content": "Apple has hired Lilian Rincon, former senior vice‑president of Google Shopping, as its new Vice‑President of AI Product Marketing. Rincon will report to Apple's Global Product Marketing Senior Vice‑President, Greg Joswiak, and will lead the marketing strategy for Apple’s AI initiatives, including an upcoming major rewrite of Siri. The move signals Apple's focus on strengthening its AI product lineup and marketing positioning.",
+    "source": "Readhub - 每日早报 - 界面",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "business",
+    "publishedAt": "2026-03-28T10:23:47.946Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "苹果挖角谷歌高管-lilian-rincon-营销战略",
+    "normalizedTitle": "苹果挖角谷歌高管 lilian rincon 执掌 ai 营销战略",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 界面"
+    ],
+    "preFilterScore": 430.774693427946
+  },
+  {
+    "id": "folo-260852572251770884",
+    "title": "今年前三个月我国创新药对外授权交易总额超 600 亿美元",
+    "url": "https://readhub.cn/topic/8rqHciDFx83",
+    "content": "In the first quarter of 2026, China’s foreign licensing revenue for innovative drugs exceeded $60 billion, nearly half of the projected annual total. By March 27, 2026, ten innovative drugs were approved—two imported and eight domestic—marking a historic breakthrough. The data indicates strong growth and promising potential for China’s innovative drug sector.",
+    "source": "Readhub - 每日早报 - 界面",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "business",
+    "publishedAt": "2026-03-28T10:20:59.884Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "今年前三个月我国创新药对外授权交易总额超-600-亿美元",
+    "normalizedTitle": "今年前三个月我国创新药对外授权交易总额超 600 亿美元",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 界面"
+    ],
+    "preFilterScore": 362.774693259884
+  },
+  {
+    "id": "folo-260667373299698692",
+    "title": "时隔一年， NotifyX 消息推送 api 终于支持个微了（clawbot 渠道），抽五个年费会员！",
+    "url": "https://www.v2ex.com/t/1201865#reply0",
+    "content": "NotifyX now supports WeChat clabot (mini‑program) push notifications. Users must re‑authenticate if they haven’t sent a message in 24 hours, and each session can send up to 10 messages. The service maintains a 22‑, 23‑, and 24‑hour reminder to keep sessions alive. Costs are $980 for servers, $39 for a domain, and $300 for certification; revenue from members is $1,780, covering expenses. A temporary issue required changing the authenticated account, but it was resolved without affecting users. The platform remains free for up to 20 daily pushes; members receive a monthly subscription. Five members are randomly selected each month.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "business",
+    "publishedAt": "2026-03-28T10:10:18.362Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "时隔一年-notifyx-消息推送-api-终于支持个微了-clawbot",
+    "normalizedTitle": "时隔一年 notifyx 消息推送 api 终于支持个微了 clawbot 渠道 抽五个年费会员",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 601.774692618362
+  },
+  {
+    "id": "folo-260649644949778432",
+    "title": "全球经济图解：伊朗战争对经济增长造成严重冲击",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/world-economy-latest-growth-toll-from-iran-war-broad-in-scope-surveys-show",
+    "content": "The article discusses how the Iran War has significantly weakened global economic growth, as illustrated by a Bloomberg chart. It highlights the severe downturn caused by the conflict, showing a notable decline in growth rates across multiple economies.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-03-28T09:23:50.161Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "全球经济图解-伊朗战争对经济增长造成严重冲击",
+    "normalizedTitle": "全球经济图解 伊朗战争对经济增长造成严重冲击",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 254.774689830161
+  },
+  {
+    "id": "folo-260649644949778433",
+    "title": "逢低买盘涌现，将黄金从熊市边缘拉回",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/dip-buyers-arrive-to-pull-gold-back-from-brink-of-a-bear-market",
+    "content": "Gold prices, after falling into bear-market territory, are rebounding as investors adopt a “buy the dip” strategy, causing the metal to move back toward stronger levels.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-03-28T09:18:01.598Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "逢低买盘涌现-将黄金从熊市边缘拉回",
+    "normalizedTitle": "逢低买盘涌现 将黄金从熊市边缘拉回",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 170.774689481598
+  },
+  {
+    "id": "folo-260647212211506178",
+    "title": "用 AI Vibe Coding 了两个刚开始建站比较常用的网站类型（资源导航和个人博客）并开源",
+    "url": "https://www.v2ex.com/t/1201858#reply0",
+    "content": "The author created two open‑source website templates using AI: a resource navigation site and a personal blog tailored for developers. The navigation site lists personal bookmarks and AI‑recommended useful sites (GitHub: jayyu686-nav; live site: jayyu686.top). The blog is organized into projects, posts, and personal life sections (GitHub: JayYu-Blog; live site: jayyu.top). Both projects have undergone several iterations, refining UI, adding light and motion effects, and optimizing performance while maintaining clear data organization.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-03-28T09:12:42.377Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "vibe-coding-了两个刚开始建站比较常用的网站类型-资源导航和个人博客-并开源",
+    "normalizedTitle": "用 ai vibe coding 了两个刚开始建站比较常用的网站类型 资源导航和个人博客 并开源",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 541.774689162377
+  },
+  {
+    "id": "folo-260647212211506181",
+    "title": "多 Agent 系统里的「提示词漂移」问题，你们怎么解决的？",
+    "url": "https://www.v2ex.com/t/1201855#reply0",
+    "content": "Prompt drift in multi‑agent systems happens when an agent writes to shared memory, causing the next agent’s behavior to shift slightly. Longer contexts, more agents, and less stable models increase drift. Current fixes include periodic memory resets, persona anchors in system prompts, and format checks on outputs, but they are symptomatic. Practitioners need better version‑controlled prompts, principled memory isolation across agents, and empirically validated drift‑detection methods. The article invites discussion on these systematic solutions.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-03-28T08:58:20.823Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "agent-系统里的「提示词漂移」问题-你们怎么解决的",
+    "normalizedTitle": "多 agent 系统里的「提示词漂移」问题 你们怎么解决的",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 552.774688300823
+  },
+  {
+    "id": "folo-260647212211506182",
+    "title": "[独立开发 / 招募封测] 📻 做了一款极简且高颜值的全球电台 App，求 20 位 Google Play 封测体验官 (即送终身 Pro)",
+    "url": "https://www.v2ex.com/t/1201854#reply0",
+    "content": "The post announces “RadioPlayer”, an independent Android app that offers a clean, minimalist interface for global radio streaming. It uses RadioBrowser data, native Compose UI, dark mode, blur effects, and allows custom m3u/mp3 sources. A Pro version (free for testers) removes ads, unlocks high quality audio, includes sleep timer, car mode, and unlimited custom stations. The developer requests 20 Google Play closed‑test users for a 14‑day test period, promising lifetime Pro access via a free license channel. Join the Google Groups and Play Store link to participate.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-03-28T08:57:38.481Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "独立开发-招募封测-做了一款极简且高颜值的全球电台-app-google-play",
+    "normalizedTitle": "独立开发 招募封测 📻 做了一款极简且高颜值的全球电台 app 求 20 位 google play 封测体验官 即送终身 pro",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 573.774688258481
+  },
+  {
+    "id": "folo-260649644949778436",
+    "title": "巴菲特的苏黎世门徒称，跑赢市场的可能性正不断减弱",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/buffett-s-zurich-acolyte-says-odds-of-beating-market-keep-fading",
+    "content": "Buffett’s Zurich Acolyte Says Odds of Beating Market Keep Fading (www.bloomberg.com) 03-28",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-03-28T08:45:32.159Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "巴菲特的苏黎世门徒称-跑赢市场的可能性正不断减弱",
+    "normalizedTitle": "巴菲特的苏黎世门徒称 跑赢市场的可能性正不断减弱",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.774687532159
+  },
+  {
+    "id": "folo-260637232146129922",
+    "title": "CERN uses tiny AI models burned into silicon for real-time LHC data filtering",
+    "url": "https://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering",
+    "content": "CERN now embeds small artificial‑intelligence models directly into silicon chips to filter data from the Large Hadron Collider in real time. These compact models are pre‑installed on hardware, allowing rapid decisions on which collision events to keep for further analysis. The approach minimizes latency and computer‑power requirements, improving the speed and efficiency of data selection during high‑rate particle‑physics experiments.",
+    "source": "Hacker News - TORcicada",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "politics",
+    "publishedAt": "2026-03-28T08:42:42.190Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "cern-uses-tiny-models-burned-into",
+    "normalizedTitle": "cern uses tiny ai models burned into silicon for real-time lhc data filtering",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - TORcicada"
+    ],
+    "preFilterScore": 438.77468736219
+  },
+  {
+    "id": "folo-260647212211506179",
+    "title": "[科普向]claude 中转站为什么这么费钱？明明便宜 70%，余额却消耗得飞快",
+    "url": "https://www.v2ex.com/t/1201851#reply7",
+    "content": "The article explains why many Claude “intermediate stations” that advertise 70% savings actually cost more over time. These services lack prompt‑caching (or claim low rates), causing every follow‑up request to be fully billed. They also inject hidden system prompts, increasing token usage, and frequent provider switches destroy any built cache, adding high start‑up costs. Bugs and unstable connections further inflate charges. For long‑term, stable use, the official channel with high cache rates is cheaper; intermediates suit only brief or budget‑constrained sessions.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-03-28T08:40:15.227Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "科普向-claude-中转站为什么这么费钱-明明便宜-余额却消耗得飞快",
+    "normalizedTitle": "科普向 claude 中转站为什么这么费钱 明明便宜 70 余额却消耗得飞快",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 574.774687215227
+  },
+  {
+    "id": "folo-260649644949778438",
+    "title": "对冲基金押注英国房地产巨头，其股价暴跌70%",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/hedge-funds-bet-on-a-uk-housing-giant-its-shares-slumped-70",
+    "content": "Hedge Funds Bet on a UK Housing Giant. Its Shares Slumped 70% (www.bloomberg.com) 03-28",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-03-28T08:29:35.158Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "对冲基金押注英国房地产巨头-其股价暴跌70",
+    "normalizedTitle": "对冲基金押注英国房地产巨头 其股价暴跌70",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 88.774686575158
+  },
+  {
+    "id": "folo-260852572251770885",
+    "title": "华为盘古大模型负责人王云鹤离职，被曝 Agent 创业",
+    "url": "https://readhub.cn/topic/8rrVKw43lMo",
+    "content": "Huawei’s Pangu large‑model chief Wang Yunhe has resigned after eight years at the company and plans to start a new venture called Agent. Born 1991, Wang holds a PhD from Peking University and has authored over 33,000 cited works with an H‑index of 68. He previously led the Noah’s Ark Lab and won Huawei’s “Ten Outstanding Inventions” award, with his work applied to China’s FAST telescope. Wang did not disclose his new company’s details.",
+    "source": "Readhub - 每日早报 - 量子位",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "ai",
+    "publishedAt": "2026-03-28T08:22:26.757Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "华为盘古大模型负责人王云鹤离职-agent",
+    "normalizedTitle": "华为盘古大模型负责人王云鹤离职 被曝 agent 创业",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 量子位"
+    ],
+    "preFilterScore": 440.774686146757
+  },
+  {
+    "id": "folo-260649644949778440",
+    "title": "巴基斯坦获得国际货币基金组织对12亿美元贷款的初步批准",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/pakistan-gets-initial-imf-approval-for-1-2-billion-of-loans",
+    "content": "Pakistan Gets Initial IMF Approval for 1.2 Billion of Loans (www.bloomberg.com) 03-28",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-03-28T08:13:45.168Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "巴基斯坦获得国际货币基金组织对12亿美元贷款的初步批准",
+    "normalizedTitle": "巴基斯坦获得国际货币基金组织对12亿美元贷款的初步批准",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 86.774685625168
+  },
+  {
+    "id": "folo-260629504271069186",
+    "title": "高盛新任顾问里希·苏纳克敦促中小企业采用人工智能",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/goldman-s-new-adviser-rishi-sunak-urges-small-firms-to-adopt-ai",
+    "content": "Goldman Sachs has added former UK Chancellor Rishi Sunak to its advisory board. Sunak encourages small and medium‑sized businesses to adopt artificial intelligence to improve efficiency, competitiveness and innovation.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-03-28T07:41:53.152Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "高盛新任顾问里希·苏纳克敦促中小企业采用人工智能",
+    "normalizedTitle": "高盛新任顾问里希·苏纳克敦促中小企业采用人工智能",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 219.774683713152
+  },
+  {
+    "id": "folo-260627219725945857",
+    "title": "想要一个 codex/claude code 的 Web UI 界面",
+    "url": "https://www.v2ex.com/t/1201842#reply1",
+    "content": "A user has set up Codex locally and wants non‑technical colleagues to use it for data analysis, mainly connecting to databases. Installing it on each machine is cumbersome, and the user wants to control permissions. They seek a web‑based Codex interface but find existing GitHub projects inactive. They ask how others resolve this and whether setting up a server with SSH access is the only option.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-03-28T07:35:21.659Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "想要一个-codex-claude-code-web",
+    "normalizedTitle": "想要一个 codex claude code 的 web ui 界面",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 399.774683321659
+  },
+  {
+    "id": "folo-260629504271069187",
+    "title": "养老基金亏损凸显知名房产经纪人的执照模式",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/pension-fund-losses-spotlight-storied-realtor-s-licensing-model",
+    "content": "Pension Fund Losses Spotlight Storied Realtor’s Licensing Model (www.bloomberg.com) 03-28",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-03-28T07:25:38.073Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "养老基金亏损凸显知名房产经纪人的执照模式",
+    "normalizedTitle": "养老基金亏损凸显知名房产经纪人的执照模式",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.774682738073
+  },
+  {
+    "id": "folo-260629504271069195",
+    "title": "中国呼吁美国企业参与乡村振兴行动",
+    "url": "https://www.bloomberg.com/news/articles/2026-03-28/china-calls-on-us-firms-to-tap-rural-revitalization-drive",
+    "content": "China has urged U.S. companies to engage in its rural revitalization initiatives, aiming to support infrastructure, agriculture, and local economies. The appeal highlights opportunities for investment, technology transfer, and partnership in development projects, encouraging collaboration that could benefit both Chinese rural communities and international businesses.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-03-28T06:51:57.222Z",
+    "fetchedAt": "2026-03-29T05:00:31.291Z",
+    "eventKey": "中国呼吁美国企业参与乡村振兴行动",
+    "normalizedTitle": "中国呼吁美国企业参与乡村振兴行动",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 370.774680717222
+  },
+  {
+    "id": "folo-260637129230518273",
+    "title": "巴基斯坦如何将自己置于美伊和平谈判的中心",
+    "url": "https://www.ft.com/content/5f946eff-3e9c-4feb-ab6b-60e15cc3e183",
+    "content": "Pakistan positioned itself as a key intermediary in U.S.–Iran peace negotiations by offering diplomatic facilitation, inviting the U.S. president to a meeting with Iranian officials and providing logistical support. Leveraging its neutral stance, Islamabad used its influence to organize and host talks, thereby placing itself at the centre of efforts to resolve the long‑standing conflict.",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "ai",
+    "publishedAt": "2026-03-28T06:51:54.242Z",
+    "fetchedAt": "2026-03-29T05:00:35.161Z",
+    "eventKey": "巴基斯坦如何将自己置于美伊和平谈判的中心",
+    "normalizedTitle": "巴基斯坦如何将自己置于美伊和平谈判的中心",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 391.774680714242
+  },
+  {
+    "id": "folo-260637129234712576",
+    "title": "这就是唐纳德·特朗普无法掌控的石油危机",
+    "url": "https://www.ft.com/content/c1b91fc5-729b-4c86-8624-8621edd2f75b",
+    "content": "The article titled “This is the oil crisis that Donald Trump cannot control” discusses the recent surge in oil prices and the events driving the global oil shock. It explains how geopolitical tensions, supply disruptions, and market dynamics are beyond President Trump’s influence. The piece analyzes the economic impact on inflation, energy markets, and international relations, highlighting the complexities that make the crisis unavoidable and difficult for any national leader to manage.",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "business",
+    "publishedAt": "2026-03-28T06:51:52.928Z",
+    "fetchedAt": "2026-03-29T05:00:35.161Z",
+    "eventKey": "这就是唐纳德·特朗普无法掌控的石油危机",
+    "normalizedTitle": "这就是唐纳德·特朗普无法掌控的石油危机",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 492.774680712928
+  },
+  {
+    "id": "folo-260852572251770887",
+    "title": "软银获得 400 亿美元贷款，用于追加对 OpenAI 的投资",
+    "url": "https://readhub.cn/topic/8rq91cQr3pL",
+    "content": "SoftBank Group has secured a $40 billion unsecured transitional loan, set to mature in March 2027, to add to its previously pledged $30 billion investment in OpenAI and support general corporate purposes. The loan is arranged by JPMorgan and other institutions. This financing follows a series of commitments and funding activities related to OpenAI and the company’s broader strategic goals.",
+    "source": "Readhub - 每日早报 - 界面",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "investment",
+    "publishedAt": "2026-03-28T06:45:47.509Z",
+    "fetchedAt": "2026-03-29T05:00:35.161Z",
+    "eventKey": "软银获得-400-亿美元贷款-用于追加对-openai-的投资",
+    "normalizedTitle": "软银获得 400 亿美元贷款 用于追加对 openai 的投资",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 界面"
+    ],
+    "preFilterScore": 393.774680347509
+  },
+  {
+    "id": "folo-260627219725945865",
+    "title": "写了一个 Bro mode 和 Lover mode skills, 让 AI 提供情绪价值, 而不是 PUA AI",
+    "url": "https://www.v2ex.com/t/1201827#reply0",
+    "content": "The author developed two “skills” for an AI: **Bro Mode** and **Lover Mode**. When the user calls the AI “bro” or tags `/bro-mode`, the AI becomes aggressive and slangy; when the user calls it “dear” or tags `lover-mode`, the AI speaks affectionately. These modes are installed and removed via npm commands. The author clarifies they are purely for entertainment, affect only dialogue, and users assume any risks. The goal is to provide emotional value rather than manipulate the AI.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-03-28T06:43:41.456Z",
+    "fetchedAt": "2026-03-29T05:00:35.161Z",
+    "eventKey": "写了一个-bro-mode-lover-mode-skills",
+    "normalizedTitle": "写了一个 bro mode 和 lover mode skills 让 ai 提供情绪价值 而不是 pua ai",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 484.774680221456
+  },
+  {
+    "id": "folo-260607138333697024",
+    "title": "Go hard on agents, not on your filesystem",
+    "url": "https://jai.scs.stanford.edu/",
+    "content": "The article explains that when you are hacking or testing software, focus your attacks on the target system’s processes and memory rather than trying to damage the difficult‑to‑modify filesystem. It advises using techniques that avoid imposing heavy I/O or permission changes, and encourages attacking application logic or APIs instead.",
+    "source": "Hacker News - mazieres",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-03-28T06:43:02.164Z",
+    "fetchedAt": "2026-03-29T05:00:35.161Z",
+    "eventKey": "hard-agents-not-your-filesystem",
+    "normalizedTitle": "go hard on agents not on your filesystem",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - mazieres"
+    ],
+    "preFilterScore": 337.774680182164
+  },
+  {
+    "id": "folo-260607138333697043",
+    "title": "Arm releases first in-house chip, with Meta as debut customer",
+    "url": "https://www.cnbc.com/2026/03/24/arm-launches-its-own-cpu-with-meta-as-first-customer.html",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - goplayoutside",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "software",
+    "publishedAt": "2026-03-28T06:43:02.145Z",
+    "fetchedAt": "2026-03-29T05:00:35.161Z",
+    "eventKey": "arm-releases-first-in-house-chip-meta",
+    "normalizedTitle": "arm releases first in-house chip with meta as debut customer",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - goplayoutside"
+    ],
+    "preFilterScore": 33.774680182145
+  },
+  {
+    "id": "folo-260607091806309408",
+    "title": "2026 年了，还有人坚持不用 AI 编程吗？是不是已经落后时代了？",
+    "url": "https://www.v2ex.com/t/1201819#reply0",
+    "content": "The article notes that most developers now use AI tools like ChatGPT and 蔚思千问 as primary coding assistants, speeding up simple tasks such as CRUD scripts. However, some still avoid AI, citing unreliability, difficulty debugging, potential skill erosion, and reduced efficiency on complex business logic. The author questions whether fully AI‑free programmers are outdated and whether heavy AI use truly improves productivity or merely seems faster, seeking honest user experiences.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-03-28T06:03:58.330Z",
+    "fetchedAt": "2026-03-29T05:00:35.161Z",
+    "eventKey": "2026-还有人坚持不用-编程吗-是不是已经落后时代了",
+    "normalizedTitle": "2026 年了 还有人坚持不用 ai 编程吗 是不是已经落后时代了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 482.77467783833
+  }
+]
