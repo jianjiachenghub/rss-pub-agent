@@ -1,7 +1,10 @@
 import dayjs from "dayjs";
 import type { PipelineStateType } from "../state.js";
 import { callLLMJson } from "../lib/llm.js";
-import { truncateSummaryText } from "../lib/insight-format.js";
+import {
+  buildFallbackDisplayTitle,
+  truncateSummaryText,
+} from "../lib/insight-format.js";
 import {
   CATEGORY_LABELS,
   CATEGORIES,
@@ -12,14 +15,6 @@ import {
 interface DailyFramingResult {
   opening: string;
   closing: string;
-}
-
-function getDisplayTitle(title: string, oneLiner: string): string {
-  const normalizedTitle = title.trim();
-  if (/^\d{4}-\d{2}-\d{2}$/.test(normalizedTitle)) {
-    return oneLiner.trim() || normalizedTitle;
-  }
-  return normalizedTitle;
 }
 
 export async function generateDailyNode(
@@ -43,7 +38,7 @@ export async function generateDailyNode(
         prompt: dailyFramingUserPrompt(
           date,
           insights.slice(0, 8).map((insight) => ({
-            title: insight.title,
+            title: insight.displayTitle,
             oneLiner: insight.oneLiner,
             category: insight.category,
             weightedScore: insight.weightedScore,
@@ -98,9 +93,7 @@ itemCount: ${insights.length}
 
 ## 今日判断
 
-> ${dailyOpening}
-
----
+${dailyOpening}
 
 `;
 
@@ -114,7 +107,7 @@ itemCount: ${insights.length}
         const topItem = items.reduce((left, right) =>
           left.weightedScore >= right.weightedScore ? left : right
         );
-        markdown += `| ${CATEGORY_LABELS[category]} | ${items.length} | **${topItem.weightedScore}** | ${truncateSummaryText(getDisplayTitle(topItem.title, topItem.oneLiner), 34)} |\n`;
+        markdown += `| ${CATEGORY_LABELS[category]} | ${items.length} | **${topItem.weightedScore}** | ${truncateSummaryText(topItem.displayTitle, 28)} |\n`;
       }
 
       markdown += `\n`;
@@ -126,16 +119,15 @@ itemCount: ${insights.length}
 
       markdown += `## ${CATEGORY_LABELS[category]}\n\n`;
       for (const item of items) {
-        const displayTitle = getDisplayTitle(item.title, item.oneLiner);
-        markdown += `### ${displayTitle}\n\n`;
-        markdown += `> **${item.weightedScore} 分** | 来源: [${item.source}](${item.url})\n`;
-        markdown += `> ${item.oneLiner}\n\n`;
+        markdown += `### ${item.displayTitle}\n\n`;
+        markdown += `**来源：** [${item.source}](${item.url}) · **评分：** ${item.weightedScore} 分\n\n`;
 
         if (item.imageUrl) {
-          markdown += `![${displayTitle}](${item.imageUrl})\n\n`;
+          markdown += `![${item.displayTitle}](${item.imageUrl})\n\n`;
         }
 
         markdown += `**事件：** ${item.event}\n\n`;
+
         if (item.interpretation) {
           markdown += `**解读：** ${item.interpretation}\n\n`;
         }
@@ -159,8 +151,6 @@ itemCount: ${insights.length}
           markdown += `#### 代码片段\n\n`;
           markdown += `\`\`\`${item.codeSnippet.lang || ""}\n${item.codeSnippet.code}\n\`\`\`\n\n`;
         }
-
-        markdown += `---\n\n`;
       }
     }
 
@@ -172,11 +162,10 @@ itemCount: ${insights.length}
       }
       markdown += `\n`;
     }
-    markdown += `> ${dailyClosing}\n\n`;
+    markdown += `${dailyClosing}\n\n`;
 
     if (secondaryItems && secondaryItems.length > 0) {
-      markdown += `---\n\n## 更多 24h 资讯\n\n`;
-      markdown += `> 以下条目进入了候选池，但没有进入今天的主深度解读区。\n\n`;
+      markdown += `## 更多 24h 资讯\n\n`;
 
       const secondaryByCategory = new Map<string, typeof secondaryItems>();
       for (const item of secondaryItems) {
@@ -195,7 +184,7 @@ itemCount: ${insights.length}
 
         markdown += `#### ${CATEGORY_LABELS[category]}\n`;
         for (const item of items) {
-          markdown += `- [${dayjs(item.publishedAt).format("HH:mm")}] [${item.title}](${item.url}) | *${item.source}*\n`;
+          markdown += `- [${dayjs(item.publishedAt).format("HH:mm")}] [${truncateSummaryText(buildFallbackDisplayTitle(item), 24)}](${item.url}) · ${item.source}\n`;
         }
         markdown += `\n`;
       }

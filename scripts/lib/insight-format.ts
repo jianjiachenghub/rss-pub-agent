@@ -47,6 +47,18 @@ const QUESTION_TITLE_PATTERNS = [
   /^show hn:/i,
 ];
 
+const TITLE_BANNED_PATTERNS = [
+  /^今日判断/,
+  /^今日概览/,
+  /^今日焦点/,
+  /^接下来要盯/,
+  /^更多24h资讯/,
+  /^更多 24h 资讯/,
+  /^为什么值得看/,
+  /^值得关注/,
+  /^入选原因/,
+];
+
 const FORUM_SOURCE_PATTERNS = [/V2EX/i, /Forum/i, /贴吧/i, /知乎/i, /微博/i];
 
 const INFORMATIVE_IMAGE_KEYWORDS = [
@@ -160,6 +172,27 @@ function extractChineseSentence(content: string): string {
 
 function normalizedTitle(title: string): string {
   return normalizeText(title).replace(/[“”"'`]/g, "");
+}
+
+function normalizeHeadline(text: string): string {
+  return normalizeText(text)
+    .replace(/^(?:标题|事件|解读)[:：]\s*/u, "")
+    .replace(/[“”"'`]/g, "")
+    .replace(/[。！？?!；;]+$/u, "")
+    .trim();
+}
+
+function cleanHeadlineCandidate(text: string): string {
+  return normalizeHeadline(text)
+    .replace(/\s*[|｜]\s*[^|｜]+$/u, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function truncateHeadline(text: string, limit = 23): string {
+  const normalized = cleanHeadlineCandidate(text);
+  if (normalized.length <= limit) return normalized;
+  return `${normalized.slice(0, limit)}…`;
 }
 
 export function truncateSummaryText(text: string, limit: number): string {
@@ -281,6 +314,44 @@ export function buildFallbackSections(
   };
 }
 
+export function buildFallbackDisplayTitle(item: {
+  title: string;
+  summary?: string;
+  content: string;
+}): string {
+  const title = cleanHeadlineCandidate(item.title);
+  if (
+    title.length >= 8
+    && chineseDominance(title) >= 0.72
+    && !isQuestionLikeTitle(title)
+    && !TITLE_BANNED_PATTERNS.some((pattern) => pattern.test(title))
+  ) {
+    return truncateHeadline(title);
+  }
+
+  const summarySentence = extractChineseSentence(item.summary ?? "");
+  if (
+    summarySentence
+    && chineseDominance(summarySentence) >= 0.78
+    && !TITLE_BANNED_PATTERNS.some((pattern) => pattern.test(summarySentence))
+  ) {
+    return truncateHeadline(summarySentence);
+  }
+
+  const contentSentence = extractChineseSentence(item.content);
+  if (
+    contentSentence
+    && chineseDominance(contentSentence) >= 0.78
+    && !TITLE_BANNED_PATTERNS.some((pattern) => pattern.test(contentSentence))
+  ) {
+    return truncateHeadline(contentSentence);
+  }
+
+  if (summarySentence) return truncateHeadline(summarySentence);
+  if (contentSentence) return truncateHeadline(contentSentence);
+  return truncateHeadline(title || "今日重点条目");
+}
+
 export function getInvalidInsightFields(
   title: string,
   sections: InsightSections
@@ -345,6 +416,27 @@ export function sanitizeOneLiner(value: string | undefined, title: string): stri
     return normalized;
   }
   return truncateSummaryText(title, 30);
+}
+
+export function sanitizeDisplayTitle(
+  value: string | undefined,
+  item: {
+    title: string;
+    summary?: string;
+    content: string;
+  }
+): string {
+  const normalized = cleanHeadlineCandidate(value ?? "");
+  if (
+    normalized.length >= 8
+    && normalized.length <= 34
+    && chineseDominance(normalized) >= 0.72
+    && !TITLE_BANNED_PATTERNS.some((pattern) => pattern.test(normalized))
+  ) {
+    return truncateHeadline(normalized);
+  }
+
+  return buildFallbackDisplayTitle(item);
 }
 
 export function computeDailyInsightTarget(

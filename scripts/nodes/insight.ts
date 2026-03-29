@@ -1,10 +1,12 @@
 import type { PipelineStateType } from "../state.js";
 import { callLLMJson } from "../lib/llm.js";
 import {
+  buildFallbackDisplayTitle,
   buildFallbackSections,
   buildInsightContent,
   computeDailyInsightTarget,
   isWeakEventNarrative,
+  sanitizeDisplayTitle,
   sanitizeInsightSections,
   sanitizeOneLiner,
   shouldWriteInterpretation,
@@ -18,6 +20,7 @@ import type { NewsInsight, ScoredNewsItem } from "../lib/types.js";
 
 interface InsightResult {
   id: string;
+  displayTitle: string;
   oneLiner: string;
   event: string;
   interpretation?: string;
@@ -31,7 +34,7 @@ interface CategoryResult {
 }
 
 const REPAIR_BATCH_SIZE = 6;
-const SENSITIVE_REPAIR_PATTERN = /成人|色情|露骨|未成年人|自杀|性侵|身亡/i;
+const SENSITIVE_REPAIR_PATTERN = /成人|色情|裸露|未成年人|自杀|性侵|身亡/i;
 
 function extractArrayResults<T>(value: unknown): T[] {
   if (Array.isArray(value)) {
@@ -65,25 +68,24 @@ function buildInsightSystemPrompt(
     .filter(Boolean)
     .join("\n");
 
-  return `你是个人日报的深度编辑，服务对象是同时关心 AI、产品、研发和投资判断的读者。
-你现在只需要为每条新闻生成两段内容：
-- event：中文，直接写发生了什么
-- interpretation：中文，写这条信息为什么会改变判断；如果证据不够、信息太薄、或你没有足够把握，请返回空字符串
+  return `你是个人日报的深度编辑，服务对象是同时关心 AI、产品、研发和投资判断的中文读者。你现在需要为每条新闻生成结构化结果。
 
 今日日报的编务判断：
 ${agendaLines}
 
 硬性要求：
-- 不要写“为什么值得看”“入选原因”
-- event 必须是中文，不能直接输出英文摘要
-- interpretation 只在你有足够把握时才写
-- 对论坛提问、内容过薄、信息不完整的条目，interpretation 必须留空
-- interpretation 必须点出一个具体变量或决策含义，例如入口、审核周期、估值锚点、监管边界、利率路径、成本结构
+- displayTitle：中文短标题，12-28 个字，适合放进目录和正文标题
+- displayTitle 不要照抄英文原题，不要写成完整摘要，不要带“来源”“评分”等元信息
+- oneLiner：中文单句，20-32 个字，可用于摘要或分发，但不要与标题重复
+- event：中文，直接写发生了什么，不要写“值得看”“媒体报道了”“出现了一条动态”
+- interpretation：中文，只有在证据足够时才写；如果信息太薄、把握不够或只是论坛讨论，返回空字符串
+- interpretation 必须落到一个具体变量或决策含义，例如入口、审核周期、估值锚点、监管边界、利率路径、成本结构、供给、产能、默认分发权
 - 禁止使用“信号强”“信息可靠”“影响深远”“相关度高”“有实质信息”这类空话
-- 不给投资建议，不写空泛口号
+- 不给投资建议，不写英文整句；专有名词可保留，但整句表达必须是中文
 
 输出必须是 JSON 数组，每项包含：
 - id
+- displayTitle
 - oneLiner
 - event
 - interpretation`;
@@ -115,13 +117,15 @@ function buildInsightUserPrompt(
     .join("\n\n---\n\n");
 
   return `请为以下 ${items.length} 条新闻生成结构化解读。
+
 要求：
+- displayTitle：12-28 个中文字符，简洁概括事件，不要直接保留英文标题
 - oneLiner：20-32 个中文字符
 - event：45-90 个中文字符
 - interpretation：0-140 个中文字符；如果拿不准就返回空字符串
 - interpretation 必须具体，不要写“影响深远”“信号强”“信息可靠”“相关度高”
+- 不要输出 Markdown，不要解释你的做法，只返回 JSON
 
-不要输出 Markdown，不要解释你的做法，只返回 JSON。
 新闻列表：
 ${body}`;
 }
@@ -138,12 +142,12 @@ function buildRepairSystemPrompt(
     .filter(Boolean)
     .join("\n");
 
-  return `你是个人日报的资深编辑，负责修复不合格的单条解读。
-你会收到标题、来源、摘要、正文摘录，以及当前草稿。请把输出修成能直接发日报的中文版本。
+  return `你是个人日报的资深编辑，负责修复不合格的单条解读。你会收到标题、来源、摘要、正文摘录，以及当前草稿。请把输出修成能直接发日报的中文版本。
 
 要求：
-- event：必须直接写发生了什么，不要写“某媒体报道”“出现了一条动态”
-- interpretation：只在有足够把握时才写；要说明哪个变量变了，或对 AI / 产品 / 研发 / 投资判断意味着什么
+- displayTitle 改成更短、更清晰的中文标题，适合目录导航和正文阅读
+- event 必须直接写发生了什么，不要写“某媒体报道”“出现了一条动态”
+- interpretation 只在有足够把握时才写；要说明哪个变量变了，或对 AI / 产品 / 研发 / 投资判断意味着什么
 - interpretation 至少落到一个具体点：系统入口、审核周期、估值锚点、监管边界、成本结构、科研验证周期、利率路径、默认分发权
 - interpretation 不能只是“对某领域有影响”
 - 禁止使用“信号强”“信息可靠”“影响深远”“相关度高”“有实质信息”这类空话
@@ -155,6 +159,7 @@ ${agendaLines}
 
 输出必须是 JSON 数组，每项包含：
 - id
+- displayTitle
 - oneLiner
 - event
 - interpretation`;
@@ -167,6 +172,7 @@ function buildRepairUserPrompt(
     source: string;
     summary: string;
     content: string;
+    currentDisplayTitle: string;
     currentOneLiner: string;
     currentEvent: string;
     currentInterpretation?: string;
@@ -180,14 +186,14 @@ function buildRepairUserPrompt(
         `来源: ${item.source}\n` +
         `摘要: ${item.summary.replace(/\s+/g, " ").trim().slice(0, 220)}\n` +
         `正文摘录: ${item.content.replace(/\s+/g, " ").trim().slice(0, 900)}\n` +
+        `当前标题: ${item.currentDisplayTitle}\n` +
         `当前一句话: ${item.currentOneLiner}\n` +
         `当前事件草稿: ${item.currentEvent}\n` +
         `当前解读草稿: ${item.currentInterpretation ?? ""}`
     )
     .join("\n\n---\n\n");
 
-  return `下面这些条目当前草稿不合格，请只重写成更好的中文版本。
-如果信息不够，请把 interpretation 留空，不要硬写。
+  return `下面这些条目当前草稿不合格，请只重写成更好的中文版。如果信息不够，请把 interpretation 留空，不要硬写。
 
 条目列表：
 ${body}`;
@@ -216,11 +222,12 @@ async function requestInsights(
         type: "OBJECT",
         properties: {
           id: { type: "STRING" },
+          displayTitle: { type: "STRING" },
           oneLiner: { type: "STRING" },
           event: { type: "STRING" },
           interpretation: { type: "STRING" },
         },
-        required: ["id", "oneLiner", "event", "interpretation"],
+        required: ["id", "displayTitle", "oneLiner", "event", "interpretation"],
       },
     },
   });
@@ -235,6 +242,7 @@ async function requestRepairInsights(
     source: string;
     summary: string;
     content: string;
+    currentDisplayTitle: string;
     currentOneLiner: string;
     currentEvent: string;
     currentInterpretation?: string;
@@ -263,11 +271,12 @@ async function requestRepairInsights(
               type: "OBJECT",
               properties: {
                 id: { type: "STRING" },
+                displayTitle: { type: "STRING" },
                 oneLiner: { type: "STRING" },
                 event: { type: "STRING" },
                 interpretation: { type: "STRING" },
               },
-              required: ["id", "oneLiner", "event", "interpretation"],
+              required: ["id", "displayTitle", "oneLiner", "event", "interpretation"],
             },
           },
         });
@@ -306,6 +315,7 @@ function buildFallbackInsight(item: ScoredNewsItem): NewsInsight {
   return {
     id: item.id,
     title: item.title,
+    displayTitle: buildFallbackDisplayTitle(item),
     url: item.url,
     source: item.source,
     category: item.category,
@@ -442,6 +452,7 @@ export async function insightNode(
       return {
         id: item.id,
         title: item.title,
+        displayTitle: sanitizeDisplayTitle(llmResult?.displayTitle, item),
         url: item.url,
         source: item.source,
         category,
@@ -482,6 +493,7 @@ export async function insightNode(
           source: item.source,
           summary: item.summary ?? item.content,
           content: item.content,
+          currentDisplayTitle: insight.displayTitle,
           currentOneLiner: insight.oneLiner,
           currentEvent: insight.event,
           currentInterpretation: insight.interpretation,
@@ -511,6 +523,10 @@ export async function insightNode(
 
           return {
             ...current,
+            displayTitle: sanitizeDisplayTitle(
+              repair.displayTitle || current.displayTitle,
+              item
+            ),
             oneLiner: sanitizeOneLiner(repair.oneLiner || current.oneLiner, item.title),
             event: sections.event,
             interpretation: normalizedInterpretation,

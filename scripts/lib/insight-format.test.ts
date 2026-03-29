@@ -1,11 +1,13 @@
 import { describe, expect, it } from "vitest";
 import {
+  buildFallbackDisplayTitle,
   buildFallbackSections,
   buildInsightContent,
   computeDailyInsightTarget,
   getInvalidInsightFields,
   hasThinContent,
   isInformativeImage,
+  sanitizeDisplayTitle,
   shouldWriteInterpretation,
 } from "./insight-format.js";
 
@@ -128,5 +130,23 @@ describe("insight-format", () => {
 
     expect(fallback.event).toContain("V2EX");
     expect(fallback.interpretation).toBeUndefined();
+  });
+
+  it("prefers Chinese display titles and falls back to Chinese summaries", () => {
+    expect(
+      sanitizeDisplayTitle("谷歌放宽安卓旁加载迁移限制", {
+        title: "Google just gave Android power users a sideloading win",
+        summary: "谷歌允许安卓旁加载权限在新设备间同步，仅需设置一次。",
+        content: "谷歌允许安卓旁加载权限在新设备间同步，仅需设置一次。",
+      })
+    ).toBe("谷歌放宽安卓旁加载迁移限制");
+
+    expect(
+      buildFallbackDisplayTitle({
+        title: "Google just gave Android power users a sideloading win",
+        summary: "谷歌允许安卓旁加载权限在新设备间同步，仅需设置一次。",
+        content: "谷歌允许安卓旁加载权限在新设备间同步，仅需设置一次。",
+      })
+    ).toBe("谷歌允许安卓旁加载权限在新设备间同步，仅需设置…");
   });
 });
