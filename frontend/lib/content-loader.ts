@@ -1,13 +1,12 @@
 import { existsSync, readFileSync } from "fs";
 import { join } from "path";
 import dayjs from "dayjs";
-import isoWeek from "dayjs/plugin/isoWeek";
 import {
   formatDisplayWeekLabel,
+  getMonthScopedWeekId,
+  getMonthScopedWeekNumber,
   getDisplayIssueTitle,
 } from "@/lib/display-text";
-
-dayjs.extend(isoWeek);
 
 const CONTENT_DIR = join(process.cwd(), "../content");
 
@@ -138,8 +137,7 @@ function extractWatchSignals(body: string): string[] {
 }
 
 function getWeekId(date: string): string {
-  const value = dayjs(date);
-  return `${value.isoWeekYear()}-W${String(value.isoWeek()).padStart(2, "0")}`;
+  return getMonthScopedWeekId(date);
 }
 
 function formatWeekLabel(weekId: string): string {
@@ -280,8 +278,7 @@ export function getWeeksForMonth(
 ): { week: number; dates: string[] }[] {
   const weekMap = new Map<number, string[]>();
   for (const date of getDatesForMonth(year, month)) {
-    const value = dayjs(date);
-    const week = value.isoWeek();
+    const week = getMonthScopedWeekNumber(date);
     if (!weekMap.has(week)) weekMap.set(week, []);
     weekMap.get(week)!.push(date);
   }

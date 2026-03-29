@@ -21,7 +21,7 @@ export default function PodcastPage() {
     .filter((podcast): podcast is NonNullable<typeof podcast> => podcast !== null);
   const latestPodcastDate = podcasts[0]?.date;
   const headerMeta = [
-    latestPodcastDate ? dayjs(latestPodcastDate).format("YYYY.MM.DD") : null,
+    latestPodcastDate ? `最新脚本 ${dayjs(latestPodcastDate).format("YYYY.MM.DD")}` : null,
     podcasts.length > 0 ? `${podcasts.length} 份脚本` : null,
   ].filter((value): value is string => Boolean(value));
 
@@ -32,7 +32,7 @@ export default function PodcastPage() {
       activeNav="podcast"
       header={{
         section: "播客存档",
-        title: podcasts.length > 0 ? "播客脚本回放" : "暂无播客脚本",
+        title: podcasts.length > 0 ? "播客脚本回看" : "暂无播客脚本",
         meta: headerMeta,
       }}
       weeklyIssues={weeklyIssues}
@@ -41,7 +41,7 @@ export default function PodcastPage() {
         <div className="section-label">播客存档</div>
         <div className="mt-8 space-y-4">
           {podcasts.length === 0 ? (
-            <p className="text-sm leading-7 text-black/62">暂时还没有可播放的播客脚本。</p>
+            <p className="text-sm leading-7 text-black/72">暂时还没有可播放的播客脚本。</p>
           ) : (
             podcasts.map((podcast) => (
               <PodcastPlayer key={podcast.date} date={podcast.date} script={podcast.script} />

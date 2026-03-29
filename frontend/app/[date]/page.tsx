@@ -28,11 +28,11 @@ export default async function DailyPage({
   const dailyIssues = getAllDailyIssues();
   const weeklyIssues = getWeeklyIssues();
   const headerMeta = [
-    dayjs(issue.date).format("YYYY.MM.DD"),
+    `发布日期 ${dayjs(issue.date).format("YYYY.MM.DD")}`,
     issue.meta ? `${issue.meta.itemCount} 条资讯` : null,
     issue.meta ? `均分 ${issue.meta.avgScore}` : null,
-    issue.heroImageUrl ? "图片" : null,
-    issue.meta?.hasPodcast ? "播客" : null,
+    issue.heroImageUrl ? "含图片" : null,
+    issue.meta?.hasPodcast ? "含播客" : null,
   ].filter((value): value is string => Boolean(value));
 
   return (
@@ -40,21 +40,21 @@ export default async function DailyPage({
       currentDate={date}
       dailyIssues={dailyIssues}
       header={{
-        section: "Day",
+        section: "日报阅读",
         title: issue.title,
         meta: headerMeta,
       }}
       weeklyIssues={weeklyIssues}
     >
       <section className="editorial-card hero-card px-6 py-6 md:px-8 md:py-8">
-        <div className="font-mono text-[11px] uppercase tracking-[0.28em] text-black/42">
+        <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-black/58">
           {issue.date}
         </div>
         <div className="mt-4 grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(18rem,0.7fr)]">
           <div>
-            <div className="section-label">内容摘要</div>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-black/68">
-              {issue.summary || "下方可查看完整 Markdown 内容。"}
+            <div className="section-label">本期摘要</div>
+            <p className="mt-6 max-w-3xl text-base leading-8 text-black/78">
+              {issue.summary || "下方保留原始 Markdown 正文，可直接进入完整阅读。"}
             </p>
           </div>
           <div className="space-y-3 border-l border-black/10 pl-0 xl:pl-6">

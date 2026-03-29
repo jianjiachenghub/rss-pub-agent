@@ -1,11 +1,12 @@
 import Link from "next/link";
 import dayjs from "dayjs";
-import isoWeek from "dayjs/plugin/isoWeek";
 import type { ReactNode } from "react";
 import type { DailyIssue, WeeklyIssue } from "@/lib/content-loader";
-import { formatDisplayWeekLabel } from "@/lib/display-text";
-
-dayjs.extend(isoWeek);
+import {
+  formatCompactWeekLabel,
+  formatMonthLabel,
+  getMonthScopedWeekId,
+} from "@/lib/display-text";
 
 interface IssueRailProps {
   dailyIssues: DailyIssue[];
@@ -40,15 +41,6 @@ interface ArchiveYearGroup {
   months: ArchiveMonthGroup[];
 }
 
-function getIssueWeekId(date: string): string {
-  const value = dayjs(date);
-  return `${value.isoWeekYear()}-W${String(value.isoWeek()).padStart(2, "0")}`;
-}
-
-function formatWeekLabel(weekId: string): string {
-  return formatDisplayWeekLabel(weekId);
-}
-
 function formatWeekRange(dates: string[]): string {
   const ordered = [...dates].sort();
   if (ordered.length === 0) return "";
@@ -68,7 +60,7 @@ function buildArchiveTree(
     const value = dayjs(issue.date);
     const year = value.format("YYYY");
     const monthKey = value.format("YYYY-MM");
-    const weekId = getIssueWeekId(issue.date);
+    const weekId = getMonthScopedWeekId(issue.date);
 
     if (!yearMap.has(year)) yearMap.set(year, new Map());
 
@@ -94,7 +86,7 @@ function buildArchiveTree(
 
               return {
                 weekId,
-                label: weeklyIssue?.label ?? formatWeekLabel(weekId),
+                label: formatCompactWeekLabel(weekId),
                 rangeLabel:
                   weeklyIssue?.rangeLabel ??
                   formatWeekRange(orderedDays.map((issue) => issue.date)),
@@ -108,7 +100,7 @@ function buildArchiveTree(
 
           return {
             key: monthKey,
-            label: dayjs(`${monthKey}-01`).format("MMM").toUpperCase(),
+            label: formatMonthLabel(monthKey),
             latestDate: weeks[0]?.latestDate ?? `${monthKey}-01`,
             issueCount: weeks.reduce((sum, week) => sum + week.issueCount, 0),
             weeks,
@@ -140,6 +132,22 @@ function IssueStamp({
   );
 }
 
+function DisclosureChevron() {
+  return (
+    <span className="rail-chevron" aria-hidden="true">
+      <svg viewBox="0 0 16 16" fill="none">
+        <path
+          d="M4.25 6.25L8 10L11.75 6.25"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.35"
+        />
+      </svg>
+    </span>
+  );
+}
+
 export default function IssueRail({
   dailyIssues,
   weeklyIssues,
@@ -152,49 +160,34 @@ export default function IssueRail({
   const focusDate = currentDate ?? currentWeeklyIssue?.latestDate ?? dailyIssues[0]?.date;
   const focusYear = focusDate ? dayjs(focusDate).format("YYYY") : undefined;
   const focusMonthKey = focusDate ? dayjs(focusDate).format("YYYY-MM") : undefined;
-  const focusWeekId = currentWeekId ?? (focusDate ? getIssueWeekId(focusDate) : undefined);
+  const focusWeekId = currentWeekId ?? (focusDate ? getMonthScopedWeekId(focusDate) : undefined);
   const latestYear = archiveTree[0]?.year;
   const latestMonthKey = archiveTree[0]?.months[0]?.key;
   const latestWeekId = archiveTree[0]?.months[0]?.weeks[0]?.weekId;
 
   return (
-    <div className={`text-[13px] text-stone-700 ${compact ? "space-y-6" : "space-y-7"}`}>
+    <div className={`rail-tree ${compact ? "space-y-5" : "space-y-6"}`}>
       <section className="space-y-4">
-        <div className="rail-label">资讯归档</div>
+        <div className="rail-label">刊期导航</div>
 
         {archiveTree.map((yearGroup) => {
           const yearActive = yearGroup.year === focusYear;
           const yearOpen = yearActive || yearGroup.year === latestYear;
 
           return (
-            <details
-              key={yearGroup.year}
-              open={yearOpen}
-              className="rail-panel group"
-            >
-              <summary
-                className={`rail-summary rail-summary-year ${yearActive ? "is-active" : ""}`}
-              >
-                <div>
-                  <div
-                    className={`font-mono text-[10px] uppercase tracking-[0.28em] ${
-                      yearActive ? "text-white/65" : "text-black/40"
-                    }`}
-                  >
-                    Year
-                  </div>
-                  <div
-                    className={`mt-1 text-[16px] font-semibold tracking-[0.2em] ${
-                      yearActive ? "text-white" : "text-black"
-                    }`}
-                  >
-                    {yearGroup.year}
+            <details key={yearGroup.year} open={yearOpen} className="rail-tier rail-tier-year">
+              <summary className={`rail-head ${yearActive ? "is-active" : ""}`}>
+                <div className="rail-head-main">
+                  <DisclosureChevron />
+                  <div className="rail-copy">
+                    <div className="rail-kicker">YEAR</div>
+                    <div className="rail-title rail-title-year">{yearGroup.year}</div>
                   </div>
                 </div>
                 <IssueStamp active={yearActive}>{yearGroup.issueCount}</IssueStamp>
               </summary>
 
-              <div className="border-t border-black/10">
+              <div className="rail-children rail-children-year">
                 {yearGroup.months.map((monthGroup) => {
                   const monthActive = monthGroup.key === focusMonthKey;
                   const monthOpen = monthActive || monthGroup.key === latestMonthKey;
@@ -203,23 +196,20 @@ export default function IssueRail({
                     <details
                       key={monthGroup.key}
                       open={monthOpen}
-                      className="border-b border-black/8 last:border-b-0"
+                      className="rail-tier rail-tier-month"
                     >
-                      <summary
-                        className={`rail-summary rail-summary-month ${monthActive ? "is-active" : ""}`}
-                      >
-                        <div>
-                          <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-black/38">
-                            Month
-                          </div>
-                          <div className="mt-1 text-[13px] font-semibold tracking-[0.22em] text-black">
-                            {monthGroup.label}
+                      <summary className={`rail-head ${monthActive ? "is-active" : ""}`}>
+                        <div className="rail-head-main">
+                          <DisclosureChevron />
+                          <div className="rail-copy">
+                            <div className="rail-kicker">MONTH</div>
+                            <div className="rail-title">{monthGroup.label}</div>
                           </div>
                         </div>
                         <IssueStamp active={monthActive}>{monthGroup.issueCount}</IssueStamp>
                       </summary>
 
-                      <div className="border-t border-black/8 bg-white">
+                      <div className="rail-children rail-children-month">
                         {monthGroup.weeks.map((weekGroup) => {
                           const weekActive = weekGroup.weekId === focusWeekId;
                           const weekOpen = weekActive || weekGroup.weekId === latestWeekId;
@@ -228,99 +218,70 @@ export default function IssueRail({
                             <details
                               key={weekGroup.weekId}
                               open={weekOpen}
-                              className="border-b border-black/8 last:border-b-0"
+                              className="rail-tier rail-tier-week"
                             >
-                              <summary
-                                className={`rail-summary rail-summary-week ${weekActive ? "is-active" : ""}`}
-                              >
-                                <div>
-                                  <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-black/40">
-                                    {weekGroup.rangeLabel}
-                                  </div>
-                                  <div className="mt-1 text-[12px] font-semibold tracking-[0.16em] text-black">
-                                    {weekGroup.label}
+                              <summary className={`rail-head ${weekActive ? "is-active" : ""}`}>
+                                <div className="rail-head-main">
+                                  <DisclosureChevron />
+                                  <div className="rail-copy">
+                                    <div className="rail-kicker">WEEK</div>
+                                    <div className="rail-title">{weekGroup.label}</div>
+                                    <div className="rail-meta">{weekGroup.rangeLabel}</div>
                                   </div>
                                 </div>
                                 <IssueStamp active={weekActive}>{weekGroup.issueCount}</IssueStamp>
                               </summary>
 
-                              <div className="border-t border-black/8 bg-[#fdfcf9]">
+                              <div className="rail-children rail-children-day">
                                 {weekGroup.weeklyIssue ? (
                                   <Link
                                     href={`/weekly/${weekGroup.weekId}`}
-                                    className={`rail-feature-link ${
+                                    className={`rail-week-link ${
                                       currentWeekId === weekGroup.weekId ? "is-active" : ""
                                     }`}
                                   >
-                                    <div
-                                      className={`font-mono text-[10px] uppercase tracking-[0.28em] ${
-                                        currentWeekId === weekGroup.weekId
-                                          ? "text-white/65"
-                                          : "text-black/42"
-                                      }`}
-                                    >
-                                      本周综览
-                                    </div>
-                                    <div
-                                      className={`rail-entry-title mt-1 text-sm font-semibold leading-snug ${
-                                        currentWeekId === weekGroup.weekId
-                                          ? "text-white"
-                                          : "text-black"
-                                      }`}
-                                    >
+                                    <div className="rail-week-link-kicker">周报</div>
+                                    <div className="rail-week-link-title">
                                       {weekGroup.weeklyIssue.label}
                                     </div>
                                   </Link>
                                 ) : null}
 
-                                {weekGroup.dailyIssues.map((issue) => {
-                                  const active = issue.date === currentDate;
-                                  const hasImage = Boolean(issue.heroImageUrl);
-                                  const hasPodcast = issue.meta?.hasPodcast ?? false;
+                                <div className="rail-day-list">
+                                  {weekGroup.dailyIssues.map((issue) => {
+                                    const active = issue.date === currentDate;
+                                    const hasImage = Boolean(issue.heroImageUrl);
+                                    const hasPodcast = issue.meta?.hasPodcast ?? false;
 
-                                  return (
-                                    <Link
-                                      key={issue.date}
-                                      href={`/${issue.date}`}
-                                      className={`rail-entry ${active ? "is-active" : ""}`}
-                                    >
-                                      <div className="flex items-start justify-between gap-3">
-                                        <div>
-                                          <div
-                                            className={`font-mono text-[10px] uppercase tracking-[0.28em] ${
-                                              active ? "text-white/65" : "text-black/45"
-                                            }`}
-                                          >
-                                            {dayjs(issue.date).format("MM.DD")}
-                                          </div>
-                                          <div
-                                            className={`rail-entry-title mt-1 text-sm font-semibold leading-snug ${
-                                              active ? "text-white" : "text-black"
-                                            }`}
-                                          >
-                                            {issue.title}
-                                          </div>
-                                        </div>
-                                        <div className="flex shrink-0 gap-1">
-                                          {hasImage ? (
-                                            <IssueStamp active={active}>IMG</IssueStamp>
-                                          ) : null}
-                                          {hasPodcast ? (
-                                            <IssueStamp active={active}>POD</IssueStamp>
-                                          ) : null}
-                                        </div>
-                                      </div>
-                                      <div
-                                        className={`mt-2 line-clamp-2 text-xs leading-5 ${
-                                          active ? "text-white/78" : "text-black/60"
-                                        }`}
+                                    return (
+                                      <Link
+                                        key={issue.date}
+                                        href={`/${issue.date}`}
+                                        className={`rail-day-card ${active ? "is-active" : ""}`}
                                       >
-                                        {issue.summary ||
-                                          "打开查看当日完整内容。"}
-                                      </div>
-                                    </Link>
-                                  );
-                                })}
+                                        <div className="rail-day-header">
+                                          <div className="min-w-0">
+                                            <div className="rail-day-meta">
+                                              {dayjs(issue.date).format("MM.DD")}
+                                            </div>
+                                            <div className="rail-day-title">{issue.title}</div>
+                                          </div>
+                                          <div className="rail-day-badges">
+                                            {hasImage ? (
+                                              <IssueStamp active={active}>IMG</IssueStamp>
+                                            ) : null}
+                                            {hasPodcast ? (
+                                              <IssueStamp active={active}>POD</IssueStamp>
+                                            ) : null}
+                                          </div>
+                                        </div>
+                                        {active && issue.summary ? (
+                                          <div className="rail-day-summary">{issue.summary}</div>
+                                        ) : null}
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
                               </div>
                             </details>
                           );

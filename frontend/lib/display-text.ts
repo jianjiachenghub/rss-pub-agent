@@ -6,14 +6,57 @@ const GENERIC_ISSUE_TITLE_PATTERN =
 const GENERIC_ISSUE_HEADING_PATTERN =
   /^#\s*(?:🗞️\s*)?(?:AI\s*日报|个人日报)\s*(?:[|｜:：\-–—]\s*)?.*(?:\r?\n)+/;
 
+const CHINESE_WEEK_NUMBERS = ["一", "二", "三", "四"];
+
 function buildDailyHeadline(date: string): string {
   return `${dayjs(date).format("YYYY.MM.DD")} 要闻`;
 }
 
+function getChineseWeekNumber(weekNumber: number): string {
+  return CHINESE_WEEK_NUMBERS[Math.min(Math.max(weekNumber, 1), 4) - 1] ?? "一";
+}
+
+function parseMonthScopedWeekId(weekId: string) {
+  const match = weekId.match(/^(\d{4})-(\d{2})-W([1-4])$/);
+
+  if (!match) return null;
+
+  return {
+    year: match[1],
+    month: Number(match[2]),
+    weekNumber: Number(match[3]),
+  };
+}
+
+export function getMonthScopedWeekNumber(date: string): number {
+  const dayOfMonth = dayjs(date).date();
+  return Math.min(Math.ceil(dayOfMonth / 7), 4);
+}
+
+export function getMonthScopedWeekId(date: string): string {
+  const value = dayjs(date);
+  return `${value.format("YYYY-MM")}-W${getMonthScopedWeekNumber(date)}`;
+}
+
 export function formatDisplayWeekLabel(weekId: string): string {
-  const [year, week] = weekId.split("-W");
-  if (!year || !week) return weekId;
-  return `${year} 第${Number(week)}周`;
+  const parsed = parseMonthScopedWeekId(weekId);
+  if (!parsed) return weekId;
+
+  return `${parsed.month}月第${getChineseWeekNumber(parsed.weekNumber)}周`;
+}
+
+export function formatCompactWeekLabel(weekId: string): string {
+  const parsed = parseMonthScopedWeekId(weekId);
+  if (!parsed) return weekId;
+
+  return `第${getChineseWeekNumber(parsed.weekNumber)}周`;
+}
+
+export function formatMonthLabel(monthKey: string): string {
+  const match = monthKey.match(/^(\d{4})-(\d{2})$/);
+  if (!match) return monthKey;
+
+  return `${Number(match[2])} 月`;
 }
 
 export function getDisplayIssueTitle(title: string, date: string): string {

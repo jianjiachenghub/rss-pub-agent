@@ -13,7 +13,7 @@ export default function PodcastPlayer({ date, audioUrl, script }: Props) {
 
   return (
     <article className="editorial-card interactive-panel px-5 py-5">
-      <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-black/42">
+      <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-black/58">
         {date}
       </div>
       <div className="mt-4 flex flex-wrap items-center gap-3">
@@ -31,7 +31,7 @@ export default function PodcastPlayer({ date, audioUrl, script }: Props) {
         </button>
       </div>
       {showScript ? (
-        <pre className="mt-5 overflow-x-auto border border-black/10 bg-[#111] px-4 py-4 text-sm leading-7 whitespace-pre-wrap text-[#f8f6ef]">
+        <pre className="mt-5 overflow-x-auto border border-black/10 bg-[#111] px-4 py-4 whitespace-pre-wrap text-sm leading-7 text-[#f8f6ef]">
           {script}
         </pre>
       ) : null}
