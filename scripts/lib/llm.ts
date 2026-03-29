@@ -6,11 +6,6 @@ import {
   runWithLLMConcurrency,
 } from "./llm-concurrency.js";
 
-// ============================================================
-// LLM Provider 统一接入层
-// 支持：智谱 GLM / OpenAI / Gemini，可在 configs 中自由切换
-// ============================================================
-
 export interface LLMRequest {
   prompt: string;
   systemPrompt?: string;
@@ -70,11 +65,25 @@ export function isContentSafetyError(err: unknown): boolean {
   return (
     message.includes("1301") ||
     message.includes("不安全或敏感内容") ||
+    message.includes("敏感内容") ||
+    message.includes("content safety") ||
     message.toLowerCase().includes("content safety")
   );
 }
 
-// ---------- Provider 定义 ----------
+export function shouldTryGeminiContentSafetyBackup(opts: {
+  currentProvider: string;
+  err: unknown;
+  geminiConfigured: boolean;
+  triedProviders?: Iterable<string>;
+}): boolean {
+  if (!opts.geminiConfigured) return false;
+  if (opts.currentProvider === "gemini") return false;
+  if (!isContentSafetyError(opts.err)) return false;
+
+  const triedProviders = new Set(opts.triedProviders ?? []);
+  return !triedProviders.has("gemini");
+}
 
 interface ProviderConfig {
   name: string;
@@ -83,25 +92,24 @@ interface ProviderConfig {
   call: (req: LLMRequest) => Promise<LLMResponse>;
 }
 
-// --- OpenAI-compatible 通用调用 ---
 function createOpenAICompatibleProvider(opts: {
   name: string;
   envKey: string;
   baseURL?: string;
   models: { flash: string; pro: string };
 }): ProviderConfig {
-  let _client: OpenAI | null = null;
+  let client: OpenAI | null = null;
 
   function getClient(): OpenAI {
-    if (!_client) {
+    if (!client) {
       const apiKey = process.env[opts.envKey];
       if (!apiKey) throw new Error(`${opts.envKey} not set`);
-      _client = new OpenAI({
+      client = new OpenAI({
         apiKey,
         ...(opts.baseURL ? { baseURL: opts.baseURL } : {}),
       });
     }
-    return _client;
+    return client;
   }
 
   return {
@@ -130,9 +138,11 @@ function createOpenAICompatibleProvider(opts: {
 
       const response = await getClient().chat.completions.create(params);
       const choice = response.choices[0];
-      const message = choice?.message as any;
+      const message = choice?.message as {
+        content?: string;
+        reasoning_content?: string;
+      };
 
-      // GLM-5 等推理模型可能会把主要内容放在 reasoning_content 里（或者 content 为空）
       const text = message?.content || message?.reasoning_content || "";
 
       return {
@@ -145,17 +155,16 @@ function createOpenAICompatibleProvider(opts: {
   };
 }
 
-// --- Gemini (Google GenAI SDK) ---
 function createGeminiProvider(): ProviderConfig {
-  let _client: GoogleGenAI | null = null;
+  let client: GoogleGenAI | null = null;
 
   function getClient(): GoogleGenAI {
-    if (!_client) {
+    if (!client) {
       const apiKey = process.env.GEMINI_API_KEY;
       if (!apiKey) throw new Error("GEMINI_API_KEY not set");
-      _client = new GoogleGenAI({ apiKey });
+      client = new GoogleGenAI({ apiKey });
     }
-    return _client;
+    return client;
   }
 
   const models = { flash: "gemini-2.0-flash", pro: "gemini-2.5-pro" };
@@ -196,8 +205,6 @@ function createGeminiProvider(): ProviderConfig {
   };
 }
 
-// ---------- Provider 注册表 ----------
-
 const PROVIDERS: Record<string, ProviderConfig> = {
   zhipu: createOpenAICompatibleProvider({
     name: "zhipu",
@@ -225,11 +232,12 @@ const PROVIDERS: Record<string, ProviderConfig> = {
   }),
 };
 
-// ---------- Provider 优先级 ----------
-// 从环境变量 LLM_PROVIDERS 读取，逗号分隔，默认 "zhipu,gemini,openai"
 function getProviderChain(): ProviderConfig[] {
   const raw = process.env.LLM_PROVIDERS ?? "zhipu,gemini,openai";
-  const names = raw.split(",").map((s) => s.trim()).filter(Boolean);
+  const names = raw
+    .split(",")
+    .map((name) => name.trim())
+    .filter(Boolean);
 
   const chain: ProviderConfig[] = [];
   for (const name of names) {
@@ -241,14 +249,39 @@ function getProviderChain(): ProviderConfig[] {
 
   if (chain.length === 0) {
     throw new Error(
-      `No LLM provider available. Set at least one API key: ${Object.values(PROVIDERS).map((p) => p.envKey).join(", ")}`
+      `No LLM provider available. Set at least one API key: ${Object.values(
+        PROVIDERS
+      )
+        .map((provider) => provider.envKey)
+        .join(", ")}`
     );
   }
 
   return chain;
 }
 
-// ---------- 核心调用 ----------
+function getGeminiBackupProvider(
+  triedProviders: Set<string>
+): ProviderConfig | null {
+  const provider = PROVIDERS.gemini;
+  if (!process.env[provider.envKey]) return null;
+  if (triedProviders.has(provider.name)) return null;
+  return provider;
+}
+
+function findNextProvider(
+  chain: ProviderConfig[],
+  startIndex: number,
+  triedProviders: Set<string>
+): ProviderConfig | null {
+  for (let i = startIndex + 1; i < chain.length; i++) {
+    const provider = chain[i];
+    if (!triedProviders.has(provider.name)) {
+      return provider;
+    }
+  }
+  return null;
+}
 
 async function callWithRetry(
   provider: ProviderConfig,
@@ -276,47 +309,95 @@ async function callWithRetry(
         msg.includes("ETIMEDOUT") ||
         msg.includes("socket hang up") ||
         msg.includes("network");
+
       if (isRetryable && i < retries) {
         const delay = (i + 1) * 3000;
         noteProviderCooldown(provider.name, delay);
         console.warn(
-          `[LLM] ${provider.name} retrying in ${delay / 1000}s... (attempt ${i + 1}/${retries})`
+          `[LLM] ${provider.name} retrying in ${delay / 1000}s... (attempt ${
+            i + 1
+          }/${retries})`
         );
-        await new Promise((r) => setTimeout(r, delay));
+        await new Promise((resolve) => setTimeout(resolve, delay));
         continue;
       }
+
       throw err;
     }
   }
+
   throw new Error("Unreachable");
 }
 
 export async function callLLM(req: LLMRequest): Promise<LLMResponse> {
   const chain = getProviderChain();
+  const triedProviders = new Set<string>();
 
   for (let i = 0; i < chain.length; i++) {
     const provider = chain[i];
-    const nextProvider = chain[i + 1];
+    if (triedProviders.has(provider.name)) {
+      continue;
+    }
 
+    const nextProvider = findNextProvider(chain, i, triedProviders);
     if (nextProvider && isProviderCoolingDown(provider.name)) {
       console.warn(
-        `[LLM] ${provider.name} cooling down (${req.model ?? "flash"}), trying ${nextProvider.name}`
+        `[LLM] ${provider.name} cooling down (${
+          req.model ?? "flash"
+        }), trying ${nextProvider.name}`
       );
       continue;
     }
 
+    triedProviders.add(provider.name);
     console.log(`[LLM] Calling ${provider.name} (${req.model ?? "flash"})...`);
+
     try {
       return await callWithRetry(provider, req);
     } catch (err) {
-      const isLast = i === chain.length - 1;
-      if (isLast) throw err;
+      let lastError = err;
+
+      if (
+        shouldTryGeminiContentSafetyBackup({
+          currentProvider: provider.name,
+          err,
+          geminiConfigured: Boolean(process.env.GEMINI_API_KEY),
+          triedProviders,
+        })
+      ) {
+        const geminiProvider = getGeminiBackupProvider(triedProviders);
+        if (geminiProvider) {
+          triedProviders.add(geminiProvider.name);
+          console.warn(
+            `[LLM] ${provider.name} hit content safety (${
+              req.model ?? "flash"
+            }), trying gemini backup`
+          );
+
+          try {
+            return await callWithRetry(geminiProvider, req);
+          } catch (geminiErr) {
+            lastError = geminiErr;
+            console.warn(
+              `[LLM] gemini backup failed (${req.model ?? "flash"}), continuing provider chain:`,
+              getErrorMessage(geminiErr)
+            );
+          }
+        }
+      }
+
+      const remainingProvider = findNextProvider(chain, i, triedProviders);
+      if (!remainingProvider) {
+        throw lastError;
+      }
+
       console.warn(
-        `[LLM] ${provider.name} failed (${req.model ?? "flash"}), trying ${nextProvider.name}:`,
-        getErrorMessage(err)
+        `[LLM] ${provider.name} failed (${req.model ?? "flash"}), trying ${remainingProvider.name}:`,
+        getErrorMessage(lastError)
       );
     }
   }
+
   throw new Error("All LLM providers failed");
 }
 
@@ -403,6 +484,7 @@ function extractEmbeddedJson(text: string): string | null {
     if (text[i] !== "{" && text[i] !== "[") continue;
     const candidate = findBalancedJsonSlice(text, i);
     if (!candidate) continue;
+
     try {
       const parsed = tryParseJson(candidate);
       if (typeof parsed === "object" && parsed !== null) {
@@ -421,16 +503,17 @@ export function parseJsonResponse<T>(text: string): T {
 
   try {
     return normalizeParsedJson<T>(tryParseJson(cleaned));
-  } catch (e) {
+  } catch (err) {
     const embeddedJson = extractEmbeddedJson(cleaned);
     if (embeddedJson) {
       return normalizeParsedJson<T>(tryParseJson(embeddedJson));
     }
+
     console.error(
       "[LLM] JSON parse failed. Raw text (first 500 chars):",
       cleaned.slice(0, 500)
     );
-    throw e;
+    throw err;
   }
 }
 
@@ -440,9 +523,8 @@ function normalizeParsedJson<T>(parsed: unknown): T {
   }
 
   if (typeof parsed === "object" && parsed !== null) {
-    // Look for the first array value in the object (e.g. {"results": [...]} or {"items": [...]})
     const values = Object.values(parsed);
-    const arrayValue = values.find((v) => Array.isArray(v));
+    const arrayValue = values.find((value) => Array.isArray(value));
     if (arrayValue) {
       return arrayValue as T;
     }
