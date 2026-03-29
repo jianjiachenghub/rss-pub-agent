@@ -103,31 +103,11 @@ function extractFirstHeading(body: string): string | null {
   return match?.[1]?.trim() || null;
 }
 
-function extractLeadSummary(body: string): string {
+function extractFirstQuote(body: string): string {
   const matches = Array.from(body.matchAll(/^>\s*(.+)$/gm))
     .map((match) => normalizePreviewText(match[1]))
     .filter(Boolean);
-  if (matches[0]) {
-    return matches[0];
-  }
-
-  const judgmentMatch = body.match(/##\s+今日判断\s+([\s\S]*?)(?:\n##\s+|$)/);
-  if (judgmentMatch?.[1]) {
-    const paragraphs = judgmentMatch[1]
-      .split(/\n\s*\n/)
-      .map((paragraph) => normalizePreviewText(paragraph))
-      .filter(Boolean);
-    if (paragraphs[0]) {
-      return paragraphs[0];
-    }
-  }
-
-  const paragraphs = body
-    .split(/\n\s*\n/)
-    .map((paragraph) => normalizePreviewText(paragraph))
-    .filter(Boolean);
-
-  return paragraphs[0] ?? "";
+  return matches[0] ?? "";
 }
 
 function extractHeroImage(body: string): string | undefined {
@@ -264,7 +244,7 @@ export function getDailyIssue(date: string): DailyIssue | null {
   if (!content) return null;
 
   const body = stripFrontmatter(content);
-  const summary = extractLeadSummary(body);
+  const summary = extractFirstQuote(body);
   return {
     date,
     title: getIssueTitle(content, date),

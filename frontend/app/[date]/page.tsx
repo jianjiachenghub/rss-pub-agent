@@ -1,6 +1,5 @@
 import dayjs from "dayjs";
 import { notFound } from "next/navigation";
-import DailyOutline from "@/components/DailyOutline";
 import DailyReport from "@/components/DailyReport";
 import PublicationShell from "@/components/PublicationShell";
 import {
@@ -9,7 +8,6 @@ import {
   getDailyIssue,
   getWeeklyIssues,
 } from "@/lib/content-loader";
-import { parseDailyReport } from "@/lib/daily-report";
 
 export const dynamicParams = false;
 
@@ -31,7 +29,6 @@ export default async function DailyPage({
   const weeklyIssues = getWeeklyIssues();
   const focusTitles = issue.keyTitles.slice(0, 3);
   const categoryList = issue.meta?.categories ?? [];
-  const report = parseDailyReport(issue.content);
 
   return (
     <PublicationShell currentDate={date} dailyIssues={dailyIssues} weeklyIssues={weeklyIssues}>
@@ -100,13 +97,8 @@ export default async function DailyPage({
         </div>
       </section>
 
-      <section className="mt-8 grid gap-6 xl:grid-cols-[minmax(0,1fr)_18.5rem]">
-        <div className="xl:order-2">
-          <DailyOutline outline={report.outline} />
-        </div>
-        <div className="xl:order-1">
-          <DailyReport sections={report.sections} />
-        </div>
+      <section className="mt-8">
+        <DailyReport content={issue.content} />
       </section>
     </PublicationShell>
   );

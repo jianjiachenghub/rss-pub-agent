@@ -10,7 +10,6 @@ function createInsight(overrides: Partial<NewsInsight> = {}): NewsInsight {
   return {
     id: overrides.id ?? "id",
     title: overrides.title ?? "Title",
-    displayTitle: overrides.displayTitle ?? "中文标题",
     url: overrides.url ?? "https://example.com",
     source: overrides.source ?? "Example",
     category: overrides.category ?? "ai",
