@@ -21,9 +21,9 @@ const monoFont = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RSS Agent | 基于LLM的 News Folo",
+  title: "RSS Agent | 基于 LLM 的 News Flow",
   description:
-    "RSS Agent 是一个基于 LLM 的 News Folo 与研究归档界面，提供日报、周报、时间线和播客输出。",
+    "RSS Agent 是一个基于 LLM 的 News Flow 与研究归档界面，提供日报、周报、时间线和播客输出。",
 };
 
 export default function RootLayout({

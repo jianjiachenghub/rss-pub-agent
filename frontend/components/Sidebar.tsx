@@ -57,12 +57,12 @@ export default function Sidebar({ currentDate, years }: SidebarProps) {
   };
 
   return (
-    <aside className="w-64 border-r border-gray-200 dark:border-gray-800 p-4 hidden md:block shrink-0 h-screen overflow-y-auto sticky top-0">
+    <aside className="sticky top-0 hidden h-screen w-64 shrink-0 overflow-y-auto border-r border-gray-200 p-4 dark:border-gray-800 md:block">
       <div className="mb-6">
         <Link href="/" className="text-xl font-bold text-indigo-600">
-          AI News Flow
+          RSS Agent
         </Link>
-        <p className="text-xs text-gray-500 mt-1">更准 · 更快 · 更有用</p>
+        <p className="mt-1 text-xs text-gray-500">基于 LLM 的 News Flow</p>
       </div>
 
       <nav className="space-y-1">
@@ -70,29 +70,30 @@ export default function Sidebar({ currentDate, years }: SidebarProps) {
           <div key={yearGroup.year}>
             <button
               onClick={() => toggleYear(yearGroup.year)}
-              className="flex items-center w-full px-3 py-2 text-sm font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="flex w-full items-center rounded-lg px-3 py-2 text-sm font-semibold transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
             >
-              <span className="mr-2 text-gray-400 text-xs">
-                {expandedYears.has(yearGroup.year) ? "▼" : "▶"}
+              <span className="mr-2 text-xs text-gray-400">
+                {expandedYears.has(yearGroup.year) ? "▾" : "▸"}
               </span>
               {yearGroup.year}
               <span className="ml-auto text-xs text-gray-400">
-                {yearGroup.months.reduce((sum, m) => sum + m.dates.length, 0)}
+                {yearGroup.months.reduce((sum, month) => sum + month.dates.length, 0)}
               </span>
             </button>
 
-            {expandedYears.has(yearGroup.year) && (
+            {expandedYears.has(yearGroup.year) ? (
               <div className="ml-3">
                 {yearGroup.months.map((monthGroup) => {
                   const monthKey = `${monthGroup.year}-${monthGroup.month}`;
+
                   return (
                     <div key={monthKey}>
                       <button
                         onClick={() => toggleMonth(monthKey)}
-                        className="flex items-center w-full px-3 py-1.5 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        className="flex w-full items-center rounded-lg px-3 py-1.5 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
                       >
-                        <span className="mr-2 text-gray-400 text-xs">
-                          {expandedMonths.has(monthKey) ? "▼" : "▶"}
+                        <span className="mr-2 text-xs text-gray-400">
+                          {expandedMonths.has(monthKey) ? "▾" : "▸"}
                         </span>
                         {monthGroup.label}
                         <span className="ml-auto text-xs text-gray-400">
@@ -100,41 +101,43 @@ export default function Sidebar({ currentDate, years }: SidebarProps) {
                         </span>
                       </button>
 
-                      {expandedMonths.has(monthKey) && (
+                      {expandedMonths.has(monthKey) ? (
                         <div className="ml-5 space-y-0.5">
                           {monthGroup.dates.map((entry) => (
                             <Link
                               key={entry.date}
                               href={`/${entry.date}`}
-                              className={`flex items-center px-3 py-1.5 text-sm rounded-lg transition-colors ${
+                              className={`flex items-center rounded-lg px-3 py-1.5 text-sm transition-colors ${
                                 entry.date === currentDate
                                   ? "bg-indigo-600 text-white"
-                                  : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                  : "text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800"
                               }`}
                             >
-                              <span className={`w-1.5 h-1.5 rounded-full mr-2 ${
-                                entry.date === currentDate ? "bg-white" : "bg-indigo-400"
-                              }`} />
+                              <span
+                                className={`mr-2 h-1.5 w-1.5 rounded-full ${
+                                  entry.date === currentDate ? "bg-white" : "bg-indigo-400"
+                                }`}
+                              />
                               {parseInt(entry.day, 10)}日
                             </Link>
                           ))}
                         </div>
-                      )}
+                      ) : null}
                     </div>
                   );
                 })}
               </div>
-            )}
+            ) : null}
           </div>
         ))}
       </nav>
 
-      <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-800 space-y-1">
+      <div className="mt-6 space-y-1 border-t border-gray-200 pt-4 dark:border-gray-800">
         <Link
           href="/podcast"
-          className="block px-3 py-2 rounded-lg text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          className="block rounded-lg px-3 py-2 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
         >
-          🎙 播客
+          播客
         </Link>
       </div>
     </aside>

@@ -35,6 +35,9 @@ body {
     linear-gradient(180deg, var(--paper), var(--paper-deep));
   color: var(--ink);
   font-family: var(--font-body), "PingFang SC", "Microsoft YaHei", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body::before {
@@ -254,10 +257,10 @@ img {
 }
 
 .header-brand-subline {
-  color: rgba(12, 18, 32, 0.6);
+  color: rgba(12, 18, 32, 0.72);
   font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.86rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
 }
 
@@ -576,11 +579,11 @@ img {
 }
 
 .page-kicker {
-  color: rgba(12, 18, 32, 0.6);
+  color: rgba(12, 18, 32, 0.72);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
@@ -895,9 +898,10 @@ img {
 
 .about-metric-note {
   margin: 0.75rem 0 0;
-  color: rgba(12, 18, 32, 0.62);
-  font-size: 0.88rem;
-  line-height: 1.7;
+  color: rgba(12, 18, 32, 0.76);
+  font-size: 0.94rem;
+  font-weight: 500;
+  line-height: 1.75;
 }
 
 .about-side-card {
@@ -934,16 +938,24 @@ img {
 
 .about-inline-value {
   color: rgba(10, 16, 26, 0.92);
-  font-size: 0.94rem;
-  font-weight: 600;
-  line-height: 1.65;
+  font-size: 0.98rem;
+  font-weight: 650;
+  line-height: 1.72;
+}
+
+.about-body-copy {
+  color: rgba(12, 18, 32, 0.9);
+  font-size: 1.06rem;
+  font-weight: 500;
+  line-height: 1.92;
 }
 
 .about-section-lead {
   margin: 1.35rem 0 0;
-  color: rgba(12, 18, 32, 0.78);
-  font-size: 1rem;
-  line-height: 1.86;
+  color: rgba(12, 18, 32, 0.88);
+  font-size: 1.06rem;
+  font-weight: 500;
+  line-height: 1.9;
 }
 
 .about-rule-row {
@@ -995,9 +1007,10 @@ img {
 
 .about-primary-copy {
   margin: 0.75rem 0 0;
-  color: rgba(12, 18, 32, 0.74);
-  font-size: 0.98rem;
-  line-height: 1.82;
+  color: rgba(12, 18, 32, 0.86);
+  font-size: 1.04rem;
+  font-weight: 500;
+  line-height: 1.88;
 }
 
 .about-primary-meta {
@@ -1022,6 +1035,10 @@ img {
   box-shadow:
     0 14px 28px rgba(18, 24, 38, 0.05),
     0 1px 0 rgba(255, 255, 255, 0.88) inset;
+}
+
+.about-primary-panel-wide {
+  margin-top: 1rem;
 }
 
 .about-source-grid,
@@ -1084,9 +1101,10 @@ img {
 .about-score-copy,
 .about-summary-copy {
   margin: 0.5rem 0 0;
-  color: rgba(12, 18, 32, 0.68);
-  font-size: 0.9rem;
-  line-height: 1.72;
+  color: rgba(12, 18, 32, 0.84);
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.82;
 }
 
 .about-feed-list,
@@ -1117,18 +1135,18 @@ img {
 
 .about-feed-title {
   color: rgba(10, 16, 26, 0.92);
-  font-size: 0.93rem;
-  font-weight: 650;
+  font-size: 0.98rem;
+  font-weight: 700;
   line-height: 1.45;
 }
 
 .about-feed-meta,
 .about-weight-meta {
   margin-top: 0.22rem;
-  color: rgba(12, 18, 32, 0.54);
+  color: rgba(12, 18, 32, 0.68);
   font-family: var(--font-mono);
-  font-size: 0.6rem;
-  font-weight: 600;
+  font-size: 0.64rem;
+  font-weight: 650;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -1194,9 +1212,10 @@ img {
 .about-bullet-list {
   margin: 0.7rem 0 0;
   padding-left: 1.2rem;
-  color: rgba(12, 18, 32, 0.74);
-  font-size: 0.92rem;
-  line-height: 1.78;
+  color: rgba(12, 18, 32, 0.86);
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.84;
 }
 
 .about-flow-line {
@@ -1309,22 +1328,21 @@ details[open] > .rail-head .rail-chevron {
 
 .rail-kicker {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(12, 18, 32, 0.52);
+  color: rgba(12, 18, 32, 0.64);
 }
 
-.rail-tier-year > .rail-head.is-active .rail-kicker,
-.rail-day-card.is-active .rail-day-meta {
+.rail-tier-year > .rail-head.is-active .rail-kicker {
   color: rgba(255, 255, 255, 0.68);
 }
 
 .rail-title {
   margin-top: 0.28rem;
-  font-size: 0.98rem;
-  font-weight: 650;
+  font-size: 1.03rem;
+  font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
   color: rgba(12, 18, 32, 0.94);
@@ -1343,18 +1361,18 @@ details[open] > .rail-head .rail-chevron {
 .rail-meta {
   margin-top: 0.32rem;
   font-family: var(--font-mono);
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: 0.64rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(12, 18, 32, 0.56);
+  color: rgba(12, 18, 32, 0.68);
 }
 
 .rail-children {
   position: relative;
-  margin-left: 1.15rem;
+  margin-left: 0.4rem;
   border-top: 1px solid rgba(12, 18, 32, 0.08);
-  padding: 0.7rem 0 0.9rem 0.95rem;
+  padding: 0.7rem 0 0.85rem 0.7rem;
 }
 
 .rail-children::before {
@@ -1368,18 +1386,18 @@ details[open] > .rail-head .rail-chevron {
 }
 
 .rail-children-year {
-  margin-left: 0.95rem;
-  padding-left: 0.82rem;
+  margin-left: 0;
+  padding-left: 0.55rem;
 }
 
 .rail-children-month {
-  margin-left: 0.68rem;
-  padding-left: 0.62rem;
+  margin-left: 0;
+  padding-left: 0.46rem;
 }
 
 .rail-children-day {
-  margin-left: 0.32rem;
-  padding-left: 0.36rem;
+  margin-left: 0;
+  padding-left: 0.22rem;
 }
 
 .rail-children-day::before {
@@ -1388,11 +1406,11 @@ details[open] > .rail-head .rail-chevron {
 
 .rail-week-link {
   display: block;
-  margin: 0 0.35rem 0.55rem;
+  margin: 0 0.2rem 0.45rem;
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   background: linear-gradient(180deg, rgba(240, 245, 255, 0.9), rgba(255, 255, 255, 0.74));
-  padding: 0.85rem 0.9rem;
+  padding: 0.78rem 0.82rem;
   transition:
     transform 220ms ease,
     box-shadow 220ms ease,
@@ -1424,8 +1442,8 @@ details[open] > .rail-head .rail-chevron {
 
 .rail-week-link-title {
   margin-top: 0.3rem;
-  font-size: 0.98rem;
-  font-weight: 650;
+  font-size: 1rem;
+  font-weight: 700;
   line-height: 1.35;
   color: rgba(12, 18, 32, 0.94);
 }
@@ -1437,16 +1455,16 @@ details[open] > .rail-head .rail-chevron {
 .rail-day-list {
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.35rem;
 }
 
 .rail-day-card {
   display: block;
-  margin: 0 0.35rem;
+  margin: 0 0.2rem;
   border: 1px solid transparent;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.58);
-  padding: 0.8rem 0.9rem;
+  padding: 0.68rem 0.82rem;
   transition:
     transform 220ms ease,
     border-color 220ms ease,
@@ -1468,25 +1486,15 @@ details[open] > .rail-head .rail-chevron {
   color: white;
 }
 
-.rail-day-meta {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(12, 18, 32, 0.56);
-}
-
 .rail-day-title {
-  margin-top: 0.32rem;
-  font-size: 0.95rem;
-  font-weight: 650;
-  line-height: 1.35;
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.4;
   color: inherit;
 }
 
 .rail-day-footer {
-  margin-top: 0.68rem;
+  margin-top: 0.48rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
@@ -1496,17 +1504,17 @@ details[open] > .rail-head .rail-chevron {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 1.6rem;
+  min-height: 1.5rem;
   border: 1px solid rgba(12, 18, 32, 0.08);
   border-radius: 999px;
   background: rgba(247, 249, 253, 0.86);
-  padding: 0 0.62rem;
+  padding: 0 0.58rem;
   font-family: var(--font-mono);
-  font-size: 0.58rem;
-  font-weight: 600;
+  font-size: 0.6rem;
+  font-weight: 650;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(12, 18, 32, 0.66);
+  color: rgba(12, 18, 32, 0.74);
 }
 
 .rail-day-card.is-active .rail-day-stat {
@@ -1524,9 +1532,10 @@ details[open] > .rail-head .rail-chevron {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.72);
   padding: 0.34rem 0.58rem;
-  color: rgba(12, 18, 32, 0.56);
+  color: rgba(12, 18, 32, 0.72);
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.64rem;
+  font-weight: 650;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   backdrop-filter: blur(12px);

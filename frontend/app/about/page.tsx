@@ -57,11 +57,11 @@ export default function AboutPage() {
           <div className="mt-8 grid gap-6 xl:grid-cols-[minmax(0,1.18fr)_minmax(20rem,0.82fr)]">
             <div className="space-y-4">
               {PROJECT_ABOUT_PARAGRAPHS.map((paragraph) => (
-                <p key={paragraph} className="text-base leading-8 text-black/78">
+                <p key={paragraph} className="about-body-copy">
                   {paragraph}
                 </p>
               ))}
-              <p className="text-base leading-8 text-black/78">
+              <p className="about-body-copy">
                 这不是一个“抓到什么就展示什么”的前端壳子。它的核心是先把
                 多源信息做去重、编务判断、评分和结构化解读，再输出到日报、周报、播客和平台摘要。
                 因此你在首页看到的是编辑结果，在详情页看到的是原始 Markdown 报告。
@@ -70,7 +70,7 @@ export default function AboutPage() {
 
             <div className="editorial-card about-side-card p-5">
               <div className="section-label">项目摘要</div>
-              <p className="mt-5 text-sm leading-7 text-black/74">
+              <p className="about-summary-copy mt-5">
                 这套系统的目标不是替代媒体，而是替代手工筛选新闻的重复劳动。
                 它把“海量输入 → 去噪 → 判断 → 输出”的路径固定下来，确保每天都能产出一份结构稳定的研究日报。
               </p>
@@ -141,16 +141,17 @@ export default function AboutPage() {
                 </div>
               </div>
 
+              <div className="about-primary-panel about-primary-panel-wide">
+                <div className="about-bullet-title">权重 100 代表什么</div>
+                <p className="about-summary-copy">{guide.primarySource.weightExplanation}</p>
+              </div>
+
               <div className="about-rule-row">
-                <span className="outline-chip">Buzzing.cc</span>
-                <span className="outline-chip">金融时报</span>
-                <span className="outline-chip">知乎热榜</span>
-                <span className="outline-chip">Hacker News</span>
-                <span className="outline-chip">OpenAI News</span>
-                <span className="outline-chip">The GitHub Blog</span>
-                <span className="outline-chip">Google Research Blog</span>
-                <span className="outline-chip">Last Week in AI</span>
-                <span className="outline-chip">Anthropic News</span>
+                {guide.primarySource.showcaseSources.map((source) => (
+                  <span key={source} className="outline-chip">
+                    {source}
+                  </span>
+                ))}
               </div>
             </section>
           ) : null}

@@ -82,6 +82,8 @@ interface PrimarySourceInfo {
   category: FeedCategory;
   description: string;
   highlights: string[];
+  weightExplanation: string;
+  showcaseSources: string[];
 }
 
 interface ScoreDimension {
@@ -265,6 +267,28 @@ export function getProjectGuideData() {
           "列表里可以同时混合媒体、博客、热榜、社区和研究源，覆盖面明显大于单一 RSS。",
           "单源更新太慢或太窄时，Folo 列表能更早把异动推到日报主输入池里。",
           "后续系统再用独立 RSS 和补源逻辑做交叉验证，避免只靠单条热榜直接成稿。",
+        ],
+        weightExplanation:
+          "这里的权重 100 不是在给单篇新闻打分，而是在告诉抓取系统：Folo 这份列表是最优先的发现入口。只要列表里出现高价值异动，它就应该比普通单源更早进入日报主输入池，再交给后续节点做去重、过滤和评分。",
+        showcaseSources: [
+          "彭博社",
+          "金融时报",
+          "华尔街日报",
+          "雪球热帖",
+          "知乎热榜",
+          "Hacker News",
+          "V2EX",
+          "36氪 24 小时热榜",
+          "Readhub 每日早报",
+          "Binance Announcement",
+          "OpenAI News",
+          "The GitHub Blog",
+          "Google Research Blog",
+          "Google Developers Blog",
+          "Martin Fowler",
+          "Last Week in AI",
+          "Anthropic News",
+          "a16z crypto",
         ],
       }
     : null;

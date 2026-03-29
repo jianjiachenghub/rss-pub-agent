@@ -259,9 +259,6 @@ export default function IssueRail({
                                         href={`/${issue.date}`}
                                         className={`rail-day-card ${active ? "is-active" : ""}`}
                                       >
-                                        <div className="rail-day-meta">
-                                          {dayjs(issue.date).format("MM.DD")}
-                                        </div>
                                         <div className="rail-day-title">{issue.title}</div>
                                         <div className="rail-day-footer">
                                           {issue.meta ? (
