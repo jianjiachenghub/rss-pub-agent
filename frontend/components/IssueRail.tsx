@@ -259,25 +259,28 @@ export default function IssueRail({
                                         href={`/${issue.date}`}
                                         className={`rail-day-card ${active ? "is-active" : ""}`}
                                       >
-                                        <div className="rail-day-header">
-                                          <div className="min-w-0">
-                                            <div className="rail-day-meta">
-                                              {dayjs(issue.date).format("MM.DD")}
-                                            </div>
-                                            <div className="rail-day-title">{issue.title}</div>
-                                          </div>
-                                          <div className="rail-day-badges">
-                                            {hasImage ? (
-                                              <IssueStamp active={active}>IMG</IssueStamp>
-                                            ) : null}
-                                            {hasPodcast ? (
-                                              <IssueStamp active={active}>POD</IssueStamp>
-                                            ) : null}
-                                          </div>
+                                        <div className="rail-day-meta">
+                                          {dayjs(issue.date).format("MM.DD")}
                                         </div>
-                                        {active && issue.summary ? (
-                                          <div className="rail-day-summary">{issue.summary}</div>
-                                        ) : null}
+                                        <div className="rail-day-title">{issue.title}</div>
+                                        <div className="rail-day-footer">
+                                          {issue.meta ? (
+                                            <span className="rail-day-stat">
+                                              {issue.meta.itemCount} 条资讯
+                                            </span>
+                                          ) : null}
+                                          {issue.meta ? (
+                                            <span className="rail-day-stat">
+                                              均分 {issue.meta.avgScore}
+                                            </span>
+                                          ) : null}
+                                          {hasImage ? (
+                                            <span className="rail-day-stat">图片</span>
+                                          ) : null}
+                                          {hasPodcast ? (
+                                            <span className="rail-day-stat">播客</span>
+                                          ) : null}
+                                        </div>
                                       </Link>
                                     );
                                   })}
