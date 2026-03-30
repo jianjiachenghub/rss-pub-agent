@@ -2,10 +2,6 @@
   "name": "rss-pub-agent",
   "private": true,
   "scripts": {
-    "dev": "npm --prefix frontend run dev --",
-    "build": "npm --prefix frontend run build",
-    "start": "npm --prefix frontend run start --",
-    "lint": "npm --prefix frontend run lint",
     "graph": "npm --prefix scripts exec tsx graph.ts",
     "pipeline": "npm --prefix scripts run pipeline"
   }
