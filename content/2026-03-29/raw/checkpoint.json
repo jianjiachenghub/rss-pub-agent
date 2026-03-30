@@ -1,12 +1,12 @@
 {
   "sourceId": "folo-ai-list",
   "listId": "260024685080717312",
-  "publishedAfter": "2026-03-27T18:39:42.254Z",
-  "pagesFetched": 5,
-  "pagesSucceeded": 5,
+  "publishedAfter": "2026-03-28T04:29:55.551Z",
+  "pagesFetched": 4,
+  "pagesSucceeded": 4,
   "consecutiveFailures": 0,
   "stoppedReason": "older_than_24h",
   "degradedMode": "none",
-  "updatedAt": "2026-03-29T06:09:12.866Z",
-  "lastSuccessfulPublishedAt": "2026-03-27T18:39:42.254Z"
+  "updatedAt": "2026-03-29T11:57:36.071Z",
+  "lastSuccessfulPublishedAt": "2026-03-28T04:29:55.551Z"
 }
