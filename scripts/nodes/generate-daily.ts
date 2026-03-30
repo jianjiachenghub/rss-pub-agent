@@ -121,8 +121,6 @@ itemCount: ${insights.length}
       for (const item of items) {
         const displayTitle = getDisplayTitle(item.title, item.titleZh, item.oneLiner);
         markdown += `### ${displayTitle}\n\n`;
-        markdown += `评分 ${item.weightedScore} · 来源 [${item.source}](${item.url})\n\n`;
-        markdown += `${item.oneLiner}\n\n`;
 
         if (item.imageUrl) {
           markdown += `![${displayTitle}](${item.imageUrl})\n\n`;
@@ -132,6 +130,8 @@ itemCount: ${insights.length}
         if (item.interpretation) {
           markdown += `**解读：** ${item.interpretation}\n\n`;
         }
+
+        markdown += `评分 ${item.weightedScore} · 来源 [${item.source}](${item.url})\n\n`;
 
         if (
           item.comparisonTable &&

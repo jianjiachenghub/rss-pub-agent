@@ -211,12 +211,25 @@ function parseItemContent(markdown: string): {
   const meta: DailyReportItemMeta = {};
   let summary = "";
 
+  // Try parsing meta from the first block (legacy format)
   if (blocks.length > 0) {
     const parsedMeta = parseMetaBlock(blocks[0]);
     if (parsedMeta) {
       Object.assign(meta, parsedMeta.meta);
       summary = parsedMeta.summary;
       blocks.shift();
+    }
+  }
+
+  // Try parsing meta from the last block (new format: score/source after content)
+  if (!meta.score && blocks.length > 0) {
+    const parsedMeta = parseMetaBlock(blocks[blocks.length - 1]);
+    if (parsedMeta) {
+      Object.assign(meta, parsedMeta.meta);
+      if (!summary && parsedMeta.summary) {
+        summary = parsedMeta.summary;
+      }
+      blocks.pop();
     }
   }
 

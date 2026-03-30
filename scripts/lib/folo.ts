@@ -98,7 +98,9 @@ export async function fetchViaFolo(
   maxItems = 100
 ): Promise<RawNewsItem[]> {
   const now = new Date().toISOString();
-  const oneDayAgo = Date.now() - ONE_DAY_MS;
+  const todayStart = new Date();
+  todayStart.setHours(0, 0, 0, 0);
+  const oneDayAgo = todayStart.getTime() - ONE_DAY_MS;
 
   const res = await fetch(`${FOLO_API}/feeds?url=${encodeURIComponent(feedUrl)}`, {
     headers: {
@@ -207,12 +209,17 @@ export async function fetchFoloByListDetailed(
   // Metadata-first fetch is more reliable for large read-heavy lists: Folo can return
   // empty `entries` objects for read items when `withContent: true` is requested.
   const withContent = options.withContent ?? false;
-  const oneDayAgo = Date.now() - ONE_DAY_MS;
+  // Strict previous-day window: running on Mar 30 fetches Mar 29 00:00 ~ 23:59:59 only.
+  // News from today (Mar 30) is excluded so the daily report covers exactly one calendar day.
+  const todayStart = new Date();
+  todayStart.setHours(0, 0, 0, 0);
+  const yesterdayStart = todayStart.getTime() - ONE_DAY_MS;  // lower bound (inclusive)
+  const yesterdayEnd = todayStart.getTime();                   // upper bound (exclusive)
 
   console.log(`[folo-list] Fetching list: ${sourceName} (listId: ${listId})`);
   console.log(`[folo-list] Using session token: ${sessionToken.substring(0, 20)}...`);
   console.log(
-    `[folo-list] Target: fetch recent news within 24h, up to ${maxPages} pages, ${pageLimit} items/page and ${maxItems} items total`
+    `[folo-list] Target: fetch yesterday's news (${new Date(yesterdayStart).toISOString()} ~ ${new Date(yesterdayEnd).toISOString()}), up to ${maxPages} pages, ${pageLimit} items/page and ${maxItems} items total`
   );
 
   let publishedAfter: string | null = null;

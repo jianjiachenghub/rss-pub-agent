@@ -1188,7 +1188,7 @@ img {
 .daily-report-flow {
   display: flex;
   flex-direction: column;
-  gap: 2.3rem;
+  gap: 1.15rem;
 }
 
 .daily-section-shell {
@@ -1218,30 +1218,26 @@ img {
     0 1px 0 rgba(255, 255, 255, 0.88) inset;
 }
 
-.daily-item-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-}
 
 .daily-item-title {
   margin: 0;
-  flex: 1;
   min-width: 0;
+  width: 100%;
   color: rgba(10, 16, 26, 0.96);
   font-size: clamp(1.12rem, 1rem + 0.38vw, 1.34rem);
   font-weight: 680;
   line-height: 1.48;
   letter-spacing: -0.018em;
-  text-wrap: balance;
 }
 
 .daily-item-badge-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 0.46rem;
+  margin-top: 0.9rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed rgba(12, 18, 32, 0.06);
 }
 
 .daily-item-badge {
@@ -1336,9 +1332,14 @@ img {
 
 .daily-outline-item-link {
   color: rgba(12, 18, 32, 0.72);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  line-height: 1.52;
+  line-height: 1.44;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition:
     color 220ms ease,
     transform 220ms ease;
@@ -2088,7 +2089,7 @@ details[open] > .rail-head .rail-chevron {
 }
 
 .markdown-h2 {
-  margin: 3.2rem 0 1.15rem;
+  margin: 1.6rem 0 1rem;
   display: flex;
   align-items: center;
   gap: 0.9rem;
@@ -2367,14 +2368,6 @@ details[open] > .rail-head .rail-chevron {
   .daily-item-card {
     padding: 1rem 0.95rem 1.05rem;
     border-radius: 24px;
-  }
-
-  .daily-item-head {
-    flex-direction: column;
-  }
-
-  .daily-item-badge-row {
-    justify-content: flex-start;
   }
 
   .daily-item-title {

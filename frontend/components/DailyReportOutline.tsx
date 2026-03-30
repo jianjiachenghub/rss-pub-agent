@@ -23,6 +23,7 @@ export default function DailyReportOutline({
                     key={item.id}
                     href={`#${item.id}`}
                     className="daily-outline-item-link"
+                    title={item.title}
                   >
                     {item.title}
                   </a>

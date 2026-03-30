@@ -116,26 +116,7 @@ function CategorySection({ section }: { section: DailyReportCategorySection }) {
       <div className="daily-item-stack">
         {section.items.map((item) => (
           <article key={item.id} id={item.id} className="daily-item-card">
-            <header className="daily-item-head">
-              <h3 className="daily-item-title">{item.title}</h3>
-              <div className="daily-item-badge-row">
-                {typeof item.meta.score === "number" ? (
-                  <span className="daily-item-badge">评分 {item.meta.score}</span>
-                ) : null}
-                {item.meta.sourceName && item.meta.sourceUrl ? (
-                  <a
-                    href={item.meta.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="daily-item-badge daily-item-badge-link"
-                  >
-                    来源 {item.meta.sourceName}
-                  </a>
-                ) : item.meta.sourceName ? (
-                  <span className="daily-item-badge">来源 {item.meta.sourceName}</span>
-                ) : null}
-              </div>
-            </header>
+            <h3 className="daily-item-title">{item.title}</h3>
 
             {item.summary ? <p className="daily-item-summary">{item.summary}</p> : null}
 
@@ -144,6 +125,24 @@ function CategorySection({ section }: { section: DailyReportCategorySection }) {
                 <MarkdownBody content={item.bodyMarkdown} />
               </div>
             ) : null}
+
+            <div className="daily-item-badge-row">
+              {typeof item.meta.score === "number" ? (
+                <span className="daily-item-badge">评分 {item.meta.score}</span>
+              ) : null}
+              {item.meta.sourceName && item.meta.sourceUrl ? (
+                <a
+                  href={item.meta.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="daily-item-badge daily-item-badge-link"
+                >
+                  来源 {item.meta.sourceName}
+                </a>
+              ) : item.meta.sourceName ? (
+                <span className="daily-item-badge">来源 {item.meta.sourceName}</span>
+              ) : null}
+            </div>
           </article>
         ))}
       </div>

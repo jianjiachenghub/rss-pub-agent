@@ -101,20 +101,20 @@ function buildInsightSystemPrompt(
 你现在要为每条新闻输出四个字段：
 - titleZh：中文新闻标题，用标题写法，不要写成摘要句
 - oneLiner：一句话中文导语，说明这条新闻为什么值得看
-- event：中文，直接写发生了什么
-- interpretation：中文，写这条信息改变了哪个变量或判断；如果证据不足、信息太薄，或你没有足够把握，就返回空字符串
+- event：中文，直接写发生了什么（40-90 字，具体、有细节）
+- interpretation：中文，写这条信息改变了哪个变量或判断（40-140 字）；如果确实没有足够信息判断才返回空字符串
 
 今日日报的编务判断：
 ${agendaLines}
 
 硬性要求：
 - titleZh 必须是中文标题，可保留必要的英文专有名词、产品名、公司名
-- titleZh 不要直接照抄英文原标题，不要写成“某公司宣布了……”
+- titleZh 不要直接照抄英文原标题，不要写成”某公司宣布了……”
 - oneLiner、event、interpretation 都必须是中文
-- interpretation 只在你有足够把握时才写
-- 对论坛提问、内容过薄、信息不完整的条目，interpretation 必须留空
+- event 是日报核心内容，必须写清楚发生了什么，包含关键数字、时间、参与方等细节
+- interpretation 尽量写，只在确实没有足够信息判断时才留空
 - interpretation 必须点出一个具体变量或决策含义，例如入口、审核周期、估值锚点、监管边界、利率路径、成本结构
-- 禁止使用“信号强”“信息可靠”“影响深远”“相关度高”“有实质信息”这类空话
+- 禁止使用”信号强””信息可靠””影响深远””相关度高””有实质信息”这类空话
 - 不给投资建议，不写空泛口号
 
 输出必须是 JSON 数组，每项包含：
@@ -370,13 +370,12 @@ function buildFallbackInsight(item: ScoredNewsItem): NewsInsight {
 function shouldKeepAsDeepDive(
   item: ScoredNewsItem,
   event: string,
-  interpretation: string | undefined
+  _interpretation: string | undefined
 ): boolean {
-  return (
-    shouldWriteInterpretation(item) &&
-    !isWeakEventNarrative(event) &&
-    Boolean(interpretation?.trim())
-  );
+  // Keep items that have a meaningful event narrative, even without interpretation.
+  // Previously this required interpretation to be non-empty, which caused too many
+  // high-quality items to be demoted into the secondary pool.
+  return !isWeakEventNarrative(event);
 }
 
 function finalizeInsights(

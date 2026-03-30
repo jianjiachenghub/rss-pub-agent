@@ -31,10 +31,6 @@ export default async function DailyPage({
   const dailyIssues = getAllDailyIssues();
   const weeklyIssues = getWeeklyIssues();
   const report = parseDailyReport(issue.content);
-  const parsedFocusTitles = report.outline
-    .flatMap((section) => section.items.map((item) => item.title))
-    .slice(0, 3);
-  const focusTitles = parsedFocusTitles.length > 0 ? parsedFocusTitles : issue.keyTitles.slice(0, 3);
   const categoryList = (issue.meta?.categories ?? []).map(getCategoryDisplayLabel);
 
   return (
@@ -60,57 +56,17 @@ export default async function DailyPage({
               </div>
             </div>
 
-            <div className="daily-overview-shell">
-              <div className="section-label">今日概览</div>
-              <div className="daily-overview-grid">
-                <div className="daily-overview-focus">
-                  <div className="daily-overview-subtitle">焦点条目</div>
-                  {focusTitles.length > 0 ? (
-                    <ol className="hero-focus-list" aria-label="今日焦点条目">
-                      {focusTitles.map((title, index) => (
-                        <li key={`${index + 1}-${title}`} className="hero-focus-item">
-                          <span className="hero-focus-index">
-                            {String(index + 1).padStart(2, "0")}
-                          </span>
-                          <span className="hero-focus-title">{title}</span>
-                        </li>
-                      ))}
-                    </ol>
-                  ) : (
-                    <p className="hero-summary-fallback">
-                      {issue.summary || "下方保留原始正文内容，可直接进入完整阅读。"}
-                    </p>
-                  )}
-                </div>
-
-                <div className="daily-overview-side">
-                  <div className="daily-overview-subtitle">本期覆盖</div>
-                  <div className="grid grid-cols-2 gap-3 pt-1">
-                    <div className="metric-card">
-                      <div className="metric-value">{issue.meta?.itemCount ?? 0}</div>
-                      <div className="metric-label">资讯数</div>
-                    </div>
-                    <div className="metric-card">
-                      <div className="metric-value">{issue.meta?.avgScore ?? 0}</div>
-                      <div className="metric-label">均分</div>
-                    </div>
-                  </div>
-
-                  {categoryList.length > 0 ? (
-                    <div className="hero-chip-panel">
-                      <div className="hero-chip-label">覆盖分类</div>
-                      <div className="hero-chip-list">
-                        {categoryList.map((category) => (
-                          <span key={category} className="hero-chip">
-                            {category}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ) : null}
+            {categoryList.length > 0 ? (
+              <div className="hero-chip-panel" style={{ marginTop: "1rem" }}>
+                <div className="hero-chip-list">
+                  {categoryList.map((category) => (
+                    <span key={category} className="hero-chip">
+                      {category}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </div>
+            ) : null}
           </section>
 
           <section className="mt-8">
