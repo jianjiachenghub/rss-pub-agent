@@ -10,7 +10,6 @@ import {
   getWeeklyIssues,
 } from "@/lib/content-loader";
 import { parseDailyReport } from "@/lib/daily-report-parser";
-import { getCategoryDisplayLabel } from "@/lib/display-text";
 
 export const dynamicParams = false;
 
@@ -31,42 +30,30 @@ export default async function DailyPage({
   const dailyIssues = getAllDailyIssues();
   const weeklyIssues = getWeeklyIssues();
   const report = parseDailyReport(issue.content);
-  const categoryList = (issue.meta?.categories ?? []).map(getCategoryDisplayLabel);
 
   return (
     <PublicationShell currentDate={date} dailyIssues={dailyIssues} weeklyIssues={weeklyIssues}>
       <div className="daily-detail-grid">
         <div className="min-w-0">
           <section className="editorial-card hero-card px-6 py-6 md:px-8 md:py-8">
-            <div className="page-intro">
-              <div className="page-kicker">日报阅读</div>
-              <h1 className="page-title page-title-tight">{issue.title}</h1>
-              <div className="page-meta-row">
+            <div className="hero-header-row">
+              <div className="page-intro">
+                <div className="page-kicker">日报阅读</div>
+                <h1 className="page-title page-title-tight">{issue.title}</h1>
+              </div>
+              <div className="hero-meta-side">
                 <span className="page-meta-pill">
-                  发布于 {dayjs(issue.date).format("YYYY.MM.DD")}
+                  {dayjs(issue.date).format("YYYY.MM.DD")}
                 </span>
                 {issue.meta ? (
-                  <span className="page-meta-pill">{issue.meta.itemCount} 条资讯</span>
+                  <span className="page-meta-pill">{issue.meta.itemCount} 条</span>
                 ) : null}
                 {issue.meta ? (
                   <span className="page-meta-pill">均分 {issue.meta.avgScore}</span>
                 ) : null}
-                {issue.heroImageUrl ? <span className="page-meta-pill">含图片</span> : null}
-                {issue.meta?.hasPodcast ? <span className="page-meta-pill">含播客</span> : null}
+                {issue.meta?.hasPodcast ? <span className="page-meta-pill">播客</span> : null}
               </div>
             </div>
-
-            {categoryList.length > 0 ? (
-              <div className="hero-chip-panel" style={{ marginTop: "1rem" }}>
-                <div className="hero-chip-list">
-                  {categoryList.map((category) => (
-                    <span key={category} className="hero-chip">
-                      {category}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ) : null}
           </section>
 
           <section className="mt-8">

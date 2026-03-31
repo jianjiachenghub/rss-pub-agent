@@ -441,7 +441,7 @@ export const CATEGORY_LABELS: Record<NewsCategory, string> = {
   business: "商业",
   investment: "投资金融",
   politics: "政策地缘",
-  social: "社区舆情",
+  social: "社交媒体",
 };
 
 export type Category = NewsCategory;

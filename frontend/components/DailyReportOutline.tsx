@@ -17,18 +17,21 @@ export default function DailyReportOutline({
               <a href={`#${section.id}`} className="daily-outline-section-link">
                 {section.title}
               </a>
-              <div className="daily-outline-item-list">
-                {section.items.map((item) => (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    className="daily-outline-item-link"
-                    title={item.title}
-                  >
-                    {item.title}
-                  </a>
-                ))}
-              </div>
+              {section.items.length > 0 ? (
+                <div className="daily-outline-item-list">
+                  {section.items.map((item, index) => (
+                    <a
+                      key={item.id}
+                      href={`#${item.id}`}
+                      className="daily-outline-item-link"
+                      title={item.title}
+                    >
+                      <span className="daily-outline-item-index">{index + 1}</span>
+                      <span className="daily-outline-item-text">{item.title}</span>
+                    </a>
+                  ))}
+                </div>
+              ) : null}
             </div>
           ))}
         </nav>

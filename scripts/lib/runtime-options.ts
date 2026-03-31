@@ -62,8 +62,13 @@ export function getRuntimeOptions(): PipelineRuntimeOptions {
   return cachedOptions;
 }
 
+/**
+ * Returns the date the report covers. When no explicit --date is given,
+ * this is yesterday's date because the pipeline fetches the previous
+ * calendar day's news.
+ */
 export function getTargetDate(): string {
-  return getRuntimeOptions().date ?? dayjs().format("YYYY-MM-DD");
+  return getRuntimeOptions().date ?? dayjs().subtract(1, "day").format("YYYY-MM-DD");
 }
 
 export function shouldResumeFromRaw(date?: string): boolean {

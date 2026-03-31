@@ -284,18 +284,17 @@ export function parseDailyReport(content: string): ParsedDailyReport {
     };
   });
 
-  const outline = sections
-    .filter(
-      (section): section is DailyReportCategorySection => section.type === "category"
-    )
-    .map((section) => ({
-      id: section.id,
-      title: section.title,
-      items: section.items.map((item) => ({
-        id: item.id,
-        title: item.title,
-      })),
-    }));
+  const outline = sections.map((section) => ({
+    id: section.id,
+    title: section.title,
+    items:
+      section.type === "category"
+        ? section.items.map((item) => ({
+            id: item.id,
+            title: item.title,
+          }))
+        : [],
+  }));
 
   return {
     body,

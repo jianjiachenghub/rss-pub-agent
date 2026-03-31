@@ -100,7 +100,8 @@ export async function fetchViaFolo(
   const now = new Date().toISOString();
   const todayStart = new Date();
   todayStart.setHours(0, 0, 0, 0);
-  const oneDayAgo = todayStart.getTime() - ONE_DAY_MS;
+  const yesterdayStart = todayStart.getTime() - ONE_DAY_MS;
+  const yesterdayEnd = todayStart.getTime();
 
   const res = await fetch(`${FOLO_API}/feeds?url=${encodeURIComponent(feedUrl)}`, {
     headers: {
@@ -137,8 +138,9 @@ export async function fetchViaFolo(
 
   return json.data.entries
     .filter((entry) => {
-      if (!entry.publishedAt) return true;
-      return new Date(entry.publishedAt).getTime() > oneDayAgo;
+      if (!entry.publishedAt) return false;
+      const t = new Date(entry.publishedAt).getTime();
+      return t >= yesterdayStart && t < yesterdayEnd;
     })
     .map((entry) => ({
       id: `folo-${entry.id}`,
@@ -333,6 +335,7 @@ export async function fetchFoloByListDetailed(
 
     let recentCount = 0;
     let tooOldCount = 0;
+    let tooNewCount = 0;
     let missingEntryCount = 0;
     let missingTimestampCount = 0;
 
@@ -357,8 +360,13 @@ export async function fetchFoloByListDetailed(
         continue;
       }
 
-      if (publishedTime < oneDayAgo) {
+      if (publishedTime < yesterdayStart) {
         tooOldCount++;
+        continue;
+      }
+
+      if (publishedTime >= yesterdayEnd) {
+        tooNewCount++;
         continue;
       }
 
@@ -379,7 +387,7 @@ export async function fetchFoloByListDetailed(
     }
 
     console.log(
-      `[folo-list] Page ${page + 1}: ${pageData.length} items, ${recentCount} within 24h, ${tooOldCount} too old, ${missingEntryCount} empty entries, ${missingTimestampCount} missing timestamps`
+      `[folo-list] Page ${page + 1}: ${pageData.length} items, ${recentCount} yesterday, ${tooNewCount} today (skipped), ${tooOldCount} too old, ${missingEntryCount} empty entries, ${missingTimestampCount} missing timestamps`
     );
 
     if (allEntries.length >= maxItems) {
@@ -388,15 +396,16 @@ export async function fetchFoloByListDetailed(
       break;
     }
 
-    // Some lists are not ordered exactly like the original AI list, so we only stop
-    // after multiple fully stale pages instead of bailing on the first old page.
-    const usableEntries = recentCount + tooOldCount;
-    if (usableEntries > 0 && recentCount === 0) {
+    // Only count pages where all items are older than yesterday as "old pages".
+    // Pages that are all "today" (tooNew) are expected at the start — keep paginating
+    // through them to reach yesterday's entries.
+    const hasOnlyOldEntries = tooOldCount > 0 && recentCount === 0 && tooNewCount === 0;
+    if (hasOnlyOldEntries) {
       consecutiveOldPages += 1;
       if (consecutiveOldPages >= maxConsecutiveOldPages) {
         checkpoint.stoppedReason = "older_than_24h";
         console.log(
-          `[folo-list] Saw ${consecutiveOldPages} consecutive pages without 24h entries, stopping.`
+          `[folo-list] Saw ${consecutiveOldPages} consecutive pages with only old entries, stopping.`
         );
         break;
       }
@@ -432,7 +441,7 @@ export async function fetchFoloByListDetailed(
   }
   checkpoint.updatedAt = new Date().toISOString();
 
-  console.log(`[folo-list] Total entries within 24h: ${allEntries.length}`);
+  console.log(`[folo-list] Total yesterday's entries: ${allEntries.length}`);
 
   allEntries.sort((a, b) => {
     const timeA = new Date(a.publishedAt).getTime();

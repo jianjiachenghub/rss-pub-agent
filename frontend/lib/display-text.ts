@@ -15,7 +15,7 @@ export const CATEGORY_DISPLAY_LABELS = {
   business: "商业",
   investment: "投资金融",
   politics: "政策地缘",
-  social: "社区舆情",
+  social: "社交媒体",
 } as const;
 
 function buildDailyHeadline(date: string): string {

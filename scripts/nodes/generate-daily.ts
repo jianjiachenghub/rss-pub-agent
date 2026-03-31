@@ -158,14 +158,7 @@ itemCount: ${insights.length}
     }
 
     markdown += `## 接下来要盯的变量\n\n`;
-    const watchSignals = editorialAgenda.watchSignals.slice(0, 5);
-    if (watchSignals.length > 0) {
-      for (const signal of watchSignals) {
-        markdown += `- ${signal}\n`;
-      }
-      markdown += `\n`;
-    }
-    markdown += `> ${dailyClosing}\n\n`;
+    markdown += `${dailyClosing}\n\n`;
 
     if (secondaryItems && secondaryItems.length > 0) {
       markdown += `---\n\n## 更多 24h 资讯\n\n`;
@@ -185,6 +178,11 @@ itemCount: ${insights.length}
       for (const category of CATEGORIES) {
         const items = secondaryByCategory.get(category) ?? [];
         if (items.length === 0) continue;
+
+        // Sort by time (newest first) within each category
+        items.sort((a, b) =>
+          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+        );
 
         markdown += `#### ${CATEGORY_LABELS[category]}\n`;
         for (const item of items) {
