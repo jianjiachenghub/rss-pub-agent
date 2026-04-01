@@ -45,7 +45,7 @@ function resolveEditorialConfig(prompt: Record<string, any>): EditorialStrategyC
     },
     minimumCategoryCoverage: {
       ai: 3,
-      investment: 3,
+      investment: 4,
       tech: 2,
       software: 2,
       business: 1,

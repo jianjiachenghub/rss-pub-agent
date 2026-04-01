@@ -30,7 +30,7 @@ const CATEGORY_RAW_CAP: Record<string, number> = {
   tech: 20,
   software: 18,
   business: 18,
-  investment: 12,
+  investment: 28,
   politics: 14,
   social: 10,
 };

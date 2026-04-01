@@ -37,15 +37,12 @@ export default function WeeklyDigest({ issue }: { issue: WeeklyIssue }) {
               </span>
             ))}
           </div>
-          {issue.heroImageUrl ? (
-            <ResilientImage
-              alt={issue.label}
-              className="hero-media h-[24rem] w-full object-cover"
-              fallback="placeholder"
-              placeholderHint="周报头图暂不可用"
-              src={issue.heroImageUrl}
-            />
-          ) : null}
+          <ResilientImage
+            alt={issue.label}
+            className="hero-media h-[24rem] w-full object-cover"
+            fallback="hide"
+            src={issue.heroImageUrl}
+          />
         </div>
       </section>
 
@@ -98,7 +95,7 @@ export default function WeeklyDigest({ issue }: { issue: WeeklyIssue }) {
             <Link
               key={day.date}
               href={`/${day.date}`}
-              className="interactive-panel surface-link grid gap-5 border-t border-black/10 pt-5 md:grid-cols-[9rem_minmax(0,1fr)]"
+              className="weekly-day-entry grid gap-5 border-t border-black/10 pt-5 md:grid-cols-[9rem_minmax(0,1fr)]"
             >
               <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-black/58">
                 <div>{dayjs(day.date).format("YYYY.MM.DD")}</div>

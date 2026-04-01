@@ -32,6 +32,14 @@ function GitHubMark() {
   );
 }
 
+function CatalogIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M2.5 4h11M2.5 8h7M2.5 12h9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export default function PublicationShell({
   dailyIssues,
   weeklyIssues,
@@ -56,25 +64,11 @@ export default function PublicationShell({
 
   return (
     <div className="publication-shell min-h-screen text-stone-900">
-      <header className="publication-header sticky top-0 z-40">
+      {/* ── Desktop header ── */}
+      <header className="publication-header sticky top-0 z-40 desktop-header">
         <div className="page-frame py-4">
           <div className="header-topbar">
             <div className="header-brand-wrap">
-              <details className="relative md:hidden">
-                <summary className="mobile-menu-toggle flex h-10 min-w-16 cursor-pointer items-center justify-center list-none">
-                  目录
-                </summary>
-                <div className="header-mobile-panel">
-                  <IssueRail
-                    compact
-                    currentDate={currentDate}
-                    currentWeekId={currentWeekId}
-                    dailyIssues={dailyIssues}
-                    weeklyIssues={weeklyIssues}
-                  />
-                </div>
-              </details>
-
               <Link href="/" className="header-brand-link min-w-0">
                 <div className="header-brand-copy">
                   <div className="header-brandline">
@@ -133,6 +127,46 @@ export default function PublicationShell({
               </a>
             </div>
           </div>
+        </div>
+      </header>
+
+      {/* ── Mobile header ── */}
+      <header className="mobile-header">
+        <div className="mobile-header-inner">
+          <nav className="mobile-header-nav">
+            <Link href="/" className={`mobile-nav-link ${activeNav === "home" ? "is-active" : ""}`}>
+              首页
+            </Link>
+            <Link href="/about" className={`mobile-nav-link ${activeNav === "about" ? "is-active" : ""}`}>
+              说明
+            </Link>
+            {latestDate ? (
+              <Link href={`/${latestDate}`} className="mobile-nav-link">
+                日报
+              </Link>
+            ) : null}
+            <Link href="/podcast" className={`mobile-nav-link ${activeNav === "podcast" ? "is-active" : ""}`}>
+              播客
+            </Link>
+            <a href={SITE_REPO_URL} target="_blank" rel="noopener noreferrer" className="mobile-nav-link">
+              GitHub
+            </a>
+          </nav>
+
+          <details className="mobile-catalog-menu">
+            <summary className="mobile-catalog-toggle">
+              <CatalogIcon />
+            </summary>
+            <div className="mobile-catalog-panel">
+              <IssueRail
+                compact
+                currentDate={currentDate}
+                currentWeekId={currentWeekId}
+                dailyIssues={dailyIssues}
+                weeklyIssues={weeklyIssues}
+              />
+            </div>
+          </details>
         </div>
       </header>
 

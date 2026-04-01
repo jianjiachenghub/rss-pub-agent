@@ -38,8 +38,12 @@ function parseMonthScopedWeekId(weekId: string) {
 }
 
 export function getMonthScopedWeekNumber(date: string): number {
-  const dayOfMonth = dayjs(date).date();
-  return Math.min(Math.ceil(dayOfMonth / 7), 4);
+  const d = dayjs(date);
+  const dayOfMonth = d.date();
+  const daysInMonth = d.daysInMonth();
+  // Divide month into 4 roughly equal quarters
+  const weekLength = daysInMonth / 4;
+  return Math.min(Math.ceil(dayOfMonth / weekLength), 4) as 1 | 2 | 3 | 4;
 }
 
 export function getMonthScopedWeekId(date: string): string {

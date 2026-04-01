@@ -4,14 +4,14 @@ import type { FeedSource, FeedTier, PipelineError, RawNewsItem } from "./types.j
 
 export const FETCH_CONCURRENCY = 5;
 export const ONE_DAY_MS = 24 * 60 * 60 * 1000;
-export const FINAL_RAW_CANDIDATE_CAP = 140;
+export const FINAL_RAW_CANDIDATE_CAP = 160;
 
 export const CATEGORY_FINAL_CAP: Record<string, number> = {
   ai: 45,
   tech: 20,
   software: 18,
   business: 18,
-  investment: 12,
+  investment: 28,
   politics: 14,
   social: 10,
 };

@@ -177,6 +177,47 @@
     },
 
     {
+      "id": "xueqiu-hot",
+      "type": "folo",
+      "url": "https://rsshub.app/xueqiu/hotstock/1/12",
+      "category": "investment",
+      "name": "雪球热门",
+      "weight": 90,
+      "tier": "core",
+      "dailyCap": 12
+    },
+    {
+      "id": "cls-telegraph",
+      "type": "folo",
+      "url": "https://rsshub.app/cls/telegraph",
+      "category": "investment",
+      "name": "财联社电报",
+      "weight": 85,
+      "tier": "core",
+      "dailyCap": 15
+    },
+    {
+      "id": "wallstreetcn-hot",
+      "type": "folo",
+      "url": "https://rsshub.app/wallstreetcn/live/global",
+      "category": "investment",
+      "name": "华尔街见闻",
+      "weight": 85,
+      "tier": "core",
+      "dailyCap": 12
+    },
+    {
+      "id": "jin10",
+      "type": "folo",
+      "url": "https://rsshub.app/jin10",
+      "category": "investment",
+      "name": "金十数据",
+      "weight": 80,
+      "tier": "signal",
+      "dailyCap": 10
+    },
+
+    {
       "id": "feedx-nytimes",
       "type": "folo",
       "url": "https://feedx.net/rss/nytimes.xml",

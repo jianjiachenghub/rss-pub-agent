@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   title: "RSS Agent | 基于 LLM 的 News Flow",
   description:
     "RSS Agent 是一个基于 LLM 的 News Flow 与研究归档界面，提供日报、周报、时间线和播客输出。",
+  viewport: "width=device-width, initial-scale=1, viewport-fit=cover",
 };
 
 export default function RootLayout({
