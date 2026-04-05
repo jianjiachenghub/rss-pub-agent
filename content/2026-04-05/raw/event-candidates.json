@@ -1,0 +1,1579 @@
+[
+  {
+    "id": "folo-263425687179772928",
+    "title": "2026 04 05 HackerNews",
+    "url": "https://supertechfans.com/cn/post/2026-04-05-HackerNews/",
+    "content": "NASA released the first high‑resolution Earth photos from Artemis II, captured by a Nikon D5 aboard the spacecraft, showing the Atlantic, auroras and the day‑night terminator. A controversy erupted when author Sarah Wynn‑Williams was barred from criticizing Meta under a non‑defamation clause, a restriction that paradoxically boosted book sales. The FAA’s 21‑month drone ban near ICE vehicles faced EFF criticism for infringing free‑speech and due process rights. A new self‑distillation method improved large‑language‑model code generation. Other items: Oracle’s simultaneous mass layoffs and H‑1B filings, Y Combinator expelling Delve for fraud and license violations, iNaturalist’s citizen‑science platform, Germany’s military‑permit rule for men abroad, an AI‑discovered 23‑year‑old Linux NFS bug, and MVIDIA’s educational game to build CPUs.",
+    "source": "HackerNews每日摘要 on SuperTechFans",
+    "sourceId": "folo-ai-list-41359648684677132",
+    "category": "software",
+    "publishedAt": "2026-04-04T23:46:35.723Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "2026-hackernews",
+    "normalizedTitle": "2026 04 05 hackernews",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "HackerNews每日摘要 on SuperTechFans"
+    ],
+    "preFilterScore": 601.775346395723
+  },
+  {
+    "id": "folo-263447196472445957",
+    "title": "一款开箱即用的 Spring Boot 4 DDD 工程脚手架，适合 AI 初始化项目参考",
+    "url": "https://www.v2ex.com/t/1203595#reply0",
+    "content": "一个开箱即用的 DDD （领域驱动设计）工程脚手架，基于 Spring Boot 4.0.1 和 Java 21 花时间精心打造了 Spring boot 脚手架，使用较新的框架和 JDK 。自己用了这段时间感觉不错。尤其是让 AI 生成项目时，有了参考，AI 便知道要按什么规则去搭建了，而不是笼统地说按照 DDD 结构初始化项目。\n\nSpringboot4DDD 是一个生产就绪的 DDD 工程脚手架，帮助开发者快速搭建符合领域驱动设计原则的企业级应用。\n\n源码地址：https://github.com/microwind/design…",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-04-04T23:39:56.778Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "一款开箱即用的-spring-boot-ddd-工程脚手架-初始化项目参考",
+    "normalizedTitle": "一款开箱即用的 spring boot 4 ddd 工程脚手架 适合 ai 初始化项目参考",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 273.775345996778
+  },
+  {
+    "id": "folo-263401813448863744",
+    "title": "科威特石油总部遭伊朗无人机袭击起火",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/kuwait-petroleum-says-headquarters-set-ablaze-by-by-drone-strike",
+    "content": "Kuwait Petroleum reports that its headquarters were set on fire after a drone strike.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-04-04T23:29:33.568Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "科威特石油总部遭伊朗无人机袭击起火",
+    "normalizedTitle": "科威特石油总部遭伊朗无人机袭击起火",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 86.775345373568
+  },
+  {
+    "id": "folo-263395582776725511",
+    "title": "我国主导国际学术期刊 Vita 将出版",
+    "url": "https://readhub.cn/topic/8s2qRR8KiTp",
+    "content": "China will launch the print edition of the internationally oriented scientific journal *Vita* in June. The journal, aimed at life sciences and biomedicine, is positioned against top global journals and will be freely open access to researchers worldwide. The open‑access policy addresses the conflict between the desire for knowledge sharing and rising article‑processing charges in academic publishing, which some scientists find unaffordable.",
+    "source": "Readhub - 每日早报",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "politics",
+    "publishedAt": "2026-04-04T23:23:13.886Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "我国主导国际学术期刊-vita-将出版",
+    "normalizedTitle": "我国主导国际学术期刊 vita 将出版",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报"
+    ],
+    "preFilterScore": 445.775344993886
+  },
+  {
+    "id": "folo-263395504204784644",
+    "title": "Show HN: I made open source, zero power PCB hackathon badges",
+    "url": "https://github.com/KaiPereira/Overglade-Badges",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - kaipereira",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-04-04T23:23:09.403Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "show-made-open-source-zero-power",
+    "normalizedTitle": "show hn i made open source zero power pcb hackathon badges",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - kaipereira"
+    ],
+    "preFilterScore": 33.775344989403
+  },
+  {
+    "id": "folo-263395504204784645",
+    "title": "LLM Wiki – example of an \"idea file\"",
+    "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - tamnd",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-04-04T23:23:09.402Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "llm-wiki-example-idea-file",
+    "normalizedTitle": "llm wiki – example of an idea file",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - tamnd"
+    ],
+    "preFilterScore": 33.775344989402
+  },
+  {
+    "id": "folo-263395504204784650",
+    "title": "OpenScreen is an open-source alternative to Screen Studio",
+    "url": "https://github.com/siddharthvaddem/openscreen",
+    "content": "OpenScreen is an open‑source software offering features similar to Screen Studio, providing users with a free alternative for screen‑recording and streaming.",
+    "source": "Hacker News - jskopek",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-04-04T23:23:09.397Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "openscreen-open-source-alternative-screen-studio",
+    "normalizedTitle": "openscreen is an open-source alternative to screen studio",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - jskopek"
+    ],
+    "preFilterScore": 158.775344989397
+  },
+  {
+    "id": "folo-263395504204784659",
+    "title": "German implementation of eIDAS will require an Apple/Google account to function",
+    "url": "https://bmi.usercontent.opencode.de/eudi-wallet/wallet-development-documentation-public/latest/architecture-concept/06-mobile-devices/02-mdvm/",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - DyslexicAtheist",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-04-04T23:23:09.388Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "german-implementation-eidas-will-require-apple",
+    "normalizedTitle": "german implementation of eidas will require an apple google account to function",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - DyslexicAtheist"
+    ],
+    "preFilterScore": 33.775344989388
+  },
+  {
+    "id": "folo-263395504204784661",
+    "title": "Breaking Enigma with Index of Coincidence on a Commodore 64",
+    "url": "https://imapenguin.com/2026/03/breaking-enigma-with-index-of-coincidence-on-a-commodore-64/",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - saganus",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-04-04T23:23:09.386Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "breaking-enigma-index-coincidence-commodore",
+    "normalizedTitle": "breaking enigma with index of coincidence on a commodore 64",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - saganus"
+    ],
+    "preFilterScore": 33.775344989386
+  },
+  {
+    "id": "folo-263425757065242624",
+    "title": "2026 年人工智能与数据科学的五大趋势",
+    "url": "https://www.36kr.com/p/3728058030013572",
+    "content": "In 2026, AI and data science shift from experimental hype to practical, large‑scale deployment. Five trends emerge: 1) enterprises move beyond pilot projects to integrate AI into core processes, supported by mature MLOps and rigorous ROI metrics. 2) Agentic AI takes center stage, executing tasks autonomously and collaborating across teams, easing human supervision. 3) Data strategy pivots to quality over quantity, with synthetic and “small data” techniques driving vertical breakthroughs. 4) Responsible AI governance—regulatory compliance, explainability, and IP management—becomes competitive core. 5) Talent focus shifts from hiring to reskilling, creating new roles and democratizing AI tools for business users.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "social",
+    "publishedAt": "2026-04-04T23:00:32.812Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "2026-年人工智能与数据科学的五大趋势",
+    "normalizedTitle": "2026 年人工智能与数据科学的五大趋势",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 601.775343632812
+  },
+  {
+    "id": "folo-263397943599443968",
+    "title": "在搜寻空军人员行动持续进行之际，特朗普威胁伊朗将面临“地狱”",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/trump-threatens-iran-with-hell-as-search-for-airman-continues",
+    "content": "Former US President Donald Trump warned Iran that it would face “hell” if it continued actions against the United States, amid ongoing efforts to locate missing Air Force personnel. His statement came while the search for an airman persisted.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-04-04T22:57:37.533Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "在搜寻空军人员行动持续进行之际-特朗普威胁伊朗将面临“地狱”",
+    "normalizedTitle": "在搜寻空军人员行动持续进行之际 特朗普威胁伊朗将面临“地狱”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 243.775343457533
+  },
+  {
+    "id": "folo-263365350787097601",
+    "title": "How many products does Microsoft have named 'Copilot'?",
+    "url": "https://teybannerman.com/strategy/2026/03/31/how-many-microsoft-copilot-are-there.html",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - gpi",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-04-04T21:23:21.292Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "how-many-products-does-microsoft-have",
+    "normalizedTitle": "how many products does microsoft have named copilot",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - gpi"
+    ],
+    "preFilterScore": 33.775337801292
+  },
+  {
+    "id": "folo-263365350787097606",
+    "title": "Student Debt Burdened Them, So They Moved Abroad and Stopped Paying",
+    "url": "https://www.nytimes.com/2026/04/04/business/student-loans-abroad-default.html",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - JumpCrisscross",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-04-04T21:23:21.287Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "student-debt-burdened-them-they-moved",
+    "normalizedTitle": "student debt burdened them so they moved abroad and stopped paying",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - JumpCrisscross"
+    ],
+    "preFilterScore": 33.775337801287
+  },
+  {
+    "id": "folo-263365350787097613",
+    "title": "Ruckus: Racket for iOS",
+    "url": "https://ruckus.defn.io/",
+    "content": "Ruckus is a racket programming language implementation for iOS.",
+    "source": "Hacker News - nsm",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-04-04T21:23:21.280Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "ruckus-racket-ios",
+    "normalizedTitle": "ruckus racket for ios",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - nsm"
+    ],
+    "preFilterScore": 64.77533780128
+  },
+  {
+    "id": "folo-263365350787097619",
+    "title": "Iranian missile blitz takes down AWS data centers in Bahrain and Dubai",
+    "url": "https://www.tomshardware.com/tech-industry/iranian-missile-blitz-takes-down-aws-data-centers-in-bahrain-and-dubai-amazon-declares-hard-down-status-for-multiple-zones",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - lschueller",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-04-04T21:23:21.274Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "iranian-missile-blitz-takes-down-aws",
+    "normalizedTitle": "iranian missile blitz takes down aws data centers in bahrain and dubai",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - lschueller"
+    ],
+    "preFilterScore": 33.775337801274
+  },
+  {
+    "id": "folo-263365350787097624",
+    "title": "IBM 3270 Information Display System: Color and Programmed Symbols (1979) [pdf]",
+    "url": "https://bitsavers.org/pdf/ibm/3278/GA33-3056-0_3270_Information_Display_System_Color_and_Programmed_Symbols_3278_3279_3287_Sep1979.pdf",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - hggh",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-04-04T21:23:21.269Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "ibm-3270-information-display-system-color",
+    "normalizedTitle": "ibm 3270 information display system color and programmed symbols 1979 pdf",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - hggh"
+    ],
+    "preFilterScore": 33.775337801269
+  },
+  {
+    "id": "folo-263377792338505728",
+    "title": "Impulse Space，Anduril：为“金色穹顶”打造航天技术",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/impulse-space-anduril-building-space-technology-for-golden-dome",
+    "content": "Impulse Space and defense contractor Anduril are developing space technology for the Golden Dome project, a joint initiative aimed at building infrastructure that supports advanced aerospace and defense applications. The partnership focuses on creating advanced propulsion, guidance, and autonomous systems to enhance the Golden Dome’s capabilities.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-04-04T20:49:20.748Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "impulse-space-anduril-为“金色穹顶”打造航天技术",
+    "normalizedTitle": "impulse space anduril 为“金色穹顶”打造航天技术",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 350.775335760748
+  },
+  {
+    "id": "folo-263395582776725504",
+    "title": "马斯克要求参与 SpaceX IPO 的公司购买 Grok",
+    "url": "https://readhub.cn/topic/8s2FHmaGRxq",
+    "content": "Elon Musk has reportedly demanded that companies involved in SpaceX’s upcoming IPO purchase a subscription to his AI service, Grok. The move, reported by multiple outlets, would require investment banks and other firms to pay tens of millions of dollars for the API, and some have begun integrating Grok into their systems. This condition is seen as a way for Musk to secure additional revenue from the IPO process.",
+    "source": "Readhub - 每日早报 - 快科技",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "business",
+    "publishedAt": "2026-04-04T20:45:45.309Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "马斯克要求参与-spacex-ipo-的公司购买-grok",
+    "normalizedTitle": "马斯克要求参与 spacex ipo 的公司购买 grok",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 快科技"
+    ],
+    "preFilterScore": 416.775335545309
+  },
+  {
+    "id": "folo-263395582776725505",
+    "title": "Claude 封杀 OpenClaw",
+    "url": "https://readhub.cn/topic/8s2rsRj40kK",
+    "content": "Anthropic has officially banned third‑party access via OpenClaw, ending support for external harnesses. Users who try to connect through OpenClaw will face additional token‑based charges, effectively making the service unusable via those tools. Claude’s subscription fees will now apply only to the company’s own website, app, or official SDKs. Anthropic cited excessive usage and “token arbitrage” by third‑party proxies as reasons for the action, sparking a backlash from developers.",
+    "source": "Readhub - 每日早报 - 界面",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "software",
+    "publishedAt": "2026-04-04T20:40:50.720Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "claude-openclaw",
+    "normalizedTitle": "claude 封杀 openclaw",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 界面"
+    ],
+    "preFilterScore": 486.77533525072
+  },
+  {
+    "id": "folo-263395582776725506",
+    "title": "浙江 11 个市副市长，出任「吴越杯」参赛队领队",
+    "url": "https://readhub.cn/topic/8s37cp4jvDP",
+    "content": "In April 2026, Zhejiang Province launched its first “Wuyue Cup” city‑football league. The league features 627 grassroots players, about 75% of whom are local residents, and prohibits signing high‑salary professional athletes. Eleven sub‑prefectural cities provide deputy mayors—each responsible for sports—to serve as team leaders for their respective clubs; several were not new to the role. City officials attended the opening ceremony. The competition runs through mid‑June, with a regular season followed by a knockout stage for the top eight teams.",
+    "source": "Readhub - 每日早报 - 新浪科技",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "tech",
+    "publishedAt": "2026-04-04T20:39:05.066Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "个市副市长-出任「吴越杯」参赛队领队",
+    "normalizedTitle": "浙江 11 个市副市长 出任「吴越杯」参赛队领队",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 新浪科技"
+    ],
+    "preFilterScore": 554.775335145066
+  },
+  {
+    "id": "folo-263395582776725507",
+    "title": "DeepSeek V4 优先支持国产 AI 芯片：巨头已开始提前抢货",
+    "url": "https://readhub.cn/topic/8s3DMCsj5Z4",
+    "content": "DeepSeek’s upcoming V4 language model prioritizes domestic AI chips, notably Huawei’s and Cambricon’s. The company has rewritten and tested its core code with these partners, and will release two V4 derivatives based on Chinese chip designs. Major Chinese cloud providers—Alibaba, ByteDance, and Tencent—have already preordered hundreds of thousands of Huawei’s new chips to support the launch. This focus marks a shift away from U.S. chip testing, positioning DeepSeek among the top AI applications in China.",
+    "source": "Readhub - 每日早报 - 格隆汇",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "software",
+    "publishedAt": "2026-04-04T20:38:49.618Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "deepseek-优先支持国产-巨头已开始提前抢货",
+    "normalizedTitle": "deepseek v4 优先支持国产 ai 芯片 巨头已开始提前抢货",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 格隆汇"
+    ],
+    "preFilterScore": 510.775335129618
+  },
+  {
+    "id": "folo-263395582776725508",
+    "title": "发布仅 1 天 阿里千问 3.6-Plus 冲上 OpenRouter 榜首",
+    "url": "https://readhub.cn/topic/8s30RojjbQr",
+    "content": "Alibaba released Qwen 3.6‑Plus on April 2, 2026, a large‑language model with a one‑million‑token context window and claimed to be the strongest Chinese programming model. Within a day it topped OpenRouter’s daily leaderboard, surpassing 1.4 trillion tokens in a single day and breaking the platform’s single‑model record. The model achieved a top spot in Arena’s programming sub‑ranking, putting Alibaba as the second‑highest global AI organization in that metric. After launch on OpenRouter, usage rose 711 % and the model was priced below Claude. It is now available on Alibaba Cloud’s Baian platform, with plans to open source additional sizes and release a flagship Qwen 3.6‑Max.",
+    "source": "Readhub - 每日早报 - 站长之家",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "software",
+    "publishedAt": "2026-04-04T20:36:48.402Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "发布仅-阿里千问-6-plus-openrouter",
+    "normalizedTitle": "发布仅 1 天 阿里千问 3 6-plus 冲上 openrouter 榜首",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 站长之家"
+    ],
+    "preFilterScore": 601.775335008402
+  },
+  {
+    "id": "folo-263356442089631744",
+    "title": "伊朗战争爆发后首份通胀数据或将飙升",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/us-inflation-seen-spiking-in-first-snapshot-since-iran-war",
+    "content": "US inflation is expected to rise sharply in the first snapshot following the outbreak of the Iran war, according to Bloomberg.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-04-04T20:18:01.974Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "伊朗战争爆发后首份通胀数据或将飙升",
+    "normalizedTitle": "伊朗战争爆发后首份通胀数据或将飙升",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 127.775333881974
+  },
+  {
+    "id": "folo-263333893507097604",
+    "title": "Scientists observe an immune signaling complex forming inside cells",
+    "url": "https://news.stanford.edu/stories/2026/03/immune-response-inside-cells-inflammation-research",
+    "content": "Scientists report that an immune signaling complex is observed forming inside cells, as described in a discussion on Hacker News.",
+    "source": "Hacker News - ohjeez",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-04-04T19:18:19.672Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "scientists-observe-immune-signaling-complex-forming",
+    "normalizedTitle": "scientists observe an immune signaling complex forming inside cells",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - ohjeez"
+    ],
+    "preFilterScore": 130.775330299672
+  },
+  {
+    "id": "folo-263333893507097607",
+    "title": "Sopwith",
+    "url": "http://www.sopwith.org/",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - elvis70",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-04-04T19:18:19.669Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "sopwith",
+    "normalizedTitle": "sopwith",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - elvis70"
+    ],
+    "preFilterScore": 33.775330299669
+  },
+  {
+    "id": "folo-263333893507097610",
+    "title": "Plague Ships",
+    "url": "https://www.afloat.com.au/feature/plague-ships/",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - bryanrasmussen",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-04-04T19:18:19.666Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "plague-ships",
+    "normalizedTitle": "plague ships",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - bryanrasmussen"
+    ],
+    "preFilterScore": 33.775330299666
+  },
+  {
+    "id": "folo-263333893507097622",
+    "title": "Show HN: Running local OpenClaw together with remote agents in an open network",
+    "url": "https://github.com/hybroai/hybro-hub",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - kevinlu",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-04-04T19:18:19.654Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "show-running-local-openclaw-together-remote",
+    "normalizedTitle": "show hn running local openclaw together with remote agents in an open network",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - kevinlu"
+    ],
+    "preFilterScore": 33.775330299654
+  },
+  {
+    "id": "folo-263498609873362946",
+    "title": "2526赛季NBA常规赛马刺 134:136 掘金，如何评价这场比赛？",
+    "url": "https://www.zhihu.com/question/2023961709774151864",
+    "content": "2526赛季NBA常规赛马刺 134:136 掘金，如何评价这场比赛？",
+    "source": "知乎热榜",
+    "sourceId": "folo-ai-list-41358761177015296",
+    "category": "social",
+    "publishedAt": "2026-04-04T19:14:35.010Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "2526赛季nba常规赛马刺-134-136-如何评价这场比赛",
+    "normalizedTitle": "2526赛季nba常规赛马刺 134 136 掘金 如何评价这场比赛",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "知乎热榜"
+    ],
+    "preFilterScore": 36.77533007501
+  },
+  {
+    "id": "folo-263395509686779904",
+    "title": "中国女游客被流弹击中，造成面部重伤，中领馆提醒 | 原文",
+    "url": "https://t.me/wxbyg/6997",
+    "content": "A Chinese tourist suffered severe facial injuries after being hit by a stray bullet at a shooting range in Phuket, Thailand. The incident prompted the Chinese Consulate General in Songkhla to issue a warning about the risks of live‑fire shooting. The consulate advised travelers to choose licensed, reputable ranges, purchase insurance, and avoid unverified or cheap recommendations.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-04-04T18:58:55.937Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "中国女游客被流弹击中-造成面部重伤-中领馆提醒",
+    "normalizedTitle": "中国女游客被流弹击中 造成面部重伤 中领馆提醒 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 384.775329135937
+  },
+  {
+    "id": "folo-263336291621416960",
+    "title": "斯莱彭表示，欧洲央行会议将讨论加息或维持利率不变：播客",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/sleijpen-says-ecb-discussion-will-be-rate-hike-or-hold-podcast",
+    "content": "Sleijpen Says ECB Discussion Will Be Rate Hike or Hold: Podcast (www.bloomberg.com) 02:02",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-04-04T18:27:28.428Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "斯莱彭表示-欧洲央行会议将讨论加息或维持利率不变",
+    "normalizedTitle": "斯莱彭表示 欧洲央行会议将讨论加息或维持利率不变 播客",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.775327248428
+  },
+  {
+    "id": "folo-263395509686779905",
+    "title": "49岁华人女子被外国客户勒死在家中，凶手不到3年就出狱，回国开店当老板 | 原文",
+    "url": "https://t.me/wxbyg/6996",
+    "content": "49岁华人女子被外国客户勒死在家中，凶手不到3年就出狱，回国开店当老板 | 原文 Telegraph\n49岁华人女子被外国客户勒死在家中，凶手不到3年就出狱，回国开店当老板\n\n\n有人说，人世间的喜剧总是相通的，而悲剧呢，各有各的苦法。但今天要聊的这个悲剧，苦得让人有点喘不过气，更让人愤怒。 最近，一个几年前引起巨大争议的案子，又浮出水面了。案子的受害者，是一名在澳大利亚从事性服务工作的华人女士。她在工作中，被一个德国来的客户活活掐死。可你猜施暴者被判了多久？ 5年。 而且实际上，他只蹲了2年半的监狱，就被放出来了。 你没听错，一条人命，两年半。这件事当年就炸了锅…",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-04-04T18:16:43.189Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "49岁华人女子被外国客户勒死在家中-凶手不到3年就出狱-回国开店当老板",
+    "normalizedTitle": "49岁华人女子被外国客户勒死在家中 凶手不到3年就出狱 回国开店当老板 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 286.775326603189
+  },
+  {
+    "id": "folo-263336291621416962",
+    "title": "伊朗称允许伊拉克船只通过霍尔木兹海峡",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/iran-says-iraqi-ships-are-allowed-to-use-strait-of-hormuz",
+    "content": "Iran announced that its regulations permit Iraqi vessels to transit the Strait of Hormuz.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-04-04T18:11:18.207Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "伊朗称允许伊拉克船只通过霍尔木兹海峡",
+    "normalizedTitle": "伊朗称允许伊拉克船只通过霍尔木兹海峡",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.775326278207
+  },
+  {
+    "id": "folo-263316080109301760",
+    "title": "距离大选日益临近，秘鲁总统竞选热门人选发生变化",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/peru-s-presidential-front-runners-shift-with-election-days-away",
+    "content": "Peru’s Presidential Front-Runners Shift With Election Days Away (www.bloomberg.com) 01:16",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-04-04T17:39:26.568Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "距离大选日益临近-秘鲁总统竞选热门人选发生变化",
+    "normalizedTitle": "距离大选日益临近 秘鲁总统竞选热门人选发生变化",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.775324366568
+  },
+  {
+    "id": "folo-263303434546947076",
+    "title": "Show HN: sllm – Split a GPU node with other developers, unlimited tokens",
+    "url": "https://sllm.cloud/",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - jrandolf",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-04-04T17:17:20.765Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "show-sllm-split-gpu-node-other",
+    "normalizedTitle": "show hn sllm – split a gpu node with other developers unlimited tokens",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - jrandolf"
+    ],
+    "preFilterScore": 33.775323040765
+  },
+  {
+    "id": "folo-263303434546947082",
+    "title": "Components of a Coding Agent",
+    "url": "https://magazine.sebastianraschka.com/p/components-of-a-coding-agent",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - MindGods",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-04-04T17:17:20.759Z",
+    "fetchedAt": "2026-04-05T16:53:05.148Z",
+    "eventKey": "components-coding-agent",
+    "normalizedTitle": "components of a coding agent",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - MindGods"
+    ],
+    "preFilterScore": 33.775323040759
+  },
+  {
+    "id": "folo-263316080113496064",
+    "title": "特朗普的胜利宣言因伊朗战争中一架美军战机被击落而大打折扣",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/trump-s-victory-rhetoric-undercut-by-downed-us-jet-in-iran-war",
+    "content": "Trump’s celebratory claims about his electoral win were weakened when a U.S. fighter jet was shot down during the Iran conflict, according to a Bloomberg report. The incident undermined the positive tone of his triumph announcements.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-04-04T17:07:40.867Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "特朗普的胜利宣言因伊朗战争中一架美军战机被击落而大打折扣",
+    "normalizedTitle": "特朗普的胜利宣言因伊朗战争中一架美军战机被击落而大打折扣",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 234.775322460867
+  },
+  {
+    "id": "folo-263294732125351936",
+    "title": "美国为应对伊朗战争部署了大量隐形远程导弹",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/us-deploys-bulk-of-stealthy-long-range-missile-for-iran-war",
+    "content": "The United States has positioned a large number of stealth, long‑range missiles in preparation for potential conflict with Iran.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-04-04T16:35:21.414Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "美国为应对伊朗战争部署了大量隐形远程导弹",
+    "normalizedTitle": "美国为应对伊朗战争部署了大量隐形远程导弹",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 129.775320521414
+  },
+  {
+    "id": "folo-263303481833570304",
+    "title": "开盒Claude Code的原来是中国00后！曾怒怼Anthropic窃取用户代码 | 原文",
+    "url": "https://t.me/wxbyg/6995",
+    "content": "A 25‑year‑old Chinese developer named Chaofan Shou leaked 510,000 lines of Claude Code from a 60 MB source map, exposing Anthropic’s alleged misuse of user code. His single post sparked widespread discussion and advanced the global AI community, highlighting concerns over data privacy and intellectual property.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-04-04T16:17:10.970Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "开盒claude-code的原来是中国00后-曾怒怼anthropic窃取用户代码",
+    "normalizedTitle": "开盒claude code的原来是中国00后 曾怒怼anthropic窃取用户代码 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 313.77531943097
+  },
+  {
+    "id": "folo-263292213412236290",
+    "title": "Gemma 4 发布当天我注册了 gemma4.app，昨天上线，记录一下",
+    "url": "https://www.v2ex.com/t/1203581#reply0",
+    "content": "I registered gemma4.app on the day Gemma 4 was released and released a basic version yesterday. The site now shows GSC exposure. Features added: a trial page for the OpenRouter 26 B Gemma 4 API, a /mobile page with official Android and iOS deployment paths (Google AI Edge Gallery/MediaPipe), and a /download page linking HuggingFace, Kaggle, and Ollama download options. Planned additions include a local deployment generator, prompt comparison tester, and app directory. The mobile version runs Gemma 4 E2B/E4B locally with <1.5 GB RAM, a niche yet underexplored area. Feedback is welcome, especially on mobile deployment.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-04-04T16:16:18.701Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "gemma-发布当天我注册了-gemma4-app-昨天上线-记录一下",
+    "normalizedTitle": "gemma 4 发布当天我注册了 gemma4 app 昨天上线 记录一下",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 601.775319378701
+  },
+  {
+    "id": "folo-263303481833570305",
+    "title": "祝丘先生生日快乐！ | 原文",
+    "url": "https://t.me/wxbyg/6994",
+    "content": "The text is a reposted message celebrating a birthday for “Mr. Qiu.” The author, who received the video from a student’s parent, expresses surprise at its dramatic content. The video, originally posted by the Tsinghua University “Qiu Shen” College official account, compiles screenshots from official group chats. The author questions whether the shared chat logs were publicly disclosed with consent, recalling past incidents where such sharing led to disciplinary warnings.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-04-04T16:03:31.505Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "祝丘先生生日快乐",
+    "normalizedTitle": "祝丘先生生日快乐 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 476.775318611505
+  },
+  {
+    "id": "folo-263468560889651201",
+    "title": "雨果晋级澳门世界杯男单 4 强，半决赛对阵王楚钦，你看好谁晋级决赛？",
+    "url": "https://www.zhihu.com/question/2023902037910253830",
+    "content": "On 4 April, Hugo advanced to the quarter‑finals of the Macau World Cup men's singles after defeating Lalebrew in a hard‑fought match. He will face Wang Chuqin in the semi‑finals. The event highlighted a repeat of historic encounters between the two players.",
+    "source": "知乎热榜",
+    "sourceId": "folo-ai-list-41358761177015296",
+    "category": "social",
+    "publishedAt": "2026-04-04T15:17:28.483Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "雨果晋级澳门世界杯男单-半决赛对阵王楚钦-你看好谁晋级决赛",
+    "normalizedTitle": "雨果晋级澳门世界杯男单 4 强 半决赛对阵王楚钦 你看好谁晋级决赛",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "知乎热榜"
+    ],
+    "preFilterScore": 258.775315848483
+  },
+  {
+    "id": "folo-263262334163592192",
+    "title": "Blaizzy/mlx-vlm",
+    "url": "https://github.com/Blaizzy/mlx-vlm",
+    "content": "MLX‑VLM is a Python package that enables users to run inference and fine‑tune Vision Language Models on macOS with the MLX framework. It supports model loading, image‑text processing, and training workflows, and is actively maintained, with 3,411 stars and 374 forks on GitHub.",
+    "source": "Trending repositories on GitHub today · GitHub - Blaizzy",
+    "sourceId": "folo-ai-list-41461870197170196",
+    "category": "software",
+    "publishedAt": "2026-04-04T14:33:21.336Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "blaizzy-mlx-vlm",
+    "normalizedTitle": "blaizzy mlx-vlm",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Trending repositories on GitHub today · GitHub - Blaizzy"
+    ],
+    "preFilterScore": 278.775313201336
+  },
+  {
+    "id": "folo-263262334163592196",
+    "title": "telegramdesktop/tdesktop",
+    "url": "https://github.com/telegramdesktop/tdesktop",
+    "content": "Telegram Desktop is a cross‑platform messaging application written in C++. The project has over 30,000 GitHub stars and more than 6,500 forks, indicating active community engagement. It provides the core features of the Telegram messaging service for desktop users.",
+    "source": "Trending repositories on GitHub today · GitHub - telegramdesktop",
+    "sourceId": "folo-ai-list-41461870197170196",
+    "category": "software",
+    "publishedAt": "2026-04-04T14:33:21.332Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "telegramdesktop-tdesktop",
+    "normalizedTitle": "telegramdesktop tdesktop",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Trending repositories on GitHub today · GitHub - telegramdesktop"
+    ],
+    "preFilterScore": 266.775313201332
+  },
+  {
+    "id": "folo-263272138219195403",
+    "title": "Google 送你一个月会员： Opus 4.6、Gemini 3.1 Pro 随便用",
+    "url": "https://www.v2ex.com/t/1203574#reply0",
+    "content": "Google offers a free first month of the Google One AI Pro plan, giving access to high‑end models such as Claude Opus 4.6, Gemini 3.1 Pro, GPT‑OSS 120B, and more, plus 5 TB cloud storage. Sign up via the Google One site, add a payment method (e.g., PayPal), and download the Antigravity desktop client to start using the models. Quotas refresh every ~5 hours; after the free month, the subscription auto‑renews at $19.99/month unless cancelled in Google‑account settings.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-04-04T14:30:50.196Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "google-送你一个月会员-opus-gemini-pro-随便用",
+    "normalizedTitle": "google 送你一个月会员 opus 4 6 gemini 3 1 pro 随便用",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 471.775313050196
+  },
+  {
+    "id": "folo-263272138219195396",
+    "title": "kiro 怎么样，额度经用吗？",
+    "url": "https://www.v2ex.com/t/1203573#reply0",
+    "content": "The user asks if anyone uses “kiro” and whether the 20-dollar or higher plans provide access to Claude Opus 4.6 or GPT‑5.x models. They currently have a free Claude Sonnet plan and wonder if paid plans from $20 include Claude Opus 4.6.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "social",
+    "publishedAt": "2026-04-04T14:30:46.375Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "kiro-怎么样-额度经用吗",
+    "normalizedTitle": "kiro 怎么样 额度经用吗",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 236.775313046375
+  },
+  {
+    "id": "folo-263272075061347328",
+    "title": "The missing legal layer for DAOs",
+    "url": "https://a16zcrypto.substack.com/p/the-duna-what-it-is-and-why-it-matters",
+    "content": "by Miles Jennings and Aiden Slavin As of this week, three states have officially enacted the relatively new “decentralized unincorporated nonprofit association” act — aka the DUNA. The DUNA provides legal status for decentralized organizations and limited liability protections for…",
+    "source": "a16z crypto - a16z crypto",
+    "sourceId": "folo-ai-list-41477723842378779",
+    "category": "investment",
+    "publishedAt": "2026-04-04T14:03:05.641Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "missing-legal-layer-daos",
+    "normalizedTitle": "the missing legal layer for daos",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "a16z crypto - a16z crypto"
+    ],
+    "preFilterScore": 283.775311385641
+  },
+  {
+    "id": "folo-263274622912311302",
+    "title": "霍尔木兹海峡追踪：每周船舶通行量创战争爆发以来新高",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/hormuz-tracker-weekly-transits-reach-highest-since-war-began",
+    "content": "HORMUZ TRACKER: Weekly Transits Reach Highest Since War Began (www.bloomberg.com) 04-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-04-04T13:55:21.386Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "霍尔木兹海峡追踪-每周船舶通行量创战争爆发以来新高",
+    "normalizedTitle": "霍尔木兹海峡追踪 每周船舶通行量创战争爆发以来新高",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 88.775310921386
+  },
+  {
+    "id": "folo-263272138219195398",
+    "title": "qwen 3.6 plus 发布，国产终于有了首个原生多模态+1M 上下文的模型",
+    "url": "https://www.v2ex.com/t/1203563#reply1",
+    "content": "https://qwen.ai/blog?id=qwen3.6 哪些啥跑分之类也没必要看，就希望 qwen 带个好头，让其他几个国产加加油，早点支持原生多模态+1M 上下文。\n林俊旸走了后也不知道 qwen 现在什么情况。",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-04-04T13:54:03.115Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "qwen-plus-国产终于有了首个原生多模态-上下文的模型",
+    "normalizedTitle": "qwen 3 6 plus 发布 国产终于有了首个原生多模态 1m 上下文的模型",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 112.775310843115
+  },
+  {
+    "id": "folo-263274622912311303",
+    "title": "国际货币基金组织警告称，代币化金融可能加剧未来的市场危机",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/imf-warns-tokenized-finance-risks-amplifying-market-crises-ahead",
+    "content": "IMF Warns Tokenized Finance Risks Amplifying Market Crises Ahead (www.bloomberg.com) 04-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-04-04T13:23:20.489Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "国际货币基金组织警告称-代币化金融可能加剧未来的市场危机",
+    "normalizedTitle": "国际货币基金组织警告称 代币化金融可能加剧未来的市场危机",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.775309000489
+  },
+  {
+    "id": "folo-263242308924711943",
+    "title": "Mbodi AI (YC P25) Is Hiring",
+    "url": "https://www.ycombinator.com/companies/mbodi-ai/jobs/mf9L3sy-senior-robotics-engineer-systems-controls",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-04-04T13:14:25.803Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "mbodi-p25-hiring",
+    "normalizedTitle": "mbodi ai yc p25 is hiring",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News"
+    ],
+    "preFilterScore": 33.775308465803
+  },
+  {
+    "id": "folo-263252053396032517",
+    "title": "Claude 限制在小龙虾上使用了，有什么比较稳定的途径可以解决？",
+    "url": "https://www.v2ex.com/t/1203556#reply5",
+    "content": "Claude’s extensive bans were triggered by users overloading the system with “crayfish” challenges, generating excessive token spam and straining resources. The official temporary fix is a CLI transition. It offers a basic experience with no tool integration, no streaming, potential session‑resume hiccups, and may still incur over‑quota charges beyond the subscription.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-04-04T12:52:36.950Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "claude-限制在小龙虾上使用了-有什么比较稳定的途径可以解决",
+    "normalizedTitle": "claude 限制在小龙虾上使用了 有什么比较稳定的途径可以解决",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 371.77530715695
+  },
+  {
+    "id": "folo-263274622912311305",
+    "title": "欧洲央行行长拉德夫表示，能源危机可能蔓延至更广泛的经济领域",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-03/ecb-s-radev-says-energy-crisis-may-spread-to-wider-economy",
+    "content": "ECB’s Radev Says Energy Crisis May Spread to Wider Economy (www.bloomberg.com) 04-03",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-04-04T12:35:14.449Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "欧洲央行行长拉德夫表示-能源危机可能蔓延至更广泛的经济领域",
+    "normalizedTitle": "欧洲央行行长拉德夫表示 能源危机可能蔓延至更广泛的经济领域",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 85.775306114449
+  },
+  {
+    "id": "folo-263231961715182595",
+    "title": "怎么感觉 ClaudeCodeMax 5X 额度变少了",
+    "url": "https://www.v2ex.com/t/1203550#reply3",
+    "content": "The user is asking why their ClaudeCodeMax 5X credits have decreased, suspecting it might be due to a reduction in limits or the expiration of a previous double‑credit promotion.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-04-04T11:47:56.128Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "怎么感觉-claudecodemax-额度变少了",
+    "normalizedTitle": "怎么感觉 claudecodemax 5x 额度变少了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 179.775303276128
+  },
+  {
+    "id": "folo-263230592828573696",
+    "title": "匈牙利大选：战争与钱包之争",
+    "url": "https://www.ft.com/content/b39b035a-57b7-4265-9b0c-2dc5bf0c82bd",
+    "content": "Hungary’s election pits conflict against economic concerns, as voters weigh the impact of war-related spending against personal financial worries. The focus remains on how defense costs influence household budgets and public sentiment.",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "politics",
+    "publishedAt": "2026-04-04T11:31:43.646Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "匈牙利大选-战争与钱包之争",
+    "normalizedTitle": "匈牙利大选 战争与钱包之争",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 236.775302303646
+  },
+  {
+    "id": "folo-263210620475646977",
+    "title": "GitHub has DMCA'd nearly all forks of the official Claude-code repo",
+    "url": "https://github.com/anthropics/claude-code/forks",
+    "content": "GitHub has issued DMCA takedown notices on almost all forks of the official Claude-code repository, removing them from the platform.",
+    "source": "Hacker News - cg505",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "software",
+    "publishedAt": "2026-04-04T11:08:29.373Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "github-has-dmca-nearly-all-forks",
+    "normalizedTitle": "github has dmca d nearly all forks of the official claude-code repo",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - cg505"
+    ],
+    "preFilterScore": 133.775300909373
+  },
+  {
+    "id": "folo-263274622912311309",
+    "title": "意大利总理梅洛尼赴海湾地区，旨在加强因战争受影响的能源供应",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/italy-s-meloni-visits-doha-to-bolster-energy-supplies-hit-by-war",
+    "content": "Italy’s Meloni in Gulf to Bolster Energy Supplies Hit by War (www.bloomberg.com) 00:18",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-04-04T10:59:22.812Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "意大利总理梅洛尼赴海湾地区-旨在加强因战争受影响的能源供应",
+    "normalizedTitle": "意大利总理梅洛尼赴海湾地区 旨在加强因战争受影响的能源供应",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.775300362812
+  },
+  {
+    "id": "folo-263520046818512904",
+    "title": "直面恐惧是最快成长",
+    "url": "https://xueqiu.com/7913104177/382669112",
+    "content": "Facing fear is the quickest way to grow. The true “high throw, low pull” strategy exploits market bias: firms undervalued by sentiment eventually have prices return to intrinsic value when they break the bias. Buying cheaply during undervaluation yields about a 70% hit rate, rising to 90% if growth isn’t forecasted. The biggest losses occur after a huge rally followed by a 50% drop, not during undervaluation. Successful investing requires solid logic, assumption of potential error, and protection against worst-case scenarios. Embracing fear exposes opportunities and prevents easy market setbacks.",
+    "source": "热帖 - 雪球 - 酒金岁月",
+    "sourceId": "folo-ai-list-53033422584152064",
+    "category": "investment",
+    "publishedAt": "2026-04-04T10:30:12.818Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "直面恐惧是最快成长",
+    "normalizedTitle": "直面恐惧是最快成长",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "热帖 - 雪球 - 酒金岁月"
+    ],
+    "preFilterScore": 601.775298612818
+  },
+  {
+    "id": "folo-263272274160766977",
+    "title": "李录首次公开对话比亚迪（下篇）：真正伟大的企业没有边界，增长没有天花板",
+    "url": "https://xueqiu.com/2398291266/382668840",
+    "content": "The interview between Li Lu, founder of Himalaya Capital, and BYD’s chief investor Li Qian revisits Li’s 23‑year commitment to BYD. It highlights Li’s first‑principles approach to long‑term value, his support during setbacks, and optimism for China’s global industrial rise. Li stresses rational optimism, learning, and the need for a learning culture in BYD’s future expansion, framing the company as a boundary‑less, growth‑oriented enterprise.",
+    "source": "热帖 - 雪球 - 投资人记事",
+    "sourceId": "folo-ai-list-53033422584152064",
+    "category": "investment",
+    "publishedAt": "2026-04-04T10:22:13.826Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "李录首次公开对话比亚迪-真正伟大的企业没有边界-增长没有天花板",
+    "normalizedTitle": "李录首次公开对话比亚迪 下篇 真正伟大的企业没有边界 增长没有天花板",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "热帖 - 雪球 - 投资人记事"
+    ],
+    "preFilterScore": 447.775298133826
+  },
+  {
+    "id": "folo-263395582776725509",
+    "title": "米哈游联合创始人刘伟、蔡浩宇、罗宇皓集体向母校上海交大捐赠",
+    "url": "https://readhub.cn/topic/8s3HvpmlRmx",
+    "content": "Three founding members of miHoYo—Liu Wei, Cai Haoyu, and Luo Yuhao—donated funds to their alma mater, ShanghaiTech University, to establish the \"AI Future Foundation\" fund. The ceremony, hosted by Jiang Xinghao and attended by the university president, aimed to support AI research, including brain‑computer interface technologies, under the university’s artificial intelligence institute. This contribution aligns with the university’s 130th‑anniversary celebrations and its broader AI development strategy.",
+    "source": "Readhub - 每日早报 - 金融界",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "ai",
+    "publishedAt": "2026-04-04T10:02:14.093Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "米哈游联合创始人刘伟-蔡浩宇-罗宇皓集体向母校上海交大捐赠",
+    "normalizedTitle": "米哈游联合创始人刘伟 蔡浩宇 罗宇皓集体向母校上海交大捐赠",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 金融界"
+    ],
+    "preFilterScore": 509.775296934093
+  },
+  {
+    "id": "folo-263395582776725510",
+    "title": "原小米字节硬件高管徐睿加入 Meta：将领导新组建的 AI 硬件团队",
+    "url": "https://readhub.cn/topic/8s3EoLTZ8e5",
+    "content": "Meta has appointed former Xiaomi and ByteDance hardware executive Xu Rui to head its newly formed AI hardware team at MSL. Previously, Xu led hardware R&D at Xiaomi (2015‑2017), headed ByteDance’s hardware division (2020‑2022), served as COO at K‑Scale Labs, and product manager at Dreamer before its acquisition by Meta. He brings experience from major Chinese tech firms and recent Meta talent movements.",
+    "source": "Readhub - 每日早报 - 金融界",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "ai",
+    "publishedAt": "2026-04-04T10:01:54.732Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "原小米字节硬件高管徐睿加入-meta-将领导新组建的-硬件团队",
+    "normalizedTitle": "原小米字节硬件高管徐睿加入 meta 将领导新组建的 ai 硬件团队",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 金融界"
+    ],
+    "preFilterScore": 407.775296914732
+  },
+  {
+    "id": "folo-263274622912311312",
+    "title": "汉莎航空警告称，若伊朗战争持续，可能出现燃油短缺",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-03/lufthansa-warns-of-potential-fuel-shortage-on-prolonged-iran-war",
+    "content": "Lufthansa Warns of Potential Fuel Shortage on Prolonged Iran War (www.bloomberg.com) 04-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-04-04T09:08:52.876Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "汉莎航空警告称-若伊朗战争持续-可能出现燃油短缺",
+    "normalizedTitle": "汉莎航空警告称 若伊朗战争持续 可能出现燃油短缺",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.775293732876
+  },
+  {
+    "id": "folo-263180398300734489",
+    "title": "Claude Code Found a Linux Vulnerability Hidden for 23 Years",
+    "url": "https://mtlynch.io/claude-code-found-linux-vulnerability/",
+    "content": "Claude Code has discovered a Linux vulnerability that remained unknown for 23 years.",
+    "source": "Hacker News - eichin",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-04-04T09:08:26.341Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "claude-code-found-linux-vulnerability-hidden",
+    "normalizedTitle": "claude code found a linux vulnerability hidden for 23 years",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - eichin"
+    ],
+    "preFilterScore": 85.775293706341
+  },
+  {
+    "id": "folo-263190399027252242",
+    "title": "做了个生成 comfyui workflow 的 skill",
+    "url": "https://www.v2ex.com/t/1203532#reply0",
+    "content": "用自然语言生成可直接导入 ComfyUI 的工作流 JSON 文件。 GitHub： https://github.com/twwch/comfyui-workflow-skill\n\n无需 API 费用，无需后端。描述你想要的 → 生成有效的工作流 JSON → 导入 ComfyUI 运行。\n\n效果展示\n安装 Skill\n\n![安装 skills]( https://raw.githubusercontent.com/twwch/comfyui-workflow-skill/main/images/安装 skills.png)\n\nAI 生成工作流 → 导入…",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-04-04T08:48:03.983Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "做了个生成-comfyui-workflow-skill",
+    "normalizedTitle": "做了个生成 comfyui workflow 的 skill",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 283.775292483983
+  },
+  {
+    "id": "folo-263274622912311313",
+    "title": "伊朗战争正在重塑全球航空业",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-04/the-iran-war-is-reshaping-global-aviation",
+    "content": "Iran’s conflict is altering the global aviation industry, prompting changes in flight routes, airline strategies, and market dynamics.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-04-04T08:05:24.559Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "伊朗战争正在重塑全球航空业",
+    "normalizedTitle": "伊朗战争正在重塑全球航空业",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 135.775289924559
+  },
+  {
+    "id": "folo-263199384652476416",
+    "title": "微语 1.8.0 发布 - 开源智能客服",
+    "url": "https://www.oschina.net/news/417526",
+    "content": "微语是基于AI全新打造的一款开源企业级多租户团队智能协同平台，提供一站式客户服务解决方案/客服中心/联络中心，能够显著提高内部员工和外部客户沟通效率。 企业IM、智能客服、企业知识库、智能工单、AI Agent智能体、工作流、客户之声、呼叫中心、视频客服、客户管理CRM、培训管理、开放平台\n\n1. 音频客服上线\n\n2. 视频客服上线\n\n3. 屏幕共享上线\n\n4. 更多100多项功能优化和bug修复",
+    "source": "开源中国-全部 - 码总",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-04-04T07:07:04.011Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "开源智能客服",
+    "normalizedTitle": "微语 1 8 0 发布 - 开源智能客服",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 码总"
+    ],
+    "preFilterScore": 201.775286424011
+  },
+  {
+    "id": "folo-263148970804513795",
+    "title": "买 coding plan 套餐的优势在哪里, 对比 gpt 会员的话",
+    "url": "https://www.v2ex.com/t/1203513#reply4",
+    "content": "The coding plan starts at roughly 30–50 yuan, while a GPT Plus membership in Turkey costs about 80 yuan, making the coding plan cheaper. Additionally, the coding plan may offer tailored features for coding tasks, whereas GPT Plus provides general AI access. Thus, the primary advantage is lower cost and potentially more focused functionality compared to GPT Plus.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-04-04T06:11:36.252Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "coding-plan-套餐的优势在哪里-gpt-会员的话",
+    "normalizedTitle": "买 coding plan 套餐的优势在哪里 对比 gpt 会员的话",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 365.775283096252
+  },
+  {
+    "id": "folo-263148970804513797",
+    "title": "同事上午被优化，下午他的\"数字分身\"就上线回答问题了——所以我做了个开源工具箱来反制",
+    "url": "https://www.v2ex.com/t/1203507#reply3",
+    "content": "A writer discovered that a former colleague’s digital clone was created from his work data after being laid off. The clone answers questions in the same tone and coding style. To protect workers’ digital identities, an open‑source toolkit was released. It adds style obfuscation, invisible data watermarks, and detection tests to block AI from accurately mimicking employees. The project includes legal guidance and a cyberpunk demo, aiming to prevent post‑exit AI exploitation.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-04-04T05:50:05.654Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "同事上午被优化-下午他的-数字分身-就上线回答问题了——所以我做了个开源工具箱来反制",
+    "normalizedTitle": "同事上午被优化 下午他的 数字分身 就上线回答问题了——所以我做了个开源工具箱来反制",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 479.775281805654
+  },
+  {
+    "id": "folo-263128800086199298",
+    "title": "[开源] Token Share —— macOS 原生菜单栏 LLM API 网关",
+    "url": "https://www.v2ex.com/t/1203505#reply0",
+    "content": "Token Share is a lightweight, native macOS menu‑bar gateway that translates between different LLM API formats, such as OpenAI and Anthropic, in real time. It supports streaming conversion and runs locally with minimal overhead. The tool is ready to use out of the box and has been open‑source on GitHub: https://github.com/leemysw/token-share.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-04-04T05:39:08.988Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "token-share-macos-原生菜单栏-llm-api",
+    "normalizedTitle": "开源 token share —— macos 原生菜单栏 llm api 网关",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 344.775281148988
+  },
+  {
+    "id": "folo-263128800086199296",
+    "title": "Claude Code 又送了 $100 的 extra balance",
+    "url": "https://www.v2ex.com/t/1203503#reply13",
+    "content": "Claude AI has offered an additional $100 credit. After visiting the usage page, users are prompted with a popup to claim an extra $100 balance. Check the page to see if you can receive the credit.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-04-04T05:12:51.165Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "claude-code-又送了-100-extra-balance",
+    "normalizedTitle": "claude code 又送了 100 的 extra balance",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 197.775279571165
+  },
+  {
+    "id": "folo-263128800086199300",
+    "title": "Claude 现在可以免费领取一次性额外使用额度了",
+    "url": "https://www.v2ex.com/t/1203502#reply1",
+    "content": "Claude now offers a one‑time free extra usage credit for Pro, Max, and Team subscribers. The credit equals the subscription price: $20 for Pro, $100 for Max 5×, $200 for Max 20×, and $200 for Team. Users must subscribe before 9 a.m. PT on 3 April 2026 and enable “Extra usage.” They claim the credit in settings and on the Usage page; no payment is required. The offer runs from 3–17 April 2026, and the credit lasts 90 days after claiming. The feature is unavailable to Enterprise plans and mobile apps.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-04-04T05:12:25.613Z",
+    "fetchedAt": "2026-04-05T16:53:09.659Z",
+    "eventKey": "claude-现在可以免费领取一次性额外使用额度了",
+    "normalizedTitle": "claude 现在可以免费领取一次性额外使用额度了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 505.775279545613
+  },
+  {
+    "id": "folo-263200561037299712",
+    "title": "段永平亲自去了泡泡玛特门店",
+    "url": "https://xueqiu.com/7736566551/382653604",
+    "content": "The article reports that China’s famed investor Duan Yongping visited a Meco Game (泡泡玛特) store, concluded that it exemplifies “right business, right people, right price,” and likely has built a significant stake. He combined reading about the founder, two onsite visits, and analysis of the adult‑heavy customer base, low Asian‑heritage ratios, and cross‑cultural reach to confirm the brand’s international potential. Duan’s rapid shift from skepticism to endorsement – in six days – signals confidence in the company’s model.",
+    "source": "热帖 - 雪球 - 多伦多的大道信徒",
+    "sourceId": "folo-ai-list-53033422584152064",
+    "category": "investment",
+    "publishedAt": "2026-04-04T04:22:23.677Z",
+    "fetchedAt": "2026-04-05T16:53:12.956Z",
+    "eventKey": "段永平亲自去了泡泡玛特门店",
+    "normalizedTitle": "段永平亲自去了泡泡玛特门店",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "热帖 - 雪球 - 多伦多的大道信徒"
+    ],
+    "preFilterScore": 527.775276543677
+  },
+  {
+    "id": "folo-263121119812268032",
+    "title": "为何应静观其变，等待人工智能“大手笔投资”的假起跑期过去",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-04-04/waiting-out-ai-s-super-spending-false-start-merryn-talks-money",
+    "content": "Waiting for the initial hype cycle of AI investment to cool gives investors a clearer view of which companies create lasting value. Early “big‑spend” projects often lag behind practical benefits and can mislead markets. By observing how firms progress after the initial rush, stakeholders can better assess real performance, avoid overvaluation, and identify sustainable growth opportunities.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-04-04T04:05:39.693Z",
+    "fetchedAt": "2026-04-05T16:53:12.956Z",
+    "eventKey": "为何应静观其变-等待人工智能“大手笔投资”的假起跑期过去",
+    "normalizedTitle": "为何应静观其变 等待人工智能“大手笔投资”的假起跑期过去",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 393.775275539693
+  },
+  {
+    "id": "folo-263107146740140034",
+    "title": "日本严查违规骑行者",
+    "url": "https://www.ft.com/content/6c33a7cf-9c25-4ad9-9526-50198074e3df",
+    "content": "Japan is tightening enforcement against cyclists who violate regulations.",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "politics",
+    "publishedAt": "2026-04-04T04:05:38.489Z",
+    "fetchedAt": "2026-04-05T16:53:12.956Z",
+    "eventKey": "日本严查违规骑行者",
+    "normalizedTitle": "日本严查违规骑行者",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 74.775275538489
+  },
+  {
+    "id": "folo-263107146740140036",
+    "title": "德国极右翼政党“德国选择党”因伊朗战争问题与特朗普划清界限",
+    "url": "https://www.ft.com/content/9d5abad5-df48-4e56-908a-1a7e38bb182e",
+    "content": "Germany’s far right AfD distances itself from Trump over Iran war (www.ft.com) 04-04",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "politics",
+    "publishedAt": "2026-04-04T04:05:37.561Z",
+    "fetchedAt": "2026-04-05T16:53:12.956Z",
+    "eventKey": "德国极右翼政党“德国选择党”因伊朗战争问题与特朗普划清界限",
+    "normalizedTitle": "德国极右翼政党“德国选择党”因伊朗战争问题与特朗普划清界限",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 85.775275537561
+  },
+  {
+    "id": "folo-263107146740140037",
+    "title": "特朗普的言论仍在扰乱市场",
+    "url": "https://www.ft.com/content/57f1c55a-7eab-4a3e-83d5-c8e228b7e99d",
+    "content": "Former U.S. President Donald Trump’s recent statements continue to cause volatility in financial markets. His remarks, widely spread through media and social channels, have led to unpredictable price swings and uncertainty among investors, prompting analysts to monitor the situation closely. As markets react to his comments, stakeholders remain cautious until clearer signals emerge about potential regulatory or political outcomes.",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "business",
+    "publishedAt": "2026-04-04T04:05:37.005Z",
+    "fetchedAt": "2026-04-05T16:53:12.956Z",
+    "eventKey": "特朗普的言论仍在扰乱市场",
+    "normalizedTitle": "特朗普的言论仍在扰乱市场",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 435.775275537005
+  },
+  {
+    "id": "folo-263138872396861441",
+    "title": "我为什么连续一周加仓泡泡玛特？",
+    "url": "https://xueqiu.com/8537110464/382652606",
+    "content": "The post explains why the author keeps adding shares of Pop Mart after a sharp drop. The author cites research, frequent shopping trips, and in‑store experience to assess the company’s strong financials, good location strategy, direct‑store pricing power, expanding “Bag‑Hang” product line, and popular IP partnerships. He trusts a seasoned investor’s guidance, sees Pop Mart as a stable, IP‑driven toy retailer, and plans to continue buying gradually if the fundamentals remain intact.",
+    "source": "热帖 - 雪球 - 菜问谈投资",
+    "sourceId": "folo-ai-list-53033422584152064",
+    "category": "investment",
+    "publishedAt": "2026-04-04T04:00:06.685Z",
+    "fetchedAt": "2026-04-05T16:53:12.956Z",
+    "eventKey": "我为什么连续一周加仓泡泡玛特",
+    "normalizedTitle": "我为什么连续一周加仓泡泡玛特",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "热帖 - 雪球 - 菜问谈投资"
+    ],
+    "preFilterScore": 487.775275206685
+  },
+  {
+    "id": "folo-263087257396683779",
+    "title": "Show HN: Travel Hacking Toolkit – Points search and trip planning with AI",
+    "url": "https://github.com/borski/travel-hacking-toolkit",
+    "content": "Show HN posted a travel‑hacking toolkit that lets users search for travel points and plan trips using AI.",
+    "source": "Hacker News - borski",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-04-04T02:58:19.337Z",
+    "fetchedAt": "2026-04-05T16:53:12.956Z",
+    "eventKey": "show-travel-hacking-toolkit-points-search",
+    "normalizedTitle": "show hn travel hacking toolkit – points search and trip planning with ai",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - borski"
+    ],
+    "preFilterScore": 106.775271499337
+  },
+  {
+    "id": "folo-263122219391011845",
+    "title": "民主党参议员敦促特朗普禁止中国车企在美建厂",
+    "url": "https://cn.wsj.com/articles/%E6%B0%91%E4%B8%BB%E5%85%9A%E5%8F%82%E8%AE%AE%E5%91%98%E6%95%A6%E4%BF%83%E7%89%B9%E6%9C%97%E6%99%AE%E7%A6%81%E6%AD%A2%E4%B8%AD%E5%9B%BD%E8%BD%A6%E4%BC%81%E5%9C%A8%E7%BE%8E%E5%BB%BA%E5%8E%82-ab2e8e32",
+    "content": "U.S. Democratic senators call on President Trump to ban Chinese automakers from building or registering vehicles in the U.S., and to prohibit Chinese cars made in Canada or Mexico from entering the U.S. market.",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "business",
+    "publishedAt": "2026-04-04T01:54:00.506Z",
+    "fetchedAt": "2026-04-05T16:53:12.956Z",
+    "eventKey": "民主党参议员敦促特朗普禁止中国车企在美建厂",
+    "normalizedTitle": "民主党参议员敦促特朗普禁止中国车企在美建厂",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 211.775267640506
+  },
+  {
+    "id": "folo-263138872396861443",
+    "title": "李录首次公开对话比亚迪：买入重仓二十多年的详细复盘（上篇）",
+    "url": "https://xueqiu.com/2398291266/382644767",
+    "content": "In 2026, Li Lu, founder of Himalaya Capital, publicly discussed his 23‑year investment in BYD with company officials. He recounted first noticing BYD’s rechargeable battery work, purchasing shares in 2002, and steadfastly holding them through ups and downs, including BYD’s shift to electric vehicles and partnership with Berkshire Hathaway. Li highlights valuing companies with first‑principle thinking, engineering focus, and fiduciary responsibility, illustrating his long‑term, value‑driven approach.",
+    "source": "热帖 - 雪球 - 投资人记事",
+    "sourceId": "folo-ai-list-53033422584152064",
+    "category": "investment",
+    "publishedAt": "2026-04-04T01:29:20.326Z",
+    "fetchedAt": "2026-04-05T16:53:12.956Z",
+    "eventKey": "李录首次公开对话比亚迪-买入重仓二十多年的详细复盘",
+    "normalizedTitle": "李录首次公开对话比亚迪 买入重仓二十多年的详细复盘 上篇",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "热帖 - 雪球 - 投资人记事"
+    ],
+    "preFilterScore": 505.775266160326
+  },
+  {
+    "id": "folo-263099602537820161",
+    "title": "新加坡正积极争取成为主要的黄金交易中心",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-04-04/singapore-seeks-to-rival-hong-kong-as-gold-hub-with-central-bank-storage",
+    "content": "Singapore is actively working to establish itself as a leading global gold‑trading center, aiming to attract increased market participation and investment within the region.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-04-04T01:08:56.305Z",
+    "fetchedAt": "2026-04-05T16:53:12.956Z",
+    "eventKey": "新加坡正积极争取成为主要的黄金交易中心",
+    "normalizedTitle": "新加坡正积极争取成为主要的黄金交易中心",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 174.775264936305
+  },
+  {
+    "id": "folo-263057727401372672",
+    "title": "2026-04-04",
+    "url": "https://imjuya.github.io/juya-ai-daily/issue-49/",
+    "content": "Alibaba’s Yanli lab launched Wan2.7‑Video, a multimodal video‑generation model supporting text, image, video, and audio input with advanced editing and storyline features. JD released JoyAI‑Image‑Edit, a multimodal image‑editing weight enabling precise spatial manipulation. A research team open‑source OmniVoice, a zero‑shot TTS model covering 600+ languages. ElevenLabs upgraded Scribe v2 with entity de‑sensitization and expanded keyword prompts. Willow introduced Atlas 1, a high‑accuracy speech‑to‑text model. Netflix open‑sourced VOID, a video‑object‑eraser model based on CogVideoX. OpenAI changed Codex pricing to token‑based; Anthropic halted third‑party tool billing and offered credit offset. Xiaomi launched its MiMo Token Plan. Gemini CLI added Subagents. Claude now offers Microsoft 365 connectors. LMArena temporarily removed top models. Anthropic outlined three app‑building modes and acquired Coefficient Bio. Sarvam AI plans a $300‑$350 million funding round.",
+    "source": "橘鸦AI早报",
+    "sourceId": "folo-ai-list-249743826993702912",
+    "category": "ai",
+    "publishedAt": "2026-04-04T00:58:09.688Z",
+    "fetchedAt": "2026-04-05T16:53:12.956Z",
+    "eventKey": "2026-04-04",
+    "normalizedTitle": "2026-04-04",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "橘鸦AI早报"
+    ],
+    "preFilterScore": 601.775264289688
+  },
+  {
+    "id": "folo-263056987037606912",
+    "title": "Tell HN: Anthropic no longer allowing Claude Code subscriptions to use OpenClaw",
+    "url": "https://news.ycombinator.com/item?id=47633396",
+    "content": "Anthropic has stopped permitting users with Claude Code subscriptions from employing the OpenClaw API.",
+    "source": "Hacker News - firloop",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-04-04T00:58:03.203Z",
+    "fetchedAt": "2026-04-05T16:53:12.956Z",
+    "eventKey": "tell-anthropic-longer-allowing-claude-code",
+    "normalizedTitle": "tell hn anthropic no longer allowing claude code subscriptions to use openclaw",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - firloop"
+    ],
+    "preFilterScore": 103.775264283203
+  },
+  {
+    "id": "folo-263056987037606916",
+    "title": "Extra usage credit for Claude to celebrate usage bundles launch (Pro, Max, Team)",
+    "url": "https://support.claude.com/en/articles/14246053-extra-usage-credit-for-pro-max-and-team-plans",
+    "content": "Microsoft’s \"Claude Extra Credit\" program gives users bonus credits when they purchase its new usage bundles—Pro, Max, and Team—allowing them to extend their usage of Claude AI.",
+    "source": "Hacker News - angst",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-04-04T00:58:03.199Z",
+    "fetchedAt": "2026-04-05T16:53:12.956Z",
+    "eventKey": "extra-usage-credit-claude-celebrate-usage",
+    "normalizedTitle": "extra usage credit for claude to celebrate usage bundles launch pro max team",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - angst"
+    ],
+    "preFilterScore": 178.775264283199
+  }
+]
