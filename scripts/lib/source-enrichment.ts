@@ -23,13 +23,14 @@ function decodeHtmlEntities(text: string): string {
 }
 
 function stripTags(html: string): string {
-  return decodeHtmlEntities(
-    html
-      .replace(/<script[\s\S]*?<\/script>/gi, " ")
-      .replace(/<style[\s\S]*?<\/style>/gi, " ")
-      .replace(/<!--[\s\S]*?-->/g, " ")
-      .replace(/<[^>]+>/g, " ")
-  );
+  // First decode entities so encoded tags like &lt;img&gt; become real tags
+  const decoded = decodeHtmlEntities(html);
+  return decoded
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<!--[\s\S]*?-->/g, " ")
+    .replace(/<\/?[a-z][^>]*>/gi, " ")    // complete tags
+    .replace(/<\/?[a-z][^>]{0,300}$/gi, " "); // truncated tag at end of string
 }
 
 function extractMetaContent(
@@ -171,15 +172,23 @@ export async function enrichNewsItem<T extends RawNewsItem>(item: T): Promise<T>
     }
 
     const description = normalizeText(
-      extractMetaContent(html, [
-        { attr: "property", value: "og:description" },
-        { attr: "name", value: "description" },
-        { attr: "name", value: "twitter:description" },
-      ])
+      stripTags(
+        extractMetaContent(html, [
+          { attr: "property", value: "og:description" },
+          { attr: "name", value: "description" },
+          { attr: "name", value: "twitter:description" },
+        ])
+      )
     );
 
     const paragraphs = extractParagraphs(html);
-    const content = buildBestContent(baseItem, description, paragraphs);
+    let content = buildBestContent(baseItem, description, paragraphs);
+
+    // Final safety: strip any residual HTML tags that slipped through
+    if (/<[a-z]/i.test(content.content)) {
+      const cleaned = normalizeText(stripTags(content.content));
+      content = { ...content, content: cleaned, contentDepth: cleaned.length };
+    }
     const imageUrl =
       pickInformativeImage(baseItem, html, description, item.url) ?? baseItem.imageUrl;
 

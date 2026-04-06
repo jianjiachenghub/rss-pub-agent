@@ -16,7 +16,7 @@ itemCount: 15
 
 ### 2026-04-04
 
-**事件：** <img src="http://testtttt.oss-cn-guangzhou.aliyuncs.com/imagehub/20260404/2026040408431420198100d4_cover_d8dc.png" al… Contents AI 早报 2026-04-04 概览 阿里通义实验室发布 Wan2.7-Video 视频生成模型 #1 京东开源发布 JoyAI-Image 图像编辑模型权重 #2 研究团队开源 OmniVoice 覆盖 600 种语言零样本 TTS 模型 #3 ElevenLabs Scribe v2 升级，新增实体脱敏及关键词提示扩容 #4 Willow 发布 Atlas 1 语音转文本模型 #5 Netflix 开源首个 AI 模型 VOID #6 OpenAI 调整 Codex 计费规则改为按 token 消耗量计价 #7 Anthropic 明确禁止第三方工具使用订阅，并提供额度补偿 #8 Claude Code 更新减少 Token 消耗、 Anthropic 回应额度异常 #9 小米 MiMo 推出 Token Plan 订阅服务 #10 Gemini CLI 发布 v0.36.0，引入 Subagents #11 Claude 全面开放 Microsoft 365 连接器 #12 LMArena 暂时下架 Claude Opus 4.6 等三款模型维护平台稳定 #13 Anthropic 提应用构建三模式，平衡成本延迟 #14 消息称 Anthropic 收购 Coefficient Bio #15 Sarvam AI 拟融资 3 亿至 3.5 亿美元，亚马逊英伟达或参投 #16 2026-04-04 2026-04-04 read the source issue AI 早报 2026-04-04 视频版 ： 哔哩哔哩 ｜ YouTube 概览 模型发布 阿里通义实验室发布 Wan2.7-Video 视频生成模型 ↗ #1 京东开源发布 JoyAI-Image 图像编辑模型权重 ↗ #2 研究团队开源 OmniVoice 覆盖 600 种语言零样本 TTS 模型 ↗ #3 ElevenLabs Scribe v2 升级，新增实体脱敏及关键词提示扩容 ↗ #4 Willow 发布 Atlas 1 语音转文本模型 ↗ #5 Netflix 开源首个 AI 模型 VOID ↗ #6 开发生态 OpenAI 调整 Codex 计费规则改为按 token 消耗量计价 ↗ #7 Anthropic 明确禁止第三方工具使用订阅，并提供额度补偿 ↗ #8 Claude Code 更新减少 Token 消耗、 Anthropic 回应额度异常 ↗ #9 小米 MiMo 推出 Token Plan 订阅服务 ↗ #10 Gemini CLI 发布 v0.36.0，引入 Subagents ↗ #11 产品应用 Claude 全面开放 Microsoft 365 连接器 ↗ #12 LMArena 暂时下架 Claude Opus 4.6 等三款模型维护平台稳定 ↗ #13 技术与洞察 Anthropic 提应用构建三模式，平衡成本延迟 ↗ #14 行业动态 消息称 Anthropic 收购 Coefficient Bio ↗ #15 Sarvam AI 拟融资 3 亿至 3.5 亿美元，亚马逊英伟达或参投 #16 阿里通义实验室发布 Wan2.7-Video 视频生成模型 #1 阿里通义实验室正式发布视频生成模型 Wan2.7-Video ，以“戏核驱动”为核心支持全模态输入及全链路创作。
+**事件：** 阿里通义实验室正式发布视频生成模型 Wan2.7-Video，以“戏核驱动”为核心支持全模态输入及全链路创作。
 
 **解读：** AI领域重要进展，对模型能力和产品形态有直接影响。
 
