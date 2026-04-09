@@ -2,10 +2,10 @@
   "startedAt": "2026-04-06T17:04:25.634Z",
   "primaryItemsFetched": 263,
   "primaryItemsRetained": 263,
-  "eventCandidates": 248,
-  "rawCandidates": 94,
+  "eventCandidates": 114,
+  "rawCandidates": 62,
   "backfillItemsFetched": 0,
-  "sourceErrors": 1,
+  "sourceErrors": 2,
   "degradedMode": "none",
-  "finishedAt": "2026-04-06T17:05:15.529Z"
+  "finishedAt": "2026-04-09T15:41:49.058Z"
 }
