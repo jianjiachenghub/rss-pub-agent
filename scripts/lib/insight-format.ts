@@ -1,4 +1,5 @@
 import type { RawNewsItem, ScoredNewsItem } from "./types.js";
+import { isCommunitySource } from "./community-source.js";
 
 export interface InsightSections {
   event: string;
@@ -185,10 +186,10 @@ export function isQuestionLikeTitle(title: string): boolean {
 }
 
 export function isForumLikeItem(
-  item: Pick<RawNewsItem, "source" | "title">
+  item: Pick<RawNewsItem, "source" | "title"> & { url?: string }
 ): boolean {
   return (
-    FORUM_SOURCE_PATTERNS.some((pattern) => pattern.test(item.source)) ||
+    isCommunitySource(item) ||
     isQuestionLikeTitle(item.title)
   );
 }
@@ -209,7 +210,9 @@ export function hasThinContent(
 }
 
 export function shouldWriteInterpretation(
-  item: Pick<RawNewsItem, "title" | "source" | "content" | "contentDepth">
+  item: Pick<RawNewsItem, "title" | "source" | "content" | "contentDepth"> & {
+    url?: string;
+  }
 ): boolean {
   if (isForumLikeItem(item)) return false;
   if (hasThinContent(item)) return false;

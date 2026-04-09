@@ -11,9 +11,9 @@ import {
 } from "../lib/insight-format.js";
 import {
   CATEGORIES,
-  categorySystemPrompt,
   categoryUserPrompt,
 } from "../lib/prompts.js";
+import { forumAwareCategorySystemPrompt } from "../lib/forum-aware-prompts.js";
 import type { NewsInsight, ScoredNewsItem } from "../lib/types.js";
 
 interface InsightResult {
@@ -445,7 +445,7 @@ export async function insightNode(
     const [insightResults, categoryResults] = await Promise.all([
       requestInsights(insightInput, editorialAgenda),
       callLLMJson<CategoryResult[]>({
-        systemPrompt: categorySystemPrompt(),
+        systemPrompt: forumAwareCategorySystemPrompt(),
         prompt: categoryUserPrompt(categoryInput),
         model: "flash",
         jsonSchema: {

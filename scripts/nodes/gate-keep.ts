@@ -1,7 +1,8 @@
 import type { PipelineStateType } from "../state.js";
 import { buildFallbackGateKeep } from "../lib/editorial-fallback.js";
 import { callLLMJson, isContentSafetyError } from "../lib/llm.js";
-import { gateKeepSystemPrompt, gateKeepUserPrompt } from "../lib/prompts.js";
+import { forumAwareGateKeepSystemPrompt } from "../lib/forum-aware-prompts.js";
+import { gateKeepUserPrompt } from "../lib/prompts.js";
 import type { GateKeepResult } from "../lib/types.js";
 
 const BATCH_SIZE = 20;
@@ -36,7 +37,10 @@ export async function gateKeepNode(
         }));
 
         const results = await callLLMJson<GateKeepResult[]>({
-          systemPrompt: gateKeepSystemPrompt(config.editorial, editorialAgenda),
+          systemPrompt: forumAwareGateKeepSystemPrompt(
+            config.editorial,
+            editorialAgenda
+          ),
           prompt: gateKeepUserPrompt(batchInput),
           model: "flash",
           jsonSchema: {

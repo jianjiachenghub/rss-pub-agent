@@ -8,6 +8,12 @@ import type {
   ScoredNewsItem,
   ScoringDimensions,
 } from "./types.js";
+import {
+  classifyEditorialCategory,
+  getCommunityScorePenalty,
+  normalizeNewsCategory,
+  isLowSignalCommunityItem,
+} from "./community-source.js";
 
 const CATEGORIES: NewsCategory[] = [
   "ai",
@@ -93,12 +99,6 @@ const LOW_SIGNAL_PATTERNS = [
 
 function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value));
-}
-
-function normalizeCategory(category: string): NewsCategory {
-  return CATEGORIES.includes(category as NewsCategory)
-    ? (category as NewsCategory)
-    : "social";
 }
 
 function keywordHits(text: string, keywords: string[]): number {
@@ -203,7 +203,7 @@ function computeFallbackDimensions(
   config: PipelineConfig,
   agenda: EditorialAgenda
 ): ScoringDimensions {
-  const category = normalizeCategory(item.category);
+  const category = classifyEditorialCategory(item.category, item);
   const feedWeight = findFeedWeight(item, config);
   const penalty = lowSignalPenalty(item);
   const mergedText = `${item.title}\n${item.content}`;
@@ -259,18 +259,27 @@ export function buildFallbackGateKeep(
   const ranked = items
     .map((item) => {
       const scores = computeFallbackDimensions(item, config, agenda);
+      const category = classifyEditorialCategory(item.category, item);
+      const communityPenalty = getCommunityScorePenalty(item);
       const weightedScore =
         computeBaseScore(scores, config.editorial.scoringWeights) +
-        categoryBonus(normalizeCategory(item.category), config.editorial, agenda) +
-        (mustCoverIds.has(item.id) ? 8 : 0);
-      return { item, weightedScore, penalty: lowSignalPenalty(item) };
+        categoryBonus(category, config.editorial, agenda) +
+        (mustCoverIds.has(item.id) ? 8 : 0) -
+        communityPenalty;
+      return {
+        item,
+        weightedScore,
+        penalty: lowSignalPenalty(item),
+        lowSignalCommunity: isLowSignalCommunityItem(item),
+      };
     })
     .sort((left, right) => right.weightedScore - left.weightedScore);
 
   const keepCount = Math.max(Math.min(ranked.length, 90), Math.ceil(ranked.length * 0.82));
   const keepIds = new Set(
     ranked
-      .filter(({ weightedScore, penalty }, index) => {
+      .filter(({ item, weightedScore, penalty, lowSignalCommunity }, index) => {
+        if (lowSignalCommunity && !mustCoverIds.has(item.id)) return false;
         if (index < keepCount) return true;
         return weightedScore >= 42 && penalty < 3;
       })
@@ -300,18 +309,21 @@ export function buildFallbackScores(
   const mustCoverIds = new Set(agenda.mustCoverIds ?? []);
   const allScoredItems = items
     .map((item) => {
-      const category = normalizeCategory(item.category);
+      const category = classifyEditorialCategory(item.category, item);
       const scores = computeFallbackDimensions(item, config, agenda);
+      const communityPenalty = getCommunityScorePenalty(item);
       const weightedScore = clamp(
         computeBaseScore(scores, config.editorial.scoringWeights) +
           categoryBonus(category, config.editorial, agenda) +
-          (mustCoverIds.has(item.id) ? 8 : 0),
+          (mustCoverIds.has(item.id) ? 8 : 0) -
+          communityPenalty,
         0,
         100
       );
 
       return {
         ...item,
+        category,
         scores,
         weightedScore,
         scoreReasoning: "Fallback heuristic score",
@@ -327,7 +339,7 @@ export function buildFallbackScores(
   for (const category of CATEGORIES) {
     const minimum = config.editorial.minimumCategoryCoverage[category] ?? 0;
     const candidates = allScoredItems.filter(
-      (item) => normalizeCategory(item.category) === category
+      (item) => normalizeNewsCategory(item.category) === category
     );
 
     for (const item of candidates.slice(0, minimum)) {
@@ -340,7 +352,7 @@ export function buildFallbackScores(
 
   for (const item of allScoredItems) {
     if (selectedItems.length >= config.topN || selectedIds.has(item.id)) continue;
-    const category = normalizeCategory(item.category);
+    const category = normalizeNewsCategory(item.category);
     const currentCount = categoryCounts.get(category) ?? 0;
 
     if (currentCount < categoryCaps[category]) {

@@ -1,7 +1,12 @@
 import type { PipelineStateType } from "../state.js";
 import { buildFallbackScores } from "../lib/editorial-fallback.js";
 import { callLLMJson, isContentSafetyError } from "../lib/llm.js";
-import { CATEGORIES, scoreSystemPrompt, scoreUserPrompt } from "../lib/prompts.js";
+import {
+  classifyEditorialCategory,
+  getCommunityScorePenalty,
+} from "../lib/community-source.js";
+import { forumAwareScoreSystemPrompt } from "../lib/forum-aware-prompts.js";
+import { CATEGORIES, scoreUserPrompt } from "../lib/prompts.js";
 import type {
   EditorialStrategyConfig,
   NewsCategory,
@@ -109,7 +114,7 @@ export async function scoreNode(
         );
 
         const results = await callLLMJson<ScoreResult[]>({
-          systemPrompt: scoreSystemPrompt(
+          systemPrompt: forumAwareScoreSystemPrompt(
             config.interests,
             config.editorial,
             editorialAgenda
@@ -176,16 +181,19 @@ export async function scoreNode(
         const score = scoreMap.get(item.id);
         if (!score) return null;
 
+        const normalizedCategory = classifyEditorialCategory(item.category, item);
         const baseScore = computeBaseScore(score.scores, config.editorial.scoringWeights);
-        const categoryBonus = getCategoryBonus(item.category, state);
+        const categoryBonus = getCategoryBonus(normalizedCategory, state);
         const mustCoverBonus = mustCoverIds.has(item.id) ? 8 : 0;
+        const communityPenalty = getCommunityScorePenalty(item);
         const weightedScore = Math.max(
           0,
-          Math.min(100, baseScore + categoryBonus + mustCoverBonus)
+          Math.min(100, baseScore + categoryBonus + mustCoverBonus - communityPenalty)
         );
 
         return {
           ...item,
+          category: normalizedCategory,
           scores: score.scores,
           weightedScore,
           scoreReasoning: score.scoreReasoning,
@@ -288,19 +296,25 @@ export async function scoreNode(
     console.error("[score] Failed:", err);
     const fallback: ScoredNewsItem[] = passedItems
       .slice(0, config.topN)
-      .map((item) => ({
-        ...item,
-        scores: {
-          signalStrength: 5,
-          futureImpact: 5,
-          personalRelevance: 5,
-          decisionUsefulness: 5,
-          credibility: 5,
-          timeliness: 5,
-        },
-        weightedScore: 50,
-        scoreReasoning: "Scoring failed, using default values.",
-      }));
+      .map((item) => {
+        const normalizedCategory = classifyEditorialCategory(item.category, item);
+        const communityPenalty = getCommunityScorePenalty(item);
+
+        return {
+          ...item,
+          category: normalizedCategory,
+          scores: {
+            signalStrength: 5,
+            futureImpact: 5,
+            personalRelevance: 5,
+            decisionUsefulness: 5,
+            credibility: 5,
+            timeliness: 5,
+          },
+          weightedScore: Math.max(0, 50 - communityPenalty),
+          scoreReasoning: "Scoring failed, using default values.",
+        };
+      });
 
     return {
       scoredItems: fallback,

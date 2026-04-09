@@ -1,5 +1,10 @@
 import type { CoverageStats, EventCandidate, RawNewsItem } from "./types.js";
 import { applyCategoryCaps, dedupeRawItems, getPublishedTime, summarizeCategoryCounts } from "./feed-fetch.js";
+import {
+  classifyEditorialCategory,
+  getCommunityRepresentativePenalty,
+  isLowSignalCommunityItem,
+} from "./community-source.js";
 
 export const COVERAGE_MIN_TARGETS: Record<string, number> = {
   ai: 18,
@@ -59,6 +64,11 @@ function buildEnglishTokenSignature(title: string): string {
 }
 
 export function inferCategory(item: RawNewsItem): string {
+  const normalizedCategory = classifyEditorialCategory(item.category, item);
+  if (normalizedCategory === "social") {
+    return normalizedCategory;
+  }
+
   const source = item.source ?? "";
   const sourceHint = CATEGORY_SOURCE_HINTS.find(({ patterns }) =>
     patterns.some((pattern) => pattern.test(source))
@@ -71,7 +81,7 @@ export function inferCategory(item: RawNewsItem): string {
   );
   if (contentHint) return contentHint.category;
 
-  return item.category === "ai" ? "tech" : item.category || "tech";
+  return normalizedCategory === "ai" ? "tech" : normalizedCategory || "tech";
 }
 
 function buildEventKey(item: RawNewsItem): { eventKey: string; normalizedTitle: string } {
@@ -88,12 +98,17 @@ function isLikelyNoise(item: RawNewsItem): boolean {
   const title = normalizeTitle(item.title || "");
   if (!title || title === "untitled") return true;
   if ((item.content || "").trim().length < 30 && title.length < 12) return true;
+  if (isLowSignalCommunityItem(item)) return true;
   return false;
 }
 
 function scoreRepresentative(item: RawNewsItem): number {
   const contentLength = Math.min((item.content || "").length, 600);
-  return contentLength + getPublishedTime(item.publishedAt) / 1_000_000_000_000;
+  return (
+    contentLength -
+    getCommunityRepresentativePenalty(item) +
+    getPublishedTime(item.publishedAt) / 1_000_000_000_000
+  );
 }
 
 export function buildCoverageStats(
