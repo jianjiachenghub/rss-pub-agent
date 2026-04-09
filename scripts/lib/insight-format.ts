@@ -130,8 +130,47 @@ const CONCRETE_SIGNAL_KEYWORDS = [
   "默认",
 ];
 
-function normalizeText(text: string | undefined): string {
-  return (text ?? "").replace(/\s+/g, " ").trim();
+function collectTextFragments(
+  value: unknown,
+  fragments: string[],
+  seen: Set<object>
+): void {
+  if (value === null || value === undefined) {
+    return;
+  }
+
+  if (
+    typeof value === "string" ||
+    typeof value === "number" ||
+    typeof value === "boolean"
+  ) {
+    fragments.push(String(value));
+    return;
+  }
+
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      collectTextFragments(item, fragments, seen);
+    }
+    return;
+  }
+
+  if (typeof value === "object") {
+    if (seen.has(value)) {
+      return;
+    }
+
+    seen.add(value);
+    for (const item of Object.values(value)) {
+      collectTextFragments(item, fragments, seen);
+    }
+  }
+}
+
+function normalizeText(text: unknown): string {
+  const fragments: string[] = [];
+  collectTextFragments(text, fragments, new Set<object>());
+  return fragments.join(" ").replace(/\s+/g, " ").trim();
 }
 
 function ensureSentence(text: string): string {

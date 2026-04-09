@@ -129,4 +129,22 @@ describe("insight-format", () => {
     expect(fallback.event).toContain("V2EX");
     expect(fallback.interpretation).toBeUndefined();
   });
+  it("accepts structured score reasoning without crashing fallback generation", () => {
+    const fallback = buildFallbackSections({
+      title: "GitHub Copilot CLI combines model families for a second opinion",
+      content:
+        "这条新闻讨论开发者工具如何把不同模型串联起来做第二意见审查，并影响代码评审入口、默认工作流和工程效率。这里补足足够长度，确保 fallback 逻辑会尝试生成解读，而不是因为内容过薄直接跳过。第二段再补一层上下文，说明这种变化会影响团队默认调用路径和评审节奏。",
+      category: "software",
+      source: "The GitHub Blog",
+      scoreReasoning: {
+        signalStrength: "含有实质新增信息",
+        decisionUsefulness: "会改变开发者工具入口和默认调用路径",
+        futureImpact: "对工程效率和评审流程有持续影响",
+      } as never,
+      contentDepth: 320,
+    });
+
+    expect(fallback.event.length).toBeGreaterThan(0);
+    expect(fallback.interpretation).toContain("开发者工具入口");
+  });
 });
