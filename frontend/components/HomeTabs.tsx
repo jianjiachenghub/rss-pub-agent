@@ -18,17 +18,19 @@ interface HomeTabsProps {
 function TabButton({
   active,
   onClick,
+  className,
   children,
 }: {
   active: boolean;
   onClick: () => void;
+  className?: string;
   children: ReactNode;
 }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className={`tab-button ${active ? "tab-button-active" : ""}`}
+      className={`tab-button ${active ? "tab-button-active" : ""} ${className ?? ""}`}
     >
       {children}
     </button>
@@ -254,15 +256,25 @@ export default function HomeTabs({
   weeklyIssues,
   timelineDays,
 }: HomeTabsProps) {
-  const [activeTab, setActiveTab] = useState<HomeTab>("weekly");
+  const [activeTab, setActiveTab] = useState<HomeTab>(
+    timelineDays.length > 0 ? "timeline" : "weekly"
+  );
 
   return (
     <div className="space-y-8">
       <div className="flex flex-wrap gap-3">
-        <TabButton active={activeTab === "weekly"} onClick={() => setActiveTab("weekly")}>
+        <TabButton
+          active={activeTab === "weekly"}
+          onClick={() => setActiveTab("weekly")}
+          className="order-2"
+        >
           周报
         </TabButton>
-        <TabButton active={activeTab === "timeline"} onClick={() => setActiveTab("timeline")}>
+        <TabButton
+          active={activeTab === "timeline"}
+          onClick={() => setActiveTab("timeline")}
+          className="order-1"
+        >
           时间线
         </TabButton>
       </div>
