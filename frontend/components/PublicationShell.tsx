@@ -15,7 +15,7 @@ interface PublicationShellProps {
   weeklyIssues: WeeklyIssue[];
   currentDate?: string;
   currentWeekId?: string;
-  activeNav?: "home" | "about" | "podcast";
+  activeNav?: "home" | "daily" | "about" | "podcast";
   children: ReactNode;
 }
 
@@ -97,14 +97,11 @@ export default function PublicationShell({
                 >
                   首页
                 </Link>
-                <Link
-                  href="/about"
-                  className={`header-pill ${activeNav === "about" ? "header-pill-active" : ""}`}
-                >
-                  项目说明
-                </Link>
                 {latestDate ? (
-                  <Link href={`/${latestDate}`} className="header-pill">
+                  <Link
+                    href={`/${latestDate}`}
+                    className={`header-pill ${activeNav === "daily" ? "header-pill-active" : ""}`}
+                  >
                     最新日报
                   </Link>
                 ) : null}
@@ -113,6 +110,12 @@ export default function PublicationShell({
                   className={`header-pill ${activeNav === "podcast" ? "header-pill-active" : ""}`}
                 >
                   播客
+                </Link>
+                <Link
+                  href="/about"
+                  className={`header-pill ${activeNav === "about" ? "header-pill-active" : ""}`}
+                >
+                  项目说明
                 </Link>
               </nav>
 
@@ -137,16 +140,16 @@ export default function PublicationShell({
             <Link href="/" className={`mobile-nav-link ${activeNav === "home" ? "is-active" : ""}`}>
               首页
             </Link>
-            <Link href="/about" className={`mobile-nav-link ${activeNav === "about" ? "is-active" : ""}`}>
-              说明
-            </Link>
             {latestDate ? (
-              <Link href={`/${latestDate}`} className="mobile-nav-link">
+              <Link href={`/${latestDate}`} className={`mobile-nav-link ${activeNav === "daily" ? "is-active" : ""}`}>
                 日报
               </Link>
             ) : null}
             <Link href="/podcast" className={`mobile-nav-link ${activeNav === "podcast" ? "is-active" : ""}`}>
               播客
+            </Link>
+            <Link href="/about" className={`mobile-nav-link ${activeNav === "about" ? "is-active" : ""}`}>
+              说明
             </Link>
             <a href={SITE_REPO_URL} target="_blank" rel="noopener noreferrer" className="mobile-nav-link">
               GitHub

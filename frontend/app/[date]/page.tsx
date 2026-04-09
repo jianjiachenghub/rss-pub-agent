@@ -32,7 +32,7 @@ export default async function DailyPage({
   const report = parseDailyReport(issue.content);
 
   return (
-    <PublicationShell currentDate={date} dailyIssues={dailyIssues} weeklyIssues={weeklyIssues}>
+    <PublicationShell currentDate={date} dailyIssues={dailyIssues} weeklyIssues={weeklyIssues} activeNav="daily">
       <div className="daily-detail-grid">
         <div className="min-w-0">
           <section className="editorial-card hero-card px-6 py-6 md:px-8 md:py-8">
