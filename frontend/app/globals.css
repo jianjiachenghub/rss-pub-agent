@@ -948,10 +948,12 @@ img {
   transition: transform 240ms ease;
 }
 
-.tab-button:hover,
-.tab-button-active {
+.tab-button:hover {
   transform: translateY(-1px);
+  border-color: rgba(12, 18, 32, 0.16);
+  background: rgba(255, 255, 255, 0.82);
   color: rgba(12, 18, 32, 0.96);
+  box-shadow: 0 14px 30px rgba(18, 24, 38, 0.1);
 }
 
 .tab-button:hover::after,
@@ -960,12 +962,17 @@ img {
 }
 
 .tab-button-active {
+  transform: translateY(-1px);
   border-color: rgba(10, 16, 26, 0.82);
   background: linear-gradient(135deg, rgba(10, 16, 26, 0.96), rgba(28, 36, 52, 0.92));
   color: white;
   box-shadow:
     0 16px 36px rgba(8, 12, 20, 0.18),
     0 0 0 1px rgba(127, 165, 255, 0.08) inset;
+}
+
+.tab-button-active:hover {
+  color: white;
 }
 
 .hero-media {
