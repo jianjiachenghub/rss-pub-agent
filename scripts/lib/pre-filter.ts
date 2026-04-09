@@ -5,6 +5,7 @@ import {
   getCommunityRepresentativePenalty,
   isLowSignalCommunityItem,
 } from "./community-source.js";
+import { isDigestLikeItem } from "./digest-source.js";
 
 export const COVERAGE_MIN_TARGETS: Record<string, number> = {
   ai: 18,
@@ -98,6 +99,7 @@ function isLikelyNoise(item: RawNewsItem): boolean {
   const title = normalizeTitle(item.title || "");
   if (!title || title === "untitled") return true;
   if ((item.content || "").trim().length < 30 && title.length < 12) return true;
+  if (isDigestLikeItem(item)) return true;
   if (isLowSignalCommunityItem(item)) return true;
   return false;
 }

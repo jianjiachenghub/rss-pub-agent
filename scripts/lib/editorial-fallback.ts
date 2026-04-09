@@ -14,6 +14,7 @@ import {
   normalizeNewsCategory,
   isLowSignalCommunityItem,
 } from "./community-source.js";
+import { isDigestLikeItem } from "./digest-source.js";
 
 const CATEGORIES: NewsCategory[] = [
   "ai",
@@ -279,6 +280,7 @@ export function buildFallbackGateKeep(
   const keepIds = new Set(
     ranked
       .filter(({ item, weightedScore, penalty, lowSignalCommunity }, index) => {
+        if (isDigestLikeItem(item) && !mustCoverIds.has(item.id)) return false;
         if (lowSignalCommunity && !mustCoverIds.has(item.id)) return false;
         if (index < keepCount) return true;
         return weightedScore >= 42 && penalty < 3;
