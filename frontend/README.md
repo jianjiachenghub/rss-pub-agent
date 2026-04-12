@@ -1,11 +1,12 @@
 # Frontend
 
-当前前端是一个 Next.js 16 应用，也是仓库根脚本默认指向的展示层。
+当前前端是一个 Next.js 16 应用，是仓库当前默认展示层。
 
 ## Responsibility
 
 - 读取 `../content/` 下的日报与索引
 - 渲染首页、日报详情和播客入口
+- 基于日报动态聚合周报与时间线视图
 - 不负责跑新闻管线，也不直接生成内容
 
 ## Key Paths
@@ -26,10 +27,12 @@ npm run lint
 或在仓库根目录：
 
 ```bash
-npm run dev
-npm run build
-npm run lint
+npm --prefix frontend run dev
+npm --prefix frontend run build
+npm --prefix frontend run lint
 ```
+
+仓库根 `package.json` 目前不代理这些前端脚本。
 
 ## Data Contract
 

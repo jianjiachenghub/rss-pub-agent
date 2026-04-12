@@ -9,6 +9,7 @@
 - 抓取原始新闻与候选事件
 - 用 LLM 完成筛选、评分、正文补全和解读
 - 生成日报、播客脚本和平台文案
+- 在前端基于日报动态聚合周报与时间线视图
 - 写入 `content/`，由前端直接读取展示
 
 当前生产路径的核心组件：
@@ -16,6 +17,7 @@
 - `scripts/`：LangGraph 编排的数据管线
 - `configs/`：抓取源、兴趣偏好、平台配置
 - `content/`：每日生成产物与索引
+- `.runtime/`：运行时投递状态
 - `frontend/`：Next.js 16 展示站点
 - `.github/workflows/daily-pipeline.yml`：定时执行与提交产物
 
@@ -35,12 +37,10 @@ START
   -> enrichSelected
   -> insight
   -> generateDaily
-  -> podcastGen
-  -> publish
+  -> podcastGen ----\
+  -> platformsGen --+-> publish
   -> notify
   -> END
-
-generateDaily -> platformsGen -> publish
 ```
 
 说明：
@@ -58,17 +58,21 @@ generateDaily -> platformsGen -> publish
 - 解析运行期选项，例如 `PIPELINE_DATE`、`PIPELINE_RESUME_FROM_RAW`
 
 `fetchPrimary`
-- 拉取主新闻流
-- 支持原始快照恢复，避免失败后重新抓取
+- 使用 `feeds.json` 中优先级最高的 `folo-list` 作为主力输入
+- 把主列表抓取结果写入 `content/<date>/raw/folo-list.jsonl`
+- 支持从 raw 快照恢复，避免失败后重新抓取
 
 `preFilter`
-- 从主流中提取事件候选，降低后续成本
+- 压缩主列表结果，产出事件候选
+- 同时计算各分类覆盖统计和覆盖缺口
 
 `fetchCoverage`
-- 为候选事件补齐来源和覆盖信息
+- 根据覆盖缺口，挑选非 `folo-list` 的主池 feed 做补抓
+- 合并事件候选和 backfill 结果，产出 `rawItems`
 
 `buildEditorialAgenda`
-- 生成当天的编务主线和选题框架，作为后续筛选与解读的上下文
+- 基于 `rawItems` 和覆盖统计生成当天的编务主线
+- 输出叙事角度、must-cover IDs、watch signals 与 category boosts
 
 ### 3.2 Selection and Analysis
 
@@ -104,9 +108,11 @@ generateDaily -> platformsGen -> publish
 `publish`
 - 写入 `content/YYYY-MM-DD/`
 - 更新 `content/index.json`
+- 不负责 git commit；提交发生在 GitHub Actions 工作流
 
 `notify`
-- 发送外部通知
+- 发送飞书 / Telegram / 微信通知
+- 飞书去重与投递状态记录到 `.runtime/delivery/<date>.json`
 
 ## 4. LLM Layer
 
@@ -163,9 +169,32 @@ content/
 
 `raw/` 里的快照用于失败恢复，不是前端直接消费的内容。
 
+当前 raw 快照通常包括：
+
+- `folo-list.jsonl`
+- `fetch-metrics.json`
+- `checkpoint.json`
+- `event-candidates.json`
+- `coverage-stats.json`
+- `raw-candidates.json`
+- `editorial-agenda.json`
+- `enriched-candidates.json`
+
 ### 5.2 Compatibility Artifacts
 
-`reports/` 目录仍存在，用于历史兼容和少量索引脚本；但当前前端主路径读取的是 `content/`，不是 `reports/`。
+`reports/` 目录仍存在，用于历史兼容和 `scripts/generate-index.ts` 维护的旧索引；但当前前端主路径读取的是 `content/`，不是 `reports/`。
+
+### 5.3 Runtime State
+
+运行时状态目录是 `.runtime/`：
+
+```text
+.runtime/
+└── delivery/
+    └── YYYY-MM-DD.json
+```
+
+目前这里主要保存飞书投递记录，用于避免重复发送并保留失败重试上下文。
 
 ## 6. Frontend Architecture
 
@@ -173,9 +202,10 @@ content/
 
 关键事实：
 
-- 根命令 `npm run dev/build/start` 默认代理到 `frontend/`
+- 仓库根 `package.json` 目前只提供 `graph` / `pipeline` 脚本，不代理前端命令
 - 首页读取 `content/index.json`
 - 详情页按日期读取 `content/YYYY-MM-DD/daily.md`
+- 周报页面不是独立构建产物，而是运行时由 `frontend/lib/content-loader.ts` 基于日报聚合
 - 内容加载逻辑集中在 [frontend/lib/content-loader.ts](../frontend/lib/content-loader.ts)
 
 `web/` 目录下的 Vite 应用仍在仓库中，但目前不是默认入口，也不在根 `package.json` 的脚本链路里。
@@ -186,8 +216,9 @@ GitHub Actions 工作流位于 [daily-pipeline.yml](../.github/workflows/daily-p
 
 当前行为：
 
+- 按 Asia/Shanghai 计算前一天日期并注入 `PIPELINE_DATE`
 - 定时运行 `scripts/graph.ts`
-- 生成兼容索引
+- 生成 `reports/index.json` 兼容索引
 - 提交 `content/` 和 `reports/` 变更
 
 ## 8. Documentation Policy

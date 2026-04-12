@@ -1,6 +1,6 @@
 # LLM News Flow
 
-> AI 驱动的个人新闻聚合 + 多平台分发系统。每天自动从 27+ RSS 源抓取资讯，经过 LLM 多阶段筛选、六维评分、深度解读，生成结构化日报、周报、播客脚本和平台分发文案。
+> AI 驱动的个人新闻聚合 + 多平台分发系统。每天自动从 28 个 feed source（Folo / RSS）抓取资讯，经过 LLM 多阶段筛选、六维评分、深度解读，生成结构化日报、播客脚本和平台分发文案；周报视图由前端基于日报动态聚合。
 
 **线上地址：** [rss-pub-agent.vercel.app](https://rss-pub-agent.vercel.app)
 
@@ -21,7 +21,7 @@
 ## 系统架构
 
 ```
-数据采集（27+ RSS 源）
+数据采集（28 个 Folo / RSS 源）
     │
     ▼
 ┌─────────────────────────────────────────────────────────────┐
@@ -43,7 +43,8 @@
 │  ├── podcast-script.md    │    └──────────────────────────┘
 │  ├── brief.md             │
 │  ├── douyin.md            │
-│  └── xhs.md               │
+│  ├── xhs.md               │
+│  └── raw/*.json(.jsonl)   │
 └───────────────────────────┘
 ```
 
@@ -51,19 +52,19 @@
 
 | 阶段 | 输入 | 输出 | 说明 |
 |------|------|------|------|
-| **fetchPrimary** | feeds.json 配置 | ~200-300 条原始资讯 | 并发抓取 Folo 列表 + 各 RSS 源，URL/标题去重 |
-| **preFilter** | 原始资讯 | ~120-140 条事件候选 | 标题相似度去重、分类修正、覆盖度检查 |
-| **fetchCoverage** | 事件候选 + 覆盖缺口 | 补充抓取结果 | 对覆盖不足的分类定向补充抓取 |
-| **editorialAgenda** | 事件候选 + 配置 | 编辑议程 | LLM 生成当日叙事角度、必覆盖主题、分类权重微调 |
-| **gateKeep** | 事件候选 | ~50-80 条通过筛选 | LLM 批量 PASS/DROP/MERGE 决策，去除广告、水文、重复报道 |
+| **fetchPrimary** | feeds.json + folo-list 配置 | 主力原始资讯快照 | 只抓主力 Folo 列表，写入 `content/<date>/raw/`，支持 resume |
+| **preFilter** | primaryRawItems | 事件候选 + coverageStats | 标题相似度去重、分类修正、覆盖缺口识别 |
+| **fetchCoverage** | 事件候选 + 覆盖缺口 | rawItems | 对覆盖不足分类定向补抓主池 feed，并更新覆盖统计 |
+| **editorialAgenda** | rawItems + 配置 | 编辑议程 | LLM 生成当日叙事角度、必覆盖主题、分类权重微调 |
+| **gateKeep** | rawItems | ~50-80 条通过筛选 | LLM 批量 PASS/DROP/MERGE 决策，去除广告、水文、重复报道 |
 | **score** | 通过筛选的条目 | Top ~36 条（含 secondary） | 六维评分 + 分类权重加成 + 编辑议程加持，保证最低分类覆盖 |
 | **enrichSelected** | 精选条目 | 全文补充 | 抓取原文正文，为 insight 提供更丰富的上下文 |
 | **insight** | 精选条目 + 全文 | 结构化洞察 | LLM 为每条生成事件摘要、深度解读、配图提取 |
 | **generateDaily** | 洞察结果 | daily.md + meta.json | 按分类组织，生成完整 Markdown 日报 |
-| **podcastGen** | 日报内容 | podcast-script.md | 生成播客对话脚本 |
+| **podcastGen** | 日报内容 | podcast-script.md (+ 可选 audioUrl) | 生成播客脚本；TTS 成功时上传 R2 |
 | **platformsGen** | 日报内容 | brief/douyin/xhs.md | 生成各平台分发文案 |
-| **publish** | 所有产物 | Git commit | 写入 content/ 目录，更新 index.json |
-| **notify** | 发布结果 | Telegram/微信通知 | 可选的消息推送 |
+| **publish** | 所有产物 | content 文件落盘 | 写入 `content/<date>/`，更新 `content/index.json` |
+| **notify** | 发布结果 | 飞书 / Telegram / 微信通知 | 可选消息推送；飞书投递记录写入 `.runtime/delivery/` |
 
 ---
 
@@ -87,7 +88,7 @@
 
 ---
 
-## 数据源（27 个 RSS 订阅）
+## 数据源（28 个 feed source）
 
 ### AI（7 源）
 | 源 | 类型 | 层级 |
@@ -171,7 +172,7 @@
 
 基于 **Next.js 16 (App Router) + Tailwind CSS 4** 的静态生成站点：
 
-- **周报视图** — 按月均分 4 周，每周聚合日报生成周报摘要、重点提炼、指标统计
+- **周报视图** — 基于已生成日报按月内周次动态聚合，无独立周报文件
 - **时间线视图** — 按天展示，纵向时间轴浏览近期日报
 - **日报详情** — Markdown 渲染 + 右侧 TOC 目录（桌面端 sticky 固定）
 - **移动端适配** — 顶部精简导航 + 右上角目录面板，适配刘海/安全区域
@@ -245,6 +246,7 @@ Pipeline 会自动抓取**昨天**的新闻，经过完整处理链后输出到 
 ### 4. 启动前端
 
 ```bash
+cd frontend
 npm run dev
 ```
 
@@ -253,7 +255,8 @@ npm run dev
 ### 5. 构建 & 部署
 
 ```bash
-npm run build    # 静态构建
+cd frontend
+npm run build
 ```
 
 推送到 GitHub 后 Vercel 自动部署。也可通过 GitHub Actions 定时运行 pipeline + 自动部署。
@@ -265,7 +268,7 @@ npm run build    # 静态构建
 ```
 rss-pub-agent/
 ├── configs/                 配置文件
-│   ├── feeds.json           RSS 订阅源（27 个源，7 大分类）
+│   ├── feeds.json           28 个 feed source（7 大分类）
 │   ├── prompt.json          编辑偏好、兴趣、评分权重、分类覆盖要求
 │   └── platforms.json       平台分发配置
 │
@@ -295,6 +298,9 @@ rss-pub-agent/
 │       ├── types.ts             共享类型定义
 │       └── runtime-options.ts   运行时参数
 │
+├── .runtime/                运行时状态（勿手动编辑）
+│   └── delivery/            飞书投递记录
+│
 ├── frontend/                Next.js 16 SSG 前端
 │   ├── app/
 │   │   ├── page.tsx             首页（周报 + 时间线）
@@ -322,12 +328,17 @@ rss-pub-agent/
 │   │   ├── podcast-script.md
 │   │   ├── brief.md
 │   │   ├── douyin.md
-│   │   └── xhs.md
+│   │   ├── xhs.md
+│   │   └── raw/             中间快照（resume / 调试）
 │   └── index.json
+│
+├── reports/                 兼容产物与旧索引脚本输入
 │
 ├── docs/                    文档
 │   ├── ARCHITECTURE.md
 │   └── archive/             历史设计文档
+│
+├── web/                     旧 Vite 原型（非当前默认前端）
 │
 └── .github/workflows/       GitHub Actions 定时任务
 ```
@@ -338,9 +349,8 @@ rss-pub-agent/
 
 ```bash
 # 根目录
-npm run dev          # 启动前端 dev server
-npm run build        # 构建静态站点
 npm run graph        # 运行完整 pipeline
+npm run pipeline     # 等价于 scripts 内的 pipeline 脚本
 
 # scripts/
 cd scripts
@@ -369,8 +379,8 @@ npm run lint         # ESLint 检查
 | 内容渲染 | react-markdown + remark-gfm |
 | 日期处理 | dayjs |
 | 部署 | Vercel (前端 SSG) + GitHub Actions (Pipeline 定时触发) |
-| 存储 | Git (内容) + Cloudflare R2 (播客音频) |
-| 通知 | Telegram Bot / 微信 Webhook |
+| 存储 | Git (`content/`) + `.runtime` (投递状态) + Cloudflare R2 (播客音频) |
+| 通知 | 飞书 Webhook / Telegram Bot / 微信 Webhook |
 
 ---
 
