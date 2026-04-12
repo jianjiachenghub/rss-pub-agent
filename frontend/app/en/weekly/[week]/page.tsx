@@ -10,30 +10,30 @@ import {
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return getWeeklyIssues().map((issue) => ({ week: issue.weekId }));
+  return getWeeklyIssues("en").map((issue) => ({ week: issue.weekId }));
 }
 
-export default async function WeeklyPage({
+export default async function EnglishWeeklyPage({
   params,
 }: {
   params: Promise<{ week: string }>;
 }) {
   const { week } = await params;
-  const weeklyIssue = getWeeklyIssue(week, "zh");
+  const weeklyIssue = getWeeklyIssue(week, "en");
 
   if (!weeklyIssue) notFound();
 
-  const dailyIssues = getAllDailyIssues("zh");
-  const weeklyIssues = getWeeklyIssues("zh");
+  const dailyIssues = getAllDailyIssues("en");
+  const weeklyIssues = getWeeklyIssues("en");
 
   return (
     <PublicationShell
-      locale="zh"
+      locale="en"
       currentWeekId={weeklyIssue.weekId}
       dailyIssues={dailyIssues}
       weeklyIssues={weeklyIssues}
     >
-      <WeeklyDigest locale="zh" issue={weeklyIssue} />
+      <WeeklyDigest locale="en" issue={weeklyIssue} />
     </PublicationShell>
   );
 }

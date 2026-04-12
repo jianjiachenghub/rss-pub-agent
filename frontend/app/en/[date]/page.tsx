@@ -17,23 +17,23 @@ export async function generateStaticParams() {
   return getAllDates().map((date) => ({ date }));
 }
 
-export default async function DailyPage({
+export default async function EnglishDailyPage({
   params,
 }: {
   params: Promise<{ date: string }>;
 }) {
   const { date } = await params;
-  const issue = getDailyIssue(date, "zh");
+  const issue = getDailyIssue(date, "en");
 
   if (!issue) notFound();
 
-  const dailyIssues = getAllDailyIssues("zh");
-  const weeklyIssues = getWeeklyIssues("zh");
+  const dailyIssues = getAllDailyIssues("en");
+  const weeklyIssues = getWeeklyIssues("en");
   const report = parseDailyReport(issue.content);
 
   return (
     <PublicationShell
-      locale="zh"
+      locale="en"
       currentDate={date}
       dailyIssues={dailyIssues}
       weeklyIssues={weeklyIssues}
@@ -44,7 +44,7 @@ export default async function DailyPage({
           <section className="editorial-card hero-card px-6 py-6 md:px-8 md:py-8">
             <div className="hero-header-row">
               <div className="page-intro">
-                <div className="page-kicker">日报阅读</div>
+                <div className="page-kicker">Daily issue</div>
                 <h1 className="page-title page-title-tight">{issue.title}</h1>
               </div>
               <div className="hero-meta-side">
@@ -52,23 +52,25 @@ export default async function DailyPage({
                   {dayjs(issue.date).format("YYYY.MM.DD")}
                 </span>
                 {issue.meta ? (
-                  <span className="page-meta-pill">{issue.meta.itemCount} 条</span>
+                  <span className="page-meta-pill">{issue.meta.itemCount} items</span>
                 ) : null}
                 {issue.meta ? (
-                  <span className="page-meta-pill">均分 {issue.meta.avgScore}</span>
+                  <span className="page-meta-pill">Avg {issue.meta.avgScore}</span>
                 ) : null}
-                {issue.meta?.hasPodcast ? <span className="page-meta-pill">播客</span> : null}
+                {issue.meta?.hasPodcast ? (
+                  <span className="page-meta-pill">Podcast</span>
+                ) : null}
               </div>
             </div>
           </section>
 
           <section className="mt-8">
-            <DailyReport locale="zh" report={report} />
+            <DailyReport locale="en" report={report} />
           </section>
         </div>
 
         <div className="hidden xl:block">
-          <DailyReportOutline locale="zh" sections={report.outline} />
+          <DailyReportOutline locale="en" sections={report.outline} />
         </div>
       </div>
     </PublicationShell>

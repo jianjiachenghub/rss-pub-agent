@@ -7,8 +7,11 @@ import {
   formatMonthLabel,
   getMonthScopedWeekId,
 } from "@/lib/display-text";
+import type { SiteLocale } from "@/lib/locale";
+import { withLocalePath } from "@/lib/locale";
 
 interface IssueRailProps {
+  locale: SiteLocale;
   dailyIssues: DailyIssue[];
   weeklyIssues: WeeklyIssue[];
   currentDate?: string;
@@ -52,7 +55,8 @@ function formatWeekRange(dates: string[]): string {
 
 function buildArchiveTree(
   dailyIssues: DailyIssue[],
-  weeklyIssues: WeeklyIssue[]
+  weeklyIssues: WeeklyIssue[],
+  locale: SiteLocale
 ): ArchiveYearGroup[] {
   const weeklyMap = new Map(weeklyIssues.map((issue) => [issue.weekId, issue]));
   const yearMap = new Map<string, Map<string, Map<string, DailyIssue[]>>>();
@@ -87,7 +91,7 @@ function buildArchiveTree(
 
               return {
                 weekId,
-                label: formatCompactWeekLabel(weekId),
+                label: formatCompactWeekLabel(weekId, locale),
                 rangeLabel:
                   weeklyIssue?.rangeLabel ??
                   formatWeekRange(orderedDays.map((issue) => issue.date)),
@@ -101,7 +105,7 @@ function buildArchiveTree(
 
           return {
             key: monthKey,
-            label: formatMonthLabel(monthKey),
+            label: formatMonthLabel(monthKey, locale),
             latestDate: weeks[0]?.latestDate ?? `${monthKey}-01`,
             issueCount: weeks.reduce((sum, week) => sum + week.issueCount, 0),
             weeks,
@@ -150,13 +154,38 @@ function DisclosureChevron() {
 }
 
 export default function IssueRail({
+  locale,
   dailyIssues,
   weeklyIssues,
   currentDate,
   currentWeekId,
   compact = false,
 }: IssueRailProps) {
-  const archiveTree = buildArchiveTree(dailyIssues, weeklyIssues);
+  const copy =
+    locale === "en"
+      ? {
+          railLabel: "Archive",
+          year: "YEAR",
+          month: "MONTH",
+          week: "WEEK",
+          weekDetail: "Weekly digest",
+          items: "items",
+          avgScore: "Avg",
+          image: "Image",
+          podcast: "Podcast",
+        }
+      : {
+          railLabel: "刊期导航",
+          year: "YEAR",
+          month: "MONTH",
+          week: "WEEK",
+          weekDetail: "周报详情",
+          items: "条资讯",
+          avgScore: "均分",
+          image: "图片",
+          podcast: "播客",
+        };
+  const archiveTree = buildArchiveTree(dailyIssues, weeklyIssues, locale);
   const currentWeeklyIssue = weeklyIssues.find((issue) => issue.weekId === currentWeekId);
   const focusDate = currentDate ?? currentWeeklyIssue?.latestDate ?? dailyIssues[0]?.date;
   const focusYear = focusDate ? dayjs(focusDate).format("YYYY") : undefined;
@@ -169,7 +198,7 @@ export default function IssueRail({
   return (
     <div className={`rail-tree ${compact ? "space-y-5" : "space-y-6"}`}>
       <section className="space-y-4">
-        <div className="rail-label">刊期导航</div>
+        <div className="rail-label">{copy.railLabel}</div>
 
         {archiveTree.map((yearGroup) => {
           const yearActive = yearGroup.year === focusYear;
@@ -181,7 +210,7 @@ export default function IssueRail({
                 <div className="rail-head-main">
                   <DisclosureChevron />
                   <div className="rail-copy">
-                    <div className="rail-kicker">YEAR</div>
+                    <div className="rail-kicker">{copy.year}</div>
                     <div className="rail-title rail-title-year">{yearGroup.year}</div>
                   </div>
                 </div>
@@ -203,7 +232,7 @@ export default function IssueRail({
                         <div className="rail-head-main">
                           <DisclosureChevron />
                           <div className="rail-copy">
-                            <div className="rail-kicker">MONTH</div>
+                            <div className="rail-kicker">{copy.month}</div>
                             <div className="rail-title">{monthGroup.label}</div>
                           </div>
                         </div>
@@ -229,19 +258,19 @@ export default function IssueRail({
                                 <div className="rail-head-main">
                                   <DisclosureChevron />
                                   <div className="rail-copy">
-                                    <div className="rail-kicker">WEEK</div>
+                                    <div className="rail-kicker">{copy.week}</div>
                                     <div className="rail-title">{weekGroup.label}</div>
                                     <div className="rail-meta">{weekGroup.rangeLabel}</div>
                                   </div>
                                 </div>
                                 {weekGroup.weeklyIssue ? (
                                   <Link
-                                    href={`/weekly/${weekGroup.weekId}`}
+                                    href={withLocalePath(locale, `/weekly/${weekGroup.weekId}`)}
                                     className={`rail-week-action ${
                                       currentWeekId === weekGroup.weekId ? "is-active" : ""
                                     }`}
                                   >
-                                    <span>周报详情</span>
+                                    <span>{copy.weekDetail}</span>
                                     <span className="rail-week-action-arrow" aria-hidden="true">
                                       →
                                     </span>
@@ -261,26 +290,26 @@ export default function IssueRail({
                                     return (
                                       <Link
                                         key={issue.date}
-                                        href={`/${issue.date}`}
+                                        href={withLocalePath(locale, `/${issue.date}`)}
                                         className={`rail-day-card ${active ? "is-active" : ""}`}
                                       >
                                         <div className="rail-day-title">{issue.title}</div>
                                         <div className="rail-day-footer">
                                           {issue.meta ? (
                                             <span className="rail-day-stat">
-                                              {issue.meta.itemCount} 条资讯
+                                              {issue.meta.itemCount} {copy.items}
                                             </span>
                                           ) : null}
                                           {issue.meta ? (
                                             <span className="rail-day-stat">
-                                              均分 {issue.meta.avgScore}
+                                              {copy.avgScore} {issue.meta.avgScore}
                                             </span>
                                           ) : null}
                                           {hasImage ? (
-                                            <span className="rail-day-stat">图片</span>
+                                            <span className="rail-day-stat">{copy.image}</span>
                                           ) : null}
                                           {hasPodcast ? (
-                                            <span className="rail-day-stat">播客</span>
+                                            <span className="rail-day-stat">{copy.podcast}</span>
                                           ) : null}
                                         </div>
                                       </Link>

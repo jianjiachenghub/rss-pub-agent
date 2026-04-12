@@ -149,6 +149,9 @@ function parseMetaBlock(
   const newFormatMatch = normalized.match(
     /^评分\s+(\d+)\s*[·•|｜]\s*来源\s*\[([^\]]+)\]\(([^)]+)\)\s*$/u
   );
+  const newFormatMatchEn = normalized.match(
+    /^Score\s+(\d+)\s*[·•|｜]\s*Source\s*\[([^\]]+)\]\(([^)]+)\)\s*$/iu
+  );
 
   if (newFormatMatch) {
     return {
@@ -156,6 +159,18 @@ function parseMetaBlock(
         score: Number(newFormatMatch[1]),
         sourceName: newFormatMatch[2].trim(),
         sourceUrl: newFormatMatch[3].trim(),
+      },
+      summary: "",
+      consumed: true,
+    };
+  }
+
+  if (newFormatMatchEn) {
+    return {
+      meta: {
+        score: Number(newFormatMatchEn[1]),
+        sourceName: newFormatMatchEn[2].trim(),
+        sourceUrl: newFormatMatchEn[3].trim(),
       },
       summary: "",
       consumed: true,
@@ -194,6 +209,8 @@ function isLikelySummaryBlock(block: string): boolean {
     value.startsWith(">") ||
     value.startsWith("**事件") ||
     value.startsWith("**解读") ||
+    value.startsWith("**Event") ||
+    value.startsWith("**Why it matters") ||
     value.startsWith("#### ") ||
     value.startsWith("|") ||
     value.startsWith("```") ||

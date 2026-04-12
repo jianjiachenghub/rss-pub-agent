@@ -1,14 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import type { SiteLocale } from "@/lib/locale";
 
 interface Props {
   date: string;
   audioUrl?: string;
   script: string;
+  locale?: SiteLocale;
 }
 
-export default function PodcastPlayer({ date, audioUrl, script }: Props) {
+export default function PodcastPlayer({
+  date,
+  audioUrl,
+  script,
+  locale = "zh",
+}: Props) {
   const [showScript, setShowScript] = useState(false);
 
   return (
@@ -20,14 +27,20 @@ export default function PodcastPlayer({ date, audioUrl, script }: Props) {
         {audioUrl ? (
           <audio controls className="w-full max-w-xl" src={audioUrl} />
         ) : (
-          <span className="outline-chip">仅脚本</span>
+          <span className="outline-chip">{locale === "en" ? "Script only" : "仅脚本"}</span>
         )}
         <button
           type="button"
           onClick={() => setShowScript((value) => !value)}
           className="action-chip"
         >
-          {showScript ? "收起脚本" : "查看脚本"}
+          {showScript
+            ? locale === "en"
+              ? "Hide script"
+              : "收起脚本"
+            : locale === "en"
+              ? "Show script"
+              : "查看脚本"}
         </button>
       </div>
       {showScript ? (

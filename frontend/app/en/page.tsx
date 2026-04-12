@@ -6,31 +6,34 @@ import {
   getWeeklyIssues,
 } from "@/lib/content-loader";
 
-export default function HomePage() {
-  const dailyIssues = getAllDailyIssues("zh");
-  const weeklyIssues = getWeeklyIssues("zh");
-  const timelineDays = getTimelineDays(14, "zh");
+export default function EnglishHomePage() {
+  const dailyIssues = getAllDailyIssues("en");
+  const weeklyIssues = getWeeklyIssues("en");
+  const timelineDays = getTimelineDays(14, "en");
 
   return (
     <PublicationShell
-      locale="zh"
+      locale="en"
       dailyIssues={dailyIssues}
       activeNav="home"
       weeklyIssues={weeklyIssues}
     >
       {weeklyIssues.length > 0 || timelineDays.length > 0 ? (
         <HomeTabs
-          locale="zh"
+          locale="en"
           dailyIssues={dailyIssues}
           timelineDays={timelineDays}
           weeklyIssues={weeklyIssues}
         />
       ) : (
         <section className="editorial-card px-6 py-14 md:px-10">
-          <div className="section-label">暂无内容</div>
-          <h1 className="display-title mt-8">先运行一次流水线，归档内容才会出现在这里。</h1>
+          <div className="section-label">No content yet</div>
+          <h1 className="display-title mt-8">
+            Run the pipeline once and the archive will show up here.
+          </h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-black/72">
-            首页会自动读取共享内容目录下的每日日报，并生成周报入口和按天时间线。
+            The homepage reads from the shared content archive and assembles daily
+            issues, weekly digests, and a time-based timeline automatically.
           </p>
         </section>
       )}

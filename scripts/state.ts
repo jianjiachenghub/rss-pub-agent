@@ -96,6 +96,10 @@ export const PipelineState = Annotation.Root({
     reducer: (_, y) => y,
     default: () => "",
   }),
+  dailyMarkdownEn: Annotation<string>({
+    reducer: (_, y) => y,
+    default: () => "",
+  }),
   dailySummary: Annotation<string>({
     reducer: (_, y) => y,
     default: () => "",

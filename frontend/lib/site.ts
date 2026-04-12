@@ -1,6 +1,8 @@
 export const SITE_TITLE_EN = "RSS Agent";
 export const SITE_TITLE_ZH = "";
-export const SITE_SLOGAN = "基于 LLM 的 News Flow";
+export const SITE_SLOGAN_ZH = "基于 LLM 的 News Flow";
+export const SITE_SLOGAN_EN = "LLM-powered News Flow";
+export const SITE_SLOGAN = SITE_SLOGAN_ZH;
 export const SITE_REPO_URL = "https://github.com/jianjiachenghub/rss-pub-agent";
 
 export const PROJECT_FLOW_LABEL =

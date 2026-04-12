@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import type { SiteLocale } from "@/lib/locale";
+import { withLocalePath } from "@/lib/locale";
 
 export interface HeaderSearchDailyIssue {
   date: string;
@@ -21,7 +23,7 @@ type SearchResult =
   | {
       id: string;
       href: string;
-      kind: "日报";
+      kind: string;
       kicker: string;
       title: string;
       summary: string;
@@ -29,13 +31,14 @@ type SearchResult =
   | {
       id: string;
       href: string;
-      kind: "周报";
+      kind: string;
       kicker: string;
       title: string;
       summary: string;
     };
 
 interface HeaderSearchProps {
+  locale: SiteLocale;
   dailyIssues: HeaderSearchDailyIssue[];
   weeklyIssues: HeaderSearchWeeklyIssue[];
 }
@@ -44,22 +47,28 @@ function normalizeSearchText(value: string): string {
   return value.toLowerCase().replace(/[\s./-]+/g, "");
 }
 
-function buildDailyResult(issue: HeaderSearchDailyIssue): SearchResult {
+function buildDailyResult(
+  issue: HeaderSearchDailyIssue,
+  locale: SiteLocale
+): SearchResult {
   return {
     id: `daily-${issue.date}`,
-    href: `/${issue.date}`,
-    kind: "日报",
+    href: withLocalePath(locale, `/${issue.date}`),
+    kind: locale === "en" ? "Daily" : "日报",
     kicker: issue.date.replace(/-/g, "."),
     title: issue.title,
     summary: issue.summary,
   };
 }
 
-function buildWeeklyResult(issue: HeaderSearchWeeklyIssue): SearchResult {
+function buildWeeklyResult(
+  issue: HeaderSearchWeeklyIssue,
+  locale: SiteLocale
+): SearchResult {
   return {
     id: `weekly-${issue.weekId}`,
-    href: `/weekly/${issue.weekId}`,
-    kind: "周报",
+    href: withLocalePath(locale, `/weekly/${issue.weekId}`),
+    kind: locale === "en" ? "Weekly" : "周报",
     kicker: issue.rangeLabel,
     title: issue.label,
     summary: issue.summary,
@@ -92,6 +101,7 @@ function SearchIcon() {
 }
 
 export default function HeaderSearch({
+  locale,
   dailyIssues,
   weeklyIssues,
 }: HeaderSearchProps) {
@@ -120,8 +130,12 @@ export default function HeaderSearch({
 
   const trimmedQuery = query.trim();
   const isPreview = trimmedQuery.length === 0;
-  const latestDaily = dailyIssues.slice(0, 2).map(buildDailyResult);
-  const latestWeekly = weeklyIssues.slice(0, 2).map(buildWeeklyResult);
+  const latestDaily = dailyIssues
+    .slice(0, 2)
+    .map((issue) => buildDailyResult(issue, locale));
+  const latestWeekly = weeklyIssues
+    .slice(0, 2)
+    .map((issue) => buildWeeklyResult(issue, locale));
   const results =
     isPreview
       ? []
@@ -136,7 +150,7 @@ export default function HeaderSearch({
               ])
             )
             .slice(0, 4)
-            .map(buildDailyResult),
+            .map((issue) => buildDailyResult(issue, locale)),
           ...weeklyIssues
             .filter((issue) =>
               matchesQuery(trimmedQuery, [
@@ -148,7 +162,7 @@ export default function HeaderSearch({
               ])
             )
             .slice(0, 2)
-            .map(buildWeeklyResult),
+            .map((issue) => buildWeeklyResult(issue, locale)),
         ].slice(0, 6);
 
   const showPanel =
@@ -164,7 +178,11 @@ export default function HeaderSearch({
           type="search"
           className="header-search-input"
           value={query}
-          placeholder="搜索日期、日报或周报"
+          placeholder={
+            locale === "en"
+              ? "Search dates, daily issues, or weekly digests"
+              : "搜索日期、日报或周报"
+          }
           onBlur={() => {
             window.setTimeout(() => setOpen(false), 120);
           }}
@@ -179,7 +197,9 @@ export default function HeaderSearch({
           {trimmedQuery.length > 0 ? (
             results.length > 0 ? (
               <div className="header-search-section">
-                <div className="header-search-section-label">搜索结果</div>
+                <div className="header-search-section-label">
+                  {locale === "en" ? "Results" : "搜索结果"}
+                </div>
                 <div className="header-search-list">
                   {results.map((result) => (
                     <Link
@@ -201,13 +221,17 @@ export default function HeaderSearch({
               </div>
             ) : (
               <div className="header-search-empty">
-                没有匹配项。可以试试日期，例如 `2026-03-29` 或 `20260329`。
+                {locale === "en"
+                  ? "No matches yet. Try a date like `2026-03-29` or `20260329`."
+                  : "没有匹配项。可以试试日期，例如 `2026-03-29` 或 `20260329`。"}
               </div>
             )
           ) : (
             <div className="header-search-grid">
               <div className="header-search-section">
-                <div className="header-search-section-label">最新日报</div>
+                <div className="header-search-section-label">
+                  {locale === "en" ? "Latest Daily" : "最新日报"}
+                </div>
                 <div className="header-search-list">
                   {latestDaily.map((result) => (
                     <Link
@@ -226,7 +250,9 @@ export default function HeaderSearch({
               </div>
 
               <div className="header-search-section">
-                <div className="header-search-section-label">最新周报</div>
+                <div className="header-search-section-label">
+                  {locale === "en" ? "Latest Weekly" : "最新周报"}
+                </div>
                 <div className="header-search-list">
                   {latestWeekly.map((result) => (
                     <Link

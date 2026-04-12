@@ -4,13 +4,21 @@ import HeaderSearch from "@/components/HeaderSearch";
 import IssueRail from "@/components/IssueRail";
 import type { DailyIssue, WeeklyIssue } from "@/lib/content-loader";
 import {
+  getAlternateLocale,
+  withLocalePath,
+} from "@/lib/locale";
+import type { SiteLocale } from "@/lib/locale";
+import {
   SITE_REPO_URL,
+  SITE_SLOGAN_EN,
+  SITE_SLOGAN_ZH,
   SITE_SLOGAN,
   SITE_TITLE_EN,
   SITE_TITLE_ZH,
 } from "@/lib/site";
 
 interface PublicationShellProps {
+  locale: SiteLocale;
   dailyIssues: DailyIssue[];
   weeklyIssues: WeeklyIssue[];
   currentDate?: string;
@@ -41,6 +49,7 @@ function CatalogIcon() {
 }
 
 export default function PublicationShell({
+  locale,
   dailyIssues,
   weeklyIssues,
   currentDate,
@@ -49,6 +58,40 @@ export default function PublicationShell({
   children,
 }: PublicationShellProps) {
   const latestDate = dailyIssues[0]?.date;
+  const alternateLocale = getAlternateLocale(locale);
+  const navCopy =
+    locale === "en"
+      ? {
+          home: "Home",
+          latestDaily: "Latest Daily",
+          daily: "Daily",
+          podcast: "Podcast",
+          about: "About",
+          archive: "Archive",
+          github: "GitHub source code",
+        }
+      : {
+          home: "首页",
+          latestDaily: "最新日报",
+          daily: "日报",
+          podcast: "播客",
+          about: "项目说明",
+          archive: "归档",
+          github: "GitHub source code",
+        };
+  const siteSlogan = locale === "en" ? SITE_SLOGAN_EN : SITE_SLOGAN_ZH || SITE_SLOGAN;
+
+  const currentBasePath =
+    activeNav === "daily" && (currentDate || latestDate)
+      ? `/${currentDate ?? latestDate}`
+      : currentWeekId
+        ? `/weekly/${currentWeekId}`
+        : activeNav === "podcast"
+          ? "/podcast"
+          : activeNav === "about"
+            ? "/about"
+            : "/";
+
   const searchDailyIssues = dailyIssues.map((issue) => ({
     date: issue.date,
     title: issue.title,
@@ -69,7 +112,7 @@ export default function PublicationShell({
         <div className="page-frame py-4">
           <div className="header-topbar">
             <div className="header-brand-wrap">
-              <Link href="/" className="header-brand-link min-w-0">
+              <Link href={withLocalePath(locale, "/")} className="header-brand-link min-w-0">
                 <div className="header-brand-copy">
                   <div className="header-brandline">
                     <span className="wordmark">{SITE_TITLE_EN}</span>
@@ -77,13 +120,14 @@ export default function PublicationShell({
                       <span className="brand-caption-inline">{SITE_TITLE_ZH}</span>
                     ) : null}
                   </div>
-                  <div className="header-brand-subline">{SITE_SLOGAN}</div>
+                  <div className="header-brand-subline">{siteSlogan}</div>
                 </div>
               </Link>
             </div>
 
             <div className="header-search-area">
               <HeaderSearch
+                locale={locale}
                 dailyIssues={searchDailyIssues}
                 weeklyIssues={searchWeeklyIssues}
               />
@@ -92,30 +136,45 @@ export default function PublicationShell({
             <div className="header-actions">
               <nav className="header-nav">
                 <Link
-                  href="/"
+                  href={withLocalePath(locale, "/")}
                   className={`header-pill ${activeNav === "home" ? "header-pill-active" : ""}`}
                 >
-                  首页
+                  {navCopy.home}
                 </Link>
                 {latestDate ? (
                   <Link
-                    href={`/${latestDate}`}
+                    href={withLocalePath(locale, `/${latestDate}`)}
                     className={`header-pill ${activeNav === "daily" ? "header-pill-active" : ""}`}
                   >
-                    最新日报
+                    {navCopy.latestDaily}
                   </Link>
                 ) : null}
                 <Link
-                  href="/podcast"
+                  href={withLocalePath(locale, "/podcast")}
                   className={`header-pill ${activeNav === "podcast" ? "header-pill-active" : ""}`}
                 >
-                  播客
+                  {navCopy.podcast}
                 </Link>
                 <Link
-                  href="/about"
+                  href={withLocalePath(locale, "/about")}
                   className={`header-pill ${activeNav === "about" ? "header-pill-active" : ""}`}
                 >
-                  项目说明
+                  {navCopy.about}
+                </Link>
+              </nav>
+
+              <nav className="header-nav" aria-label="Language switcher">
+                <Link
+                  href={withLocalePath("zh", currentBasePath)}
+                  className={`header-pill ${locale === "zh" ? "header-pill-active" : ""}`}
+                >
+                  中文
+                </Link>
+                <Link
+                  href={withLocalePath("en", currentBasePath)}
+                  className={`header-pill ${locale === "en" ? "header-pill-active" : ""}`}
+                >
+                  EN
                 </Link>
               </nav>
 
@@ -124,7 +183,7 @@ export default function PublicationShell({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="header-github-link"
-                aria-label="GitHub source code"
+                aria-label={navCopy.github}
               >
                 <GitHubMark />
               </a>
@@ -137,21 +196,44 @@ export default function PublicationShell({
       <header className="mobile-header">
         <div className="mobile-header-inner">
           <nav className="mobile-header-nav">
-            <Link href="/" className={`mobile-nav-link ${activeNav === "home" ? "is-active" : ""}`}>
-              首页
+            <Link
+              href={withLocalePath(locale, "/")}
+              className={`mobile-nav-link ${activeNav === "home" ? "is-active" : ""}`}
+            >
+              {navCopy.home}
             </Link>
             {latestDate ? (
-              <Link href={`/${latestDate}`} className={`mobile-nav-link ${activeNav === "daily" ? "is-active" : ""}`}>
-                日报
+              <Link
+                href={withLocalePath(locale, `/${latestDate}`)}
+                className={`mobile-nav-link ${activeNav === "daily" ? "is-active" : ""}`}
+              >
+                {navCopy.daily}
               </Link>
             ) : null}
-            <Link href="/podcast" className={`mobile-nav-link ${activeNav === "podcast" ? "is-active" : ""}`}>
-              播客
+            <Link
+              href={withLocalePath(locale, "/podcast")}
+              className={`mobile-nav-link ${activeNav === "podcast" ? "is-active" : ""}`}
+            >
+              {navCopy.podcast}
             </Link>
-            <Link href="/about" className={`mobile-nav-link ${activeNav === "about" ? "is-active" : ""}`}>
-              说明
+            <Link
+              href={withLocalePath(locale, "/about")}
+              className={`mobile-nav-link ${activeNav === "about" ? "is-active" : ""}`}
+            >
+              {locale === "en" ? "About" : "说明"}
             </Link>
-            <a href={SITE_REPO_URL} target="_blank" rel="noopener noreferrer" className="mobile-nav-link">
+            <Link
+              href={withLocalePath(alternateLocale, currentBasePath)}
+              className="mobile-nav-link"
+            >
+              {alternateLocale === "en" ? "EN" : "中文"}
+            </Link>
+            <a
+              href={SITE_REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mobile-nav-link"
+            >
               GitHub
             </a>
           </nav>
@@ -163,6 +245,7 @@ export default function PublicationShell({
             <div className="mobile-catalog-panel">
               <IssueRail
                 compact
+                locale={locale}
                 currentDate={currentDate}
                 currentWeekId={currentWeekId}
                 dailyIssues={dailyIssues}
@@ -176,6 +259,7 @@ export default function PublicationShell({
       <div className="publication-main page-frame flex gap-10 py-8">
         <aside className="archive-rail sticky top-36 hidden h-[calc(100vh-10rem)] w-[23rem] shrink-0 overflow-y-auto pr-2 md:block">
           <IssueRail
+            locale={locale}
             currentDate={currentDate}
             currentWeekId={currentWeekId}
             dailyIssues={dailyIssues}

@@ -7,8 +7,15 @@ import { CONTENT_DIR } from "../lib/runtime-paths.js";
 export async function publishNode(
   state: PipelineStateType
 ): Promise<Partial<PipelineStateType>> {
-  const { date, dailyMarkdown, podcast, platformContents, insights, errors } =
-    state;
+  const {
+    date,
+    dailyMarkdown,
+    dailyMarkdownEn,
+    podcast,
+    platformContents,
+    insights,
+    errors,
+  } = state;
   if (!date || !dailyMarkdown) {
     return {};
   }
@@ -40,6 +47,12 @@ export async function publishNode(
         "utf-8"
       ),
     ];
+
+    if (dailyMarkdownEn.trim()) {
+      writes.push(
+        writeFile(join(dayDir, "daily.en.md"), dailyMarkdownEn, "utf-8")
+      );
+    }
 
     if (podcast.script) {
       writes.push(

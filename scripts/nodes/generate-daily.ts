@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import type { PipelineStateType } from "../state.js";
-import { callLLMJson } from "../lib/llm.js";
+import { callLLM, callLLMJson } from "../lib/llm.js";
 import {
   CATEGORY_LABELS,
   CATEGORIES,
@@ -11,6 +11,49 @@ import {
 interface DailyFramingResult {
   opening: string;
   closing: string;
+}
+
+function stripMarkdownFence(text: string): string {
+  const trimmed = text.trim();
+  const fenceMatch = trimmed.match(/^```(?:markdown|md)?\s*([\s\S]*?)\s*```$/i);
+  return fenceMatch ? fenceMatch[1].trim() : trimmed;
+}
+
+async function translateDailyMarkdown(
+  markdown: string,
+  reportName: string
+): Promise<string> {
+  const response = await callLLM({
+    model: "pro",
+    maxTokens: 8192,
+    systemPrompt: `You are translating a Chinese daily report into publication-ready English.
+
+Rules:
+- Return Markdown only. Do not wrap the result in code fences.
+- Preserve the YAML frontmatter block and keep the keys exactly as title / date / itemCount.
+- Translate the title value into natural English, but keep date and itemCount unchanged.
+- Preserve heading levels, horizontal rules, links, images, tables, and code fences.
+- Translate prose into concise editorial English.
+- When a company, product, model, or project has an established English name, use that English name.
+- Keep category section headings in English.
+- Translate these recurring labels naturally:
+  今日判断 -> Today's Take
+  事件 -> Event
+  解读 -> Why it matters
+  评分 -> Score
+  来源 -> Source
+  对比 -> Comparison
+  代码片段 -> Code Snippet
+  接下来要盯的变量 -> Watch Signals
+  更多 24h 资讯 -> More in the Last 24h
+- Keep bullets, timestamps, URLs, and image URLs intact.
+- Do not add or remove sections.`,
+    prompt: `Translate the following ${reportName} Markdown report into English while preserving its structure exactly.
+
+${markdown}`,
+  });
+
+  return stripMarkdownFence(response.text);
 }
 
 function getDisplayTitle(
@@ -36,7 +79,7 @@ export async function generateDailyNode(
 ): Promise<Partial<PipelineStateType>> {
   const { insights, secondaryItems, date, config, editorialAgenda } = state;
   if (!insights.length || !config) {
-    return { dailyMarkdown: "" };
+    return { dailyMarkdown: "", dailyMarkdownEn: "" };
   }
 
   try {
@@ -192,18 +235,30 @@ itemCount: ${insights.length}
       }
     }
 
+    let markdownEn = "";
+    try {
+      markdownEn = await translateDailyMarkdown(markdown, reportName);
+    } catch (translationError) {
+      console.warn(
+        "[generate-daily] English translation failed, skipping daily.en.md:",
+        (translationError as Error).message
+      );
+    }
+
     console.log(
       `[generate-daily] Rendered ${insights.length} items across ${activeCategories.length} categories`
     );
 
     return {
       dailyMarkdown: markdown,
+      dailyMarkdownEn: markdownEn,
       dailySummary: dailyOpening,
     };
   } catch (err) {
     console.error("[generate-daily] Failed:", err);
     return {
       dailyMarkdown: "",
+      dailyMarkdownEn: "",
       errors: [
         {
           node: "generateDaily",

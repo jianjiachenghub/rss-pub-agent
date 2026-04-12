@@ -7,6 +7,7 @@ import type {
   DailyReportMarkdownSection,
   ParsedDailyReport,
 } from "@/lib/daily-report-parser";
+import type { SiteLocale } from "@/lib/locale";
 
 const markdownComponents: Components = {
   h1: ({ children }) => (
@@ -107,7 +108,13 @@ function MarkdownSection({ section }: { section: DailyReportMarkdownSection }) {
   );
 }
 
-function CategorySection({ section }: { section: DailyReportCategorySection }) {
+function CategorySection({
+  locale,
+  section,
+}: {
+  locale: SiteLocale;
+  section: DailyReportCategorySection;
+}) {
   return (
     <section id={section.id} className="daily-section-shell">
       <h2 className="markdown-h2">
@@ -128,7 +135,9 @@ function CategorySection({ section }: { section: DailyReportCategorySection }) {
 
             <div className="daily-item-badge-row">
               {typeof item.meta.score === "number" ? (
-                <span className="daily-item-badge">评分 {item.meta.score}</span>
+                <span className="daily-item-badge">
+                  {locale === "en" ? "Score" : "评分"} {item.meta.score}
+                </span>
               ) : null}
               {item.meta.sourceName && item.meta.sourceUrl ? (
                 <a
@@ -137,10 +146,12 @@ function CategorySection({ section }: { section: DailyReportCategorySection }) {
                   rel="noopener noreferrer"
                   className="daily-item-badge daily-item-badge-link"
                 >
-                  来源 {item.meta.sourceName}
+                  {locale === "en" ? "Source" : "来源"} {item.meta.sourceName}
                 </a>
               ) : item.meta.sourceName ? (
-                <span className="daily-item-badge">来源 {item.meta.sourceName}</span>
+                <span className="daily-item-badge">
+                  {locale === "en" ? "Source" : "来源"} {item.meta.sourceName}
+                </span>
               ) : null}
             </div>
           </article>
@@ -150,12 +161,18 @@ function CategorySection({ section }: { section: DailyReportCategorySection }) {
   );
 }
 
-export default function DailyReport({ report }: { report: ParsedDailyReport }) {
+export default function DailyReport({
+  locale,
+  report,
+}: {
+  locale: SiteLocale;
+  report: ParsedDailyReport;
+}) {
   return (
     <article className="editorial-card reading-surface markdown-sheet daily-report-flow px-5 py-8 md:px-8 md:py-10">
       {report.sections.map((section) =>
         section.type === "category" ? (
-          <CategorySection key={section.id} section={section} />
+          <CategorySection key={section.id} locale={locale} section={section} />
         ) : (
           <MarkdownSection key={section.id} section={section} />
         )

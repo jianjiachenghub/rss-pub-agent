@@ -20,13 +20,14 @@ const TIER_LABELS = {
 } as const;
 
 export default function AboutPage() {
-  const dailyIssues = getAllDailyIssues();
-  const weeklyIssues = getWeeklyIssues();
-  const timelineDays = getTimelineDays(14);
+  const dailyIssues = getAllDailyIssues("zh");
+  const weeklyIssues = getWeeklyIssues("zh");
+  const timelineDays = getTimelineDays(14, "zh");
   const guide = getProjectGuideData();
 
   return (
     <PublicationShell
+      locale="zh"
       currentDate={dailyIssues[0]?.date}
       dailyIssues={dailyIssues}
       activeNav="about"

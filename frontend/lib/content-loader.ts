@@ -7,6 +7,7 @@ import {
   getMonthScopedWeekNumber,
   getDisplayIssueTitle,
 } from "@/lib/display-text";
+import type { SiteLocale } from "@/lib/locale";
 
 const CONTENT_DIR = join(process.cwd(), "../content");
 
@@ -140,8 +141,8 @@ function getWeekId(date: string): string {
   return getMonthScopedWeekId(date);
 }
 
-function formatWeekLabel(weekId: string): string {
-  return formatDisplayWeekLabel(weekId);
+function formatWeekLabel(weekId: string, locale: SiteLocale): string {
+  return formatDisplayWeekLabel(weekId, locale);
 }
 
 function formatWeekRange(dates: string[]): string {
@@ -152,13 +153,17 @@ function formatWeekRange(dates: string[]): string {
   return `${start} - ${end}`;
 }
 
-function getIssueTitle(content: string, date: string): string {
+function getIssueTitle(
+  content: string,
+  date: string,
+  locale: SiteLocale = "zh"
+): string {
   const rawTitle =
     extractFrontmatterField(content, "title") ??
     extractFirstHeading(stripFrontmatter(content)) ??
     date;
 
-  return getDisplayIssueTitle(rawTitle, date);
+  return getDisplayIssueTitle(rawTitle, date, locale);
 }
 
 function getContentPath(date: string, fileName: string): string {
@@ -223,10 +228,21 @@ export function getGroupedByYear(): YearGroup[] {
   return years;
 }
 
-export function getDailyContent(date: string): string | null {
-  const filePath = getContentPath(date, "daily.md");
-  if (!existsSync(filePath)) return null;
-  return readFileSync(filePath, "utf-8");
+export function getDailyContent(
+  date: string,
+  locale: SiteLocale = "zh"
+): string | null {
+  const fileNames =
+    locale === "en" ? ["daily.en.md", "daily.md"] : ["daily.md"];
+
+  for (const fileName of fileNames) {
+    const filePath = getContentPath(date, fileName);
+    if (existsSync(filePath)) {
+      return readFileSync(filePath, "utf-8");
+    }
+  }
+
+  return null;
 }
 
 export function getDailyMeta(date: string): DailyMeta | null {
@@ -239,15 +255,18 @@ export function getPodcastScript(date: string): string | null {
   return readFileSync(filePath, "utf-8");
 }
 
-export function getDailyIssue(date: string): DailyIssue | null {
-  const content = getDailyContent(date);
+export function getDailyIssue(
+  date: string,
+  locale: SiteLocale = "zh"
+): DailyIssue | null {
+  const content = getDailyContent(date, locale);
   if (!content) return null;
 
   const body = stripFrontmatter(content);
   const summary = extractFirstQuote(body);
   return {
     date,
-    title: getIssueTitle(content, date),
+    title: getIssueTitle(content, date, locale),
     content,
     body,
     summary,
@@ -258,14 +277,14 @@ export function getDailyIssue(date: string): DailyIssue | null {
   };
 }
 
-export function getAllDailyIssues(): DailyIssue[] {
+export function getAllDailyIssues(locale: SiteLocale = "zh"): DailyIssue[] {
   return getAllDates()
-    .map((date) => getDailyIssue(date))
+    .map((date) => getDailyIssue(date, locale))
     .filter((issue): issue is DailyIssue => issue !== null);
 }
 
-export function getLatestDailyIssue(): DailyIssue | null {
-  return getDailyIssue(getAllDates()[0] ?? "");
+export function getLatestDailyIssue(locale: SiteLocale = "zh"): DailyIssue | null {
+  return getDailyIssue(getAllDates()[0] ?? "", locale);
 }
 
 export function getDatesForMonth(year: string, month: string): string[] {
@@ -288,8 +307,8 @@ export function getWeeksForMonth(
     .sort((a, b) => b.week - a.week);
 }
 
-export function getWeeklyIssues(): WeeklyIssue[] {
-  const issues = getAllDailyIssues();
+export function getWeeklyIssues(locale: SiteLocale = "zh"): WeeklyIssue[] {
+  const issues = getAllDailyIssues(locale);
   const weekMap = new Map<string, DailyIssue[]>();
 
   for (const issue of issues) {
@@ -339,7 +358,7 @@ export function getWeeklyIssues(): WeeklyIssue[] {
       return {
         weekId,
         year: weekId.slice(0, 4),
-        label: formatWeekLabel(weekId),
+        label: formatWeekLabel(weekId, locale),
         rangeLabel: formatWeekRange(dates),
         latestDate: latest?.date ?? "",
         dates,
@@ -356,12 +375,18 @@ export function getWeeklyIssues(): WeeklyIssue[] {
     .sort((a, b) => b.latestDate.localeCompare(a.latestDate));
 }
 
-export function getWeeklyIssue(weekId: string): WeeklyIssue | null {
-  return getWeeklyIssues().find((issue) => issue.weekId === weekId) ?? null;
+export function getWeeklyIssue(
+  weekId: string,
+  locale: SiteLocale = "zh"
+): WeeklyIssue | null {
+  return getWeeklyIssues(locale).find((issue) => issue.weekId === weekId) ?? null;
 }
 
-export function getTimelineDays(limit?: number): TimelineDay[] {
-  const items = getAllDailyIssues().map((issue) => ({
+export function getTimelineDays(
+  limit?: number,
+  locale: SiteLocale = "zh"
+): TimelineDay[] {
+  const items = getAllDailyIssues(locale).map((issue) => ({
     date: issue.date,
     title: issue.title,
     summary: issue.summary,
