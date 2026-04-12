@@ -249,10 +249,23 @@ export function getDailyMeta(date: string): DailyMeta | null {
   return readJsonFile<DailyMeta>(getContentPath(date, "meta.json"));
 }
 
-export function getPodcastScript(date: string): string | null {
-  const filePath = getContentPath(date, "podcast-script.md");
-  if (!existsSync(filePath)) return null;
-  return readFileSync(filePath, "utf-8");
+export function getPodcastScript(
+  date: string,
+  locale: SiteLocale = "zh"
+): string | null {
+  const fileNames =
+    locale === "en"
+      ? ["podcast-script.en.md", "podcast-script.md"]
+      : ["podcast-script.md"];
+
+  for (const fileName of fileNames) {
+    const filePath = getContentPath(date, fileName);
+    if (existsSync(filePath)) {
+      return readFileSync(filePath, "utf-8");
+    }
+  }
+
+  return null;
 }
 
 export function getDailyIssue(

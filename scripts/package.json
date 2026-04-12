@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "pipeline": "tsx graph.ts",
+    "backfill:english": "tsx backfill-english.ts",
     "test": "vitest run",
     "test:watch": "vitest"
   },

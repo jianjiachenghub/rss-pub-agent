@@ -15,7 +15,7 @@ export default function PodcastPage() {
   const podcasts = getAllDates()
     .map((date) => {
       const meta = getDailyMeta(date);
-      const script = getPodcastScript(date);
+      const script = getPodcastScript(date, "zh");
       return script ? { date, script, hasPodcast: meta?.hasPodcast ?? false } : null;
     })
     .filter((podcast): podcast is NonNullable<typeof podcast> => podcast !== null);

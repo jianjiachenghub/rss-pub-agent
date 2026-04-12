@@ -3,6 +3,11 @@ import { join } from "path";
 import { existsSync } from "fs";
 import type { PipelineStateType } from "../state.js";
 import { CONTENT_DIR } from "../lib/runtime-paths.js";
+import {
+  getEnglishArtifactFileName,
+  translateArtifactToEnglish,
+  type EnglishArtifactKind,
+} from "../lib/english-artifacts.js";
 
 export async function publishNode(
   state: PipelineStateType
@@ -23,6 +28,7 @@ export async function publishNode(
   try {
     const dayDir = join(CONTENT_DIR, date);
     await mkdir(dayDir, { recursive: true });
+    const reportName = state.config?.reportName ?? "\u4e2a\u4eba\u65e5\u62a5";
 
     const writes: Promise<void>[] = [
       writeFile(join(dayDir, "daily.md"), dailyMarkdown, "utf-8"),
@@ -76,6 +82,70 @@ export async function publishNode(
     }
 
     await Promise.all(writes);
+
+    const englishArtifacts: Array<{
+      kind: EnglishArtifactKind;
+      fileName: string;
+      content: string;
+    }> = [];
+
+    if (dailyMarkdownEn.trim()) {
+      englishArtifacts.push({
+        kind: "daily",
+        fileName: "daily.md",
+        content: dailyMarkdownEn,
+      });
+    }
+    if (podcast.script.trim()) {
+      englishArtifacts.push({
+        kind: "podcast-script",
+        fileName: "podcast-script.md",
+        content: podcast.script,
+      });
+    }
+    if (platformContents.brief?.trim()) {
+      englishArtifacts.push({
+        kind: "brief",
+        fileName: "brief.md",
+        content: platformContents.brief,
+      });
+    }
+    if (platformContents.douyin?.trim()) {
+      englishArtifacts.push({
+        kind: "douyin",
+        fileName: "douyin.md",
+        content: platformContents.douyin,
+      });
+    }
+    if (platformContents.xhs?.trim()) {
+      englishArtifacts.push({
+        kind: "xhs",
+        fileName: "xhs.md",
+        content: platformContents.xhs,
+      });
+    }
+
+    for (const artifact of englishArtifacts) {
+      const targetPath = join(dayDir, getEnglishArtifactFileName(artifact.fileName));
+
+      try {
+        const translated =
+          artifact.kind === "daily"
+            ? artifact.content
+            : await translateArtifactToEnglish({
+                kind: artifact.kind,
+                content: artifact.content,
+                reportName,
+              });
+
+        await writeFile(targetPath, translated, "utf-8");
+      } catch (error) {
+        console.warn(
+          `[publish] Failed to write English artifact for ${artifact.fileName}:`,
+          (error as Error).message
+        );
+      }
+    }
 
     // Update index.json
     const indexPath = join(CONTENT_DIR, "index.json");
