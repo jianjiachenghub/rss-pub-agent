@@ -207,8 +207,7 @@ content/
 - 详情页按日期读取 `content/YYYY-MM-DD/daily.md`
 - 周报页面不是独立构建产物，而是运行时由 `frontend/lib/content-loader.ts` 基于日报聚合
 - 内容加载逻辑集中在 [frontend/lib/content-loader.ts](../frontend/lib/content-loader.ts)
-
-`web/` 目录下的 Vite 应用仍在仓库中，但目前不是默认入口，也不在根 `package.json` 的脚本链路里。
+- `frontend/` 是仓库当前唯一保留的展示层入口
 
 ## 7. Operations
 

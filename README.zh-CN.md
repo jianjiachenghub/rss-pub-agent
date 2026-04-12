@@ -268,7 +268,6 @@ rss-pub-agent/
 |- .runtime/                运行时状态，如飞书投递记录
 |- docs/                    架构文档、设计方案和归档
 |- reports/                 历史兼容产物
-|- web/                     旧 Vite 原型
 `- .github/workflows/       自动化工作流
 ```
 
@@ -281,7 +280,7 @@ rss-pub-agent/
 
 ## Roadmap
 
-- [ ] 收敛 `web/` 和 `reports/` 这些遗留公开面
+- [ ] 收敛 `reports/` 这类历史兼容公开面
 - [ ] 增强 provider 性能与运行指标可观测性
 - [ ] 扩展英文产物与英文站点文案
 - [ ] 优化开源贡献者与自托管使用体验

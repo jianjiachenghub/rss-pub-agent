@@ -273,7 +273,6 @@ rss-pub-agent/
 |- .runtime/                Runtime state such as Feishu delivery records
 |- docs/                    Architecture docs, plans, and archive
 |- reports/                 Legacy compatibility artifacts
-|- web/                     Legacy Vite prototype
 `- .github/workflows/       Scheduled automation
 ```
 
@@ -286,7 +285,7 @@ Recommended reading order:
 
 ## Roadmap
 
-- [ ] Consolidate legacy `web/` and `reports/` paths into a cleaner public repo surface
+- [ ] Consolidate legacy `reports/` compatibility paths into a cleaner public repo surface
 - [ ] Add richer observability around provider performance and run metrics
 - [ ] Expand English-facing generated artifacts and site copy
 - [ ] Harden open-source setup for contributors and self-hosters
