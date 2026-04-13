@@ -307,7 +307,7 @@ function TimelinePanel({
               >
                 <span className="hover-underline">{day.title}</span>
               </Link>
-              <p className="mt-3 max-w-3xl text-sm leading-7 text-black/74">
+              <p className="mt-3 max-w-3xl text-base leading-8 text-black">
                 {day.summary}
               </p>
               <div className="mt-4 grid gap-2 md:grid-cols-2">
