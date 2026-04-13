@@ -518,18 +518,11 @@ img {
 }
 
 .header-language-trigger {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.32rem;
-  padding: 0.25rem 0.1rem;
-  color: rgba(15, 23, 42, 0.88);
+  gap: 0.42rem;
+  padding-inline: 1rem 0.92rem;
   cursor: pointer;
   list-style: none;
-  font-family: var(--font-body);
-  font-size: 0.92rem;
-  font-weight: 600;
   line-height: 1;
-  transition: color 220ms ease, opacity 220ms ease;
 }
 
 .header-language-trigger::-webkit-details-marker {
@@ -537,7 +530,7 @@ img {
 }
 
 .header-language-trigger:hover {
-  color: rgba(15, 23, 42, 1);
+  color: rgba(15, 23, 42, 0.96);
 }
 
 .header-language-trigger-label {
@@ -554,50 +547,67 @@ img {
   transform: rotate(180deg);
 }
 
+.header-language-menu[open] .header-language-trigger {
+  border-color: rgba(15, 23, 42, 0.16);
+  background-color: rgba(255, 255, 255, 0.94);
+  box-shadow:
+    0 10px 22px rgba(15, 23, 42, 0.08),
+    0 0 0 1px rgba(127, 165, 255, 0.05) inset;
+}
+
 .header-language-panel {
   position: absolute;
-  top: calc(100% + 0.55rem);
+  top: calc(100% + 0.7rem);
   right: 0;
   z-index: 70;
-  min-width: 10rem;
-  padding: 0.45rem;
-  border: 1px solid rgba(60, 60, 67, 0.12);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.96);
+  min-width: 10.8rem;
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 1.15rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 249, 255, 0.88)),
+    rgba(255, 255, 255, 0.92);
   box-shadow:
-    0 12px 28px rgba(15, 23, 42, 0.12),
-    0 1px 0 rgba(255, 255, 255, 0.92) inset;
-  backdrop-filter: blur(18px);
+    0 18px 34px rgba(15, 23, 42, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  backdrop-filter: blur(22px) saturate(180%);
 }
 
 .header-language-option {
   display: flex;
   align-items: center;
-  min-height: 2.5rem;
-  border-radius: 0.8rem;
+  min-height: 2.35rem;
+  border-radius: 0.9rem;
   padding: 0 0.9rem;
   color: rgba(15, 23, 42, 0.88);
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 0.92rem;
+  font-weight: 600;
   transition:
+    transform 220ms ease,
     background-color 220ms ease,
     color 220ms ease;
 }
 
 .header-language-option:hover {
-  background: rgba(15, 23, 42, 0.06);
+  transform: translateY(-1px);
+  background: rgba(15, 23, 42, 0.05);
   color: rgba(15, 23, 42, 0.96);
 }
 
 .header-language-option.is-active {
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  background: rgba(15, 23, 42, 0.06);
+  border: 0;
+  background: transparent;
   color: rgba(15, 23, 42, 0.96);
-  font-weight: 600;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.92) inset,
-    0 4px 10px rgba(15, 23, 42, 0.06);
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.header-language-option.is-active:hover {
+  transform: none;
+  background: transparent;
 }
 
 .header-github-link {

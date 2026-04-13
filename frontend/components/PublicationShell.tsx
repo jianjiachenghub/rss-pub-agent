@@ -178,7 +178,10 @@ export default function PublicationShell({
               </nav>
 
               <details className="header-language-menu">
-                <summary className="header-language-trigger" aria-label={languageMenuCopy.action}>
+                <summary
+                  className="header-pill header-language-trigger"
+                  aria-label={languageMenuCopy.action}
+                >
                   <span className="header-language-trigger-label">{languageMenuCopy.current}</span>
                   <span className="header-language-caret" aria-hidden="true">
                     ▾
