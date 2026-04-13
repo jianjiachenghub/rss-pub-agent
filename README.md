@@ -59,6 +59,7 @@ The result is a repeatable system for turning "too much information" into "one r
 - [Quick Start](#quick-start)
 - [Configuration](#configuration)
 - [Run Locally](#run-locally)
+- [Documentation](#documentation)
 - [Repository Layout](#repository-layout)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
@@ -262,6 +263,15 @@ Important note:
 - The root `package.json` only proxies the pipeline commands.
 - Frontend commands are intentionally run from `frontend/`.
 
+## Documentation
+
+For implementation and maintenance work, start with these files:
+
+- [docs/README.md](./docs/README.md) for the current doc index and reading order
+- [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) for the active pipeline and runtime design
+- [docs/CODEBASE.md](./docs/CODEBASE.md) for the module map, key methods, and debugging entry points
+- [frontend/README.md](./frontend/README.md) for the static site route structure and content contract
+
 ## Repository Layout
 
 ```text
@@ -280,8 +290,9 @@ Recommended reading order:
 
 1. [README.zh-CN.md](./README.zh-CN.md) if you prefer Chinese
 2. [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)
-3. [frontend/README.md](./frontend/README.md)
-4. [docs/README.md](./docs/README.md)
+3. [docs/CODEBASE.md](./docs/CODEBASE.md)
+4. [frontend/README.md](./frontend/README.md)
+5. [docs/README.md](./docs/README.md)
 
 ## Roadmap
 
