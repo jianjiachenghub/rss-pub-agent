@@ -47,6 +47,8 @@ export async function fetchPrimaryNode(
     rawSnapshotExists(date, "fetch-metrics.json")
   ) {
     try {
+      // Resume-from-raw is the fastest path for reruns because it preserves the
+      // exact primary snapshot that downstream pre-filter and scoring saw.
       const [primaryRawItems, cachedMetrics] = await Promise.all([
         readPrimaryRawItems(date),
         readFetchMetrics(date),

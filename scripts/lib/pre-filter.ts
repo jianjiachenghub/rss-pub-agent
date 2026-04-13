@@ -136,6 +136,8 @@ export function compressPrimaryItems(items: RawNewsItem[]): {
   selectedCandidates: EventCandidate[];
   coverageStats: CoverageStats;
 } {
+  // Cluster near-duplicate headlines into "events" before any editorial LLM work.
+  // This keeps high-chatter topics from paying the scoring cost multiple times.
   const clusters = new Map<string, EventCandidate>();
   const sourceSets = new Map<string, Set<string>>();
 
@@ -169,6 +171,8 @@ export function compressPrimaryItems(items: RawNewsItem[]): {
 
     const nextScore = scoreRepresentative(item);
     if (nextScore > existing.preFilterScore) {
+      // Keep the strongest representative so later prompts see the richest
+      // available text for the event cluster instead of the earliest headline.
       existing.id = item.id;
       existing.title = item.title;
       existing.url = item.url;

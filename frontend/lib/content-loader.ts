@@ -9,6 +9,8 @@ import {
 } from "@/lib/display-text";
 import type { SiteLocale } from "@/lib/locale";
 
+// The frontend reads generated markdown directly from the repo. There is no
+// database or API layer between Next.js routes and the `content/` contract.
 const CONTENT_DIR = join(process.cwd(), "../content");
 
 export interface DailyMeta {
@@ -232,6 +234,8 @@ export function getDailyContent(
   date: string,
   locale: SiteLocale = "zh"
 ): string | null {
+  // English routes fall back to Chinese artifacts so publication stays readable
+  // even when companion translations are missing for a given day.
   const fileNames =
     locale === "en" ? ["daily.en.md", "daily.md"] : ["daily.md"];
 
@@ -332,6 +336,8 @@ export function getWeeklyIssues(locale: SiteLocale = "zh"): WeeklyIssue[] {
 
   return Array.from(weekMap.entries())
     .map(([weekId, weekIssues]) => {
+      // Weekly pages are not precomputed artifacts. They are derived on read so
+      // the site can reflect newly generated days without another build step.
       const orderedDays = [...weekIssues].sort((a, b) =>
         b.date.localeCompare(a.date)
       );

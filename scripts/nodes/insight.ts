@@ -288,6 +288,8 @@ async function requestRepairInsights(
     return [];
   }
 
+  // Repair runs only on drafts that failed structural/content checks. Keeping it
+  // batched and separate avoids paying the "pro" rewrite cost for clean items.
   const batches: typeof items[] = [];
   for (let index = 0; index < items.length; index += REPAIR_BATCH_SIZE) {
     batches.push(items.slice(index, index + REPAIR_BATCH_SIZE));
@@ -402,6 +404,8 @@ function finalizeInsights(
     .sort((left, right) => right.weightedScore - left.weightedScore)
     .slice(0, targetCount);
 
+  // Anything that scored well enough to survive scoring but not well enough to
+  // become a deep dive is still valuable for the "More in the Last 24h" rail.
   const finalInsightIds = new Set(finalInsights.map((item) => item.id));
   const demotedCandidates = scoredItems.filter((item) => !finalInsightIds.has(item.id));
 
@@ -442,6 +446,8 @@ export async function insightNode(
       `[insight] Generating event/interpretation for ${insightInput.length} candidates...`
     );
 
+    // Category classification runs alongside insight writing so downstream layout
+    // gets cleaner buckets without adding another sequential LLM stage.
     const [insightResults, categoryResults] = await Promise.all([
       requestInsights(insightInput, editorialAgenda),
       callLLMJson<CategoryResult[]>({

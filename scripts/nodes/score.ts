@@ -222,7 +222,8 @@ export async function scoreNode(
     const selectedIds = new Set<string>();
     const categoryCounts = new Map<NewsCategory, number>();
 
-    // Keep baseline category coverage so the report remains multi-category even on AI-heavy days.
+    // Phase 1: satisfy minimum coverage so the report remains multi-category
+    // even on days where one domain dominates the raw candidate pool.
     for (const category of CATEGORIES) {
       const minimum = minimumCoverage[category] ?? 0;
       const candidates = byCategory.get(category) ?? [];
@@ -234,6 +235,8 @@ export async function scoreNode(
       }
     }
 
+    // Phase 2: fill the rest by score, but respect per-category soft caps that
+    // come from editorial weights plus the agenda's same-day boosts.
     for (const item of allScoredItems) {
       if (selectedItems.length >= candidatePoolLimit || selectedIds.has(item.id)) continue;
       const category = normalizeCategory(item.category);
@@ -247,6 +250,7 @@ export async function scoreNode(
       }
     }
 
+    // Phase 3: if caps still leave room, backfill from the remaining global ranking.
     for (const item of allScoredItems) {
       if (selectedItems.length >= candidatePoolLimit || selectedIds.has(item.id)) continue;
       selectedItems.push(item);

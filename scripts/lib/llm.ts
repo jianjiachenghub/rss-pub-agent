@@ -233,6 +233,8 @@ const PROVIDERS: Record<string, ProviderConfig> = {
 };
 
 function getProviderChain(): ProviderConfig[] {
+  // Provider order is controlled purely by env so production can rebalance
+  // cost/latency/reliability without touching code.
   const raw = process.env.LLM_PROVIDERS ?? "zhipu,gemini,openai";
   const names = raw
     .split(",")
@@ -339,6 +341,8 @@ export async function callLLM(req: LLMRequest): Promise<LLMResponse> {
       continue;
     }
 
+    // Cooling down a provider should not fail the request if a later provider
+    // in the chain is healthy enough to take the current call.
     const nextProvider = findNextProvider(chain, i, triedProviders);
     if (nextProvider && isProviderCoolingDown(provider.name)) {
       console.warn(
@@ -406,6 +410,8 @@ export async function callLLMJson<T>(req: LLMRequest): Promise<T> {
   try {
     return parseJsonResponse<T>(response.text);
   } catch {
+    // A second pass with a stronger JSON-only reminder is cheaper than forcing
+    // every caller to implement its own parse-retry wrapper.
     const retryReq = {
       ...req,
       prompt:
@@ -504,6 +510,8 @@ export function parseJsonResponse<T>(text: string): T {
   try {
     return normalizeParsedJson<T>(tryParseJson(cleaned));
   } catch (err) {
+    // Many models still wrap valid JSON in prose. We salvage the first balanced
+    // object/array before giving up so callers can stay focused on business logic.
     const embeddedJson = extractEmbeddedJson(cleaned);
     if (embeddedJson) {
       return normalizeParsedJson<T>(tryParseJson(embeddedJson));

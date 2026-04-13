@@ -45,6 +45,8 @@ export async function generateDailyNode(
     let dailyClosing = editorialAgenda.closingOutlookAngle;
 
     try {
+      // The agenda provides the narrative fallback. This extra framing step only
+      // polishes the open/close once the final deep-dive set is known.
       const framing = await callLLMJson<DailyFramingResult>({
         systemPrompt: dailyFramingSystemPrompt(
           config.reportName ?? "个人日报",
@@ -162,6 +164,8 @@ itemCount: ${insights.length}
     markdown += `${dailyClosing}\n\n`;
 
     if (secondaryItems && secondaryItems.length > 0) {
+      // Secondary items keep the issue broad without forcing every worthwhile
+      // candidate through the heavier deep-dive interpretation format.
       markdown += `---\n\n## 更多 24h 资讯\n\n`;
       markdown += `> 以下条目进入了候选池，但没有进入今天的主深度解读区。\n\n`;
 

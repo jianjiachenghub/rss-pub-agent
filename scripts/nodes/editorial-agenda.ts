@@ -103,6 +103,8 @@ export async function editorialAgendaNode(
   const sampledItems = sampleAgendaItems(rawItems);
 
   try {
+    // Agenda only needs a balanced sketch of the day, not the full pool. Sampling
+    // by category keeps the narrative step from being dominated by the loudest feed.
     const result = await callLLMJson<EditorialAgendaResult>({
       systemPrompt: editorialAgendaSystemPrompt(
         config.editorial,

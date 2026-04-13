@@ -16,6 +16,8 @@ import type {
   PipelineError,
 } from "./lib/types.js";
 
+// Most fields are "last write wins" because each stage materializes a fresh
+// snapshot for the next node. Errors and token usage are the only accumulators.
 export const PipelineState = Annotation.Root({
   config: Annotation<PipelineConfig>,
   platformConfig: Annotation<PlatformConfig>,

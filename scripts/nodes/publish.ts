@@ -30,6 +30,8 @@ export async function publishNode(
     await mkdir(dayDir, { recursive: true });
     const reportName = state.config?.reportName ?? "\u4e2a\u4eba\u65e5\u62a5";
 
+    // Chinese artifacts are the canonical output. English files are best-effort
+    // companions and should never block the main publication path.
     const writes: Promise<void>[] = [
       writeFile(join(dayDir, "daily.md"), dailyMarkdown, "utf-8"),
       writeFile(
@@ -147,6 +149,8 @@ export async function publishNode(
       }
     }
 
+    // Keep the index append-only from the perspective of a new run so the
+    // frontend only needs one file read to discover available issues.
     // Update index.json
     const indexPath = join(CONTENT_DIR, "index.json");
     let index: { dates: string[] } = { dates: [] };

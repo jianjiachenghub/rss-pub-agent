@@ -41,6 +41,8 @@ import { publishNode } from "./nodes/publish.js";
 import { notifyNode } from "./nodes/notify.js";
 import { getRuntimeOptions } from "./lib/runtime-options.js";
 
+// The graph stays strictly sequential until the canonical daily report exists.
+// Only then do we fan out into podcast/platform variants and join again at publish.
 const graph = new StateGraph(PipelineState)
   .addNode("loadConfig", loadConfig)
   .addNode("fetchPrimary", fetchPrimaryNode)
@@ -79,6 +81,8 @@ const pipeline = graph.compile();
 async function main() {
   const runtimeOptions = getRuntimeOptions();
 
+  // Invocation starts with an empty object because every durable input
+  // (config/date/raw snapshots) is resolved by graph nodes themselves.
   console.log("=== LLM News Flow Pipeline ===");
   console.log(`Started at: ${new Date().toISOString()}`);
   if (runtimeOptions.resumeFromRaw) {
