@@ -59,18 +59,20 @@ export default function PublicationShell({
 }: PublicationShellProps) {
   const latestDate = dailyIssues[0]?.date;
   const alternateLocale = getAlternateLocale(locale);
-  const languageSwitchCopy =
+  const languageMenuCopy =
     locale === "en"
       ? {
-          current: "EN",
-          target: "中文",
-          action: "切换到中文",
+          current: "English",
+          action: "Change language",
         }
       : {
-          current: "中文",
-          target: "EN",
-          action: "Switch to English",
+          current: "简体中文",
+          action: "切换语言",
         };
+  const languageOptions: Array<{ locale: SiteLocale; label: string }> = [
+    { locale: "en", label: "English" },
+    { locale: "zh", label: "简体中文" },
+  ];
   const navCopy =
     locale === "en"
       ? {
@@ -175,19 +177,36 @@ export default function PublicationShell({
                 </Link>
               </nav>
 
-              <nav className="header-nav" aria-label="Language switcher">
-                <Link
-                  href={withLocalePath(alternateLocale, currentBasePath)}
-                  className="header-pill header-pill-toggle"
-                  aria-label={languageSwitchCopy.action}
-                >
-                  <span className="header-pill-toggle-current">{languageSwitchCopy.current}</span>
-                  <span className="header-pill-toggle-arrow" aria-hidden="true">
-                    →
+              <details className="header-language-menu">
+                <summary className="header-language-trigger" aria-label={languageMenuCopy.action}>
+                  <span className="header-language-trigger-label">{languageMenuCopy.current}</span>
+                  <span className="header-language-caret" aria-hidden="true">
+                    ▾
                   </span>
-                  <span className="header-pill-toggle-target">{languageSwitchCopy.target}</span>
-                </Link>
-              </nav>
+                </summary>
+                <div className="header-language-panel" role="menu">
+                  {languageOptions.map((option) =>
+                    option.locale === locale ? (
+                      <span
+                        key={option.locale}
+                        className="header-language-option is-active"
+                        role="menuitem"
+                      >
+                        {option.label}
+                      </span>
+                    ) : (
+                      <Link
+                        key={option.locale}
+                        href={withLocalePath(option.locale, currentBasePath)}
+                        className="header-language-option"
+                        role="menuitem"
+                      >
+                        {option.label}
+                      </Link>
+                    )
+                  )}
+                </div>
+              </details>
 
               <a
                 href={SITE_REPO_URL}
@@ -237,7 +256,7 @@ export default function PublicationShell({
               href={withLocalePath(alternateLocale, currentBasePath)}
               className="mobile-nav-link"
             >
-              {languageSwitchCopy.target}
+              {alternateLocale === "en" ? "English" : "简体中文"}
             </Link>
             <a
               href={SITE_REPO_URL}
