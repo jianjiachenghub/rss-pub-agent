@@ -12,6 +12,8 @@
   - 面向维护者的代码地图，梳理关键入口、模块职责、重要方法和调试入口
 - [frontend/README.md](../frontend/README.md)
   - 当前 Next.js 前端说明、路由结构与内容契约
+- [articles/](articles)
+  - 对外介绍项目的文章、经验总结和项目写作稿件
 - [feishu/](feishu)
   - 适合业务协作与非代码读者的飞书版技术/使用说明
 - [todo.md](todo.md)
