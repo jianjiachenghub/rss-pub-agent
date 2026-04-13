@@ -59,6 +59,18 @@ export default function PublicationShell({
 }: PublicationShellProps) {
   const latestDate = dailyIssues[0]?.date;
   const alternateLocale = getAlternateLocale(locale);
+  const languageSwitchCopy =
+    locale === "en"
+      ? {
+          current: "EN",
+          target: "中文",
+          action: "切换到中文",
+        }
+      : {
+          current: "中文",
+          target: "EN",
+          action: "Switch to English",
+        };
   const navCopy =
     locale === "en"
       ? {
@@ -165,16 +177,15 @@ export default function PublicationShell({
 
               <nav className="header-nav" aria-label="Language switcher">
                 <Link
-                  href={withLocalePath("zh", currentBasePath)}
-                  className={`header-pill ${locale === "zh" ? "header-pill-active" : ""}`}
+                  href={withLocalePath(alternateLocale, currentBasePath)}
+                  className="header-pill header-pill-toggle"
+                  aria-label={languageSwitchCopy.action}
                 >
-                  中文
-                </Link>
-                <Link
-                  href={withLocalePath("en", currentBasePath)}
-                  className={`header-pill ${locale === "en" ? "header-pill-active" : ""}`}
-                >
-                  EN
+                  <span className="header-pill-toggle-current">{languageSwitchCopy.current}</span>
+                  <span className="header-pill-toggle-arrow" aria-hidden="true">
+                    →
+                  </span>
+                  <span className="header-pill-toggle-target">{languageSwitchCopy.target}</span>
                 </Link>
               </nav>
 
@@ -226,7 +237,7 @@ export default function PublicationShell({
               href={withLocalePath(alternateLocale, currentBasePath)}
               className="mobile-nav-link"
             >
-              {alternateLocale === "en" ? "EN" : "中文"}
+              {languageSwitchCopy.target}
             </Link>
             <a
               href={SITE_REPO_URL}

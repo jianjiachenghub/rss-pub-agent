@@ -615,6 +615,42 @@ img {
 }
 
 /* ── Mobile header ── */
+.header-pill-toggle {
+  gap: 0.6rem;
+  padding-inline: 1rem 1.08rem;
+}
+
+.header-pill-toggle-current {
+  color: rgba(12, 18, 32, 0.52);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.header-pill-toggle-arrow {
+  font-size: 0.88rem;
+  line-height: 1;
+  color: rgba(12, 18, 32, 0.34);
+  transition:
+    transform 240ms ease,
+    color 240ms ease;
+}
+
+.header-pill-toggle-target {
+  font-weight: 800;
+}
+
+.header-pill-toggle:hover .header-pill-toggle-current {
+  color: rgba(12, 18, 32, 0.68);
+}
+
+.header-pill-toggle:hover .header-pill-toggle-arrow {
+  transform: translateX(2px);
+  color: rgba(12, 18, 32, 0.64);
+}
+
 .mobile-header {
   display: none;
 }
