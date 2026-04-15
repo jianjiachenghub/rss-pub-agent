@@ -1,7 +1,7 @@
 ---
 title: "个人日报 | 2026年4月13日"
 date: "2026-04-13"
-itemCount: 14
+itemCount: 13
 ---
 
 # 个人日报 | 2026年4月13日
@@ -13,14 +13,6 @@ itemCount: 14
 ---
 
 ## AI
-
-### 2026-04-12
-
-**事件：** Contents AI 早报 2026-04-12 概览 OpenAI 澄清 ChatGPT Pro 额度规则，承认定价页面表述有误将更新 #1 阿里云百炼停售并清退 Coding Plan Lite 套餐 #2 MiniMax 今日正式开源 MiniMax-M2.7 模型 #3 GitHub Copilot 宣布将引入全新速率限制 #4 智谱国际版 GLM Coding Plan 大幅涨价，引发热议 #5 OpenClaw 发布 2026.4.10 版，优化记忆功能 #6 Nous Research 宣布 Hermes Agent 原生支持微信 #7 OpenAI 响应 Axios 事件，撤销证书敦促四款应用升级 #8 OpenAI CEO 住所遭袭，嫌疑人被捕，Altman 发文回应 #9 2026-04-12 2026-04-12 read the source issue AI 早报 2026-04-12 视频版 ： 哔哩哔哩 ｜ YouTube 概览 要闻 OpenAI 澄清 ChatGPT Pro 额度规则，承认定价页面表述有误将更新 ↗ #1 阿里云百炼停售并清退 Coding Plan Lite 套餐 ↗ #2 模型发布 MiniMax 今日正式开源 MiniMax-M2.7 模型 ↗ #3 开发生态 GitHub Copilot 宣布将引入全新速率限制 ↗ #4 智谱国际版 GLM Coding Plan 大幅涨价，引发热议 #5 产品应用 OpenClaw 发布 2026.4.10 版，优化记忆功能 ↗ #6 Nous Research 宣布 Hermes Agent 原生支持微信 #7 OpenAI 响应 Axios 事件，撤销证书敦促四款应用升级 ↗ #8 行业动态 OpenAI CEO 住所遭袭，嫌疑人被捕，Altman 发文回应 ↗ #9 OpenAI 澄清 ChatGPT Pro 额度规则，承认定价页面表述有误将更新 #1 OpenAI 工作人员承认 ChatGPT 定价页面表述有误，明确了 ChatGPT Pro 订阅计划的额度：在持续至 5月31日 的促销期内， 100美元 和 200美元 的 Pro 订阅实际分别拥有 10倍 和 20倍 于 Plus 订阅的额度。
-
-评分 53 · 来源 [橘鸦AI早报](https://imjuya.github.io/juya-ai-daily/issue-57/)
-
----
 
 ### 小红书首届黑客松巅峰赛落幕：00 后包揽大奖 最小参赛者仅 12 岁
 

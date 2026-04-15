@@ -417,38 +417,6 @@
     "contentSource": "summary"
   },
   {
-    "id": "folo-265953521349985280",
-    "title": "2026-04-12",
-    "url": "https://imjuya.github.io/juya-ai-daily/issue-57/",
-    "content": "Contents AI 早报 2026-04-12 概览 OpenAI 澄清 ChatGPT Pro 额度规则，承认定价页面表述有误将更新 #1 阿里云百炼停售并清退 Coding Plan Lite 套餐 #2 MiniMax 今日正式开源 MiniMax-M2.7 模型 #3 GitHub Copilot 宣布将引入全新速率限制 #4 智谱国际版 GLM Coding Plan 大幅涨价，引发热议 #5 OpenClaw 发布 2026.4.10 版，优化记忆功能 #6 Nous Research 宣布 Hermes Agent 原生支持微信 #7 OpenAI 响应 Axios 事件，撤销证书敦促四款应用升级 #8 OpenAI CEO 住所遭袭，嫌疑人被捕，Altman 发文回应 #9 2026-04-12 2026-04-12 read the source issue AI 早报 2026-04-12 视频版 ： 哔哩哔哩 ｜ YouTube 概览 要闻 OpenAI 澄清 ChatGPT Pro 额度规则，承认定价页面表述有误将更新 ↗ #1 阿里云百炼停售并清退 Coding Plan Lite 套餐 ↗ #2 模型发布 MiniMax 今日正式开源 MiniMax-M2.7 模型 ↗ #3 开发生态 GitHub Copilot 宣布将引入全新速率限制 ↗ #4 智谱国际版 GLM Coding Plan 大幅涨价，引发热议 #5 产品应用 OpenClaw 发布 2026.4.10 版，优化记忆功能 ↗ #6 Nous Research 宣布 Hermes Agent 原生支持微信 #7 OpenAI 响应 Axios 事件，撤销证书敦促四款应用升级 ↗ #8 行业动态 OpenAI CEO 住所遭袭，嫌疑人被捕，Altman 发文回应 ↗ #9 OpenAI 澄清 ChatGPT Pro 额度规则，承认定价页面表述有误将更新 #1 OpenAI 工作人员承认 ChatGPT 定价页面表述有误，明确了 ChatGPT Pro 订阅计划的额度：在持续至 5月31日 的促销期内， 100美元 和 200美元 的 Pro 订阅实际分别拥有 10倍 和 20倍 于 Plus 订阅的额度。 OpenAI 官方人员近期针对 ChatGPT Pro 订阅计划的费率限制争议进行了公开澄清。该人员表示，在当前持续至 5月31日 的促销期内， 100美元 和 200美元 的 Pro 计划均享受 2倍 的使用量加成，其额度分别为 Plus 计划的 10倍 和 20倍 。 针对此前定价页面“5倍或20倍”的表述导致许多用户将 200美元 计划额度误解为 40倍 的问题，官方承认这是页面混淆了基础额度与加成额度所致，并承诺将更新定价页面以消除歧义。 相关链接： https://x.com/thsottiaux/status/2043075353242218768 阿里云百炼停售并清退 Coding Plan Lite 套餐 #2 阿里云发布公告宣布，因产品策略调整， 4月13日 起将正式停止大模型服务平台 百炼 的 Coding Plan Lite 基础套餐的续费与升级，已购用户的现有权益不受影响，可正常使用至服务到期。 阿里云发布官方公告宣布，由于产品策略调整，其大模型服务平台 百炼 旗下的 Coding Plan Lite 基础套餐将于 4月13日 起停止续费和升级。 官方表示，已购买该套餐的用户仍可继续使用至服务到期；已开通自动续费的用户，其自动续费服务将在公告发布起的 30日 之后自动失效，且同样可正常使用至服务到期。 相关链接： https://www.aliyun.com/notice/118175?spm=a2c4g.11186623",
-    "source": "橘鸦AI早报",
-    "sourceId": "folo-ai-list-249743826993702912",
-    "category": "ai",
-    "publishedAt": "2026-04-12T00:37:56.041Z",
-    "fetchedAt": "2026-04-13T17:19:06.242Z",
-    "eventKey": "2026-04-12",
-    "normalizedTitle": "2026-04-12",
-    "duplicateCount": 1,
-    "sourceCount": 1,
-    "representativeSources": [
-      "橘鸦AI早报"
-    ],
-    "preFilterScore": 601.775954276041,
-    "scores": {
-      "signalStrength": 5,
-      "futureImpact": 4,
-      "personalRelevance": 5,
-      "decisionUsefulness": 4,
-      "credibility": 4,
-      "timeliness": 4
-    },
-    "weightedScore": 53,
-    "scoreReasoning": "Collection of AI-related updates indicates ongoing industry trends and developments.",
-    "summary": "OpenAI admits a pricing page error, clarifying that ChatGPT Pro 100 USD offers 10× and 200 USD offers 20× the Plus plan’s usage during the promotion ending May 31. Alibaba Cloud stops renewals of its Coding Plan Lite. MiniMax releases the MiniMax‑M2.7 model. GitHub Copilot introduces new rate limits and disables the Opus 4.6 Fast model for Pro+ users. GLM Coding Plan sees a near‑tripling price hike. OpenClaw 2026.4.10 improves memory. Nous Research adds native WeChat support to Hermes Agent. OpenAI revokes Axios certificates and urges Mac users to update. Sam Altman reports a failed attack on his San Francisco home and urges AI democratization.",
-    "contentDepth": 1600,
-    "contentSource": "page"
-  },
-  {
     "id": "folo-266177460965476353",
     "title": "南非民主联盟选举新领导人，以对抗非国大",
     "url": "https://www.ft.com/content/240daec4-2be4-4c6b-ba71-77542a351f78",

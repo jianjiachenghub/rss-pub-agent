@@ -910,24 +910,5 @@
       "金融时报"
     ],
     "preFilterScore": 86.775958996963
-  },
-  {
-    "id": "folo-265953521349985280",
-    "title": "2026-04-12",
-    "url": "https://imjuya.github.io/juya-ai-daily/issue-57/",
-    "content": "OpenAI admits a pricing page error, clarifying that ChatGPT Pro 100 USD offers 10× and 200 USD offers 20× the Plus plan’s usage during the promotion ending May 31. Alibaba Cloud stops renewals of its Coding Plan Lite. MiniMax releases the MiniMax‑M2.7 model. GitHub Copilot introduces new rate limits and disables the Opus 4.6 Fast model for Pro+ users. GLM Coding Plan sees a near‑tripling price hike. OpenClaw 2026.4.10 improves memory. Nous Research adds native WeChat support to Hermes Agent. OpenAI revokes Axios certificates and urges Mac users to update. Sam Altman reports a failed attack on his San Francisco home and urges AI democratization.",
-    "source": "橘鸦AI早报",
-    "sourceId": "folo-ai-list-249743826993702912",
-    "category": "ai",
-    "publishedAt": "2026-04-12T00:37:56.041Z",
-    "fetchedAt": "2026-04-13T17:19:06.242Z",
-    "eventKey": "2026-04-12",
-    "normalizedTitle": "2026-04-12",
-    "duplicateCount": 1,
-    "sourceCount": 1,
-    "representativeSources": [
-      "橘鸦AI早报"
-    ],
-    "preFilterScore": 601.775954276041
   }
 ]

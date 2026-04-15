@@ -1,7 +1,7 @@
 ---
 title: "Personal Daily Report | April 13, 2026"
 date: "2026-04-13"
-itemCount: 14
+itemCount: 13
 ---
 
 # Personal Daily Report | April 13, 2026
@@ -13,14 +13,6 @@ itemCount: 14
 ---
 
 ## AI
-
-### 2026-04-12
-
-**Event:** Contents AI Morning Brief 2026-04-12 Overview: OpenAI clarifies ChatGPT Pro quota rules, admits pricing page wording was incorrect and will update #1 Alibaba Cloud Bailian discontinues and phases out Coding Plan Lite tier #2 MiniMax officially open-sources MiniMax-M2.7 model today #3 GitHub Copilot announces new rate limits coming #4 Zhipu International GLM Coding Plan sees significant price hike, sparking debate #5 OpenClaw releases version 2026.4.10, optimizes memory functionality #6 Nous Research announces Hermes Agent native WeChat support #7 OpenAI responds to Axios incident, revokes certificates and urges four apps to upgrade #8 OpenAI CEO's residence attacked, suspect arrested, Altman issues response #9 2026-04-12 2026-04-12 read the source issue AI Morning Brief 2026-04-12 Video Edition: Bilibili ｜ YouTube Overview Headlines OpenAI clarifies ChatGPT Pro quota rules, admits pricing page wording was incorrect and will update ↗ #1 Alibaba Cloud Bailian discontinues and phases out Coding Plan Lite tier ↗ #2 Model Releases MiniMax officially open-sources MiniMax-M2.7 model today ↗ #3 Developer Ecosystem GitHub Copilot announces new rate limits coming ↗ #4 Zhipu International GLM Coding Plan sees significant price hike, sparking debate #5 Product Applications OpenClaw releases version 2026.4.10, optimizes memory functionality ↗ #6 Nous Research announces Hermes Agent native WeChat support #7 OpenAI responds to Axios incident, revokes certificates and urges four apps to upgrade ↗ #8 Industry Updates OpenAI CEO's residence attacked, suspect arrested, Altman issues response ↗ #9 OpenAI clarifies ChatGPT Pro quota rules, admits pricing page wording was incorrect and will update #1 OpenAI staff acknowledged the ChatGPT pricing page wording was incorrect, clarifying ChatGPT Pro subscription plan quotas: during the promotional period ending May 31, the $100 and $200 Pro subscriptions actually carry 10x and 20x the quotas of Plus subscriptions respectively.
-
-Score 53 · Source [Juya AI Morning Brief](https://imjuya.github.io/juya-ai-daily/issue-57/)
-
----
 
 ### Xiaohongshu's First Hackathon Summit Concludes: Gen Z Sweeps Top Awards, Youngest Participant Just 12
 
