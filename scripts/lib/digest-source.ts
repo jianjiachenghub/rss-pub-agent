@@ -1,5 +1,9 @@
 import type { RawNewsItem } from "./types.js";
 
+const EXPLICIT_BLOCKED_SOURCE_PATTERNS = [/橘鸦AI早报/u];
+
+const EXPLICIT_BLOCKED_URL_PATTERNS = [/imjuya\.github\.io\/juya-ai-daily/i];
+
 const DIGEST_SOURCE_PATTERNS = [
   /早报/u,
   /日报/u,
@@ -58,6 +62,13 @@ export function isDigestLikeItem(
   const source = normalizeText(item.source);
   const url = normalizeText(item.url).toLowerCase();
   const content = normalizeText(item.content);
+
+  if (
+    EXPLICIT_BLOCKED_SOURCE_PATTERNS.some((pattern) => pattern.test(source)) ||
+    EXPLICIT_BLOCKED_URL_PATTERNS.some((pattern) => pattern.test(url))
+  ) {
+    return true;
+  }
 
   const dateOnlyTitle = isDateOnlyTitle(title);
   const sourceSignal = DIGEST_SOURCE_PATTERNS.some((pattern) => pattern.test(source));

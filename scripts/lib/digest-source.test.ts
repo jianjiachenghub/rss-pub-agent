@@ -37,4 +37,16 @@ describe("digest-source", () => {
       })
     ).toBe(true);
   });
+
+  it("hard-blocks the Juya AI digest source even when the content is a clean English summary", () => {
+    expect(
+      isDigestLikeItem({
+        title: "2026-04-11",
+        source: "橘鸦AI早报",
+        url: "https://imjuya.github.io/juya-ai-daily/issue-56/",
+        content:
+          "Zhipu AI apologized and opened a seven-day refund channel for its GLM Coding Plan. MiniMax released Music 2.6. Claude Code introduced ultraplan. Qwen Code added remote control and scheduled tasks.",
+      })
+    ).toBe(true);
+  });
 });
