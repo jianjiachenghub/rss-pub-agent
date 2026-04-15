@@ -7,9 +7,10 @@ import type {
   RawNewsItem,
   PipelineError,
 } from "../lib/types.js";
+import { isTimestampInBusinessDate } from "../lib/business-date.js";
+import { getTargetDate } from "../lib/runtime-options.js";
 
 const CONCURRENCY = 5;
-const ONE_DAY_MS = 24 * 60 * 60 * 1000;
 const MIN_MAIN_POOL_ITEMS = 60;
 const GLOBAL_RAW_CAP = 140;
 
@@ -75,15 +76,19 @@ function getPublishedTime(publishedAt?: string): number {
   return Number.isFinite(time) ? time : 0;
 }
 
-function isRecentItem(item: RawNewsItem): boolean {
+function isTargetDateItem(
+  item: RawNewsItem,
+  targetDate = getTargetDate()
+): boolean {
   if (!item.publishedAt) return true;
-  return getPublishedTime(item.publishedAt) >= Date.now() - ONE_DAY_MS;
+  return isTimestampInBusinessDate(item.publishedAt, targetDate);
 }
 
 function normalizeFeedItems(feed: FeedSource, items: RawNewsItem[]): RawNewsItem[] {
-  // Every source is normalized the same way: 24h filter -> newest first -> source cap.
+  const targetDate = getTargetDate();
+  // Every source is normalized the same way: exact target-day filter -> newest first -> source cap.
   return items
-    .filter(isRecentItem)
+    .filter((item) => isTargetDateItem(item, targetDate))
     .sort((a, b) => getPublishedTime(b.publishedAt) - getPublishedTime(a.publishedAt))
     .slice(0, getFeedDailyCap(feed));
 }

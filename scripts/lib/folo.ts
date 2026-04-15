@@ -1,11 +1,12 @@
 import type { FetchCheckpoint, RawNewsItem } from "./types.js";
+import { getBusinessDateWindow } from "./business-date.js";
+import { getTargetDate } from "./runtime-options.js";
 
 const FOLO_API = "https://api.folo.is";
 
 // Pagination stays serial so the primary list fetch remains stable under rate limits.
 const MAX_PAGES = 30;
 const PAGE_DELAY_MS = 2000;
-const ONE_DAY_MS = 24 * 60 * 60 * 1000;
 const MAX_RETRIES = 3;
 const MAX_CONSECUTIVE_FAILURES = 5;
 const DEFAULT_PAGE_LIMIT = 100;
@@ -98,10 +99,10 @@ export async function fetchViaFolo(
   maxItems = 100
 ): Promise<RawNewsItem[]> {
   const now = new Date().toISOString();
-  const todayStart = new Date();
-  todayStart.setHours(0, 0, 0, 0);
-  const yesterdayStart = todayStart.getTime() - ONE_DAY_MS;
-  const yesterdayEnd = todayStart.getTime();
+  const targetDate = getTargetDate();
+  const { startMs: targetStartMs, endMs: targetEndMs } = getBusinessDateWindow(
+    targetDate
+  );
 
   const res = await fetch(`${FOLO_API}/feeds?url=${encodeURIComponent(feedUrl)}`, {
     headers: {
@@ -140,7 +141,7 @@ export async function fetchViaFolo(
     .filter((entry) => {
       if (!entry.publishedAt) return false;
       const t = new Date(entry.publishedAt).getTime();
-      return t >= yesterdayStart && t < yesterdayEnd;
+      return t >= targetStartMs && t < targetEndMs;
     })
     .map((entry) => ({
       id: `folo-${entry.id}`,
@@ -211,17 +212,18 @@ export async function fetchFoloByListDetailed(
   // Metadata-first fetch is more reliable for large read-heavy lists: Folo can return
   // empty `entries` objects for read items when `withContent: true` is requested.
   const withContent = options.withContent ?? false;
-  // Strict previous-day window: running on Mar 30 fetches Mar 29 00:00 ~ 23:59:59 only.
-  // News from today (Mar 30) is excluded so the daily report covers exactly one calendar day.
-  const todayStart = new Date();
-  todayStart.setHours(0, 0, 0, 0);
-  const yesterdayStart = todayStart.getTime() - ONE_DAY_MS;  // lower bound (inclusive)
-  const yesterdayEnd = todayStart.getTime();                   // upper bound (exclusive)
+  const targetDate = getTargetDate();
+  const {
+    startMs: targetStartMs,
+    endMs: targetEndMs,
+    startIso: targetStartIso,
+    endIso: targetEndIso,
+  } = getBusinessDateWindow(targetDate);
 
   console.log(`[folo-list] Fetching list: ${sourceName} (listId: ${listId})`);
   console.log(`[folo-list] Using session token: ${sessionToken.substring(0, 20)}...`);
   console.log(
-    `[folo-list] Target: fetch yesterday's news (${new Date(yesterdayStart).toISOString()} ~ ${new Date(yesterdayEnd).toISOString()}), up to ${maxPages} pages, ${pageLimit} items/page and ${maxItems} items total`
+    `[folo-list] Target: fetch ${targetDate} Asia/Shanghai news (${targetStartIso} ~ ${targetEndIso}), up to ${maxPages} pages, ${pageLimit} items/page and ${maxItems} items total`
   );
 
   let publishedAfter: string | null = null;
@@ -360,12 +362,12 @@ export async function fetchFoloByListDetailed(
         continue;
       }
 
-      if (publishedTime < yesterdayStart) {
+      if (publishedTime < targetStartMs) {
         tooOldCount++;
         continue;
       }
 
-      if (publishedTime >= yesterdayEnd) {
+      if (publishedTime >= targetEndMs) {
         tooNewCount++;
         continue;
       }
@@ -387,7 +389,7 @@ export async function fetchFoloByListDetailed(
     }
 
     console.log(
-      `[folo-list] Page ${page + 1}: ${pageData.length} items, ${recentCount} yesterday, ${tooNewCount} today (skipped), ${tooOldCount} too old, ${missingEntryCount} empty entries, ${missingTimestampCount} missing timestamps`
+      `[folo-list] Page ${page + 1}: ${pageData.length} items, ${recentCount} in target day, ${tooNewCount} after target day (skipped), ${tooOldCount} before target day, ${missingEntryCount} empty entries, ${missingTimestampCount} missing timestamps`
     );
 
     if (allEntries.length >= maxItems) {
@@ -441,7 +443,7 @@ export async function fetchFoloByListDetailed(
   }
   checkpoint.updatedAt = new Date().toISOString();
 
-  console.log(`[folo-list] Total yesterday's entries: ${allEntries.length}`);
+  console.log(`[folo-list] Total target-day entries: ${allEntries.length}`);
 
   allEntries.sort((a, b) => {
     const timeA = new Date(a.publishedAt).getTime();

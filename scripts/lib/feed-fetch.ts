@@ -1,9 +1,10 @@
 import { fetchRSS } from "./rss.js";
 import { fetchViaFolo } from "./folo.js";
 import type { FeedSource, FeedTier, PipelineError, RawNewsItem } from "./types.js";
+import { isTimestampInBusinessDate } from "./business-date.js";
+import { getTargetDate } from "./runtime-options.js";
 
 export const FETCH_CONCURRENCY = 5;
-export const ONE_DAY_MS = 24 * 60 * 60 * 1000;
 export const FINAL_RAW_CANDIDATE_CAP = 160;
 
 export const CATEGORY_FINAL_CAP: Record<string, number> = {
@@ -67,15 +68,19 @@ export function getPublishedTime(publishedAt?: string): number {
   return Number.isFinite(time) ? time : 0;
 }
 
-export function isRecentItem(item: RawNewsItem): boolean {
+export function isTargetDateItem(
+  item: RawNewsItem,
+  targetDate = getTargetDate()
+): boolean {
   if (!item.publishedAt) return true;
-  return getPublishedTime(item.publishedAt) >= Date.now() - ONE_DAY_MS;
+  return isTimestampInBusinessDate(item.publishedAt, targetDate);
 }
 
 export function normalizeFeedItems(feed: FeedSource, items: RawNewsItem[]): RawNewsItem[] {
-  // External coverage feeds stay cheap: 24h filter -> newest first -> source cap.
+  const targetDate = getTargetDate();
+  // External coverage feeds stay cheap: exact target-day filter -> newest first -> source cap.
   return items
-    .filter(isRecentItem)
+    .filter((item) => isTargetDateItem(item, targetDate))
     .sort((a, b) => getPublishedTime(b.publishedAt) - getPublishedTime(a.publishedAt))
     .slice(0, getFeedDailyCap(feed));
 }

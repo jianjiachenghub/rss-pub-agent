@@ -1,5 +1,7 @@
 import Parser from "rss-parser";
 import type { RawNewsItem } from "./types.js";
+import { getBusinessDateWindow } from "./business-date.js";
+import { getTargetDate } from "./runtime-options.js";
 
 const parser = new Parser({
   timeout: 15000,
@@ -17,13 +19,15 @@ export async function fetchRSS(
 ): Promise<RawNewsItem[]> {
   const feed = await parser.parseURL(url);
   const now = new Date().toISOString();
-  const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
+  const targetDate = getTargetDate();
+  const { startMs, endMs } = getBusinessDateWindow(targetDate);
 
   const items = (feed.items ?? [])
     .filter((item) => {
       const pubDate = item.isoDate ?? item.pubDate;
       if (!pubDate) return true;
-      return new Date(pubDate).getTime() > oneDayAgo;
+      const publishedAt = new Date(pubDate).getTime();
+      return publishedAt >= startMs && publishedAt < endMs;
     });
 
   return items.map((item, i) => ({

@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import type { PipelineStateType } from "../state.js";
 import { callLLMJson } from "../lib/llm.js";
+import { formatBusinessTime } from "../lib/business-date.js";
 import { translateArtifactToEnglish } from "../lib/english-artifacts.js";
 import {
   CATEGORY_LABELS,
@@ -191,7 +192,7 @@ itemCount: ${insights.length}
 
         markdown += `#### ${CATEGORY_LABELS[category]}\n`;
         for (const item of items) {
-          markdown += `- [${dayjs(item.publishedAt).format("HH:mm")}] [${item.title}](${item.url}) | *${item.source}*\n`;
+          markdown += `- [${formatBusinessTime(item.publishedAt) || "--:--"}] [${item.title}](${item.url}) | *${item.source}*\n`;
         }
         markdown += `\n`;
       }

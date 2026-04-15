@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import { getDefaultTargetDate } from "./business-date.js";
 
 export interface PipelineRuntimeOptions {
   date?: string;
@@ -68,7 +68,7 @@ export function getRuntimeOptions(): PipelineRuntimeOptions {
  * calendar day's news.
  */
 export function getTargetDate(): string {
-  return getRuntimeOptions().date ?? dayjs().subtract(1, "day").format("YYYY-MM-DD");
+  return getRuntimeOptions().date ?? getDefaultTargetDate();
 }
 
 export function shouldResumeFromRaw(date?: string): boolean {
