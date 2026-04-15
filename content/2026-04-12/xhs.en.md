@@ -6,7 +6,6 @@
 
 🔥 **VTJ.PRO New Version Released**: The open-source AI low-code platform VTJ.PRO has been updated to v2.3.6, with shared templates, optimized release processes, and an upgraded development experience.
 
-💻 **Contents AI Morning Report**: Zhipu apologized for the GLM Coding Plan experience issues, MiniMax released Music 2.6 music model, and Claude Code among many other AI updates.
 
 📊 **Electronic Signature System Upgrade**: The 3.5 version update of the OpenSign electronic signature system has been released, enhancing corporate document management with new functional modules.
 

@@ -1,32 +1,62 @@
-**Podcast Show: Personal Daily**
-**Topic: Anchoring Domestic Computing Power and the Intensifying AI Race**
+**Podcast Script: Personal Daily Report**
 
-**Host A:** Hello everyone, welcome to today's Personal Daily. Let's start with some major news: DeepSeek founder Liang Wenfeng has spoken internally. The V4 model is scheduled for release in late April. But the biggest highlight this time isn't the parameters—it's the "adaptation."
+**Hosts:** A (Anchor), B (Anchor)
+**Total Duration:** About 5 minutes
 
-**Host B:** Exactly. DeepSeek V4 claims it will be deeply adapted to domestic chips like Huawei Ascend. This is actually a critical signal. People used to think domestic high-end models and domestic computing power were two parallel lines, but now V4 might twist those two lines into a single rope.
+---
 
-**Host A:** Yes, this could become a valuation anchor for the domestic computing power ecosystem. And look, Alibaba, ByteDance, and Tencent have already pre-ordered hundreds of thousands of new AI chips. The giants are voting with real money, locking in their computing cost structure for the next six months. This isn't just a technical breakthrough; it's deep synergy across the supply chain.
+**(Opening music fades in, then dips)**
 
-**Host B:** This synergy actually reflects the giants' sense of urgency. Amazon CEO Andy Jassy was also very clear in his latest shareholder letter: even if it means investing huge amounts of capital, they will fully back AI and robotics technology. He views AI as a core driver for long-term growth. This is really the giants testing their own determination regarding AI.
+**Host A:** Hello everyone, and welcome to today's Personal Daily Report. I'm A.
 
-**Host A:** Determination is followed by implementation. Recent moves on the product side have been fast, too. OpenAI launched the $100-per-month ChatGPT Pro tier, which is clearly testing the payment ceiling for power users and enterprise scenarios.
+**Host B:** I'm B. For today's episode, let's start by keeping an eye on that "weathervane" in the AI world. A, have you noticed? News about DeepSeek V4 is spreading like wildfire.
 
-**Host B:** On the domestic front, ByteDance's full-duplex speech model, Seeduplex, is also interesting. The interruption rate has dropped by 50%. This shows that voice interaction is becoming a key entry point for the next generation of AI products. From competing on model capability to competing on commercial monetization and interactive experience, the dimensions of competition are widening.
+**Host A:** Definitely, this is absolutely the main story today. Rumor has it that Liang Wenfeng has already spoken internally—the new flagship model DeepSeek V4 is expected to be released in late April.
 
-**Host A:** As competition widens, the track is also getting more crowded, and even a bit "disordered." Did everyone see the internal speech by Yu Hao, CEO of Dreame Technology? He declared he'd hire a Chief Scientist with an annual salary of 200 million, and vowed to snatch all the clients and targets from his competitor, Unitree Robotics.
+**Host B:** That's a fast pace. And the keyword this time isn't just "big"—it's "domestic production." Reports say V4 will have trillion-level parameters and million-level context. Most importantly, it's the first time they're deeply adapting to domestic chips like Huawei's Ascend.
 
-**Host B:** This is truly a microcosm of the white-hot competition in the embodied intelligence track. Sky-high salaries will drive up R&D costs across the industry, and this highly aggressive strategy could also bring significant compliance risks. It seems the "war" in the robotics field is no smaller than the one over large models.
+**Host A:** This is hugely significant. It means domestic models and domestic computing power are attempting to form a deep bond. And the market response has been honest too—Alibaba, ByteDance, and Tencent are all pre-ordering the new generation of AI computing chips. Prices have reportedly gone up about 20%. This isn't just about releasing a model—the entire supply chain is in motion.
 
-**Host A:** Speaking of risks, safety issues in the AI field are moving from theory to reality. OpenAI founder Sam Altman's residence was recently attacked with Molotov cocktails. Although no one was injured, it sounds an alarm for all leading AI figures.
+**Host B:** Exactly. But turning our gaze across the ocean, OpenAI has had an incident that really makes you hold your breath.
 
-**Host B:** Beyond physical safety, regulatory pressure is also escalating. Florida is investigating OpenAI, citing reasons involving national security risks and school shootings. At the same time, US Treasury Secretary Bessent gathered bank CEOs to specifically discuss cybersecurity risks related to Anthropic's models. It seems the regulatory gaze has spilled over from content ethics to national security and financial system stability.
+**Host A:** Right, Altman's residence was attacked with Molotov cocktails. Although the police quickly caught the suspect and he's safe and sound, the timing of this incident really forces us to reconsider the security risks facing AI leaders.
 
-**Host A:** This tension has also transmitted to the infrastructure level. Bitcoin mining costs are approaching $80,000, and many miners are operating at a loss. So, we see a clear trend: computing assets are migrating from cryptocurrency to AI, and miners are starting to pivot their surplus computing power into AI computing services.
+**Host B:** Indeed, the faster technology runs, the more controversy and extreme emotions seem to grow around it. For instance, in Florida, the attorney general is also investigating OpenAI, citing concerns about national security risks and potential connections to school shooting incidents.
 
-**Host B:** That counts as a rational allocation of resources. Finally, looking at the domestic scene, Alibaba has been making frequent moves recently. They led a $300 million investment in the AI video generation company ShengShu Technology, and are internally testing a new model called HappyHorse. This shows that beyond general large models, top players are densely staking out key application layers like video generation and new types of interaction.
+**Host A:** It seems "compliance" and "safety" have become new challenges that AI giants must face. Speaking of compliance, there's also a typical case in China's self-media circle from the past couple of days.
 
-**Host A:** Exactly. Today's report actually has a very clear main thread: whether it's DeepSeek adapting to domestic chips, giants buying up computing power, or miners pivoting, essentially, they are all building bridges and paving roads for the next stage of AI competition. Competition is intensifying, and the barriers to entry are getting higher.
+**Host B:** You mean that couple who claimed to make 2 million yuan a year through AI writing?
 
-**Host B:** Alright, that covers the main content of today's Personal Daily. Although competition is fierce, it also implies opportunity. See you tomorrow.
+**Host A:** Exactly. Their WeChat public account "Bao Le Me AI" has been banned. The WeChat platform has now explicitly prohibited "non-human automated content creation"—this is essentially the first shot fired after the new regulations took effect.
 
-**Host A:** See you tomorrow.
+**Host B:** This is actually a signal. Before, people thought AI-generated content was the key to traffic. Now platforms are drawing red lines. Purely relying on machine-generated, mass-produced content to make money—that path is probably going to be a dead end going forward. We have to return to real value.
+
+**Host A:** That's right. After looking at online disputes, let's check out the offline mobility market. JD.com has made a new move—they're internally testing a new service called "Open Chufa Service" in Jinan.
+
+**Host B:** JD.com is getting into mobility too? Didi has an absolute advantage in the current ride-hailing market.
+
+**Host A:** True, but JD.com is taking a different approach this time. They've abandoned the aggregation model that only does traffic distribution, and instead chosen to deeply partner with Changan Automobile. This is more like an "e-commerce plus automaker" experiment.
+
+**Host B:** So they want to carve out a high-frequency mobility entry point within their massive e-commerce app. Although it's hard to shake up the market structure, for JD.com, monetizing their existing traffic is still a steady move.
+
+**Host A:** Next, let's turn our attention to the developer community. Recent updates at the tool level are all emphasizing one word—"flexibility."
+
+**Host B:** Right, the Kairoa toolkit released a new version that directly supports native protocols from Anthropic and Google Gemini. Developers no longer have to be locked into OpenAI's format—the cost of switching models has dropped significantly.
+
+**Host A:** This is good news for us developers. Also, there's movement from Alibaba—a model called HappyHorse is currently in internal testing. Reportedly, it focuses on new interaction methods for the AI era, and the API will be opening soon.
+
+**Host B:** The big players' strategy is very clear now: it's not just about competing on parameters, but also fighting for "interaction entry points." Whoever defines the new way of interacting could lock in the next generation of users.
+
+**Host A:** Let's wrap up with two more business and society stories. Apple has announced it's closing its first unionized retail store in the US.
+
+**Host B:** The official reason is declining mall performance, but the timing is just too coincidental. Although they've avoided direct legal conflict, in an environment like Europe and America with strong labor rights regulation, this kind of move could easily trigger rising hidden compliance costs.
+
+**Host A:** Also, Open Source China has completed its C+ round of financing, making a run for "the first AI open source stock." As a core domestic code hosting platform, Gitee securing major funding shows that the valuation logic for domestic substitution in code infrastructure has become very clear.
+
+**Host B:** It seems that whether in code repositories, mobility, or AI models, everyone is looking for more stable and compliant business paths.
+
+**Host A:** Exactly, and that's all for today's Personal Daily Report. Thanks for listening, and we'll see you next time.
+
+**Host B:** See you next time.
+
+**(Closing music fades in)**

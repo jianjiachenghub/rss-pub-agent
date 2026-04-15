@@ -5,7 +5,6 @@
 
 “VTJ.PRO has been upgraded, with shared templates now available, improved release processes, and an enhanced AI development experience!”
 
-“Contents AI Morning Briefing: GLM Coding Plan offers apologies and refunds, Anuttacon releases LPM 1.0 model, Claude Code introduces ultraplan, Qwen Code updates to support remote control…”
 
 “The OpenSign e-signature system is updated to version 3.5, with comprehensive enhancements to document management and collaboration capabilities, and the addition of integrated contract management features.”
 

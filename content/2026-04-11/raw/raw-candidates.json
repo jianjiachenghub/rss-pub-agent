@@ -1293,25 +1293,6 @@
     "preFilterScore": 297.775784600547
   },
   {
-    "id": "folo-265237546483845120",
-    "title": "2026-04-10",
-    "url": "https://imjuya.github.io/juya-ai-daily/issue-55/",
-    "content": "OpenAI introduces a $100/month Pro plan offering up to five‑times more Codex usage than Plus, with a $600/month promotional boost before June. ByteDance releases the full‑duplex Seeduplex model, cutting interruption rates by 50 % and enabling richer call experiences on their Doubao app. Overworld’s Waypoint 1.5 delivers 720p, 60 fps real‑time diffusion on RTX 3070 GPUs, while LG AI’s EXAONE 4.5 and Alibaba’s Marco models enhance vision‑language and sparse multilingual capabilities. Claude’s new advisor strategy balances cost and performance, and Google’s Gemini expands to interactive visualizations, 3D models, and music generation. Meta, Intel‑Google, and CoreWeave deepen AI infrastructure, and Nebius seeks to acquire AI21 Labs.",
-    "source": "橘鸦AI早报",
-    "sourceId": "folo-ai-list-249743826993702912",
-    "category": "ai",
-    "publishedAt": "2026-04-10T01:21:53.086Z",
-    "fetchedAt": "2026-04-11T16:54:02.342Z",
-    "eventKey": "2026-04-10",
-    "normalizedTitle": "2026-04-10",
-    "duplicateCount": 1,
-    "sourceCount": 1,
-    "representativeSources": [
-      "橘鸦AI早报"
-    ],
-    "preFilterScore": 601.775784113086
-  },
-  {
     "id": "folo-265419048879114240",
     "title": "2026.04 最新 Claude Code 安装过程记录",
     "url": "https://juejin.cn/post/7626891132236120091",

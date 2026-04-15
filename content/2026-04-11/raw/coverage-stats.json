@@ -1,7 +1,7 @@
 {
   "observedByCategory": {
     "social": 48,
-    "ai": 20,
+    "ai": 19,
     "tech": 76,
     "politics": 11,
     "business": 5,
@@ -10,7 +10,7 @@
   },
   "selectedByCategory": {
     "social": 8,
-    "ai": 20,
+    "ai": 19,
     "tech": 16,
     "politics": 11,
     "business": 5,
@@ -19,7 +19,7 @@
   },
   "finalByCategory": {
     "social": 8,
-    "ai": 20,
+    "ai": 19,
     "tech": 16,
     "politics": 11,
     "business": 5,
@@ -30,6 +30,6 @@
     "business",
     "investment"
   ],
-  "totalObservedEvents": 204,
-  "totalSelectedEvents": 84
+  "totalObservedEvents": 203,
+  "totalSelectedEvents": 83
 }

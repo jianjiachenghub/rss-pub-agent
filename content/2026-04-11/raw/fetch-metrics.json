@@ -1,11 +1,11 @@
 {
   "startedAt": "2026-04-11T16:53:43.825Z",
-  "primaryItemsFetched": 370,
-  "primaryItemsRetained": 370,
-  "eventCandidates": 204,
-  "rawCandidates": 84,
+  "primaryItemsFetched": 369,
+  "primaryItemsRetained": 369,
+  "eventCandidates": 203,
+  "rawCandidates": 83,
   "backfillItemsFetched": 0,
-  "sourceErrors": 1,
+  "sourceErrors": 2,
   "degradedMode": "none",
-  "finishedAt": "2026-04-11T16:54:26.321Z"
+  "finishedAt": "2026-04-15T12:39:52.063Z"
 }

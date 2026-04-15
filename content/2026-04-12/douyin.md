@@ -4,7 +4,6 @@
 
 “VTJ.PRO升级，开放共享模版，发布流程优化，AI开发体验再升级！”
 
-“Contents AI 早报：GLM Coding Plan 致歉退款，Anuttacon 发布 LPM 1.0 模型，Claude Code 推出 ultraplan，Qwen Code 更新支持远程控制...”
 
 “开放签电子签章系统3.5版更新，全面增强文档管理与协同能力，新增一体化合同管理等功能。”
 

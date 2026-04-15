@@ -1,14 +1,5 @@
-[Opening]
-Hey, friends, here's today's tech and finance news! Let's take a quick glance, catch the highlights!
-
-[Body]
-Firstly, Liang Wenfeng has leaked that DeepSeek V4 large model will be released, compatible with domestic chips, which is a key point for the domestic computing power ecosystem!
-
-[Important Information 1]
-Amazon's CEO supports AI investments, with massive spending being the litmus test for AI commitment.
-
-[Important Information 2]
-The competition of AI products shifts to business and experience, with OpenAI launching the high-priced Pro tier and ByteDance releasing a full-duplex voice model.
-
-[Conclusion]
-OpenAI's founder's residence was attacked, AI regulation shifts from content ethics to national security; Argentina amends the glacier protection law, relaxing key mineral supply policies. Well, that's all for today's news. See you next time!
+🚀[Hot News Flash]
+[AI Giant Change] It's reported that DeepSeek V4 will be released in late April, with a parameter scale of up to a trillion, a million-level context window, deeply compatible with domestic chips, and triggering an AI chip price increase! 🚀
+[E-commerce New Tricks] JD.com is testing "Open Travel," deeply bound with car manufacturers, competing with mainstream ride-hailing apps, challenging the ride-sharing market! 💨
+[Technological Innovation] Kairoa Toolbox updated, adding AI multi-protocol support, reducing developer costs, and improving development efficiency! 🔧
+🌟Today's Key Words: DeepSeek V4, JD Travel, Kairoa Update. More exciting content, stay tuned! 🔔

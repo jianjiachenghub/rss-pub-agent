@@ -1,5 +1,16 @@
 [
   {
+    "id": "folo-266902782799246336",
+    "title": "How exposed is your code? Find out in minutes—for free",
+    "url": "https://github.blog/security/application-security/how-exposed-is-your-code-find-out-in-minutes-for-free/",
+    "content": "GitHub announces a free, one‑click Code Security Risk Assessment that scans up to 20 active repositories with CodeQL. It produces a dashboard showing total vulnerabilities by severity, language, rule class, most vulnerable repos, and Copilot Autofix eligibility. Available to GitHub Enterprise and Team admins, it complements the existing Secret Risk Assessment, offering a unified view of code and secret exposure. Results help teams prioritize fixes, with Copilot Autofix speeding remediation by half compared to manual fixes.",
+    "source": "GitHub Blog",
+    "sourceId": "github-blog",
+    "category": "software",
+    "publishedAt": "2026-04-14T15:00:00.559Z",
+    "fetchedAt": "2026-04-15T12:58:45.951Z"
+  },
+  {
     "id": "folo-265916415550181376",
     "title": "李想朋友圈飙脏话疑似内涵竞品 东风日产成焦点",
     "url": "https://readhub.cn/topic/8sEn5xiK6gp",
@@ -892,25 +903,6 @@
       "开源中国-全部 - VTJ"
     ],
     "preFilterScore": 276.775870668764
-  },
-  {
-    "id": "folo-265604755592016896",
-    "title": "2026-04-11",
-    "url": "https://imjuya.github.io/juya-ai-daily/issue-56/",
-    "content": "Zhipu AI apologized and opened a seven‑day refund channel for its GLM Coding Plan due to poor user experience. MiniMax released the Music 2.6 model with enhanced acoustics, “Cover” feature, and free 500‑song daily quota. Anuttacon unveiled its 17B‑parameter LPM 1.0 video‑dialogue model for academic use only. Claude Code introduced “ultraplan” for cloud‑based planning; Qwen Code added remote control via DingTalk/WeChat and cron‑jobs. Claude for Word, Google AI Mode restaurant bookings, and Qwen Studio are in beta. CoreWeave and Anthropic signed a multi‑year cloud partnership; U.S. regulators convened to discuss Anthropic model risks. OpenAI halted its UK Stargate project amid high energy costs.生数科技 raised ¥2 billion in Series B led by Alibaba Cloud; Alibaba’s HappyHorse model is in internal testing. DeepSeek plans to launch V4 later this month. Anthropic mistakenly banned and then reinstated a developer’s account.",
-    "source": "橘鸦AI早报",
-    "sourceId": "folo-ai-list-249743826993702912",
-    "category": "ai",
-    "publishedAt": "2026-04-11T01:16:42.838Z",
-    "fetchedAt": "2026-04-12T16:56:26.449Z",
-    "eventKey": "2026-04-11",
-    "normalizedTitle": "2026-04-11",
-    "duplicateCount": 1,
-    "sourceCount": 1,
-    "representativeSources": [
-      "橘鸦AI早报"
-    ],
-    "preFilterScore": 601.775870202838
   },
   {
     "id": "folo-265599823800978437",

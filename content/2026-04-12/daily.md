@@ -1,140 +1,86 @@
 ---
 title: "个人日报 | 2026年4月12日"
 date: "2026-04-12"
-itemCount: 13
+itemCount: 9
 ---
 
 # 个人日报 | 2026年4月12日
 
 ## 今日判断
 
-> 地缘风险降温成为今日最强变量，中东停火推动美股强劲反弹，风险偏好明显回升。与此同时，AI领域呈现"监管收紧"与"商业化加速"并行：微信整治全自动AI内容，特斯拉FSD则突破欧洲监管壁垒。当政策松绑遇上技术落地，资金流向与技术演进正在形成新共振。这不是孤立利好，而是多变量同步转向的信号。
+> 今天最值得关注的，不是单条新闻数量，而是哪些变量开始同时变化。
 
 ---
 
-## AI
+## 科技
 
-### 2026-04-11
+### 李想朋友圈飙脏话疑似内涵竞品 东风日产成焦点
 
-**事件：** Contents AI 早报 2026-04-11 概览 智谱就 GLM Coding Plan 体验问题致歉，开启专项退款通道 #1 MiniMax 发布 Music 2.6 音乐模型，新增 Cover 功能 #2 Anuttacon 发布 LPM 1.0 模型，仅供学术交流 #3 Claude Code 推出 ultraplan 支持云端规划本地执行 #4 Qwen Code 更新，支持远程控制及定时任务 #5 Anthropic 推出 Claude for Word 插件测试版 #6 谷歌搜索 AI Mode 餐厅预订功能扩展至全球多地 #7 Qwen Chat 更名为 Qwen Studio #8 CoreWeave 与 Anthropic 达成多年期合作协议 #9 美财政部联储召集银行，研讨 Anthropic 模型安全风险 #10 OpenAI 暂停英国 Stargate 计划，架构师相继离职 #11 生数科技完成近 20 亿元 B 轮融资，阿里云领投 #12 阿里确认 HappyHorse 系其研发 #13 媒体称 DeepSeek 预计本月下旬正式发布 DeepSeek V4 #14 Anthropic 误封 OpenClaw 开发者 Peter Steinberger 账号 #15 2026-04-11 2026-04-11 read the source issue AI 早报 2026-04-11 视频版 ： 哔哩哔哩 ｜ YouTube 概览 要闻 智谱就 GLM Coding Plan 体验问题致歉，开启专项退款通道 ↗ #1 模型发布 MiniMax 发布 Music 2.6 音乐模型，新增 Cover 功能 ↗ #2 Anuttacon 发布 LPM 1.0 模型，仅供学术交流 ↗ #3 开发生态 Claude Code 推出 ultraplan 支持云端规划本地执行 ↗ #4 Qwen Code 更新，支持远程控制及定时任务 ↗ #5 产品应用 Anthropic 推出 Claude for Word 插件测试版 ↗ #6 谷歌搜索 AI Mode 餐厅预订功能扩展至全球多地 ↗ #7 Qwen Chat 更名为 Qwen Studio ↗ #8 行业动态 CoreWeave 与 Anthropic 达成多年期合作协议 ↗ #9 美财政部联储召集银行，研讨 Anthropic 模型安全风险 ↗ #10 OpenAI 暂停英国 Stargate 计划，架构师相继离职 ↗ #11 生数科技完成近 20 亿元 B 轮融资，阿里云领投 ↗ #12 阿里确认 HappyHorse 系其研发 ↗ #13 前瞻与传闻 媒体称 DeepSeek 预计本月下旬正式发布 DeepSeek V4 ↗ #14 其他 Anthropic 误封 OpenClaw 开发者 Peter Steinberger 账号 ↗ #15 智谱就 GLM Coding Plan 体验问题致歉，开启专项退款通道 #1 因服务体验不佳， 智谱 官方发文致歉，并为国内版 GLM Coding Plan 开启了为期 七天 的专项退款通道。
+**事件：** 理想汽车创始人李想在朋友圈发布「伪军往往比鬼子更操蛋，车企也不例外」的争议言论引发行业热议。社交媒体上有博主对比东风日产 NX8 和理想 i6，评论区疑似被 NX8 水军包围。东风日产 NX8 定位 20 万级家用 SUV，对标理想 i6，凭借大空间、高配置、低价格等特点获消费者关注，李想言论被视为对竞品的回击。
 
-评分 60 · 来源 [橘鸦AI早报](https://imjuya.github.io/juya-ai-daily/issue-56/)
-
----
-
-## 软件工程
-
-### 🔥 VTJ.PRO 发布 v2.3.6：开放共享模版、优化发布流程，AI开发体验再升级
-
-**事件：** 摘要： 基于 Vue 3 的开源 AI 低代码平台 VTJ.PRO 于 2026 年 4 月 10 日正式发布 v2.3.6 版本。本次更新聚焦模版共享与发布体验，开放共享模版功能，整合发布操作链路，并优化了版本控制与自动化截图能力，进一步降低了项目复用与协作的门槛。
-
-评分 71 · 来源 [开源中国-全部 - VTJ](https://www.oschina.net/news/419626)
+评分 50 · 来源 [Readhub - 每日早报](https://readhub.cn/topic/8sEn5xiK6gp)
 
 ---
 
-### GitHub 热门资源：设计系统案例汇总 awesome-design-systems
+### 东风日产高管回应李想朋友圈喊话：尊重每一家同行，包括理想汽车
 
-![GitHub 热门资源：设计系统案例汇总 awesome-design-systems](https://github.com/alexpate/awesome-design-systems/raw/master/cover.png)
+**事件：** 今日午间，理想汽车董事长兼 CEO 李想在微信朋友圈发布争议言论，将部分车企比作「日伪」，被外界解读为向东风日产喊话。东风日产新能源品牌总经理王骞回应称，东风日产恪守行业规则，倡导良性竞争，尊重同行。李想早些时候在朋友圈发文，先是称「伪军往往比鬼子更操蛋」，后明确指控某日系品牌大量雇佣营销号拉踩理想产品、使用黑水军捏造虚假信息攻陷评论区，影响理想汽车正常经营。他表示将通过法律手段维护合法利益，希望相关部门介入管理，防止海外品牌破坏汽车行业反内卷成果和市场氛围。此外还列出了相关阅读内容。
 
-**事件：** GitHub 仓库 `alexpate/awesome-design-systems` 今日登上热榜，该项目收录了大量知名设计系统案例，为前端开发与 UI 设计提供参考索引。
+评分 50 · 来源 [Readhub - 每日早报](https://readhub.cn/topic/8sEzxwx0HKE)
 
-评分 20 · 来源 [Trending repositories on GitHub today · GitHub - alexpate](https://github.com/alexpate/awesome-design-systems)
+---
+
+### 海底捞回应“强制员工自费500买礼物赔偿顾客”
+
+**事件：** 海底捞 4 月 11 日发布「海底捞伙伴因顾客投诉被强制自费买礼物事件」说明，4 月 7 日上午收到伙伴内部投诉，当天下午与其联系并转交大区核实处理。4 月 8-9 日核查，9 日确认情况基本属实。10 日与伙伴探讨赔偿事宜，承诺依法赔偿并致歉。同日通知千余家门店进行内部排查，排查工作持续进行，发现类似情况将依法妥善处理。
+
+评分 50 · 来源 [Readhub - 每日早报](https://readhub.cn/topic/8sF4EhhxhYi)
+
+---
+
+### 宇树H1人形机器人奔跑速度达10m/s 再破纪录
+
+**事件：** 宇树科技宣布 H1 人形机器人再次刷新人形机器人百米测试奔跑速度世界纪录，实测峰值速度达 10 米 / 秒，接近博尔特的人类百米巅峰瞬时速度。H1 曾在 2025 年 8 月创下人形机器人速度纪录，H1-2 也有相关参数。王兴兴曾预计 2026 年年中，人形机器人百米冲刺速度有望跑进 10 秒。此外，浙江大学杭州国际科创中心人形机器人创新研究院今年 2 月发布的「Bolt」号称是全球首个峰值速度达 10m/s 的全尺寸人形机器人。
+
+评分 50 · 来源 [Readhub - 每日早报](https://readhub.cn/topic/8sFFg6jTHPQ)
+
+---
+
+### 马斯克 XChat 将于 4 月 17 日推出
+
+**事件：** XChat 官方预告，将于 4 月 17 日在苹果 iPhone/iPad 平台推出独立消息应用 XChat，该应用主打隐私安全，采用端到端加密技术，无广告且不追踪用户数据。
+
+评分 50 · 来源 [Readhub - 每日早报](https://readhub.cn/topic/8sEHzSKaLT8)
+
+---
+
+### 3·15晚会曝光“万能神药”涉事企业被吊销营业执照并罚200万元
+
+**事件：** 被 3・15 晚会曝光的灏麟（天津）生物科技有限公司，因涉嫌虚假宣传，近日被天津市市场监管部门罚款 200 万并吊销营业执照。核查显示，该公司无法证明「轻」系列产品有宣传功效，其行为属虚假商业宣传，影响消费者和经营者购买决策，被认定为虚假宣传违法行为。
+
+评分 50 · 来源 [Readhub - 每日早报](https://readhub.cn/topic/8sEkDa2IG9C)
 
 ---
 
 ## 商业
 
-### 特斯拉 FSD 获荷兰监管批准，首入欧洲市场
+### 李斌：蔚来没有进入 Robotaxi 领域的计划
 
-**事件：** 荷兰监管机构 RDW 批准特斯拉 Model 3 使用 FSD（监督版）系统，这是该技术首次在欧洲获得监管批准，RDW 经 18 个月测试认定其对道路安全有积极贡献。
+**事件：** 智能电动汽车发展高层论坛（2026）期间，蔚来创始人李斌与媒体对话，他称自动驾驶技术已收敛，将进入高速发展期。对于 Robotaxi 发展，他认为不仅是技术问题，还有运营法规、与专车出租车关系及社会治理等问题待探索，蔚来未来无进入该领域计划，将专注用自动驾驶技术解放用户精力、减少安全事故。
 
-**解读：** 欧洲监管边界突破验证了‘监督式自动驾驶’的合规路径，为特斯拉在存量市场打开了软件订阅这一新增量空间。
-
-评分 33 · 来源 [Readhub - 每日早报](https://readhub.cn/topic/8sE943N1Flg)
+评分 50 · 来源 [Readhub - 每日早报](https://readhub.cn/topic/8sEUWpbjjow)
 
 ---
 
-## 投资金融
+### 特斯拉 FSD 获荷兰批准 打开首个欧洲市场
 
-### 受中东停火提振，美股本周强劲反弹
+**事件：** 荷兰监管机构批准使用特斯拉 Model 3 的 FSD（监督版）系统，该软件在人类监督下可处理高速和城市道路大部分驾驶任务，这是该技术首次在欧洲获监管批准，或为其获其他欧洲监管机构认可铺平道路。RDW 经 18 个月测试分析后称正确使用该系统对道路安全有积极贡献。目前特斯拉在欧电动车产品线老化，马斯克言论影响销售，其寄望自动驾驶系统提振销量。特斯拉表示将很快在荷兰推出这项技术，并将推广到更多欧洲国家。
 
-**事件：** 美股本周创下年内最佳单周涨幅，投资者将希望寄托于伊朗冲突能通过外交途径解决，暂时忽略了战争引发的消费价格飙升。
-
-评分 80 · 来源 [华尔街日报](https://cn.wsj.com/articles/u-s-stocks-roared-back-this-week-buoyed-by-a-middle-east-cease-fire-86477c22)
-
----
-
-### a16z 解读永续合约：链上交易量已达万亿规模
-
-**事件：** a16z crypto 发布永续合约指南，指出这种永不到期的期货合约在 2025 年链上爆发，已覆盖传统资产并产生数万亿美元交易量，成为加密领域最大的市场之一。
-
-**解读：** 链上永续合约规模爆发标志着 DeFi 正在争夺衍生品定价权，改变了加密金融市场的流动性与交易成本结构。
-
-评分 37 · 来源 [a16z crypto - Jay Drain Jr.](https://a16zcrypto.substack.com/p/how-perpetual-futures-are-rewriting)
-
----
-
-## 政策地缘
-
-### 美伊启动高风险谈判，寻求结束两国冲突
-
-![美伊启动高风险谈判，寻求结束两国冲突](https://www.economist.com/cdn-cgi/image/width=1424,quality=80,format=auto/content-assets/images/20260411_MAP507.jpg)
-
-**事件：** 美国与伊朗已展开高风险谈判，旨在结束两国间的战争，目前双方最有希望达成一项临时协议，为后续谈判争取时间。
-
-**解读：** 谈判启动意味着中东地缘风险溢价存在收敛可能，将直接影响原油价格预期及全球风险资产的定价逻辑。
-
-评分 38 · 来源 [经济学人最新报道](https://www.economist.com/middle-east-and-africa/2026/04/11/america-and-iran-start-a-high-stakes-negotiation-to-end-their-war)
+评分 50 · 来源 [Readhub - 每日早报](https://readhub.cn/topic/8sE943N1Flg)
 
 ---
 
 ## 社交媒体
-
-### 【前端功能更新】开放签电子签章系统 3.5 版本更新内容
-
-**事件：** 本次升级全面增强了企业文档管理与协同能力，新增一体化合同管理、企业通讯录、数据看板与集成中心等功能模块，支持任务转办、签署方修改与在线支付。同时，列表检索、批量操作与业务线管理得到优化，并新增企业自助注销流程。平台在安全性、验证流程、权限控制和界面体验等方面也进行了多项改进，整体提升了系统的处理效率、操作便捷性与管理规范性。
-
-评分 53 · 来源 [开源中国-全部 - 大犀牛牛](https://www.oschina.net/news/419660)
-
----
-
-### 微信整治全自动 AI 内容，程前删除争议视频
-
-**事件：** 因“AI 写作年赚 200 万”视频引发争议，微信出台新规明确禁止全自动 AI 内容创作并支持人工辅助写作，涉事账号被封禁，程前删除相关视频。
-
-**解读：** 平台划定 AI 内容红线，明确‘人机协作’为合规下限，大幅提高了纯自动化流量套利模式的门槛。
-
-评分 31 · 来源 [Readhub - 每日早报](https://readhub.cn/topic/8sELwnYKG9R)
-
----
-
-### 理想汽车李想发文：遭遇“最恶劣内卷”与有组织抹黑
-
-**事件：** 理想汽车创始人李想在朋友圈发文，称部分品牌雇佣营销账号对理想进行有组织攻击和造谣，呼吁监管介入打击此类“最恶劣内卷”行为。
-
-**解读：** 车企竞争从价格战升级为舆论战，品牌维护成本上升，行业进入存量博弈阶段的利润挤压期。
-
-评分 24 · 来源 [Readhub - 每日早报](https://readhub.cn/topic/8sF1NXJbhwD)
-
----
-
-### 3·15 曝光“万能神药”企业被吊销执照并罚款 200 万
-
-**事件：** 曾被 3·15 晚会曝光的灏麟生物科技有限公司，因无法证明产品功效且构成虚假商业宣传，被天津市场监管部门吊销营业执照并罚款 200 万元。
-
-评分 23 · 来源 [Readhub - 每日早报](https://readhub.cn/topic/8sEkDa2IG9C)
-
----
-
-### 李想朋友圈发文回击竞品，20 万级 SUV 市场舆论战升级
-
-**事件：** 理想汽车创始人李想在朋友圈发文称“伪军往往比鬼子更操蛋”，以此回应社交媒体上关于东风日产 NX8 与理想 i6 的对比评测及评论区舆论。东风日产 NX8 定位 20 万级 SUV，以高配置、低价格策略直接对标理想 i6。
-
-**解读：** 这标志着合资品牌反攻策略开始奏效，20 万级 SUV 市场从单纯的产品参数比拼升级为舆论阵地争夺。随着竞品挤压理想汽车的价格锚点与市场份额，头部新势力维持高毛利的难度正在增加。
-
-评分 21 · 来源 [Readhub - 每日早报](https://readhub.cn/topic/8sEn5xiK6gp)
-
----
 
 ### 实测出圈！ AI 时代写文档， AntV Infographic 信息图+IDE+VitePress 插件，可视化直接拉满
 
@@ -142,13 +88,13 @@ itemCount: 13
 
 **事件：** 程序员 - @liushoukun - ## 先唠两句实在的现在写东西、对齐方案、让 AI 帮忙改稿，**纯文本形态**越来越吃香。我自己感触特别深的一点是：同样一页「讲清楚一件事」，如果你甩给模型的是 **Markdown**，往 先唠两句实在的 现在写东西、对齐方案、让 AI 帮忙改稿， 纯文本形态 越来越吃香。我自己感触特别深的一点是：同样一页「讲清楚一件事」，如果你甩给模型的是 Markdown ，往往比甩一份 PPT 或一大坨二进制/富文本要 省 Token 、也好 diff 。
 
-评分 8 · 来源 [V2EX - 技术](https://www.v2ex.com/t/1205195#reply0)
+评分 38 · 来源 [V2EX - 技术](https://www.v2ex.com/t/1205195#reply0)
 
 ---
 
 ## 接下来要盯的变量
 
-接下来盯紧三个变量：一是中东停火能否稳固，决定风险资产反弹持续性；二是AI内容监管会否从微信扩散至全平台；三是特斯拉FSD入欧后，自动驾驶监管标准会否在欧盟形成示范效应。政策边界与技术落地正在重新定义博弈格局。
+继续跟踪政策、资金、技术落地是否互相强化，才是真正决定后续走势的关键。
 
 ---
 
@@ -157,23 +103,27 @@ itemCount: 13
 > 以下条目进入了候选池，但没有进入今天的主深度解读区。
 
 #### AI
-- [02:28] [CoreWeave与Anthropic达成新合作伙伴关系](https://cn.wsj.com/articles/coreweave%E4%B8%8Eanthropic%E8%BE%BE%E6%88%90%E6%96%B0%E5%90%88%E4%BD%9C%E4%BC%99%E4%BC%B4%E5%85%B3%E7%B3%BB-fd789e64) | *华尔街日报*
-- [01:41] [受Anthropic先进AI工具引发的担忧影响，网络安全类股下跌](https://www.ft.com/content/f1205b22-ad87-43bb-bc63-da5b69a942ef) | *金融时报*
+- [06:20] [程前删除“AI写作年赚200万”视频](https://readhub.cn/topic/8sELwnYKG9R) | *Readhub - 每日早报*
 
 #### 科技
-- [15:17] [美国与伊朗开启五十年来的最高级别会谈](https://www.ft.com/content/7f9e1e4b-b3d4-4fcb-9053-2d6ae2f33d53) | *金融时报*
-- [08:21] [NFL媒体转播权僵局出现新转折](https://www.ft.com/content/7db28af4-2bd2-4a38-a887-0d979089a32b) | *金融时报*
+- [23:17] [美国与伊朗开启五十年来的最高级别会谈](https://www.ft.com/content/7f9e1e4b-b3d4-4fcb-9053-2d6ae2f33d53) | *金融时报*
+- [22:45] [德国极右翼政党承诺遣返移民并开展与俄罗斯的学校交流活动](https://www.ft.com/content/93d8aceb-110b-45c2-89a4-e833beab4b14) | *金融时报*
+
+#### 软件工程
+- [23:00] [How exposed is your code? Find out in minutes—for free](https://github.blog/security/application-security/how-exposed-is-your-code-find-out-in-minutes-for-free/) | *GitHub Blog*
 
 #### 商业
-- [11:01] [标普500指数在“特朗普2.0”时期的困境](https://www.ft.com/content/163e88e9-a8c5-4540-9d77-d5ba620a42ff) | *金融时报*
-- [04:07] [随着市场波动削弱信心，房贷借款人纷纷寻求期限更短的贷款方案](https://www.ft.com/content/5234ae7e-4386-47c3-b623-ff2f8a6f42cd) | *金融时报*
+- [06:20] [李想朋友圈发文：遭遇「最恶劣内卷」](https://readhub.cn/topic/8sF1NXJbhwD) | *Readhub - 每日早报*
 
 #### 投资金融
-- [04:07] [英国散户投资者避开下跌的股市，导致本季度表现不佳](https://www.ft.com/content/f103289e-d76e-4314-b225-6305b506b9a0) | *金融时报*
-- [01:41] [沃什出任特朗普下一任美联储主席的提名可能面临延迟](https://www.ft.com/content/5a078a3a-9580-47c1-9cb3-8c657457896d) | *金融时报*
+- [23:52] [A guide to perpetual futures: How they work and why they're growing so quickly](https://a16zcrypto.substack.com/p/how-perpetual-futures-are-rewriting) | *a16z crypto - Jay Drain Jr.*
 
 #### 政策地缘
-- [10:13] [南非非国大在地方选举临近之际寻求巩固权力](https://www.ft.com/content/6e9da11a-ecaa-4e7b-9a45-31e001fedac6) | *金融时报*
-- [08:05] [匈牙利：世界大国都想赢得的选举](https://www.ft.com/content/a7e02cea-3761-448c-8472-d5d0d50e6753) | *金融时报*
-- [04:07] [随着伊朗战争给供应链带来压力，“中国堡垒”开始出现裂痕](https://www.ft.com/content/f201105e-cb6c-49ca-9c40-26eb52b41607) | *金融时报*
+- [02:29] [美国和伊朗展开一场高风险谈判，旨在结束两国间的战争](https://www.economist.com/middle-east-and-africa/2026/04/11/america-and-iran-start-a-high-stakes-negotiation-to-end-their-war) | *经济学人最新报道*
+
+#### 社交媒体
+- [02:12] [Advanced Mac Substitute is an API-level reimplementation of 1980s-era Mac OS](https://www.v68k.org/advanced-mac-substitute/) | *Hacker News - zdw*
+- [02:12] [The disturbing white paper Red Hat is trying to erase from the internet](https://www.osnews.com/story/144776/the-disturbing-white-paper-red-hat-is-trying-to-erase-from-the-internet/) | *Hacker News - choult*
+- [22:19] [法治理想国｜四川女学生状告老师：校园师生之间的同意算同意吗？ | 原文](https://t.me/wxbyg/7064) | *微信搬运工 - Telegram Channel*
+- [21:57] [「卧底」Kimi的100小时 | 原文](https://t.me/wxbyg/7063) | *微信搬运工 - Telegram Channel*
 
