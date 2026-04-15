@@ -1,0 +1,3 @@
+Today's Quick News: The flavor of AI model open-source strategy has changed, Carson Block is bearish on AI stocks, "卡脖子" strategy beats tariffs. Iran conflict drives oil prices up, over-reliance on AI in the workplace. The US luxury market is robust, a White House study says DEI hampers productivity. Rust cools down, deepin x Baidu Paddle Chengdu Meetup, countdown to quantum doomsday.
+
+Focus on: AI commercialization and compliance, AI stock risks, economic war strategies, energy prices, AI transformation in the workplace.
