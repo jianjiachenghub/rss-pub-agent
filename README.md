@@ -37,6 +37,49 @@
 
 </div>
 
+## Screenshots
+
+A quick look at the published site in both Chinese and English. Click any preview to open the full-size image.
+
+<table>
+  <thead>
+    <tr>
+      <th>Page</th>
+      <th>中文</th>
+      <th>English</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Home</strong><br>首页</td>
+      <td><a href="./docs/img/zh-home.png"><img src="./docs/img/zh-home.png" alt="Chinese home page" width="100%"></a></td>
+      <td><a href="./docs/img/en-home.png"><img src="./docs/img/en-home.png" alt="English home page" width="100%"></a></td>
+    </tr>
+    <tr>
+      <td><strong>Daily News</strong><br>日报页</td>
+      <td><a href="./docs/img/zh-news.png"><img src="./docs/img/zh-news.png" alt="Chinese daily news page" width="100%"></a></td>
+      <td><a href="./docs/img/en-news.png"><img src="./docs/img/en-news.png" alt="English daily news page" width="100%"></a></td>
+    </tr>
+    <tr>
+      <td><strong>How It Works</strong><br>工作原理</td>
+      <td align="center"><a href="./docs/img/zh-how.png"><img src="./docs/img/zh-how.png" alt="Chinese how it works page" height="480"></a></td>
+      <td align="center"><a href="./docs/img/en-how.png"><img src="./docs/img/en-how.png" alt="English how it works page" height="480"></a></td>
+    </tr>
+    <tr>
+      <td><strong>Full Article</strong><br>长文详情</td>
+      <td align="center"><a href="./docs/img/zh-news-full.png"><img src="./docs/img/zh-news-full.png" alt="Chinese full article page" height="480"></a></td>
+      <td align="center"><a href="./docs/img/en-news-full.png"><img src="./docs/img/en-news-full.png" alt="English full article page" height="480"></a></td>
+    </tr>
+    <tr>
+      <td><strong>More</strong><br>更多页</td>
+      <td><a href="./docs/img/zh-more.png"><img src="./docs/img/zh-more.png" alt="Chinese more page" width="100%"></a></td>
+      <td><a href="./docs/img/en-more.png"><img src="./docs/img/en-more.png" alt="English more page" width="100%"></a></td>
+    </tr>
+  </tbody>
+</table>
+
+Long-scroll pages use reduced-height previews in the README to keep the page readable. Open any image to see the full version.
+
 ## Overview
 
 LLM News Flow is not a generic RSS reader. It is an automated editorial pipeline:
@@ -51,6 +94,7 @@ The result is a repeatable system for turning "too much information" into "one r
 
 ## Table Of Contents
 
+- [Screenshots](#screenshots)
 - [Why This Project](#why-this-project)
 - [Highlights](#highlights)
 - [Architecture](#architecture)
