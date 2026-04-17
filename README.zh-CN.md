@@ -230,8 +230,8 @@ cp .env.example .env
 LLM_PROVIDERS=openrouter,gemini,openai
 OPENROUTER_API_KEY=your_key_here
 # 可选：直接用环境变量覆盖 OpenRouter 具体模型
-# OPENROUTER_FLASH_MODEL=openai/gpt-4o-mini
-# OPENROUTER_PRO_MODEL=openai/gpt-4o
+# OPENROUTER_FLASH_MODEL=deepseek/deepseek-v3.2
+# OPENROUTER_PRO_MODEL=moonshotai/kimi-k2.5
 ```
 
 ### 4. 运行 Pipeline

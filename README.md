@@ -235,8 +235,8 @@ At minimum, configure one LLM provider:
 LLM_PROVIDERS=openrouter,gemini,openai
 OPENROUTER_API_KEY=your_key_here
 # Optional: override the concrete OpenRouter models without changing code
-# OPENROUTER_FLASH_MODEL=openai/gpt-4o-mini
-# OPENROUTER_PRO_MODEL=openai/gpt-4o
+# OPENROUTER_FLASH_MODEL=deepseek/deepseek-v3.2
+# OPENROUTER_PRO_MODEL=moonshotai/kimi-k2.5
 ```
 
 ### 4. Run the pipeline

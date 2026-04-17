@@ -332,7 +332,10 @@ const PROVIDERS: Record<string, ProviderConfig> = {
     name: "openrouter",
     envKey: "OPENROUTER_API_KEY",
     baseURL: "https://openrouter.ai/api/v1",
-    models: { flash: "openai/gpt-4o-mini", pro: "openai/gpt-4o" },
+    models: {
+      flash: "deepseek/deepseek-v3.2",
+      pro: "moonshotai/kimi-k2.5",
+    },
   }),
   zhipu: createOpenAICompatibleProvider({
     name: "zhipu",
