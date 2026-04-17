@@ -363,7 +363,7 @@ const PROVIDERS: Record<string, ProviderConfig> = {
 function getProviderChain(): ProviderConfig[] {
   // Provider order is controlled purely by env so production can rebalance
   // cost/latency/reliability without touching code.
-  const raw = process.env.LLM_PROVIDERS ?? DEFAULT_LLM_PROVIDERS;
+  const raw = process.env.LLM_PROVIDERS?.trim() || DEFAULT_LLM_PROVIDERS;
   const names = parseProviderNames(raw);
 
   const chain: ProviderConfig[] = [];

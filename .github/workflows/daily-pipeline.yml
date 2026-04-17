@@ -33,6 +33,10 @@ jobs:
       - name: Run pipeline
         run: cd scripts && npx tsx graph.ts
         env:
+          LLM_PROVIDERS: ${{ vars.LLM_PROVIDERS }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_FLASH_MODEL: ${{ vars.OPENROUTER_FLASH_MODEL }}
+          OPENROUTER_PRO_MODEL: ${{ vars.OPENROUTER_PRO_MODEL }}
           ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
