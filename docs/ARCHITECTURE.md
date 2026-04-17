@@ -142,6 +142,7 @@ gateKeep -> score -> enrichSelected -> insight -> generateDaily
 
 统一入口在 `scripts/lib/llm.ts`，当前支持：
 
+- `openrouter`
 - `zhipu`
 - `gemini`
 - `openai`
@@ -150,7 +151,7 @@ gateKeep -> score -> enrichSelected -> insight -> generateDaily
 
 关键机制：
 
-- `LLM_PROVIDERS` 控制优先级链，如 `zhipu,gemini,openai`
+- `LLM_PROVIDERS` 控制优先级链，如 `openrouter,gemini,openai`
 - 只有配置了 API Key 的 provider 才会激活
 - `429 / 503 / overloaded / network` 自动重试
 - provider 进入 cooldown 后调度器会跳过

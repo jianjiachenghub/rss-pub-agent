@@ -92,6 +92,37 @@ interface ProviderConfig {
   call: (req: LLMRequest) => Promise<LLMResponse>;
 }
 
+export const DEFAULT_LLM_PROVIDERS = "openrouter,gemini,openai";
+type ProviderModels = { flash: string; pro: string };
+
+export function parseProviderNames(raw: string): string[] {
+  return raw
+    .split(",")
+    .map((name) => name.trim())
+    .filter(Boolean);
+}
+
+export function getProviderModelEnvKey(
+  providerName: string,
+  tier: keyof ProviderModels
+): string {
+  return `${providerName.toUpperCase()}_${tier.toUpperCase()}_MODEL`;
+}
+
+export function resolveProviderModels(
+  providerName: string,
+  defaults: ProviderModels,
+  env: Record<string, string | undefined> = process.env
+): ProviderModels {
+  return {
+    flash:
+      env[getProviderModelEnvKey(providerName, "flash")]?.trim() ||
+      defaults.flash,
+    pro:
+      env[getProviderModelEnvKey(providerName, "pro")]?.trim() || defaults.pro,
+  };
+}
+
 function createOpenAICompatibleProvider(opts: {
   name: string;
   envKey: string;
@@ -117,7 +148,8 @@ function createOpenAICompatibleProvider(opts: {
     envKey: opts.envKey,
     models: opts.models,
     async call(req: LLMRequest): Promise<LLMResponse> {
-      const model = opts.models[req.model ?? "flash"];
+      const model =
+        resolveProviderModels(opts.name, opts.models)[req.model ?? "flash"];
       const effectiveReq = withJsonOnlyInstruction(req);
       const messages: OpenAI.Chat.ChatCompletionMessageParam[] = [];
 
@@ -174,7 +206,8 @@ function createGeminiProvider(): ProviderConfig {
     envKey: "GEMINI_API_KEY",
     models,
     async call(req: LLMRequest): Promise<LLMResponse> {
-      const model = models[req.model ?? "flash"];
+      const model =
+        resolveProviderModels("gemini", models)[req.model ?? "flash"];
       const effectiveReq = withJsonOnlyInstruction(req);
       const contents = effectiveReq.systemPrompt
         ? `${effectiveReq.systemPrompt}\n\n---\n\n${effectiveReq.prompt}`
@@ -206,6 +239,12 @@ function createGeminiProvider(): ProviderConfig {
 }
 
 const PROVIDERS: Record<string, ProviderConfig> = {
+  openrouter: createOpenAICompatibleProvider({
+    name: "openrouter",
+    envKey: "OPENROUTER_API_KEY",
+    baseURL: "https://openrouter.ai/api/v1",
+    models: { flash: "openai/gpt-4o-mini", pro: "openai/gpt-4o" },
+  }),
   zhipu: createOpenAICompatibleProvider({
     name: "zhipu",
     envKey: "ZHIPU_API_KEY",
@@ -235,11 +274,8 @@ const PROVIDERS: Record<string, ProviderConfig> = {
 function getProviderChain(): ProviderConfig[] {
   // Provider order is controlled purely by env so production can rebalance
   // cost/latency/reliability without touching code.
-  const raw = process.env.LLM_PROVIDERS ?? "zhipu,gemini,openai";
-  const names = raw
-    .split(",")
-    .map((name) => name.trim())
-    .filter(Boolean);
+  const raw = process.env.LLM_PROVIDERS ?? DEFAULT_LLM_PROVIDERS;
+  const names = parseProviderNames(raw);
 
   const chain: ProviderConfig[] = [];
   for (const name of names) {

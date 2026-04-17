@@ -232,8 +232,11 @@ cp .env.example .env
 At minimum, configure one LLM provider:
 
 ```bash
-LLM_PROVIDERS=zhipu,gemini,openai
-ZHIPU_API_KEY=your_key_here
+LLM_PROVIDERS=openrouter,gemini,openai
+OPENROUTER_API_KEY=your_key_here
+# Optional: override the concrete OpenRouter models without changing code
+# OPENROUTER_FLASH_MODEL=openai/gpt-4o-mini
+# OPENROUTER_PRO_MODEL=openai/gpt-4o
 ```
 
 ### 4. Run the pipeline
@@ -262,11 +265,20 @@ The repo is driven by three main JSON configs:
 | `configs/platforms.json` | Notification and output-channel configuration |
 
 Common optional environment variables:
+Model selection is also env-driven: use `<PROVIDER>_FLASH_MODEL` and
+`<PROVIDER>_PRO_MODEL` to swap concrete models without touching code.
 
 | Variable | Purpose |
 |---|---|
 | `FOLO_SESSION_TOKEN` | Required for the primary Folo list workflow |
+| `OPENROUTER_API_KEY` | Default LLM provider via OpenRouter |
+| `OPENROUTER_FLASH_MODEL`, `OPENROUTER_PRO_MODEL` | Override OpenRouter model slugs for `flash` / `pro` |
 | `GEMINI_API_KEY` | Enables Gemini fallback and TTS |
+| `GEMINI_FLASH_MODEL`, `GEMINI_PRO_MODEL` | Override Gemini model names for `flash` / `pro` |
+| `OPENAI_API_KEY` | Direct OpenAI fallback |
+| `ZHIPU_API_KEY` | Optional Zhipu fallback |
+| `DEEPSEEK_API_KEY` | Optional DeepSeek fallback |
+| `SILICONFLOW_API_KEY` | Optional SiliconFlow fallback |
 | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | Telegram notifications |
 | `FEISHU_WEBHOOK_URL` | Feishu notifications |
 | `WECHAT_WEBHOOK_URL` | WeChat notifications |

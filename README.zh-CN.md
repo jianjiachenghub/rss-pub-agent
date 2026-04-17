@@ -227,8 +227,11 @@ cp .env.example .env
 至少配置一个 LLM provider：
 
 ```bash
-LLM_PROVIDERS=zhipu,gemini,openai
-ZHIPU_API_KEY=your_key_here
+LLM_PROVIDERS=openrouter,gemini,openai
+OPENROUTER_API_KEY=your_key_here
+# 可选：直接用环境变量覆盖 OpenRouter 具体模型
+# OPENROUTER_FLASH_MODEL=openai/gpt-4o-mini
+# OPENROUTER_PRO_MODEL=openai/gpt-4o
 ```
 
 ### 4. 运行 Pipeline
@@ -257,11 +260,20 @@ npm run dev
 | `configs/platforms.json` | 通知和分发渠道配置 |
 
 常见环境变量：
+具体模型也可以只靠环境变量切换：使用 `<PROVIDER>_FLASH_MODEL` 和
+`<PROVIDER>_PRO_MODEL` 即可覆盖底层模型名，无需改代码。
 
 | 变量 | 作用 |
 |---|---|
 | `FOLO_SESSION_TOKEN` | 主力 Folo 列表抓取 |
+| `OPENROUTER_API_KEY` | 默认 LLM provider，经 OpenRouter 路由 |
+| `OPENROUTER_FLASH_MODEL`, `OPENROUTER_PRO_MODEL` | 覆盖 OpenRouter 对应的 `flash` / `pro` 模型 |
 | `GEMINI_API_KEY` | Gemini fallback 与 TTS |
+| `GEMINI_FLASH_MODEL`, `GEMINI_PRO_MODEL` | 覆盖 Gemini 对应的 `flash` / `pro` 模型 |
+| `OPENAI_API_KEY` | 直连 OpenAI 兜底 |
+| `ZHIPU_API_KEY` | 可选的智谱兜底 |
+| `DEEPSEEK_API_KEY` | 可选的 DeepSeek 兜底 |
+| `SILICONFLOW_API_KEY` | 可选的 SiliconFlow 兜底 |
 | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | Telegram 通知 |
 | `FEISHU_WEBHOOK_URL` | 飞书通知 |
 | `WECHAT_WEBHOOK_URL` | 微信通知 |

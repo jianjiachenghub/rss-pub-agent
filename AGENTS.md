@@ -7,7 +7,7 @@ Daily pipeline: fetch -> filter -> score -> insight -> daily report -> podcast +
 
 ## Tech Stack
 - Pipeline: LangGraph.js (@langchain/langgraph) + TypeScript
-- LLM: Multi-provider (zhipu/gemini/openai/deepseek/siliconflow), configurable via LLM_PROVIDERS env
+- LLM: Multi-provider (openrouter/zhipu/gemini/openai/deepseek/siliconflow), configurable via LLM_PROVIDERS env
 - Frontend: Next.js 16 SSG + Tailwind CSS
 - Deploy: Vercel + GitHub Actions
 - Storage: Git (content), Cloudflare R2 (audio)
@@ -26,7 +26,7 @@ Fan-in: podcast + platforms -> publish -> notify -> END
 - content/ -- Auto-generated daily reports (do NOT edit manually)
 
 ## LLM Provider System
-- `LLM_PROVIDERS` env controls priority chain (e.g. "zhipu,gemini,openai")
+- `LLM_PROVIDERS` env controls priority chain (e.g. "openrouter,gemini,openai")
 - Only providers with a valid API key are activated
 - Each provider maps "flash" and "pro" tiers to specific models
 - Auto-retry on 429/503, auto-fallback to next provider on failure

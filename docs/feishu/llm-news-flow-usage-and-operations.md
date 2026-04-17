@@ -44,8 +44,10 @@ cp .env.example .env
 推荐优先级：
 
 ```bash
-LLM_PROVIDERS=zhipu,gemini,openai
-ZHIPU_API_KEY=your_key_here
+LLM_PROVIDERS=openrouter,gemini,openai
+OPENROUTER_API_KEY=your_key_here
+# OPENROUTER_FLASH_MODEL=openai/gpt-4o-mini
+# OPENROUTER_PRO_MODEL=openai/gpt-4o
 ```
 
 ### 3.2 常用可选项
@@ -53,8 +55,12 @@ ZHIPU_API_KEY=your_key_here
 | 变量 | 用途 | 是否常见必需 |
 |---|---|---|
 | `FOLO_SESSION_TOKEN` | 主力 Folo 列表抓取 | 是，若依赖 Folo 主输入 |
+| `OPENROUTER_API_KEY` | 默认 LLM provider，经 OpenRouter 路由 | 常用 |
+| `OPENROUTER_FLASH_MODEL` / `OPENROUTER_PRO_MODEL` | 覆盖 OpenRouter 的具体模型 | 需要切模型时常用 |
 | `GEMINI_API_KEY` | Gemini LLM 与 TTS | 常用 |
+| `GEMINI_FLASH_MODEL` / `GEMINI_PRO_MODEL` | 覆盖 Gemini 的具体模型 | 可选 |
 | `OPENAI_API_KEY` | OpenAI provider 兜底 | 可选 |
+| `ZHIPU_API_KEY` | 智谱 provider 兜底 | 可选 |
 | `DEEPSEEK_API_KEY` | DeepSeek 兜底 | 可选 |
 | `SILICONFLOW_API_KEY` | SiliconFlow 兜底 | 可选 |
 | `FEISHU_WEBHOOK_URL` | 飞书通知 | 可选 |

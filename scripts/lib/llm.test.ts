@@ -1,8 +1,65 @@
 import { describe, expect, it } from "vitest";
 import {
+  DEFAULT_LLM_PROVIDERS,
+  getProviderModelEnvKey,
+  parseProviderNames,
   parseJsonResponse,
+  resolveProviderModels,
   shouldTryGeminiContentSafetyBackup,
 } from "./llm.js";
+
+describe("parseProviderNames", () => {
+  it("uses openrouter as the default first provider", () => {
+    expect(parseProviderNames(DEFAULT_LLM_PROVIDERS)).toEqual([
+      "openrouter",
+      "gemini",
+      "openai",
+    ]);
+  });
+
+  it("trims blank provider names from env strings", () => {
+    expect(parseProviderNames(" openrouter, gemini ,, openai ")).toEqual([
+      "openrouter",
+      "gemini",
+      "openai",
+    ]);
+  });
+});
+
+describe("resolveProviderModels", () => {
+  it("uses provider-specific env overrides when present", () => {
+    expect(
+      resolveProviderModels(
+        "openrouter",
+        { flash: "openai/gpt-4o-mini", pro: "openai/gpt-4o" },
+        {
+          [getProviderModelEnvKey("openrouter", "flash")]:
+            "anthropic/claude-3.7-sonnet",
+          [getProviderModelEnvKey("openrouter", "pro")]:
+            "google/gemini-2.5-pro",
+        }
+      )
+    ).toEqual({
+      flash: "anthropic/claude-3.7-sonnet",
+      pro: "google/gemini-2.5-pro",
+    });
+  });
+
+  it("falls back to defaults when env overrides are empty", () => {
+    expect(
+      resolveProviderModels(
+        "openrouter",
+        { flash: "openai/gpt-4o-mini", pro: "openai/gpt-4o" },
+        {
+          [getProviderModelEnvKey("openrouter", "flash")]: " ",
+        }
+      )
+    ).toEqual({
+      flash: "openai/gpt-4o-mini",
+      pro: "openai/gpt-4o",
+    });
+  });
+});
 
 describe("parseJsonResponse", () => {
   it("parses a raw JSON array", () => {
