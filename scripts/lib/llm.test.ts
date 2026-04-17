@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   DEFAULT_LLM_PROVIDERS,
+  extractAssistantMessage,
   getProviderModelEnvKey,
   parseProviderNames,
   parseJsonResponse,
@@ -57,6 +58,62 @@ describe("resolveProviderModels", () => {
     ).toEqual({
       flash: "openai/gpt-4o-mini",
       pro: "openai/gpt-4o",
+    });
+  });
+});
+
+describe("extractAssistantMessage", () => {
+  it("reads plain string content", () => {
+    expect(
+      extractAssistantMessage({
+        content: "Hello world",
+      })
+    ).toEqual({
+      content: "Hello world",
+      reasoning: "",
+      refusal: "",
+    });
+  });
+
+  it("extracts text from OpenRouter content arrays", () => {
+    expect(
+      extractAssistantMessage({
+        content: [
+          { type: "output_text", text: "Hello" },
+          { type: "output_text", text: "world" },
+        ],
+      })
+    ).toEqual({
+      content: "Hello\nworld",
+      reasoning: "",
+      refusal: "",
+    });
+  });
+
+  it("extracts reasoning from both reasoning and reasoning_details", () => {
+    expect(
+      extractAssistantMessage({
+        content: null,
+        reasoning: "First think",
+        reasoning_details: [{ type: "reasoning.text", text: "Then answer" }],
+      })
+    ).toEqual({
+      content: "",
+      reasoning: "First think\nThen answer",
+      refusal: "",
+    });
+  });
+
+  it("extracts refusal text when present", () => {
+    expect(
+      extractAssistantMessage({
+        content: null,
+        refusal: [{ type: "refusal", text: "Cannot comply" }],
+      })
+    ).toEqual({
+      content: "",
+      reasoning: "",
+      refusal: "Cannot comply",
     });
   });
 });

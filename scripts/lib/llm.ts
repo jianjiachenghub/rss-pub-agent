@@ -21,6 +21,12 @@ export interface LLMResponse {
   tokensUsed?: number;
 }
 
+interface ExtractedAssistantMessage {
+  content: string;
+  reasoning: string;
+  refusal: string;
+}
+
 function getSchemaRootType(
   schema?: Record<string, unknown>
 ): string | undefined {
@@ -58,6 +64,80 @@ function withJsonOnlyInstruction(req: LLMRequest): LLMRequest {
 export function getErrorMessage(err: unknown): string {
   if (err instanceof Error) return err.message;
   return String(err);
+}
+
+function assertNonEmptyAssistantText(opts: {
+  providerName: string;
+  text: string;
+  finishReason?: string | null;
+  details?: string[];
+}): string {
+  const normalized = opts.text.trim();
+  if (normalized) return normalized;
+
+  const details = (opts.details ?? []).filter(Boolean).join(", ");
+  throw new Error(
+    `[LLM] ${opts.providerName} returned empty assistant content (finish_reason=${
+      opts.finishReason ?? "unknown"
+    }${details ? `; ${details}` : ""})`
+  );
+}
+
+function joinTextSegments(segments: string[]): string {
+  return segments
+    .map((segment) => segment.trim())
+    .filter(Boolean)
+    .join("\n")
+    .trim();
+}
+
+function extractTextSegments(value: unknown): string[] {
+  if (typeof value === "string") return [value];
+  if (!value) return [];
+
+  if (Array.isArray(value)) {
+    return value.flatMap((item) => extractTextSegments(item));
+  }
+
+  if (typeof value !== "object") return [];
+
+  const record = value as Record<string, unknown>;
+
+  const directText = ["text", "content", "output_text", "input_text"]
+    .map((key) => record[key])
+    .find((candidate) => typeof candidate === "string");
+  if (typeof directText === "string") {
+    return [directText];
+  }
+
+  if ("summary" in record) {
+    return extractTextSegments(record.summary);
+  }
+
+  if ("content" in record) {
+    return extractTextSegments(record.content);
+  }
+
+  return [];
+}
+
+export function extractAssistantMessage(message: unknown): ExtractedAssistantMessage {
+  if (!message || typeof message !== "object") {
+    return { content: "", reasoning: "", refusal: "" };
+  }
+
+  const record = message as Record<string, unknown>;
+
+  return {
+    content: joinTextSegments(extractTextSegments(record.content)),
+    reasoning: joinTextSegments(
+      extractTextSegments(record.reasoning).concat(
+        extractTextSegments(record.reasoning_content),
+        extractTextSegments(record.reasoning_details)
+      )
+    ),
+    refusal: joinTextSegments(extractTextSegments(record.refusal)),
+  };
 }
 
 export function isContentSafetyError(err: unknown): boolean {
@@ -170,12 +250,16 @@ function createOpenAICompatibleProvider(opts: {
 
       const response = await getClient().chat.completions.create(params);
       const choice = response.choices[0];
-      const message = choice?.message as {
-        content?: string;
-        reasoning_content?: string;
-      };
-
-      const text = message?.content || message?.reasoning_content || "";
+      const extracted = extractAssistantMessage(choice?.message);
+      const text = assertNonEmptyAssistantText({
+        providerName: opts.name,
+        text: extracted.content || extracted.refusal,
+        finishReason: choice?.finish_reason,
+        details: [
+          extracted.reasoning ? "reasoning_present" : "",
+          extracted.refusal ? "refusal_present" : "",
+        ],
+      });
 
       return {
         text,
@@ -227,9 +311,14 @@ function createGeminiProvider(): ProviderConfig {
         contents,
         config,
       });
+      const text = assertNonEmptyAssistantText({
+        providerName: "gemini",
+        text: response.text ?? "",
+        finishReason: null,
+      });
 
       return {
-        text: response.text ?? "",
+        text,
         provider: "gemini",
         model,
         tokensUsed: response.usageMetadata?.totalTokenCount,
