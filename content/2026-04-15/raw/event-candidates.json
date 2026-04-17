@@ -1,0 +1,1465 @@
+[
+  {
+    "id": "folo-267289489658873860",
+    "title": "莱茵金属公司获得德国武装部队价值3亿欧元的无人机订单",
+    "url": "https://www.ft.com/content/a628efc5-8d04-4863-9818-bb78436b508b",
+    "content": "Rheinmetall wins 300mn drone order from German armed forces (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-04-15T15:54:03.143Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "莱茵金属公司获得德国武装部队价值3亿欧元的无人机订单",
+    "normalizedTitle": "莱茵金属公司获得德国武装部队价值3亿欧元的无人机订单",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 79.776268443143
+  },
+  {
+    "id": "folo-267289489658873861",
+    "title": "伊朗之于美国，正如苏伊士运河危机之于英国——同样荒谬",
+    "url": "https://www.ft.com/content/bf6d4898-8c32-4ac8-adda-fb26f8240abe",
+    "content": "Iran is America’s Suez crisis — and just as ridiculous (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-04-15T15:54:02.369Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "伊朗之于美国-正如苏伊士运河危机之于英国——同样荒谬",
+    "normalizedTitle": "伊朗之于美国 正如苏伊士运河危机之于英国——同样荒谬",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 74.776268442369
+  },
+  {
+    "id": "folo-267279530724401152",
+    "title": "Create rich, custom tooltips in Amazon Quick Sight",
+    "url": "https://aws.amazon.com/blogs/machine-learning/create-rich-custom-tooltips-in-amazon-quick-sight/",
+    "content": "Amazon Quick Sight, the business intelligence (BI) capability of Amazon Quick, is a unified BI service. It provides modern interactive dashboards, natural language querying, pixel-perfect reports, machine learning (ML) insights, and embedded analytics at scale. Amazon Quick…",
+    "source": "Artificial Intelligence - Meshan Khosla",
+    "sourceId": "folo-ai-list-41459996870678532",
+    "category": "tech",
+    "publishedAt": "2026-04-15T15:22:53.775Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "create-rich-custom-tooltips-amazon-quick",
+    "normalizedTitle": "create rich custom tooltips in amazon quick sight",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Artificial Intelligence - Meshan Khosla"
+    ],
+    "preFilterScore": 276.776266573775
+  },
+  {
+    "id": "folo-267268471896672256",
+    "title": "美联储官员警告称，利率制定者正面临伊朗战争和关税带来的“双重威胁”",
+    "url": "https://www.ft.com/content/345e5dbc-d60a-4c78-a781-63c3b624a451",
+    "content": "Rate setters face ‘double danger’ from Iran war and tariffs, Fed official warns (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "investment",
+    "publishedAt": "2026-04-15T15:21:16.218Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "美联储官员警告称-利率制定者正面临伊朗战争和关税带来的“双重威胁”",
+    "normalizedTitle": "美联储官员警告称 利率制定者正面临伊朗战争和关税带来的“双重威胁”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 99.776266476218
+  },
+  {
+    "id": "folo-267279530724401153",
+    "title": "Accelerating decode-heavy LLM inference with speculative decoding on AWS Trainium and vLLM",
+    "url": "https://aws.amazon.com/blogs/machine-learning/accelerating-decode-heavy-llm-inference-with-speculative-decoding-on-aws-trainium-and-vllm/",
+    "content": "Practical benchmarks showing faster inter-token latency when deploying Qwen3 models with vLLM, Kubernetes, and AWS AI Chips. Speculative decoding on AWS Trainium can accelerate token generation by up to 3x for decode-heavy workloads, helping reduce the cost per output token and…",
+    "source": "Artificial Intelligence - Yahav Biran",
+    "sourceId": "folo-ai-list-41459996870678532",
+    "category": "ai",
+    "publishedAt": "2026-04-15T15:20:58.541Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "accelerating-decode-heavy-llm-inference-speculative-decoding",
+    "normalizedTitle": "accelerating decode-heavy llm inference with speculative decoding on aws trainium and vllm",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Artificial Intelligence - Yahav Biran"
+    ],
+    "preFilterScore": 280.776266458541
+  },
+  {
+    "id": "folo-267279530724401154",
+    "title": "Rede Mater Dei de Saúde: Monitoring AI agents in the revenue cycle with Amazon Bedrock AgentCore",
+    "url": "https://aws.amazon.com/blogs/machine-learning/rede-mater-dei-de-saude-monitoring-ai-agents-in-the-revenue-cycle-with-amazon-bedrock-agentcore/",
+    "content": "This post is cowritten by Renata Salvador Grande, Gabriel Bueno and Paulo Laurentys at Rede Mater Dei de Saúde. The growing adoption of multi-agent AI systems is redefining critical operations in healthcare. In large hospital networks, where thousands of decisions directly…",
+    "source": "Artificial Intelligence - Renata Salvador Grande",
+    "sourceId": "folo-ai-list-41459996870678532",
+    "category": "business",
+    "publishedAt": "2026-04-15T15:15:23.118Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "rede-mater-dei-saúde-monitoring-agents",
+    "normalizedTitle": "rede mater dei de saúde monitoring ai agents in the revenue cycle with amazon bedrock agentcore",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Artificial Intelligence - Renata Salvador Grande"
+    ],
+    "preFilterScore": 275.776266123118
+  },
+  {
+    "id": "folo-267268471896672257",
+    "title": "伦敦数周内发生第二起针对犹太会堂的反犹太主义纵火袭击",
+    "url": "https://www.ft.com/content/880eac19-9adc-4ee9-a499-5f1eaee26098",
+    "content": "Synagogue targeted in London’s second antisemitic arson attack in weeks (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-04-15T15:05:19.834Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "伦敦数周内发生第二起针对犹太会堂的反犹太主义纵火袭击",
+    "normalizedTitle": "伦敦数周内发生第二起针对犹太会堂的反犹太主义纵火袭击",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 91.776265519834
+  },
+  {
+    "id": "folo-267268880858084352",
+    "title": "Developer policy update: Intermediary liability, copyright, and transparency",
+    "url": "https://github.blog/news-insights/policy-news-and-insights/developer-policy-update-intermediary-liability-copyright-and-transparency/",
+    "content": "GitHub reports how recent legal developments affect developers. The Supreme Court’s Cox v Sony decision clarifies that platform operators are not automatically liable for user‑copyright infringement without intent, giving developers legal certainty. The upcoming 2027 DMCA Section 1201 review will consider exemptions important for security research, AI safety, and interoperability. Transparency Center data for 2025 shows record DMCA circumvention claims, highlighting the need for balanced policy. GitHub urges developer input on age‑assurance laws and policy engagement.",
+    "source": "The GitHub Blog - Margaret Tucker",
+    "sourceId": "folo-ai-list-41440449356332035",
+    "category": "software",
+    "publishedAt": "2026-04-15T15:00:00.689Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "developer-policy-update-intermediary-liability-copyright",
+    "normalizedTitle": "developer policy update intermediary liability copyright and transparency",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "The GitHub Blog - Margaret Tucker"
+    ],
+    "preFilterScore": 575.776265200689
+  },
+  {
+    "id": "folo-267268471896672258",
+    "title": "敦促纳税人在申请窗口关闭前申领 PAYE 退税",
+    "url": "https://www.ft.com/content/cce5b240-0871-4e12-ad07-0514a82174a5",
+    "content": "Taxpayers urged to claim PAYE refunds before window closes (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-04-15T14:49:42.711Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "敦促纳税人在申请窗口关闭前申领-paye",
+    "normalizedTitle": "敦促纳税人在申请窗口关闭前申领 paye 退税",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 78.776264582711
+  },
+  {
+    "id": "folo-267279786954473473",
+    "title": "当一个日活 35 亿的产品，停止谣言审核一年 | 原文",
+    "url": "https://t.me/wxbyg/7109",
+    "content": "In January 2025, Meta discontinued third‑party rumor‑checking for its 3.58 billion daily‑active‑user platform, returning content moderation to the community via notes. The decision—made unilaterally by Mark Zuckerberg without user consultation or ethics review—started a one‑year experiment. After that period, the trial’s outcomes were released, showing the effects of halting formal rumor‑policing.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-04-15T14:35:01.693Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "当一个日活-亿的产品-停止谣言审核一年",
+    "normalizedTitle": "当一个日活 35 亿的产品 停止谣言审核一年 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 311.776263701693
+  },
+  {
+    "id": "folo-267279786954473474",
+    "title": "敢给员工多放假的公司，后来怎么样了？ | 原文",
+    "url": "https://t.me/wxbyg/7108",
+    "content": "敢给员工多放假的公司，后来怎么样了？ | 原文 Telegraph\n敢给员工多放假的公司，后来怎么样了？\n\n\n2026年4月7日，携程集团宣布了一件事。 从总部随机抽取6000名员工，分成实验组和对照组。实验组每年额外获得45天无理由事假——想走就走，不需要任何理由，不需要领导批准。对照组照旧。两组之间的绩效、离职率、满意度，全部追踪记录，最终交由学术机构独立分析。 这不是员工福利发布会，这是随机对照实验，和辉瑞测新冠疫苗用的是同一套方法论。 同一周，高盛（Goldman Sachs）发了一份报告：AI每月在美国净消灭约16000个工作岗位，Z世代首当其冲…",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-04-15T14:34:23.877Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "敢给员工多放假的公司-后来怎么样了",
+    "normalizedTitle": "敢给员工多放假的公司 后来怎么样了 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 193.776263663877
+  },
+  {
+    "id": "folo-267248303539750912",
+    "title": "唐纳德·特朗普再次威胁要解雇美联储主席杰罗姆·鲍威尔",
+    "url": "https://www.ft.com/content/d0ac6c5f-c1c5-43cb-8f1f-eb3bea48eca3",
+    "content": "Donald Trump renews threat to fire Federal Reserve chief Jay Powell (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "investment",
+    "publishedAt": "2026-04-15T14:02:02.678Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "唐纳德·特朗普再次威胁要解雇美联储主席杰罗姆·鲍威尔",
+    "normalizedTitle": "唐纳德·特朗普再次威胁要解雇美联储主席杰罗姆·鲍威尔",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 87.776261722678
+  },
+  {
+    "id": "folo-267248303539750913",
+    "title": "受特朗普放宽监管政策及市场震荡影响，美国银行回购规模创下纪录",
+    "url": "https://www.ft.com/content/67d444ab-bfcf-49a1-ae46-ff6e78bc8c64",
+    "content": "US banks make record buybacks on Trump’s looser rules and choppy markets (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "business",
+    "publishedAt": "2026-04-15T14:02:01.659Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "受特朗普放宽监管政策及市场震荡影响-美国银行回购规模创下纪录",
+    "normalizedTitle": "受特朗普放宽监管政策及市场震荡影响 美国银行回购规模创下纪录",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 92.776261721659
+  },
+  {
+    "id": "folo-267248303539750914",
+    "title": "英格兰最贫困地区居民的健康寿命不足50年",
+    "url": "https://www.ft.com/content/85de9ce1-37f1-4983-af72-30bf05363a49",
+    "content": "People in England’s poorest areas live less than 50 years in good health (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-04-15T13:46:00.064Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "英格兰最贫困地区居民的健康寿命不足50年",
+    "normalizedTitle": "英格兰最贫困地区居民的健康寿命不足50年",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 92.776260760064
+  },
+  {
+    "id": "folo-267248303539750915",
+    "title": "Allbirds 正转型为一家人工智能计算服务提供商，这当然不足为奇",
+    "url": "https://www.ft.com/content/a4b63cc1-2d1c-44c8-a22a-425cf0efb5cf",
+    "content": "Allbirds is turning into an AI compute provider, because of course it is (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "ai",
+    "publishedAt": "2026-04-15T13:29:41.950Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "allbirds-正转型为一家人工智能计算服务提供商-这当然不足为奇",
+    "normalizedTitle": "allbirds 正转型为一家人工智能计算服务提供商 这当然不足为奇",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 92.77625978195
+  },
+  {
+    "id": "folo-267248303539750916",
+    "title": "尽管面临能源危机，国际货币基金组织仍敦促欧盟坚持“财政防护栏”",
+    "url": "https://www.ft.com/content/77affb98-e086-454e-aa4a-9dc822e112d3",
+    "content": "IMF tells EU to stick to ‘fiscal guardrails’ despite energy crisis (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "investment",
+    "publishedAt": "2026-04-15T13:13:59.096Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "尽管面临能源危机-国际货币基金组织仍敦促欧盟坚持“财政防护栏”",
+    "normalizedTitle": "尽管面临能源危机 国际货币基金组织仍敦促欧盟坚持“财政防护栏”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 86.776258839096
+  },
+  {
+    "id": "folo-267248303539750917",
+    "title": "国际货币基金组织表示，里夫斯应避免推出针对家庭的大规模能源援助计划",
+    "url": "https://www.ft.com/content/dfece037-6d66-4ad7-bed4-f5c80dfd9787",
+    "content": "Reeves should avoid big energy support package for households, IMF says (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "investment",
+    "publishedAt": "2026-04-15T13:13:58.148Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "国际货币基金组织表示-里夫斯应避免推出针对家庭的大规模能源援助计划",
+    "normalizedTitle": "国际货币基金组织表示 里夫斯应避免推出针对家庭的大规模能源援助计划",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 91.776258838148
+  },
+  {
+    "id": "folo-267248303539750918",
+    "title": "因涉嫌违反欧盟反垄断法，Nutella生产商费列罗公司遭突击搜查",
+    "url": "https://www.ft.com/content/27f8f380-d7f2-402b-a8f9-c44b620a95bf",
+    "content": "Nutella maker Ferrero raided over possible EU competition breaches (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-04-15T13:13:56.903Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "因涉嫌违反欧盟反垄断法-nutella生产商费列罗公司遭突击搜查",
+    "normalizedTitle": "因涉嫌违反欧盟反垄断法 nutella生产商费列罗公司遭突击搜查",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 86.776258836903
+  },
+  {
+    "id": "folo-267248352185289736",
+    "title": "一个版本， 50 项更新：我们几乎重做了整个播放页",
+    "url": "https://www.v2ex.com/t/1206178#reply1",
+    "content": "深夜，戴上耳机，打开播放器，只想安安静静听一首歌。但播放页太挤，歌词看不清，背景和封面不搭…… 我们也有同样的感受。所以这次，我们把所有的不舒服，都改了。\n\n静听 1.6.0，一个版本，50+ 项更新。从播放页到播放条，从皮肤到搜索，从 iOS 26 适配到每个像素——几乎重新打磨了一遍。\n\n播放页：推翻重来\n\n封面背景，像 Apple Music 一样沉浸。 提取专辑封面施加高斯模糊，模糊力度大到几乎看不清原图，只保留色彩氛围。\n\n歌曲信息和歌词，左右滑动切换。 点击封面也能切换，告别误触。\n\n圆形封面可以旋转。 设置新增封面形状：正方形（默认不旋转）或圆形…",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "social",
+    "publishedAt": "2026-04-15T12:59:15.241Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "一个版本-项更新-我们几乎重做了整个播放页",
+    "normalizedTitle": "一个版本 50 项更新 我们几乎重做了整个播放页",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 195.776257955241
+  },
+  {
+    "id": "folo-267226172101731330",
+    "title": "Lordog/dive-into-llms",
+    "url": "https://github.com/Lordog/dive-into-llms",
+    "content": "\"Dive into LLMs\" is a Jupyter Notebook series offering hands‑on programming tutorials for learning large language models. It has garnered 28,995 stars and 3,528 forks on GitHub.",
+    "source": "Trending repositories on GitHub today · GitHub - Lordog",
+    "sourceId": "folo-ai-list-41461870197170196",
+    "category": "software",
+    "publishedAt": "2026-04-15T12:57:54.821Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "lordog-dive-into-llms",
+    "normalizedTitle": "lordog dive-into-llms",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Trending repositories on GitHub today · GitHub - Lordog"
+    ],
+    "preFilterScore": 178.776257874821
+  },
+  {
+    "id": "folo-267226172101731336",
+    "title": "vercel-labs/open-agents",
+    "url": "https://github.com/vercel-labs/open-agents",
+    "content": "A TypeScript–based open‑source template from Vercel Labs for building cloud agents. It has 2,255 stars and 246 forks.",
+    "source": "Trending repositories on GitHub today · GitHub - vercel-labs",
+    "sourceId": "folo-ai-list-41461870197170196",
+    "category": "software",
+    "publishedAt": "2026-04-15T12:57:54.815Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "vercel-labs-open-agents",
+    "normalizedTitle": "vercel-labs open-agents",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Trending repositories on GitHub today · GitHub - vercel-labs"
+    ],
+    "preFilterScore": 118.776257874815
+  },
+  {
+    "id": "folo-267226172101731337",
+    "title": "lsdefine/GenericAgent",
+    "url": "https://github.com/lsdefine/GenericAgent",
+    "content": "A Python project called **lsdefine/GenericAgent** is a self‑evolving agent capable of expanding from a 3.3 k‑line seed. It autonomously builds a skill tree, gaining full system control while cutting token usage by roughly six‑fold. The repository, released in 2023, has 1,579 stars and 217 forks.",
+    "source": "Trending repositories on GitHub today · GitHub - lsdefine",
+    "sourceId": "folo-ai-list-41461870197170196",
+    "category": "software",
+    "publishedAt": "2026-04-15T12:57:54.814Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "lsdefine-genericagent",
+    "normalizedTitle": "lsdefine genericagent",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Trending repositories on GitHub today · GitHub - lsdefine"
+    ],
+    "preFilterScore": 297.776257874814
+  },
+  {
+    "id": "folo-267226172101731338",
+    "title": "google/magika",
+    "url": "https://github.com/google/magika",
+    "content": "\"magika\" is a Python library for fast, AI‑driven detection of file content types. The project boasts over 13,400 GitHub stars and 697 forks, indicating broad community interest and adoption. It provides precise identification of file types based on content rather than extensions, aiming to improve accuracy in applications that require reliable file classification.",
+    "source": "Trending repositories on GitHub today · GitHub - google",
+    "sourceId": "folo-ai-list-41461870197170196",
+    "category": "software",
+    "publishedAt": "2026-04-15T12:57:54.813Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "google-magika",
+    "normalizedTitle": "google magika",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Trending repositories on GitHub today · GitHub - google"
+    ],
+    "preFilterScore": 367.776257874813
+  },
+  {
+    "id": "folo-267226172101731339",
+    "title": "Donchitos/Claude-Code-Game-Studios",
+    "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+    "content": "Donchitos is a repository for Claude Code that creates a complete game‑development studio structure. It employs 49 AI agents, 72 workflow skills, and a coordination system that reflects real studio hierarchies, allowing users to transform automated code into a fully operational game development environment. The project is written in Shell and has been popular, boasting 9,898 stars and 1,531 forks.",
+    "source": "Trending repositories on GitHub today · GitHub - Donchitos",
+    "sourceId": "folo-ai-list-41461870197170196",
+    "category": "software",
+    "publishedAt": "2026-04-15T12:57:54.812Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "donchitos-claude-code-game-studios",
+    "normalizedTitle": "donchitos claude-code-game-studios",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Trending repositories on GitHub today · GitHub - Donchitos"
+    ],
+    "preFilterScore": 401.776257874812
+  },
+  {
+    "id": "folo-267224491783882752",
+    "title": "摩根士丹利利润大增30%，伊朗局势推动交易量激增",
+    "url": "https://www.ft.com/content/99af0006-d810-4616-8624-912dc830e5ac",
+    "content": "Morgan Stanley profits jump 30% as Iran war drives trading boom (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-04-15T12:25:47.569Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "摩根士丹利利润大增30-伊朗局势推动交易量激增",
+    "normalizedTitle": "摩根士丹利利润大增30 伊朗局势推动交易量激增",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 83.776255947569
+  },
+  {
+    "id": "folo-267267218949016576",
+    "title": "币安聊天室功能上线：一站式体验社交、转账与交易",
+    "url": "https://www.binance.com/zh-CN/support/announcement/ac139e86c1ad4dff97d1eefce4ce3dbb",
+    "content": "币安聊天室功能上线：一站式体验社交、转账与交易",
+    "source": "Binance Announcement",
+    "sourceId": "folo-ai-list-229203178378568704",
+    "category": "tech",
+    "publishedAt": "2026-04-15T12:00:08.209Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "币安聊天室功能上线-一站式体验社交-转账与交易",
+    "normalizedTitle": "币安聊天室功能上线 一站式体验社交 转账与交易",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Binance Announcement"
+    ],
+    "preFilterScore": 24.776254408209
+  },
+  {
+    "id": "folo-267224491783882753",
+    "title": "欧盟那奇特的韧性",
+    "url": "https://www.ft.com/content/927ef2c7-cbf3-4bc1-9bdd-f9884a09d878",
+    "content": "The weird resilience of the EU (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-04-15T11:37:40.263Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "欧盟那奇特的韧性",
+    "normalizedTitle": "欧盟那奇特的韧性",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 50.776253060263
+  },
+  {
+    "id": "folo-267224491783882754",
+    "title": "特朗普和普京支持匈牙利新任总理",
+    "url": "https://www.ft.com/content/d13b5bef-af09-4110-ae01-e958dc0ba8c6",
+    "content": "Trump and Putin back Hungary’s new prime minister (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-04-15T11:37:39.669Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "特朗普和普京支持匈牙利新任总理",
+    "normalizedTitle": "特朗普和普京支持匈牙利新任总理",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 69.776253059669
+  },
+  {
+    "id": "folo-267214342612585481",
+    "title": "GOGDNS 一款简易的私人 DNS 服务器",
+    "url": "https://www.v2ex.com/t/1206166#reply0",
+    "content": "一款简易的私人 DNS 服务器\n DockerHub: https://hub.docker.com/r/billghifun/gogdns\n GayHub: https://billghifun.github.io/gogdns-docs/\n 程序具体工作细节可以看文档站中的介绍。\n 文档站有很长时间没更新了，计划近日更新。\n 朋友们遇到问题或 bug 可在此贴回复，如有意见或建议同样也欢迎多多回复。\n 由于此程序是一位不愿透露姓名的菜的抠脚的人进行的古法编程，所以程序一定会有各种稀奇古怪的问题，还请见谅。\n 大家可以先用于测试，待设置调整趋于稳定后再进行部署。…",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "social",
+    "publishedAt": "2026-04-15T11:34:56.897Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "gogdns-一款简易的私人-dns-服务器",
+    "normalizedTitle": "gogdns 一款简易的私人 dns 服务器",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 197.776252896897
+  },
+  {
+    "id": "folo-267267218949016577",
+    "title": "TON交易量锦标赛：交易瓜分高达400,000 USDC奖池",
+    "url": "https://www.binance.com/zh-CN/support/announcement/b9e462074a934883b0d36ad8b478a274",
+    "content": "TON交易量锦标赛：交易瓜分高达400,000 USDC奖池",
+    "source": "Binance Announcement",
+    "sourceId": "folo-ai-list-229203178378568704",
+    "category": "tech",
+    "publishedAt": "2026-04-15T11:30:34.698Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "ton交易量锦标赛-交易瓜分高达400-000-usdc奖池",
+    "normalizedTitle": "ton交易量锦标赛 交易瓜分高达400 000 usdc奖池",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Binance Announcement"
+    ],
+    "preFilterScore": 31.776252634698
+  },
+  {
+    "id": "folo-267234684232001536",
+    "title": "Hermes Agent抄袭中国团队代码实锤，被锤后回应：你删号",
+    "url": "https://www.36kr.com/p/3767967755371011",
+    "content": "Chinese AI team EvoMap accused the Silicon Valley lab Nous Research of copying its Evolver engine into the Hermes Agent. EvoMap presented side‑by‑side comparisons showing identical ten‑step evolution loops, systematic terminology changes, and no citations of EvoMap in Hermès’s documentation. After being challenged, Hermes replied with a dismissive “Delete your account.” The controversy highlights growing problems with AI‑generated “code washing” and the erosion of open‑source attribution.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "social",
+    "publishedAt": "2026-04-15T11:21:08.288Z",
+    "fetchedAt": "2026-04-15T17:17:54.193Z",
+    "eventKey": "hermes-agent抄袭中国团队代码实锤-被锤后回应-你删号",
+    "normalizedTitle": "hermes agent抄袭中国团队代码实锤 被锤后回应 你删号",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 494.776252068288
+  },
+  {
+    "id": "folo-267247386371289088",
+    "title": "MiniMax M2.7 开源协议引争议：严禁商业用途，开发者质疑“伪开源”",
+    "url": "https://www.oschina.net/news/421258",
+    "content": "国产AI大模型厂商MiniMax（稀宇科技）于近日开源了其最新一代模型MiniMax-M2.7，该模型在编程能力基准测试SWE-Pro中取得56.22%的成绩，几乎追平Anthropic的Claude Opus水平。 然而，这本应值得庆贺的技术突破却因开源协议的突然\"变脸\"在开发者社区引发轩然大波——MiniMax M2.7明确禁止商业用途，除非获得公司书面授权，与其前代M2.5系列采用的宽松MIT协议形成鲜明对比。\n\n许可证突变：从MIT到\"严禁商用\"\n\n根据Hugging Face上公布的许可证文件，MiniMax M2.7采用了一份名为…",
+    "source": "开源中国-全部 - 局",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-04-15T11:09:32.518Z",
+    "fetchedAt": "2026-04-15T17:17:54.194Z",
+    "eventKey": "minimax-开源协议引争议-严禁商业用途-开发者质疑“伪开源”",
+    "normalizedTitle": "minimax m2 7 开源协议引争议 严禁商业用途 开发者质疑“伪开源”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 局"
+    ],
+    "preFilterScore": 276.776251372518
+  },
+  {
+    "id": "folo-267204604659238912",
+    "title": "南非任命种族隔离时期的谈判代表出任驻美大使",
+    "url": "https://www.ft.com/content/f16cde6d-c34c-4924-bcd4-27ee1225d79f",
+    "content": "South Africa selects apartheid-era negotiator as US ambassador (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-04-15T11:05:58.406Z",
+    "fetchedAt": "2026-04-15T17:17:54.194Z",
+    "eventKey": "南非任命种族隔离时期的谈判代表出任驻美大使",
+    "normalizedTitle": "南非任命种族隔离时期的谈判代表出任驻美大使",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 82.776251158406
+  },
+  {
+    "id": "folo-267204604659238913",
+    "title": "特朗普警告称，他可能会撕毁与英国的贸易协议",
+    "url": "https://www.ft.com/content/2cbe9668-d858-468c-86cc-08fd3dc725f3",
+    "content": "Trump warns he could rip up trade deal with UK (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-04-15T11:05:57.449Z",
+    "fetchedAt": "2026-04-15T17:17:54.194Z",
+    "eventKey": "特朗普警告称-他可能会撕毁与英国的贸易协议",
+    "normalizedTitle": "特朗普警告称 他可能会撕毁与英国的贸易协议",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 66.776251157449
+  },
+  {
+    "id": "folo-267267218949016578",
+    "title": "Tria交易竞赛：交易Tria（TRIA），分享20万美元等值奖励",
+    "url": "https://www.binance.com/zh-CN/support/announcement/e4447c854c944edba03a1fb307fc9abe",
+    "content": "Tria交易竞赛：交易Tria（TRIA），分享20万美元等值奖励",
+    "source": "Binance Announcement",
+    "sourceId": "folo-ai-list-229203178378568704",
+    "category": "tech",
+    "publishedAt": "2026-04-15T11:00:08.258Z",
+    "fetchedAt": "2026-04-15T17:17:54.194Z",
+    "eventKey": "tria交易竞赛-交易tria-tria-分享20万美元等值奖励",
+    "normalizedTitle": "tria交易竞赛 交易tria tria 分享20万美元等值奖励",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Binance Announcement"
+    ],
+    "preFilterScore": 34.776250808258
+  },
+  {
+    "id": "folo-267204604663433216",
+    "title": "标普警告称，银行对交易公司的风险敞口激增，正造成“内在脆弱性”",
+    "url": "https://www.ft.com/content/942b091b-add3-4ffd-911a-6a9d9738f2ea",
+    "content": "Banks’ soaring exposure to trading firms creating ‘inherent fragility’, warns S&P (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "ai",
+    "publishedAt": "2026-04-15T10:17:43.008Z",
+    "fetchedAt": "2026-04-15T17:17:54.194Z",
+    "eventKey": "标普警告称-银行对交易公司的风险敞口激增-正造成“内在脆弱性”",
+    "normalizedTitle": "标普警告称 银行对交易公司的风险敞口激增 正造成“内在脆弱性”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 101.776248263008
+  },
+  {
+    "id": "folo-267183495326966784",
+    "title": "Want to Write a Compiler? Just Read These Two Papers (2008)",
+    "url": "https://prog21.dadgum.com/30.html",
+    "content": "A 2008 Hacker News discussion highlights two key research papers that outline the foundational theory and practical methodology for building compilers, providing essential guidance for anyone aiming to develop a compiler from scratch.",
+    "source": "Hacker News - downbad_",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "social",
+    "publishedAt": "2026-04-15T10:14:26.913Z",
+    "fetchedAt": "2026-04-15T17:17:54.194Z",
+    "eventKey": "want-write-compiler-just-read-these",
+    "normalizedTitle": "want to write a compiler just read these two papers 2008",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - downbad_"
+    ],
+    "preFilterScore": 145.776248066913
+  },
+  {
+    "id": "folo-267183495326966809",
+    "title": "Direct Win32 API, Weird-Shaped Windows, and Why They Mostly Disappeared",
+    "url": "https://warped3.substack.com/p/direct-win32-api-weird-shaped-windows",
+    "content": "Comments on Hacker News | Source",
+    "source": "Hacker News - birdculture",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "social",
+    "publishedAt": "2026-04-15T10:14:26.888Z",
+    "fetchedAt": "2026-04-15T17:17:54.194Z",
+    "eventKey": "direct-win32-api-weird-shaped-windows-why",
+    "normalizedTitle": "direct win32 api weird-shaped windows and why they mostly disappeared",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - birdculture"
+    ],
+    "preFilterScore": -56.223751933112
+  },
+  {
+    "id": "folo-267207906058849282",
+    "title": "一艘受制裁中国油轮在驶出霍尔木兹海峡后折返，停泊在伊朗附近",
+    "url": "https://cn.wsj.com/articles/%E4%B8%80%E8%89%98%E5%8F%97%E5%88%B6%E8%A3%81%E4%B8%AD%E5%9B%BD%E6%B2%B9%E8%BD%AE%E5%9C%A8%E9%A9%B6%E5%87%BA%E9%9C%8D%E5%B0%94%E6%9C%A8%E5%85%B9%E6%B5%B7%E5%B3%A1%E5%90%8E%E6%8A%98%E8%BF%94-%E5%81%9C%E6%B3%8A%E5%9C%A8%E4%BC%8A%E6%9C%97%E9%99%84%E8%BF%91-a0927b45",
+    "content": "The oil and chemical tanker Rich Starry, which is under sanctions for dealings with Iran, turned back after exiting the Strait of Hormuz and is currently docked near the Iranian coastline.",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "politics",
+    "publishedAt": "2026-04-15T10:04:00.309Z",
+    "fetchedAt": "2026-04-15T17:17:54.194Z",
+    "eventKey": "一艘受制裁中国油轮在驶出霍尔木兹海峡后折返-停泊在伊朗附近",
+    "normalizedTitle": "一艘受制裁中国油轮在驶出霍尔木兹海峡后折返 停泊在伊朗附近",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 189.776247440309
+  },
+  {
+    "id": "folo-267267218949016579",
+    "title": "币安移除部分现货交易对的公告 - 2026-04-17",
+    "url": "https://www.binance.com/zh-CN/support/announcement/c621ffe8d8474540b63c521568a5b95c",
+    "content": "币安移除部分现货交易对的公告 - 2026-04-17",
+    "source": "Binance Announcement",
+    "sourceId": "folo-ai-list-229203178378568704",
+    "category": "tech",
+    "publishedAt": "2026-04-15T10:00:00.203Z",
+    "fetchedAt": "2026-04-15T17:17:54.194Z",
+    "eventKey": "币安移除部分现货交易对的公告-2026-04-17",
+    "normalizedTitle": "币安移除部分现货交易对的公告 - 2026-04-17",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Binance Announcement"
+    ],
+    "preFilterScore": 28.776247200203
+  },
+  {
+    "id": "folo-267183428843065344",
+    "title": "Replit's CEO on Vibe Coding, Wealth Building, and What Most People Get Wrong About AI",
+    "url": "https://a16z.simplecast.com/episodes/replits-ceo-on-vibe-coding-wealth-building-and-what-most-people-get-wrong-about-ai-YIXmaTPH",
+    "content": "Replit CEO Amjad Masad discusses how AI lowers barriers to software creation, the company’s growth to $250 million in annual revenue, his rejection of a $1 billion buyout, and his belief that AI empowers rather than threatens society.",
+    "source": "The a16z Show - content+a16zpodcast@a16z.com (Jack Neel, Amjad Masad)",
+    "sourceId": "folo-ai-list-43255084704601095",
+    "category": "business",
+    "publishedAt": "2026-04-15T10:00:00.183Z",
+    "fetchedAt": "2026-04-15T17:17:54.194Z",
+    "eventKey": "replit-ceo-vibe-coding-wealth-building",
+    "normalizedTitle": "replit s ceo on vibe coding wealth building and what most people get wrong about ai",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "The a16z Show - content+a16zpodcast@a16z.com (Jack Neel, Amjad Masad)"
+    ],
+    "preFilterScore": 235.776247200183
+  },
+  {
+    "id": "folo-267247386371289089",
+    "title": "北京InfoComm China 2026今天启幕，顶尖科技品牌齐聚亮相",
+    "url": "https://www.oschina.net/news/421242",
+    "content": "(北京，2026年4月15日发布) 北京 InfoComm China 2026 今天在北京国家会议中心（CNCC）盛大启幕，展会将持续至 4 月 17 日（周五）。本届展会不仅迎来品牌二十周年重要里程碑，更为 2027 年第二十届北京 InfoComm China 奏响精彩序章。 本届展会在国际化布局上迈出重要步伐：重磅推出国际观众招募计划与特邀买家计划，并集中推介百余家具备出口实力的优质参展商。同期高峰论坛及专业议题紧密围绕国家 “十五五” 规划方向，聚焦人工智能发展、协作场景构建与物联网生态三大核心领域，全面呈现前沿专业视听技术与产业创新成果。…",
+    "source": "开源中国-全部 - 开源科技",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-04-15T09:47:00.052Z",
+    "fetchedAt": "2026-04-15T17:17:54.194Z",
+    "eventKey": "北京infocomm-china-2026今天启幕-顶尖科技品牌齐聚亮相",
+    "normalizedTitle": "北京infocomm china 2026今天启幕 顶尖科技品牌齐聚亮相",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 开源科技"
+    ],
+    "preFilterScore": 280.776246420052
+  },
+  {
+    "id": "folo-267247386371289090",
+    "title": "合肥朋友集合！本周六线下围观模力方舟“口袋龙虾”",
+    "url": "https://www.oschina.net/news/421238",
+    "content": "4月18日（本周六），腾讯云开发者社区「龙虾公开课」将落地合肥。 免费线下AI Agent实战课，零基础也能冲！\n\n✅ 1对1装机指导｜现场实操工坊\n ✅ 产品演进+Agent趋势｜真实落地案例\n ✅ 办公 / 设计 / 养殖 / 游戏多场景上手\n 📒 到场还有腾讯限定龙虾周边和龙虾实操指南\n\n⏰ 13:00 公益装机｜14:00 正式开始\n 📍 合肥·高新区中安创谷科技园二期 H1 栋（国际会客厅）\n 🦞 带电脑来，手把手教你养龙虾！\n\n💡欢迎扫描上图二维码报名「龙虾公开课」\n\n🍠开源中国创始人&CTO红薯将带上模力方舟“口袋龙虾”，发表主题演讲…",
+    "source": "开源中国-全部 - 局",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-04-15T09:40:14.276Z",
+    "fetchedAt": "2026-04-15T17:17:54.194Z",
+    "eventKey": "合肥朋友集合-本周六线下围观模力方舟“口袋龙虾”",
+    "normalizedTitle": "合肥朋友集合 本周六线下围观模力方舟“口袋龙虾”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 局"
+    ],
+    "preFilterScore": 284.776246014276
+  },
+  {
+    "id": "folo-267247386371289091",
+    "title": "Git for Windows 2.53.0(3) 发布",
+    "url": "https://www.oschina.net/news/421227",
+    "content": "Git for Windows v2.53.0(3) 现已发布。这是一个安全修复版本，解决了 CVE-2026-32631 漏洞： CVE-2026-32631，Git for Windows：当用户克隆包含指向网络驱动器的符号链接的仓库时，Git 会在检出过程中跟随这些符号链接，导致 Windows 系统透明地执行 NTLM 身份验证，并将用户的 NTLMv2 哈希值泄露给攻击者控制的服务器。由于 NTLM 哈希算法本身存在安全漏洞，攻击者可以通过暴力破解的方式获取用户的凭据。此漏洞已通过阻止 git clone在检出过程中跟随指向网络驱动器的符号…",
+    "source": "开源中国-全部 - 白开水不加糖",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-04-15T09:13:49.222Z",
+    "fetchedAt": "2026-04-15T17:17:54.194Z",
+    "eventKey": "git-windows",
+    "normalizedTitle": "git for windows 2 53 0 3 发布",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 白开水不加糖"
+    ],
+    "preFilterScore": 280.776244429222
+  },
+  {
+    "id": "folo-267183204187768834",
+    "title": "南港凶杀案调查揭示的残酷真相",
+    "url": "https://www.ft.com/content/8097209f-253b-4aaf-8496-197e70cd2063",
+    "content": "The Southport killings investigation uncovered harsh realities about the case. Authorities revealed that the series of murders in the area had deeper, more disturbing motives and patterns than initially suspected. The inquiry highlighted systemic failures in local law‑enforcement procedures, oversight lapses, and the complexity of the suspects’ backgrounds. These findings underscore the need for reforms in investigative protocols and community engagement to prevent similar tragedies.",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "ai",
+    "publishedAt": "2026-04-15T08:57:53.431Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "南港凶杀案调查揭示的残酷真相",
+    "normalizedTitle": "南港凶杀案调查揭示的残酷真相",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 489.776243473431
+  },
+  {
+    "id": "folo-267247386371289092",
+    "title": "智连无界 七载深耕--汉枫医疗以数据智联与AI应用赋能医疗高质量发展",
+    "url": "https://www.oschina.net/news/421222",
+    "content": "近日，汉枫医疗董事长兼CEO卢朝霞教授在2026中国医学装备大会围绕企业发展成果、核心技术布局、行业痛点破解及未来创新方向全面解读汉枫医疗以“智连无界”为核心理念，赋能医院高质量发展的核心路径，展现了企业七载沉淀后的硬核实力与发展潜力。 汉枫医疗始终聚焦智慧医疗场景创新，深耕AI与物联网技术融合应用，立足医疗行业高质量发展时代机遇，从技术底座搭建到场景落地应用，从单点技术突破到全栈生态构建，逐步成长为医疗物联网领域的领军创新企业，用技术实力守护医疗安全、优化医疗服务、提升行业效率。\n\n锚定医疗信创刚需 构建全栈自主可控技术底座\n\n当前…",
+    "source": "开源中国-全部 - 开源科技",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-04-15T08:55:41.456Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "智连无界-七载深耕--汉枫医疗以数据智联与ai应用赋能医疗高质量发展",
+    "normalizedTitle": "智连无界 七载深耕--汉枫医疗以数据智联与ai应用赋能医疗高质量发展",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 开源科技"
+    ],
+    "preFilterScore": 272.776243341456
+  },
+  {
+    "id": "folo-267247386371289093",
+    "title": "百度 Create 大会官宣三大核心看点，国内最大 AI 开发者嘉年华 5 月北京揭幕",
+    "url": "https://www.oschina.net/news/421217",
+    "content": "5月13日至14日，国内最大规模的AI开发者嘉年华——Create2026百度AI开发者大会将在北京拉开帷幕。本届大会以“万物一体”为主题，首次将“Create百度AI开发者大会”与“云智大会”合二为一，集中展示百度智能云AI Infra与Agent Infra重大技术突破、“超级个体”生产力工具链、龙虾全家桶全场景智能体验三大核心看点。对于寻求AI落地的企业决策者而言，这意味着可以在两天内一次性获取百度智能云的全栈技术图谱；对于开发者而言，则意味着全景把握 AI 技术栈最新演进方向的关键窗口已经打开。  \n\n看点一：百度智能云AI Infra 与…",
+    "source": "开源中国-全部 - 卡卡西xi",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-04-15T08:47:26.802Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "create-大会官宣三大核心看点-国内最大-开发者嘉年华-月北京揭幕",
+    "normalizedTitle": "百度 create 大会官宣三大核心看点 国内最大 ai 开发者嘉年华 5 月北京揭幕",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 卡卡西xi"
+    ],
+    "preFilterScore": 279.776242846802
+  },
+  {
+    "id": "folo-267153152750363648",
+    "title": "Peter Steinberger – WhatsApp CLI: sync, search, send",
+    "url": "https://github.com/steipete/wacli",
+    "content": "Peter Steinberger has released a command‑line interface for WhatsApp that syncs chats, allows searching messages, and sends new ones.",
+    "source": "Hacker News - dinakars777",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "social",
+    "publishedAt": "2026-04-15T08:14:03.929Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "peter-steinberger-whatsapp-cli-sync-search",
+    "normalizedTitle": "peter steinberger – whatsapp cli sync search send",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - dinakars777"
+    ],
+    "preFilterScore": 44.776240843929
+  },
+  {
+    "id": "folo-267247386371289094",
+    "title": "以 Nano-vLLM 为例，深入理解 LLM 推理引擎",
+    "url": "https://www.oschina.net/news/421201",
+    "content": "这篇文章没有停留在理论层面，而是深入 Nano-vLLM ------ 一个由 DeepSeek 贡献者开源的、仅 1200 行代码却完整实现 vLLM 核心机制的推理引擎。从生产者 - 消费者调度器如何平衡吞吐量与延迟，到 BlockManager 如何通过哈希实现前缀缓存，再到张量并行下 Leader-Worker 的共享内存通信，文章用清晰的工程视角拆解了从提示词到输出词元的完整路径。",
+    "source": "开源中国-全部 - 白开水不加糖",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-04-15T08:08:14.054Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "nano-vllm-深入理解-llm-推理引擎",
+    "normalizedTitle": "以 nano-vllm 为例 深入理解 llm 推理引擎",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 白开水不加糖"
+    ],
+    "preFilterScore": 198.776240494054
+  },
+  {
+    "id": "folo-267247386371289095",
+    "title": "HeteroFlow 异构算力调度平台",
+    "url": "https://www.oschina.net/news/421192",
+    "content": "异构算力统一调度平台 — 让每一张国产 GPU 都物尽其用 为什么选择 HeteroFlow？\n\n在国产 GPU 快速发展的今天，数据中心面临着前所未有的挑战：摩尔线程、海光、寒武纪、昇腾、壁仞、昆仑芯……品牌众多、架构各异，每一家都有独立的驱动和管理工具。算力碎片化、资源利用率低、运维成本高企，已经成为行业普遍痛点。\n\nHeteroFlow v2 企业版，正是为解决这一问题而生。\n\n我们提供一套统一的异构算力调度平台，一张面板纳管所有 GPU，一套调度引擎分配所有算力，一条命令部署所有节点。\n\n核心能力总览\n能力域 * 说明 *\n\n--…",
+    "source": "开源中国-全部 - heteroflow",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-04-15T07:48:48.680Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "heteroflow-异构算力调度平台",
+    "normalizedTitle": "heteroflow 异构算力调度平台",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - heteroflow"
+    ],
+    "preFilterScore": 274.77623932868
+  },
+  {
+    "id": "folo-267141826175043585",
+    "title": "ASML上调2026年业绩预期，得益于AI芯片热潮",
+    "url": "https://www.ft.com/content/729b49cc-b897-496d-93ca-2792b247577d",
+    "content": "ASML has increased its 2026 earnings forecast, citing strong demand for AI chips as a major contributor. The company’s upgraded outlook reflects expectations that the AI-driven semiconductor market will continue to expand, boosting ASML’s sales of lithography equipment.",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "business",
+    "publishedAt": "2026-04-15T06:17:36.995Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "asml上调2026年业绩预期-得益于ai芯片热潮",
+    "normalizedTitle": "asml上调2026年业绩预期 得益于ai芯片热潮",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 271.776233856995
+  },
+  {
+    "id": "folo-267136212556336143",
+    "title": "美国关税退还流程将于下周启动",
+    "url": "https://cn.wsj.com/articles/process-to-refund-tariffs-to-begin-next-week-4005cecd",
+    "content": "The Trump administration plans to start processing tariff refund requests next week. Over 3,000 companies have filed lawsuits in trade court seeking reimbursement of the duties imposed.",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "politics",
+    "publishedAt": "2026-04-15T05:52:00.376Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "美国关税退还流程将于下周启动",
+    "normalizedTitle": "美国关税退还流程将于下周启动",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 186.776232320376
+  },
+  {
+    "id": "folo-267110142469736448",
+    "title": "耶伦称，特朗普推动美国降息的做法堪比“香蕉共和国”",
+    "url": "https://www.ft.com/content/fcc0e47b-589b-49da-992c-f309a4783e23",
+    "content": "Trump’s push to cut US interest rates akin to ‘banana republic’, says Yellen (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "investment",
+    "publishedAt": "2026-04-15T04:58:02.690Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "耶伦称-特朗普推动美国降息的做法堪比“香蕉共和国”",
+    "normalizedTitle": "耶伦称 特朗普推动美国降息的做法堪比“香蕉共和国”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 96.77622908269
+  },
+  {
+    "id": "folo-267110142469736449",
+    "title": "CEO聊天机器人时代即将到来",
+    "url": "https://www.ft.com/content/782b1eee-5a64-4b2d-8cbf-35c5eb4c534e",
+    "content": "A new era of CEO chatbot technology is emerging, as discussed in recent analysis. The article explains how advanced AI conversational tools are poised to play significant roles in corporate leadership and decision‑making. It outlines the tools’ growing capabilities, potential benefits for business communication, and challenges organizations will face as they integrate these virtual executives.",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "ai",
+    "publishedAt": "2026-04-15T04:58:01.690Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "ceo聊天机器人时代即将到来",
+    "normalizedTitle": "ceo聊天机器人时代即将到来",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 397.77622908169
+  },
+  {
+    "id": "folo-267110142469736450",
+    "title": "苏丹残酷战争的余波蔓延至邻国",
+    "url": "https://www.ft.com/content/75152bb8-ab6c-41a4-8caf-87b79d6394e3",
+    "content": "Fallout from vicious Sudan war spills across borders (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "politics",
+    "publishedAt": "2026-04-15T04:58:00.796Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "苏丹残酷战争的余波蔓延至邻国",
+    "normalizedTitle": "苏丹残酷战争的余波蔓延至邻国",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 72.776229080796
+  },
+  {
+    "id": "folo-267110142469736463",
+    "title": "随着欧洲债券市场的新“替罪羊”出现，“Bifs”取代了“Piigs”",
+    "url": "https://www.ft.com/content/d2d32518-1622-4c45-9ada-569b67c8e4b6",
+    "content": "‘Bifs’ replace ‘Piigs’ as Europe’s bond market whipping boys (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "investment",
+    "publishedAt": "2026-04-15T04:25:44.491Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "随着欧洲债券市场的新“替罪羊”出现-“bifs”取代了“piigs”",
+    "normalizedTitle": "随着欧洲债券市场的新“替罪羊”出现 “bifs”取代了“piigs”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 80.776227144491
+  },
+  {
+    "id": "folo-267110142469736465",
+    "title": "民主党人警告称，在美国中期选举前不应激怒这个价值3亿美元的人工智能游说团体",
+    "url": "https://www.ft.com/content/7529e4cd-e336-4b75-917b-84f91bc48437",
+    "content": "Democrats cautioned against angering 300mn AI lobby ahead of US midterms (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "ai",
+    "publishedAt": "2026-04-15T04:25:43.442Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "民主党人警告称-在美国中期选举前不应激怒这个价值3亿美元的人工智能游说团体",
+    "normalizedTitle": "民主党人警告称 在美国中期选举前不应激怒这个价值3亿美元的人工智能游说团体",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 92.776227143442
+  },
+  {
+    "id": "folo-267110142469736466",
+    "title": "“中国冲击2.0”：欧洲应否抵制中国投资？",
+    "url": "https://www.ft.com/content/873ac1ea-8924-4600-b67d-0c078b917b55",
+    "content": "China shock 2.0: Should Europe repel Chinese investment? (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "investment",
+    "publishedAt": "2026-04-15T04:25:42.908Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "“中国冲击2-欧洲应否抵制中国投资",
+    "normalizedTitle": "“中国冲击2 0” 欧洲应否抵制中国投资",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 76.776227142908
+  },
+  {
+    "id": "folo-267115033468619778",
+    "title": "美国封锁生效后，一艘受制裁中国油轮在霍尔木兹海峡掉头返回波斯湾",
+    "url": "https://cn.wsj.com/articles/the-ships-sailing-through-the-strait-of-hormuz-hours-into-u-s-blockade-of-iranian-ports-ceea1657",
+    "content": "A Chinese oil tanker, subject to sanctions, attempted to exit the Strait of Hormuz but reportedly turned back and returned to the Persian Gulf.",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "politics",
+    "publishedAt": "2026-04-15T04:11:00.627Z",
+    "fetchedAt": "2026-04-15T17:17:56.892Z",
+    "eventKey": "美国封锁生效后-一艘受制裁中国油轮在霍尔木兹海峡掉头返回波斯湾",
+    "normalizedTitle": "美国封锁生效后 一艘受制裁中国油轮在霍尔木兹海峡掉头返回波斯湾",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 144.776226260627
+  },
+  {
+    "id": "folo-267073422747520004",
+    "title": "纳指创2021年以来最长连涨纪录，投资者将目光投向战争之后",
+    "url": "https://cn.wsj.com/articles/%E7%BA%B3%E6%8C%87%E5%88%9B2021%E5%B9%B4%E4%BB%A5%E6%9D%A5%E6%9C%80%E9%95%BF%E8%BF%9E%E6%B6%A8%E7%BA%AA%E5%BD%95-%E6%8A%95%E8%B5%84%E8%80%85%E5%B0%86%E7%9B%AE%E5%85%89%E6%8A%95%E5%90%91%E6%88%98%E4%BA%89%E4%B9%8B%E5%90%8E-10d6f736",
+    "content": "The Nasdaq has achieved its longest consecutive rise since 2021, drawing investor attention. Despite one of the world’s most crucial energy chokepoints remaining closed, markets appear undeterred, continuing a strong rebound.",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "investment",
+    "publishedAt": "2026-04-15T02:44:00.953Z",
+    "fetchedAt": "2026-04-15T17:18:00.008Z",
+    "eventKey": "纳指创2021年以来最长连涨纪录-投资者将目光投向战争之后",
+    "normalizedTitle": "纳指创2021年以来最长连涨纪录 投资者将目光投向战争之后",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 226.776221040953
+  },
+  {
+    "id": "folo-267073422747520008",
+    "title": "联邦检察官皮罗的两名副手突访美联储翻修项目工地",
+    "url": "https://cn.wsj.com/articles/jeanine-pirros-prosecutors-make-surprise-visit-to-fed-headquarters-8568768f",
+    "content": "美国联邦检察官皮罗正对美联储耗资25亿美元的办公楼翻新工程展开调查。皮罗热衷于对特朗普属意的目标提起诉讼。",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "investment",
+    "publishedAt": "2026-04-15T02:41:00.836Z",
+    "fetchedAt": "2026-04-15T17:18:00.008Z",
+    "eventKey": "联邦检察官皮罗的两名副手突访美联储翻修项目工地",
+    "normalizedTitle": "联邦检察官皮罗的两名副手突访美联储翻修项目工地",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 54.776220860836
+  },
+  {
+    "id": "folo-267069838848952322",
+    "title": "特朗普暗示数日内将重启美伊对话，美股收高",
+    "url": "https://www.ft.com/content/40218940-4f0f-4aee-9209-2fb713eea736",
+    "content": "US stocks close higher after Trump floats new US-Iran talks within days (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "investment",
+    "publishedAt": "2026-04-15T00:58:02.933Z",
+    "fetchedAt": "2026-04-15T17:18:00.008Z",
+    "eventKey": "特朗普暗示数日内将重启美伊对话-美股收高",
+    "normalizedTitle": "特朗普暗示数日内将重启美伊对话 美股收高",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 91.776214682933
+  },
+  {
+    "id": "folo-267053348020046859",
+    "title": "AI越来越聪明，但出错更难被察觉",
+    "url": "https://cn.wsj.com/articles/ai-is-getting-smarter-catching-its-mistakes-is-getting-harder-33e73817",
+    "content": "随着聊天机器人和智能体日益强大且无处不在，要察觉其“误入歧途”的时刻可能并非易事。",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "ai",
+    "publishedAt": "2026-04-15T00:55:00.227Z",
+    "fetchedAt": "2026-04-15T17:18:00.008Z",
+    "eventKey": "ai越来越聪明-但出错更难被察觉",
+    "normalizedTitle": "ai越来越聪明 但出错更难被察觉",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 42.776214500227
+  },
+  {
+    "id": "folo-267053348020046855",
+    "title": "美联储主席提名人凯文·沃什披露巨额财富",
+    "url": "https://cn.wsj.com/articles/%E7%BE%8E%E8%81%94%E5%82%A8%E4%B8%BB%E5%B8%AD%E6%8F%90%E5%90%8D%E4%BA%BA%E5%87%AF%E6%96%87-%E6%B2%83%E4%BB%80%E6%8A%AB%E9%9C%B2%E5%B7%A8%E9%A2%9D%E8%B4%A2%E5%AF%8C-5fffdb0f",
+    "content": "凯文·沃什所持金融资产价值远超1亿美元，其中包括SpaceX和Polymarket的股份。",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "investment",
+    "publishedAt": "2026-04-15T00:40:00.746Z",
+    "fetchedAt": "2026-04-15T17:18:00.008Z",
+    "eventKey": "美联储主席提名人凯文·沃什披露巨额财富",
+    "normalizedTitle": "美联储主席提名人凯文·沃什披露巨额财富",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 46.776213600746
+  },
+  {
+    "id": "folo-267053348020046852",
+    "title": "低估值、轻仓位，为何说中国股市回暖蓄势待发？",
+    "url": "https://cn.wsj.com/articles/cheap-underweighted-and-ready-to-move-why-this-dormant-emerging-market-is-about-to-stage-a-comeback-647ff5a6",
+    "content": "China’s stock market is expected to rally, with CEO and fund manager from Eurizon SLJ Capital predicting a 10% rise by year‑end. The optimism stems from undervaluation and light positioning, suggesting the market is ready for a rebound.",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "business",
+    "publishedAt": "2026-04-15T00:25:00.356Z",
+    "fetchedAt": "2026-04-15T17:18:00.008Z",
+    "eventKey": "低估值-轻仓位-为何说中国股市回暖蓄势待发",
+    "normalizedTitle": "低估值 轻仓位 为何说中国股市回暖蓄势待发",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 237.776212700356
+  },
+  {
+    "id": "folo-267016865619922946",
+    "title": "Lululemon 回应涉嫌含致癌物调查：目前所有产品均不含 PFAS",
+    "url": "https://readhub.cn/topic/8sKFsLiOTGv",
+    "content": "On April 13 the Texas Attorney General launched a civil probe into Lululemon USA to confirm whether its products contain per‑fluoroalkyl substances (PFAS) or mislead consumers. Lululemon’s customer service stated that, as of now, all its products are PFAS‑free and meet market standards. The company reiterated that all items sold in China likewise lack PFAS. The article is for informational purposes only and not investment advice.",
+    "source": "Readhub - 每日早报",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "business",
+    "publishedAt": "2026-04-14T23:13:03.757Z",
+    "fetchedAt": "2026-04-15T17:18:00.008Z",
+    "eventKey": "lululemon-回应涉嫌含致癌物调查-目前所有产品均不含-pfas",
+    "normalizedTitle": "lululemon 回应涉嫌含致癌物调查 目前所有产品均不含 pfas",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报"
+    ],
+    "preFilterScore": 434.776208383757
+  },
+  {
+    "id": "folo-267016865619922948",
+    "title": "OpenAI 内部备忘录流出：代号 Spud 模型对标 Mythos，正面反击 Anthropic",
+    "url": "https://readhub.cn/topic/8sJicAgNyKH",
+    "content": "OpenAI chief revenue officer Denis DeLara outlined a 2026 Q2 strategy to counter Anthropic. The plan introduces the “Spud” AI model, trained on NVIDIA’s Blackwell chips, and integrates it into core products to advance a SuperApp vision. They are building the Frontier platform to leverage compute reserves for system governance and ecosystem partnerships. DeLara criticizes Anthropic’s limited compute, narrow focus, and revenue inefficiencies, highlighting a broader shift toward enterprise deployment and infrastructure competition.",
+    "source": "Readhub - 每日早报",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "business",
+    "publishedAt": "2026-04-14T23:13:03.755Z",
+    "fetchedAt": "2026-04-15T17:18:00.008Z",
+    "eventKey": "openai-内部备忘录流出-spud-模型对标-mythos-正面反击",
+    "normalizedTitle": "openai 内部备忘录流出 代号 spud 模型对标 mythos 正面反击 anthropic",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报"
+    ],
+    "preFilterScore": 535.776208383755
+  },
+  {
+    "id": "folo-267016865619922951",
+    "title": "2026 斯坦福 AI 指数报告：美国 AI 投资规模是中国的 23 倍，但 AI 模型基本没差距了",
+    "url": "https://readhub.cn/topic/8sJXtJoMjiI",
+    "content": "Stanford’s 2026 AI Index Report shows AI adoption is accelerating worldwide, with generative AI penetration at 53% and 88% of businesses using it. U.S. investment outpaces China by 23×, but China leads in papers, patents, and industrial robot installations; the U.S. dominates top models, high‑value patents, and funding. Nvidia controls over 60% of AI compute capacity. The report highlights issues such as high energy and water usage, model error rates, hallucination, limited transparency, and regulatory lag. Employment effects are uncertain, and public opinion remains mixed.",
+    "source": "Readhub - 每日早报",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "investment",
+    "publishedAt": "2026-04-14T23:13:03.752Z",
+    "fetchedAt": "2026-04-15T17:18:00.008Z",
+    "eventKey": "2026-斯坦福-指数报告-投资规模是中国的-模型基本没差距了",
+    "normalizedTitle": "2026 斯坦福 ai 指数报告 美国 ai 投资规模是中国的 23 倍 但 ai 模型基本没差距了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报"
+    ],
+    "preFilterScore": 581.776208383752
+  },
+  {
+    "id": "folo-267016865619922953",
+    "title": "马斯克入驻 TikTok 认证账号发布首个帖子",
+    "url": "https://readhub.cn/topic/8sHhAjJoj8e",
+    "content": "Elon Musk launched a verified TikTok account on Wednesday, posting his first video and gaining 104,600 followers. A similar verified profile also appears on Instagram but is currently empty. These launches coincide with Musk’s efforts to take SpaceX public. Previously, Musk had criticized rival platforms, announcing in 2023 that he would stop using TikTok, citing addictive AI features and antisemitic content.",
+    "source": "Readhub - 每日早报",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "ai",
+    "publishedAt": "2026-04-14T23:13:03.750Z",
+    "fetchedAt": "2026-04-15T17:18:00.008Z",
+    "eventKey": "马斯克入驻-tiktok-认证账号发布首个帖子",
+    "normalizedTitle": "马斯克入驻 tiktok 认证账号发布首个帖子",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报"
+    ],
+    "preFilterScore": 413.77620838375
+  },
+  {
+    "id": "folo-267016865619922954",
+    "title": "OpenAI 四页内部信曝光：Anthropic 营收注水 80 亿美元",
+    "url": "https://readhub.cn/topic/8sJHVDHM21y",
+    "content": "OpenAI's chief revenue officer sent a four‑page memo to staff questioning the reliability of Anthropic’s reported revenue. Anthropic’s recent claim of $30 billion annual revenue is disputed, with the memo asserting that a “gross‑amount” accounting method inflates earnings by $8 billion, stating true revenue is closer to $22 billion, below OpenAI’s $25 billion. The memo also criticizes Anthropic’s limited compute, subpar Claude experience, narrow focus on programming, and calls for a broader AI ecosystem, while noting OpenAI’s acquisition of Hiro Finance for situational AI talent.",
+    "source": "Readhub - 每日早报",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "business",
+    "publishedAt": "2026-04-14T23:13:03.749Z",
+    "fetchedAt": "2026-04-15T17:18:00.008Z",
+    "eventKey": "openai-四页内部信曝光-anthropic-营收注水-亿美元",
+    "normalizedTitle": "openai 四页内部信曝光 anthropic 营收注水 80 亿美元",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报"
+    ],
+    "preFilterScore": 587.776208383749
+  },
+  {
+    "id": "folo-267009854018684929",
+    "title": "股价“暴涨”的公司比英伟达更贵",
+    "url": "https://www.ft.com/content/19778ef0-a271-4fb5-98c1-259b9ad948fe",
+    "content": "The ‘deep fried’ stocks more expensive than Nvidia (www.ft.com) 04-15",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "investment",
+    "publishedAt": "2026-04-14T21:29:52.441Z",
+    "fetchedAt": "2026-04-15T17:18:00.008Z",
+    "eventKey": "股价“暴涨”的公司比英伟达更贵",
+    "normalizedTitle": "股价“暴涨”的公司比英伟达更贵",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 70.776202192441
+  },
+  {
+    "id": "folo-267028193931669504",
+    "title": "美国正掀起一场税务抗议浪潮",
+    "url": "https://www.economist.com/united-states/2026/04/14/a-tax-revolt-is-under-way-in-america",
+    "content": "A growing tax revolt is emerging across the United States, with increasing public opposition to current tax policies. The movement highlights dissatisfaction with tax burdens, advocating for reforms and greater transparency. Supporters claim that changes are needed to ensure fairness and economic stability, while critics argue that such protests could undermine fiscal responsibility. The dispute reflects deeper societal tensions over government spending, revenue collection, and the role of taxes in economic policy.",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "business",
+    "publishedAt": "2026-04-14T20:57:53.570Z",
+    "fetchedAt": "2026-04-15T17:18:00.008Z",
+    "eventKey": "美国正掀起一场税务抗议浪潮",
+    "normalizedTitle": "美国正掀起一场税务抗议浪潮",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 521.77620027357
+  },
+  {
+    "id": "folo-267009911921025025",
+    "title": "Use-case based deployments on SageMaker JumpStart",
+    "url": "https://aws.amazon.com/blogs/machine-learning/use-case-based-deployments-on-sagemaker-jumpstart/",
+    "content": "Amazon SageMaker JumpStart provides pretrained models for a wide range of problem types to help you get started with AI workloads. SageMaker JumpStart offers access to solutions for top use cases that can be deployed to SageMaker AI Managed Inference endpoints or SageMaker…",
+    "source": "Artificial Intelligence - Dan Ferguson",
+    "sourceId": "folo-ai-list-41459996870678532",
+    "category": "ai",
+    "publishedAt": "2026-04-14T18:14:54.556Z",
+    "fetchedAt": "2026-04-15T17:18:04.073Z",
+    "eventKey": "use-case-based-deployments-sagemaker-jumpstart",
+    "normalizedTitle": "use-case based deployments on sagemaker jumpstart",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Artificial Intelligence - Dan Ferguson"
+    ],
+    "preFilterScore": 275.776190494556
+  },
+  {
+    "id": "folo-267009911921025026",
+    "title": "Best practices to run inference on Amazon SageMaker HyperPod",
+    "url": "https://aws.amazon.com/blogs/machine-learning/best-practices-to-run-inference-on-amazon-sagemaker-hyperpod/",
+    "content": "Deploying and scaling foundation models for generative AI inference presents challenges for organizations. Teams often struggle with complex infrastructure setup, unpredictable traffic patterns that lead to over-provisioning or performance bottlenecks, and the operational…",
+    "source": "Artificial Intelligence - Vinay Arora",
+    "sourceId": "folo-ai-list-41459996870678532",
+    "category": "ai",
+    "publishedAt": "2026-04-14T18:09:22.650Z",
+    "fetchedAt": "2026-04-15T17:18:04.073Z",
+    "eventKey": "best-practices-run-inference-amazon-sagemaker",
+    "normalizedTitle": "best practices to run inference on amazon sagemaker hyperpod",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Artificial Intelligence - Vinay Arora"
+    ],
+    "preFilterScore": 274.77619016265
+  },
+  {
+    "id": "folo-267009911921025027",
+    "title": "How Guidesly built AI-generated trip reports for outdoor guides on AWS",
+    "url": "https://aws.amazon.com/blogs/machine-learning/how-guidesly-built-ai-generated-trip-reports-for-outdoor-guides-on-aws/",
+    "content": "This is guest post by David Lord, Taylor Lord, Shiva Prasad, Anup Banasavalli Hiriyanagowda, Nikhil Chandra from Guidesly. Guidesly is reshaping how outdoor recreation is booked, run, and experienced. Founded in 2019, it began as a way to connect anglers, hunters, divers, and…",
+    "source": "Artificial Intelligence - David Lord, Taylor Lord, Shiva Prasad, Anup Banasavalli Hiriyanagowda, Nikhil Chandra",
+    "sourceId": "folo-ai-list-41459996870678532",
+    "category": "ai",
+    "publishedAt": "2026-04-14T18:02:56.327Z",
+    "fetchedAt": "2026-04-15T17:18:04.073Z",
+    "eventKey": "how-guidesly-built-ai-generated-trip-reports",
+    "normalizedTitle": "how guidesly built ai-generated trip reports for outdoor guides on aws",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Artificial Intelligence - David Lord, Taylor Lord, Shiva Prasad, Anup Banasavalli Hiriyanagowda, Nikhil Chandra"
+    ],
+    "preFilterScore": 278.776189776327
+  },
+  {
+    "id": "folo-267028193931669506",
+    "title": "当债券无法为股票提供缓冲时，如何构建投资组合",
+    "url": "https://www.economist.com/finance-and-economics/2026/04/14/how-to-build-a-portfolio-when-bonds-fail-to-buffer-stocks",
+    "content": "The article discusses strategies for constructing an investment portfolio when government bonds no longer act as a cushion against stock market volatility. It highlights the erosion of bond‑stock correlation, warns about relying on traditional diversification, and proposes alternative approaches such as incorporating real assets, global equities, and different risk‑horizon allocations. It encourages investors to reassess their asset‑allocation principles, focus on resilience, and embrace more nuanced portfolio construction that moves beyond conventional bond–equity hedging.",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "investment",
+    "publishedAt": "2026-04-14T17:29:50.703Z",
+    "fetchedAt": "2026-04-15T17:18:04.073Z",
+    "eventKey": "当债券无法为股票提供缓冲时-如何构建投资组合",
+    "normalizedTitle": "当债券无法为股票提供缓冲时 如何构建投资组合",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 581.776187790703
+  },
+  {
+    "id": "folo-267028193931669508",
+    "title": "争夺女性选民的角逐正在改变印度的选举格局",
+    "url": "https://www.economist.com/asia/2026/04/14/a-battle-for-female-voters-is-changing-indias-elections",
+    "content": "The struggle to win over women voters is reshaping India’s electoral dynamics. Political parties are increasingly tailoring campaigns, policies, and outreach strategies to appeal to female constituents, recognizing their growing influence and turnout. This shift is altering campaign priorities, candidate selection, and issue focus, making voter gender a decisive factor in election outcomes across the country.",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "politics",
+    "publishedAt": "2026-04-14T16:25:49.776Z",
+    "fetchedAt": "2026-04-15T17:18:04.073Z",
+    "eventKey": "争夺女性选民的角逐正在改变印度的选举格局",
+    "normalizedTitle": "争夺女性选民的角逐正在改变印度的选举格局",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 413.776183949776
+  }
+]
