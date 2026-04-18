@@ -125,6 +125,16 @@
       "dailyCap": 6
     },
     {
+      "id": "github-trending",
+      "type": "folo",
+      "url": "https://rsshub.app/github/trending/daily/any",
+      "category": "software",
+      "name": "GitHub Trending",
+      "weight": 78,
+      "tier": "signal",
+      "dailyCap": 6
+    },
+    {
       "id": "langchain-blog",
       "type": "folo",
       "url": "https://blog.langchain.dev/rss/",
