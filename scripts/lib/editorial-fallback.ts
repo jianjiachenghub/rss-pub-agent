@@ -15,6 +15,7 @@ import {
   isLowSignalCommunityItem,
 } from "./community-source.js";
 import { isDigestLikeItem } from "./digest-source.js";
+import { getGitHubTrendingSoftwareBonus } from "./github-signal.js";
 
 const CATEGORIES: NewsCategory[] = [
   "ai",
@@ -262,9 +263,14 @@ export function buildFallbackGateKeep(
       const scores = computeFallbackDimensions(item, config, agenda);
       const category = classifyEditorialCategory(item.category, item);
       const communityPenalty = getCommunityScorePenalty(item);
+      const githubTrendingBonus = getGitHubTrendingSoftwareBonus({
+        ...item,
+        category,
+      });
       const weightedScore =
         computeBaseScore(scores, config.editorial.scoringWeights) +
         categoryBonus(category, config.editorial, agenda) +
+        githubTrendingBonus +
         (mustCoverIds.has(item.id) ? 8 : 0) -
         communityPenalty;
       return {
@@ -314,9 +320,14 @@ export function buildFallbackScores(
       const category = classifyEditorialCategory(item.category, item);
       const scores = computeFallbackDimensions(item, config, agenda);
       const communityPenalty = getCommunityScorePenalty(item);
+      const githubTrendingBonus = getGitHubTrendingSoftwareBonus({
+        ...item,
+        category,
+      });
       const weightedScore = clamp(
         computeBaseScore(scores, config.editorial.scoringWeights) +
           categoryBonus(category, config.editorial, agenda) +
+          githubTrendingBonus +
           (mustCoverIds.has(item.id) ? 8 : 0) -
           communityPenalty,
         0,

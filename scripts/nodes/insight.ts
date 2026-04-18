@@ -1,5 +1,6 @@
 import type { PipelineStateType } from "../state.js";
 import { callLLMJson } from "../lib/llm.js";
+import { rebalanceInsightsForGitHubTrending } from "../lib/github-signal.js";
 import {
   buildFallbackSections,
   buildInsightContent,
@@ -403,14 +404,18 @@ function finalizeInsights(
   const finalInsights = eligibleInsights
     .sort((left, right) => right.weightedScore - left.weightedScore)
     .slice(0, targetCount);
+  const rebalancedInsights = rebalanceInsightsForGitHubTrending(
+    finalInsights,
+    eligibleInsights
+  );
 
   // Anything that scored well enough to survive scoring but not well enough to
   // become a deep dive is still valuable for the "More in the Last 24h" rail.
-  const finalInsightIds = new Set(finalInsights.map((item) => item.id));
+  const finalInsightIds = new Set(rebalancedInsights.map((item) => item.id));
   const demotedCandidates = scoredItems.filter((item) => !finalInsightIds.has(item.id));
 
   return {
-    insights: finalInsights,
+    insights: rebalancedInsights,
     secondaryItems: mergeSecondaryItems(existingSecondaryItems, demotedCandidates),
   };
 }

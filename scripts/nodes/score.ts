@@ -1,6 +1,7 @@
 import type { PipelineStateType } from "../state.js";
 import { buildFallbackScores } from "../lib/editorial-fallback.js";
 import { callLLMJson, isContentSafetyError } from "../lib/llm.js";
+import { getGitHubTrendingSoftwareBonus } from "../lib/github-signal.js";
 import {
   classifyEditorialCategory,
   getCommunityScorePenalty,
@@ -176,30 +177,40 @@ export async function scoreNode(
 
     const scoreMap = new Map(allScores.map((score) => [score.id, score]));
     const mustCoverIds = new Set(editorialAgenda.mustCoverIds ?? []);
-    const allScoredItems: ScoredNewsItem[] = passedItems
-      .map((item) => {
+    const allScoredItems = passedItems
+      .flatMap((item): ScoredNewsItem[] => {
         const score = scoreMap.get(item.id);
-        if (!score) return null;
+        if (!score) return [];
 
         const normalizedCategory = classifyEditorialCategory(item.category, item);
         const baseScore = computeBaseScore(score.scores, config.editorial.scoringWeights);
         const categoryBonus = getCategoryBonus(normalizedCategory, state);
+        const githubTrendingBonus = getGitHubTrendingSoftwareBonus({
+          ...item,
+          category: normalizedCategory,
+        });
         const mustCoverBonus = mustCoverIds.has(item.id) ? 8 : 0;
         const communityPenalty = getCommunityScorePenalty(item);
         const weightedScore = Math.max(
           0,
-          Math.min(100, baseScore + categoryBonus + mustCoverBonus - communityPenalty)
+          Math.min(
+            100,
+            baseScore +
+              categoryBonus +
+              githubTrendingBonus +
+              mustCoverBonus -
+              communityPenalty
+          )
         );
 
-        return {
+        return [{
           ...item,
           category: normalizedCategory,
           scores: score.scores,
           weightedScore,
           scoreReasoning: score.scoreReasoning,
-        };
+        }];
       })
-      .filter((item): item is ScoredNewsItem => item !== null)
       .sort((a, b) => b.weightedScore - a.weightedScore);
 
     const candidatePoolLimit = Math.min(
