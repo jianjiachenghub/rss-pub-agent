@@ -1,0 +1,11 @@
+(First second begins) Hey, has the investment landscape changed overnight? Don't panic—let's break it down in just 3 seconds!
+
+The biggest signal in the market today is "stability"! U.S. stocks are nearing all-time highs, and while things look lively on the surface, the core trend is actually "steady growth." Chips are up, U.S. Treasuries are up—what does that tell you? The market is betting the Fed will hold interest rates steady, in no rush to pivot. Why? Just look at the data: the U.S. added 115,000 jobs last month, beating expectations and showing the economy still has solid fundamentals. That means expectations for rate cuts are being pushed back, and the likelihood of rates staying "higher for longer" has increased significantly.
+
+But behind this stability, could overheating risks be lurking? You need to stay alert. AI investment might be nearing a "peak frenzy"—a flood of smaller companies are jumping in, which is often a signal of overheated sentiment. Meanwhile, companies driving the AI boom are themselves going through growing pains: Cloudflare cut a fifth of its staff to shift to an "AI-first" model, and even a giant like TSMC, which is riding the AI wave, has seen a slowdown in sales growth.
+
+Here's another trend worth digging into: big players are betting heavily on AI's "hard entry points." Apple is testing AirPods with cameras, aiming to find AI access points beyond the iPhone. Meanwhile, TikTok just got approval to invest 25 billion in building data centers in Thailand. This is a strategic pivot toward Southeast Asia amid pressure in the West—paving the way for localized AI.
+
+Finally, a heads-up: geopolitical risks are heating up again, with shipping disruptions in the Strait of Hormuz. According to JPMorgan, the risk of U.S. gas prices hitting $5 a gallon can no longer be ignored. That could reignite inflation concerns.
+
+In short, today's market may look hot on the surface, but at its core it's "cautiously optimistic" combined with "AI transition pains." Stay steady, keep your rhythm, and stay focused on the main trends.
