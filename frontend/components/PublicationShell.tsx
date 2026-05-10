@@ -58,6 +58,7 @@ export default function PublicationShell({
   children,
 }: PublicationShellProps) {
   const latestDate = dailyIssues[0]?.date;
+  const latestDailyPath = withLocalePath(locale, "/latest");
   const alternateLocale = getAlternateLocale(locale);
   const languageMenuCopy =
     locale === "en"
@@ -157,7 +158,7 @@ export default function PublicationShell({
                 </Link>
                 {latestDate ? (
                   <Link
-                    href={withLocalePath(locale, `/${latestDate}`)}
+                    href={latestDailyPath}
                     className={`header-pill ${activeNav === "daily" ? "header-pill-active" : ""}`}
                   >
                     {navCopy.latestDaily}
@@ -237,7 +238,7 @@ export default function PublicationShell({
             </Link>
             {latestDate ? (
               <Link
-                href={withLocalePath(locale, `/${latestDate}`)}
+                href={latestDailyPath}
                 className={`mobile-nav-link ${activeNav === "daily" ? "is-active" : ""}`}
               >
                 {navCopy.daily}
