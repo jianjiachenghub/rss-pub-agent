@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, Noto_Sans_SC, Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -21,10 +21,30 @@ const monoFont = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  applicationName: "RSS Agent",
   title: "RSS Agent | 基于 LLM 的 News Flow",
   description:
     "RSS Agent 是一个基于 LLM 的 News Flow 与研究归档界面，提供日报、周报、时间线和播客输出。",
-  viewport: "width=device-width, initial-scale=1, viewport-fit=cover",
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: "/icons/rss-agent-icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/rss-agent-icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/icons/rss-agent-icon-192.png", sizes: "192x192", type: "image/png" }],
+  },
+  appleWebApp: {
+    capable: true,
+    title: "RSS Agent",
+    statusBarStyle: "default",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#eef2f7",
 };
 
 export default function RootLayout({
