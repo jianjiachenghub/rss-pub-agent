@@ -5,6 +5,7 @@
   "scripts": {
     "pipeline": "tsx graph.ts",
     "backfill:english": "tsx backfill-english.ts",
+    "test:wechat": "tsx test-wechat-official-account.ts",
     "test": "vitest run",
     "test:watch": "vitest"
   },
