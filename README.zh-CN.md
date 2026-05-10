@@ -200,7 +200,7 @@ content/YYYY-MM-DD/
 | 内容渲染 | react-markdown + remark-gfm |
 | 存储 | Git 内容、`.runtime` 状态、Cloudflare R2 播客音频 |
 | 部署 | GitHub Actions + Vercel |
-| 通知 | 飞书 Webhook / Telegram Bot / 微信 Webhook |
+| 通知 | 飞书 Webhook / Telegram Bot / 微信 Webhook / 微信公众号客服消息 |
 
 ## 快速开始
 
@@ -276,7 +276,11 @@ npm run dev
 | `SILICONFLOW_API_KEY` | 可选的 SiliconFlow 兜底 |
 | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | Telegram 通知 |
 | `FEISHU_WEBHOOK_URL` | 飞书通知 |
-| `WECHAT_WEBHOOK_URL` | 微信通知 |
+| `WECHAT_WEBHOOK_URL` | 微信 Webhook 通知 |
+| `WECHAT_APP_ID`, `WECHAT_APP_SECRET`, `WECHAT_OPENID` | 微信公众号客服消息通知 |
+| `WECHAT_API_KEY` | 可选，作为 `WECHAT_APP_SECRET` 的兼容别名 |
+| `WECHAT_OPENIDS` | 可选，多个公众号接收者 OPENID，逗号分隔 |
+| `WECHAT_ACCESS_TOKEN` | 可选，短期 access_token 覆盖；通常使用 AppID/AppSecret 自动获取 |
 | `R2_ACCESS_KEY`, `R2_SECRET_KEY`, `R2_ACCOUNT_ID`, `R2_BUCKET`, `R2_PUBLIC_DOMAIN` | 播客音频上传 |
 | `REPORT_BASE_URL` | 外部通知里的日报链接 |
 

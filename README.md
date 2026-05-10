@@ -205,7 +205,7 @@ The frontend reads directly from `content/`. Weekly views are generated dynamica
 | Content rendering | react-markdown + remark-gfm |
 | Storage | Git for content, `.runtime` for delivery state, Cloudflare R2 for optional podcast audio |
 | Deployment | GitHub Actions + Vercel |
-| Notifications | Feishu webhook, Telegram bot, WeChat webhook |
+| Notifications | Feishu webhook, Telegram bot, WeChat webhook, WeChat Official Account custom messages |
 
 ## Quick Start
 
@@ -281,7 +281,11 @@ Model selection is also env-driven: use `<PROVIDER>_FLASH_MODEL` and
 | `SILICONFLOW_API_KEY` | Optional SiliconFlow fallback |
 | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | Telegram notifications |
 | `FEISHU_WEBHOOK_URL` | Feishu notifications |
-| `WECHAT_WEBHOOK_URL` | WeChat notifications |
+| `WECHAT_WEBHOOK_URL` | WeChat webhook notifications |
+| `WECHAT_APP_ID`, `WECHAT_APP_SECRET`, `WECHAT_OPENID` | WeChat Official Account custom-message notifications |
+| `WECHAT_API_KEY` | Optional legacy alias for `WECHAT_APP_SECRET` |
+| `WECHAT_OPENIDS` | Optional comma-separated extra Official Account recipients |
+| `WECHAT_ACCESS_TOKEN` | Optional short-lived Official Account token override |
 | `R2_ACCESS_KEY`, `R2_SECRET_KEY`, `R2_ACCOUNT_ID`, `R2_BUCKET`, `R2_PUBLIC_DOMAIN` | Optional podcast audio upload |
 | `REPORT_BASE_URL` | External URL used in delivery messages |
 

@@ -6,6 +6,14 @@ import type { DeliveryRecord, NewsInsight } from "./types.js";
 
 const DEFAULT_MAX_HIGHLIGHTS = 3;
 const MAX_HIGHLIGHTS = 5;
+const WECHAT_CUSTOM_MESSAGE_MAX_CHARS = 1800;
+
+interface WeChatApiPayload {
+  errcode?: number;
+  errmsg?: string;
+  access_token?: string;
+  expires_in?: number;
+}
 
 function clampHighlights(value?: number): number {
   if (typeof value !== "number" || Number.isNaN(value)) {
@@ -108,6 +116,22 @@ export function buildFeishuDigest(params: {
   }
 
   return lines.join("\n").trim();
+}
+
+export function buildWeChatDigest(params: {
+  reportName: string;
+  date: string;
+  dailySummary: string;
+  insights: NewsInsight[];
+  dailyUrl?: string;
+  maxHighlights?: number;
+}): string {
+  const digest = buildFeishuDigest(params);
+  if (digest.length <= WECHAT_CUSTOM_MESSAGE_MAX_CHARS) {
+    return digest;
+  }
+
+  return `${digest.slice(0, WECHAT_CUSTOM_MESSAGE_MAX_CHARS - 3)}...`;
 }
 
 export function buildSummaryPreview(text: string, max = 96): string {
@@ -213,4 +237,103 @@ export async function sendFeishuTextMessage(
     : typeof payload?.data === "string"
       ? payload.data
       : undefined;
+}
+
+function getWeChatApiError(payload: WeChatApiPayload | null): string {
+  if (!payload) return "WeChat API returned an empty response";
+  const code =
+    typeof payload.errcode === "number" ? ` ${payload.errcode}` : "";
+  const message =
+    typeof payload.errmsg === "string" && payload.errmsg.trim()
+      ? `: ${payload.errmsg}`
+      : "";
+  return `WeChat API error${code}${message}`;
+}
+
+async function parseWeChatJson(
+  response: Response
+): Promise<WeChatApiPayload | null> {
+  try {
+    return (await response.json()) as WeChatApiPayload;
+  } catch {
+    return null;
+  }
+}
+
+export async function getWeChatAccessToken(params: {
+  appId: string;
+  appSecret: string;
+}): Promise<string> {
+  const query = new URLSearchParams({
+    grant_type: "client_credential",
+    appid: params.appId,
+    secret: params.appSecret,
+  });
+  const response = await fetch(
+    `https://api.weixin.qq.com/cgi-bin/token?${query.toString()}`,
+    { method: "GET" }
+  );
+  const payload = await parseWeChatJson(response);
+
+  if (!response.ok) {
+    throw new Error(`WeChat access token HTTP ${response.status}`);
+  }
+
+  if (
+    typeof payload?.access_token === "string" &&
+    payload.access_token.trim()
+  ) {
+    return payload.access_token;
+  }
+
+  throw new Error(getWeChatApiError(payload));
+}
+
+export async function sendWeChatOfficialAccountTextMessage(params: {
+  appId?: string;
+  appSecret?: string;
+  accessToken?: string;
+  openId: string;
+  text: string;
+}): Promise<string | undefined> {
+  const accessToken =
+    params.accessToken?.trim() ||
+    (params.appId?.trim() && params.appSecret?.trim()
+      ? await getWeChatAccessToken({
+          appId: params.appId.trim(),
+          appSecret: params.appSecret.trim(),
+        })
+      : "");
+
+  if (!accessToken) {
+    throw new Error(
+      "WeChat Official Account delivery requires WECHAT_ACCESS_TOKEN or WECHAT_APP_ID/WECHAT_APP_SECRET"
+    );
+  }
+
+  const response = await fetch(
+    `https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=${encodeURIComponent(
+      accessToken
+    )}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        touser: params.openId,
+        msgtype: "text",
+        text: { content: params.text },
+      }),
+    }
+  );
+  const payload = await parseWeChatJson(response);
+
+  if (!response.ok) {
+    throw new Error(`WeChat custom message HTTP ${response.status}`);
+  }
+
+  if (!payload || payload.errcode !== 0) {
+    throw new Error(getWeChatApiError(payload));
+  }
+
+  return payload.errmsg;
 }

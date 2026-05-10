@@ -13,7 +13,16 @@
   },
   "wechat": {
     "enabled": false,
-    "webhookUrl": "${WECHAT_WEBHOOK_URL}"
+    "webhookUrl": "${WECHAT_WEBHOOK_URL}",
+    "officialAccount": {
+      "enabled": false,
+      "appId": "${WECHAT_APP_ID}",
+      "appSecret": "${WECHAT_APP_SECRET}",
+      "accessToken": "${WECHAT_ACCESS_TOKEN}",
+      "openIds": ["${WECHAT_OPENID}"],
+      "maxHighlights": 3,
+      "targetName": "daily-report"
+    }
   },
   "xhs": {
     "enabled": true,

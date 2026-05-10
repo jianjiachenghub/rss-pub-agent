@@ -66,10 +66,27 @@ export interface FeishuPlatformConfig {
   targetName?: string;
 }
 
+export interface WeChatOfficialAccountConfig {
+  enabled: boolean;
+  appId?: string;
+  appSecret?: string;
+  accessToken?: string;
+  openId?: string;
+  openIds?: string[];
+  maxHighlights?: number;
+  targetName?: string;
+}
+
+export interface WeChatPlatformConfig {
+  enabled: boolean;
+  webhookUrl?: string;
+  officialAccount?: WeChatOfficialAccountConfig;
+}
+
 export interface PlatformConfig {
   reportBaseUrl?: string;
   telegram: { enabled: boolean; botToken: string; chatId: string };
-  wechat: { enabled: boolean; webhookUrl: string };
+  wechat: WeChatPlatformConfig;
   feishu?: FeishuPlatformConfig;
   xhs: { enabled: boolean; style: string };
   douyin: { enabled: boolean; style: string };
@@ -206,7 +223,7 @@ export type DeliveryStatus = "pending" | "sent" | "failed" | "skipped";
 
 export interface DeliveryRecord {
   date: string;
-  channel: "feishu";
+  channel: "feishu" | "wechat-official-account";
   target: string;
   status: DeliveryStatus;
   attempts: number;

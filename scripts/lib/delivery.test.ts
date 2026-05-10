@@ -1,8 +1,10 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   buildDailyUrl,
   buildFeishuDigest,
+  buildWeChatDigest,
   selectHighlights,
+  sendWeChatOfficialAccountTextMessage,
 } from "./delivery.js";
 import type { NewsInsight } from "./types.js";
 
@@ -35,6 +37,10 @@ function createInsight(overrides: Partial<NewsInsight> = {}): NewsInsight {
 }
 
 describe("delivery helpers", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
   it("builds a stable daily report URL", () => {
     expect(buildDailyUrl("https://example.com/", "2026-03-27")).toBe(
       "https://example.com/2026-03-27"
@@ -99,5 +105,55 @@ describe("delivery helpers", () => {
     expect(digest).toContain("今日 Highlights：");
     expect(digest).toContain("阅读全文：");
     expect(digest).toContain("https://example.com/2026-03-27");
+  });
+
+  it("renders a WeChat digest with a bounded text payload", () => {
+    const digest = buildWeChatDigest({
+      reportName: "Daily",
+      date: "2026-03-27",
+      dailySummary: "x".repeat(3000),
+      insights: [createInsight({ oneLiner: "Key item" })],
+      dailyUrl: "https://example.com/2026-03-27",
+    });
+
+    expect(digest.length).toBeLessThanOrEqual(1800);
+    expect(digest.endsWith("...")).toBe(true);
+  });
+
+  it("fetches an access token before sending a WeChat custom text message", async () => {
+    const fetchMock = vi.fn(
+      async (url: string | URL | Request, init?: RequestInit) => {
+        const value = String(url);
+        if (value.startsWith("https://api.weixin.qq.com/cgi-bin/token?")) {
+          return Response.json({ access_token: "token", expires_in: 7200 });
+        }
+
+        if (
+          value ===
+          "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=token"
+        ) {
+          expect(init?.method).toBe("POST");
+          expect(JSON.parse(String(init?.body))).toEqual({
+            touser: "openid",
+            msgtype: "text",
+            text: { content: "hello" },
+          });
+          return Response.json({ errcode: 0, errmsg: "ok" });
+        }
+
+        throw new Error(`Unexpected URL: ${value}`);
+      }
+    );
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(
+      sendWeChatOfficialAccountTextMessage({
+        appId: "app",
+        appSecret: "secret",
+        openId: "openid",
+        text: "hello",
+      })
+    ).resolves.toBe("ok");
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 });
