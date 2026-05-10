@@ -58,7 +58,9 @@ export default function PublicationShell({
   children,
 }: PublicationShellProps) {
   const latestDate = dailyIssues[0]?.date;
-  const latestDailyPath = withLocalePath(locale, "/latest");
+  const latestDailyPath = latestDate
+    ? withLocalePath(locale, `/${latestDate}`)
+    : withLocalePath(locale, "/latest");
   const alternateLocale = getAlternateLocale(locale);
   const languageMenuCopy =
     locale === "en"
