@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect } from "react";
+
 interface LatestIssueRedirectProps {
   targetPath: string;
   linkLabel: string;
@@ -9,18 +13,18 @@ export default function LatestIssueRedirect({
   linkLabel,
   message,
 }: LatestIssueRedirectProps) {
-  const redirectScript = `window.location.replace(${JSON.stringify(targetPath)});`;
+  useEffect(() => {
+    window.location.replace(targetPath);
+  }, [targetPath]);
 
   return (
-    <main className="page-frame py-16">
-      <script dangerouslySetInnerHTML={{ __html: redirectScript }} />
+    <main className="page-frame py-16" aria-live="polite">
+      <p className="text-sm text-black/60">{message}</p>
       <noscript>
-        <meta httpEquiv="refresh" content={`0;url=${targetPath}`} />
+        <a className="header-pill mt-4 inline-flex" href={targetPath}>
+          {linkLabel}
+        </a>
       </noscript>
-      <a className="header-pill" href={targetPath}>
-        {linkLabel}
-      </a>
-      <p className="mt-4 text-sm text-black/60">{message}</p>
     </main>
   );
 }
