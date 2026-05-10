@@ -1,0 +1,17 @@
+{
+  "date": "2026-05-06",
+  "itemCount": 20,
+  "categories": [
+    "investment",
+    "tech",
+    "business",
+    "ai",
+    "politics",
+    "software",
+    "social"
+  ],
+  "avgScore": 81,
+  "hasPodcast": false,
+  "errors": 0,
+  "generatedAt": "2026-05-06T18:01:33.596Z"
+}
