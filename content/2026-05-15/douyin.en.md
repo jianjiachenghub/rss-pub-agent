@@ -1,0 +1,10 @@
+(Visual: Dynamic tech-themed charts flash rapidly)  
+**First 3-Second Hook:** Think AI has already peaked? Today, two key signals show that the real shockwave is just beginning.
+
+First, the core takeaway: **AI is reshaping the fundamental cost structure of the global economy.** This isn't hype—it's real, impacting your investments and career right now.
+
+First key point: **Corporate cost structures are transforming dramatically.** Top AI firm Anthropic revealed that 90% of their code is written by AI. Note: not assisted, but *completed*. This means the core metric for tech companies will shift from “how many engineers you employ” to “how you use AI tools.” Meanwhile, consulting giant PwC announced full-scale AI deployment across all core services. This signals a complete overhaul for high-skill white-collar roles—lawyers, accountants, consultants. AI is no longer just a tool; it’s a new factor of production.
+
+Second key point: **The cost of the AI arms race is being passed on to everyone.** Giants are borrowing heavily and building data centers worldwide to compete for computing power. The direct result? The largest U.S. power grid expects a 76% surge in electricity bills. This means **the energy costs of AI development may eventually show up on your electricity bill and in the price of all tech products.** Meanwhile, chip stocks plummeted on rising interest rate fears, showing the market is already worried whether this high-investment, high-energy model is sustainable.
+
+So the core message today is this: AI competition has moved beyond a tech race into a new phase—**a cost and energy battle.** It will drive up some foundational costs across society while reshaping profit structures in nearly every industry. Tracking this trend matters more than chasing the latest AI stock hype.
