@@ -1,0 +1,9 @@
+(Hey, big news today!) Folks, here's the most critical take on the global financial markets today: **Risk-free interest rates are rising fast, which likely signals the end of the era of sky-high valuations for tech stocks and all growth-oriented assets.**
+
+Why? The core reason is surging inflationary pressure again—the U.S. 10-year Treasury yield has hit a new high over the past year. This rate serves as the anchor for pricing all assets; when it climbs, parking money in banks (or buying Treasuries) offers higher returns. Naturally, investors are more inclined to pull funds out of riskier stock markets, especially tech stocks with exceptionally high valuations. Just look at today's sharp decline in U.S. stock indices, particularly the Nasdaq.
+
+The first piece of evidence supporting this view is: **The valuation bubble in AI might still be inflating.** According to the Financial Times, star AI company Anthropic could be valued at a staggering $900 billion in its latest funding round! Whether that figure is accurate or not, it sets an extremely high benchmark, pulling up valuation expectations across the entire AI sector in the primary market. But the bigger the bubble grows, the more vulnerable it becomes to being pricked by rising risk-free rates.
+
+The second piece of evidence comes from a field we're more familiar with: **AI's impact on the job market has shifted from theory to reality.** Bloomberg reports that in the U.S., roles easily replaceable by AI have already begun seeing large-scale layoffs. This shows AI's substitution effect is accelerating, directly affecting economic growth and consumer confidence, which in turn fuels risk aversion in the market.
+
+So, to sum up: Inflation is driving up risk-free rates, squeezing the "moisture" out of risk assets, while AI simultaneously inflates valuation bubbles and hits employment in real time. The market is repricing—investors, buckle up.
