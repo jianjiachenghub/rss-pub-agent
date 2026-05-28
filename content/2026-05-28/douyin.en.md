@@ -1,0 +1,13 @@
+Don't scroll away! Tech giants are placing a bet on AI that's out of this world!
+
+Everyone, my core take for today is this: **The AI arms race has entered a "hardcore cash-burning" phase where infrastructure is king.** The future of AI competition will largely hinge on the competition for computing infrastructure.
+
+Why do I say that? Check this headline: **ByteDance** has laid out a potential AI infrastructure spending plan that could hit $70 billion this year. To put that in perspective, that's more than its entire profit last year! The core focus? Building data centers and scrambling for AI chips. And here's the crucial part: due to lower construction costs domestically, it might spend less to build computing power on a scale rivaling that of US giants. This isn't just a domestic market play; it's a clear signal ByteDance is preparing a major move on the global AI battlefield.
+
+The giants aren't just stocking up for themselves; they're also setting the tone for the entire industry. Take another headline: **Amazon AWS** has signed a massive $6 billion order for AI chips with cloud data company Snowflake. This is a key signal. It shows that applications like AI agents have moved beyond the early "let's try it" phase in terms of computing needs, into a commercial stage requiring large-scale, long-term deployment. This also explains why everyone is pouring money into hardware like crazy.
+
+But does burning cash guarantee victory? A seemingly contradictory piece of news serves as a warning: **Uber's president has publicly raised concerns**, revealing the company exhausted its entire annual AI budget in just four months without delivering any user-facing, practical features. This foreshadows an inflection point. Corporate AI procurement is about to shift from experimental, "betting on the dream" budgets to strict scrutiny of ROI. Going forward, for AI companies to earn corporate dollars, having a flashy tech demo won't cut it. They'll need to demonstrate the delivery capability to solve real problems.
+
+So, to sum it up: The AI battlefield has evolved from competing on algorithms and models to a capital-intensive era competing on computing infrastructure. However, the giants' frenzied investment is also starting to spur a cooler-headed evaluation of tangible business returns. This is a dual contest, testing both "financial muscle" and "execution capability."
+
+Follow me to cut through the AI hype and see the real tech trends clearly.
