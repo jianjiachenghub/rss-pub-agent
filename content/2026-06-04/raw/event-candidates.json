@@ -1,0 +1,2358 @@
+[
+  {
+    "id": "folo-1141429960561410051",
+    "title": "2026-06-04 The World this Week - 政治",
+    "url": "https://www.economist.com/the-world-this-week/2026/06/04/politics",
+    "content": "Politics (www.economist.com) 21:08",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "tech",
+    "publishedAt": "2026-06-04T13:33:05.894Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "2026-06-04-world-this-week",
+    "normalizedTitle": "2026-06-04 the world this week - 政治",
+    "duplicateCount": 2,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 35.780579985894
+  },
+  {
+    "id": "folo-1141118210477670400",
+    "title": "印度如何辜负了400万学生",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-06-04/india-s-neet-cbse-exam-failures-put-4-million-students-futures-in-peril",
+    "content": "India Failed 4 Million Students\n\nBloomberg reports that India failed approximately 4 million students, indicating significant shortcomings in the country's education system.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-06-04T08:28:41.373Z",
+    "fetchedAt": "2026-06-04T18:28:45.700Z",
+    "eventKey": "印度如何辜负了400万学生",
+    "normalizedTitle": "印度如何辜负了400万学生",
+    "duplicateCount": 2,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 174.780561721373
+  },
+  {
+    "id": "folo-1141651197665492993",
+    "title": "佩特罗收回了关于重写哥伦比亚宪法的提议",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/colombia-petro-se-retracta-de-su-propuesta-de-reescribir-la-constitucion",
+    "content": "Petro se retracta de su propuesta de reescribir la Constitución de Colombia (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-06-04T15:56:52.840Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "佩特罗收回了关于重写哥伦比亚宪法的提议",
+    "normalizedTitle": "佩特罗收回了关于重写哥伦比亚宪法的提议",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 102.78058861284
+  },
+  {
+    "id": "folo-1141651197665492994",
+    "title": "彭博社撤回关于印度储备银行黄金储备的错误报道",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-02/rbi-may-have-sold-gold-to-save-foreign-reserves-be-report-shows",
+    "content": "Bloomberg Retracts Incorrect Story on RBI Gold (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-06-04T15:56:52.836Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "彭博社撤回关于印度储备银行黄金储备的错误报道",
+    "normalizedTitle": "彭博社撤回关于印度储备银行黄金储备的错误报道",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 73.780588612836
+  },
+  {
+    "id": "folo-1141651197665492996",
+    "title": "黑石集团支持的Liftoff在美国完成4.37亿美元IPO后股价上涨9.1%",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/blackstone-backed-liftoff-rises-9-1-after-437-million-us-ipo",
+    "content": "Blackstone-Backed Liftoff Rises 9.1% After 437 Million US IPO (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T15:56:52.829Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "黑石集团支持的liftoff在美国完成4-37亿美元ipo后股价上涨9",
+    "normalizedTitle": "黑石集团支持的liftoff在美国完成4 37亿美元ipo后股价上涨9 1",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 88.780588612829
+  },
+  {
+    "id": "folo-1141651197665492997",
+    "title": "丹格特正将大型炼油厂规模扩大一倍，并计划大力拓展贸易业务",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/dangote-is-doubling-giant-oil-refinery-and-plotting-trading-push",
+    "content": "Dangote Is Doubling Giant Oil Refinery and Plotting Trading Push (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-06-04T15:56:52.826Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "丹格特正将大型炼油厂规模扩大一倍-并计划大力拓展贸易业务",
+    "normalizedTitle": "丹格特正将大型炼油厂规模扩大一倍 并计划大力拓展贸易业务",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.780588612826
+  },
+  {
+    "id": "folo-1141548930568306688",
+    "title": "美国公司董事会日趋“老龄化”，对70岁以上董事的需求日益增长",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-06-04/us-corporate-boards-get-grayer-with-demand-for-directors-over-70",
+    "content": "US Corporate Boards Get Grayer With Demand for Directors Over 70 (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-06-04T15:41:00.835Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "美国公司董事会日趋“老龄化”-对70岁以上董事的需求日益增长",
+    "normalizedTitle": "美国公司董事会日趋“老龄化” 对70岁以上董事的需求日益增长",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.780587660835
+  },
+  {
+    "id": "folo-1141548930568306689",
+    "title": "格雷厄姆·普拉特纳是民主党中的肯·帕克斯顿",
+    "url": "https://www.bloomberg.com/opinion/articles/2026-06-04/platner-controversies-make-him-the-democrats-ken-paxton",
+    "content": "Graham Platner Is the Democrats’ Ken Paxton (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-06-04T15:41:00.831Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "格雷厄姆·普拉特纳是民主党中的肯·帕克斯顿",
+    "normalizedTitle": "格雷厄姆·普拉特纳是民主党中的肯·帕克斯顿",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 70.780587660831
+  },
+  {
+    "id": "folo-1141548930568306691",
+    "title": "随着油价上涨释放出对伊朗和平协议的乐观信号，美国国债价格上涨",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/treasuries-rise-as-oil-signals-optimism-on-iran-peace-accord",
+    "content": "Treasuries Rise as Oil Signals Optimism on Iran Peace Accord (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-06-04T15:41:00.820Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "随着油价上涨释放出对伊朗和平协议的乐观信号-美国国债价格上涨",
+    "normalizedTitle": "随着油价上涨释放出对伊朗和平协议的乐观信号 美国国债价格上涨",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.78058766082
+  },
+  {
+    "id": "folo-1141548930568306694",
+    "title": "乌克兰前外长警告欧洲勿与普京进行对话",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/ex-ukraine-foreign-minister-warns-europe-against-putin-talks",
+    "content": "Ex-Ukraine Foreign Minister Warns Europe Against Putin Talks (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-06-04T15:41:00.805Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "乌克兰前外长警告欧洲勿与普京进行对话",
+    "normalizedTitle": "乌克兰前外长警告欧洲勿与普京进行对话",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.780587660805
+  },
+  {
+    "id": "folo-1141548930568306695",
+    "title": "匈牙利将支持将欧盟对俄罗斯的制裁延长一年",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/hungary-to-back-year-long-extension-of-eu-sanctions-on-russia",
+    "content": "Hungary to Back Year-Long Extension of EU Sanctions on Russia (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-06-04T15:41:00.798Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "匈牙利将支持将欧盟对俄罗斯的制裁延长一年",
+    "normalizedTitle": "匈牙利将支持将欧盟对俄罗斯的制裁延长一年",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 88.780587660798
+  },
+  {
+    "id": "folo-1141549276917063680",
+    "title": "毕马威全球高管拒绝调查澳大利亚举报人的指控",
+    "url": "https://www.ft.com/content/b47d3af8-4750-49a3-88a9-9df9bfbe3a89",
+    "content": "KPMG’s global bosses refused to probe Australia whistleblower claims (www.ft.com) 06-04",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-06-04T15:41:00.416Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "毕马威全球高管拒绝调查澳大利亚举报人的指控",
+    "normalizedTitle": "毕马威全球高管拒绝调查澳大利亚举报人的指控",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 88.780587660416
+  },
+  {
+    "id": "folo-1141533724354035712",
+    "title": "法国亿万富翁要求修改法律以剥夺子女的继承权",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/franzosischer-milliardar-verlangt-gesetzesanderung-zur-enterbung-seiner-kinder",
+    "content": "Französischer Milliardär verlangt Gesetzesänderung zur Enterbung seiner Kinder (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-06-04T15:24:57.688Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "法国亿万富翁要求修改法律以剥夺子女的继承权",
+    "normalizedTitle": "法国亿万富翁要求修改法律以剥夺子女的继承权",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 105.780586697688
+  },
+  {
+    "id": "folo-1141533724354035713",
+    "title": "Raízen以14.2亿美元将阿根廷资产出售给Mercuria",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/raizen-vende-activos-en-argentina-a-mercuria-por-us-1-420-millones",
+    "content": "Raízen vende activos en Argentina a Mercuria por US1.420 millones (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-06-04T15:24:57.684Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "raízen以14-2亿美元将阿根廷资产出售给mercuria",
+    "normalizedTitle": "raízen以14 2亿美元将阿根廷资产出售给mercuria",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 92.780586697684
+  },
+  {
+    "id": "folo-1141533724354035714",
+    "title": "哥伦比亚的塞佩达与佩特罗一道放弃了修改宪法的计划",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/petro-backs-away-from-proposal-to-rewrite-colombian-constitution",
+    "content": "Colombia’s Cepeda Joins Petro in Dropping Constitution Rewrite (www.bloomberg.com) 00:53",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-06-04T15:24:57.681Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "哥伦比亚的塞佩达与佩特罗一道放弃了修改宪法的计划",
+    "normalizedTitle": "哥伦比亚的塞佩达与佩特罗一道放弃了修改宪法的计划",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 89.780586697681
+  },
+  {
+    "id": "folo-1141533724354035715",
+    "title": "摩根士丹利认为，美联储在考虑任何加息时已将战争因素纳入考量",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/morgan-stanley-sees-fed-discounting-war-in-considering-any-hike",
+    "content": "Morgan Stanley Sees Fed Discounting War in Considering Any Hike (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T15:24:57.677Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "摩根士丹利认为-美联储在考虑任何加息时已将战争因素纳入考量",
+    "normalizedTitle": "摩根士丹利认为 美联储在考虑任何加息时已将战争因素纳入考量",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.780586697677
+  },
+  {
+    "id": "folo-1141533724354035717",
+    "title": "据称，数据中心零部件制造商Xnrgy正考虑以100亿美元的价格出售公司",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-03/ai-data-center-parts-maker-xnrgy-said-to-mull-10-billion-sale",
+    "content": "Data Center Parts Maker Xnrgy Said to Mull 10 Billion Sale (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-06-04T15:24:57.670Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "数据中心零部件制造商xnrgy正考虑以100亿美元的价格出售公司",
+    "normalizedTitle": "据称 数据中心零部件制造商xnrgy正考虑以100亿美元的价格出售公司",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 85.78058669767
+  },
+  {
+    "id": "folo-1141533724354035718",
+    "title": "加拿大将提供资金并收购人工智能初创企业的股权",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/canada-to-provide-funding-buy-equity-stakes-in-ai-startups",
+    "content": "Canada to Provide Funding, Buy Equity Stakes in AI Startups (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T15:24:57.667Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "加拿大将提供资金并收购人工智能初创企业的股权",
+    "normalizedTitle": "加拿大将提供资金并收购人工智能初创企业的股权",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 86.780586697667
+  },
+  {
+    "id": "folo-1141533724354035719",
+    "title": "被盗的肋排险些毁了Shake Shack的招牌烧烤三明治",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/stolen-ribs-nearly-spoiled-shake-shack-s-hit-bbq-sandwich",
+    "content": "Stolen Ribs Nearly Spoiled Shake Shack’s Hit BBQ Sandwich (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-06-04T15:24:57.663Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "被盗的肋排险些毁了shake-shack的招牌烧烤三明治",
+    "normalizedTitle": "被盗的肋排险些毁了shake shack的招牌烧烤三明治",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 84.780586697663
+  },
+  {
+    "id": "folo-1141533724354035720",
+    "title": "资金削减如何使世界面临埃博拉疫情的威胁",
+    "url": "https://www.bloomberg.com/news/features/2026-06-04/ebola-crisis-tests-global-health-system-weakened-by-funding-cuts",
+    "content": "How Funding Cuts Left the World Vulnerable to Ebola (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-06-04T15:08:53.306Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "资金削减如何使世界面临埃博拉疫情的威胁",
+    "normalizedTitle": "资金削减如何使世界面临埃博拉疫情的威胁",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 78.780585733306
+  },
+  {
+    "id": "folo-1141536157721354240",
+    "title": "高盛预计，到2030年，SpaceX的人工智能收入将增长100倍",
+    "url": "https://www.ft.com/content/516cd0e5-a402-4b6c-8035-d688dc5f0cf4",
+    "content": "Goldman Sachs expects SpaceX’s AI revenue to surge 100 times by 2030 (www.ft.com) 06-04",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "business",
+    "publishedAt": "2026-06-04T15:08:52.696Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "高盛预计-到2030年-spacex的人工智能收入将增长100倍",
+    "normalizedTitle": "高盛预计 到2030年 spacex的人工智能收入将增长100倍",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 88.780585732696
+  },
+  {
+    "id": "folo-1141606377467183104",
+    "title": "小红书清理“境外开户”等内容，富途、老虎、长桥：6月12日开始业务调整 | 原文",
+    "url": "https://t.me/wxbyg/7513",
+    "content": "小红书清理“境外开户”等内容，富途、老虎、长桥：6月12日开始业务调整 | 原文 Telegraph\n小红书清理“境外开户”等内容，富途、老虎、长桥：6月12日开始业务调整\n\n\n监管层对非法跨境证券业务的整治进入实质性落地阶段。 近日，小红书发布公告进行“港美股开户”相关违规内容清理…",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-06-04T14:58:55.291Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "小红书清理“境外开户”等内容-6月12日开始业务调整",
+    "normalizedTitle": "小红书清理“境外开户”等内容 富途 老虎 长桥 6月12日开始业务调整 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 54.780585135291
+  },
+  {
+    "id": "folo-1141533724354035730",
+    "title": "墨西哥投资持续低迷，创下数十年来最长的低迷期之一",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/mexico-investment-extends-one-of-the-longest-slump-in-decades",
+    "content": "Mexico Investment Extends One of Longest Slumps in Decades (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T14:53:08.940Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "墨西哥投资持续低迷-创下数十年来最长的低迷期之一",
+    "normalizedTitle": "墨西哥投资持续低迷 创下数十年来最长的低迷期之一",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 85.78058478894
+  },
+  {
+    "id": "folo-1141533724354035731",
+    "title": "经纪商在股价上涨后建议：卖出Ceres股票，但不要做空",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/sell-ceres-shares-but-don-t-short-them-broker-says-after-rally",
+    "content": "Sell Ceres Shares But Don’t Short Them, Broker Says After Rally (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T14:53:08.933Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "经纪商在股价上涨后建议-卖出ceres股票-但不要做空",
+    "normalizedTitle": "经纪商在股价上涨后建议 卖出ceres股票 但不要做空",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.780584788933
+  },
+  {
+    "id": "folo-1141533724370812928",
+    "title": "Sleep Number股价暴跌70%，或将申请破产保护",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-03/sleep-number-readies-potential-bankruptcy-filing-to-tackle-debt",
+    "content": "Sleep Number Plunges 70% Ahead of a Potential Bankruptcy Filing (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T14:36:57.694Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "sleep-number股价暴跌70-或将申请破产保护",
+    "normalizedTitle": "sleep number股价暴跌70 或将申请破产保护",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.780583817694
+  },
+  {
+    "id": "folo-1141536157721354241",
+    "title": "法庭在一宗具有里程碑意义的案件中获悉，Betfair曾将赌瘾患者作为目标",
+    "url": "https://www.ft.com/content/1c2379dd-2a2a-40a7-8832-fd646895b420",
+    "content": "Betfair targeted gambling addict, court hears in landmark case (www.ft.com) 06-04",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "investment",
+    "publishedAt": "2026-06-04T14:36:57.252Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "法庭在一宗具有里程碑意义的案件中获悉-betfair曾将赌瘾患者作为目标",
+    "normalizedTitle": "法庭在一宗具有里程碑意义的案件中获悉 betfair曾将赌瘾患者作为目标",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 82.780583817252
+  },
+  {
+    "id": "folo-1141465418234343424",
+    "title": "想找个中国银行 app 64 位版本的 apk, 版本号介于 9.9.8~9.9.23 都可以",
+    "url": "https://www.v2ex.com/t/1218011#reply0",
+    "content": "A user with a Google Pixel 10 cannot install downloaded historical versions of the Bank of China app and is seeking help from others who may have a 64-bit APK of versions 9.9.8 through 9.9.23 installed on their device, requesting they share the file.",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "social",
+    "publishedAt": "2026-06-04T14:25:39.077Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "想找个中国银行-app-位版本的-apk-版本号介于-都可以",
+    "normalizedTitle": "想找个中国银行 app 64 位版本的 apk 版本号介于 9 9 8 9 9 23 都可以",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 161.780583139077
+  },
+  {
+    "id": "folo-1141533724370812930",
+    "title": "墨西哥的投资下滑加剧，创下数十年来持续时间最长的下滑之一",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/inversion-en-mexico-profundiza-una-de-las-mayores-caidas-en-decadas",
+    "content": "La inversión en México profundiza una de las caídas más prolongadas en décadas (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T14:20:58.238Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "墨西哥的投资下滑加剧-创下数十年来持续时间最长的下滑之一",
+    "normalizedTitle": "墨西哥的投资下滑加剧 创下数十年来持续时间最长的下滑之一",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 105.780582858238
+  },
+  {
+    "id": "folo-1141533724370812932",
+    "title": "史上最大规模的IPO与被动投资相遇",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/the-biggest-ipo-ever-meets-passive-investing",
+    "content": "The Biggest IPO Ever Meets Passive Investing (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T14:20:58.231Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "史上最大规模的ipo与被动投资相遇",
+    "normalizedTitle": "史上最大规模的ipo与被动投资相遇",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 71.780582858231
+  },
+  {
+    "id": "folo-1141533724370812934",
+    "title": "高盛、摩根士丹利在IPO领域独占鳌头",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-06-04/goldman-sachs-morgan-stanley-win-bragging-rights-on-ai-ipos",
+    "content": "Goldman, Morgan Stanley Win IPO Bragging Rights (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-06-04T14:20:58.224Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "摩根士丹利在ipo领域独占鳌头",
+    "normalizedTitle": "高盛 摩根士丹利在ipo领域独占鳌头",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 74.780582858224
+  },
+  {
+    "id": "folo-1141498859067817986",
+    "title": "绿党关于限制首席执行官薪酬的欠妥政策",
+    "url": "https://www.economist.com/britain/2026/06/04/the-green-partys-ill-considered-policy-to-cap-ceos-pay",
+    "content": "The Green Party’s ill-considered policy to cap CEOs’ pay (www.economist.com) 21:08",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "politics",
+    "publishedAt": "2026-06-04T14:04:57.766Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "绿党关于限制首席执行官薪酬的欠妥政策",
+    "normalizedTitle": "绿党关于限制首席执行官薪酬的欠妥政策",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 83.780581897766
+  },
+  {
+    "id": "folo-1141533724370812938",
+    "title": "广播公司进军GPS备用服务市场",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-02/broadcasters-enter-the-market-for-gps-backup-services",
+    "content": "Broadcasters Enter the Market for GPS Backup Services (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-06-04T14:04:57.604Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "广播公司进军gps备用服务市场",
+    "normalizedTitle": "广播公司进军gps备用服务市场",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 80.780581897604
+  },
+  {
+    "id": "folo-1141533724370812942",
+    "title": "Axiom Space 完成 5.25 亿美元融资，三菱日联银行成为新投资者",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/axiom-space-raises-525-million-with-mufg-bank-as-new-investor",
+    "content": "Axiom Space Raises 525 Million With MUFG Bank as New Investor (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T14:04:57.583Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "axiom-space-亿美元融资-三菱日联银行成为新投资者",
+    "normalizedTitle": "axiom space 完成 5 25 亿美元融资 三菱日联银行成为新投资者",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 88.780581897583
+  },
+  {
+    "id": "folo-1141498859067817991",
+    "title": "性旅游者加剧了日本社会对风化问题的愤慨",
+    "url": "https://www.economist.com/asia/2026/06/04/sex-tourists-fuel-outrage-about-vice-in-japan",
+    "content": "Sex tourists fuel outrage about vice in Japan (www.economist.com) 21:08",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "ai",
+    "publishedAt": "2026-06-04T13:48:55.109Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "性旅游者加剧了日本社会对风化问题的愤慨",
+    "normalizedTitle": "性旅游者加剧了日本社会对风化问题的愤慨",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 72.780580935109
+  },
+  {
+    "id": "folo-1141498859067817993",
+    "title": "美国战争部长对华态度有所收敛",
+    "url": "https://www.economist.com/asia/2026/06/04/americas-secretary-of-war-pulls-his-punches-on-china",
+    "content": "America’s secretary of war pulls his punches on China (www.economist.com) 21:08",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "politics",
+    "publishedAt": "2026-06-04T13:48:55.087Z",
+    "fetchedAt": "2026-06-04T18:28:35.537Z",
+    "eventKey": "美国战争部长对华态度有所收敛",
+    "normalizedTitle": "美国战争部长对华态度有所收敛",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 80.780580935087
+  },
+  {
+    "id": "folo-1141435915852333059",
+    "title": "格里尔表示，对于那些美国关税设有上限的企业而言，“协议就是协议”",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/greer-says-deal-s-a-deal-for-economies-with-capped-us-tariffs",
+    "content": "Greer Says ‘Deal’s a Deal’ for Those With Capped US Tariffs (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-06-04T13:48:54.879Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "格里尔表示-对于那些美国关税设有上限的企业而言-“协议就是协议”",
+    "normalizedTitle": "格里尔表示 对于那些美国关税设有上限的企业而言 “协议就是协议”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 86.780580934879
+  },
+  {
+    "id": "folo-1141435915852333060",
+    "title": "鲸岩探讨人工智能，Waratah在蒙特利尔Sohn展会上斩获殊荣",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/whale-rock-talks-up-anthropic-s-user-prospects-ahead-of-ipo",
+    "content": "Whale Rock Talks AI, Waratah Sees Gold at Sohn Montreal (www.bloomberg.com) 00:39",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T13:48:54.875Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "鲸岩探讨人工智能-waratah在蒙特利尔sohn展会上斩获殊荣",
+    "normalizedTitle": "鲸岩探讨人工智能 waratah在蒙特利尔sohn展会上斩获殊荣",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 82.780580934875
+  },
+  {
+    "id": "folo-1141435915852333061",
+    "title": "SpaceX在17分钟的视频推介中，通过火箭业务炒作进行IPO",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/spacex-ipo-sells-rocket-business-hype-in-17-minute-video-pitch",
+    "content": "SpaceX IPO Sells Rocket Business Hype in 17-Minute Video Pitch (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-06-04T13:48:54.872Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "spacex在17分钟的视频推介中-通过火箭业务炒作进行ipo",
+    "normalizedTitle": "spacex在17分钟的视频推介中 通过火箭业务炒作进行ipo",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 89.780580934872
+  },
+  {
+    "id": "folo-1141429960561410049",
+    "title": "唐纳德·特朗普称皮特·赫格塞斯热爱战争。这应该足以让他失去参选资格",
+    "url": "https://www.economist.com/united-states/2026/06/04/donald-trump-says-pete-hegseth-loves-war-that-should-disqualify-him",
+    "content": "Donald Trump says Pete Hegseth loves war. That should disqualify him (www.economist.com) 21:08",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "politics",
+    "publishedAt": "2026-06-04T13:33:05.952Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "唐纳德·特朗普称皮特·赫格塞斯热爱战争-这应该足以让他失去参选资格",
+    "normalizedTitle": "唐纳德·特朗普称皮特·赫格塞斯热爱战争 这应该足以让他失去参选资格",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 95.780579985952
+  },
+  {
+    "id": "folo-1141429960561410050",
+    "title": "对农业科技的投资正在增长",
+    "url": "https://www.economist.com/science-and-technology/2026/06/04/investment-in-agricultural-tech-is-growing",
+    "content": "Investment in agricultural tech is growing (www.economist.com) 21:08",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "investment",
+    "publishedAt": "2026-06-04T13:33:05.923Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "对农业科技的投资正在增长",
+    "normalizedTitle": "对农业科技的投资正在增长",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 69.780579985923
+  },
+  {
+    "id": "folo-1141435915852333063",
+    "title": "戴蒙将向摩根大通的超级富豪客户推介SpaceX的首次公开募股",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-03/jamie-dimon-to-pitch-jpmorgan-s-ultra-rich-clients-on-spacex-ipo",
+    "content": "Dimon to Pitch JPMorgan’s Ultra-Rich Clients on SpaceX IPO (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-06-04T13:33:05.675Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "戴蒙将向摩根大通的超级富豪客户推介spacex的首次公开募股",
+    "normalizedTitle": "戴蒙将向摩根大通的超级富豪客户推介spacex的首次公开募股",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 85.780579985675
+  },
+  {
+    "id": "folo-1141435915852333064",
+    "title": "在投资者要求赎回10%后，黑石旗下的BCRED限制了赎回额度",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/blackstone-bcred-joins-private-credit-funds-limiting-redemptions",
+    "content": "Blackstone’s BCRED Caps Redemptions After Investors Seek 10% (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T13:33:05.671Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "在投资者要求赎回10-黑石旗下的bcred限制了赎回额度",
+    "normalizedTitle": "在投资者要求赎回10 后 黑石旗下的bcred限制了赎回额度",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.780579985671
+  },
+  {
+    "id": "folo-1141466087511064577",
+    "title": "高中没毕业的杀人犯狱中自学数学，发表重磅论文，寻求减刑被否决 | 原文",
+    "url": "https://t.me/wxbyg/7511",
+    "content": "Christopher Havens, a high school dropout serving a 25-year murder sentence in Washington state, taught himself advanced mathematics in prison without computers or internet access. He published peer-reviewed pure mathematics research and became an affiliate researcher at UCLA while attempting to reform prison education. Despite receiving unanimous parole board recommendations for sentence reduction, the governor denied his request, preventing his early release.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-06-04T13:17:45.789Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "高中没毕业的杀人犯狱中自学数学-发表重磅论文-寻求减刑被否决",
+    "normalizedTitle": "高中没毕业的杀人犯狱中自学数学 发表重磅论文 寻求减刑被否决 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 376.780579065789
+  },
+  {
+    "id": "folo-1141435915852333071",
+    "title": "外国投资者通过快速交易抢购土耳其股票",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/foreign-investors-snap-up-turkish-stocks-in-fast-track-trades",
+    "content": "Foreign Investors Snap Up Turkish Stocks in Fast-Track Trades (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T13:16:53.396Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "外国投资者通过快速交易抢购土耳其股票",
+    "normalizedTitle": "外国投资者通过快速交易抢购土耳其股票",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 88.780579013396
+  },
+  {
+    "id": "folo-1141466087511064579",
+    "title": "17岁恶女飙车撞墙杀男友！庭上装失忆躲过死刑，入狱后竟骄奢放纵每天炫耀杀过人？ | 原文",
+    "url": "https://t.me/wxbyg/7509",
+    "content": "A 17-year-old Ohio girl killed her boyfriend and another passenger by crashing a speeding car into a wall. In court, she claimed amnesia from a rare medical condition, avoiding the death penalty but receiving life without parole for 15 years. Netflix later released a documentary, *The Crash*, in which she maintained her innocence as a victim of medical circumstance, misleading audiences about her role in the fatal incident.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-06-04T13:09:42.877Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "17岁恶女飙车撞墙杀男友-庭上装失忆躲过死刑-入狱后竟骄奢放纵每天炫耀杀过人",
+    "normalizedTitle": "17岁恶女飙车撞墙杀男友 庭上装失忆躲过死刑 入狱后竟骄奢放纵每天炫耀杀过人 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 338.780578582877
+  },
+  {
+    "id": "folo-1141435915852333075",
+    "title": "阿巴萨银行的投资者反对提高高管薪酬的计划",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/absa-s-top-investors-oppose-bank-s-plan-to-boost-executive-pay",
+    "content": "Absa’s Investors Oppose Plan to Boost Executive Pay (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T12:45:13.040Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "阿巴萨银行的投资者反对提高高管薪酬的计划",
+    "normalizedTitle": "阿巴萨银行的投资者反对提高高管薪酬的计划",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 78.78057711304
+  },
+  {
+    "id": "folo-1141435915852333077",
+    "title": "英伟达支持的机器人初创公司Generalist AI估值达20亿美元",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/nvidia-backed-robotics-startup-generalist-ai-valued-at-2-billion",
+    "content": "Nvidia-Backed Robotics Startup Generalist AI Valued at 2 Billion (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-06-04T12:45:13.033Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "英伟达支持的机器人初创公司generalist-ai估值达20亿美元",
+    "normalizedTitle": "英伟达支持的机器人初创公司generalist ai估值达20亿美元",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.780577113033
+  },
+  {
+    "id": "folo-1141435915852333078",
+    "title": "摩根士丹利认为赞比亚将提高欧元债券价格以打破僵局",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/morgan-stanley-sees-zambia-lift-eurobond-price-to-break-impasse",
+    "content": "Morgan Stanley Sees Zambia Lift Eurobond Price to Break Impasse (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T12:45:13.030Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "摩根士丹利认为赞比亚将提高欧元债券价格以打破僵局",
+    "normalizedTitle": "摩根士丹利认为赞比亚将提高欧元债券价格以打破僵局",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.78057711303
+  },
+  {
+    "id": "folo-1141435915852333079",
+    "title": "阿波罗公司的泽尔特预计，高评级债券的销量将超过美国国债",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/apollo-s-zelter-sees-high-grade-debt-sales-topping-us-treasuries",
+    "content": "Apollo’s Zelter Sees High-Grade Debt Sales Topping US Treasuries (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T12:45:13.027Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "阿波罗公司的泽尔特预计-高评级债券的销量将超过美国国债",
+    "normalizedTitle": "阿波罗公司的泽尔特预计 高评级债券的销量将超过美国国债",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.780577113027
+  },
+  {
+    "id": "folo-1141435915852333080",
+    "title": "纳斯达克100指数下跌，因博通疲软的业绩预期令人工智能板块涨势戛然而止",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/nasdaq-100-futures-drop-as-broadcom-forecast-spooks-traders",
+    "content": "Nasdaq 100 Slides as Broadcom’s Weak Forecast Halts AI Rally (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T12:45:13.020Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "纳斯达克100指数下跌-因博通疲软的业绩预期令人工智能板块涨势戛然而止",
+    "normalizedTitle": "纳斯达克100指数下跌 因博通疲软的业绩预期令人工智能板块涨势戛然而止",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.78057711302
+  },
+  {
+    "id": "folo-1141435915852333082",
+    "title": "毕马威英国分公司废除了新冠疫情期间允许员工提前下班的政策",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/kpmg-uk-scraps-covid-era-policy-letting-staff-leave-early",
+    "content": "KPMG UK Scraps Covid-Era Policy Letting Staff Leave Early (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-06-04T12:45:13.009Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "毕马威英国分公司废除了新冠疫情期间允许员工提前下班的政策",
+    "normalizedTitle": "毕马威英国分公司废除了新冠疫情期间允许员工提前下班的政策",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 84.780577113009
+  },
+  {
+    "id": "folo-1141435915852333083",
+    "title": "美国原油库存持续下降，对全球市场构成警示",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-06-04/dwindling-us-oil-inventories-are-a-warning-to-global-markets-amid-iran-war",
+    "content": "Dwindling US Oil Inventories Are a Warning to Global Markets (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-06-04T12:29:00.581Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "美国原油库存持续下降-对全球市场构成警示",
+    "normalizedTitle": "美国原油库存持续下降 对全球市场构成警示",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.780576140581
+  },
+  {
+    "id": "folo-1141435915852333084",
+    "title": "施耐德电气借势人工智能热潮发行8亿欧元债券",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/schneider-electric-banks-on-ai-boom-to-sell-800-million-debt",
+    "content": "Schneider Electric Banks on AI Boom to Sell 800 Million Debt (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T12:29:00.577Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "施耐德电气借势人工智能热潮发行8亿欧元债券",
+    "normalizedTitle": "施耐德电气借势人工智能热潮发行8亿欧元债券",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.780576140577
+  },
+  {
+    "id": "folo-1141435915852333085",
+    "title": "随着债券资金大幅涌入，兰德汇率从套利交易中的输家一跃成为赢家",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/rand-swings-from-carry-loser-to-winner-as-bond-inflows-surge",
+    "content": "Rand Swings From Carry Loser to Winner as Bond Inflows Surge (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T12:29:00.574Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "随着债券资金大幅涌入-兰德汇率从套利交易中的输家一跃成为赢家",
+    "normalizedTitle": "随着债券资金大幅涌入 兰德汇率从套利交易中的输家一跃成为赢家",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.780576140574
+  },
+  {
+    "id": "folo-1141435915852333087",
+    "title": "新加坡在特朗普采取关税措施后否认强迫劳动指控",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/singapore-responds-on-forced-labor-after-trump-s-tariff-move",
+    "content": "Singapore Denies Forced Labor Claims After Trump Tariff Move (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-06-04T12:13:20.177Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "新加坡在特朗普采取关税措施后否认强迫劳动指控",
+    "normalizedTitle": "新加坡在特朗普采取关税措施后否认强迫劳动指控",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.780575200177
+  },
+  {
+    "id": "folo-1141435915852333089",
+    "title": "2026年6月4日美国盘前市场动态",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/us-stock-futures-today-broadcom-netskope-petco-unitedhealth",
+    "content": "US Premarket Movers for June 4, 2026 (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-06-04T12:13:20.170Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "2026年6月4日美国盘前市场动态",
+    "normalizedTitle": "2026年6月4日美国盘前市场动态",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 63.78057520017
+  },
+  {
+    "id": "folo-1141435915852333092",
+    "title": "太平洋投资管理公司（Pimco）的伊瓦斯钦警告称，信贷领域将面临更大损失",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/higher-losses-are-coming-to-credit-pimco-s-ivascyn-warns",
+    "content": "Higher Losses Are Coming to Credit, Pimco’s Ivascyn Warns (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T12:13:20.160Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "太平洋投资管理公司-pimco-的伊瓦斯钦警告称-信贷领域将面临更大损失",
+    "normalizedTitle": "太平洋投资管理公司 pimco 的伊瓦斯钦警告称 信贷领域将面临更大损失",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 84.78057520016
+  },
+  {
+    "id": "folo-1141435915852333093",
+    "title": "抗癌药物制造商Parabilis计划在美国首次公开募股（IPO）筹集4.75亿美元",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/cancer-drugmaker-parabilis-seeks-475-million-in-us-ipo",
+    "content": "Cancer Drugmaker Parabilis Seeks 475 Million in US IPO (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-06-04T12:13:20.156Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "抗癌药物制造商parabilis计划在美国首次公开募股-ipo-筹集4-75亿美元",
+    "normalizedTitle": "抗癌药物制造商parabilis计划在美国首次公开募股 ipo 筹集4 75亿美元",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 81.780575200156
+  },
+  {
+    "id": "folo-1141354560850157568",
+    "title": "黑石限制其旗舰私募信贷基金的赎回",
+    "url": "https://www.ft.com/content/4eca0255-27e7-47cc-8ebf-c9cc00c62e29",
+    "content": "Blackstone caps withdrawals from flagship private credit fund (www.ft.com) 06-04",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "investment",
+    "publishedAt": "2026-06-04T12:13:19.876Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "黑石限制其旗舰私募信贷基金的赎回",
+    "normalizedTitle": "黑石限制其旗舰私募信贷基金的赎回",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 81.780575199876
+  },
+  {
+    "id": "folo-1141329276226781184",
+    "title": "纳斯达克期货下跌，因市场对科技股反弹前景存疑",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/nasdaq-100-s-p-500-caen-por-dudas-sobre-rally-de-tecnologicas",
+    "content": "Futuros del Nasdaq caen por dudas sobre rally de tecnológicas (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T11:56:49.079Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "纳斯达克期货下跌-因市场对科技股反弹前景存疑",
+    "normalizedTitle": "纳斯达克期货下跌 因市场对科技股反弹前景存疑",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 88.780574209079
+  },
+  {
+    "id": "folo-1141329276243558402",
+    "title": "博通因人工智能前景未达预期，股价创逾一年来最大跌幅",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-03/broadcom-outlook-disappoints-investors-seeking-ai-fueled-blowout",
+    "content": "Broadcom Slides by Most in More Than a Year on AI Outlook Miss (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T11:40:47.879Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "博通因人工智能前景未达预期-股价创逾一年来最大跌幅",
+    "normalizedTitle": "博通因人工智能前景未达预期 股价创逾一年来最大跌幅",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 89.780573247879
+  },
+  {
+    "id": "folo-1141329276243558405",
+    "title": "博通业绩未达预期引发对人工智能的担忧，新兴市场股市下跌",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/emerging-market-stocks-fall-as-broadcom-miss-disrupts-ai-trade",
+    "content": "Emerging-Market Stocks Fall as Broadcom Miss Revives AI Concerns (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-06-04T11:40:47.868Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "博通业绩未达预期引发对人工智能的担忧-新兴市场股市下跌",
+    "normalizedTitle": "博通业绩未达预期引发对人工智能的担忧 新兴市场股市下跌",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.780573247868
+  },
+  {
+    "id": "folo-1141329276243558407",
+    "title": "抵押贷款对冲“怪兽”正重返国债市场",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/the-mortgage-hedging-beast-is-returning-to-the-treasury-market",
+    "content": "The Mortgage Hedging ‘Beast’ Is Returning to the Treasury Market (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-06-04T11:40:47.861Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "抵押贷款对冲“怪兽”正重返国债市场",
+    "normalizedTitle": "抵押贷款对冲“怪兽”正重返国债市场",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.780573247861
+  },
+  {
+    "id": "folo-1141425771609227264",
+    "title": "U-00DC-Sprache（Ü）：一种基于 LLVM 的静态类型编程语言",
+    "url": "https://www.oschina.net/news/452113",
+    "content": "在系统编程语言的世界里，C++ 长期占据着\"必须学但谁都不喜欢\"的位置。它的复杂度有目共睹——模板元编程、指针操作、内存管理的坑多得能让老手翻车。 Rust 用所有权模型重新定义了安全编程的标杆，但学习曲线同样陡峭，且慢雾山在编译期性能上付出了代价。U-00DC-Sprache…",
+    "source": "开源中国-全部 - 局",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-06-04T11:36:54.553Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "u-00dc-sprache-一种基于-llvm-的静态类型编程语言",
+    "normalizedTitle": "u-00dc-sprache ü 一种基于 llvm 的静态类型编程语言",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 局"
+    ],
+    "preFilterScore": 141.780573014553
+  },
+  {
+    "id": "folo-1141285421691342853",
+    "title": "NVIDIA/cosmos",
+    "url": "https://github.com/NVIDIA/cosmos",
+    "content": "NVIDIA Cosmos is an open platform providing world models, datasets, and tools for developers building Physical AI applications such as robots, autonomous vehicles, and smart infrastructure. The repository is written in Jupyter Notebook and has attracted 8,754 stars and 566 forks.",
+    "source": "Trending repositories on GitHub today · GitHub - NVIDIA",
+    "sourceId": "folo-ai-list-41461870197170196",
+    "category": "software",
+    "publishedAt": "2026-06-04T11:28:34.282Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "nvidia-cosmos",
+    "normalizedTitle": "nvidia cosmos",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Trending repositories on GitHub today · GitHub - NVIDIA"
+    ],
+    "preFilterScore": 281.780572514282
+  },
+  {
+    "id": "folo-1141285421691342857",
+    "title": "github/copilot-sdk",
+    "url": "https://github.com/github/copilot-sdk",
+    "content": "GitHub Copilot SDK enables integration of GitHub Copilot Agent into applications and services across multiple platforms. The Java-based repository has 8,804 stars and 1,200 forks.",
+    "source": "Trending repositories on GitHub today · GitHub - github",
+    "sourceId": "folo-ai-list-41461870197170196",
+    "category": "software",
+    "publishedAt": "2026-06-04T11:28:34.278Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "github-copilot-sdk",
+    "normalizedTitle": "github copilot-sdk",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Trending repositories on GitHub today · GitHub - github"
+    ],
+    "preFilterScore": 180.780572514278
+  },
+  {
+    "id": "folo-1141285421691342859",
+    "title": "openclaw/openclaw-windows-node",
+    "url": "https://github.com/openclaw/openclaw-windows-node",
+    "content": "OpenClaw Windows Companion Suite is a C# project offering four components: a system tray application, shared library, Node integration, and PowerToys Command Palette extension. It supports the OpenClaw ecosystem on Windows. The repository has 1,140 stars and 156 forks.",
+    "source": "Trending repositories on GitHub today · GitHub - openclaw",
+    "sourceId": "folo-ai-list-41461870197170196",
+    "category": "software",
+    "publishedAt": "2026-06-04T11:28:34.276Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "openclaw-openclaw-windows-node",
+    "normalizedTitle": "openclaw openclaw-windows-node",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Trending repositories on GitHub today · GitHub - openclaw"
+    ],
+    "preFilterScore": 270.780572514276
+  },
+  {
+    "id": "folo-1141329276243558408",
+    "title": "伊朗战争如何推动亚洲和欧洲的清洁能源发展",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-06-04/how-the-iran-war-is-boosting-clean-energy-in-asia-and-europe",
+    "content": "How the Iran War Is Boosting Clean Energy in Asia and Europe (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-06-04T11:24:56.106Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "伊朗战争如何推动亚洲和欧洲的清洁能源发展",
+    "normalizedTitle": "伊朗战争如何推动亚洲和欧洲的清洁能源发展",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.780572296106
+  },
+  {
+    "id": "folo-1141329276243558411",
+    "title": "私募股权和债务基金苦于处理6320亿美元的持仓",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/buyout-and-debt-funds-struggle-to-spend-632-billion-stockpile",
+    "content": "Buyout and Debt Funds Struggle With 632 Billion Stockpile (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-06-04T11:24:56.092Z",
+    "fetchedAt": "2026-06-04T18:28:39.626Z",
+    "eventKey": "私募股权和债务基金苦于处理6320亿美元的持仓",
+    "normalizedTitle": "私募股权和债务基金苦于处理6320亿美元的持仓",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 84.780572296092
+  },
+  {
+    "id": "folo-1141329276243558413",
+    "title": "微软人工智能负责人称Anthropic的模型成本过高",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-06-04/microsoft-says-anthropic-models-are-too-expensive",
+    "content": "Microsoft’s AI Chief Says Anthropic Models Are Too Expensive (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T11:08:52.269Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "微软人工智能负责人称anthropic的模型成本过高",
+    "normalizedTitle": "微软人工智能负责人称anthropic的模型成本过高",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.780571332269
+  },
+  {
+    "id": "folo-1141329276243558414",
+    "title": "Ramp在新一轮融资中估值达440亿美元",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/ramp-notches-44-billion-valuation-in-new-funding-round",
+    "content": "Ramp Notches 44 Billion Valuation in New Funding Round (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-06-04T11:08:52.265Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "ramp在新一轮融资中估值达440亿美元",
+    "normalizedTitle": "ramp在新一轮融资中估值达440亿美元",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 81.780571332265
+  },
+  {
+    "id": "folo-1141329276243558415",
+    "title": "Polymarket 让您押注氛围",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/polymarket-gambles-on-letting-users-bet-on-social-media-clout",
+    "content": "Polymarket Lets You Bet on Vibes (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-06-04T11:08:52.262Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "polymarket-让您押注氛围",
+    "normalizedTitle": "polymarket 让您押注氛围",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 59.780571332262
+  },
+  {
+    "id": "folo-1141329276243558419",
+    "title": "美国众议院投票阻止美国与伊朗的战争",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/camara-de-ee-uu-vota-para-detener-la-guerra-con-iran",
+    "content": "Cámara de Representantes vota para frenar la guerra de EE.UU. con Irán (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-06-04T11:08:52.247Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "美国众议院投票阻止美国与伊朗的战争",
+    "normalizedTitle": "美国众议院投票阻止美国与伊朗的战争",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 97.780571332247
+  },
+  {
+    "id": "folo-1141319261302571014",
+    "title": "欧洲电力市场供过于求",
+    "url": "https://www.economist.com/finance-and-economics/2026/06/04/european-electricity-markets-have-too-much-power",
+    "content": "European electricity markets have too much power (www.economist.com) 17:37",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "business",
+    "publishedAt": "2026-06-04T10:36:47.292Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "欧洲电力市场供过于求",
+    "normalizedTitle": "欧洲电力市场供过于求",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 75.780569407292
+  },
+  {
+    "id": "folo-1141329276243558431",
+    "title": "中国自动驾驶出租车的困境凸显了人工智能政策在增长与就业之间的矛盾",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-06-04/china-s-robotaxi-dilemma-how-to-lead-in-ai-without-fueling-unemployment",
+    "content": "China’s Robotaxi Dilemma Shows AI Policy Tension Between Growth and Jobs (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-06-04T10:36:47.215Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "中国自动驾驶出租车的困境凸显了人工智能政策在增长与就业之间的矛盾",
+    "normalizedTitle": "中国自动驾驶出租车的困境凸显了人工智能政策在增长与就业之间的矛盾",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 99.780569407215
+  },
+  {
+    "id": "folo-1141329276243558439",
+    "title": "人工智能数据中心的蓬勃发展可能导致美国最大电力网运营商解体",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/ai-data-center-boom-risks-breakup-of-biggest-us-power-grid-operator",
+    "content": "AI Data Center Boom Risks Breakup of Biggest US Power Grid Operator (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T10:21:05.087Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "人工智能数据中心的蓬勃发展可能导致美国最大电力网运营商解体",
+    "normalizedTitle": "人工智能数据中心的蓬勃发展可能导致美国最大电力网运营商解体",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 94.780568465087
+  },
+  {
+    "id": "folo-1141329276243558443",
+    "title": "在人工智能热潮中，泰国首富计划斥资43亿美元扩大业务",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/thailand-s-richest-man-plans-4-3-billion-expansion-amid-ai-boom",
+    "content": "Thailand’s Richest Man Plans 4.3 Billion Expansion Amid AI Boom (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T10:21:05.073Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "在人工智能热潮中-泰国首富计划斥资43亿美元扩大业务",
+    "normalizedTitle": "在人工智能热潮中 泰国首富计划斥资43亿美元扩大业务",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.780568465073
+  },
+  {
+    "id": "folo-1141425771609227265",
+    "title": "“AI 养马”出桌面端了：Hermes Desktop 公测发布，支持 Windows/macOS/Linux",
+    "url": "https://www.oschina.net/news/452068",
+    "content": "如果你长期关注 AI Agent 领域，可能见过一个被称为\"养马\"的项目——这是国内开发者对 Hermes Agent 的昵称。Hermes Agent 是由 Nous Research 开发的开源 AI 智能体，最大的特点是具备跨会话记忆能力和自我进化能力…",
+    "source": "开源中国-全部 - 局",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-06-04T10:20:39.984Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "“ai-养马”出桌面端了-hermes-desktop-公测发布-windows",
+    "normalizedTitle": "“ai 养马”出桌面端了 hermes desktop 公测发布 支持 windows macos linux",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 局"
+    ],
+    "preFilterScore": 131.780568439984
+  },
+  {
+    "id": "folo-1141289783985713160",
+    "title": "写了一个 harness 框架 感觉现在永远都有新发现",
+    "url": "https://www.v2ex.com/t/1217968#reply3",
+    "content": "最开始写了一个 tui 简陋版本 然后 cc 的源码泄漏 看了下 cc 的代码 又迭代了一个版本 拆出来了 core 和 tui 。cc 的 tui 和 core 还是太耦合了 这个时候 core 我就单独发了一个包 写在实际项目里 读取线上 bad case. 然后做自迭代。…",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "social",
+    "publishedAt": "2026-06-04T10:16:44.039Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "写了一个-harness-感觉现在永远都有新发现",
+    "normalizedTitle": "写了一个 harness 框架 感觉现在永远都有新发现",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 51.780568204039
+  },
+  {
+    "id": "folo-1141289783985713157",
+    "title": "Antigravite 还能不给用的 ？ Cursor 和 codex 用完了想着 反重力过渡一下 更新一下结果无法用了，",
+    "url": "https://www.v2ex.com/t/1217965#reply3",
+    "content": "Antigravite 还能不给用的 ？？？ Cursor 和 codex 用完了想着 反重力过渡一下 更新一下结果无法用了， Sorry, this account is ineligible to use Antigravity",
+    "source": "V2EX - 技术",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "social",
+    "publishedAt": "2026-06-04T10:10:01.744Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "antigravite-还能不给用的-cursor-codex-用完了想着-反重力过渡一下",
+    "normalizedTitle": "antigravite 还能不给用的 cursor 和 codex 用完了想着 反重力过渡一下 更新一下结果无法用了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术"
+    ],
+    "preFilterScore": 27.780567801744
+  },
+  {
+    "id": "folo-1141425771609227266",
+    "title": "Golang 通用代码生成器仙童电音仙女 Beta2 版发布，增强修复了 HTML 原型模式",
+    "url": "https://www.oschina.net/news/452056",
+    "content": "Golang通用代码生成器仙童电音仙女Beta2版发布，增强修复了HTML原型模式 Golang通用代码生成器仙童电音仙女Beta2版已发布。此版本增强修复了HTML原型模式，修复了几个HTML圆形模式复杂版面的缺陷。更稳定更少缺陷。欢迎使用。\n\n动词算子式通用代码生成器阵…",
+    "source": "开源中国-全部 - 火鸟1995",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-06-04T10:06:28.264Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "golang-通用代码生成器仙童电音仙女-beta2-版发布-增强修复了-html",
+    "normalizedTitle": "golang 通用代码生成器仙童电音仙女 beta2 版发布 增强修复了 html 原型模式",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 火鸟1995"
+    ],
+    "preFilterScore": 139.780567588264
+  },
+  {
+    "id": "folo-1141215805841620996",
+    "title": "在马克龙治下的法国，目前看来在人工智能领域占据优势",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-06-04/macron-s-legacy-may-be-france-as-an-ai-winner",
+    "content": "France Under Macron Looks Like an AI Winner, for Now (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T10:04:58.072Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "在马克龙治下的法国-目前看来在人工智能领域占据优势",
+    "normalizedTitle": "在马克龙治下的法国 目前看来在人工智能领域占据优势",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 79.780567498072
+  },
+  {
+    "id": "folo-1141200540990885888",
+    "title": "UK media fails to disclose defence sector links in nearly 60% of cases",
+    "url": "https://aoav.org.uk/2026/military-experts-or-arms-industry-insiders-uk-media-fails-to-disclose-defence-sector-links-in-nearly-60-of-cases/",
+    "content": "UK media outlets fail to disclose defence sector links in nearly 60% of cases, according to an analysis. The report highlights a significant lack of transparency when journalists or publications have financial or professional connections to the defence industry, raising concerns about potential conflicts of interest in military and security reporting.",
+    "source": "Hacker News - XzetaU8",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "social",
+    "publishedAt": "2026-06-04T10:04:13.499Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "media-fails-disclose-defence-sector-links",
+    "normalizedTitle": "uk media fails to disclose defence sector links in nearly 60 of cases",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - XzetaU8"
+    ],
+    "preFilterScore": 264.780567453499
+  },
+  {
+    "id": "folo-1141506575647563776",
+    "title": "实现芯片设计验证自动化，提升开发效率10倍以上，「智维创芯」完成数千万元天使轮融资｜36氪首发",
+    "url": "https://www.36kr.com/p/3838488706370054",
+    "content": "Chinese startup Zhiwei Chuangxin, founded in 2025 by Southeast University professor Wang Xi, has raised tens of millions of yuan in angel funding for its AI-powered chip verification platform. Its product ChatDV automates digital chip verification tasks—test generation, assertion creation, reference modeling, and debugging—boosting development efficiency over 10x, cutting cycles by 50%, and reducing costs by 33%. The team previously used GPT-3.5 to generate a RISC-V processor. Core founders hail from Southeast University, Tsinghua, and City University of Hong Kong.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "social",
+    "publishedAt": "2026-06-04T10:01:00.599Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "实现芯片设计验证自动化-提升开发效率10倍以上-「智维创芯」完成数千万元天使轮融资｜36氪首发",
+    "normalizedTitle": "实现芯片设计验证自动化 提升开发效率10倍以上 「智维创芯」完成数千万元天使轮融资｜36氪首发",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 572.780567260599
+  },
+  {
+    "id": "folo-1141425771609227267",
+    "title": "openKylin 社区 2026 年 5 月运营报告",
+    "url": "https://www.oschina.net/news/452054",
+    "content": "一、社区治理 openKylin走进国防科大暨常务委员会会议召开\n\n2026年5月28日，OpenAtom openKylin（简称“openKylin”）走进国防科大暨常务委员会5月会议在湖南长沙国防科技大学召开，来自麒麟软件、联想开天、海光信息、国防科大…",
+    "source": "开源中国-全部 - openKylin",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-06-04T10:00:57.200Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "openkylin-2026-月运营报告",
+    "normalizedTitle": "openkylin 社区 2026 年 5 月运营报告",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - openKylin"
+    ],
+    "preFilterScore": 131.7805672572
+  },
+  {
+    "id": "folo-1141286619869806592",
+    "title": "AI Eats the World? A Reality Check with Benedict Evans",
+    "url": "https://a16z.simplecast.com/episodes/ai-eats-the-world-a-reality-check-with-benedict-evans-GVzr9ZaX",
+    "content": "Tech analyst Benedict Evans discusses AI's current state with Erik Torenberg, examining coding agents, foundation models, infrastructure spending, and software economics. Evans explains why coding became AI's first breakout use case, uses previous platform shifts to contextualize the present moment, and notes that fundamental questions about AI remain unresolved. The conversation explores whether AI models will capture value themselves or serve as infrastructure for future applications, alongside topics of enterprise adoption, consumer behavior, and software's future evolution.",
+    "source": "The a16z Show - content+a16zpodcast@a16z.com (Erik Torenberg, Benedict Evans)",
+    "sourceId": "folo-ai-list-43255084704601095",
+    "category": "ai",
+    "publishedAt": "2026-06-04T10:00:00.514Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "eats-world-reality-check-benedict-evans",
+    "normalizedTitle": "ai eats the world a reality check with benedict evans",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "The a16z Show - content+a16zpodcast@a16z.com (Erik Torenberg, Benedict Evans)"
+    ],
+    "preFilterScore": 585.780567200514
+  },
+  {
+    "id": "folo-1141215805841621001",
+    "title": "法国称美国关税缺乏依据，力求完成贸易协定",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/france-calls-us-tariffs-unjustified-seeks-to-finish-trade-pact",
+    "content": "France Calls US Tariffs Unjustified, Seeks to Finish Trade Pact (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-06-04T09:48:57.355Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "法国称美国关税缺乏依据-力求完成贸易协定",
+    "normalizedTitle": "法国称美国关税缺乏依据 力求完成贸易协定",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.780566537355
+  },
+  {
+    "id": "folo-1141215805841621003",
+    "title": "对优步人工智能的质疑不过是正常的成长阵痛",
+    "url": "https://www.bloomberg.com/opinion/articles/2026-06-04/uber-s-ai-doubts-are-just-normal-growing-pains",
+    "content": "Uber''s AI Doubts Are Just Normal Growing Pains (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T09:33:03.212Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "对优步人工智能的质疑不过是正常的成长阵痛",
+    "normalizedTitle": "对优步人工智能的质疑不过是正常的成长阵痛",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 74.780565583212
+  },
+  {
+    "id": "folo-1141248954399121412",
+    "title": "全球民调显示：美国人领衔反对人工智能数据中心",
+    "url": "https://www.ft.com/content/ed07dc6c-aabe-4e4d-a508-4d2b4f24a852",
+    "content": "Americans lead AI data centre backlash, global poll finds (www.ft.com) 06-04",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "ai",
+    "publishedAt": "2026-06-04T09:33:02.274Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "全球民调显示-美国人领衔反对人工智能数据中心",
+    "normalizedTitle": "全球民调显示 美国人领衔反对人工智能数据中心",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 77.780565582274
+  },
+  {
+    "id": "folo-1141425771609227268",
+    "title": "✨License Manager 软件授权管理系统 v1.1.3 发布",
+    "url": "https://www.oschina.net/news/452024",
+    "content": "代码之上是资产：软件授权管理系统的战略价值与意义 | License Manager 本次更新\n\n新增APIKEY管理模块，方便对接业务系统\n\n修复了若干BUG，优化了部分交互\n\n官方网站：https://cedar-v.com/",
+    "source": "开源中国-全部 - FuguiWang01",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-06-04T09:20:02.990Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "✨license-manager-软件授权管理系统",
+    "normalizedTitle": "✨license manager 软件授权管理系统 v1 1 3 发布",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - FuguiWang01"
+    ],
+    "preFilterScore": 116.78056480299
+  },
+  {
+    "id": "folo-1141215805841621019",
+    "title": "人工智能热潮助推中国光电制造商在沪深300指数中权重居首",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/ai-boom-propels-china-optical-maker-to-top-weighting-on-csi-300",
+    "content": "AI Boom Propels China Optical Maker to Top Weighting on CSI 300 (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T09:16:41.579Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "人工智能热潮助推中国光电制造商在沪深300指数中权重居首",
+    "normalizedTitle": "人工智能热潮助推中国光电制造商在沪深300指数中权重居首",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.780564601579
+  },
+  {
+    "id": "folo-1141425771609227269",
+    "title": "豆包回应“收费”传闻",
+    "url": "https://www.oschina.net/news/452017",
+    "content": "针对近日流传的“收费”传闻，豆包发布“关于豆包即将推出专业版的说明”表示，对于广大用户日常使用的豆包功能，包含搜索问答、写作生图、以及语音和视频对话等，将保持目前的免费服务。 同时否认“降低免费体验倒逼付费”的传言。‌“近期有大量同IP的营销号，集中发布内容完全一致的不实信息…",
+    "source": "开源中国-全部 - 白开水不加糖",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-06-04T09:03:59.403Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "豆包回应“收费”传闻",
+    "normalizedTitle": "豆包回应“收费”传闻",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 白开水不加糖"
+    ],
+    "preFilterScore": 140.780563839403
+  },
+  {
+    "id": "folo-1141425771609227270",
+    "title": "JPEG XL 十年：Google 开源实验如何塑造下一代图像编码标准",
+    "url": "https://www.oschina.net/news/452014",
+    "content": "互联网建立在图像之上，但图像编码的带宽与画质之争从未停止。在 JPEG 成为互联网图片标准二十多年后，Google 的一个研究团队用十年时间，通过一系列看似分散的开源项目，最终端出了 JPEG XL——一个被预期能用三十年的图像编码方案。 从理解现有技术开始：2011…",
+    "source": "开源中国-全部 - 局",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-06-04T09:02:01.334Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "jpeg-google-开源实验如何塑造下一代图像编码标准",
+    "normalizedTitle": "jpeg xl 十年 google 开源实验如何塑造下一代图像编码标准",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 局"
+    ],
+    "preFilterScore": 136.780563721334
+  },
+  {
+    "id": "folo-1141425771609227271",
+    "title": "安全研究员花 1500 美元测试 LLM 能否攻破自己的应用",
+    "url": "https://www.oschina.net/news/452004",
+    "content": "安全研究员Kasra在一个精心设计的实验中花费约1500美元，系统性地测试了多款主流LLM的黑客攻击能力。实验方法是他自己构建了一个存在安全漏洞的书评应用BookNook，漏洞类型是Firebase配置错误，而非API本身的问题。这种设计很巧妙…",
+    "source": "开源中国-全部 - 局",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-06-04T08:52:41.229Z",
+    "fetchedAt": "2026-06-04T18:28:42.969Z",
+    "eventKey": "安全研究员花-1500-美元测试-llm-能否攻破自己的应用",
+    "normalizedTitle": "安全研究员花 1500 美元测试 llm 能否攻破自己的应用",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 局"
+    ],
+    "preFilterScore": 124.780563161229
+  },
+  {
+    "id": "folo-1141425771609227272",
+    "title": "用 LLM Agent 重构告警排查流程",
+    "url": "https://www.oschina.net/news/451984",
+    "content": "告警来了，第一反应是打开日志平台搜关键词，切到 APM 看监控曲线，再去链路追踪系统找 trace 详情。三个平台来回切换，最后发现只是上游 GC 抖动导致的瞬间超时，一分钟后就自愈了。这类告警排查通常需要 10～30 分钟，主要耗时不在分析本身，而在于频繁登录不同平台…",
+    "source": "开源中国-全部 - 白开水不加糖",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-06-04T08:23:52.935Z",
+    "fetchedAt": "2026-06-04T18:28:45.700Z",
+    "eventKey": "llm-agent-重构告警排查流程",
+    "normalizedTitle": "用 llm agent 重构告警排查流程",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 白开水不加糖"
+    ],
+    "preFilterScore": 137.780561432935
+  },
+  {
+    "id": "folo-1141173889225748482",
+    "title": "亚洲贸易伙伴谴责美国以强迫劳动为由拟征新关税",
+    "url": "https://cn.wsj.com/articles/%E4%BA%9A%E6%B4%B2%E8%B4%B8%E6%98%93%E4%BC%99%E4%BC%B4%E8%B0%B4%E8%B4%A3%E7%BE%8E%E5%9B%BD%E4%BB%A5%E5%BC%BA%E8%BF%AB%E5%8A%B3%E5%8A%A8%E4%B8%BA%E7%94%B1%E6%8B%9F%E5%BE%81%E6%96%B0%E5%85%B3%E7%A8%8E-de53b9d9",
+    "content": "中国、印度以及韩国等贸易伙伴对美国的举动作出了回应。中国抨击了这一举措，称贸易问题应通过对话和协商解决。",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "politics",
+    "publishedAt": "2026-06-04T08:16:00.279Z",
+    "fetchedAt": "2026-06-04T18:28:45.700Z",
+    "eventKey": "亚洲贸易伙伴谴责美国以强迫劳动为由拟征新关税",
+    "normalizedTitle": "亚洲贸易伙伴谴责美国以强迫劳动为由拟征新关税",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 53.780560960279
+  },
+  {
+    "id": "folo-1141173889225748495",
+    "title": "富士康与英特尔联手开发AI基础设施",
+    "url": "https://cn.wsj.com/articles/%E5%AF%8C%E5%A3%AB%E5%BA%B7%E4%B8%8E%E8%8B%B1%E7%89%B9%E5%B0%94%E8%81%94%E6%89%8B%E5%BC%80%E5%8F%91ai%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD-48a4b24b",
+    "content": "Foxconn and Intel are collaborating to design comprehensive AI infrastructure solutions spanning chips, modules, racks, and entire systems, while also exploring opportunities in customized AI chips.",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "software",
+    "publishedAt": "2026-06-04T08:15:00.250Z",
+    "fetchedAt": "2026-06-04T18:28:45.700Z",
+    "eventKey": "富士康与英特尔联手开发ai基础设施",
+    "normalizedTitle": "富士康与英特尔联手开发ai基础设施",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 199.78056090025
+  },
+  {
+    "id": "folo-1141118210477670405",
+    "title": "高盛首席执行官大卫·所罗门谈人工智能时代下的银行运营",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/goldman-sachs-ceo-david-solomon-on-running-a-bank-in-the-age-of-ai",
+    "content": "Goldman Sachs CEO David Solomon discussed operating a bank amid advancing AI technology in a Bloomberg interview.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T08:13:25.025Z",
+    "fetchedAt": "2026-06-04T18:28:45.700Z",
+    "eventKey": "高盛首席执行官大卫·所罗门谈人工智能时代下的银行运营",
+    "normalizedTitle": "高盛首席执行官大卫·所罗门谈人工智能时代下的银行运营",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 114.780560805025
+  },
+  {
+    "id": "folo-1141425771609227273",
+    "title": "写代码可以 Vibe Coding 了，为什么办公还不能 Vibe Officing？",
+    "url": "https://www.oschina.net/news/451966",
+    "content": "大家已经很熟悉 Vibe Coding 的工作方式了，但 Vibe Officing 鲜有人提及。本文将站在资深研发的视角，从技术层面探讨现在市面上 AI + 文档的工具与 Vibe Officing 之间的距离，分析为何 HTML 和 Markdown 都无法承载这种工作方式…",
+    "source": "开源中国-全部 - 局",
+    "sourceId": "folo-ai-list-240737517462121472",
+    "category": "software",
+    "publishedAt": "2026-06-04T08:03:31.652Z",
+    "fetchedAt": "2026-06-04T18:28:45.700Z",
+    "eventKey": "写代码可以-vibe-coding-为什么办公还不能-vibe-officing",
+    "normalizedTitle": "写代码可以 vibe coding 了 为什么办公还不能 vibe officing",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "开源中国-全部 - 局"
+    ],
+    "preFilterScore": 141.780560211652
+  },
+  {
+    "id": "folo-1141595462562656256",
+    "title": "Why AI Agents Fail in Production (And How Engineering Teams Are Fixing It in 2026)",
+    "url": "https://dev.to/hadil/why-ai-agents-fail-in-production-and-how-engineering-teams-are-fixing-it-in-2026-job",
+    "content": "Most production AI agents don't fail because the model is bad. They fail because the infrastructure around them is invisible. You've…",
+    "source": "dev.to top (week) - Hadil Ben Abdallah",
+    "sourceId": "folo-ai-list-151151136731356160",
+    "category": "ai",
+    "publishedAt": "2026-06-04T07:54:44.270Z",
+    "fetchedAt": "2026-06-04T18:28:45.700Z",
+    "eventKey": "why-agents-fail-production-how-engineering",
+    "normalizedTitle": "why ai agents fail in production and how engineering teams are fixing it in 2026",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "dev.to top (week) - Hadil Ben Abdallah"
+    ],
+    "preFilterScore": 134.78055968427
+  },
+  {
+    "id": "folo-1141018605505232916",
+    "title": "韩国股市表现优于日本同行，因人工智能领头羊企业利润激增",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-03/korean-stocks-outgun-japan-rivals-as-ai-primes-surge-in-profit",
+    "content": "Korean Stocks Outgun Japan Rivals as AI Primes Surge in Profit (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T06:05:15.117Z",
+    "fetchedAt": "2026-06-04T18:28:45.701Z",
+    "eventKey": "韩国股市表现优于日本同行-因人工智能领头羊企业利润激增",
+    "normalizedTitle": "韩国股市表现优于日本同行 因人工智能领头羊企业利润激增",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 89.780553115117
+  },
+  {
+    "id": "folo-1140941658381107208",
+    "title": "Cerebras表示，除英伟达外，该公司正与所有AI设备制造商展开合作",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/cerebras-says-it-s-working-with-all-ai-gear-makers-except-nvidia",
+    "content": "Cerebras Says It’s Working With All AI Gear Makers Except Nvidia (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T04:44:54.253Z",
+    "fetchedAt": "2026-06-04T18:28:45.701Z",
+    "eventKey": "cerebras表示-除英伟达外-该公司正与所有ai设备制造商展开合作",
+    "normalizedTitle": "cerebras表示 除英伟达外 该公司正与所有ai设备制造商展开合作",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.780548294253
+  },
+  {
+    "id": "folo-1140941658381107214",
+    "title": "普京将俄罗斯的人工智能未来变成了克里姆林宫的家族生意",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/putin-turns-russia-s-ai-future-into-a-kremlin-family-business",
+    "content": "Putin Turns Russia’s AI Future Into a Kremlin Family Business (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T04:44:54.232Z",
+    "fetchedAt": "2026-06-04T18:28:45.701Z",
+    "eventKey": "普京将俄罗斯的人工智能未来变成了克里姆林宫的家族生意",
+    "normalizedTitle": "普京将俄罗斯的人工智能未来变成了克里姆林宫的家族生意",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 88.780548294232
+  },
+  {
+    "id": "folo-1140941658381107220",
+    "title": "企业的AI账单金额创下历史新高——且即将到期",
+    "url": "https://www.bloomberg.com/opinion/articles/2026-06-04/the-ai-boom-s-next-test-is-the-roi-worth-the-cost",
+    "content": "Companies’ AI Bills Are Bigger Than Ever — and Coming Due (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T04:13:11.241Z",
+    "fetchedAt": "2026-06-04T18:28:51.154Z",
+    "eventKey": "企业的ai账单金额创下历史新高——且即将到期",
+    "normalizedTitle": "企业的ai账单金额创下历史新高——且即将到期",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 84.780546391241
+  },
+  {
+    "id": "folo-1140861887299117057",
+    "title": "英国监管机构称，人工智能网络安全风险已成为银行业面临的头号威胁",
+    "url": "https://www.ft.com/content/c5f7a9f0-d3d1-499c-aafb-ad03c85730bd",
+    "content": "AI cyber security risk ‘top of list’ for banking threats, says UK regulator (www.ft.com) 06-04",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "ai",
+    "publishedAt": "2026-06-04T04:13:11.058Z",
+    "fetchedAt": "2026-06-04T18:28:51.154Z",
+    "eventKey": "英国监管机构称-人工智能网络安全风险已成为银行业面临的头号威胁",
+    "normalizedTitle": "英国监管机构称 人工智能网络安全风险已成为银行业面临的头号威胁",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 95.780546391058
+  },
+  {
+    "id": "folo-1140861887299117061",
+    "title": "哈维尔·米莱：阿根廷邀请人工智能来解放自己",
+    "url": "https://www.ft.com/content/f93022fe-43f7-437d-abd8-06c457c0a43c",
+    "content": "Javier Milei: Argentina invites AI to free itself (www.ft.com) 06-04",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "ai",
+    "publishedAt": "2026-06-04T04:13:10.891Z",
+    "fetchedAt": "2026-06-04T18:28:51.154Z",
+    "eventKey": "哈维尔·米莱-阿根廷邀请人工智能来解放自己",
+    "normalizedTitle": "哈维尔·米莱 阿根廷邀请人工智能来解放自己",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 69.780546390891
+  },
+  {
+    "id": "folo-1140861887299117062",
+    "title": "法国1100亿欧元的人工智能热潮考验着马克龙的科技雄心",
+    "url": "https://www.ft.com/content/8be3cb2e-c65e-4bef-a085-744e99a9dbd1",
+    "content": "France’s 110bn AI boom tests Macron’s tech ambitions (www.ft.com) 06-04",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "ai",
+    "publishedAt": "2026-06-04T04:13:10.849Z",
+    "fetchedAt": "2026-06-04T18:28:51.154Z",
+    "eventKey": "法国1100亿欧元的人工智能热潮考验着马克龙的科技雄心",
+    "normalizedTitle": "法国1100亿欧元的人工智能热潮考验着马克龙的科技雄心",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 72.780546390849
+  },
+  {
+    "id": "folo-1140861887299117066",
+    "title": "英伟达将人工智能之战从数据中心延伸至笔记本电脑",
+    "url": "https://www.ft.com/content/4db277bf-e67b-473d-a75e-e358fb31f69b",
+    "content": "Nvidia takes AI battle from the data centre to the laptop (www.ft.com) 06-04",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "ai",
+    "publishedAt": "2026-06-04T04:13:10.676Z",
+    "fetchedAt": "2026-06-04T18:28:51.154Z",
+    "eventKey": "英伟达将人工智能之战从数据中心延伸至笔记本电脑",
+    "normalizedTitle": "英伟达将人工智能之战从数据中心延伸至笔记本电脑",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 77.780546390676
+  },
+  {
+    "id": "folo-1140861887299117067",
+    "title": "在全球追逐人工智能赢家的大潮中，印度股市不敌亚洲同行",
+    "url": "https://www.ft.com/content/e0a198af-725a-4fa0-a9fe-72725163b4e6",
+    "content": "Indian stocks lose out to Asian rivals in global hunt for AI winners (www.ft.com) 06-04",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "ai",
+    "publishedAt": "2026-06-04T04:13:10.636Z",
+    "fetchedAt": "2026-06-04T18:28:51.154Z",
+    "eventKey": "在全球追逐人工智能赢家的大潮中-印度股市不敌亚洲同行",
+    "normalizedTitle": "在全球追逐人工智能赢家的大潮中 印度股市不敌亚洲同行",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 88.780546390636
+  },
+  {
+    "id": "folo-1140836255488032779",
+    "title": "台积电警告称，未来数年内芯片供应将无法满足人工智能驱动的需求",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-04/tsmc-ceo-warns-chip-supply-won-t-meet-ai-fueled-demand-for-years",
+    "content": "TSMC Warns Chip Supply Won’t Meet AI-Fueled Demand for Years (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T03:09:21.957Z",
+    "fetchedAt": "2026-06-04T18:28:51.154Z",
+    "eventKey": "台积电警告称-未来数年内芯片供应将无法满足人工智能驱动的需求",
+    "normalizedTitle": "台积电警告称 未来数年内芯片供应将无法满足人工智能驱动的需求",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.780542561957
+  },
+  {
+    "id": "folo-1140836255488032783",
+    "title": "印度科技股重挫，因人工智能市场再度出现动荡",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-06-04/tcs-infosys-plunge-as-ai-fears-return-to-rattle-it-stocks",
+    "content": "Indian IT Stocks Slump as AI Jitters Resurface (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T02:53:03.762Z",
+    "fetchedAt": "2026-06-04T18:28:51.154Z",
+    "eventKey": "印度科技股重挫-因人工智能市场再度出现动荡",
+    "normalizedTitle": "印度科技股重挫 因人工智能市场再度出现动荡",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 73.780541583762
+  },
+  {
+    "id": "folo-1140764455395684356",
+    "title": "顶级AI公司CEO联合呼吁美国立法以防范生物武器",
+    "url": "https://cn.wsj.com/articles/top-ai-ceos-call-for-law-protecting-against-biological-weapons-4c44f3c8",
+    "content": "AI的出现正在放大人们对AI有可能为犯罪分子提供释放新型病原体的工具的担忧。",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "ai",
+    "publishedAt": "2026-06-04T01:55:00.485Z",
+    "fetchedAt": "2026-06-04T18:28:55.247Z",
+    "eventKey": "顶级ai公司ceo联合呼吁美国立法以防范生物武器",
+    "normalizedTitle": "顶级ai公司ceo联合呼吁美国立法以防范生物武器",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 39.780538100485
+  },
+  {
+    "id": "folo-1140836255488032798",
+    "title": "金价上涨，交易员正评估以色列与黎巴嫩之间脆弱的停火协议",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-03/gold-holds-drop-as-us-iran-clashes-keep-inflation-risks-in-focus",
+    "content": "Gold Advances as Traders Weigh Fragile Israel-Lebanon Truce (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-04T01:02:49.246Z",
+    "fetchedAt": "2026-06-04T18:28:55.247Z",
+    "eventKey": "金价上涨-交易员正评估以色列与黎巴嫩之间脆弱的停火协议",
+    "normalizedTitle": "金价上涨 交易员正评估以色列与黎巴嫩之间脆弱的停火协议",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 86.780534969246
+  },
+  {
+    "id": "folo-1140594578466828300",
+    "title": "扎克伯格希望Meta新AI智能体能运营你的整个公司",
+    "url": "https://cn.wsj.com/articles/mark-zuckerberg-wants-metas-new-ai-agents-to-run-your-whole-business-1a7a388b",
+    "content": "Meta is expanding beyond consumer advertising into enterprise services by building AI agents capable of operating entire businesses, representing CEO Mark Zuckerberg's strategic shift toward serving corporate clients.",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "ai",
+    "publishedAt": "2026-06-03T23:33:00.437Z",
+    "fetchedAt": "2026-06-04T18:28:55.248Z",
+    "eventKey": "扎克伯格希望meta新ai智能体能运营你的整个公司",
+    "normalizedTitle": "扎克伯格希望meta新ai智能体能运营你的整个公司",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 218.780529580437
+  },
+  {
+    "id": "folo-1140589078928965636",
+    "title": "麦凯森在首次公开募股前以22.5亿美元定价一笔杠杆贷款",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-03/mckesson-unit-prices-2-25-billion-leveraged-loan-ahead-of-ipo",
+    "content": "McKesson priced a $2.25 billion leveraged loan for one of its units before an initial public offering.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-03T23:11:48.034Z",
+    "fetchedAt": "2026-06-04T18:28:55.248Z",
+    "eventKey": "麦凯森在首次公开募股前以22-5亿美元定价一笔杠杆贷款",
+    "normalizedTitle": "麦凯森在首次公开募股前以22 5亿美元定价一笔杠杆贷款",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 103.780528308034
+  },
+  {
+    "id": "folo-1140509392890789895",
+    "title": "段永平继续增持泡泡玛特，持股比例升至 6.04%",
+    "url": "https://readhub.cn/topic/8teuhjS9jev",
+    "content": "Investor Duan Yongping increased his stake in Pop Mart on May 28, purchasing 4.66 million shares at an average price of HK$162.5 per share, totaling HK$757 million. His ownership rose from 5.69% to 6.04%, with total holdings reaching 81,031,600 shares.",
+    "source": "Readhub - 每日早报",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "ai",
+    "publishedAt": "2026-06-03T22:37:45.238Z",
+    "fetchedAt": "2026-06-04T18:28:55.248Z",
+    "eventKey": "段永平继续增持泡泡玛特-持股比例升至",
+    "normalizedTitle": "段永平继续增持泡泡玛特 持股比例升至 6 04",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报"
+    ],
+    "preFilterScore": 253.780526265238
+  },
+  {
+    "id": "folo-1140509392890789896",
+    "title": "千问向第三方 Agent、Skill 全面开放",
+    "url": "https://readhub.cn/topic/8tejGZMZgFP",
+    "content": "Alibaba's Qianwen AI app will open to third-party agents and skills, allowing all enterprises to operate branded agents on the platform. First-batch companies including Luckin Coffee, KFC, Mixue Ice Cream, and China Eastern Airlines are testing agent services. Businesses can customize agent personas and service boundaries, offering conversational product services with memory and proactive planning capabilities for reminders and recommendations.",
+    "source": "Readhub - 每日早报",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "ai",
+    "publishedAt": "2026-06-03T22:37:45.237Z",
+    "fetchedAt": "2026-06-04T18:28:55.248Z",
+    "eventKey": "千问向第三方-agent-skill-全面开放",
+    "normalizedTitle": "千问向第三方 agent skill 全面开放",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报"
+    ],
+    "preFilterScore": 449.780526265237
+  },
+  {
+    "id": "folo-1140509392890789898",
+    "title": "里昂：腾讯推出微信 AI Agent 只是时间问题，有望在今年内实现",
+    "url": "https://readhub.cn/topic/8teWRE3Wiv5",
+    "content": "Lyons predicts Tencent will launch a WeChat AI Agent in 2024, with testing underway and compliance procedures potentially starting this month. The AI Agent would help 1.4 billion users complete tasks within the app. Tencent's WeChat ecosystem—400 million mini-programs, 1 billion users—gives it superior competitive advantages over Apple iOS, requiring over a decade to replicate. Tencent's stock, down 20% this year due to AI capability concerns, could revalue if these worries prove overblown. 2024 profits will grow on strong gaming, advertising, and expanding margins.",
+    "source": "Readhub - 每日早报",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "ai",
+    "publishedAt": "2026-06-03T22:37:45.235Z",
+    "fetchedAt": "2026-06-04T18:28:55.248Z",
+    "eventKey": "腾讯推出微信-agent-只是时间问题-有望在今年内实现",
+    "normalizedTitle": "里昂 腾讯推出微信 ai agent 只是时间问题 有望在今年内实现",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报"
+    ],
+    "preFilterScore": 573.780526265235
+  },
+  {
+    "id": "folo-1140483275563745284",
+    "title": "OpenAI 和 Anthropic 正筹备首次公开募股，这可能重塑人工智能市场",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-03/openai-y-anthropic-preparan-opi-record-en-ia",
+    "content": "OpenAI y Anthropic alistan sus OPI que podrían redefinir el mercado de la inteligencia artificial (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-03T21:37:56.667Z",
+    "fetchedAt": "2026-06-04T18:28:59.203Z",
+    "eventKey": "openai-anthropic-正筹备首次公开募股-这可能重塑人工智能市场",
+    "normalizedTitle": "openai 和 anthropic 正筹备首次公开募股 这可能重塑人工智能市场",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 124.780522676667
+  },
+  {
+    "id": "folo-1140508963662389255",
+    "title": "尽管当地民众反对，SpaceX仍为其价值550亿美元的人工智能芯片工厂争取到了免税待遇",
+    "url": "https://www.ft.com/content/86b2440a-60ce-4a5b-94ba-a6a4456ae574",
+    "content": "SpaceX wins tax exemption for 55bn AI chip plant despite local backlash (www.ft.com) 06-04",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "ai",
+    "publishedAt": "2026-06-03T21:37:56.544Z",
+    "fetchedAt": "2026-06-04T18:28:59.203Z",
+    "eventKey": "尽管当地民众反对-spacex仍为其价值550亿美元的人工智能芯片工厂争取到了免税待遇",
+    "normalizedTitle": "尽管当地民众反对 spacex仍为其价值550亿美元的人工智能芯片工厂争取到了免税待遇",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 91.780522676544
+  },
+  {
+    "id": "folo-1140483275580522500",
+    "title": "行业协会敦促美国增加因人工智能而供不应求的内存芯片供应",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-03/trade-groups-urge-us-to-boost-memory-chip-supply-strained-by-ai",
+    "content": "Trade Groups Urge US to Boost Memory Chip Supply Strained by AI (www.bloomberg.com) 06-04",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-03T21:07:07.333Z",
+    "fetchedAt": "2026-06-04T18:28:59.203Z",
+    "eventKey": "行业协会敦促美国增加因人工智能而供不应求的内存芯片供应",
+    "normalizedTitle": "行业协会敦促美国增加因人工智能而供不应求的内存芯片供应",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.780520827333
+  },
+  {
+    "id": "folo-1140378659337551878",
+    "title": "华尔街对老牌汽车股的AI热潮表示认可",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-03/ai-euphoria-in-old-world-auto-stocks-gets-a-nod-from-wall-street",
+    "content": "AI Euphoria in Old World Auto Stocks Gets a Nod From Wall Street (www.bloomberg.com) 03:45",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-03T20:19:10.973Z",
+    "fetchedAt": "2026-06-04T18:28:59.203Z",
+    "eventKey": "华尔街对老牌汽车股的ai热潮表示认可",
+    "normalizedTitle": "华尔街对老牌汽车股的ai热潮表示认可",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.780517950973
+  },
+  {
+    "id": "folo-1140367740037513216",
+    "title": "How to build self-driving AI operations on Amazon Bedrock at scale",
+    "url": "https://aws.amazon.com/blogs/machine-learning/how-to-build-self-driving-ai-operations-on-amazon-bedrock-at-scale/",
+    "content": "Amazon Bedrock powers generative AI for more than 100,000 organizations worldwide—from startups to global enterprises across every industry.…",
+    "source": "Artificial Intelligence - Sushovan Basak",
+    "sourceId": "folo-ai-list-41459996870678532",
+    "category": "ai",
+    "publishedAt": "2026-06-03T20:14:16.357Z",
+    "fetchedAt": "2026-06-04T18:28:59.203Z",
+    "eventKey": "how-build-self-driving-operations-amazon-bedrock",
+    "normalizedTitle": "how to build self-driving ai operations on amazon bedrock at scale",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Artificial Intelligence - Sushovan Basak"
+    ],
+    "preFilterScore": 142.780517656357
+  },
+  {
+    "id": "folo-1140378659354329093",
+    "title": "如果人工智能的重新训练不过是一个令人安心的谎言呢？",
+    "url": "https://www.bloomberg.com/opinion/articles/2026-06-03/what-if-ai-retraining-is-just-a-comforting-lie",
+    "content": "What If AI Retraining Is Just a Comforting Lie? (www.bloomberg.com) 03:00",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-06-03T19:15:59.555Z",
+    "fetchedAt": "2026-06-04T18:28:59.203Z",
+    "eventKey": "如果人工智能的重新训练不过是一个令人安心的谎言呢",
+    "normalizedTitle": "如果人工智能的重新训练不过是一个令人安心的谎言呢",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 74.780514159555
+  }
+]
