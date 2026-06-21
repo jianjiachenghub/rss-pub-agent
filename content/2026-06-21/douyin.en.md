@@ -1,0 +1,12 @@
+(Casual pacing, opening with suspense)  
+Hook you in 3 seconds: The key variable in global markets today hinges on a single maritime passage.
+
+First, the most critical takeaway: Geopolitical risks are squeezing monetary policy space, and the market’s worst fear—the "second inflation" scenario—may be forced to play out. Because today, two news items point to the same powder keg—the Strait of Hormuz has been blocked by Iran, cutting crude oil shipments to zero; while the US continues to delay implementing the ceasefire agreement with Iran, potentially extending the blockade. This directly means one-fifth of global crude oil supply could be cut off at any moment, sending oil price risk premiums soaring.
+
+Supporting logic one: Inflation pressure will be harder to ease. The Fed's most-watched inflation gauge, core PCE, is about to be released, and the market was already worried it might rebound, delaying rate cuts. Now, combined with the strait blockade driving up energy costs, inflation stickiness will only strengthen.
+
+Supporting logic two: AI expansion is hitting a double bottleneck. On one side is the human bottleneck: The Financial Times notes that manual stages like data labeling and model training are already slowing down the iteration speed of AI models. On the other side is the funding bottleneck: SpaceX plans to issue $20 billion in bonds right after its IPO, aggressively leveraging bets on space data centers. This indicates the AI infrastructure spending war has reached the stage of extreme financing.
+
+Supporting logic three: A crucial shift in the domestic AI ecosystem. After regulatory intervention, the AI company Manus was sold by Meta, with $2 billion returning to domestic capital. Meanwhile, WeChat has begun a limited rollout of its native AI assistant "Xiaowei." Once fully launched, it could become the first gateway for a billion people to access AI. The competition in AI has escalated from the model layer to the system layer of super-apps.
+
+In short, today’s main storyline is: Geopolitics locks down energy, energy props up inflation, inflation traps rate cuts, and AI is hitting new boundaries across three dimensions: people, money, and entry points. See you tomorrow.
