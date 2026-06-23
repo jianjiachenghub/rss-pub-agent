@@ -1,0 +1,5 @@
+Today's Assessment: AI is reshaping employment, markets, and capital flows, with intensified competition among giants and accelerated business integration.
+
+Three Signals: 1. Oracle’s layoff of 21,000 employees, explicitly citing AI as a job replacement, marks AI’s cost-effectiveness moving from behind the scenes to the forefront. 2. Amazon begins direct sales of its self-developed AI chips, with cloud giants formally challenging Nvidia, signaling a new phase in computing power competition. 3. Anthropic releases Claude Tag, evolving AI from a Q&A tool to an assignable "virtual colleague" via @mentions, rewriting human-machine collaboration models.
+
+What to Watch Next: How the divergence between the AI investment boom (e.g., the $50 billion MGX fund) and market pullbacks (sharp declines in tech stocks) will unfold.
