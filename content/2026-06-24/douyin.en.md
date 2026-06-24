@@ -1,0 +1,9 @@
+The biggest news in the AI world today: SoftBank’s Masayoshi Son called the AI bubble "insulting" and shelved his retirement plan. That sends a strong signal: AI giants are convinced the real contest is just beginning. Why? Three key things tell the story.
+
+**First, the arms race is diving into hardware.** OpenAI has teamed up with Broadcom to develop custom chips—with one goal in mind: cutting inference costs. What does this tell us? In the battle for computing power, developing in-house chips has become crucial for giants to reduce costs and boost efficiency. Memory leader SK Hynix plans to raise nearly $30 billion in an IPO, essentially to capture the massive demand for HBM memory chips driven by AI. This isn't just a demand surge—it's a supply chain battle that requires huge capital.
+
+**Second, power has become the physical bottleneck for AI.** Two headlines today are telling: Solar company Sunrun’s stock soared over 30% on news it will supply power to Tesla’s AI operations. Meanwhile, communities across the US are strongly opposing new data centers over electricity consumption and environmental concerns. This push and pull puts AI’s "power anxiety" in sharp focus. What’s the solution? A Canadian company is exploring nuclear tech to power data centers. Energy is becoming the key variable determining AI’s expansion pace.
+
+**Third, market sentiment is splitting and needs validation.** South Korean stock volatility hit record highs due to AI uncertainty; the weight of Indian tech stocks in indexes fell to a historic low as AI threatens their traditional outsourcing model. After the hype, the market is cooling down. Everyone is waiting for a key test: Micron’s earnings tonight. Its performance will serve as a litmus test for the real strength of AI demand.
+
+So, Masayoshi Son’s decision not to retire shows precisely that this infrastructure race—driven by computing power, electricity, and capital—is far from over.
