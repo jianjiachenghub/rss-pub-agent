@@ -1,8 +1,6 @@
 name: Daily News Pipeline
 
 on:
-  schedule:
-    - cron: '10 16 * * *'  # UTC 16:10 = Beijing 00:10 (next day)
   workflow_dispatch:
 
 permissions:
