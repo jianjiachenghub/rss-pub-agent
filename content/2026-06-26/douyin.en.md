@@ -1,11 +1,11 @@
-Stop thinking AI is just a bubble! Jensen himself confirms it—this infrastructure wave is set to last for decades!
+The most important takeaway today is this: the AI trade is moving from “telling growth stories” into a phase of “counting costs, watching regulation, and proving real-world execution.”
 
-The key insight today: We're at the start of a supercycle for AI infrastructure, an impact that will stretch over decades and is already affecting everyday consumer prices.
+In the past, everyone asked just one question: who is stronger? But today, the market is starting to ask three more realistic questions:
 
-First supporting point: NVIDIA CEO Jensen Huang stated clearly at the annual shareholders meeting that the "era of useful AI" has arrived. He predicts that building out power grids, internet, and computing centers for AI will be the largest infrastructure project in human history—not just for a few years, but spanning decades. This is essentially a top-tier endorsement for the industry’s long-term growth.
+First, who pays for AI costs? Apple is raising prices on Macs and iPads because of memory shortages, and Asian tech stocks came under pressure right after. This shows that demand from AI data centers is already squeezing consumer electronics costs. Whether users can accept higher end-device prices will directly affect hardware sales and supply chain valuations.
 
-How does this impact you directly? Second point: Apple just raised prices across the board for Macs and iPads. Why? AI data centers are expanding, squeezing memory supply for consumer electronics, driving up costs. Even a giant like Apple can’t withstand the pressure, let alone other brands.
+Second, can capital spending keep holding up? Samsung and SK Hynix are reportedly preparing to increase AI investment, which shows the memory industry is still betting on long-term demand. But on the other side, South Korea’s stock market plunged more than 8%, and concerns over high AI valuations are being released all at once.
 
-Finally, a shift in direction: AI itself is evolving from a chat tool into the core of enterprise workflows. Anthropic upgraded its coding assistant Claude Code into a team collaboration tool, Claude Tag. It can “embed” itself in team chats, actively jump in and push tasks forward. This means the decision to adopt AI is shifting from individual programmers to entire management teams.
+Third, top-tier models are entering the regulatory cycle. OpenAI previewed GPT-5.6 Sol, while the U.S. government is requiring new models to be released in phases, with reviews first. Model competition is no longer just about technical speed. It also depends on the compliance window.
 
-In short, AI is no longer a distant concept. The infrastructure boom and cost pressures it brings are already tangibly affecting major companies and your wallet. I'm tech finance analyst XXX. See you tomorrow!
+So today’s main thread is clear: AI has not cooled down, but the market is no longer paying blindly for every “AI label.” What will truly be valuable next are the companies that can turn computing costs into revenue, profit, and stable product entry points.

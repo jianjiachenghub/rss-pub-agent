@@ -1,8 +1,9 @@
-Today's View: AI infrastructure boom triggers industry chain reactions.
+**Tech and Markets Ultra-Brief**
 
-Signals:
-1. NVIDIA CEO Jensen Huang states AI infrastructure cycle will last decades.
-2. Apple raises Mac/iPad prices across the board due to memory shortages, stock drops over 5%.
-3. Claude Code upgraded to a team collaboration tool, AI further integrates into enterprise workflows.
+Today’s Take: AI is moving from a tech race into a simultaneous test of costs, regulation, and delivery pressure.
 
-What to Watch Next: Whether AI supply chain tensions will continue to spread to the consumer side.
+1. OpenAI previews a new model, as top-tier model release timelines begin to feel the impact of review processes.
+2. Apple raises prices and South Korean tech stocks plunge, showing AI costs are flowing through to devices and markets.
+3. AI revenue covers depreciation for the first time, while bubble and credit-risk warnings rise in parallel.
+
+What to Watch Next: Whether end-user demand can absorb AI costs.
