@@ -5,6 +5,7 @@
     "graph": "npm --prefix scripts exec tsx graph.ts",
     "pipeline": "npm --prefix scripts run pipeline",
     "daily:local": "npm --prefix scripts run daily:local --",
-    "lark:daily": "npm --prefix scripts run lark:daily --"
+    "lark:daily": "npm --prefix scripts run lark:daily --",
+    "lark:weekly": "npm --prefix scripts run lark:weekly --"
   }
 }

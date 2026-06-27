@@ -307,9 +307,13 @@ npm run daily:local -- --date 2026-04-08
 npm run daily:local -- --resume-from-raw 2026-04-08
 npm run daily:local -- --skip-lark
 npm run daily:local -- --push
+npm run lark:weekly
+npm run lark:weekly -- --week-id 2026-06-W4
 ```
 
 `daily:local` runs the pipeline, regenerates `reports/index.json`, stages `content/` and `reports/`, commits generated changes as `daily: YYYY-MM-DD`, and sends categorized Lark/Feishu chat messages through `scripts/send-lark-daily.ts`. A local scheduler such as cron or launchd should call this command after `codex login` and `lark-cli` login have been completed on the machine.
+
+`lark:weekly` derives the latest frontend weekly digest from `content/` and sends it to the configured Lark/Feishu group. It uses the same month-scoped week IDs as the site, for example `2026-06-W4`.
 
 ### Pipeline
 

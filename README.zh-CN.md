@@ -306,9 +306,13 @@ npm run daily:local -- --date 2026-04-08
 npm run daily:local -- --resume-from-raw 2026-04-08
 npm run daily:local -- --skip-lark
 npm run daily:local -- --push
+npm run lark:weekly
+npm run lark:weekly -- --week-id 2026-06-W4
 ```
 
-`daily:local` 会依次运行 pipeline、重新生成 `reports/index.json`、暂存 `content/` 与 `reports/`、用 `daily: YYYY-MM-DD` 提交生成内容，并通过 `scripts/send-lark-daily.ts` 发送飞书/Lark 富文本日报。cron 或 launchd 这类本地定时任务可以直接调用这个命令；前提是这台机器已经完成 `codex login` 和 `lark-cli` 登录。
+`daily:local` 会依次运行 pipeline、重新生成 `reports/index.json`、暂存 `content/` 与 `reports/`、用 `daily: YYYY-MM-DD` 提交生成内容，并通过 `scripts/send-lark-daily.ts` 发送按分类拆分的飞书/Lark 日报。cron 或 launchd 这类本地定时任务可以直接调用这个命令；前提是这台机器已经完成 `codex login` 和 `lark-cli` 登录。
+
+`lark:weekly` 会从 `content/` 里动态聚合最新周报并发送到已配置的飞书/Lark 群，周 ID 与站点保持一致，例如 `2026-06-W4`。
 
 ### Pipeline
 
