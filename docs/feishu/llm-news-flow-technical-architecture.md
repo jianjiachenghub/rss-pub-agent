@@ -54,7 +54,7 @@ START
 | `content/` | 对外主产物目录 | 每日内容和索引，前端直接读取 |
 | `.runtime/` | 运行时状态目录 | 目前主要保存飞书投递记录 |
 | `frontend/` | 展示层 | Next.js 16 读取 `content/` 做首页、详情页、周报与播客页 |
-| `.github/workflows/` | 自动化执行 | 定时跑 pipeline、生成兼容索引、提交内容 |
+| `.github/workflows/` | 自动化执行 | 手动兜底跑 pipeline、生成兼容索引、提交内容 |
 
 ## 4. 输入层设计
 
@@ -173,6 +173,8 @@ LLM 入口统一在 `scripts/lib/llm.ts`。
 
 当前支持的 provider：
 
+- `codex`
+- `openrouter`
 - `zhipu`
 - `gemini`
 - `openai`
@@ -182,7 +184,7 @@ LLM 入口统一在 `scripts/lib/llm.ts`。
 调度策略的重点是：
 
 - `LLM_PROVIDERS` 控制优先级链
-- 只有配置了 API Key 的 provider 才会启用
+- `codex` 使用本机 Codex SDK 和登录态；其他 provider 只有配置了 API Key 才会启用
 - `429 / 503 / overloaded / network` 自动重试
 - provider 进入 cooldown 后自动跳过
 - 命中安全拦截时优先尝试 Gemini 兜底
@@ -243,14 +245,17 @@ content/
 
 通过 `PIPELINE_RESUME_FROM_RAW` 或 `--resume-from-raw`，可以从 `content/<date>/raw/` 直接恢复，避免长链路失败后整条重跑。
 
-### 10.2 GitHub Actions 定时执行
+### 10.2 本地每日任务执行
 
-工作流按 Asia/Shanghai 计算“前一天”的日期，再执行：
+本地每日任务通过 `npm run daily:local` 执行，默认使用 Codex SDK provider，并按 Asia/Shanghai 计算“前一天”的日期。流程是：
 
-1. 安装 `scripts/` 依赖
-2. 运行 `scripts/graph.ts`
-3. 生成 `reports/index.json` 兼容索引
-4. 提交 `content/` 和 `reports/`
+1. 运行 `scripts/graph.ts`
+2. 生成 `reports/index.json` 兼容索引
+3. 暂存 `content/` 和 `reports/`
+4. 如有变更，提交 `daily: YYYY-MM-DD`
+5. 传入 `--push` 时推送当前分支
+
+`.github/workflows/daily-pipeline.yml` 只保留手动触发，用于兜底。
 
 ### 10.3 节点级降级
 

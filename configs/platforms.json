@@ -4,7 +4,13 @@
     "enabled": true,
     "webhookUrl": "${FEISHU_WEBHOOK_URL}",
     "maxHighlights": 3,
-    "targetName": "daily-report"
+    "targetName": "daily-report",
+    "larkCli": {
+      "enabled": true,
+      "chatId": "oc_c6c99cc6a292740330a85c21a89b6913",
+      "identity": "bot",
+      "targetName": "daily-rich-post"
+    }
   },
   "telegram": {
     "enabled": true,

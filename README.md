@@ -199,12 +199,12 @@ The frontend reads directly from `content/`. Weekly views are generated dynamica
 | Layer | Stack |
 |---|---|
 | Pipeline orchestration | LangGraph.js + TypeScript |
-| LLM layer | zhipu / gemini / openai / deepseek / siliconflow |
+| LLM layer | Codex SDK locally, plus zhipu / gemini / openai / deepseek / siliconflow fallbacks |
 | Fetching | Folo API + RSSHub + rss-parser |
 | Frontend | Next.js 16 + React 19 + Tailwind CSS 4 |
 | Content rendering | react-markdown + remark-gfm |
 | Storage | Git for content, `.runtime` for delivery state, Cloudflare R2 for optional podcast audio |
-| Deployment | GitHub Actions + Vercel |
+| Deployment | Local daily runner + Vercel; GitHub Actions manual fallback |
 | Notifications | Feishu webhook, Telegram bot, WeChat webhook, WeChat Official Account custom messages |
 
 ## Quick Start
@@ -229,21 +229,25 @@ cd frontend && npm install && cd ..
 cp .env.example .env
 ```
 
-At minimum, configure one LLM provider:
+For the local daily workflow, sign in to Codex once and use the local Codex provider:
 
 ```bash
-LLM_PROVIDERS=openrouter,gemini,openai
-OPENROUTER_API_KEY=your_key_here
-# Optional: override the concrete OpenRouter models without changing code
-# OPENROUTER_FLASH_MODEL=deepseek/deepseek-v3.2
-# OPENROUTER_PRO_MODEL=moonshotai/kimi-k2.5
+codex login
+LLM_PROVIDERS=codex
+# Optional: leave unset to use the current Codex default model
+# CODEX_FLASH_MODEL=gpt-5.4
+# CODEX_PRO_MODEL=gpt-5.4
 ```
 
-### 4. Run the pipeline
+OpenRouter, Gemini, OpenAI, Zhipu, DeepSeek, and SiliconFlow remain available as API-key fallbacks.
+
+### 4. Run the local daily workflow
 
 ```bash
-npm run graph
+npm run daily:local
 ```
+
+Use `npm run daily:local -- --push` when the local scheduled task should push the generated commit.
 
 ### 5. Start the frontend
 
@@ -271,7 +275,9 @@ Model selection is also env-driven: use `<PROVIDER>_FLASH_MODEL` and
 | Variable | Purpose |
 |---|---|
 | `FOLO_SESSION_TOKEN` | Required for the primary Folo list workflow |
-| `OPENROUTER_API_KEY` | Default LLM provider via OpenRouter |
+| `LLM_PROVIDERS` | Provider priority chain. Use `codex` for local Codex SDK runs |
+| `CODEX_FLASH_MODEL`, `CODEX_PRO_MODEL` | Optional Codex model overrides; unset means use the current Codex default |
+| `OPENROUTER_API_KEY` | Optional OpenRouter provider |
 | `OPENROUTER_FLASH_MODEL`, `OPENROUTER_PRO_MODEL` | Override OpenRouter model slugs for `flash` / `pro` |
 | `GEMINI_API_KEY` | Enables Gemini fallback and TTS |
 | `GEMINI_FLASH_MODEL`, `GEMINI_PRO_MODEL` | Override Gemini model names for `flash` / `pro` |
@@ -290,6 +296,20 @@ Model selection is also env-driven: use `<PROVIDER>_FLASH_MODEL` and
 | `REPORT_BASE_URL` | External URL used in delivery messages |
 
 ## Run Locally
+
+### Local daily workflow
+
+From the repo root:
+
+```bash
+npm run daily:local
+npm run daily:local -- --date 2026-04-08
+npm run daily:local -- --resume-from-raw 2026-04-08
+npm run daily:local -- --skip-lark
+npm run daily:local -- --push
+```
+
+`daily:local` runs the pipeline, regenerates `reports/index.json`, stages `content/` and `reports/`, commits generated changes as `daily: YYYY-MM-DD`, and sends categorized Lark/Feishu chat messages through `scripts/send-lark-daily.ts`. A local scheduler such as cron or launchd should call this command after `codex login` and `lark-cli` login have been completed on the machine.
 
 ### Pipeline
 
@@ -343,7 +363,7 @@ rss-pub-agent/
 |- .runtime/                Runtime state such as Feishu delivery records
 |- docs/                    Architecture docs, plans, and archive
 |- reports/                 Legacy compatibility artifacts
-`- .github/workflows/       Scheduled automation
+`- .github/workflows/       Manual fallback automation
 ```
 
 Recommended reading order:

@@ -194,12 +194,12 @@ content/YYYY-MM-DD/
 | 层 | 技术 |
 |---|---|
 | Pipeline 编排 | LangGraph.js + TypeScript |
-| LLM 层 | zhipu / gemini / openai / deepseek / siliconflow |
+| LLM 层 | 本地 Codex SDK，以及 zhipu / gemini / openai / deepseek / siliconflow 兜底 |
 | 数据抓取 | Folo API + RSSHub + rss-parser |
 | 前端 | Next.js 16 + React 19 + Tailwind CSS 4 |
 | 内容渲染 | react-markdown + remark-gfm |
 | 存储 | Git 内容、`.runtime` 状态、Cloudflare R2 播客音频 |
-| 部署 | GitHub Actions + Vercel |
+| 部署 | 本地每日任务 + Vercel；GitHub Actions 手动兜底 |
 | 通知 | 飞书 Webhook / Telegram Bot / 微信 Webhook / 微信公众号客服消息 |
 
 ## 快速开始
@@ -224,20 +224,28 @@ cd frontend && npm install && cd ..
 cp .env.example .env
 ```
 
-至少配置一个 LLM provider：
+本地每日任务默认使用 Codex SDK provider。先在本机完成一次 Codex 登录：
 
 ```bash
-LLM_PROVIDERS=openrouter,gemini,openai
-OPENROUTER_API_KEY=your_key_here
-# 可选：直接用环境变量覆盖 OpenRouter 具体模型
-# OPENROUTER_FLASH_MODEL=deepseek/deepseek-v3.2
-# OPENROUTER_PRO_MODEL=moonshotai/kimi-k2.5
+codex login
+LLM_PROVIDERS=codex
+# 可选：不配置时使用当前 Codex 默认模型
+# CODEX_FLASH_MODEL=gpt-5.4
+# CODEX_PRO_MODEL=gpt-5.4
 ```
 
-### 4. 运行 Pipeline
+OpenRouter、Gemini、OpenAI、智谱、DeepSeek、SiliconFlow 仍然可以作为 API Key provider 兜底。
+
+### 4. 运行本地每日任务
 
 ```bash
-npm run graph
+npm run daily:local
+```
+
+如果本地定时任务需要把生成 commit 推到远端，用：
+
+```bash
+npm run daily:local -- --push
 ```
 
 ### 5. 启动前端
@@ -266,7 +274,9 @@ npm run dev
 | 变量 | 作用 |
 |---|---|
 | `FOLO_SESSION_TOKEN` | 主力 Folo 列表抓取 |
-| `OPENROUTER_API_KEY` | 默认 LLM provider，经 OpenRouter 路由 |
+| `LLM_PROVIDERS` | provider 优先级链。本地 Codex SDK 运行使用 `codex` |
+| `CODEX_FLASH_MODEL`, `CODEX_PRO_MODEL` | 可选 Codex 模型覆盖；不配置时使用当前 Codex 默认模型 |
+| `OPENROUTER_API_KEY` | 可选 OpenRouter provider |
 | `OPENROUTER_FLASH_MODEL`, `OPENROUTER_PRO_MODEL` | 覆盖 OpenRouter 对应的 `flash` / `pro` 模型 |
 | `GEMINI_API_KEY` | Gemini fallback 与 TTS |
 | `GEMINI_FLASH_MODEL`, `GEMINI_PRO_MODEL` | 覆盖 Gemini 对应的 `flash` / `pro` 模型 |
@@ -285,6 +295,20 @@ npm run dev
 | `REPORT_BASE_URL` | 外部通知里的日报链接 |
 
 ## 本地运行
+
+### 本地每日任务
+
+仓库根目录：
+
+```bash
+npm run daily:local
+npm run daily:local -- --date 2026-04-08
+npm run daily:local -- --resume-from-raw 2026-04-08
+npm run daily:local -- --skip-lark
+npm run daily:local -- --push
+```
+
+`daily:local` 会依次运行 pipeline、重新生成 `reports/index.json`、暂存 `content/` 与 `reports/`、用 `daily: YYYY-MM-DD` 提交生成内容，并通过 `scripts/send-lark-daily.ts` 发送飞书/Lark 富文本日报。cron 或 launchd 这类本地定时任务可以直接调用这个命令；前提是这台机器已经完成 `codex login` 和 `lark-cli` 登录。
 
 ### Pipeline
 
@@ -315,7 +339,7 @@ npm run lint
 
 注意：
 
-- 仓库根 `package.json` 只代理 pipeline 命令
+- 仓库根 `package.json` 代理 pipeline 与本地 daily 命令
 - 前端命令需要在 `frontend/` 下执行
 
 ## 文档索引

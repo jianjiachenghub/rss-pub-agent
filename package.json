@@ -3,6 +3,8 @@
   "private": true,
   "scripts": {
     "graph": "npm --prefix scripts exec tsx graph.ts",
-    "pipeline": "npm --prefix scripts run pipeline"
+    "pipeline": "npm --prefix scripts run pipeline",
+    "daily:local": "npm --prefix scripts run daily:local --",
+    "lark:daily": "npm --prefix scripts run lark:daily --"
   }
 }

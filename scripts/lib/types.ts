@@ -64,6 +64,12 @@ export interface FeishuPlatformConfig {
   webhookUrl: string;
   maxHighlights?: number;
   targetName?: string;
+  larkCli?: {
+    enabled: boolean;
+    chatId: string;
+    identity?: "bot" | "user";
+    targetName?: string;
+  };
 }
 
 export interface WeChatOfficialAccountConfig {
@@ -223,7 +229,7 @@ export type DeliveryStatus = "pending" | "sent" | "failed" | "skipped";
 
 export interface DeliveryRecord {
   date: string;
-  channel: "feishu" | "wechat-official-account";
+  channel: "feishu" | "wechat-official-account" | "feishu-lark-cli";
   target: string;
   status: DeliveryStatus;
   attempts: number;

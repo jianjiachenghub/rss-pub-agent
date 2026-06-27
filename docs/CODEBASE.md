@@ -25,10 +25,11 @@
 
 | Entry | File | Purpose |
 |---|---|---|
+| Local daily runner | `scripts/run-local-daily.ts` | 本地每日任务入口：运行 pipeline、生成索引并提交产物 |
 | Pipeline CLI | `scripts/graph.ts` | 本地或 CI 执行整条日报生成管线 |
 | Runtime options | `scripts/lib/runtime-options.ts` | 解析 `--date`、`--resume-from-raw`、`PIPELINE_DATE` |
 | Runtime paths | `scripts/lib/runtime-paths.ts` | 统一解析 `content/`、`configs/`、`.runtime/` |
-| GitHub Actions | `.github/workflows/daily-pipeline.yml` | 定时运行 pipeline 并提交产物 |
+| GitHub Actions | `.github/workflows/daily-pipeline.yml` | 手动兜底运行 pipeline 并提交产物 |
 | Frontend app | `frontend/app/` | 读取 `content/` 展示站点内容 |
 
 ## Pipeline Node Map

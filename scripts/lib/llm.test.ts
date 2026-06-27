@@ -2,7 +2,9 @@ import { describe, expect, it } from "vitest";
 import {
   DEFAULT_LLM_PROVIDERS,
   extractAssistantMessage,
+  getConfiguredProviderNames,
   getProviderModelEnvKey,
+  normalizeJsonSchemaForStructuredOutput,
   parseProviderNames,
   parseJsonResponse,
   resolveProviderModels,
@@ -24,6 +26,28 @@ describe("parseProviderNames", () => {
       "gemini",
       "openai",
     ]);
+  });
+});
+
+describe("getConfiguredProviderNames", () => {
+  it("enables the local codex provider without a provider API key", () => {
+    expect(
+      getConfiguredProviderNames("codex,openrouter,gemini", {} as NodeJS.ProcessEnv)
+    ).toEqual(["codex"]);
+  });
+
+  it("still requires API keys for remote providers", () => {
+    expect(
+      getConfiguredProviderNames("openrouter,gemini", {} as NodeJS.ProcessEnv)
+    ).toEqual([]);
+  });
+
+  it("keeps configured remote providers after codex when their keys exist", () => {
+    expect(
+      getConfiguredProviderNames("codex,openrouter", {
+        OPENROUTER_API_KEY: "sk-test",
+      } as NodeJS.ProcessEnv)
+    ).toEqual(["codex", "openrouter"]);
   });
 });
 
@@ -58,6 +82,88 @@ describe("resolveProviderModels", () => {
     ).toEqual({
       flash: "openai/gpt-4o-mini",
       pro: "openai/gpt-4o",
+    });
+  });
+});
+
+describe("normalizeJsonSchemaForStructuredOutput", () => {
+  it("converts legacy uppercase schema types to standard lowercase JSON Schema types", () => {
+    expect(
+      normalizeJsonSchemaForStructuredOutput({
+        type: "OBJECT",
+        properties: {
+          title: { type: "STRING" },
+          score: { type: "NUMBER" },
+          tags: { type: "ARRAY", items: { type: "STRING" } },
+        },
+        required: ["title"],
+      })
+    ).toEqual({
+      type: "object",
+      additionalProperties: false,
+      properties: {
+        title: { type: "string" },
+        score: { type: "number" },
+        tags: { type: "array", items: { type: "string" } },
+      },
+      required: ["title", "score", "tags"],
+    });
+  });
+
+  it("normalizes type arrays without changing non-type enum values", () => {
+    expect(
+      normalizeJsonSchemaForStructuredOutput({
+        type: ["STRING", "NULL"],
+        enum: ["PASS", "DROP"],
+      })
+    ).toEqual({
+      type: ["string", "null"],
+      enum: ["PASS", "DROP"],
+    });
+  });
+
+  it("wraps top-level arrays and adds strict object constraints recursively for Codex structured output", () => {
+    expect(
+      normalizeJsonSchemaForStructuredOutput({
+        type: "ARRAY",
+        items: {
+          type: "OBJECT",
+          properties: {
+            id: { type: "STRING" },
+            scores: {
+              type: "OBJECT",
+              properties: {
+                signalStrength: { type: "NUMBER" },
+              },
+            },
+          },
+        },
+      })
+    ).toEqual({
+      type: "object",
+      additionalProperties: false,
+      required: ["items"],
+      properties: {
+        items: {
+          type: "array",
+          items: {
+            type: "object",
+            additionalProperties: false,
+            required: ["id", "scores"],
+            properties: {
+              id: { type: "string" },
+              scores: {
+                type: "object",
+                additionalProperties: false,
+                required: ["signalStrength"],
+                properties: {
+                  signalStrength: { type: "number" },
+                },
+              },
+            },
+          },
+        },
+      },
     });
   });
 });

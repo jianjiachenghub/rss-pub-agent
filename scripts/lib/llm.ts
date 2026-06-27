@@ -34,13 +34,95 @@ function getSchemaRootType(
   return typeof rawType === "string" ? rawType.toUpperCase() : undefined;
 }
 
-function buildJsonOnlyInstruction(
+function normalizeJsonSchemaType(value: string): string {
+  const lower = value.toLowerCase();
+  const validTypes = new Set([
+    "array",
+    "boolean",
+    "integer",
+    "null",
+    "number",
+    "object",
+    "string",
+  ]);
+  return validTypes.has(lower) ? lower : value;
+}
+
+function normalizeJsonSchemaValue(value: unknown, key?: string): unknown {
+  if (typeof value === "string") {
+    return key === "type" ? normalizeJsonSchemaType(value) : value;
+  }
+
+  if (Array.isArray(value)) {
+    return value.map((item) => normalizeJsonSchemaValue(item, key));
+  }
+
+  if (!value || typeof value !== "object") {
+    return value;
+  }
+
+  const normalized = Object.fromEntries(
+    Object.entries(value).map(([childKey, childValue]) => [
+      childKey,
+      normalizeJsonSchemaValue(childValue, childKey),
+    ])
+  );
+
+  const type = normalized.type;
+  const isObjectSchema =
+    type === "object" ||
+    (Array.isArray(type) && type.includes("object")) ||
+    "properties" in normalized;
+
+  if (isObjectSchema) {
+    normalized.additionalProperties = false;
+
+    if (
+      normalized.properties &&
+      typeof normalized.properties === "object" &&
+      !Array.isArray(normalized.properties)
+    ) {
+      const required = Array.isArray(normalized.required)
+        ? normalized.required.filter((item) => typeof item === "string")
+        : [];
+      normalized.required = [
+        ...new Set([...required, ...Object.keys(normalized.properties)]),
+      ];
+    }
+  }
+
+  return normalized;
+}
+
+export function normalizeJsonSchemaForStructuredOutput(
   schema?: Record<string, unknown>
+): Record<string, unknown> | undefined {
+  if (!schema) return undefined;
+  const normalized = normalizeJsonSchemaValue(schema) as Record<string, unknown>;
+  if (normalized.type === "array") {
+    return normalizeJsonSchemaValue({
+      type: "object",
+      additionalProperties: false,
+      required: ["items"],
+      properties: {
+        items: normalized,
+      },
+    }) as Record<string, unknown>;
+  }
+  return normalized;
+}
+
+function buildJsonOnlyInstruction(
+  schema?: Record<string, unknown>,
+  opts: { topLevelArrayWrapperKey?: string } = {}
 ): string | undefined {
   if (!schema) return undefined;
 
   const rootType = getSchemaRootType(schema);
   if (rootType === "ARRAY") {
+    if (opts.topLevelArrayWrapperKey) {
+      return `Return valid JSON only. The top-level value must be a JSON object with an "${opts.topLevelArrayWrapperKey}" property containing the result array. Do not include markdown or explanation.`;
+    }
     return "Return valid JSON only. The top-level value must be a raw JSON array. Do not wrap it in an object, markdown, or explanation.";
   }
   if (rootType === "OBJECT") {
@@ -49,8 +131,11 @@ function buildJsonOnlyInstruction(
   return "Return valid JSON only. Do not include markdown or explanation.";
 }
 
-function withJsonOnlyInstruction(req: LLMRequest): LLMRequest {
-  const instruction = buildJsonOnlyInstruction(req.jsonSchema);
+function withJsonOnlyInstruction(
+  req: LLMRequest,
+  opts?: { topLevelArrayWrapperKey?: string }
+): LLMRequest {
+  const instruction = buildJsonOnlyInstruction(req.jsonSchema, opts);
   if (!instruction) return req;
 
   return {
@@ -167,12 +252,13 @@ export function shouldTryGeminiContentSafetyBackup(opts: {
 
 interface ProviderConfig {
   name: string;
-  envKey: string;
+  envKey?: string;
   models: { flash: string; pro: string };
   call: (req: LLMRequest) => Promise<LLMResponse>;
 }
 
 export const DEFAULT_LLM_PROVIDERS = "openrouter,gemini,openai";
+const CODEX_DEFAULT_MODEL = "codex-default";
 type ProviderModels = { flash: string; pro: string };
 
 export function parseProviderNames(raw: string): string[] {
@@ -327,7 +413,81 @@ function createGeminiProvider(): ProviderConfig {
   };
 }
 
+function buildCodexPrompt(req: LLMRequest): string {
+  const parts = [
+    "You are the text-generation backend for an automated news pipeline.",
+    "Do not inspect files, run commands, edit files, or use tools. Answer from the provided prompt only.",
+    "Return the final response directly.",
+  ];
+
+  if (req.systemPrompt) {
+    parts.push(`System instructions:\n${req.systemPrompt}`);
+  }
+  parts.push(`User prompt:\n${req.prompt}`);
+
+  return parts.join("\n\n");
+}
+
+function getCodexThreadModel(model: string): string | undefined {
+  return model === CODEX_DEFAULT_MODEL ? undefined : model;
+}
+
+function getUsageTotal(usage: {
+  input_tokens: number;
+  output_tokens: number;
+  reasoning_output_tokens: number;
+} | null): number | undefined {
+  if (!usage) return undefined;
+  return usage.input_tokens + usage.output_tokens + usage.reasoning_output_tokens;
+}
+
+function createCodexProvider(): ProviderConfig {
+  const models = { flash: CODEX_DEFAULT_MODEL, pro: CODEX_DEFAULT_MODEL };
+
+  return {
+    name: "codex",
+    models,
+    async call(req: LLMRequest): Promise<LLMResponse> {
+      const { Codex } = await import("@openai/codex-sdk");
+      const model =
+        resolveProviderModels("codex", models)[req.model ?? "flash"];
+      const rootType = getSchemaRootType(req.jsonSchema);
+      const outputSchema = normalizeJsonSchemaForStructuredOutput(req.jsonSchema);
+      const effectiveReq = withJsonOnlyInstruction(req, {
+        topLevelArrayWrapperKey: rootType === "ARRAY" ? "items" : undefined,
+      });
+      const codex = new Codex();
+      const thread = codex.startThread({
+        approvalPolicy: "never",
+        sandboxMode: "read-only",
+        networkAccessEnabled: false,
+        webSearchMode: "disabled",
+        model: getCodexThreadModel(model),
+        modelReasoningEffort: req.model === "pro" ? "medium" : "low",
+      });
+
+      const turn = await thread.run(buildCodexPrompt(effectiveReq), {
+        outputSchema,
+      });
+
+      const text = assertNonEmptyAssistantText({
+        providerName: "codex",
+        text: turn.finalResponse,
+        finishReason: "turn.completed",
+      });
+
+      return {
+        text,
+        provider: "codex",
+        model,
+        tokensUsed: getUsageTotal(turn.usage),
+      };
+    },
+  };
+}
+
 const PROVIDERS: Record<string, ProviderConfig> = {
+  codex: createCodexProvider(),
   openrouter: createOpenAICompatibleProvider({
     name: "openrouter",
     envKey: "OPENROUTER_API_KEY",
@@ -363,27 +523,37 @@ const PROVIDERS: Record<string, ProviderConfig> = {
   }),
 };
 
+function isProviderConfigured(
+  provider: ProviderConfig,
+  env: Record<string, string | undefined>
+): boolean {
+  return !provider.envKey || Boolean(env[provider.envKey]);
+}
+
+export function getConfiguredProviderNames(
+  raw: string,
+  env: Record<string, string | undefined> = process.env
+): string[] {
+  return parseProviderNames(raw).filter((name) => {
+    const provider = PROVIDERS[name];
+    return Boolean(provider && isProviderConfigured(provider, env));
+  });
+}
+
 function getProviderChain(): ProviderConfig[] {
   // Provider order is controlled purely by env so production can rebalance
   // cost/latency/reliability without touching code.
   const raw = process.env.LLM_PROVIDERS?.trim() || DEFAULT_LLM_PROVIDERS;
-  const names = parseProviderNames(raw);
-
-  const chain: ProviderConfig[] = [];
-  for (const name of names) {
-    const provider = PROVIDERS[name];
-    if (provider && process.env[provider.envKey]) {
-      chain.push(provider);
-    }
-  }
+  const chain = getConfiguredProviderNames(raw).map((name) => PROVIDERS[name]);
 
   if (chain.length === 0) {
+    const envKeys = Object.values(PROVIDERS)
+      .map((provider) => provider.envKey)
+      .filter(Boolean);
     throw new Error(
-      `No LLM provider available. Set at least one API key: ${Object.values(
-        PROVIDERS
-      )
-        .map((provider) => provider.envKey)
-        .join(", ")}`
+      `No LLM provider available. Use LLM_PROVIDERS=codex for local Codex, or set at least one API key: ${envKeys.join(
+        ", "
+      )}`
     );
   }
 
@@ -394,7 +564,7 @@ function getGeminiBackupProvider(
   triedProviders: Set<string>
 ): ProviderConfig | null {
   const provider = PROVIDERS.gemini;
-  if (!process.env[provider.envKey]) return null;
+  if (!provider.envKey || !process.env[provider.envKey]) return null;
   if (triedProviders.has(provider.name)) return null;
   return provider;
 }

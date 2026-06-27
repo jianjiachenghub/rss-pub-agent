@@ -8,7 +8,7 @@
 
 - 想本地跑通 pipeline 的开发者
 - 想调整信源、编辑策略或平台配置的维护者
-- 想理解 GitHub Actions 每天到底做了什么的人
+- 想理解本地每日任务到底做了什么的人
 
 ## 2. 本地依赖
 
@@ -39,23 +39,27 @@ cp .env.example .env
 
 ### 3.1 必填项
 
-至少配置一个 LLM provider 的 API Key。
+本地每日任务默认使用 Codex SDK provider，不需要 OpenRouter 这类 provider API Key。先在本机登录 Codex：
 
-推荐优先级：
+推荐配置：
 
 ```bash
-LLM_PROVIDERS=openrouter,gemini,openai
-OPENROUTER_API_KEY=your_key_here
-# OPENROUTER_FLASH_MODEL=openai/gpt-4o-mini
-# OPENROUTER_PRO_MODEL=openai/gpt-4o
+codex login
+LLM_PROVIDERS=codex
+# CODEX_FLASH_MODEL=gpt-5.4
+# CODEX_PRO_MODEL=gpt-5.4
 ```
+
+如果需要远端兜底 provider，可以再配置 OpenRouter、Gemini、OpenAI 等 API Key。
 
 ### 3.2 常用可选项
 
 | 变量 | 用途 | 是否常见必需 |
 |---|---|---|
 | `FOLO_SESSION_TOKEN` | 主力 Folo 列表抓取 | 是，若依赖 Folo 主输入 |
-| `OPENROUTER_API_KEY` | 默认 LLM provider，经 OpenRouter 路由 | 常用 |
+| `LLM_PROVIDERS` | provider 优先级链；本地任务推荐 `codex` | 是 |
+| `CODEX_FLASH_MODEL` / `CODEX_PRO_MODEL` | 覆盖 Codex 具体模型；不配置时使用当前 Codex 默认模型 | 可选 |
+| `OPENROUTER_API_KEY` | OpenRouter provider 兜底 | 可选 |
 | `OPENROUTER_FLASH_MODEL` / `OPENROUTER_PRO_MODEL` | 覆盖 OpenRouter 的具体模型 | 需要切模型时常用 |
 | `GEMINI_API_KEY` | Gemini LLM 与 TTS | 常用 |
 | `GEMINI_FLASH_MODEL` / `GEMINI_PRO_MODEL` | 覆盖 Gemini 的具体模型 | 可选 |
@@ -69,9 +73,32 @@ OPENROUTER_API_KEY=your_key_here
 | `R2_ACCESS_KEY` / `R2_SECRET_KEY` / `R2_ACCOUNT_ID` / `R2_BUCKET` / `R2_PUBLIC_DOMAIN` | 播客音频上传到 Cloudflare R2 | 可选，但要生成音频时需要 |
 | `REPORT_BASE_URL` | 外部通知里拼接日报链接 | 可选 |
 
-## 4. 如何运行 Pipeline
+## 4. 如何运行
 
-### 4.1 仓库根目录运行
+### 4.1 本地每日任务
+
+仓库根目录运行：
+
+```bash
+npm run daily:local
+```
+
+这个命令会运行 pipeline、生成 `reports/index.json`、暂存 `content/` 和 `reports/`，在有变更时提交 `daily: YYYY-MM-DD`，并发送飞书/Lark 富文本日报。
+
+常用参数：
+
+```bash
+npm run daily:local -- --date 2026-04-08
+npm run daily:local -- --resume-from-raw 2026-04-08
+npm run daily:local -- --skip-lark
+npm run daily:local -- --push
+```
+
+本地 cron 或 launchd 可以直接调用 `npm run daily:local -- --push`，前提是机器已经完成 `codex login` 和 `lark-cli` 登录。
+
+### 4.2 只运行 Pipeline
+
+仓库根目录运行：
 
 ```bash
 npm run graph
@@ -85,14 +112,14 @@ npm run pipeline
 
 两者都会进入 `scripts/` 执行主流水线。
 
-### 4.2 直接在 scripts 目录运行
+### 4.3 直接在 scripts 目录运行
 
 ```bash
 cd scripts
 npx tsx graph.ts
 ```
 
-### 4.3 指定日期运行
+### 4.4 指定日期运行
 
 默认情况下，pipeline 会抓取“昨天”的资讯。  
 如果要重跑某一天，可以显式指定：
@@ -102,7 +129,7 @@ cd scripts
 npx tsx graph.ts --date 2026-04-08
 ```
 
-### 4.4 从 raw 快照恢复
+### 4.5 从 raw 快照恢复
 
 如果上一次跑到中途失败，而 `content/<date>/raw/` 已经存在中间快照，可以直接恢复：
 
@@ -229,27 +256,29 @@ configs/platforms.json
 - XHS / Douyin 样式配置
 - Podcast voices 和时长
 
-## 8. GitHub Actions 每天会做什么
+## 8. 本地每日任务会做什么
 
-工作流文件：
+入口文件：
 
 ```text
-.github/workflows/daily-pipeline.yml
+scripts/run-local-daily.ts
 ```
 
 当前默认行为：
 
-1. 以 Asia/Shanghai 时区计算前一天日期
-2. 安装 `scripts/` 依赖
+1. 默认设置 `TZ=Asia/Shanghai`
+2. 如果没有显式设置 `LLM_PROVIDERS`，默认使用 `codex`
 3. 运行 `scripts/graph.ts`
 4. 执行 `scripts/generate-index.ts`
 5. `git add reports/ content/`
 6. 如果有变更，提交 `daily: YYYY-MM-DD`
+7. 通过 `scripts/send-lark-daily.ts` 发送飞书/Lark 富文本日报
+8. 传入 `--push` 时推送当前分支
 
 注意一点：
 
 <callout emoji="⚠️" background-color="light-yellow" border-color="yellow">
-`publish` 节点本身不做 git commit。真正的提交发生在 GitHub Actions 里。
+`publish` 节点本身不做 git commit。真正的提交和富文本群发发生在 `daily:local` runner 里。GitHub Actions 现在只保留手动触发作为兜底。
 </callout>
 
 ## 9. 常见排查路径

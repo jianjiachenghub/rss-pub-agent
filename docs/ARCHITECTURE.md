@@ -142,6 +142,7 @@ gateKeep -> score -> enrichSelected -> insight -> generateDaily
 
 统一入口在 `scripts/lib/llm.ts`，当前支持：
 
+- `codex`
 - `openrouter`
 - `zhipu`
 - `gemini`
@@ -151,8 +152,8 @@ gateKeep -> score -> enrichSelected -> insight -> generateDaily
 
 关键机制：
 
-- `LLM_PROVIDERS` 控制优先级链，如 `openrouter,gemini,openai`
-- 只有配置了 API Key 的 provider 才会激活
+- `LLM_PROVIDERS` 控制优先级链，如 `codex,gemini,openai`
+- `codex` 通过本机 Codex SDK 和登录态运行；其他 provider 只有配置了 API Key 才会激活
 - `429 / 503 / overloaded / network` 自动重试
 - provider 进入 cooldown 后调度器会跳过
 - 命中内容安全拦截时，优先尝试 Gemini 兜底
@@ -248,6 +249,7 @@ npx tsx graph.ts --resume-from-raw YYYY-MM-DD
 ### 7.2 运行方式
 
 ```bash
+npm run daily:local
 npm run graph
 cd frontend && npm run dev
 ```
@@ -255,19 +257,27 @@ cd frontend && npm run dev
 常用补充命令：
 
 ```bash
+npm run daily:local -- --date YYYY-MM-DD
+npm run daily:local -- --resume-from-raw YYYY-MM-DD
+npm run daily:local -- --skip-lark
+npm run daily:local -- --push
 cd scripts
 npx tsx graph.ts --date YYYY-MM-DD
 npx tsx graph.ts --resume-from-raw YYYY-MM-DD
 ```
 
-### 7.3 GitHub Actions
+### 7.3 本地每日任务
 
-工作流位于 `.github/workflows/daily-pipeline.yml`，当前行为是：
+本地每日任务入口是 `scripts/run-local-daily.ts`，仓库根命令是 `npm run daily:local`。当前行为是：
 
-1. 按 `Asia/Shanghai` 计算前一天日期
+1. 默认设置 `LLM_PROVIDERS=codex` 与 `TZ=Asia/Shanghai`
 2. 执行 `scripts/graph.ts`
 3. 生成兼容索引 `reports/index.json`
 4. 提交 `content/` 与 `reports/` 变更
+5. 通过 `scripts/send-lark-daily.ts` 发送飞书/Lark 富文本日报
+6. 传入 `--push` 时推送当前分支
+
+`.github/workflows/daily-pipeline.yml` 现在只保留 `workflow_dispatch`，作为手动兜底入口。
 
 ## 8. 一句话总结
 
