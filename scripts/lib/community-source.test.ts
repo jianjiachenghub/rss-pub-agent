@@ -8,11 +8,13 @@ import {
 } from "./community-source.js";
 
 describe("community-source", () => {
-  it("classifies community URLs as social regardless of topic keywords", () => {
+  it("classifies low-signal community URLs as social", () => {
     expect(
       classifyEditorialCategory("ai", {
         source: "V2EX - 技术",
         url: "https://www.v2ex.com/t/1204135#reply0",
+        title: "请问什么工具可以测接口性能？",
+        content: "想问问大家的个人经验。",
       })
     ).toBe("social");
 
@@ -20,8 +22,22 @@ describe("community-source", () => {
       classifyEditorialCategory("software", {
         source: "Hacker News - dang",
         url: "https://news.ycombinator.com/item?id=123",
+        title: "Ask HN: What editor should I use?",
+        content: "Looking for personal recommendations.",
       })
     ).toBe("social");
+  });
+
+  it("keeps concrete open-source community signals in their original category", () => {
+    expect(
+      classifyEditorialCategory("software", {
+        source: "Hacker News - aurenvale",
+        url: "https://github.com/deepseek-ai/DeepSpec",
+        title: "DeepSeek open-sources inference optimizations",
+        content:
+          "The release includes an open source speculative decoding framework, benchmark data, SDK examples, and performance results.",
+      })
+    ).toBe("software");
   });
 
   it("treats generic forum questions as low-signal community items", () => {

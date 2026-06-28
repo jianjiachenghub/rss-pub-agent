@@ -59,7 +59,7 @@ describe("insight-format", () => {
     ).toBe(false);
   });
 
-  it("computes a dynamic deep-dive target from score distribution", () => {
+  it("keeps normal high-quality days capped at the configured topN", () => {
     expect(
       computeDailyInsightTarget(18, [
         { weightedScore: 82 },
@@ -83,8 +83,10 @@ describe("insight-format", () => {
         { weightedScore: 68 },
         { weightedScore: 68 },
       ])
-    ).toBe(20);
+    ).toBe(18);
+  });
 
+  it("allows 30 deep dives only on exceptional news days", () => {
     expect(
       computeDailyInsightTarget(18, [
         { weightedScore: 86 },
@@ -111,8 +113,14 @@ describe("insight-format", () => {
         { weightedScore: 68 },
         { weightedScore: 68 },
         { weightedScore: 68 },
+        { weightedScore: 68 },
+        { weightedScore: 68 },
+        { weightedScore: 68 },
+        { weightedScore: 68 },
+        { weightedScore: 68 },
+        { weightedScore: 68 },
       ])
-    ).toBe(24);
+    ).toBe(30);
   });
 
   it("builds conservative fallback content for thin items", () => {

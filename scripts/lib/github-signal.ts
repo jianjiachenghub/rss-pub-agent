@@ -4,6 +4,25 @@ const GITHUB_TRENDING_SOURCE_PATTERN = /Trending repositories on GitHub today/i;
 const GITHUB_REPO_URL_PATTERN =
   /^https?:\/\/github\.com\/[^\/?#\s]+\/[^\/?#\s]+\/?$/i;
 const GITHUB_REPO_TITLE_PATTERN = /^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/;
+const AI_DEV_REPO_PATTERNS = [
+  /\bai\b/i,
+  /\bllm\b/i,
+  /\bagent/i,
+  /\brag\b/i,
+  /\bmcp\b/i,
+  /\bsdk\b/i,
+  /framework/i,
+  /spec-driven/i,
+  /coding assistant/i,
+  /inference/i,
+  /eval/i,
+  /benchmark/i,
+  /模型/u,
+  /智能体/u,
+  /框架/u,
+  /推理/u,
+  /评测/u,
+];
 const STAR_PATTERNS = [
   /Stars:\s*([0-9][0-9,._kKmM]*)/i,
   /星标[:：]?\s*([0-9][0-9,._kKmM]*)/u,
@@ -35,6 +54,13 @@ export function isGitHubTrendingRepoItem(
   return GITHUB_REPO_URL_PATTERN.test(url) || GITHUB_REPO_TITLE_PATTERN.test(title);
 }
 
+function isAIDevRepoItem(
+  item: Pick<RawNewsItem, "title" | "url" | "content">
+): boolean {
+  const text = `${item.title}\n${item.url}\n${item.content ?? ""}`;
+  return AI_DEV_REPO_PATTERNS.some((pattern) => pattern.test(text));
+}
+
 export function extractGitHubTrendingStars(content: string | undefined): number {
   const text = content ?? "";
   for (const pattern of STAR_PATTERNS) {
@@ -54,10 +80,11 @@ export function getGitHubTrendingSoftwareBonus(
   }
 
   const stars = extractGitHubTrendingStars(item.content);
-  if (stars >= 10_000) return 15;
-  if (stars >= 5_000) return 13;
-  if (stars >= 1_000) return 11;
-  return 9;
+  const aiDevBonus = isAIDevRepoItem(item) ? 5 : 0;
+  if (stars >= 10_000) return 17 + aiDevBonus;
+  if (stars >= 5_000) return 15 + aiDevBonus;
+  if (stars >= 1_000) return 13 + aiDevBonus;
+  return 11 + aiDevBonus;
 }
 
 type GitHubTrendingInsight = Pick<
@@ -69,64 +96,74 @@ export function rebalanceInsightsForGitHubTrending<T extends GitHubTrendingInsig
   finalInsights: T[],
   candidateInsights: T[]
 ): T[] {
-  const hasTrendingSoftware = finalInsights.some(
-    (item) => item.category === "software" && isGitHubTrendingRepoItem(item)
-  );
-  if (hasTrendingSoftware) {
-    return finalInsights;
-  }
-
-  const promoted = [...candidateInsights]
-    .filter(
+  const desiredTrendingCount = Math.min(
+    2,
+    candidateInsights.filter(
       (item) => item.category === "software" && isGitHubTrendingRepoItem(item)
-    )
-    .sort((left, right) => right.weightedScore - left.weightedScore)[0];
-
-  if (!promoted) {
+    ).length
+  );
+  if (desiredTrendingCount === 0) {
     return finalInsights;
-  }
-
-  if (finalInsights.some((item) => item.id === promoted.id)) {
-    return [...finalInsights].sort(
-      (left, right) => right.weightedScore - left.weightedScore
-    );
   }
 
   const nextInsights = [...finalInsights];
+  const selectedIds = new Set(nextInsights.map((item) => item.id));
+  const currentTrendingCount = () =>
+    nextInsights.filter(
+      (item) => item.category === "software" && isGitHubTrendingRepoItem(item)
+    ).length;
 
-  // Prefer swapping within the software bucket so the daily issue still keeps
-  // its overall cross-category balance while surfacing one hot repo project.
-  const softwareReplacement = nextInsights
-    .map((item, index) => ({ item, index }))
-    .filter(
-      ({ item }) =>
-        item.category === "software" &&
-        !isGitHubTrendingRepoItem(item) &&
-        item.id !== promoted.id
-    )
-    .sort((left, right) => left.item.weightedScore - right.item.weightedScore)[0];
-
-  if (softwareReplacement) {
-    nextInsights[softwareReplacement.index] = promoted;
-    return nextInsights.sort(
-      (left, right) => right.weightedScore - left.weightedScore
-    );
+  if (currentTrendingCount() >= desiredTrendingCount) {
+    return nextInsights.sort((left, right) => right.weightedScore - left.weightedScore);
   }
 
-  const globalReplacement = nextInsights
-    .map((item, index) => ({ item, index }))
+  const promotedCandidates = [...candidateInsights]
     .filter(
-      ({ item }) => !isGitHubTrendingRepoItem(item) && item.id !== promoted.id
+      (item) => item.category === "software" && isGitHubTrendingRepoItem(item)
     )
-    .sort((left, right) => left.item.weightedScore - right.item.weightedScore)[0];
+    .sort((left, right) => right.weightedScore - left.weightedScore);
 
-  if (
-    !globalReplacement ||
-    globalReplacement.item.weightedScore - promoted.weightedScore > 8
-  ) {
-    return finalInsights;
+  for (const promoted of promotedCandidates) {
+    if (currentTrendingCount() >= desiredTrendingCount) break;
+    if (selectedIds.has(promoted.id)) continue;
+
+    // Prefer swapping within the software bucket so the daily issue still keeps
+    // its overall cross-category balance while surfacing hot repo projects.
+    const softwareReplacement = nextInsights
+      .map((item, index) => ({ item, index }))
+      .filter(
+        ({ item }) =>
+          item.category === "software" &&
+          !isGitHubTrendingRepoItem(item) &&
+          item.id !== promoted.id
+      )
+      .sort((left, right) => left.item.weightedScore - right.item.weightedScore)[0];
+
+    if (softwareReplacement) {
+      selectedIds.delete(nextInsights[softwareReplacement.index].id);
+      nextInsights[softwareReplacement.index] = promoted;
+      selectedIds.add(promoted.id);
+      continue;
+    }
+
+    const globalReplacement = nextInsights
+      .map((item, index) => ({ item, index }))
+      .filter(
+        ({ item }) => !isGitHubTrendingRepoItem(item) && item.id !== promoted.id
+      )
+      .sort((left, right) => left.item.weightedScore - right.item.weightedScore)[0];
+
+    if (
+      !globalReplacement ||
+      globalReplacement.item.weightedScore - promoted.weightedScore > 10
+    ) {
+      continue;
+    }
+
+    selectedIds.delete(nextInsights[globalReplacement.index].id);
+    nextInsights[globalReplacement.index] = promoted;
+    selectedIds.add(promoted.id);
   }
 
-  nextInsights[globalReplacement.index] = promoted;
   return nextInsights.sort((left, right) => right.weightedScore - left.weightedScore);
 }

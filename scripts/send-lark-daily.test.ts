@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   buildLarkDailyFallbackText,
   buildLarkDailyIdempotencyKey,
+  buildLarkMarkdownSendArgs,
 } from "./send-lark-daily.js";
 
 describe("buildLarkDailyIdempotencyKey", () => {
@@ -49,5 +50,22 @@ describe("buildLarkDailyFallbackText", () => {
     expect(text).toContain("个人日报 | 2026-06-26\n\nAI\n1. OpenAI预览GPT-5.6 Sol");
     expect(text).toContain("已截取前 3 条");
     expect(text).toContain("事件：OpenAI预览下一代模型。");
+  });
+});
+
+describe("buildLarkMarkdownSendArgs", () => {
+  it("sends rich daily messages as Feishu markdown instead of plain text", () => {
+    const args = buildLarkMarkdownSendArgs({
+      chatId: "oc_test",
+      identity: "bot",
+      markdown: "## AI\n\n**1. 标题**",
+      idempotencyKey: "ld-test",
+      dryRun: true,
+    });
+
+    expect(args).toContain("--markdown");
+    expect(args).toContain("## AI\n\n**1. 标题**");
+    expect(args).not.toContain("--text");
+    expect(args).toContain("--dry-run");
   });
 });

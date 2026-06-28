@@ -182,10 +182,11 @@ export function isLowSignalCommunityItem(item: {
 
 export function classifyEditorialCategory(
   category: string,
-  item: { source?: string; url?: string }
+  item: { source?: string; url?: string; title?: string; content?: string }
 ): NewsCategory {
-  if (isCommunitySource(item)) return "social";
-  return normalizeNewsCategory(category);
+  const normalizedCategory = normalizeNewsCategory(category);
+  if (!isCommunitySource(item)) return normalizedCategory;
+  return !isLowSignalCommunityItem(item) ? normalizedCategory : "social";
 }
 
 export function getCommunityScorePenalty(item: {

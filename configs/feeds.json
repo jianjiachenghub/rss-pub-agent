@@ -130,9 +130,9 @@
       "url": "https://rsshub.app/github/trending/daily/any",
       "category": "software",
       "name": "GitHub Trending",
-      "weight": 78,
+      "weight": 86,
       "tier": "signal",
-      "dailyCap": 6
+      "dailyCap": 12
     },
     {
       "id": "langchain-blog",
@@ -140,9 +140,9 @@
       "url": "https://blog.langchain.dev/rss/",
       "category": "software",
       "name": "LangChain Blog",
-      "weight": 65,
+      "weight": 72,
       "tier": "signal",
-      "dailyCap": 6
+      "dailyCap": 8
     },
     {
       "id": "hellogithub",

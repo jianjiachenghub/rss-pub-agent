@@ -394,15 +394,11 @@ export function computeDailyInsightTarget(
   items: Array<Pick<ScoredNewsItem, "weightedScore">>
 ): number {
   const baseline = Math.min(Math.max(baselineTopN, 16), 20);
-  const normalMax = Math.max(baseline, 20);
-  const eventMax = Math.max(normalMax, 24);
-  const extremeMax = Math.max(eventMax, 30);
+  const extremeMax = 30;
 
   const strong = items.filter((item) => item.weightedScore >= 74).length;
   const solid = items.filter((item) => item.weightedScore >= 68).length;
 
-  if (solid >= extremeMax && strong >= 18) return extremeMax;
-  if (solid >= eventMax && strong >= 12) return eventMax;
-  if (solid >= normalMax) return normalMax;
+  if (solid >= extremeMax && strong >= 12) return extremeMax;
   return baseline;
 }

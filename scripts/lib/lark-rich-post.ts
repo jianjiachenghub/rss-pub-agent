@@ -40,9 +40,17 @@ export interface LarkDailyCategoryTextMessage {
   text: string;
 }
 
+export interface LarkDailyCategoryMarkdownMessage {
+  category: string;
+  itemCount: number;
+  title: string;
+  markdown: string;
+}
+
 const CATEGORY_LABEL_SET = new Set(Object.values(CATEGORY_LABELS));
 const STOP_SECTION_TITLES = new Set(["接下来要盯的变量", "更多 24h 资讯"]);
 const DEFAULT_CATEGORY_TEXT_MAX_CHARS = 900;
+const DEFAULT_CATEGORY_MARKDOWN_MAX_CHARS = 1800;
 
 function cleanMarkdownText(value: string): string {
   return value
@@ -199,6 +207,22 @@ function truncateChatText(value: string, maxChars: number): string {
   return `${normalized.slice(0, Math.max(1, maxChars - 1))}…`;
 }
 
+function escapeMarkdownText(value: string): string {
+  return cleanMarkdownText(value).replace(/([\\[\]])/g, "\\$1");
+}
+
+function sanitizeMarkdownUrl(value: string | undefined): string | undefined {
+  const normalized = value?.trim();
+  if (!normalized || /[\s<>]/.test(normalized)) return undefined;
+  return normalized;
+}
+
+function markdownLink(label: string, href: string | undefined): string {
+  const safeHref = sanitizeMarkdownUrl(href);
+  const safeLabel = escapeMarkdownText(label);
+  return safeHref ? `[${safeLabel}](${safeHref})` : safeLabel;
+}
+
 function formatCategoryTextItem(index: number, item: DailyNewsItem): string {
   const lines = [`${index}. ${truncateChatText(item.title, 72)}`];
 
@@ -215,6 +239,51 @@ function formatCategoryTextItem(index: number, item: DailyNewsItem): string {
 
 function buildCategoryText(title: string, itemBlocks: string[], totalItems: number): string {
   return [title, `本分类共 ${totalItems} 条`, "", ...itemBlocks].join("\n").trim();
+}
+
+function isGitHubHref(href: string | undefined): boolean {
+  return /^https?:\/\/github\.com\//i.test(href ?? "");
+}
+
+function formatCategoryMarkdownItem(index: number, item: DailyNewsItem): string {
+  const lines = [`**${index}. ${markdownLink(item.title, item.href)}**`];
+
+  if (item.event) {
+    lines.push(`**事件：** ${escapeMarkdownText(truncateChatText(item.event, 140))}`);
+  }
+
+  if (item.interpretation) {
+    lines.push(
+      `**解读：** ${escapeMarkdownText(truncateChatText(item.interpretation, 160))}`
+    );
+  }
+
+  if (item.sourceName && item.sourceHref) {
+    const label = isGitHubHref(item.sourceHref) || isGitHubHref(item.href)
+      ? "仓库"
+      : "来源";
+    lines.push(`**${label}：** ${markdownLink(item.sourceName, item.sourceHref)}`);
+  } else if (item.scoreSource) {
+    lines.push(escapeMarkdownText(truncateChatText(item.scoreSource, 72)));
+  }
+
+  return lines.join("\n");
+}
+
+function buildCategoryMarkdown(
+  title: string,
+  category: string,
+  itemBlocks: string[],
+  totalItems: number
+): string {
+  return [
+    `# ${escapeMarkdownText(title)}`,
+    "",
+    `## ${escapeMarkdownText(category)}`,
+    `本分类共 **${totalItems}** 条`,
+    "",
+    ...itemBlocks,
+  ].join("\n\n").trim();
 }
 
 export function buildLarkDailyCategoryTextMessagesFromMarkdown(
@@ -275,6 +344,77 @@ export function buildLarkDailyCategoryTextMessagesFromMarkdown(
         itemCount: itemBlocks.length,
         title,
         text: buildCategoryText(title, itemBlocks, section.items.length),
+      });
+    }
+  }
+
+  return messages;
+}
+
+export function buildLarkDailyCategoryMarkdownMessagesFromMarkdown(
+  markdown: string,
+  options: { fallbackDate?: string; maxChars?: number } = {}
+): LarkDailyCategoryMarkdownMessage[] {
+  const reportName = extractReportName(markdown);
+  const date = extractDate(markdown, options.fallbackDate);
+  const sections = parseDailyNewsSections(markdown);
+  const maxChars =
+    typeof options.maxChars === "number" && options.maxChars > 0
+      ? Math.floor(options.maxChars)
+      : DEFAULT_CATEGORY_MARKDOWN_MAX_CHARS;
+
+  if (sections.length === 0) {
+    throw new Error("No categorized daily news sections found in daily.md");
+  }
+
+  const messages: LarkDailyCategoryMarkdownMessage[] = [];
+
+  for (const section of sections) {
+    const chunks: string[][] = [];
+    let currentChunk: string[] = [];
+
+    const flushChunk = () => {
+      if (currentChunk.length > 0) {
+        chunks.push(currentChunk);
+        currentChunk = [];
+      }
+    };
+
+    for (const [index, item] of section.items.entries()) {
+      const itemBlock = formatCategoryMarkdownItem(index + 1, item);
+      const draftTitle = `${reportName} | ${date} | ${section.label}`;
+      const draftMarkdown = buildCategoryMarkdown(
+        draftTitle,
+        section.label,
+        [...currentChunk, itemBlock],
+        section.items.length
+      );
+
+      if (currentChunk.length > 0 && draftMarkdown.length > maxChars) {
+        flushChunk();
+      }
+
+      currentChunk.push(itemBlock);
+    }
+
+    flushChunk();
+
+    for (const [chunkIndex, itemBlocks] of chunks.entries()) {
+      const title =
+        chunks.length > 1
+          ? `${reportName} | ${date} | ${section.label}（${chunkIndex + 1}/${chunks.length}）`
+          : `${reportName} | ${date} | ${section.label}`;
+
+      messages.push({
+        category: section.label,
+        itemCount: itemBlocks.length,
+        title,
+        markdown: buildCategoryMarkdown(
+          title,
+          section.label,
+          itemBlocks,
+          section.items.length
+        ),
       });
     }
   }

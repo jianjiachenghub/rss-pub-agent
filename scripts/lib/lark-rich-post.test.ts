@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   buildLarkDailyCategoryTextMessagesFromMarkdown,
+  buildLarkDailyCategoryMarkdownMessagesFromMarkdown,
   buildLarkDailyNewsPostFromMarkdown,
 } from "./lark-rich-post.js";
 
@@ -162,5 +163,40 @@ date: "2026-06-26"
     expect(combined).toContain("第二条 AI 新闻");
     expect(combined).toContain("商业新闻");
     expect(combined).toContain("本分类共 2 条");
+  });
+});
+
+describe("buildLarkDailyCategoryMarkdownMessagesFromMarkdown", () => {
+  it("renders category headings, bold item titles, and repository links for Feishu markdown", () => {
+    const messages = buildLarkDailyCategoryMarkdownMessagesFromMarkdown(
+      `---
+title: "个人日报 | 2026年6月26日"
+date: "2026-06-26"
+---
+
+# 个人日报 | 2026年6月26日
+
+## 软件工程
+
+### [vercel/ai-chatbot](https://github.com/vercel/ai-chatbot)
+
+**事件：** Vercel 开源了新的 AI chatbot 模板。
+
+**解读：** 这会影响 AI 应用默认脚手架和部署路径。
+
+评分 91 · 来源 [GitHub Trending](https://github.com/vercel/ai-chatbot)
+`,
+      { fallbackDate: "2026-06-26" }
+    );
+
+    expect(messages).toHaveLength(1);
+    expect(messages[0].markdown).toContain("## 软件工程");
+    expect(messages[0].markdown).toContain(
+      "**1. [vercel/ai-chatbot](https://github.com/vercel/ai-chatbot)**"
+    );
+    expect(messages[0].markdown).toContain("**事件：** Vercel 开源了新的 AI chatbot 模板。");
+    expect(messages[0].markdown).toContain(
+      "**仓库：** [GitHub Trending](https://github.com/vercel/ai-chatbot)"
+    );
   });
 });

@@ -5,7 +5,7 @@ import { readFile } from "fs/promises";
 import { dirname, join, resolve } from "path";
 import { promisify } from "util";
 import { fileURLToPath } from "url";
-import { buildLarkDailyCategoryTextMessagesFromMarkdown } from "./lib/lark-rich-post.js";
+import { buildLarkDailyCategoryMarkdownMessagesFromMarkdown } from "./lib/lark-rich-post.js";
 import {
   buildSummaryPreview,
   hasSuccessfulDelivery,
@@ -205,13 +205,13 @@ export function buildLarkDailyIdempotencyKey(params: {
   return parts.join("-");
 }
 
-async function sendLarkText(params: {
+export function buildLarkMarkdownSendArgs(params: {
   chatId: string;
   identity: "bot" | "user";
-  text: string;
+  markdown: string;
   dryRun: boolean;
   idempotencyKey: string;
-}): Promise<string | undefined> {
+}): string[] {
   const args = [
     "im",
     "+messages-send",
@@ -219,8 +219,8 @@ async function sendLarkText(params: {
     params.chatId,
     "--as",
     params.identity,
-    "--text",
-    params.text,
+    "--markdown",
+    params.markdown,
     "--idempotency-key",
     params.idempotencyKey,
   ];
@@ -229,9 +229,23 @@ async function sendLarkText(params: {
     args.push("--dry-run");
   }
 
-  const { stdout, stderr } = await execFileAsync("lark-cli", args, {
-    maxBuffer: 10 * 1024 * 1024,
-  });
+  return args;
+}
+
+async function sendLarkMarkdown(params: {
+  chatId: string;
+  identity: "bot" | "user";
+  markdown: string;
+  dryRun: boolean;
+  idempotencyKey: string;
+}): Promise<string | undefined> {
+  const { stdout, stderr } = await execFileAsync(
+    "lark-cli",
+    buildLarkMarkdownSendArgs(params),
+    {
+      maxBuffer: 10 * 1024 * 1024,
+    }
+  );
 
   if (stderr.trim()) {
     console.warn(stderr.trim());
@@ -289,7 +303,7 @@ async function main(): Promise<void> {
   }
 
   const markdown = await readFile(dailyPath, "utf-8");
-  const messages = buildLarkDailyCategoryTextMessagesFromMarkdown(markdown, {
+  const messages = buildLarkDailyCategoryMarkdownMessagesFromMarkdown(markdown, {
     fallbackDate: options.date,
   });
   const existingRecord = (await readDeliveryRecords(options.date)).find(
@@ -317,10 +331,10 @@ async function main(): Promise<void> {
     const externalIds: string[] = [];
 
     for (const [index, message] of messages.entries()) {
-      const externalId = await sendLarkText({
+      const externalId = await sendLarkMarkdown({
         chatId: options.chatId!,
         identity: options.identity!,
-        text: message.text,
+        markdown: message.markdown,
         dryRun: options.dryRun,
         idempotencyKey: buildLarkDailyIdempotencyKey({
           date: options.date,

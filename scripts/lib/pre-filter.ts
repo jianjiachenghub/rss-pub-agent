@@ -29,11 +29,24 @@ const EVENT_CATEGORY_CAPS: Record<string, number> = {
 };
 
 const CATEGORY_SOURCE_HINTS: Array<{ category: string; patterns: RegExp[] }> = [
-  { category: "software", patterns: [/github/i, /langchain/i, /sdk/i, /framework/i, /release/i, /编程/i, /开发/i, /开源/i] },
+  {
+    category: "software",
+    patterns: [
+      /github/i,
+      /langchain/i,
+      /sdk/i,
+      /(?:ai|agent|rag|llm|dev|developer|frontend|backend|web|js|python|typescript|推理|开发|前端|后端|应用|编程).{0,24}(?:framework|框架)/i,
+      /(?:framework|框架).{0,24}(?:ai|agent|rag|llm|sdk|开发|前端|后端|推理|编程)/i,
+      /release/i,
+      /编程/i,
+      /开发/i,
+      /开源/i,
+    ],
+  },
   { category: "investment", patterns: [/etf/i, /bitcoin/i, /btc/i, /crypto/i, /股价/i, /基金/i, /投资/i, /利率/i, /美联储/i, /雪球/i, /A股/i, /港股/i, /美股/i, /大盘/i, /涨停/i, /跌停/i, /行情/i, /央行/i, /降息/i, /加息/i, /债券/i, /期货/i, /外汇/i] },
   { category: "business", patterns: [/ipo/i, /earnings/i, /revenue/i, /融资/i, /并购/i, /财报/i, /估值/i, /market/i] },
   { category: "politics", patterns: [/tariff/i, /sanction/i, /election/i, /regulation/i, /policy/i, /关税/i, /制裁/i, /政策/i, /战争/i] },
-  { category: "social", patterns: [/微博/i, /知乎/i, /twitter/i, /\bx\b/i, /reddit/i, /telegram/i, /热搜/i, /热榜/i] },
+  { category: "social", patterns: [/微博/i, /知乎/i, /twitter/i, /\bx\b/i, /reddit/i, /telegram/i, /热搜/i] },
   { category: "ai", patterns: [/llm/i, /\bgpt\b/i, /claude/i, /gemini/i, /agent/i, /rag/i, /模型/i, /大模型/i, /人工智能/i, /\bai\b/i] },
   { category: "tech", patterns: [/apple/i, /google/i, /meta/i, /云/i, /芯片/i, /硬件/i, /网络/i, /database/i, /security/i] },
 ];

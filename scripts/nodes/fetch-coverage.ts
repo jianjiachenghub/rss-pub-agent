@@ -18,6 +18,8 @@ import {
 import { writeRawJson } from "../lib/raw-output.js";
 import { shouldResumeFromRaw } from "../lib/runtime-options.js";
 
+const ALWAYS_BACKFILL_FEED_IDS = new Set(["github-trending", "langchain-blog"]);
+
 export async function fetchCoverageNode(
   state: PipelineStateType
 ): Promise<Partial<PipelineStateType>> {
@@ -79,7 +81,10 @@ export async function fetchCoverageNode(
     const coverageFeeds = [...config.feeds]
       .filter((feed) => feed.type !== "folo-list")
       .filter(isMainPoolFeed)
-      .filter((feed) => deficits.includes(feed.category))
+      .filter(
+        (feed) =>
+          deficits.includes(feed.category) || ALWAYS_BACKFILL_FEED_IDS.has(feed.id)
+      )
       .sort(compareFeeds);
 
     const errors = [];

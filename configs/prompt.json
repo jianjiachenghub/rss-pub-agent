@@ -19,7 +19,7 @@
     {
       "topic": "软件工程与开发者工具",
       "level": "high",
-      "keywords": ["开源", "GitHub", "编程语言", "框架", "SDK", "开发者工具", "工程效率"]
+      "keywords": ["开源", "GitHub", "AI框架", "Agent框架", "LLM工具链", "MCP", "RAG", "SDK", "开发者工具", "工程效率"]
     },
     {
       "topic": "政策监管与地缘变化",
@@ -37,7 +37,7 @@
       "ai": 1.0,
       "investment": 0.95,
       "tech": 0.75,
-      "software": 0.7,
+      "software": 0.85,
       "business": 0.6,
       "politics": 0.55,
       "social": 0.25
@@ -46,7 +46,7 @@
       "ai": 3,
       "investment": 4,
       "tech": 2,
-      "software": 2,
+      "software": 3,
       "business": 1,
       "politics": 1,
       "social": 0

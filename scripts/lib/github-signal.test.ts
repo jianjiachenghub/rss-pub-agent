@@ -51,6 +51,19 @@ describe("github-signal", () => {
     ).toBe(0);
   });
 
+  it("gives AI framework repositories a stronger GitHub trending bonus", () => {
+    expect(
+      getGitHubTrendingSoftwareBonus({
+        category: "software",
+        source: "Trending repositories on GitHub today · GitHub - Fission-AI",
+        title: "Fission-AI/OpenSpec",
+        url: "https://github.com/Fission-AI/OpenSpec",
+        content:
+          "Spec-driven development framework for AI coding assistants. Language: TypeScript Stars: 56000 Forks: 3900",
+      })
+    ).toBeGreaterThan(18);
+  });
+
   it("promotes one GitHub trending repo into the deep-dive list when software lacks it", () => {
     const finalInsights = [
       {
@@ -103,5 +116,62 @@ describe("github-signal", () => {
     expect(
       nextInsights.some((item) => item.id === "software-1")
     ).toBe(false);
+  });
+
+  it("promotes up to two GitHub trending repos when enough candidates exist", () => {
+    const finalInsights = [
+      {
+        id: "ai-1",
+        title: "OpenAI ships a new cyber program",
+        url: "https://openai.com/example",
+        source: "OpenAI News",
+        category: "ai",
+        weightedScore: 82,
+      },
+      {
+        id: "software-1",
+        title: "TinyVue 3.30 正式发布",
+        url: "https://oschina.net/example",
+        source: "开源中国-全部 - 白开水不加糖",
+        category: "software",
+        weightedScore: 57,
+      },
+      {
+        id: "software-2",
+        title: "普通开发工具动态",
+        url: "https://example.com/devtool",
+        source: "Example",
+        category: "software",
+        weightedScore: 56,
+      },
+    ];
+
+    const candidateInsights = [
+      ...finalInsights,
+      {
+        id: "software-gh-1",
+        title: "Fission-AI/OpenSpec",
+        url: "https://github.com/Fission-AI/OpenSpec",
+        source: "Trending repositories on GitHub today · GitHub - Fission-AI",
+        category: "software",
+        weightedScore: 70,
+      },
+      {
+        id: "software-gh-2",
+        title: "hugohe3/ppt-master",
+        url: "https://github.com/hugohe3/ppt-master",
+        source: "Trending repositories on GitHub today · GitHub - hugohe3",
+        category: "software",
+        weightedScore: 61,
+      },
+    ];
+
+    const nextInsights = rebalanceInsightsForGitHubTrending(
+      finalInsights,
+      candidateInsights
+    );
+
+    expect(nextInsights).toHaveLength(finalInsights.length);
+    expect(nextInsights.filter((item) => item.url.startsWith("https://github.com/"))).toHaveLength(2);
   });
 });
