@@ -1,9 +1,11 @@
-Today’s most important read is this: the AI trend is still intact, but it is shifting from “who has the strongest model” to “who has access, who has power, and who can withstand the funding pressure.”
+Today’s most important read is this: the AI industry is shifting from “who has the best model” to “who has access, lower costs, and stronger infrastructure.”
 
-First, the model side. OpenAI’s GPT-5.6 was not fully opened to everyone. It was first made available to specific users vetted by the U.S. government. Anthropic’s Mythos 5 also only restored partial access after responding to safety concerns. This shows that frontier models are no longer just tech products. They are starting to look more like strategic assets with regulatory gates. Who gets to use them, and when, may shape business momentum more than the model parameters themselves.
+The clearest example is OpenAI’s GPT-5.6. This is not just the release of a more powerful model. It is starting with a limited preview, open only to a small group of trusted partners. The three model tiers, Sol, Terra, and Luna, also show that companies will not simply chase the flagship model anymore. They will split usage by task: the strongest model for hard problems, cheaper models for high-frequency calls.
 
-The second shift is infrastructure. AI demand has already pushed pressure into power and storage. KKR acquired EDF’s North American renewable power assets, while U.S. utilities are still warning about electricity shortages, even possible blackouts. At the same time, price hikes for iPads, Xbox, and Macs also show that tight memory chip supply is now feeding through into consumer electronics.
+The second signal is that regulation is now truly affecting the pace of model releases. OpenAI and Anthropic are both negotiating with the U.S. government around safety reviews and access restrictions. In other words, getting early access to frontier models will no longer depend only on budget. It will also depend on whether you are on the trusted list.
 
-The third signal comes from markets. The pullback in AI trades has exposed roughly $270 billion in speculative mechanisms on Wall Street. Crypto ETFs saw $4.5 billion in outflows in one week. Fed officials have even started mentioning the risk of rate hikes again.
+The third signal is on the cost side. DeepSeek used DSpark to improve inference speed by about 57% to 85%. This kind of engineering optimization directly lowers service costs and makes agents, developer tools, and real-time interactive products respond faster.
 
-So today’s conclusion is clear: AI is not fading. It is entering its second phase. The winners will not just be those with the strongest models, but those who can secure compliant access, lock in energy resources, and withstand capital markets repricing.
+But do not ignore another major thread: AI’s bottlenecks are spilling over into electricity and capital markets. KKR is acquiring power assets, and investors are betting on power suppliers. This shows that the compute race has already expanded from GPUs to long-term control of electricity.
+
+So today’s conclusion is clear: the second half of AI is not just a model war. It is a combined competition over regulatory access, inference cost, and energy supply.

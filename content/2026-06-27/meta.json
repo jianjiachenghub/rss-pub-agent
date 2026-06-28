@@ -3,14 +3,14 @@
   "itemCount": 30,
   "categories": [
     "ai",
-    "investment",
     "politics",
+    "investment",
+    "software",
     "tech",
-    "business",
-    "software"
+    "business"
   ],
-  "avgScore": 85,
+  "avgScore": 86,
   "hasPodcast": false,
   "errors": 0,
-  "generatedAt": "2026-06-28T07:22:10.871Z"
+  "generatedAt": "2026-06-28T07:46:58.788Z"
 }
