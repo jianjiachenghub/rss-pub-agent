@@ -1,0 +1,9 @@
+Today’s most important read is this: the AI trend is still intact, but it is shifting from “who has the strongest model” to “who has access, who has power, and who can withstand the funding pressure.”
+
+First, the model side. OpenAI’s GPT-5.6 was not fully opened to everyone. It was first made available to specific users vetted by the U.S. government. Anthropic’s Mythos 5 also only restored partial access after responding to safety concerns. This shows that frontier models are no longer just tech products. They are starting to look more like strategic assets with regulatory gates. Who gets to use them, and when, may shape business momentum more than the model parameters themselves.
+
+The second shift is infrastructure. AI demand has already pushed pressure into power and storage. KKR acquired EDF’s North American renewable power assets, while U.S. utilities are still warning about electricity shortages, even possible blackouts. At the same time, price hikes for iPads, Xbox, and Macs also show that tight memory chip supply is now feeding through into consumer electronics.
+
+The third signal comes from markets. The pullback in AI trades has exposed roughly $270 billion in speculative mechanisms on Wall Street. Crypto ETFs saw $4.5 billion in outflows in one week. Fed officials have even started mentioning the risk of rate hikes again.
+
+So today’s conclusion is clear: AI is not fading. It is entering its second phase. The winners will not just be those with the strongest models, but those who can secure compliant access, lock in energy resources, and withstand capital markets repricing.
