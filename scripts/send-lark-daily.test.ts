@@ -3,6 +3,8 @@ import {
   buildLarkDailyFallbackText,
   buildLarkDailyIdempotencyKey,
   buildLarkMarkdownSendArgs,
+  formatLarkDailyResultMessage,
+  formatLarkDailySkipMessage,
 } from "./send-lark-daily.js";
 
 describe("buildLarkDailyIdempotencyKey", () => {
@@ -67,5 +69,30 @@ describe("buildLarkMarkdownSendArgs", () => {
     expect(args).toContain("## AI\n\n**1. 标题**");
     expect(args).not.toContain("--text");
     expect(args).toContain("--dry-run");
+  });
+});
+
+describe("Chinese Lark daily status messages", () => {
+  it("explains duplicate-send skips and the force flag in Chinese", () => {
+    expect(
+      formatLarkDailySkipMessage({
+        date: "2026-06-27",
+        targetName: "daily-rich-post",
+      })
+    ).toBe(
+      "[飞书日报] 2026-06-27/daily-rich-post 已有成功发送记录，本次默认跳过。需要重发请执行：npm run lark:daily -- --date 2026-06-27 --force"
+    );
+  });
+
+  it("summarizes send results in Chinese", () => {
+    expect(
+      formatLarkDailyResultMessage({
+        dryRun: false,
+        messageCount: 7,
+        date: "2026-06-27",
+        chatId: "oc_test",
+        identity: "bot",
+      })
+    ).toBe("[飞书日报] 已发送 7 条分类消息：日期 2026-06-27，群 oc_test，身份 bot");
   });
 });

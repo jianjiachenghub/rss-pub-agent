@@ -1,9 +1,25 @@
 import { describe, expect, it } from "vitest";
 import {
   buildLocalDailyEnv,
+  formatLocalDailyHeader,
   parseLocalDailyArgs,
   resolveLocalDailyTargetDate,
 } from "./run-local-daily.js";
+
+describe("formatLocalDailyHeader", () => {
+  it("renders the local runner header in Chinese", () => {
+    expect(
+      formatLocalDailyHeader({
+        targetDate: "2026-06-27",
+        providers: "codex",
+      })
+    ).toEqual([
+      "=== 本地日报流水线 ===",
+      "目标日期：2026-06-27",
+      "LLM 提供商：codex",
+    ]);
+  });
+});
 
 describe("buildLocalDailyEnv", () => {
   it("defaults local scheduled runs to Codex and Shanghai time", () => {

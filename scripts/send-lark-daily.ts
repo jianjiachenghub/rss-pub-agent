@@ -205,6 +205,24 @@ export function buildLarkDailyIdempotencyKey(params: {
   return parts.join("-");
 }
 
+export function formatLarkDailySkipMessage(params: {
+  date: string;
+  targetName: string;
+}): string {
+  return `[飞书日报] ${params.date}/${params.targetName} 已有成功发送记录，本次默认跳过。需要重发请执行：npm run lark:daily -- --date ${params.date} --force`;
+}
+
+export function formatLarkDailyResultMessage(params: {
+  dryRun: boolean;
+  messageCount: number;
+  date: string;
+  chatId: string;
+  identity: "bot" | "user";
+}): string {
+  const action = params.dryRun ? "已预览" : "已发送";
+  return `[飞书日报] ${action} ${params.messageCount} 条分类消息：日期 ${params.date}，群 ${params.chatId}，身份 ${params.identity}`;
+}
+
 export function buildLarkMarkdownSendArgs(params: {
   chatId: string;
   identity: "bot" | "user";
@@ -288,7 +306,7 @@ async function main(): Promise<void> {
   const dailyPath = join(options.contentDir, options.date, "daily.md");
 
   if (!existsSync(dailyPath)) {
-    throw new Error(`Daily markdown not found: ${dailyPath}`);
+    throw new Error(`找不到日报 Markdown 文件：${dailyPath}`);
   }
 
   if (
@@ -297,7 +315,10 @@ async function main(): Promise<void> {
     (await hasSuccessfulDelivery(options.date, "feishu-lark-cli", options.targetName))
   ) {
     console.log(
-      `[lark-daily] Already sent for ${options.date}/${options.targetName}, skipping. Use --force to resend.`
+      formatLarkDailySkipMessage({
+        date: options.date,
+        targetName: options.targetName,
+      })
     );
     return;
   }
@@ -319,7 +340,7 @@ async function main(): Promise<void> {
     status: "pending",
     attempts,
     summaryPreview: buildSummaryPreview(
-      `${options.date} ${messages.length} category messages`
+      `${options.date} 飞书日报 ${messages.length} 条分类消息`
     ),
   };
 
@@ -359,7 +380,13 @@ async function main(): Promise<void> {
     }
 
     console.log(
-      `[lark-daily] ${options.dryRun ? "Dry-run rendered" : "Sent"} ${messages.length} category message(s) for ${options.date} to ${options.chatId} as ${options.identity}`
+      formatLarkDailyResultMessage({
+        dryRun: options.dryRun,
+        messageCount: messages.length,
+        date: options.date,
+        chatId: options.chatId!,
+        identity: options.identity!,
+      })
     );
   } catch (error) {
     if (!options.dryRun) {
@@ -375,7 +402,7 @@ async function main(): Promise<void> {
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch((error) => {
-    console.error(`[lark-daily] Failed: ${(error as Error).message}`);
+    console.error(`[飞书日报] 发送失败：${(error as Error).message}`);
     process.exitCode = 1;
   });
 }

@@ -57,6 +57,17 @@ export function resolveLocalDailyTargetDate(
   return options.date ?? getDefaultTargetDate(now);
 }
 
+export function formatLocalDailyHeader(params: {
+  targetDate: string;
+  providers: string;
+}): string[] {
+  return [
+    "=== 本地日报流水线 ===",
+    `目标日期：${params.targetDate}`,
+    `LLM 提供商：${params.providers}`,
+  ];
+}
+
 function runCommand(
   command: string,
   args: string[],
@@ -96,7 +107,7 @@ function runCommand(
       const details = stderr.trim() || stdout.trim();
       reject(
         new Error(
-          `${command} ${args.join(" ")} failed with exit code ${result.code}${
+          `${command} ${args.join(" ")} 执行失败，退出码 ${result.code}${
             details ? `\n${details}` : ""
           }`
         )
@@ -155,9 +166,12 @@ export async function runLocalDaily(
   const runEnv = buildLocalDailyEnv(env);
   const targetDate = resolveLocalDailyTargetDate(args.pipelineArgs, runEnv);
 
-  console.log("=== Local Daily Pipeline ===");
-  console.log(`Date: ${targetDate}`);
-  console.log(`LLM providers: ${runEnv.LLM_PROVIDERS}`);
+  for (const line of formatLocalDailyHeader({
+    targetDate,
+    providers: runEnv.LLM_PROVIDERS ?? "",
+  })) {
+    console.log(line);
+  }
 
   await runCommand("npx", ["tsx", "graph.ts", ...args.pipelineArgs], {
     cwd: __dirname,
@@ -184,7 +198,7 @@ export async function runLocalDaily(
       inherit: true,
     });
   } else {
-    console.log("No generated content changes to commit.");
+    console.log("没有新的生成内容需要提交。");
   }
 
   if (args.sendLark) {
@@ -198,7 +212,7 @@ export async function runLocalDaily(
   if (args.push) {
     const branch = await getCurrentBranch(runEnv);
     if (!branch) {
-      throw new Error("Cannot push from a detached HEAD.");
+      throw new Error("当前处于 detached HEAD，无法执行 git push。");
     }
     await runCommand("git", ["push"], {
       cwd: repoRoot,
