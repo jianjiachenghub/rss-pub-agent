@@ -190,13 +190,76 @@ date: "2026-06-26"
     );
 
     expect(messages).toHaveLength(1);
-    expect(messages[0].markdown).toContain("## 软件工程");
+    expect(messages[0].markdown).toContain("**个人日报 | 2026-06-26 | 软件工程**");
+    expect(messages[0].markdown).toContain("本分类共 **1** 条");
     expect(messages[0].markdown).toContain(
       "**1. [vercel/ai-chatbot](https://github.com/vercel/ai-chatbot)**"
     );
     expect(messages[0].markdown).toContain("**事件：** Vercel 开源了新的 AI chatbot 模板。");
     expect(messages[0].markdown).toContain(
       "**仓库：** [GitHub Trending](https://github.com/vercel/ai-chatbot)"
+    );
+  });
+
+  it("uses compact spacing at the top of each Feishu markdown message", () => {
+    const messages = buildLarkDailyCategoryMarkdownMessagesFromMarkdown(
+      `---
+title: "个人日报 | 2026年6月26日"
+date: "2026-06-26"
+---
+
+# 个人日报 | 2026年6月26日
+
+## 政策地缘
+
+### 政策新闻
+
+**事件：** 事件说明。
+
+评分 91 · 来源 [Source](https://example.com/source)
+`,
+      { fallbackDate: "2026-06-26" }
+    );
+
+    expect(messages[0].markdown).toMatch(
+      /^\*\*个人日报 \| 2026-06-26 \| 政策地缘\*\*\n\n本分类共 \*\*1\*\* 条\n\n\*\*1\. \[政策新闻\]\(https:\/\/example\.com\/source\)\*\*/
+    );
+    expect(messages[0].markdown).not.toMatch(/\n{3,}/);
+    expect(messages[0].markdown).not.toContain("## 政策地缘");
+  });
+
+  it("keeps a normal full category in one message by default", () => {
+    const itemBlocks = Array.from({ length: 7 }, (_, index) => {
+      const itemNumber = index + 1;
+      return `### 第 ${itemNumber} 条政策新闻
+
+**事件：** 这是第 ${itemNumber} 条政策新闻的事件说明，包含足够长的上下文，用来模拟真实日报里的单条内容。
+
+**解读：** 这是第 ${itemNumber} 条政策新闻的解读说明，长度接近真实输出，但仍应留在同一个分类消息里。
+
+评分 80 · 来源 [Source ${itemNumber}](https://example.com/${itemNumber})`;
+    }).join("\n\n");
+
+    const messages = buildLarkDailyCategoryMarkdownMessagesFromMarkdown(
+      `---
+title: "个人日报 | 2026年6月26日"
+date: "2026-06-26"
+---
+
+# 个人日报 | 2026年6月26日
+
+## 政策地缘
+
+${itemBlocks}
+`,
+      { fallbackDate: "2026-06-26" }
+    );
+
+    expect(messages).toHaveLength(1);
+    expect(messages[0].title).toBe("个人日报 | 2026-06-26 | 政策地缘");
+    expect(messages[0].markdown).not.toContain("（1/2）");
+    expect(messages[0].markdown).toContain(
+      "**7. [第 7 条政策新闻](https://example.com/7)**"
     );
   });
 });

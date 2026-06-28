@@ -50,7 +50,7 @@ export interface LarkDailyCategoryMarkdownMessage {
 const CATEGORY_LABEL_SET = new Set(Object.values(CATEGORY_LABELS));
 const STOP_SECTION_TITLES = new Set(["接下来要盯的变量", "更多 24h 资讯"]);
 const DEFAULT_CATEGORY_TEXT_MAX_CHARS = 900;
-const DEFAULT_CATEGORY_MARKDOWN_MAX_CHARS = 1800;
+const DEFAULT_CATEGORY_MARKDOWN_MAX_CHARS = 7000;
 
 function cleanMarkdownText(value: string): string {
   return value
@@ -272,16 +272,13 @@ function formatCategoryMarkdownItem(index: number, item: DailyNewsItem): string 
 
 function buildCategoryMarkdown(
   title: string,
-  category: string,
+  _category: string,
   itemBlocks: string[],
   totalItems: number
 ): string {
   return [
-    `# ${escapeMarkdownText(title)}`,
-    "",
-    `## ${escapeMarkdownText(category)}`,
+    `**${escapeMarkdownText(title)}**`,
     `本分类共 **${totalItems}** 条`,
-    "",
     ...itemBlocks,
   ].join("\n\n").trim();
 }
