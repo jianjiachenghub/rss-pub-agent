@@ -1,0 +1,31 @@
+A: The main thread worth paying attention to today is not really a single company or a single policy, but the AI boom entering a phase of “repricing.” Money is still flowing into AI, but the market is asking more carefully: who is actually making money, who is bearing the costs, and who is carrying the risks.
+
+B: Right, and this repricing is not only happening in tech stocks. It is also affecting chips, electricity, sovereign capital, corporate financing, and even Fed independence and U.S. elections. Today, we’ll follow that thread.
+
+A: First, the macro market. The U.S. Supreme Court has temporarily blocked Trump from firing Federal Reserve Governor Lisa Cook, allowing her to remain in office while the dispute continues through the courts. The key point here is not just the personnel issue itself, but that the market is starting to treat “Federal Reserve independence” as a pricing variable. At the same time, trading firms are also watching whether the policy path could be rewritten if the Fed’s leadership changes in the future.
+
+B: This connects with another signal today: liquidity pressure on highly valued assets is rising. The Financial Times mentioned that the risk of deleveraging events is increasing, and the Bank for International Settlements has also warned that the AI investment boom could spill over into the global economy. Put simply, the market is not saying it doesn’t believe in AI. It is starting to worry that crowded trades, financing chains, and valuation expectations could all come under pressure at the same time.
+
+A: Second, chips. Samsung and SK Hynix plan to invest huge sums in South Korea to build semiconductor and AI infrastructure, with reports ranging from $520 billion to even larger long-term investment plans. The core issue here is not any one number, but that South Korea is directly tying AI leadership to chip capacity, memory, and regional industrial policy.
+
+B: More importantly, it’s about profit distribution. Cash flow is now moving from AI service providers toward memory and chip manufacturers. Many companies want to build AI applications, but the first to receive more certain revenue are often those selling compute, storage, and power resources. AI competition is re-layering profits across the industrial chain.
+
+A: Third, big-company valuations. Microsoft’s stock has performed very poorly this month, with its market value shrinking sharply, as the market worries about its AI capital spending and competitive pressure. In the past, as long as you were a core AI player, your valuation would receive a premium. Now investors are starting to ask whether cloud, Copilot, and model investment can actually turn into incremental revenue.
+
+B: This also explains why the scale of power-sector mergers and acquisitions has reached a high level. AI data centers need electricity, so power assets become an infrastructure gateway. Abu Dhabi’s MGX launching a $50 billion AI fund follows the same logic: sovereign capital is not just investing in model companies, but in compute, electricity, data centers, and positions across the industrial chain.
+
+A: Fourth, China’s AI. Zhipu’s new model has been reported to reach the level of Anthropic’s latest model in vulnerability detection, and this dimension is very important. In the past, people often compared model capabilities using general Q&A, coding, and math. Now high-value tasks like cybersecurity are becoming hard benchmarks.
+
+B: Domestic internet platforms are also accelerating. Alibaba, Tencent, and ByteDance are putting core talent and compute into Qwen, Doubao, Yuanbao, as well as agents, video generation, and entry-point redesign. AI is no longer an add-on feature, but the underlying engine for e-commerce, search, social, and payments. Whoever can embed models into real scenarios has the chance to turn capability into product.
+
+A: Fifth, regulation and social impact. The Trump administration has partially eased restrictions on Anthropic models, allowing them to be provided to trusted enterprises and government partners, which shows that AI export controls are seeing selective loosening. At the same time, AI money will also enter the U.S. midterm elections, and tech capital will more directly influence policy competition.
+
+B: There are also two social-level trends worth watching. First, China is requiring schools at all levels to offer AI courses, bringing AI education into long-term talent infrastructure. Second, the discussion around chatbots inducing delusional thinking in users reminds us that the boundaries of AI companion products are becoming clearer: overly accommodating responses, language imitation, and highly personalized content can all amplify risks.
+
+A: Sixth, assets and energy. Strategy said it may sell up to $1.25 billion worth of bitcoin, which changes the market’s expectation of “only buying and never selling” over the long term. If bitcoin balance-sheet strategies also need to keep room for selling, the stability of crypto assets as corporate financing collateral will be reassessed.
+
+B: On energy, Spain’s solar power oversupply is pushing down returns, and investors are starting to exit some projects. This contrasts with the enthusiasm for AI power assets: not all renewable energy assets will benefit equally. The key lies in supply-demand structure, grid connection capacity, and cash-flow quality.
+
+A: Finally, a set of global capital-flow signals. The yen has fallen to a 40-year low, triggering concerns about intervention; political turmoil in the UK has prompted foreign investors to sell British government bonds; and companies are rushing shipments ahead of a new round of Trump tariffs, pushing up freight costs. All of this shows that AI is today’s main thread, but market risks are not coming only from AI.
+
+B: To sum up, today’s keyword is “repricing.” AI is still attracting capital, but from Microsoft’s valuation, chip profits, and power-sector M&A to regulation, education, and security capabilities, the market is starting to distinguish between the real beneficiaries and those bearing the costs. What matters next is not only whether models are getting stronger, but who can turn investment into stable returns.
