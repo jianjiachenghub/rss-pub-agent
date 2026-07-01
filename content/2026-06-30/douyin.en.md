@@ -1,0 +1,7 @@
+The most important read today is this: the AI story is shifting from “whose model is stronger” to “who can truly productize and deploy Agents, and take on the financial risks that come with them.”
+
+First, the tech side. Google open-sourced agents-cli, tying AI Agent creation, evaluation, and deployment into Google Cloud. Meta open-sourced astryx, turning Agent app interfaces into modular components. Terminal-based multi-Agent tools like Herdr are also gaining traction. The signal is clear: Agents are no longer just chat boxes. They are moving into engineering pipelines, cloud platforms, and enterprise workspaces.
+
+But on the other side, financial markets are starting to focus on AI’s side effects. The IMF warns that the real danger may not be AI stock valuations, but the debt leverage forming around data centers, chips, and training spend. BlackRock has also downgraded emerging-market equities because of AI-driven divergence risk. In other words, the market is starting to separate who can capture the AI upside from who is merely carrying the financing pressure.
+
+Meanwhile, risk appetite in U.S. equities remains strong. The Dow hit a new high, the Nasdaq and S&P rebounded, and retail investors are buying the dip at record levels. In the short term, money has not left AI. But over the medium term, the AI test has changed: it is no longer about whether you have a story. It is about whether you have cash flow, compute, deployment capability, and the ability to withstand costs and debt.
