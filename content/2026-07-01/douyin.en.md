@@ -1,0 +1,9 @@
+The most important read today is this: the AI theme has not cooled down, but the market is shifting from “just look at model capability” to “show me the economics.”
+
+First, Anthropic. After the release of Sonnet 5, near-flagship agent capabilities are moving into a lower price tier. Tasks like browsing, terminal operations, and code execution are about to get a cheaper cost structure. What does that mean? In the past, many automation tasks may have required Opus-level models. Now, some of them can move down to the Sonnet tier, making agent products much easier to scale.
+
+But on the other side, the money is getting more real. Oracle has already warned that massive AI data center investments may not deliver the expected returns. Meta is also preparing to sell idle AI compute externally. This shows that compute is no longer just a scarcity story. Utilization, lease quality, and cash flow are going to become the core of valuation.
+
+The third signal is that macro pressure is still here. Bitcoin has fallen below its 200-week moving average, emerging-market currencies have erased their gains for the year, and rate markets are even starting to price the tail risk of the Fed hiking again. AI stocks can stay strong, but if the dollar and interest rates push higher again, high-valuation assets will become more sensitive.
+
+So today’s conclusion is clear: the AI industry is still expanding, but the investment logic is entering its second stage. The winners will not just be the companies with the strongest models. They will be the companies that can actually make models, compute, compliance, and cash flow work together.
