@@ -1,0 +1,9 @@
+The most important takeaway today is this: the AI trade is moving from “just buy the growth story” to “who can raise capital, who can control costs, and who can actually monetize.”
+
+The clearest signal is Meta. It is not just continuing to pour money into AI. It was also reported to be turning its AI compute into cloud services and selling them to outside customers. After the news broke, Meta surged, but storage and independent compute names like Micron and CoreWeave dropped sharply. The reason is simple: if Big Tech shifts from being a buyer of compute to a potential seller, the market has to reassess the story that “GPUs and storage will always be scarce.”
+
+The second signal is that AI financing is starting to split into tiers. Moves around Meta and SoftBank show that the AI debt market is no longer willing to fund everything equally. Investors are looking more closely at cash flow, collateral, and customer quality. Weaker companies will face higher refinancing costs, while stronger companies can keep expanding.
+
+The third signal is that model companies are moving deeper into infrastructure. OpenAI was reported to have suggested giving the U.S. government a 5% equity stake, while Anthropic is in talks with Samsung on custom AI chips. The first shows AI becoming tied to national strategic resources. The second shows model companies trying to reduce their dependence on the single path of general-purpose GPUs.
+
+So today’s main story is not “is AI still hot?” It is that AI capital spending has entered its second phase: money is still flooding in, but the market is starting to ask who can turn compute into revenue, and who is just turning the narrative into debt.
