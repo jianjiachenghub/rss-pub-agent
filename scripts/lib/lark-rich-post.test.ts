@@ -199,6 +199,32 @@ date: "2026-06-26"
     expect(messages[0].markdown).toContain(
       "**仓库：** [GitHub Trending](https://github.com/vercel/ai-chatbot)"
     );
+    expect(messages[0].markdown).toContain("**评分：** 91");
+  });
+
+  it("appends the internal score after the source link", () => {
+    const messages = buildLarkDailyCategoryMarkdownMessagesFromMarkdown(
+      `---
+title: "个人日报 | 2026年6月26日"
+date: "2026-06-26"
+---
+
+# 个人日报 | 2026年6月26日
+
+## 投资金融
+
+### 最高法院暂阻特朗普撤换美联储理事
+
+**事件：** 最高法院阻止罢免理事。
+
+评分 96 · 来源 [彭博社最新报道](https://example.com/fed)
+`,
+      { fallbackDate: "2026-06-26" }
+    );
+
+    expect(messages[0].markdown).toContain(
+      "**来源：** [彭博社最新报道](https://example.com/fed) · **评分：** 96"
+    );
   });
 
   it("uses compact spacing at the top of each Feishu markdown message", () => {

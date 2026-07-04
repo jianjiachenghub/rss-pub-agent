@@ -86,39 +86,76 @@ describe("insight-format", () => {
     ).toBe(18);
   });
 
-  it("allows 30 deep dives only on exceptional news days", () => {
+  it("does not treat routine inflated scoring as an exceptional 30-item day", () => {
     expect(
-      computeDailyInsightTarget(18, [
+      computeDailyInsightTarget(20, [
+        { weightedScore: 98 },
+        { weightedScore: 93 },
+        { weightedScore: 92 },
+        { weightedScore: 92 },
+        { weightedScore: 91 },
+        { weightedScore: 91 },
+        { weightedScore: 90 },
+        { weightedScore: 90 },
+        { weightedScore: 89 },
+        { weightedScore: 88 },
+        { weightedScore: 88 },
+        { weightedScore: 87 },
         { weightedScore: 86 },
+        { weightedScore: 85 },
+        { weightedScore: 84 },
         { weightedScore: 84 },
         { weightedScore: 83 },
-        { weightedScore: 82 },
+        { weightedScore: 83 },
+        { weightedScore: 81 },
         { weightedScore: 81 },
         { weightedScore: 80 },
         { weightedScore: 79 },
-        { weightedScore: 78 },
+        { weightedScore: 77 },
         { weightedScore: 77 },
         { weightedScore: 76 },
         { weightedScore: 75 },
         { weightedScore: 74 },
         { weightedScore: 73 },
         { weightedScore: 72 },
-        { weightedScore: 72 },
-        { weightedScore: 71 },
         { weightedScore: 70 },
-        { weightedScore: 70 },
-        { weightedScore: 69 },
-        { weightedScore: 69 },
-        { weightedScore: 68 },
-        { weightedScore: 68 },
-        { weightedScore: 68 },
-        { weightedScore: 68 },
-        { weightedScore: 68 },
-        { weightedScore: 68 },
-        { weightedScore: 68 },
-        { weightedScore: 68 },
-        { weightedScore: 68 },
-        { weightedScore: 68 },
+      ])
+    ).toBe(20);
+  });
+
+  it("allows 30 deep dives only on exceptional news days", () => {
+    expect(
+      computeDailyInsightTarget(18, [
+        { weightedScore: 100 },
+        { weightedScore: 99 },
+        { weightedScore: 98 },
+        { weightedScore: 97 },
+        { weightedScore: 96 },
+        { weightedScore: 95 },
+        { weightedScore: 94 },
+        { weightedScore: 93 },
+        { weightedScore: 92 },
+        { weightedScore: 92 },
+        { weightedScore: 91 },
+        { weightedScore: 91 },
+        { weightedScore: 90 },
+        { weightedScore: 90 },
+        { weightedScore: 90 },
+        { weightedScore: 90 },
+        { weightedScore: 89 },
+        { weightedScore: 89 },
+        { weightedScore: 88 },
+        { weightedScore: 88 },
+        { weightedScore: 87 },
+        { weightedScore: 87 },
+        { weightedScore: 86 },
+        { weightedScore: 86 },
+        { weightedScore: 85 },
+        { weightedScore: 85 },
+        { weightedScore: 84 },
+        { weightedScore: 84 },
+        { weightedScore: 84 },
+        { weightedScore: 84 },
       ])
     ).toBe(30);
   });

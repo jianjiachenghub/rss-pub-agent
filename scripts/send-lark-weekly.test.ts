@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { buildLarkWeeklyIdempotencyKey } from "./send-lark-weekly.js";
+import {
+  buildLarkWeeklyIdempotencyKey,
+  buildLarkWeeklyMarkdownSendArgs,
+} from "./send-lark-weekly.js";
 
 describe("buildLarkWeeklyIdempotencyKey", () => {
   it("uses a stable key for normal weekly sends", () => {
@@ -23,5 +26,22 @@ describe("buildLarkWeeklyIdempotencyKey", () => {
 
     expect(key).toBe("lw-2026-06-w4-weekly-digest-f-260629T003000123-p3");
     expect(key.length).toBeLessThanOrEqual(50);
+  });
+});
+
+describe("buildLarkWeeklyMarkdownSendArgs", () => {
+  it("sends weekly digests as Feishu markdown instead of plain text", () => {
+    const args = buildLarkWeeklyMarkdownSendArgs({
+      chatId: "oc_test",
+      identity: "bot",
+      markdown: "**个人周报 | 6月第四周**\n\n- 重点",
+      idempotencyKey: "lw-test",
+      dryRun: true,
+    });
+
+    expect(args).toContain("--markdown");
+    expect(args).toContain("**个人周报 | 6月第四周**\n\n- 重点");
+    expect(args).not.toContain("--text");
+    expect(args).toContain("--dry-run");
   });
 });

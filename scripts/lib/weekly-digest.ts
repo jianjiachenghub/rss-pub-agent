@@ -44,6 +44,11 @@ export interface WeeklyDigestTextMessage {
   text: string;
 }
 
+export interface WeeklyDigestMarkdownMessage {
+  title: string;
+  markdown: string;
+}
+
 const CHINESE_WEEK_NUMBERS = ["一", "二", "三", "四"];
 const DEFAULT_WEEKLY_MESSAGE_MAX_CHARS = 900;
 
@@ -60,6 +65,14 @@ function truncateText(value: string, maxChars: number): string {
   const normalized = cleanMarkdownText(value);
   if (normalized.length <= maxChars) return normalized;
   return `${normalized.slice(0, Math.max(1, maxChars - 1))}…`;
+}
+
+function escapeMarkdownText(value: string): string {
+  return cleanMarkdownText(value).replace(/([\\[\]])/g, "\\$1");
+}
+
+function truncateMarkdownText(value: string, maxChars: number): string {
+  return escapeMarkdownText(truncateText(value, maxChars));
 }
 
 function stripFrontmatter(content: string): string {
@@ -277,6 +290,49 @@ function buildDailyBlock(day: WeeklyDailyIssue): string {
   return lines.join("\n");
 }
 
+function buildOverviewMarkdownMessage(
+  issue: WeeklyDigestIssue,
+  reportBaseUrl?: string
+): WeeklyDigestMarkdownMessage {
+  const title = `个人周报 | ${issue.label}`;
+  const categoryText = issue.categories.map(getCategoryLabel).join(" / ");
+  const weeklyUrl = buildWeeklyUrl(reportBaseUrl, issue.weekId);
+  const lines = [
+    `**${escapeMarkdownText(title)}**`,
+    escapeMarkdownText(issue.rangeLabel),
+    `**${issue.issueCount}** 份日报 · **${issue.itemCount}** 条资讯 · 均分 **${issue.avgScore}**`,
+    categoryText ? `主题：${escapeMarkdownText(categoryText)}` : "",
+    "",
+    issue.summary
+      ? `**本周判断：** ${truncateMarkdownText(issue.summary, 180)}`
+      : "",
+    "",
+    "**本周重点：**",
+    ...issue.keyTitles.map(
+      (item, index) => `${index + 1}. ${truncateMarkdownText(item, 72)}`
+    ),
+    weeklyUrl ? "" : "",
+    weeklyUrl ? `[阅读周报](${weeklyUrl})` : "",
+  ].filter((line) => line !== "");
+
+  return { title, markdown: lines.join("\n").trim() };
+}
+
+function buildDailyMarkdownBlock(day: WeeklyDailyIssue): string {
+  const scoreText =
+    typeof day.meta?.avgScore === "number" ? ` · 均分 ${day.meta.avgScore}` : "";
+  const lines = [
+    `**${dayjs(day.date).format("YYYY.MM.DD")} · ${
+      day.meta?.itemCount ?? 0
+    } 条${scoreText}**`,
+    day.summary ? `**判断：** ${truncateMarkdownText(day.summary, 140)}` : "",
+    ...day.keyTitles
+      .slice(0, 3)
+      .map((title) => `- ${truncateMarkdownText(title, 64)}`),
+  ].filter(Boolean);
+  return lines.join("\n");
+}
+
 export function buildWeeklyDigestTextMessages(
   issue: WeeklyDigestIssue,
   options: { reportBaseUrl?: string; maxChars?: number } = {}
@@ -305,6 +361,58 @@ export function buildWeeklyDigestTextMessages(
     const block = buildDailyBlock(day);
     const title = `个人周报 | ${issue.label} | 每日回看`;
     const draft = [title, "", ...currentBlocks, block].join("\n\n").trim();
+
+    if (currentBlocks.length > 0 && draft.length > maxChars) {
+      flushBlocks();
+    }
+    currentBlocks.push(block);
+  }
+
+  flushBlocks();
+  return messages;
+}
+
+export function buildWeeklyDigestMarkdownMessages(
+  issue: WeeklyDigestIssue,
+  options: { reportBaseUrl?: string; maxChars?: number } = {}
+): WeeklyDigestMarkdownMessage[] {
+  const maxChars =
+    typeof options.maxChars === "number" && options.maxChars > 0
+      ? Math.floor(options.maxChars)
+      : DEFAULT_WEEKLY_MESSAGE_MAX_CHARS;
+  const messages = [buildOverviewMarkdownMessage(issue, options.reportBaseUrl)];
+
+  let currentBlocks: string[] = [];
+  const flushBlocks = () => {
+    if (currentBlocks.length === 0) return;
+    const title =
+      messages.length === 1
+        ? `个人周报 | ${issue.label} | 每日回看`
+        : `个人周报 | ${issue.label} | 每日回看 ${messages.length}`;
+    messages.push({
+      title,
+      markdown: [
+        `**${escapeMarkdownText(title)}**`,
+        "",
+        ...currentBlocks,
+      ]
+        .join("\n\n")
+        .trim(),
+    });
+    currentBlocks = [];
+  };
+
+  for (const day of issue.days) {
+    const block = buildDailyMarkdownBlock(day);
+    const title = `个人周报 | ${issue.label} | 每日回看`;
+    const draft = [
+      `**${escapeMarkdownText(title)}**`,
+      "",
+      ...currentBlocks,
+      block,
+    ]
+      .join("\n\n")
+      .trim();
 
     if (currentBlocks.length > 0 && draft.length > maxChars) {
       flushBlocks();

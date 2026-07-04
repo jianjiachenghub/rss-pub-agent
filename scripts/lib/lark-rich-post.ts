@@ -23,6 +23,7 @@ interface DailyNewsItem {
   href?: string;
   event?: string;
   interpretation?: string;
+  scoreValue?: string;
   scoreSource?: string;
   sourceName?: string;
   sourceHref?: string;
@@ -96,19 +97,21 @@ function parseMarkdownLink(value: string): Pick<DailyNewsItem, "title" | "href">
 }
 
 function parseSourceLine(value: string): {
+  scoreValue?: string;
   scoreSource: string;
   sourceName?: string;
   sourceHref?: string;
 } {
   const cleaned = cleanMarkdownText(value);
   const sourceMatch = value.match(/来源\s+\[([^\]]+)]\(([^)]+)\)/);
-  const scoreMatch = cleaned.match(/评分\s+\d+/);
+  const scoreMatch = cleaned.match(/评分\s*[:：]?\s*(\d+)/);
   const sourceName = sourceMatch?.[1]?.trim();
   const sourceHref = sourceMatch?.[2]?.trim();
 
   return {
+    scoreValue: scoreMatch?.[1],
     scoreSource: [
-      scoreMatch?.[0],
+      scoreMatch ? `评分 ${scoreMatch[1]}` : undefined,
       sourceName ? `来源：${sourceName}` : undefined,
     ]
       .filter(Boolean)
@@ -176,6 +179,7 @@ function parseDailyNewsSections(markdown: string): DailyCategorySection[] {
 
     if (line.startsWith("评分 ")) {
       const parsed = parseSourceLine(line);
+      currentItem.scoreValue = parsed.scoreValue;
       currentItem.scoreSource = parsed.scoreSource;
       currentItem.sourceName = parsed.sourceName;
       currentItem.sourceHref = parsed.sourceHref;
@@ -258,11 +262,19 @@ function formatCategoryMarkdownItem(index: number, item: DailyNewsItem): string 
     );
   }
 
+  const scoreText = item.scoreValue
+    ? `**评分：** ${escapeMarkdownText(item.scoreValue)}`
+    : undefined;
+
   if (item.sourceName && item.sourceHref) {
     const label = isGitHubHref(item.sourceHref) || isGitHubHref(item.href)
       ? "仓库"
       : "来源";
-    lines.push(`**${label}：** ${markdownLink(item.sourceName, item.sourceHref)}`);
+    lines.push(
+      [`**${label}：** ${markdownLink(item.sourceName, item.sourceHref)}`, scoreText]
+        .filter(Boolean)
+        .join(" · ")
+    );
   } else if (item.scoreSource) {
     lines.push(escapeMarkdownText(truncateChatText(item.scoreSource, 72)));
   }

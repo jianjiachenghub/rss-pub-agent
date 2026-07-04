@@ -3,6 +3,7 @@ import { join } from "path";
 import { tmpdir } from "os";
 import { afterEach, describe, expect, it } from "vitest";
 import {
+  buildWeeklyDigestMarkdownMessages,
   buildWeeklyDigestTextMessages,
   getMonthScopedWeekId,
   getWeeklyDigestIssue,
@@ -139,5 +140,37 @@ describe("weekly digest aggregation", () => {
     expect(combined).toContain("阅读周报：https://example.com/weekly/2026-06-W4");
     expect(combined).toContain("OpenAI预览GPT-5.6 Sol");
     expect(combined).toContain("2026.06.26 · 30 条");
+  });
+
+  it("renders formatted weekly Lark markdown messages with scores", async () => {
+    tempDir = await mkdtemp(join(tmpdir(), "weekly-digest-"));
+    await writeFile(
+      join(tempDir, "index.json"),
+      JSON.stringify({ dates: ["2026-06-26"] }),
+      "utf-8"
+    );
+    await writeDaily({
+      date: "2026-06-26",
+      title: "个人日报 | 2026年6月26日",
+      summary: "AI 仍在加速进入更高风险、更高成本阶段。",
+      headings: ["OpenAI预览GPT-5.6 Sol", "Claude Tag接管团队协作"],
+      itemCount: 20,
+      avgScore: 88,
+      categories: ["ai", "business"],
+    });
+
+    const issue = await getWeeklyDigestIssue(tempDir);
+    expect(issue).not.toBeNull();
+
+    const messages = buildWeeklyDigestMarkdownMessages(issue!, {
+      reportBaseUrl: "https://example.com",
+      maxChars: 220,
+    });
+    const combined = messages.map((message) => message.markdown).join("\n");
+
+    expect(combined).toContain("**个人周报 | 6月第四周**");
+    expect(combined).toContain("**1** 份日报 · **20** 条资讯 · 均分 **88**");
+    expect(combined).toContain("**2026.06.26 · 20 条 · 均分 88**");
+    expect(combined).toContain("[阅读周报](https://example.com/weekly/2026-06-W4)");
   });
 });

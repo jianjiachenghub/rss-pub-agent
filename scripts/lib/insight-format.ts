@@ -396,9 +396,9 @@ export function computeDailyInsightTarget(
   const baseline = Math.min(Math.max(baselineTopN, 16), 20);
   const extremeMax = 30;
 
-  const strong = items.filter((item) => item.weightedScore >= 74).length;
-  const solid = items.filter((item) => item.weightedScore >= 68).length;
+  const exceptional = items.filter((item) => item.weightedScore >= 90).length;
+  const strong = items.filter((item) => item.weightedScore >= 84).length;
 
-  if (solid >= extremeMax && strong >= 12) return extremeMax;
+  if (strong >= 28 && exceptional >= 16) return extremeMax;
   return baseline;
 }
