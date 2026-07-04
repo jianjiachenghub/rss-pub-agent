@@ -4,6 +4,7 @@ import { rebalanceInsightsForGitHubTrending } from "../lib/github-signal.js";
 import {
   buildFallbackSections,
   buildInsightContent,
+  dedupeDailyInsightCandidates,
   getDailyInsightQualifiedCandidates,
   isWeakEventNarrative,
   sanitizeInsightSections,
@@ -398,9 +399,8 @@ function finalizeInsights(
   );
 
   const finalInsights = selectDailyInsightsByCategory(eligibleInsights, configTopN);
-  const qualifiedInsights = getDailyInsightQualifiedCandidates(
-    eligibleInsights,
-    configTopN
+  const qualifiedInsights = dedupeDailyInsightCandidates(
+    getDailyInsightQualifiedCandidates(eligibleInsights, configTopN)
   );
   const rebalancedInsights = rebalanceInsightsForGitHubTrending(
     finalInsights,

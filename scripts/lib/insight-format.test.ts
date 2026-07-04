@@ -3,6 +3,7 @@ import {
   buildFallbackSections,
   buildInsightContent,
   computeDailyInsightTarget,
+  dedupeDailyInsightCandidates,
   getInvalidInsightFields,
   hasThinContent,
   isInformativeImage,
@@ -223,6 +224,172 @@ describe("insight-format", () => {
     expect(ids).not.toContain("politics-79");
     expect(ids.filter((id) => id.startsWith("ai-"))).toHaveLength(4);
     expect(selected).toHaveLength(8);
+  });
+
+  it("dedupes same-event candidates across categories before daily selection", () => {
+    const unique = dedupeDailyInsightCandidates([
+      {
+        id: "politics-fed",
+        title: "特朗普阵营再攻美联储架构",
+        titleZh: "特朗普阵营再攻美联储架构",
+        event:
+          "特朗普盟友继续推进重塑美联储的努力，焦点围绕理事席位和制度权力。",
+        category: "politics",
+        weightedScore: 91,
+      },
+      {
+        id: "investment-fed",
+        title: "特朗普盟友加码重塑美联储",
+        titleZh: "特朗普盟友加码重塑美联储",
+        event:
+          "最高法院阻止罢免Lisa Cook后，特朗普盟友继续推进重塑美联储的努力。",
+        category: "investment",
+        weightedScore: 93,
+      },
+      {
+        id: "openai-science",
+        title: "OpenAI发布科研工作台",
+        titleZh: "OpenAI发布科研工作台",
+        event: "OpenAI推出面向科研人员的新产品工作台。",
+        category: "ai",
+        weightedScore: 90,
+      },
+    ]);
+
+    expect(unique.map((item) => item.id)).toEqual([
+      "investment-fed",
+      "openai-science",
+    ]);
+  });
+
+  it("fills the daily list with the next unique item when a duplicate is removed", () => {
+    const selected = selectDailyInsightsByCategory(
+      [
+        {
+          id: "ai-1",
+          title: "OpenAI发布科研工作台",
+          titleZh: "OpenAI发布科研工作台",
+          event: "OpenAI推出面向科研人员的新产品工作台。",
+          category: "ai",
+          weightedScore: 94,
+        },
+        {
+          id: "politics-fed",
+          title: "特朗普阵营再攻美联储架构",
+          titleZh: "特朗普阵营再攻美联储架构",
+          event:
+            "特朗普盟友继续推进重塑美联储的努力，焦点围绕理事席位和制度权力。",
+          category: "politics",
+          weightedScore: 92,
+        },
+        {
+          id: "investment-fed",
+          title: "特朗普盟友加码重塑美联储",
+          titleZh: "特朗普盟友加码重塑美联储",
+          event:
+            "最高法院阻止罢免Lisa Cook后，特朗普盟友继续推进重塑美联储的努力。",
+          category: "investment",
+          weightedScore: 93,
+        },
+        {
+          id: "investment-unique",
+          title: "美欧央行政策分化预期升温",
+          titleZh: "美欧央行政策分化预期升温",
+          event: "交易员重新定价美欧央行政策路径差异。",
+          category: "investment",
+          weightedScore: 88,
+        },
+        {
+          id: "business-unique",
+          title: "OpenAI拟让渡政府股权",
+          titleZh: "OpenAI拟让渡政府股权",
+          event: "OpenAI向美国政府提出持有公司股权的方案。",
+          category: "business",
+          weightedScore: 87,
+        },
+        {
+          id: "software-unique",
+          title: "开发者工具发布新版本",
+          titleZh: "开发者工具发布新版本",
+          event: "一个开发者工具发布新版本并改善本地编码工作流。",
+          category: "software",
+          weightedScore: 86,
+        },
+        {
+          id: "tech-unique",
+          title: "美国电网遭遇AI用电压力测试",
+          titleZh: "美国电网遭遇AI用电压力测试",
+          event: "AI数据中心用电需求继续给美国电网带来压力。",
+          category: "tech",
+          weightedScore: 86,
+        },
+        {
+          id: "ai-2",
+          title: "Anthropic洽谈定制芯片",
+          titleZh: "Anthropic洽谈定制芯片",
+          event: "Anthropic与芯片厂商洽谈面向模型训练的定制芯片。",
+          category: "ai",
+          weightedScore: 85,
+        },
+      ],
+      8
+    );
+
+    const ids = selected.map((item) => item.id);
+
+    expect(ids).toContain("investment-fed");
+    expect(ids).not.toContain("politics-fed");
+    expect(ids).toContain("investment-unique");
+    expect(selected).toHaveLength(7);
+  });
+
+  it("does not merge different actors just because they mention the same product", () => {
+    const unique = dedupeDailyInsightCandidates([
+      {
+        id: "anthropic-china-access",
+        title: "Anthropic收紧中国用户访问",
+        titleZh: "Anthropic收紧中国用户访问",
+        event: "Anthropic开始限制中国用户访问Claude服务。",
+        category: "ai",
+        weightedScore: 93,
+      },
+      {
+        id: "alibaba-claude-ban",
+        title: "阿里全员禁用Claude产品",
+        titleZh: "阿里全员禁用Claude产品",
+        event: "阿里内部要求员工停止使用Claude相关产品。",
+        category: "ai",
+        weightedScore: 89,
+      },
+    ]);
+
+    expect(unique.map((item) => item.id)).toEqual([
+      "anthropic-china-access",
+      "alibaba-claude-ban",
+    ]);
+  });
+
+  it("dedupes same-person central-bank succession stories with different wording", () => {
+    const unique = dedupeDailyInsightCandidates([
+      {
+        id: "lagarde-ecb-exit",
+        title: "拉加德暗示或提前离开ECB",
+        titleZh: "拉加德暗示或提前离开ECB",
+        event: "拉加德暗示可能提前离开欧洲央行，转向法国政坛。",
+        category: "politics",
+        weightedScore: 86,
+      },
+      {
+        id: "lagarde-france-politics",
+        title: "拉加德或转向法国政坛",
+        titleZh: "拉加德或转向法国政坛",
+        event: "拉加德可能提前结束欧洲央行任期并进入法国政治安排。",
+        category: "politics",
+        weightedScore: 85,
+      },
+    ]);
+
+    expect(unique.map((item) => item.id)).toEqual(["lagarde-ecb-exit"]);
   });
 
   it("builds conservative fallback content for thin items", () => {

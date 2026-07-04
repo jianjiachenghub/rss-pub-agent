@@ -146,6 +146,42 @@ const DAILY_CATEGORY_ORDER = [
   "social",
 ];
 
+const DAILY_DEDUP_ANCHORS: Array<{
+  id: string;
+  kind: "entity" | "theme";
+  pattern: RegExp;
+}> = [
+  { id: "fed", kind: "entity", pattern: /美联储|\bfed\b|federal reserve/i },
+  { id: "trump", kind: "entity", pattern: /特朗普|白宫|trump/i },
+  { id: "lisa-cook", kind: "entity", pattern: /lisa\s*cook|丽莎.?库克|理事.?库克/i },
+  { id: "openai", kind: "entity", pattern: /openai/i },
+  { id: "anthropic", kind: "entity", pattern: /anthropic/i },
+  { id: "microsoft", kind: "entity", pattern: /微软|microsoft/i },
+  { id: "google", kind: "entity", pattern: /谷歌|google/i },
+  { id: "meta", kind: "entity", pattern: /\bmeta\b/i },
+  { id: "apple", kind: "entity", pattern: /苹果|apple/i },
+  { id: "nvidia", kind: "entity", pattern: /英伟达|nvidia/i },
+  { id: "softbank", kind: "entity", pattern: /软银|softbank/i },
+  { id: "lagarde", kind: "entity", pattern: /拉加德|lagarde/i },
+  { id: "ecb", kind: "entity", pattern: /欧洲央行|\becb\b|european central bank/i },
+  {
+    id: "fed-overhaul",
+    kind: "theme",
+    pattern:
+      /(?:美联储|\bfed\b|federal reserve).{0,30}(?:改革|重塑|改造|罢免|撤换|理事|独立性)|(?:改革|重塑|改造|罢免|撤换|理事|独立性).{0,30}(?:美联储|\bfed\b|federal reserve)/i,
+  },
+  { id: "equity-stake", kind: "theme", pattern: /持股|股权|\bstake\b/i },
+  { id: "access-restriction", kind: "theme", pattern: /限制|收紧|禁用|封禁|access|ban/i },
+  { id: "ai-regulation", kind: "theme", pattern: /监管|护栏|regulat/i },
+  { id: "chip", kind: "theme", pattern: /芯片|半导体|chip|semiconductor/i },
+  { id: "funding", kind: "theme", pattern: /融资|筹资|raises|funding/i },
+  { id: "layoff", kind: "theme", pattern: /裁员|job cuts|layoff/i },
+  { id: "power-grid", kind: "theme", pattern: /电网|用电|electricity|power/i },
+  { id: "rate-policy", kind: "theme", pattern: /降息|加息|利率|央行|rate/i },
+  { id: "leadership-exit", kind: "theme", pattern: /提前离开|离开|任期|转向|政坛|succession|exit/i },
+  { id: "tariff", kind: "theme", pattern: /关税|tariff/i },
+];
+
 function collectTextFragments(
   value: unknown,
   fragments: string[],
@@ -216,6 +252,100 @@ function extractChineseSentence(content: string): string {
 
 function normalizedTitle(title: string): string {
   return normalizeText(title).replace(/[“”"'`]/g, "");
+}
+
+function normalizeEventDedupText(value: string): string {
+  return normalizeText(value)
+    .toLowerCase()
+    .replace(/\bfederal reserve\b/g, "美联储")
+    .replace(/\bfed\b/g, "美联储")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function collectEventDedupText(
+  item: {
+    title?: string;
+    titleZh?: string;
+    event?: string;
+    content?: string;
+  }
+): string {
+  return normalizeEventDedupText(
+    [item.titleZh, item.title, item.event, item.content].filter(Boolean).join("\n")
+  );
+}
+
+function collectAnchorIds(text: string, kind?: "entity" | "theme"): Set<string> {
+  return new Set(
+    DAILY_DEDUP_ANCHORS.filter(
+      (anchor) => (!kind || anchor.kind === kind) && anchor.pattern.test(text)
+    ).map((anchor) => anchor.id)
+  );
+}
+
+function characterBigrams(text: string): Set<string> {
+  const compact = text.replace(/[^\p{Script=Han}a-z0-9]+/gu, "");
+  const grams = new Set<string>();
+  for (let index = 0; index < compact.length - 1; index++) {
+    grams.add(compact.slice(index, index + 2));
+  }
+  return grams;
+}
+
+function jaccardSimilarity(left: Set<string>, right: Set<string>): number {
+  if (left.size === 0 || right.size === 0) return 0;
+  let intersection = 0;
+  for (const item of left) {
+    if (right.has(item)) intersection++;
+  }
+  return intersection / (left.size + right.size - intersection);
+}
+
+function intersects(left: Set<string>, right: Set<string>): string[] {
+  return [...left].filter((item) => right.has(item));
+}
+
+function isLikelySameDailyEvent(
+  left: {
+    title?: string;
+    titleZh?: string;
+    event?: string;
+    content?: string;
+  },
+  right: {
+    title?: string;
+    titleZh?: string;
+    event?: string;
+    content?: string;
+  }
+): boolean {
+  const leftText = collectEventDedupText(left);
+  const rightText = collectEventDedupText(right);
+  if (leftText.length < 12 || rightText.length < 12) return false;
+
+  const leftTitle = normalizeEventDedupText(left.titleZh || left.title || "");
+  const rightTitle = normalizeEventDedupText(right.titleZh || right.title || "");
+  if (leftTitle.length >= 8 && leftTitle === rightTitle) return true;
+
+  const sharedEntities = intersects(
+    collectAnchorIds(leftText, "entity"),
+    collectAnchorIds(rightText, "entity")
+  );
+  const sharedThemes = intersects(
+    collectAnchorIds(leftText, "theme"),
+    collectAnchorIds(rightText, "theme")
+  );
+  const similarity = jaccardSimilarity(
+    characterBigrams(leftText),
+    characterBigrams(rightText)
+  );
+
+  if (similarity >= 0.34) return true;
+  if (sharedEntities.length >= 1 && sharedThemes.length >= 1 && similarity >= 0.18) {
+    return true;
+  }
+  return sharedEntities.length >= 2 && sharedThemes.length >= 1;
 }
 
 export function truncateSummaryText(text: string, limit: number): string {
@@ -476,11 +606,44 @@ export function getDailyInsightQualifiedCandidates<
     .sort((left, right) => right.weightedScore - left.weightedScore);
 }
 
+export function dedupeDailyInsightCandidates<
+  T extends Pick<ScoredNewsItem, "weightedScore"> & {
+    title?: string;
+    titleZh?: string;
+    event?: string;
+    content?: string;
+  }
+>(items: T[]): T[] {
+  const selected: T[] = [];
+
+  for (const item of [...items].sort(
+    (left, right) => right.weightedScore - left.weightedScore
+  )) {
+    if (
+      selected.some((selectedItem) =>
+        isLikelySameDailyEvent(item, selectedItem)
+      )
+    ) {
+      continue;
+    }
+    selected.push(item);
+  }
+
+  return selected;
+}
+
 export function selectDailyInsightsByCategory<
-  T extends Pick<ScoredNewsItem, "category" | "weightedScore">
+  T extends Pick<ScoredNewsItem, "category" | "weightedScore"> & {
+    title?: string;
+    titleZh?: string;
+    event?: string;
+    content?: string;
+  }
 >(items: T[], baselineTopN: number): T[] {
   const policy = getDailyInsightSelectionPolicy(baselineTopN, items);
-  const qualifiedItems = getDailyInsightQualifiedCandidates(items, baselineTopN);
+  const qualifiedItems = dedupeDailyInsightCandidates(
+    getDailyInsightQualifiedCandidates(items, baselineTopN)
+  );
   const categoryOrder = [
     ...DAILY_CATEGORY_ORDER,
     ...Array.from(new Set(qualifiedItems.map((item) => item.category))).filter(
