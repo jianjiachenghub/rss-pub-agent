@@ -4,10 +4,11 @@ import { rebalanceInsightsForGitHubTrending } from "../lib/github-signal.js";
 import {
   buildFallbackSections,
   buildInsightContent,
-  computeDailyInsightTarget,
+  getDailyInsightQualifiedCandidates,
   isWeakEventNarrative,
   sanitizeInsightSections,
   sanitizeOneLiner,
+  selectDailyInsightsByCategory,
   shouldWriteInterpretation,
 } from "../lib/insight-format.js";
 import {
@@ -396,17 +397,14 @@ function finalizeInsights(
     )
   );
 
-  const targetCount = Math.min(
-    computeDailyInsightTarget(configTopN, eligibleInsights),
-    eligibleInsights.length
+  const finalInsights = selectDailyInsightsByCategory(eligibleInsights, configTopN);
+  const qualifiedInsights = getDailyInsightQualifiedCandidates(
+    eligibleInsights,
+    configTopN
   );
-
-  const finalInsights = eligibleInsights
-    .sort((left, right) => right.weightedScore - left.weightedScore)
-    .slice(0, targetCount);
   const rebalancedInsights = rebalanceInsightsForGitHubTrending(
     finalInsights,
-    eligibleInsights
+    qualifiedInsights
   );
 
   // Anything that scored well enough to survive scoring but not well enough to

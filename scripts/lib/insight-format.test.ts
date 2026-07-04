@@ -6,6 +6,7 @@ import {
   getInvalidInsightFields,
   hasThinContent,
   isInformativeImage,
+  selectDailyInsightsByCategory,
   shouldWriteInterpretation,
 } from "./insight-format.js";
 
@@ -59,9 +60,9 @@ describe("insight-format", () => {
     ).toBe(false);
   });
 
-  it("keeps normal high-quality days capped at the configured topN", () => {
+  it("treats the configured topN as a normal-day ceiling, not a fill target", () => {
     expect(
-      computeDailyInsightTarget(18, [
+      computeDailyInsightTarget(20, [
         { weightedScore: 82 },
         { weightedScore: 80 },
         { weightedScore: 79 },
@@ -83,10 +84,47 @@ describe("insight-format", () => {
         { weightedScore: 68 },
         { weightedScore: 68 },
       ])
-    ).toBe(18);
+    ).toBe(7);
   });
 
-  it("does not treat routine inflated scoring as an exceptional 30-item day", () => {
+  it("keeps routine inflated scoring in the teens instead of filling the cap", () => {
+    expect(
+      computeDailyInsightTarget(20, [
+        { weightedScore: 93 },
+        { weightedScore: 89 },
+        { weightedScore: 89 },
+        { weightedScore: 87 },
+        { weightedScore: 85 },
+        { weightedScore: 84 },
+        { weightedScore: 83 },
+        { weightedScore: 93 },
+        { weightedScore: 83 },
+        { weightedScore: 83 },
+        { weightedScore: 81 },
+        { weightedScore: 88 },
+        { weightedScore: 89 },
+        { weightedScore: 87 },
+        { weightedScore: 85 },
+        { weightedScore: 82 },
+        { weightedScore: 82 },
+        { weightedScore: 81 },
+        { weightedScore: 80 },
+        { weightedScore: 80 },
+        { weightedScore: 79 },
+        { weightedScore: 93 },
+        { weightedScore: 92 },
+        { weightedScore: 91 },
+        { weightedScore: 88 },
+        { weightedScore: 87 },
+        { weightedScore: 86 },
+        { weightedScore: 85 },
+        { weightedScore: 84 },
+        { weightedScore: 79 },
+      ])
+    ).toBe(17);
+  });
+
+  it("lets genuinely high-density days approach the normal cap", () => {
     expect(
       computeDailyInsightTarget(20, [
         { weightedScore: 98 },
@@ -120,7 +158,7 @@ describe("insight-format", () => {
         { weightedScore: 72 },
         { weightedScore: 70 },
       ])
-    ).toBe(20);
+    ).toBe(14);
   });
 
   it("allows 30 deep dives only on exceptional news days", () => {
@@ -158,6 +196,33 @@ describe("insight-format", () => {
         { weightedScore: 84 },
       ])
     ).toBe(30);
+  });
+
+  it("selects high-scoring items by category instead of global score order", () => {
+    const selected = selectDailyInsightsByCategory(
+      [
+        { id: "ai-99", category: "ai", weightedScore: 99 },
+        { id: "ai-98", category: "ai", weightedScore: 98 },
+        { id: "ai-97", category: "ai", weightedScore: 97 },
+        { id: "ai-96", category: "ai", weightedScore: 96 },
+        { id: "ai-95", category: "ai", weightedScore: 95 },
+        { id: "ai-94", category: "ai", weightedScore: 94 },
+        { id: "investment-93", category: "investment", weightedScore: 93 },
+        { id: "investment-92", category: "investment", weightedScore: 92 },
+        { id: "software-91", category: "software", weightedScore: 91 },
+        { id: "business-89", category: "business", weightedScore: 89 },
+        { id: "politics-79", category: "politics", weightedScore: 79 },
+      ],
+      8
+    );
+
+    const ids = selected.map((item) => item.id);
+
+    expect(ids).toContain("software-91");
+    expect(ids).toContain("business-89");
+    expect(ids).not.toContain("politics-79");
+    expect(ids.filter((id) => id.startsWith("ai-"))).toHaveLength(4);
+    expect(selected).toHaveLength(8);
   });
 
   it("builds conservative fallback content for thin items", () => {

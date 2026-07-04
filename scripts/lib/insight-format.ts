@@ -130,6 +130,22 @@ const CONCRETE_SIGNAL_KEYWORDS = [
   "默认",
 ];
 
+const DAILY_PRIMARY_SCORE_THRESHOLD = 85;
+const DAILY_SECONDARY_SCORE_THRESHOLD = 80;
+const DAILY_FALLBACK_SCORE_THRESHOLD = 75;
+const DAILY_MIN_NORMAL_TARGET = 8;
+const DAILY_EXTREME_SCORE_THRESHOLD = 84;
+const DAILY_EXTREME_EXCEPTIONAL_THRESHOLD = 90;
+const DAILY_CATEGORY_ORDER = [
+  "ai",
+  "tech",
+  "software",
+  "business",
+  "investment",
+  "politics",
+  "social",
+];
+
 function collectTextFragments(
   value: unknown,
   fragments: string[],
@@ -393,12 +409,109 @@ export function computeDailyInsightTarget(
   baselineTopN: number,
   items: Array<Pick<ScoredNewsItem, "weightedScore">>
 ): number {
-  const baseline = Math.min(Math.max(baselineTopN, 16), 20);
+  const policy = getDailyInsightSelectionPolicy(baselineTopN, items);
+  return policy.targetCount;
+}
+
+function getDailyInsightSelectionPolicy(
+  baselineTopN: number,
+  items: Array<Pick<ScoredNewsItem, "weightedScore">>
+): { scoreThreshold: number; targetCount: number } {
+  const normalCap = Math.min(Math.max(Math.floor(baselineTopN), 1), 20);
   const extremeMax = 30;
+  const sortedItems = [...items].sort(
+    (left, right) => right.weightedScore - left.weightedScore
+  );
+  const exceptionalCount = sortedItems.filter(
+    (item) => item.weightedScore >= DAILY_EXTREME_EXCEPTIONAL_THRESHOLD
+  ).length;
+  const extremeQualifiedCount = sortedItems.filter(
+    (item) => item.weightedScore >= DAILY_EXTREME_SCORE_THRESHOLD
+  ).length;
 
-  const exceptional = items.filter((item) => item.weightedScore >= 90).length;
-  const strong = items.filter((item) => item.weightedScore >= 84).length;
+  if (extremeQualifiedCount >= 28 && exceptionalCount >= 16) {
+    return {
+      scoreThreshold: DAILY_EXTREME_SCORE_THRESHOLD,
+      targetCount: Math.min(extremeMax, extremeQualifiedCount),
+    };
+  }
 
-  if (strong >= 28 && exceptional >= 16) return extremeMax;
-  return baseline;
+  const primaryCount = sortedItems.filter(
+    (item) => item.weightedScore >= DAILY_PRIMARY_SCORE_THRESHOLD
+  ).length;
+  const secondaryCount = sortedItems.filter(
+    (item) => item.weightedScore >= DAILY_SECONDARY_SCORE_THRESHOLD
+  ).length;
+
+  if (primaryCount >= Math.min(DAILY_MIN_NORMAL_TARGET, normalCap)) {
+    return {
+      scoreThreshold: DAILY_PRIMARY_SCORE_THRESHOLD,
+      targetCount: Math.min(normalCap, primaryCount),
+    };
+  }
+
+  if (secondaryCount >= Math.min(DAILY_MIN_NORMAL_TARGET, normalCap)) {
+    return {
+      scoreThreshold: DAILY_SECONDARY_SCORE_THRESHOLD,
+      targetCount: Math.min(normalCap, secondaryCount),
+    };
+  }
+
+  const fallbackCount = sortedItems.filter(
+    (item) => item.weightedScore >= DAILY_FALLBACK_SCORE_THRESHOLD
+  ).length;
+
+  return {
+    scoreThreshold: DAILY_FALLBACK_SCORE_THRESHOLD,
+    targetCount: Math.min(normalCap, fallbackCount),
+  };
+}
+
+export function getDailyInsightQualifiedCandidates<
+  T extends Pick<ScoredNewsItem, "weightedScore">
+>(items: T[], baselineTopN: number): T[] {
+  const policy = getDailyInsightSelectionPolicy(baselineTopN, items);
+  return [...items]
+    .filter((item) => item.weightedScore >= policy.scoreThreshold)
+    .sort((left, right) => right.weightedScore - left.weightedScore);
+}
+
+export function selectDailyInsightsByCategory<
+  T extends Pick<ScoredNewsItem, "category" | "weightedScore">
+>(items: T[], baselineTopN: number): T[] {
+  const policy = getDailyInsightSelectionPolicy(baselineTopN, items);
+  const qualifiedItems = getDailyInsightQualifiedCandidates(items, baselineTopN);
+  const categoryOrder = [
+    ...DAILY_CATEGORY_ORDER,
+    ...Array.from(new Set(qualifiedItems.map((item) => item.category))).filter(
+      (category) => !DAILY_CATEGORY_ORDER.includes(category)
+    ),
+  ];
+  const buckets = new Map<string, T[]>();
+
+  for (const category of categoryOrder) {
+    const bucket = qualifiedItems
+      .filter((item) => item.category === category)
+      .sort((left, right) => right.weightedScore - left.weightedScore);
+    if (bucket.length > 0) buckets.set(category, bucket);
+  }
+
+  const selected: T[] = [];
+  while (selected.length < policy.targetCount) {
+    let pickedThisRound = false;
+
+    for (const category of categoryOrder) {
+      if (selected.length >= policy.targetCount) break;
+      const bucket = buckets.get(category);
+      const next = bucket?.shift();
+      if (!next) continue;
+
+      selected.push(next);
+      pickedThisRound = true;
+    }
+
+    if (!pickedThisRound) break;
+  }
+
+  return selected;
 }
