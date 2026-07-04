@@ -1,0 +1,9 @@
+The biggest takeaway today: AI is no longer just a technology race. It is becoming a broader game of **accessibility, energy, regulation, and capital**.
+
+First, model access. Anthropic is reportedly restricting Chinese users from accessing Claude, while Alibaba has also told employees that starting July 10, Claude-related products will be fully banned internally, with teams shifting to in-house tools. This shows that when companies choose AI tools, they cannot just ask whether the model is strong. They also have to ask: Will access be cut off? Will data leak out? Can it pass compliance?
+
+The second pillar is that AI infrastructure is being repriced. Extreme heat and drought in the U.S. this summer, combined with surging electricity demand from data centers, have pushed the power grid to a “level five alert.” At the same time, Meta is preparing to sell excess AI compute capacity, which immediately dragged down a group of AI infrastructure stocks. The market is starting to ask: Is compute truly scarce, or is there already localized oversupply?
+
+The third variable is policy and capital. Trump’s camp is continuing to push for reshaping the Federal Reserve, and central bank independence affects the pricing of dollar assets. Meanwhile, OpenAI has reportedly proposed giving around 5% equity to the U.S. government, showing that AI giants are becoming more deeply tied to national interests.
+
+So the core of today’s news is not which company won. It is that the AI industry has entered a new stage: whoever can secure models, energy, policy support, and real customer scenarios will hold the long-term chips.
