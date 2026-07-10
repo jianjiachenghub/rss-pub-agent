@@ -1,56 +1,39 @@
-Title: Today in Tech, It’s Not Just About AI
+# 🔥 Big AI News Today: Microsoft Cuts OpenAI, Nvidia Loses $1 Trillion, China Bans Emotional AI
 
-Body:
+Hey everyone, today's digest is absolutely wild. Here are the highlights 👇
 
-There’s a lot to take in today, but what really matters isn’t “yet another AI model.” It’s that several major threads are shifting at the same time.
+**💡 AI Industry Trends**
 
-1. AI Models Enter a “Global Trial Period”
+1️⃣ **Microsoft builds its own AI to replace OpenAI and Claude**
+Microsoft is swapping out GPT and Claude for its own models in Excel/Outlook—to save costs. This shows in-house development is now cheaper than buying APIs, putting pressure on OpenAI's enterprise revenue.
 
-OpenAI is preparing to expand access to its most advanced models from limited previews to users worldwide.  
-The point isn’t how impressive the name sounds, but that developers and product teams can start testing new capabilities earlier, recalculate costs, and redesign experiences.
+2️⃣ **GPT-5.6 launches globally this Thursday**
+Deal struck with the U.S. government. A major update that will directly impact product forms and industry competition dynamics.
 
-At the same time, GPT-Live is pushing voice interaction forward, making human-AI conversations behind ChatGPT Voice feel more natural. In the next stage, AI may be less of a typing assistant and more like a real-time collaborator.
+3️⃣ **Claude Cowork major update: works even when your laptop is closed**
+The Agent becomes a permanent cloud resident, no longer dependent on local devices. AI is now an "asynchronous colleague," not just a "Q&A tool."
 
-2. Big Tech Is Getting Serious About AI Costs
+**📈 Market Capital Flows**
 
-Microsoft is using its own AI models in products like Excel and Outlook to partially replace OpenAI and Claude.  
-This shows that office AI won’t always default to the strongest external model. Instead, tasks will be layered: cheaper models for simple tasks, stronger models for complex ones.
+4️⃣ **Nvidia's market cap evaporates $1 trillion**
+Stock price has fallen back to pre-AI boom levels. The valuation anchor is crumbling, and the ROI on AI infrastructure investment is being recalculated.
 
-The future of AI products won’t be about performance alone, but also “how much each call actually costs.”
+5️⃣ **South Korea stocks crash, Chinese tech stocks surge**
+Capital is flowing out of Korean chip stocks into Chinese tech stocks. The AI narrative is shifting from "compute scarcity" to "cheap deployment," putting near-term pressure on semiconductors.
 
-3. Agents Are Moving From Chat Boxes Into Workflows
+**🔍 Regulation & Compliance**
 
-After its update, Claude Cowork can run tasks independently in the cloud, keep working even when your computer is closed, and let you check progress or take over from your phone.  
-Tencent Cloud has also open-sourced TencentDB Agent Memory, a local long-term memory library, meaning agent memory does not necessarily have to rely on external APIs.
+6️⃣ **Doubao and Tongyi Qianwen to remove "anthropomorphic interaction" features by July 15**
+New Chinese regulations take effect, forcing emotional AI to be taken offline. Consumer AI landscape is shifting, and compliance costs are rising.
 
-Taken together, these two moves show agents shifting from “chatting with you” to becoming infrastructure that continuously handles tasks for you.
+**Other highlights**
+- Allianz subsidiary lays off 1,800 employees due to AI (insurance sector scale replacement begins)
+- Zhipu stock surges 1,500%, then plans to sell $4 billion in shares
+- Tech giants issue $25 billion in bonds for AI infrastructure (financing cost pressure)
 
-4. AI Regulation Is Becoming More Detailed
+---
 
-In China, Doubao and Tongyi Qianwen will shut down some AI agent features, mainly due to new rules around anthropomorphic interaction.  
-Claude Code has also been flagged for potential security backdoor risks.
+**One-sentence summary:**  
+The AI industry is under a triple shock of "cost restructuring + valuation correction + regulatory enforcement." Don't just stare at Nvidia—the application layer and compliance direction are where the next wave is heading.
 
-The signal is clear: tool-based AI will keep developing, but areas like emotional companionship, persona dependence, and code agent permissions will face stricter scrutiny.
-
-5. AI Assets Are Being Repriced
-
-Nvidia has lost about $1 trillion in market value in less than two months, and AI chip stocks can no longer rise on narrative alone.  
-Asian markets are also seeing AI rotation: capital is moving out of Korean chipmakers and into cheaper China AI-themed assets.
-
-Put simply, the market is starting to ask a more realistic question: can AI investment ultimately turn into profit?
-
-6. Where Will the Money for Compute Expansion Come From?
-
-Tech giants have recently issued about $25 billion in bonds, and AI data center construction is pushing pressure into the bond market.  
-At the same time, the resource consumption and disclosure practices of AI data centers are being re-examined.
-
-Going forward, watching AI won’t just mean watching model launches. It will also mean watching electricity, land, debt costs, and data center transparency.
-
-7. Geopolitics and Capital Markets Are Still Creating Noise
-
-The U.S. and Iran attacking each other has brought energy risks back into focus, but after U.S. stocks fell, dip-buyers pulled the market back up.  
-This suggests the market has not yet made war escalation its main short-term scenario, but energy and risk appetite still need close attention.
-
-Today’s one-sentence summary:
-
-The AI theme is still intact, but it has moved from “who has the strongest model” to “who can afford it, control it, and make money from it.” At the same time, geopolitics, bond markets, supply chains, and regulation are all shaping where the next tech cycle goes.
+#AI日报 #科技投资 #行业趋势 #英伟达 #OpenAI #微软 #监管新规

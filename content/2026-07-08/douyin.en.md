@@ -1,11 +1,5 @@
-The most important takeaway today is this: the AI industry is moving from “who has the strongest model” to “who can win on cost, distribution, compliance, and capital endurance.”
+AI is changing drastically! Nvidia lost $1 trillion in market cap in two months, while domestic AI companies collectively removed their chatbots. Today, I won't read the news—I'll just highlight three key signals to show you what's happening in the AI track.
 
-First, the product side. OpenAI is preparing to roll out its most advanced model from limited preview to users worldwide, while GPT-Live is already powering ChatGPT Voice. This shows model capabilities are still pushing forward. But the real competition is no longer just about parameters and leaderboards. It is about who can turn new capabilities into usable entry points faster.
+First, capital is shifting. Nvidia's market cap is back to pre-AI boom levels, South Korea's stock market is crashing, but Chinese tech stocks are surging. This isn't a coincidence—the market is moving from hardware infrastructure hype to seeking value in AI deployment. Second, regulation is stepping in. Doubao and Tongyi Qianwen must remove their "anthropomorphic" features by July 15. The signal is clear: AI can be smart, but it can't cross boundaries. Third, the cost war has begun. Microsoft is building its own AI, gradually replacing OpenAI and Claude, just to save money. This means large model APIs will get cheaper—good for startups, bad for those relying on expensive APIs.
 
-Second, the cost side. Microsoft is starting to use its own in-house models inside Excel and Outlook to partially replace OpenAI and Claude. At its core, office AI is recalculating the bill: cheap models for simple tasks, top-tier models only for complex ones. In the future, AI product margins may matter even more than model capability.
-
-Third, the capital market. Nvidia has lost around $1 trillion in market value over two months, while tech giants are using bond issuances on the scale of $25 billion to support AI capital spending. The market is already asking: will all this investment in data centers, chips, and compute ultimately turn into profit?
-
-One more variable cannot be ignored: regulation. Some agent features from Doubao and Tongyi have gone offline in China, and Claude Code has also been flagged for security risks. AI agents will keep developing, but high-risk scenarios like emotional companionship, background execution, and code permissions will face higher and higher barriers.
-
-In one sentence: AI is not cooling down, but the rules of the game have changed. In the next stage, the real winner will be whoever can make capability, cost, safety, and commercial returns work at the same time.
+In summary: AI is shifting from an "arms race" to a "value-for-money game" and "compliant deployment." Are you on the right side of this shift?
