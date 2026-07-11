@@ -1,0 +1,12 @@
+{
+  "sourceId": "folo-ai-list",
+  "listId": "260024685080717312",
+  "publishedAfter": "2026-07-09T11:50:06.029Z",
+  "pagesFetched": 11,
+  "pagesSucceeded": 11,
+  "consecutiveFailures": 0,
+  "stoppedReason": "older_than_24h",
+  "degradedMode": "soft",
+  "updatedAt": "2026-07-11T00:02:51.644Z",
+  "lastSuccessfulPublishedAt": "2026-07-09T11:50:06.029Z"
+}
