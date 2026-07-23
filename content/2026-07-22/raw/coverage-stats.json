@@ -1,0 +1,32 @@
+{
+  "observedByCategory": {
+    "politics": 42,
+    "tech": 227,
+    "ai": 41,
+    "business": 28,
+    "investment": 48,
+    "software": 12,
+    "social": 8
+  },
+  "selectedByCategory": {
+    "politics": 12,
+    "tech": 16,
+    "ai": 38,
+    "business": 14,
+    "investment": 22,
+    "software": 12,
+    "social": 8
+  },
+  "finalByCategory": {
+    "tech": 16,
+    "ai": 38,
+    "business": 14,
+    "investment": 22,
+    "politics": 12,
+    "software": 12,
+    "social": 8
+  },
+  "deficitCategories": [],
+  "totalObservedEvents": 406,
+  "totalSelectedEvents": 122
+}
