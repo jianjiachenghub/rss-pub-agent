@@ -111,6 +111,7 @@ export async function fetchPrimaryNode(
     const primaryRawItems = dedupeRawItems(result.items);
     metrics.primaryItemsFetched = result.items.length;
     metrics.primaryItemsRetained = primaryRawItems.length;
+    metrics.sourceErrors = result.sourceErrors?.length ?? 0;
     metrics.degradedMode = result.checkpoint.degradedMode;
     metrics.finishedAt = new Date().toISOString();
 
@@ -128,6 +129,11 @@ export async function fetchPrimaryNode(
       primaryRawItems,
       fetchCheckpoint: result.checkpoint,
       fetchMetrics: metrics,
+      errors: (result.sourceErrors ?? []).map((message) => ({
+        node: "fetchPrimary",
+        message,
+        timestamp: new Date().toISOString(),
+      })),
     };
   } catch (err) {
     metrics.finishedAt = new Date().toISOString();

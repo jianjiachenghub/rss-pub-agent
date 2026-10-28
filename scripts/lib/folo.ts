@@ -11,6 +11,7 @@ const MAX_RETRIES = 3;
 const MAX_CONSECUTIVE_FAILURES = 5;
 const DEFAULT_PAGE_LIMIT = 100;
 const MAX_CONSECUTIVE_OLD_PAGES = 2;
+const SPARSE_LIST_MIN_ITEMS = 20;
 
 interface FoloListFetchOptions {
   maxItems?: number;
@@ -21,12 +22,17 @@ interface FoloListFetchOptions {
   pageTimeoutMs?: number;
   pageLimit?: number;
   withContent?: boolean;
+  pageDelayMs?: number;
+  reconcileSparseList?: boolean;
 }
 
 interface FoloListFetchDetailedResult {
   items: RawNewsItem[];
   checkpoint: FetchCheckpoint;
+  sourceErrors?: string[];
 }
+
+class FoloAuthenticationError extends Error {}
 
 interface FoloEntry {
   id: string;
@@ -190,12 +196,133 @@ export async function fetchFoloByListDetailed(
   category: string,
   options: FoloListFetchOptions = {}
 ): Promise<FoloListFetchDetailedResult> {
-  if (!sessionToken) {
-    throw new Error("FOLO_SESSION_TOKEN not set");
+  if (!listId) throw new Error("listId is required for folo-list type");
+
+  const result = await fetchFoloEntriesDetailed(
+    sessionToken,
+    { listId },
+    sourceId,
+    sourceName,
+    category,
+    options
+  );
+  const sourceErrors: string[] = [];
+  if (result.checkpoint.degradedMode === "hard") {
+    sourceErrors.push(`Folo list ${listId}: ${result.checkpoint.stoppedReason}`);
   }
 
-  if (!listId) {
-    throw new Error("listId is required for folo-list type");
+  const maxItems = options.maxItems ?? 120;
+  if (
+    options.reconcileSparseList === false ||
+    result.checkpoint.pagesSucceeded === 0 ||
+    result.items.length >= Math.min(SPARSE_LIST_MIN_ITEMS, maxItems)
+  ) {
+    return { ...result, sourceErrors };
+  }
+
+  console.log(
+    `[folo-list] Sparse aggregate (${result.items.length} items); checking member feeds individually.`
+  );
+  try {
+    const response = await fetch(
+      `${FOLO_API}/lists?listId=${encodeURIComponent(listId)}`,
+      {
+        headers: buildFoloHeaders(sessionToken),
+        signal: AbortSignal.timeout(options.pageTimeoutMs ?? 30000),
+      }
+    );
+    if (response.status === 401) {
+      throw new FoloAuthenticationError("Folo session token expired or invalid");
+    }
+    if (!response.ok) {
+      throw new Error(`Folo list metadata returned HTTP ${response.status}`);
+    }
+    const payload = (await response.json()) as {
+      code: number;
+      data?: { list?: { id: string; feedIds: string[] } };
+    };
+    const list = payload.data?.list;
+    if (
+      payload.code !== 0 ||
+      list?.id !== listId ||
+      !Array.isArray(list.feedIds) ||
+      list.feedIds.some((id) => typeof id !== "string" || !/^\d+$/.test(id))
+    ) {
+      throw new Error("Folo returned invalid list membership metadata");
+    }
+
+    const feedIds = [...new Set(list.feedIds)];
+    const items = [...result.items];
+    const seen = new Set(items.map((item) => item.url || item.id));
+    result.checkpoint.memberFeedsChecked = 0;
+    result.checkpoint.memberFeedsFailed = 0;
+    result.checkpoint.memberItemsAdded = 0;
+
+    // Folo can omit recent entries from both listId and feedIdList aggregates
+    // while the same entries remain available via individual feedId requests.
+    for (const feedId of feedIds) {
+      result.checkpoint.memberFeedsChecked += 1;
+      try {
+        const member = await fetchFoloEntriesDetailed(
+          sessionToken,
+          { feedId },
+          sourceId,
+          `${sourceName}/${feedId}`,
+          category,
+          {
+            ...options,
+            maxRetries: options.maxRetries ?? 2,
+            maxConsecutiveFailures: 1,
+            pageDelayMs: options.pageDelayMs ?? 0,
+          }
+        );
+        for (const item of member.items) {
+          const key = item.url || item.id;
+          if (seen.has(key)) continue;
+          seen.add(key);
+          items.push(item);
+          result.checkpoint.memberItemsAdded += 1;
+        }
+        if (member.checkpoint.degradedMode !== "none") {
+          result.checkpoint.degradedMode = "soft";
+        }
+        if (member.checkpoint.degradedMode === "hard") {
+          throw new Error(`member fetch stopped: ${member.checkpoint.stoppedReason}`);
+        }
+      } catch (error) {
+        if (error instanceof FoloAuthenticationError) throw error;
+        result.checkpoint.memberFeedsFailed += 1;
+        result.checkpoint.degradedMode = "soft";
+        sourceErrors.push(`Folo feed ${feedId}: ${(error as Error).message}`);
+        console.warn(`[folo-list] Member feed ${feedId} failed: ${(error as Error).message}`);
+      }
+    }
+
+    items.sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
+    result.items = items.slice(0, maxItems);
+    console.log(
+      `[folo-list] Member reconciliation: ${feedIds.length} feeds checked, ${result.checkpoint.memberFeedsFailed} failed, ${result.checkpoint.memberItemsAdded} missing items recovered; ${result.items.length} total.`
+    );
+  } catch (error) {
+    if (error instanceof FoloAuthenticationError) throw error;
+    result.checkpoint.degradedMode = "soft";
+    sourceErrors.push(`Folo list membership: ${(error as Error).message}`);
+    console.warn(`[folo-list] Member reconciliation failed: ${(error as Error).message}`);
+  }
+  result.checkpoint.updatedAt = new Date().toISOString();
+  return { ...result, sourceErrors };
+}
+
+async function fetchFoloEntriesDetailed(
+  sessionToken: string,
+  selector: { listId: string; feedId?: never } | { feedId: string; listId?: never },
+  sourceId: string,
+  sourceName: string,
+  category: string,
+  options: FoloListFetchOptions
+): Promise<FoloListFetchDetailedResult> {
+  if (!sessionToken) {
+    throw new Error("FOLO_SESSION_TOKEN not set");
   }
 
   const now = new Date().toISOString();
@@ -220,17 +347,18 @@ export async function fetchFoloByListDetailed(
     endIso: targetEndIso,
   } = getBusinessDateWindow(targetDate);
 
-  console.log(`[folo-list] Fetching list: ${sourceName} (listId: ${listId})`);
-  console.log(`[folo-list] Using session token: ${sessionToken.substring(0, 20)}...`);
+  console.log(
+    `[folo-list] Fetching ${selector.feedId ? "feed" : "list"}: ${sourceName} (${selector.feedId ?? selector.listId})`
+  );
   console.log(
     `[folo-list] Target: fetch ${targetDate} Asia/Shanghai news (${targetStartIso} ~ ${targetEndIso}), up to ${maxPages} pages, ${pageLimit} items/page and ${maxItems} items total`
   );
 
-  let publishedAfter: string | null = null;
+  let publishedAfter: string | null = selector.feedId ? targetEndIso : null;
   let consecutiveOldPages = 0;
   const checkpoint: FetchCheckpoint = {
     sourceId,
-    listId,
+    listId: selector.listId,
     publishedAfter,
     pagesFetched: 0,
     pagesSucceeded: 0,
@@ -245,10 +373,11 @@ export async function fetchFoloByListDetailed(
     checkpoint.updatedAt = new Date().toISOString();
 
     const body: Record<string, unknown> = {
-      listId,
+      ...selector,
       view: 0,
       withContent,
       limit: pageLimit,
+      sortOrder: "desc",
     };
 
     if (publishedAfter) {
@@ -272,8 +401,7 @@ export async function fetchFoloByListDetailed(
         console.log(`[folo-list] HTTP status: ${res.status} ${res.statusText}`);
 
         if (res.status === 401) {
-          checkpoint.degradedMode = "hard";
-          throw new Error("Folo session token expired or invalid");
+          throw new FoloAuthenticationError("Folo session token expired or invalid");
         }
 
         if (!res.ok) {
@@ -301,6 +429,7 @@ export async function fetchFoloByListDetailed(
         checkpoint.consecutiveFailures = 0;
         break;
       } catch (error) {
+        if (error instanceof FoloAuthenticationError) throw error;
         console.error(
           `[folo-list] Error on page ${page + 1}, attempt ${attempt}/${maxRetries}:`,
           error
@@ -398,6 +527,11 @@ export async function fetchFoloByListDetailed(
       break;
     }
 
+    if (selector.feedId && tooOldCount > 0) {
+      checkpoint.stoppedReason = "older_than_24h";
+      break;
+    }
+
     // Only count pages where all items are older than yesterday as "old pages".
     // Pages that are all "today" (tooNew) are expected at the start — keep paginating
     // through them to reach yesterday's entries.
@@ -434,7 +568,7 @@ export async function fetchFoloByListDetailed(
     }
 
     if (page < maxPages - 1) {
-      await sleep(PAGE_DELAY_MS + Math.random() * 3000);
+      await sleep(options.pageDelayMs ?? (PAGE_DELAY_MS + Math.random() * 3000));
     }
   }
 

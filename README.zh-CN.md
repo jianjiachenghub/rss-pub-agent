@@ -314,6 +314,16 @@ npm run lark:weekly -- --week-id 2026-06-W4
 
 `lark:weekly` 会从 `content/` 里动态聚合最新周报并发送到已配置的飞书/Lark 群，周 ID 与站点保持一致，例如 `2026-06-W4`。
 
+### Folo 抓取排查
+
+Folo 的单源页面 `/timeline/articles/<feedId>/pending` 与列表页面
+`/timeline/articles/list-<listId>/pending` 使用不同 ID；主输入配置需要的是列表 ID。
+列表聚合接口偶尔会漏掉单源仍能读取的当日条目。列表当日结果不足 20 条时，
+抓取器会查询实时列表成员并逐个 feed 补漏，无需手工维护成员 ID。
+`raw/checkpoint.json` 的 `memberFeedsChecked`、`memberFeedsFailed`、`memberItemsAdded`
+记录补漏情况；失败详情进入 pipeline errors，且不会打印 Session Token。
+更新凭据或修复抓取后应重新抓取目标日期，不要对空快照使用 `--resume-from-raw`。
+
 ### Pipeline
 
 仓库根目录：

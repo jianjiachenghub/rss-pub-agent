@@ -82,6 +82,8 @@ gateKeep -> score -> enrichSelected -> insight -> generateDaily
   - 解析运行参数，如 `PIPELINE_DATE`、`--resume-from-raw`
 - `fetchPrimary`
   - 只抓主 `folo-list`
+  - 列表当日条目不足 20 条时，读取实时成员 feed ID 并逐源补漏，按上海业务日期过滤、去重后合并
+  - 单源失败保留其余结果并记录错误；认证失效立即停止，避免持续重试
   - 把主输入快照写入 `content/<date>/raw/folo-list.jsonl`
 - `preFilter`
   - 对主输入做事件聚类、去重和代表项选取

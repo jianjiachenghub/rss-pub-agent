@@ -138,6 +138,9 @@ export interface FetchCheckpoint {
   stoppedReason: string;
   degradedMode: FetchDegradeMode;
   lastSuccessfulPublishedAt?: string;
+  memberFeedsChecked?: number;
+  memberFeedsFailed?: number;
+  memberItemsAdded?: number;
   updatedAt: string;
 }
 
