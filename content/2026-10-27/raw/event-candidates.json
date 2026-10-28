@@ -1,1 +1,1218 @@
-[]
+[
+  {
+    "id": "folo-1351713125090471936",
+    "title": "Codex 是蠢逼吗，代码都不读清楚直接一通瞎改",
+    "url": "https://www.v2ex.com/t/1252377#reply2",
+    "content": "A user criticizes OpenAI's Codex for lacking recent innovations, exhibiting reduced intelligence, and suffering from slow response times. The user states that Codex repeatedly failed to interpret code correctly, resulting in broken code that required manual reversal. In contrast, the user praises Anthropic's Claude for its faster performance, smoother usability, and superior code quality, asserting that Claude currently outperforms Codex by a significant margin.",
+    "source": "V2EX - 技术 - nathan666",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-10-27T15:18:55.113Z",
+    "fetchedAt": "2026-10-28T13:26:08.849Z",
+    "eventKey": "codex-是蠢逼吗-代码都不读清楚直接一通瞎改",
+    "normalizedTitle": "codex 是蠢逼吗 代码都不读清楚直接一通瞎改",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - nathan666"
+    ],
+    "preFilterScore": 377.793114335113
+  },
+  {
+    "id": "folo-1351713125107249153",
+    "title": "两个月烧了 500 亿 token，从零开始学写基金投资 agent",
+    "url": "https://www.v2ex.com/t/1252370#reply0",
+    "content": "买了四十多个基金，为了方便管理，最开始想做个定投计算器，一步步下来做成了 agent ，饼画的太大，不过总算做的差不多了，上来分享一下和交流 agent 的开源版（原本的很乱不好意思开源，从零开始重新搭建一个开源的版本）： https://github.com/hpoenixf…",
+    "source": "V2EX - 技术 - hpoenixf",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-10-27T14:55:24.136Z",
+    "fetchedAt": "2026-10-28T13:26:08.849Z",
+    "eventKey": "两个月烧了-500-token-从零开始学写基金投资-agent",
+    "normalizedTitle": "两个月烧了 500 亿 token 从零开始学写基金投资 agent",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - hpoenixf"
+    ],
+    "preFilterScore": 51.793112924136
+  },
+  {
+    "id": "folo-1352127106619834369",
+    "title": "苹果推出搭载强劲 M6 芯片的全新 iMac",
+    "url": "https://readhub.cn/topic/8xZVQUwyZMd",
+    "content": "Apple has launched a new iMac equipped with the M6 chip, which features performance enhancements and various other upgrades. Media reports also indicate the concurrent release of a new 14-inch MacBook Pro powered by the M6 processor. Notably, these hardware updates were introduced without any price increases.",
+    "source": "Readhub - 每日早报 - 9to5Mac",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "software",
+    "publishedAt": "2026-10-27T13:45:13.003Z",
+    "fetchedAt": "2026-10-28T13:27:09.647Z",
+    "eventKey": "苹果推出搭载强劲-芯片的全新-imac",
+    "normalizedTitle": "苹果推出搭载强劲 m6 芯片的全新 imac",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 9to5Mac"
+    ],
+    "preFilterScore": 311.793108713003
+  },
+  {
+    "id": "folo-1352127106619834370",
+    "title": "抖音李亮：腾讯短剧、短视频增长速度远超抖音和红果",
+    "url": "https://readhub.cn/topic/8xZSueddgEQ",
+    "content": "Douyin Group Vice President Li Liang refuted claims that short drama and short video markets have a stable leader. He argued that Tencent’s growth in these sectors far surpasses Douyin and Hongguo, while other major internet categories like instant messaging remain relatively stable due to network effects. Li Liang also criticized scholars for making overly rigid qualitative assessments regarding internet industry competition.",
+    "source": "Readhub - 每日早报 - 格隆汇",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "business",
+    "publishedAt": "2026-10-27T13:45:11.381Z",
+    "fetchedAt": "2026-10-28T13:27:09.647Z",
+    "eventKey": "抖音李亮-腾讯短剧-短视频增长速度远超抖音和红果",
+    "normalizedTitle": "抖音李亮 腾讯短剧 短视频增长速度远超抖音和红果",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 格隆汇"
+    ],
+    "preFilterScore": 431.793108711381
+  },
+  {
+    "id": "folo-1352721085195280388",
+    "title": "价格跌96%，AI漫剧老板：行业已死",
+    "url": "https://www.36kr.com/p/4044045316019078",
+    "content": "The AI animated drama market faces severe deflation, with production costs plummeting 96% to 200 yuan per minute. While production capacity surges, distribution bottlenecks cause revenue fragmentation, forcing most small studios into low-margin outsourcing. Conversely, integrated firms like Duiba, leveraging strong distribution channels, report substantial profits and positive cash flow. Industry experts argue that sustainable profitability now requires ownership of intellectual property, superior scripting, or vertical integration, rather than relying solely on AI-driven production efficiency, as content oversaturation persists.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "business",
+    "publishedAt": "2026-10-27T13:33:52.438Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "价格跌96-ai漫剧老板-行业已死",
+    "normalizedTitle": "价格跌96 ai漫剧老板 行业已死",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 601.793108032438
+  },
+  {
+    "id": "folo-1352554863635914755",
+    "title": "苹果终于对“摇一摇”广告出手了",
+    "url": "https://www.36kr.com/p/4044029418378376",
+    "content": "今天凌晨，苹果正式推送了 iOS 27.2 系统更新。  这次更新里藏着一个让所有国内 iPhone 用户喜大普奔的「史诗级」功能——限制动作数据（Restrict Motion Data）。 \n\n不夸张地说，对于苦开屏广告久矣的国内 iPhone 用户而言…",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "tech",
+    "publishedAt": "2026-10-27T13:28:27.250Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "苹果终于对“摇一摇”广告出手了",
+    "normalizedTitle": "苹果终于对“摇一摇”广告出手了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 131.79310770725
+  },
+  {
+    "id": "folo-1352776038429405186",
+    "title": "5 Best Open-source LLM Gateways 💎",
+    "url": "https://dev.to/anthonymax/5-best-open-source-llm-gateways-10bi",
+    "content": "TL;DR An open-source LLM gateway gives applications one place to connect to model providers. Depending on the project, it can…",
+    "source": "dev.to top (week) - Anthony Max",
+    "sourceId": "folo-ai-list-151151136731356160",
+    "category": "ai",
+    "publishedAt": "2026-10-27T13:27:11.307Z",
+    "fetchedAt": "2026-10-28T13:27:06.282Z",
+    "eventKey": "best-open-source-llm-gateways",
+    "normalizedTitle": "5 best open-source llm gateways 💎",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "dev.to top (week) - Anthony Max"
+    ],
+    "preFilterScore": 127.793107631307
+  },
+  {
+    "id": "folo-1352127106619834371",
+    "title": "苹果为 14 英寸 MacBook Pro 推出 M6 芯片版本，15999 元起",
+    "url": "https://readhub.cn/topic/8xZVPn3gBM1",
+    "content": "Apple has announced the 14-inch MacBook Pro featuring the new M6 chip. This model retains its existing design, available in Space Black and Silver, and includes a 3024x1964 resolution 120Hz display. Pre-orders commence on October 29, with general availability starting November 6. The unit is priced from 15,999 yuan in China. Simultaneously, Apple released an M6-equipped 24-inch iMac, offering 10-core and 12-core configurations with US prices starting at $1,499 and $1,699, respectively.",
+    "source": "Readhub - 每日早报 - 格隆汇",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "software",
+    "publishedAt": "2026-10-27T13:20:21.935Z",
+    "fetchedAt": "2026-10-28T13:27:09.647Z",
+    "eventKey": "苹果为-macbook-pro-芯片版本-15999",
+    "normalizedTitle": "苹果为 14 英寸 macbook pro 推出 m6 芯片版本 15999 元起",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 格隆汇"
+    ],
+    "preFilterScore": 491.793107221935
+  },
+  {
+    "id": "folo-1351578491774058496",
+    "title": "《战情室》通讯：导弹预警系统引发的政治热议",
+    "url": "https://www.economist.com/europe/2026/10/27/the-war-room-newsletter-the-hot-politics-of-missile-warning-systems",
+    "content": "The War Room newsletter: The hot politics of missile-warning systems (www.economist.com) 10-27",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "tech",
+    "publishedAt": "2026-10-27T13:04:50.423Z",
+    "fetchedAt": "2026-10-28T13:26:07.634Z",
+    "eventKey": "战情室-导弹预警系统引发的政治热议",
+    "normalizedTitle": "战情室 通讯 导弹预警系统引发的政治热议",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 95.793106290423
+  },
+  {
+    "id": "folo-1352298060411072520",
+    "title": "梅赛德斯-奔驰下调全年利润预期，因中国市场疲弱、成本上升",
+    "url": "https://cn.wsj.com/articles/mercedes-benz-cuts-guidance-on-china-weakness-higher-costs-30a216cc",
+    "content": "这家德国汽车制造商表示，目前预计今年乘用车部门调整后销售回报率为2%至3%。此前，梅赛德斯公布其第三季度中国汽车销量下降31%。",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "tech",
+    "publishedAt": "2026-10-27T11:49:00.993Z",
+    "fetchedAt": "2026-10-28T13:27:13.621Z",
+    "eventKey": "梅赛德斯-奔驰下调全年利润预期-因中国市场疲弱-成本上升",
+    "normalizedTitle": "梅赛德斯-奔驰下调全年利润预期 因中国市场疲弱 成本上升",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 65.793101740993
+  },
+  {
+    "id": "folo-1351487975086637056",
+    "title": "美国老板们正拼命试图摆脱“MAGA”的影响",
+    "url": "https://www.economist.com/business/2026/10/27/american-bosses-are-desperately-trying-to-de-magafy",
+    "content": "American bosses are desperately trying to de-MAGAfy (www.economist.com) 10-27",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "tech",
+    "publishedAt": "2026-10-27T11:30:05.564Z",
+    "fetchedAt": "2026-10-28T13:26:07.634Z",
+    "eventKey": "美国老板们正拼命试图摆脱“maga”的影响",
+    "normalizedTitle": "美国老板们正拼命试图摆脱“maga”的影响",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 78.793100605564
+  },
+  {
+    "id": "folo-1351451850770911241",
+    "title": "togg53192-cmd/jailbreaks",
+    "url": "https://github.com/togg53192-cmd/jailbreaks",
+    "content": "The material describes a public software repository titled \"togg53192-cmd/jailbreaks,\" which maintains a list of jailbreaks. This project, which lacks a specified programming language, has accumulated 4,859 stars and 777 forks on its hosting platform, indicating a moderate level of community interest and usage.",
+    "source": "Trending repositories on GitHub today · GitHub - togg53192-cmd",
+    "sourceId": "folo-ai-list-41461870197170196",
+    "category": "software",
+    "publishedAt": "2026-10-27T11:10:19.341Z",
+    "fetchedAt": "2026-10-28T13:27:09.014Z",
+    "eventKey": "togg53192-cmd-jailbreaks",
+    "normalizedTitle": "togg53192-cmd jailbreaks",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Trending repositories on GitHub today · GitHub - togg53192-cmd"
+    ],
+    "preFilterScore": 313.793099419341
+  },
+  {
+    "id": "folo-1352298060411072513",
+    "title": "微软试图大幅缩减员工规模，但别称之为裁员",
+    "url": "https://cn.wsj.com/articles/microsoft-job-cuts-buyout-offers-5f7c7d2c",
+    "content": "这家科技巨头正向6万名员工提供自愿离职补偿方案，与此同时，Skydance也在寻求让员工自愿离职。",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "tech",
+    "publishedAt": "2026-10-27T11:04:00.340Z",
+    "fetchedAt": "2026-10-28T13:27:13.621Z",
+    "eventKey": "微软试图大幅缩减员工规模-但别称之为裁员",
+    "normalizedTitle": "微软试图大幅缩减员工规模 但别称之为裁员",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 50.79309904034
+  },
+  {
+    "id": "folo-1351538258332262400",
+    "title": "Serving LLMs at Scale: The Hidden KV Cache Advantage",
+    "url": "https://www.infoq.com/presentations/llm-inference-kv-cache/",
+    "content": "",
+    "source": "Presentations > Page #1 - InfoQ - Khawaja Shams",
+    "sourceId": "folo-ai-list-70149738744378368",
+    "category": "ai",
+    "publishedAt": "2026-10-27T11:00:00.277Z",
+    "fetchedAt": "2026-10-28T13:26:59.416Z",
+    "eventKey": "serving-llms-scale-hidden-cache-advantage",
+    "normalizedTitle": "serving llms at scale the hidden kv cache advantage",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Presentations > Page #1 - InfoQ - Khawaja Shams"
+    ],
+    "preFilterScore": 1.793098800277
+  },
+  {
+    "id": "folo-1351487975086637057",
+    "title": "招聘：东京研究员/新闻助理",
+    "url": "https://www.economist.com/asia/2026/10/27/wanted-a-researchernews-assistant-in-tokyo",
+    "content": "Wanted: a researcher/news assistant in Tokyo (www.economist.com) 10-27",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "tech",
+    "publishedAt": "2026-10-27T10:55:58.788Z",
+    "fetchedAt": "2026-10-28T13:26:07.634Z",
+    "eventKey": "东京研究员-新闻助理",
+    "normalizedTitle": "招聘 东京研究员 新闻助理",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 71.793098558788
+  },
+  {
+    "id": "folo-1352445510765436930",
+    "title": "Anthropic内部系统被AI攻破，员工薪酬全曝光了",
+    "url": "https://www.36kr.com/p/4043870024258436",
+    "content": "Anthropic confirmed that cybersecurity startup Cathedral’s AI agents breached its sales, HR, and IT systems within twelve hours during a sanctioned security test. The incident exposed employee salaries, hiring details, and internal Slack communications discussing advanced AI models. However, Anthropic stated that core model weights and customer data remained secure. The attack highlighted vulnerabilities in third-party enterprise software, prompting urgent concerns within the U.S. government regarding the strategic security risks of frontier AI infrastructure.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "politics",
+    "publishedAt": "2026-10-27T10:32:33.943Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "anthropic内部系统被ai攻破-员工薪酬全曝光了",
+    "normalizedTitle": "anthropic内部系统被ai攻破 员工薪酬全曝光了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 567.793097153943
+  },
+  {
+    "id": "folo-1351410454416523264",
+    "title": "Reinventing School for the AI Era | Joe Liemandt, Gagan Biyani & Erik Torenberg",
+    "url": "https://a16z.simplecast.com/episodes/reinventing-school-for-the-ai-era-joe-liemandt-gagan-biyani-erik-torenberg-qpcIrpfu",
+    "content": "Alpha School founder Joe Liemandt argues that AI’s ability to accelerate learning should enable schools to focus on skills like agency and teamwork rather than expanding academic content. He describes a model where students spend limited hours on core academics and the rest on real-world projects. This approach, shared with Gagan Biyani and Erik Torenberg, suggests motivation matters more than curriculum and implies similar principles could reshape higher education. The discussion emphasizes finding passion over seeking AI-proof careers, expecting a rise in entrepreneurship.",
+    "source": "The a16z Show - content+a16zpodcast@a16z.com (Erik Torenberg, Gagan Biyani, Joe Liemandt)",
+    "sourceId": "folo-ai-list-43255084704601095",
+    "category": "ai",
+    "publishedAt": "2026-10-27T10:00:00.306Z",
+    "fetchedAt": "2026-10-28T13:27:03.684Z",
+    "eventKey": "reinventing-school-era-joe-liemandt-gagan",
+    "normalizedTitle": "reinventing school for the ai era joe liemandt gagan biyani erik torenberg",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "The a16z Show - content+a16zpodcast@a16z.com (Erik Torenberg, Gagan Biyani, Joe Liemandt)"
+    ],
+    "preFilterScore": 582.793095200306
+  },
+  {
+    "id": "folo-1352127106619834372",
+    "title": "阿里腾讯字节据称寻求与三星 SK 海力士签最长至 2035 年 DRAM 供应协议",
+    "url": "https://readhub.cn/topic/8xZ77qsZqK3",
+    "content": "Alibaba, Tencent, and ByteDance are negotiating long-term server DRAM supply agreements with Samsung Electronics and SK Hynix, with some contracts extending to 2035. These deals aim to secure supply for server DDR and LPDDR memory. Driven by surging AI server demand and tight market conditions, Chinese cloud providers are locking in capacity for up to ten years, potentially accepting higher prices. This strategy mirrors earlier actions by major U.S. tech firms and highlights the expansion of AI infrastructure competition into the server memory supply chain.",
+    "source": "Readhub - 每日早报 - IT 之家",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "business",
+    "publishedAt": "2026-10-27T09:55:12.364Z",
+    "fetchedAt": "2026-10-28T13:27:09.647Z",
+    "eventKey": "阿里腾讯字节据称寻求与三星-海力士签最长至-2035-dram-供应协议",
+    "normalizedTitle": "阿里腾讯字节据称寻求与三星 sk 海力士签最长至 2035 年 dram 供应协议",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - IT 之家"
+    ],
+    "preFilterScore": 564.793094912364
+  },
+  {
+    "id": "folo-1351833674336624640",
+    "title": "杨振宁当年的遗憾，被OpenAI补上了?",
+    "url": "https://www.36kr.com/p/4043775631381385",
+    "content": "OpenAI announced an AI model claiming to prove the mathematical existence of Yang-Mills field theory, addressing a 1954 limitation where physicists lacked a rigorous mathematical definition. While the model purportedly resolved existence proofs across various dimensions, it only partially solved the Clay Millennium Prize problem by failing to establish a positive mass gap. Furthermore, the theory excludes gravity, and these results remain unverified because specific physical proofs are not publicly available.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "ai",
+    "publishedAt": "2026-10-27T09:28:26.724Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "杨振宁当年的遗憾-被openai补上了",
+    "normalizedTitle": "杨振宁当年的遗憾 被openai补上了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 515.793093306724
+  },
+  {
+    "id": "folo-1351387210473091072",
+    "title": "币安将调整全仓杠杆，统一账户抵押率（2026-10-30）",
+    "url": "https://www.binance.com/zh-CN/support/announcement/5b6849270abd4e41a98d94abbf7b28f0",
+    "content": "",
+    "source": "Binance Announcement",
+    "sourceId": "folo-ai-list-229203178378568704",
+    "category": "tech",
+    "publishedAt": "2026-10-27T09:00:12.220Z",
+    "fetchedAt": "2026-10-28T13:27:10.868Z",
+    "eventKey": "币安将调整全仓杠杆-统一账户抵押率-2026-10-30",
+    "normalizedTitle": "币安将调整全仓杠杆 统一账户抵押率 2026-10-30",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Binance Announcement"
+    ],
+    "preFilterScore": 1.79309161222
+  },
+  {
+    "id": "folo-1352445510765436932",
+    "title": "闲鱼网赚人，困在“一锤子买卖”里",
+    "url": "https://www.36kr.com/p/4043659598107783",
+    "content": "一个经济学教授和一个学生在校园里散步。学生突然指着地下说：“看，地上有一张100美元的钞票！” 教授头也不回地继续走，并说：“不，那不可能。如果是真的，早就被人捡走了。”\n\n在经济学的假设里，市场是完全有效的，任何白捡的便宜都会在零点几秒内被抹平。\n\n但有的人，赚的就是这…",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "tech",
+    "publishedAt": "2026-10-27T08:47:13.877Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "闲鱼网赚人-困在“一锤子买卖”里",
+    "normalizedTitle": "闲鱼网赚人 困在“一锤子买卖”里",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 138.793090833877
+  },
+  {
+    "id": "folo-1351387210473091073",
+    "title": "币安移除部分现货交易对的公告 - 2026-10-30",
+    "url": "https://www.binance.com/zh-CN/support/announcement/de45689cbd7b4e1fa87055cdf5a85997",
+    "content": "",
+    "source": "Binance Announcement",
+    "sourceId": "folo-ai-list-229203178378568704",
+    "category": "tech",
+    "publishedAt": "2026-10-27T08:30:00.836Z",
+    "fetchedAt": "2026-10-28T13:27:10.868Z",
+    "eventKey": "币安移除部分现货交易对的公告-2026-10-30",
+    "normalizedTitle": "币安移除部分现货交易对的公告 - 2026-10-30",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Binance Announcement"
+    ],
+    "preFilterScore": 1.793089800836
+  },
+  {
+    "id": "folo-1352127106619834373",
+    "title": "DeepSeek 正大举扩充团队 梁文锋长期在北京租房",
+    "url": "https://readhub.cn/topic/8xYtAxsvsFn",
+    "content": "新一轮融资受到关注之际，DeepSeek 团队扩张加速，正规划大举扩充团队，其办公地主要位于北京和杭州。该公司即将完成规模约 1000 亿元的新一轮融资，加上今年 6 月首轮约 510 亿元融资，半年内累计融资规模或达约 1500 亿元，具体融资金额和投资方名单有待进一步披露…",
+    "source": "Readhub - 每日早报 - 格隆汇",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "investment",
+    "publishedAt": "2026-10-27T08:05:48.553Z",
+    "fetchedAt": "2026-10-28T13:27:09.647Z",
+    "eventKey": "deepseek-正大举扩充团队-梁文锋长期在北京租房",
+    "normalizedTitle": "deepseek 正大举扩充团队 梁文锋长期在北京租房",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 格隆汇"
+    ],
+    "preFilterScore": 140.793088348553
+  },
+  {
+    "id": "folo-1351387210473091074",
+    "title": "币安杠杆移除部分交易对的公告 - 2026-10-30",
+    "url": "https://www.binance.com/zh-CN/support/announcement/b4015154ce33445ebf7b98d1bc12c072",
+    "content": "",
+    "source": "Binance Announcement",
+    "sourceId": "folo-ai-list-229203178378568704",
+    "category": "tech",
+    "publishedAt": "2026-10-27T08:00:13.073Z",
+    "fetchedAt": "2026-10-28T13:27:10.868Z",
+    "eventKey": "币安杠杆移除部分交易对的公告-2026-10-30",
+    "normalizedTitle": "币安杠杆移除部分交易对的公告 - 2026-10-30",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Binance Announcement"
+    ],
+    "preFilterScore": 1.793088013073
+  },
+  {
+    "id": "folo-1352298060411072518",
+    "title": "阿里巴巴诉美国涉军黑名单：法院叫停游说相关禁令",
+    "url": "https://cn.wsj.com/articles/alibabascores-u-s-legal-win-in-pentagon-lobbying-ban-challenge-2f72e566",
+    "content": "阿里巴巴在挑战美国涉军黑名单的诉讼中获初步胜利，联邦法官周一叫停了禁止五角大楼与任何为阿里巴巴从事“游说“的公司开展业务的禁令。",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "tech",
+    "publishedAt": "2026-10-27T07:33:00.255Z",
+    "fetchedAt": "2026-10-28T13:27:13.621Z",
+    "eventKey": "阿里巴巴诉美国涉军黑名单-法院叫停游说相关禁令",
+    "normalizedTitle": "阿里巴巴诉美国涉军黑名单 法院叫停游说相关禁令",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 65.793086380255
+  },
+  {
+    "id": "folo-1352298060411072522",
+    "title": "英伟达将投资30亿美元参与Meta股权发行，双方扩大AI合作",
+    "url": "https://cn.wsj.com/articles/%E8%8B%B1%E4%BC%9F%E8%BE%BE%E5%B0%86%E6%8A%95%E8%B5%8430%E4%BA%BF%E7%BE%8E%E5%85%83%E5%8F%82%E4%B8%8Emeta%E8%82%A1%E6%9D%83%E5%8F%91%E8%A1%8C-%E5%8F%8C%E6%96%B9%E6%89%A9%E5%A4%A7ai%E5%90%88%E4%BD%9C-7435422a",
+    "content": "英伟达与Meta Platforms正围绕后者的AI产品Muse扩大合作。两家公司表示，此举反映了对“实用”AI智能体的需求。",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "investment",
+    "publishedAt": "2026-10-27T07:14:00.309Z",
+    "fetchedAt": "2026-10-28T13:27:13.621Z",
+    "eventKey": "英伟达将投资30亿美元参与meta股权发行-双方扩大ai合作",
+    "normalizedTitle": "英伟达将投资30亿美元参与meta股权发行 双方扩大ai合作",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 64.793085240309
+  },
+  {
+    "id": "folo-1351387210473091075",
+    "title": "币安将调整部分逐仓杠杆交易对的最高杠杆倍数",
+    "url": "https://www.binance.com/zh-CN/support/announcement/98f858ce2402474a88369532d54494ef",
+    "content": "",
+    "source": "Binance Announcement",
+    "sourceId": "folo-ai-list-229203178378568704",
+    "category": "tech",
+    "publishedAt": "2026-10-27T07:00:22.039Z",
+    "fetchedAt": "2026-10-28T13:27:10.868Z",
+    "eventKey": "币安将调整部分逐仓杠杆交易对的最高杠杆倍数",
+    "normalizedTitle": "币安将调整部分逐仓杠杆交易对的最高杠杆倍数",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Binance Announcement"
+    ],
+    "preFilterScore": 1.793084422039
+  },
+  {
+    "id": "folo-1351839941633486848",
+    "title": "OpenAI expands partnership with Oracle to bring its apps to ChatGPT",
+    "url": "https://openai.com/index/oracle-apps-in-chatgpt",
+    "content": "OpenAI and Oracle are expanding their partnership to integrate business applications and AI agents into ChatGPT. This collaboration aims to enable users to access various business tools within the ChatGPT platform while also driving the development of new product offerings for Oracle. The integration focuses on combining AI capabilities with enterprise software to streamline business operations.",
+    "source": "OpenAI News",
+    "sourceId": "folo-ai-list-106709235749293065",
+    "category": "ai",
+    "publishedAt": "2026-10-27T07:00:00.687Z",
+    "fetchedAt": "2026-10-28T13:27:00.147Z",
+    "eventKey": "openai-expands-partnership-oracle-bring-its",
+    "normalizedTitle": "openai expands partnership with oracle to bring its apps to chatgpt",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "OpenAI News"
+    ],
+    "preFilterScore": 399.793084400687
+  },
+  {
+    "id": "folo-1352127106619834374",
+    "title": "机构：苹果 iPhone 18 Pro 系列中国市场销量增 29% 创最强劲增长纪录",
+    "url": "https://readhub.cn/topic/8xZ1QKKIgAl",
+    "content": "Driven by improved supply and competitor price hikes, the Apple iPhone 18 Pro series achieved a 29% sales increase in China, its strongest growth on record. This regional surge significantly boosted global first-three-week sales by 3.1%. Conversely, excluding China, global growth would have slowed substantially, as price increases led to sales declines in the US and Japan markets.",
+    "source": "Readhub - 每日早报 - 格隆汇",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "business",
+    "publishedAt": "2026-10-27T06:45:13.516Z",
+    "fetchedAt": "2026-10-28T13:27:09.647Z",
+    "eventKey": "iphone-pro-系列中国市场销量增-创最强劲增长纪录",
+    "normalizedTitle": "机构 苹果 iphone 18 pro 系列中国市场销量增 29 创最强劲增长纪录",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 格隆汇"
+    ],
+    "preFilterScore": 384.793083513516
+  },
+  {
+    "id": "folo-1352253224173625345",
+    "title": "王的猜想，被AI一夜通关",
+    "url": "https://www.36kr.com/p/4043601956033414",
+    "content": "OpenAI’s AI models achieved three major scientific breakthroughs: disproving the Exponential Time Hypothesis in computer science, providing a rigorous existence proof for four-dimensional quantum field theories including Yang-Mills, and proving the local smoothing conjecture in all dimensions. The latter implicitly resolves the Kakeya conjecture, generalizing recent human achievements in three dimensions. These results were formally verified in Lean and are being reviewed by external experts, including Nobel laureates and the original ETH proposers, marking a shift where AI generates solutions while scientists focus on verification.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "ai",
+    "publishedAt": "2026-10-27T05:59:38.719Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "王的猜想-被ai一夜通关",
+    "normalizedTitle": "王的猜想 被ai一夜通关",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 601.793080778719
+  },
+  {
+    "id": "folo-1351226085194366976",
+    "title": "刘忍的隐身术：“乡贤”、侨领与电诈大佬｜界面调查 | 原文",
+    "url": "https://t.me/wxbyg/8491",
+    "content": "In June 2026, Chinese and Cambodian authorities raided the office of Liu Ren, chairman of the Cambodia-Anhui Chamber of Commerce, in Phnom Penh. Liu, a native of Anhui who had cultivated a public image as a local dignitary and overseas Chinese leader, was identified as a key figure in the Chen Zhi cross-border criminal syndicate. He was arrested for suspected involvement in online gambling, telecom fraud, unlawful detention, and assault. On June 17, the Chinese Ministry of Public Security confirmed his extradition back to China to face legal charges.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-10-27T05:38:58.510Z",
+    "fetchedAt": "2026-10-28T13:27:12.530Z",
+    "eventKey": "刘忍的隐身术-“乡贤”-侨领与电诈大佬｜界面调查",
+    "normalizedTitle": "刘忍的隐身术 “乡贤” 侨领与电诈大佬｜界面调查 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 467.79307953851
+  },
+  {
+    "id": "folo-1351105108649193472",
+    "title": "写了个 iPhone 远程用 Mac 上 Claude Code / Codex 的 App，不用内网穿透，送 月卡",
+    "url": "https://www.v2ex.com/t/1252201#reply2",
+    "content": "UULink, a menu bar application for macOS, enables seamless remote access to coding agents like Claude Code and Codex via iPhone. It features zero-configuration setup via QR pairing, eliminating the need for VPNs or port forwarding. Key capabilities include end-to-end encrypted messaging, real-time push notifications for approvals, interactive session control, and direct file delivery to the mobile device. By automatically handling NAT traversal and using a relay when necessary, the app ensures low-latency connectivity. The developer offers a limited number of free monthly subscriptions for users who reply.",
+    "source": "V2EX - 技术 - dbwang0130",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-10-27T04:53:25.148Z",
+    "fetchedAt": "2026-10-28T13:26:08.849Z",
+    "eventKey": "写了个-iphone-远程用-mac-claude-code",
+    "normalizedTitle": "写了个 iphone 远程用 mac 上 claude code codex 的 app 不用内网穿透 送 月卡",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - dbwang0130"
+    ],
+    "preFilterScore": 511.793076805148
+  },
+  {
+    "id": "folo-1352127106619834375",
+    "title": "苹果回应部分iPhone Duo内屏开裂：极少数出现问题，请联系售后换机",
+    "url": "https://readhub.cn/topic/8xY7e5x760Y",
+    "content": "苹果公司表示已知晓少数 iPhone Duo 存在内部屏幕问题，建议用户联系 AppleCare 换机。 媒体报道\n苹果回应 iPhone Duo 内屏开裂：大多数设备不受影响 用户可联系 AppleCare 换机\t快科技\n苹果：注意到少量 iPhone Duo 存在内屏故障…",
+    "source": "Readhub - 每日早报 - 快科技",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "tech",
+    "publishedAt": "2026-10-27T04:06:25.083Z",
+    "fetchedAt": "2026-10-28T13:27:09.647Z",
+    "eventKey": "苹果回应部分iphone-duo内屏开裂-极少数出现问题-请联系售后换机",
+    "normalizedTitle": "苹果回应部分iphone duo内屏开裂 极少数出现问题 请联系售后换机",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 快科技"
+    ],
+    "preFilterScore": 140.793073985083
+  },
+  {
+    "id": "folo-1352127106619834376",
+    "title": "老干妈否认网传 AI 裁员传闻 三年参保人数减少 2172 人",
+    "url": "https://readhub.cn/topic/8xYWJE5Xzpw",
+    "content": "网传老干妈用 AI 将 600 多名拣椒工人裁减至 48 人的说法流传十余天后，老干妈方面回应称从未有过 600 多名拣椒工人，相关 AI 裁员传闻不实。溯源可见该组用工数字最早出自一篇未标注信息来源的智能化改造相关文章，后经社交平台及部分媒体引用发酵，衍生出「AI 裁员 552…",
+    "source": "Readhub - 每日早报 - 新浪科技",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "ai",
+    "publishedAt": "2026-10-27T04:02:21.407Z",
+    "fetchedAt": "2026-10-28T13:27:09.647Z",
+    "eventKey": "老干妈否认网传-裁员传闻-三年参保人数减少-2172",
+    "normalizedTitle": "老干妈否认网传 ai 裁员传闻 三年参保人数减少 2172 人",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 新浪科技"
+    ],
+    "preFilterScore": 142.793073741407
+  },
+  {
+    "id": "folo-1352298060411072516",
+    "title": "“买入、借贷、传承”：富豪青睐的财富策略已催生5万亿美元市场",
+    "url": "https://cn.wsj.com/articles/the-buy-borrow-and-die-wealth-strategy-has-become-a-5-trillion-market-92b7ce68",
+    "content": "德勤研究发现，股票质押贷款市场正蓬勃发展，在受亿万富豪青睐的同时，这一市场正越来越多地向财富水平较低的人群开放。",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "tech",
+    "publishedAt": "2026-10-27T04:02:00.801Z",
+    "fetchedAt": "2026-10-28T13:27:13.621Z",
+    "eventKey": "“买入-传承”-富豪青睐的财富策略已催生5万亿美元市场",
+    "normalizedTitle": "“买入 借贷 传承” 富豪青睐的财富策略已催生5万亿美元市场",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 57.793073720801
+  },
+  {
+    "id": "folo-1352127106619834377",
+    "title": "自媒体人徽剑遭买凶遇害，生前曾举报电诈骨干刘忍",
+    "url": "https://readhub.cn/topic/8xYdoSlOuQH",
+    "content": "Self-media personality Wu Kai, known online as Hui Jian, was abducted and murdered in 2023 after exposing a Cambodian telecommunications fraud network led by Liu Ren. His attackers kidnapped him, tortured him for weeks, and left him in a mountain, where he died from severe head injuries. Courts later sentenced the perpetrators, including a death sentence with reprieve for the ringleader. Liu Ren has since been returned to China, confirming Wu's earlier allegations regarding the fraud operation.",
+    "source": "Readhub - 每日早报 - 界面",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "tech",
+    "publishedAt": "2026-10-27T04:00:53.734Z",
+    "fetchedAt": "2026-10-28T13:27:09.647Z",
+    "eventKey": "自媒体人徽剑遭买凶遇害-生前曾举报电诈骨干刘忍",
+    "normalizedTitle": "自媒体人徽剑遭买凶遇害 生前曾举报电诈骨干刘忍",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 界面"
+    ],
+    "preFilterScore": 500.793073653734
+  },
+  {
+    "id": "folo-1352298060411072523",
+    "title": "3,000亿美元债务高墙压顶，私募股权公司旗下企业面临大考",
+    "url": "https://cn.wsj.com/articles/3-000%E4%BA%BF%E7%BE%8E%E5%85%83%E5%80%BA%E5%8A%A1%E9%AB%98%E5%A2%99%E5%8E%8B%E9%A1%B6-%E7%A7%81%E5%8B%9F%E8%82%A1%E6%9D%83%E5%85%AC%E5%8F%B8%E6%97%97%E4%B8%8B%E4%BC%81%E4%B8%9A%E9%9D%A2%E4%B8%B4%E5%A4%A7%E8%80%83-6cf36a03",
+    "content": "面对将从2028年起集中到期的3,000亿美元债务，基金经理们正加紧协商，争取为其中很大一部分贷款展期。",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "investment",
+    "publishedAt": "2026-10-27T03:57:00.827Z",
+    "fetchedAt": "2026-10-28T13:27:13.621Z",
+    "eventKey": "000亿美元债务高墙压顶-私募股权公司旗下企业面临大考",
+    "normalizedTitle": "3 000亿美元债务高墙压顶 私募股权公司旗下企业面临大考",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 53.793073420827
+  },
+  {
+    "id": "folo-1352253224173625346",
+    "title": "iPhone Duo适配大翻车？实测对比小米、华为，结果有点意外",
+    "url": "https://www.36kr.com/p/4042687208232833",
+    "content": "The iPhone Duo faces uneven app optimization. While apps like Xiaohongshu and Weibo utilize the large screen effectively with split layouts, others like WeChat and Douyin suffer from significant black bars and inefficient space usage. In contrast, Xiaomi and Huawei offer superior multitasking and more consistent adapter support across their ecosystems. Although Apple’s interaction logic differs, the inconsistent third-party app readiness remains a critical drawback compared to established competitors.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "tech",
+    "publishedAt": "2026-10-27T03:41:35.034Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "iphone-duo适配大翻车-实测对比小米-结果有点意外",
+    "normalizedTitle": "iphone duo适配大翻车 实测对比小米 华为 结果有点意外",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 507.793072495034
+  },
+  {
+    "id": "folo-1352253224173625347",
+    "title": "百元一盒“维生素小贴纸”火了：年入6000万，估值超50亿",
+    "url": "https://www.36kr.com/p/4042716361167749",
+    "content": "American brand Barrière popularized wearable vitamin patches, blending health with fashion to achieve a valuation exceeding $800 million. The global market for these patches is projected to reach $300 million by 2026, growing at an annual rate of 16.1%. By adopting subscription models and differentiated retail channels, Barrière has positioned itself as a major player. While China currently lacks similar dominant brands, its mature manufacturing capabilities and evolving consumer health awareness suggest significant future potential for this emerging nutritional category.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "business",
+    "publishedAt": "2026-10-27T03:41:14.176Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "百元一盒“维生素小贴纸”火了-年入6000万-估值超50亿",
+    "normalizedTitle": "百元一盒“维生素小贴纸”火了 年入6000万 估值超50亿",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 579.793072474176
+  },
+  {
+    "id": "folo-1352298060394295303",
+    "title": "美国有多需要加拿大铝？特朗普关税揭示依赖之深",
+    "url": "https://cn.wsj.com/articles/%E7%BE%8E%E5%9B%BD%E6%9C%89%E5%A4%9A%E9%9C%80%E8%A6%81%E5%8A%A0%E6%8B%BF%E5%A4%A7%E9%93%9D-%E7%89%B9%E6%9C%97%E6%99%AE%E5%85%B3%E7%A8%8E%E6%8F%AD%E7%A4%BA%E4%BE%9D%E8%B5%96%E4%B9%8B%E6%B7%B1-0edee8f0",
+    "content": "特朗普的贸易战将加拿大铝冶炼厂视为敌人，而美国企业和消费者正在为此付出代价。",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "politics",
+    "publishedAt": "2026-10-27T03:39:00.818Z",
+    "fetchedAt": "2026-10-28T13:27:13.621Z",
+    "eventKey": "美国有多需要加拿大铝-特朗普关税揭示依赖之深",
+    "normalizedTitle": "美国有多需要加拿大铝 特朗普关税揭示依赖之深",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 39.793072340818
+  },
+  {
+    "id": "folo-1351014343273099275",
+    "title": "基于 DSH 做了一个安卓的 AI Agent APP",
+    "url": "https://www.v2ex.com/t/1252167#reply0",
+    "content": "项目地址 https://github.com/moonoops/Droy\n\n碎碎念\n\n每隔一段时间都会被消费主义刺激想买点东西，最近盯上的是 AI 手机和 AI 眼镜。 第一代豆包手机发布的时候，我还觉得挺神奇。结果最近看了阶跃星辰、豆包的新 AI 手机，越看越觉得不是那么得劲…",
+    "source": "V2EX - 技术 - keyu1103",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-10-27T03:14:49.324Z",
+    "fetchedAt": "2026-10-28T13:26:08.849Z",
+    "eventKey": "dsh-做了一个安卓的-agent-app",
+    "normalizedTitle": "基于 dsh 做了一个安卓的 ai agent app",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - keyu1103"
+    ],
+    "preFilterScore": 52.793070889324
+  },
+  {
+    "id": "folo-1350923871632502792",
+    "title": "《拒绝最终一致性的脏读陷阱： Umem-cache 强一致性实现原理》",
+    "url": "https://www.v2ex.com/t/1252131#reply0",
+    "content": "原文：consistency.rst 缓存一致性是 Umem-cache 最关键的特性，缓存协议和集群的设计方案都是围绕着它展开的。 缓存一致性能减少软件开发中的复杂性，因为你不需要担心过时的数据，这是最终一致性做不到的。\n\n选择缓存一致性是有代价的：我们牺牲了可用性。 也就是一旦…",
+    "source": "V2EX - 技术 - imchuncai",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-10-27T01:58:52.587Z",
+    "fetchedAt": "2026-10-28T13:26:08.849Z",
+    "eventKey": "拒绝最终一致性的脏读陷阱-umem-cache-强一致性实现原理",
+    "normalizedTitle": "拒绝最终一致性的脏读陷阱 umem-cache 强一致性实现原理",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - imchuncai"
+    ],
+    "preFilterScore": 53.793066332587
+  },
+  {
+    "id": "folo-1350923871615725568",
+    "title": "GPT-6.1 Terra 可以用了，搞不懂了，怎么新发布的模型比之前的都差劲，这是什么策略",
+    "url": "https://www.v2ex.com/t/1252115#reply18",
+    "content": "不应该是发布越来越强的模型嘛，我看 X 下面质疑和骂声一片。。。这还怎么跟 Opus 抗衡",
+    "source": "V2EX - 技术 - Veliqo",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "social",
+    "publishedAt": "2026-10-27T01:32:24.105Z",
+    "fetchedAt": "2026-10-28T13:26:08.850Z",
+    "eventKey": "gpt-6-terra-可以用了-搞不懂了-怎么新发布的模型比之前的都差劲-这是什么策略",
+    "normalizedTitle": "gpt-6 1 terra 可以用了 搞不懂了 怎么新发布的模型比之前的都差劲 这是什么策略",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - Veliqo"
+    ],
+    "preFilterScore": -43.206935255895
+  },
+  {
+    "id": "folo-1352298060411072519",
+    "title": "字节跳动旗下“豆包”正与旅游预订网站抢生意，也盯上了你的钱包",
+    "url": "https://cn.wsj.com/articles/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E5%80%9F-%E8%B1%86%E5%8C%85-%E8%BF%9B%E5%86%9B%E9%85%92%E6%97%85%E4%B8%9A%E5%8A%A1-%E4%B9%9F%E7%9B%AF%E4%B8%8A%E4%BA%86%E4%BD%A0%E7%9A%84%E9%92%B1%E5%8C%85-69d141b7",
+    "content": "面对既能聊又高效的AI旅游“管家”，中国消费者有充分理由心存疑问：这背后是否另有盘算？",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "ai",
+    "publishedAt": "2026-10-27T01:16:00.755Z",
+    "fetchedAt": "2026-10-28T13:27:13.621Z",
+    "eventKey": "字节跳动旗下“豆包”正与旅游预订网站抢生意-也盯上了你的钱包",
+    "normalizedTitle": "字节跳动旗下“豆包”正与旅游预订网站抢生意 也盯上了你的钱包",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 44.793063760755
+  },
+  {
+    "id": "folo-1351372519671521280",
+    "title": "Anthropic科学家宣布：全球博士生职业生涯一夜清零",
+    "url": "https://www.36kr.com/p/4042952793805952",
+    "content": "Anthropic researcher Jascha Sohl-Dickstein asserts that traditional PhD career paths are obsolete due to the accelerating arrival of AGI. He cites exponential growth in computing power and AI’s capability to solve complex mathematical problems, predicting that global computing capacity will increase ten thousandfold by 2030. Sohl-Dickstein advises researchers to pursue scalable work aligned with AI advancements, embrace high-risk opportunities, and integrate AI tools daily. However, he warns against outsourcing core thinking, emphasizing the importance of maintaining human agency during this transitional technological era.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "ai",
+    "publishedAt": "2026-10-27T00:49:33.048Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "anthropic科学家宣布-全球博士生职业生涯一夜清零",
+    "normalizedTitle": "anthropic科学家宣布 全球博士生职业生涯一夜清零",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 601.793062173048
+  },
+  {
+    "id": "folo-1350965400073854976",
+    "title": "刚刚，Anthropic公开招股书：史上最大IPO，半年狂揽163亿美元",
+    "url": "https://www.36kr.com/p/4042929382872200",
+    "content": "Anthropic has publicly filed an S-1 registration statement with the SEC, planning a Nasdaq IPO under the ticker ANT. The company reported $16.29 billion in revenue for the first half of 2026, driven primarily by enterprise API usage. Despite significant operating profitability, it recorded an $80.7 billion net loss, largely due to non-cash fair value adjustments on financial instruments. With a potential valuation of $1.5 to $2 trillion and over $500 billion in long-term compute commitments, the listing represents a major test of the generative AI business model.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "business",
+    "publishedAt": "2026-10-27T00:49:09.706Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "anthropic公开招股书-史上最大ipo-半年狂揽163亿美元",
+    "normalizedTitle": "刚刚 anthropic公开招股书 史上最大ipo 半年狂揽163亿美元",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 570.793062149706
+  },
+  {
+    "id": "folo-1352298060394295297",
+    "title": "AI末日论的乐观情景",
+    "url": "https://cn.wsj.com/articles/ai%E6%9C%AB%E6%97%A5%E8%AE%BA%E7%9A%84%E4%B9%90%E8%A7%82%E6%83%85%E6%99%AF-203f795e",
+    "content": "对于正考虑认购Anthropic股票的投资者来说，人类灭绝概率纵有10%，你的投资组合或许也有90%的胜算。",
+    "source": "华尔街日报",
+    "sourceId": "folo-ai-list-96796985521440779",
+    "category": "investment",
+    "publishedAt": "2026-10-27T00:33:00.471Z",
+    "fetchedAt": "2026-10-28T13:27:13.621Z",
+    "eventKey": "ai末日论的乐观情景",
+    "normalizedTitle": "ai末日论的乐观情景",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "华尔街日报"
+    ],
+    "preFilterScore": 55.793061180471
+  },
+  {
+    "id": "folo-1351131634803335169",
+    "title": "刚刚，Anthropic公开335页招股书：史上最大IPO，史上最亏AI公司",
+    "url": "https://www.36kr.com/p/4043377845310592",
+    "content": "Anthropic filed a 335-page S-1 prospectus, aiming for a $2 trillion valuation and up to $100 billion in capital. The company reported $16.3 billion in first-half 2026 revenue, driven largely by coding tools, but incurred an $80.7 billion net loss, primarily due to non-cash accounting adjustments. It has committed over $650 billion to multi-year compute contracts with major providers, including significant \"take-or-pay\" obligations. The filing highlights heavy resource commitments and governance structures prioritizing long-term safety over shareholder interests, while positioning Anthropic as a leading alternative to OpenAI ahead of its planned IPO.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "business",
+    "publishedAt": "2026-10-27T00:18:04.171Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "anthropic公开335页招股书-史上最大ipo-史上最亏ai公司",
+    "normalizedTitle": "刚刚 anthropic公开335页招股书 史上最大ipo 史上最亏ai公司",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 601.793060284171
+  },
+  {
+    "id": "folo-1350965400073854977",
+    "title": "刚刚，GPT-6.1 Terra 骨折价发布，Agent 时代的打工模型来了",
+    "url": "https://www.36kr.com/p/4043376902165382",
+    "content": "OpenAI launched GPT-6.1 Terra, a cost-efficient model designed for high-frequency AI agent tasks. Offering 50% lower API costs than its predecessor, it delivers significantly faster execution speeds and improved accuracy in visual comprehension, computer operation, and coding. Benchmarks indicate it approaches flagship-tier performance at a fraction of the cost. Available via the standard API and ChatGPT Work, Terra focuses on reducing operational expenses while maintaining reliability for routine enterprise workflows, marking a strategic shift toward scalable, affordable automation.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "ai",
+    "publishedAt": "2026-10-27T00:17:13.524Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "gpt-6-terra-骨折价发布-agent-时代的打工模型来了",
+    "normalizedTitle": "刚刚 gpt-6 1 terra 骨折价发布 agent 时代的打工模型来了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 591.793060233524
+  },
+  {
+    "id": "folo-1351618190576115716",
+    "title": "算力最多，进展最慢：字节大模型困于赛马制",
+    "url": "https://www.36kr.com/p/4042805862045574",
+    "content": "ByteDance’s legacy “racehorse” internal competition mechanism hinders its large model development. Designed for rapid app iterations, this approach fragments resources and creates silos, unsuited for the coordinated, infrastructure-heavy demands of LLM training. Additionally, short-term OKR pressure incentivizes superficial innovation over essential data cleaning, leading to systemic failures and internal conflicts. To succeed, ByteDance must restructure toward centralized coordination and long-term research tolerance, moving away from its traditional fragmented organizational model.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "ai",
+    "publishedAt": "2026-10-27T00:12:39.667Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "算力最多-进展最慢-字节大模型困于赛马制",
+    "normalizedTitle": "算力最多 进展最慢 字节大模型困于赛马制",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 591.793059959667
+  },
+  {
+    "id": "folo-1350863677984530432",
+    "title": "8点1氪丨Anthropic正式提交IPO申请；寿司郎传送带被曝窜出活老鼠；苹果客服称很多客户取消iPhone Duo订单",
+    "url": "https://www.36kr.com/p/4043364384707456",
+    "content": "Anthropic filed an IPO application. Apple's new folding phone faces price drops and order cancellations. Sushiro addressed a rat incident. Musk introduced direct transfers on X, and Microsoft offered voluntary severance to cut AI costs. Additionally, Samsung and SK Hynix are set to mass-produce HBM4 for Nvidia, while Kimi apologized for service issues. Various companies, including Xpeng and Unitree, announced significant developments in robotics and technology.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "business",
+    "publishedAt": "2026-10-27T00:08:10.836Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "8点1氪丨anthropic正式提交ipo申请-寿司郎传送带被曝窜出活老鼠-苹果客服称很多客户取消iphone-duo订单",
+    "normalizedTitle": "8点1氪丨anthropic正式提交ipo申请 寿司郎传送带被曝窜出活老鼠 苹果客服称很多客户取消iphone duo订单",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 466.793059690836
+  },
+  {
+    "id": "folo-1352096777876025344",
+    "title": "Early progress on accelerating drug development with Claude",
+    "url": "https://www.anthropic.com/research/early-progress-drug-development",
+    "content": "Anthropic reports early progress in integrating its AI, Claude, into drug development through partnerships with six life sciences organizations and internal research initiatives. Collaborations have addressed diverse tasks, including modality engineering, hit generation, lead optimization, and regulatory documentation. Notable outcomes include accelerated molecule design, reduced manufacturing review times, and improved lead candidates for cancer and allergies. Anthropic also acquired Mithril Medicine to advance treatments for muscular dystrophy. The company plans to expand these efforts by extending Claude’s role into clinical trials and offering broader access via specialized tools and verification programs.",
+    "source": "Anthropic News",
+    "sourceId": "folo-ai-list-93717878664708096",
+    "category": "ai",
+    "publishedAt": "2026-10-27T00:00:00.845Z",
+    "fetchedAt": "2026-10-28T13:26:19.153Z",
+    "eventKey": "early-progress-accelerating-drug-development-claude",
+    "normalizedTitle": "early progress on accelerating drug development with claude",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Anthropic News"
+    ],
+    "preFilterScore": 601.793059200845
+  },
+  {
+    "id": "folo-1352222508949975041",
+    "title": "Expanding our partnership with GSA to bring Claude to all levels of government",
+    "url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "content": "Anthropic expanded its partnership with the General Services Administration to offer government entities a forty percent discount on Claude products and API services. This agreement extends to federal, state, local, tribal, and territorial governments, eliminating minimum spend commitments and utilizing a usage-based pricing model. The initiative aims to save the government approximately one billion dollars. Approximately five hundred U.S. government organizations currently utilize Claude for cybersecurity, code modernization, and administrative tasks. Additionally, the company launched a dedicated implementation program to help public sector agencies optimize their use of the technology.",
+    "source": "Anthropic News",
+    "sourceId": "folo-ai-list-93717878664708096",
+    "category": "ai",
+    "publishedAt": "2026-10-27T00:00:00.720Z",
+    "fetchedAt": "2026-10-28T13:26:19.153Z",
+    "eventKey": "expanding-our-partnership-gsa-bring-claude",
+    "normalizedTitle": "expanding our partnership with gsa to bring claude to all levels of government",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Anthropic News"
+    ],
+    "preFilterScore": 601.79305920072
+  },
+  {
+    "id": "folo-1351529035728871430",
+    "title": "工资不发银行卡，改成数字人民币钱包，网友炸了...",
+    "url": "https://www.36kr.com/p/4042806792492160",
+    "content": "Several Jiangsu universities will pay staff salaries via digital RMB wallets starting November 2026, sparking online debate. This pilot program, expanding to other public and construction sectors, leverages new smart contract systems to prevent wage embezzlement. Recent upgrades allow wallet balances to earn interest, adding convenience and security benefits. Despite these advancements, the implementation remains a gradual pilot rather than a mandatory national standard, coexisting with other mainstream payment platforms.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "ai",
+    "publishedAt": "2026-10-26T23:49:03.937Z",
+    "fetchedAt": "2026-10-28T13:27:11.869Z",
+    "eventKey": "工资不发银行卡-改成数字人民币钱包-网友炸了",
+    "normalizedTitle": "工资不发银行卡 改成数字人民币钱包 网友炸了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 528.793058543937
+  },
+  {
+    "id": "folo-1350828314230558720",
+    "title": "2026-10-27 Hacker News Top Stories",
+    "url": "https://supertechfans.com/cn/post/2026-10-27-HackerNews/",
+    "content": "Anthropic’s S-1 filing reports $16.29 billion in H1 2026 revenue and $693 million operating losses. Microsoft launched a voluntary exit offer for approximately 60,000 employees. A specialized Inception v3 model outperformed large language models in skin lesion classification, though it had higher default misclassification rates. Sebastian Raschka released an eight-part course on building reasoning models from scratch. Brazil’s election court declared Lula the winner with 51.79% of the vote. Additionally, a project reconstructed Switzerland in Minecraft at 1:1 scale, while IBM’s CEO highlighted the growing cost-effectiveness of open-weight models for local deployment.",
+    "source": "HackerNews每日摘要 on SuperTechFans",
+    "sourceId": "folo-ai-list-41359648684677132",
+    "category": "software",
+    "publishedAt": "2026-10-26T23:22:14.267Z",
+    "fetchedAt": "2026-10-28T13:27:08.467Z",
+    "eventKey": "2026-10-27-hacker-news-top-stories",
+    "normalizedTitle": "2026-10-27 hacker news top stories",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "HackerNews每日摘要 on SuperTechFans"
+    ],
+    "preFilterScore": 601.793056934267
+  },
+  {
+    "id": "folo-1350828394543087616",
+    "title": "炸裂！刘涛被当众摸胸！“搂腰”挣扎不脱，瞬间冷脸！对方身份曝光 | 原文",
+    "url": "https://t.me/wxbyg/8488",
+    "content": "At an Italian luxury brand event in Shanghai on October 22, actress Liu Tao allegedly faced inappropriate physical contact from the brand's founder during a photo opportunity. Footage captured her making repeated attempts to adjust her position and moving away, suggesting discomfort. Another actress, Chen Duling, reportedly displayed similar avoidance behaviors with the same individual. These viral video clips have sparked widespread online debate and controversy regarding the incident.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-10-26T23:14:48.617Z",
+    "fetchedAt": "2026-10-28T13:27:12.530Z",
+    "eventKey": "刘涛被当众摸胸-“搂腰”挣扎不脱-瞬间冷脸-对方身份曝光",
+    "normalizedTitle": "炸裂 刘涛被当众摸胸 “搂腰”挣扎不脱 瞬间冷脸 对方身份曝光 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 402.793056488617
+  },
+  {
+    "id": "folo-1350737721810763777",
+    "title": "市场对卢拉的意外胜选感到沮丧——这完全情有可原",
+    "url": "https://www.economist.com/leaders/2026/10/26/markets-are-dismayed-by-lulas-surprise-win-and-for-good-reason",
+    "content": "Markets are dismayed by Lula’s surprise win—and for good reason (www.economist.com) 10-27",
+    "source": "经济学人最新报道",
+    "sourceId": "folo-ai-list-41446022334078979",
+    "category": "business",
+    "publishedAt": "2026-10-26T22:44:43.157Z",
+    "fetchedAt": "2026-10-28T13:26:07.634Z",
+    "eventKey": "市场对卢拉的意外胜选感到沮丧——这完全情有可原",
+    "normalizedTitle": "市场对卢拉的意外胜选感到沮丧——这完全情有可原",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "经济学人最新报道"
+    ],
+    "preFilterScore": 90.793054683157
+  },
+  {
+    "id": "folo-1350736439880372224",
+    "title": "Cross-request KV cache exposure in the GLM-5.3 Workers AI model (155 responses)",
+    "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+    "content": "The material presents a headline regarding a security vulnerability titled \"Cross-request KV cache exposure in the GLM-5.3 Workers AI model,\" associated with 155 responses. The content identifies this issue as a topic of discussion on Hacker News, specifically referencing comments from that source. No further technical details or descriptions of the exposure are provided in the text.",
+    "source": "Hacker News - wondersky",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "ai",
+    "publishedAt": "2026-10-26T22:41:48.829Z",
+    "fetchedAt": "2026-10-28T13:27:12.949Z",
+    "eventKey": "cross-request-cache-exposure-glm-5-workers-model",
+    "normalizedTitle": "cross-request kv cache exposure in the glm-5 3 workers ai model 155 responses",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News - wondersky"
+    ],
+    "preFilterScore": 297.793054508829
+  },
+  {
+    "id": "folo-1350762851546935296",
+    "title": "Greptile takes bug detection beyond code review with GPT-6 Astra",
+    "url": "https://openai.com/index/greptile-code-review-codex-astra",
+    "content": "Greptile integrates OpenAI’s GPT-6 Astra to enhance its automated bug detection capabilities beyond conventional code reviews. The system tests user workflows and executes code to identify functional defects before deployment. By leveraging this advanced model, Greptile aims to provide developers with more accurate insights and reduce the time required for manual testing, improving the overall software development lifecycle.",
+    "source": "OpenAI News",
+    "sourceId": "folo-ai-list-106709235749293065",
+    "category": "ai",
+    "publishedAt": "2026-10-26T22:00:00.346Z",
+    "fetchedAt": "2026-10-28T13:27:00.147Z",
+    "eventKey": "greptile-takes-bug-detection-beyond-code",
+    "normalizedTitle": "greptile takes bug detection beyond code review with gpt-6 astra",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "OpenAI News"
+    ],
+    "preFilterScore": 429.793052000346
+  },
+  {
+    "id": "folo-1350557404319723529",
+    "title": "我把我们团队的 Claude Code 工作流开源了",
+    "url": "https://www.v2ex.com/t/1252076#reply0",
+    "content": "The article announces the open-sourcing of a team's Claude Code workflow on GitHub. The project, available at the provided repository link, is described as a resource suitable for educational purposes.",
+    "source": "V2EX - 技术 - 383394544",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-10-26T20:02:34.772Z",
+    "fetchedAt": "2026-10-28T13:26:08.850Z",
+    "eventKey": "我把我们团队的-claude-code-工作流开源了",
+    "normalizedTitle": "我把我们团队的 claude code 工作流开源了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - 383394544"
+    ],
+    "preFilterScore": 112.793044954772
+  },
+  {
+    "id": "folo-1350461064730390529",
+    "title": "Claude 是傻逼吗，我写的强制性规范，它能直接不看的吗",
+    "url": "https://www.v2ex.com/t/1252073#reply1",
+    "content": "The author expresses strong dissatisfaction with Claude's performance, asserting that it performs inferiorly to ChatGPT and Doubao. The critique focuses on Claude's failure to follow explicit instructions to use native Apple UI components, resulting in poor custom implementations. The author claims Claude lacks capability in instruction following, engineering consistency, and autonomous verification, concluding that the subscription is not worthwhile.",
+    "source": "V2EX - 技术 - Lukedis",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-10-26T18:18:20.278Z",
+    "fetchedAt": "2026-10-28T13:26:08.850Z",
+    "eventKey": "claude-是傻逼吗-我写的强制性规范-它能直接不看的吗",
+    "normalizedTitle": "claude 是傻逼吗 我写的强制性规范 它能直接不看的吗",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - Lukedis"
+    ],
+    "preFilterScore": 366.793038700278
+  },
+  {
+    "id": "folo-1350460838607077376",
+    "title": "Fleet-wide computer vision lifecycle at the edge with SageMaker SDK v3",
+    "url": "https://aws.amazon.com/blogs/machine-learning/fleet-wide-computer-vision-lifecycle-at-the-edge-with-sagemaker-sdk-v3/",
+    "content": "Fleet-wide computer vision model lifecycle management is a problem that shows up the moment a quality inspection proof of concept succeeds…",
+    "source": "Artificial Intelligence - Kiowa Jackson",
+    "sourceId": "folo-ai-list-41459996870678532",
+    "category": "software",
+    "publishedAt": "2026-10-26T17:56:58.672Z",
+    "fetchedAt": "2026-10-28T13:27:10.141Z",
+    "eventKey": "fleet-wide-computer-vision-lifecycle-edge-sagemaker",
+    "normalizedTitle": "fleet-wide computer vision lifecycle at the edge with sagemaker sdk v3",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Artificial Intelligence - Kiowa Jackson"
+    ],
+    "preFilterScore": 140.793037418672
+  },
+  {
+    "id": "folo-1350460838607077377",
+    "title": "Groundhog Day for AI agents: Prompt caching patterns for using OpenAI models on Amazon Bedrock",
+    "url": "https://aws.amazon.com/blogs/machine-learning/groundhog-day-for-ai-agents-prompt-caching-patterns-for-using-openai-models-on-amazon-bedrock/",
+    "content": "Every time you spin off your agent, it has to re-read its whole life story before performing an action. Here’s how to make it remember…",
+    "source": "Artificial Intelligence - Claudio Mazzoni",
+    "sourceId": "folo-ai-list-41459996870678532",
+    "category": "ai",
+    "publishedAt": "2026-10-26T17:27:20.420Z",
+    "fetchedAt": "2026-10-28T13:27:10.141Z",
+    "eventKey": "groundhog-day-agents-prompt-caching-patterns",
+    "normalizedTitle": "groundhog day for ai agents prompt caching patterns for using openai models on amazon bedrock",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Artificial Intelligence - Claudio Mazzoni"
+    ],
+    "preFilterScore": 136.79303564042
+  },
+  {
+    "id": "folo-1350370456422596608",
+    "title": "Build agentic retrieval on a Managed Amazon Bedrock Knowledge Base with CDK",
+    "url": "https://aws.amazon.com/blogs/machine-learning/build-agentic-retrieval-on-a-managed-amazon-bedrock-knowledge-base-with-cdk/",
+    "content": "This post builds enterprise agentic retrieval on a Managed Amazon Bedrock Knowledge Base with the AWS Cloud Development Kit (AWS CDK). To…",
+    "source": "Artificial Intelligence - Prabhakar Chandrasekaran",
+    "sourceId": "folo-ai-list-41459996870678532",
+    "category": "ai",
+    "publishedAt": "2026-10-26T17:15:14.937Z",
+    "fetchedAt": "2026-10-28T13:27:10.141Z",
+    "eventKey": "build-agentic-retrieval-managed-amazon-bedrock",
+    "normalizedTitle": "build agentic retrieval on a managed amazon bedrock knowledge base with cdk",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Artificial Intelligence - Prabhakar Chandrasekaran"
+    ],
+    "preFilterScore": 139.793034914937
+  }
+]

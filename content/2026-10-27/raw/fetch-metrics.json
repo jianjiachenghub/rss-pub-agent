@@ -1,11 +1,11 @@
 {
-  "startedAt": "2026-10-28T12:51:42.728Z",
-  "primaryItemsFetched": 2,
-  "primaryItemsRetained": 2,
-  "eventCandidates": 0,
-  "rawCandidates": 0,
-  "backfillItemsFetched": 0,
-  "sourceErrors": 0,
+  "startedAt": "2026-10-28T13:25:50.298Z",
+  "primaryItemsFetched": 204,
+  "primaryItemsRetained": 204,
+  "eventCandidates": 87,
+  "rawCandidates": 64,
+  "backfillItemsFetched": 1,
+  "sourceErrors": 1,
   "degradedMode": "none",
-  "finishedAt": "2026-10-28T12:51:51.339Z"
+  "finishedAt": "2026-10-28T13:27:21.040Z"
 }
