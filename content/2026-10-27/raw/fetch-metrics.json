@@ -1,5 +1,5 @@
 {
-  "startedAt": "2026-10-28T12:22:49.574Z",
+  "startedAt": "2026-10-28T12:47:57.035Z",
   "primaryItemsFetched": 0,
   "primaryItemsRetained": 0,
   "eventCandidates": 0,
@@ -7,5 +7,5 @@
   "backfillItemsFetched": 0,
   "sourceErrors": 0,
   "degradedMode": "hard",
-  "finishedAt": "2026-10-28T12:22:59.119Z"
+  "finishedAt": "2026-10-28T12:48:05.902Z"
 }
