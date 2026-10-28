@@ -258,7 +258,8 @@ interface ProviderConfig {
 }
 
 export const DEFAULT_LLM_PROVIDERS = "openrouter,gemini,openai";
-const CODEX_DEFAULT_MODEL = "codex-default";
+const CODEX_DEFAULT_MODEL = "gpt-6.1-sol";
+const CODEX_DEFAULT_REASONING_EFFORT = "max" as const;
 type ProviderModels = { flash: string; pro: string };
 
 export function parseProviderNames(raw: string): string[] {
@@ -428,10 +429,6 @@ function buildCodexPrompt(req: LLMRequest): string {
   return parts.join("\n\n");
 }
 
-function getCodexThreadModel(model: string): string | undefined {
-  return model === CODEX_DEFAULT_MODEL ? undefined : model;
-}
-
 function getUsageTotal(usage: {
   input_tokens: number;
   output_tokens: number;
@@ -462,8 +459,8 @@ function createCodexProvider(): ProviderConfig {
         sandboxMode: "read-only",
         networkAccessEnabled: false,
         webSearchMode: "disabled",
-        model: getCodexThreadModel(model),
-        modelReasoningEffort: req.model === "pro" ? "medium" : "low",
+        model,
+        modelReasoningEffort: CODEX_DEFAULT_REASONING_EFFORT,
       });
 
       const turn = await thread.run(buildCodexPrompt(effectiveReq), {
