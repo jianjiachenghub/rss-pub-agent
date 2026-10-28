@@ -146,8 +146,9 @@ START
   -> enrichSelected
   -> insight
   -> generateDaily
-  -> podcastGen ----\
-  -> platformsGen --+-> publish
+  -> podcastGen ------\
+  -> podcastSoloGen --+-> publish
+  -> platformsGen ----/
   -> notify
   -> END
 ```
@@ -160,7 +161,8 @@ Pipeline characteristics:
 - `buildEditorialAgenda` generates the narrative frame and category boosts for the day.
 - `gateKeep` and `score` decide what deserves the report.
 - `generateDaily` writes the canonical Markdown report.
-- `podcastGen` and `platformsGen` run in parallel after the daily report is assembled.
+- `podcastGen`, `podcastSoloGen`, and `platformsGen` run in parallel after the daily report is assembled, then join once at `publish`.
+- The solo version reads the complete canonical report without summarizing or dropping scores, sources, or secondary news.
 - `publish` writes the final file outputs and updates `content/index.json`.
 
 For more detail, see [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md).
@@ -177,6 +179,7 @@ content/YYYY-MM-DD/
 |- douyin.md
 |- xhs.md
 |- podcast-script.md
+|- podcast-script-solo.md
 `- raw/
 ```
 
@@ -190,6 +193,7 @@ Artifact summary:
 | `douyin.md` | Douyin copy |
 | `xhs.md` | Xiaohongshu copy |
 | `podcast-script.md` | Podcast script; audio upload is optional and depends on TTS + R2 |
+| `podcast-script-solo.md` | Complete-report single-narrator script; no extra model or TTS calls |
 | `raw/` | Debug and resume snapshots, not frontend-facing content |
 
 The frontend reads directly from `content/`. Weekly views are generated dynamically from daily issues rather than being stored as standalone weekly artifacts.
@@ -314,6 +318,12 @@ npm run lark:weekly -- --week-id 2026-06-W4
 `daily:local` runs the pipeline, regenerates `reports/index.json`, stages `content/` and `reports/`, commits generated changes as `daily: YYYY-MM-DD`, and sends categorized Lark/Feishu chat messages through `scripts/send-lark-daily.ts`. A local scheduler such as cron or launchd should call this command after `codex login` and `lark-cli` login have been completed on the machine.
 
 `lark:weekly` derives the latest frontend weekly digest from `content/` and sends it to the configured Lark/Feishu group. It uses the same month-scoped week IDs as the site, for example `2026-06-W4`.
+
+To generate only the solo script from an existing report, without fetching, sending notifications, or pushing:
+
+```bash
+npm run podcast:solo -- --date 2026-10-27
+```
 
 ### Pipeline
 

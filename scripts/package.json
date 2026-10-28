@@ -5,6 +5,7 @@
   "scripts": {
     "pipeline": "tsx graph.ts",
     "daily:local": "tsx run-local-daily.ts",
+    "podcast:solo": "tsx generate-podcast-solo.ts",
     "backfill:english": "tsx backfill-english.ts",
     "lark:daily": "tsx send-lark-daily.ts",
     "lark:weekly": "tsx send-lark-weekly.ts",

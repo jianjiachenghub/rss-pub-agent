@@ -26,6 +26,7 @@
 | Entry | File | Purpose |
 |---|---|---|
 | Local daily runner | `scripts/run-local-daily.ts` | 本地每日任务入口：运行 pipeline、生成索引并提交产物 |
+| Solo podcast CLI | `scripts/generate-podcast-solo.ts` | 从已有 `daily.md` 单独补生成单播稿，不抓取、不投递 |
 | Pipeline CLI | `scripts/graph.ts` | 本地或 CI 执行整条日报生成管线 |
 | Runtime options | `scripts/lib/runtime-options.ts` | 解析 `--date`、`--resume-from-raw`、`PIPELINE_DATE` |
 | Runtime paths | `scripts/lib/runtime-paths.ts` | 统一解析 `content/`、`configs/`、`.runtime/` |
@@ -47,6 +48,7 @@
 | `insight` | `scripts/nodes/insight.ts` | 生成日报条目的 one-liner / event / interpretation | `insights`, 更新 `secondaryItems` |
 | `generateDaily` | `scripts/nodes/generate-daily.ts` | 把 insight 渲染成正式日报 Markdown，并尝试生成英文版 | `dailyMarkdown`, `dailyMarkdownEn`, `dailySummary` |
 | `podcastGen` | `scripts/nodes/podcast.ts` | 生成播客脚本和可选音频 | `podcast` |
+| `podcastSoloGen` | `scripts/nodes/podcast-solo.ts` | 将完整日报转换为单播稿，与双人版和平台文案并行 | `podcastSoloScript` |
 | `platformsGen` | `scripts/nodes/platforms.ts` | 生成 brief、抖音、小红书等平台内容 | `platformContents` |
 | `publish` | `scripts/nodes/publish.ts` | 写入 `content/<date>/`，补写英文 companion files，并更新索引 | `content/` 文件系统产物 |
 | `notify` | `scripts/nodes/notify.ts` | 发送飞书 / Telegram / 微信通知并记录投递状态 | `.runtime/delivery/<date>.json` |
@@ -65,6 +67,7 @@
 | `scripts/lib/feed-fetch.ts` | 抓取治理与去重方法 | 管理 source cap、category cap、排序和合并 |
 | `scripts/lib/source-enrichment.ts` | 正文补抓取 | 控制 enrich 阶段只对入选项拉长内容 |
 | `scripts/lib/english-artifacts.ts` | `translateArtifactToEnglish` | 把中文主产物翻成英文化 companion artifacts |
+| `scripts/lib/podcast-solo.ts` | `renderSoloPodcastScript` | 确定性保留日报全文与元信息，生成无角色对话的单播稿 |
 | `scripts/lib/delivery.ts` | 投递状态读写与去重 | 保证通知幂等，避免重复发送 |
 | `scripts/lib/raw-input.ts` / `raw-output.ts` | raw snapshot 读写 | 支撑 resume-from-raw 调试与恢复 |
 
@@ -91,6 +94,7 @@
 - `douyin.md` / `douyin.en.md`
 - `xhs.md` / `xhs.en.md`
 - `podcast-script.md` / `podcast-script.en.md`
+- `podcast-script-solo.md`（完整日报单播稿）
 - `raw/`
 
 `raw/` 目录主要用于恢复与调试，常见文件包括：

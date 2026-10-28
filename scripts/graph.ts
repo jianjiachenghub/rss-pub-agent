@@ -15,14 +15,6 @@ function resolveEnvPath(): string | undefined {
   return candidates.find((candidate) => existsSync(candidate));
 }
 
-const envPath = resolveEnvPath();
-if (envPath) {
-  config({ path: envPath });
-} else {
-  // Fall back to dotenv's default lookup when no repo-level .env is found.
-  config();
-}
-
 import { StateGraph, START, END } from "@langchain/langgraph";
 import { PipelineState } from "./state.js";
 import { loadConfig } from "./nodes/load-config.js";
@@ -36,6 +28,7 @@ import { enrichSelectedNode } from "./nodes/enrich-selected.js";
 import { insightNode } from "./nodes/insight.js";
 import { generateDailyNode } from "./nodes/generate-daily.js";
 import { podcastNode } from "./nodes/podcast.js";
+import { podcastSoloNode } from "./nodes/podcast-solo.js";
 import { platformsNode } from "./nodes/platforms.js";
 import { publishNode } from "./nodes/publish.js";
 import { notifyNode } from "./nodes/notify.js";
@@ -55,6 +48,7 @@ const graph = new StateGraph(PipelineState)
   .addNode("insight", insightNode)
   .addNode("generateDaily", generateDailyNode)
   .addNode("podcastGen", podcastNode)
+  .addNode("podcastSoloGen", podcastSoloNode)
   .addNode("platformsGen", platformsNode)
   .addNode("publish", publishNode)
   .addNode("notify", notifyNode)
@@ -70,15 +64,21 @@ const graph = new StateGraph(PipelineState)
   .addEdge("enrichSelected", "insight")
   .addEdge("insight", "generateDaily")
   .addEdge("generateDaily", "podcastGen")
+  .addEdge("generateDaily", "podcastSoloGen")
   .addEdge("generateDaily", "platformsGen")
-  .addEdge("podcastGen", "publish")
-  .addEdge("platformsGen", "publish")
+  .addEdge(["podcastGen", "podcastSoloGen", "platformsGen"], "publish")
   .addEdge("publish", "notify")
   .addEdge("notify", END);
 
-const pipeline = graph.compile();
+export const pipeline = graph.compile();
 
 async function main() {
+  const envPath = resolveEnvPath();
+  if (envPath) {
+    config({ path: envPath });
+  } else {
+    config();
+  }
   const runtimeOptions = getRuntimeOptions();
 
   // Invocation starts with an empty object because every durable input
@@ -104,6 +104,7 @@ async function main() {
   console.log(
     `Podcast: ${result.podcast?.audioUrl ? "yes" : "script only"}`
   );
+  console.log(`Solo podcast script: ${result.podcastSoloScript ? "yes" : "no"}`);
   console.log(
     `Platforms: ${Object.keys(result.platformContents ?? {}).join(", ") || "none"}`
   );
@@ -115,4 +116,6 @@ async function main() {
   }
 }
 
-main().catch(console.error);
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch(console.error);
+}

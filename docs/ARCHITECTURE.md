@@ -43,6 +43,7 @@ gateKeep -> score -> enrichSelected -> insight -> generateDaily
                                                   |        +--> content/<date>/daily.md
                                                   |
                                                   +--> podcastGen
+                                                  +--> podcastSoloGen
                                                   +--> platformsGen
                                                              |
                                                              v
@@ -58,7 +59,7 @@ gateKeep -> score -> enrichSelected -> insight -> generateDaily
 架构上有三个关键决策：
 
 - 主链路严格串行，先完成“抓取、筛选、评分、解读”，再进入输出分支
-- `generateDaily` 之后才并行生成播客和平台文案，最后在 `publish` 汇总落盘
+- `generateDaily` 之后才并行生成双人播客、完整日报单播稿和平台文案，等待三个分支完成后在 `publish` 汇总落盘一次
 - `content/` 是统一内容契约，前端、通知和后续消费都直接读取它
 
 ## 3. 分层设计
@@ -69,7 +70,7 @@ gateKeep -> score -> enrichSelected -> insight -> generateDaily
 | 抓取层 | `scripts/nodes/fetch-primary.ts`, `fetch-coverage.ts`, `scripts/lib/folo.ts`, `feed-fetch.ts` | 拉取主输入与补抓输入，控制优先级、配额和去重 |
 | 候选压缩层 | `scripts/nodes/pre-filter.ts`, `scripts/lib/pre-filter.ts` | 把原始条目压缩成事件候选，并计算覆盖缺口 |
 | 编务决策层 | `editorial-agenda.ts`, `gate-keep.ts`, `score.ts` | 先形成当天叙事，再做 PASS / DROP / MERGE 与六维打分 |
-| 内容生成层 | `enrich-selected.ts`, `insight.ts`, `generate-daily.ts`, `platforms.ts`, `podcast.ts` | 生成日报、播客脚本和平台文案 |
+| 内容生成层 | `enrich-selected.ts`, `insight.ts`, `generate-daily.ts`, `platforms.ts`, `podcast.ts`, `podcast-solo.ts` | 生成日报、双人/单播播客脚本和平台文案 |
 | 发布与投递层 | `publish.ts`, `notify.ts`, `scripts/lib/delivery.ts` | 写入 `content/`、更新索引、发送通知并记录状态 |
 | 展示层 | `frontend/` | 读取 `content/` 展示首页、日报页、周视图、播客页 |
 
@@ -116,8 +117,13 @@ gateKeep -> score -> enrichSelected -> insight -> generateDaily
   - 渲染正式日报 `daily.md`
   - 同时保留“更多 24h 资讯”作为次级信息层
 - `podcastGen`
-  - 生成播客脚本
+  - 保留原有双人对话播客脚本
   - 如果 TTS + R2 可用，再输出音频 URL
+- `podcastSoloGen`
+  - 从完整 `dailyMarkdown` 确定性转换为单人播报稿，不再二次摘要或限制 5 分钟
+  - 保留正文、评分、来源、观察变量及更多 24h 资讯；只清理图片、链接地址和排版标记
+  - 独立状态字段 `podcastSoloScript`，不覆盖双人稿，不新增 LLM/TTS 调用
+  - 发布为同目录 `podcast-script-solo.md`
 - `platformsGen`
   - 生成 `brief.md`、`douyin.md`、`xhs.md`
 - `publish`

@@ -314,6 +314,19 @@ npm run lark:weekly -- --week-id 2026-06-W4
 
 `lark:weekly` 会从 `content/` 里动态聚合最新周报并发送到已配置的飞书/Lark 群，周 ID 与站点保持一致，例如 `2026-06-W4`。
 
+### 完整日报单播稿
+
+启用 `podcast.enabled` 后，流水线会在日报生成后并行生成原双人版、单播版和平台文案。
+单播版以完整 `daily.md` 为唯一正文输入，保留全部新闻、事件、解读、评分、来源及
+“更多 24h 资讯”，不做五分钟压缩，不新增模型或音频调用，发布为同目录的
+`podcast-script-solo.md`；原来的 `podcast-script.md` 和音频流程保持不变。
+
+已有日报可以只补单播稿，不重跑抓取、投递、索引或推送：
+
+```bash
+npm run podcast:solo -- --date 2026-10-27
+```
+
 ### Folo 抓取排查
 
 Folo 的单源页面 `/timeline/articles/<feedId>/pending` 与列表页面

@@ -3,6 +3,7 @@ import { join } from "path";
 import { existsSync } from "fs";
 import type { PipelineStateType } from "../state.js";
 import { CONTENT_DIR } from "../lib/runtime-paths.js";
+import { SOLO_PODCAST_FILE_NAME } from "../lib/podcast-solo.js";
 import {
   getEnglishArtifactFileName,
   translateArtifactToEnglish,
@@ -17,6 +18,7 @@ export async function publishNode(
     dailyMarkdown,
     dailyMarkdownEn,
     podcast,
+    podcastSoloScript,
     platformContents,
     insights,
     errors,
@@ -65,6 +67,11 @@ export async function publishNode(
     if (podcast.script) {
       writes.push(
         writeFile(join(dayDir, "podcast-script.md"), podcast.script, "utf-8")
+      );
+    }
+    if (podcastSoloScript?.trim()) {
+      writes.push(
+        writeFile(join(dayDir, SOLO_PODCAST_FILE_NAME), podcastSoloScript, "utf-8")
       );
     }
     if (platformContents.xhs) {

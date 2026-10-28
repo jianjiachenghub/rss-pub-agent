@@ -110,6 +110,10 @@ export const PipelineState = Annotation.Root({
     reducer: (_, y) => y,
     default: () => ({ script: "" }),
   }),
+  podcastSoloScript: Annotation<string>({
+    reducer: (_, y) => y,
+    default: () => "",
+  }),
   platformContents: Annotation<PlatformContents>({
     reducer: (_, y) => y,
     default: () => ({}),
