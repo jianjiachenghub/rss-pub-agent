@@ -3,7 +3,7 @@
     "id": "folo-1280833631102713884",
     "title": "普京会见美国特使后，基辅盟友认为战争将持续至2027年",
     "url": "https://www.bloomberg.com/news/articles/2026-09-08/kyiv-s-allies-see-war-going-into-2027-after-putin-met-us-envoys",
-    "content": "Kyiv Allies See War Head Into 2027 After Putin Met US Envoys (www.bloomberg.com) 09-08",
+    "content": "European and US officials are resigned to Russia’s war in Ukraine continuing into next year, acknowledging that the latest American peace initiative made no headway with Russian President Vladimir Putin. Skip to content Bloomberg the Company & Its Products The Company & its Products Bloomberg Terminal Demo Request Bloomberg Anywhere Remote Login Bloomberg Anywhere Login Bloomberg Customer Support Customer Support Bloomberg Connecting decision makers to a dynamic network of information, people and ideas, Bloomberg quickly and accurately delivers business and financial information, news and insight around the world Americas +1 212 318 2000 EMEA +44 20 7330 7500 Asia Pacific +65 6212 1000 Connecting decision makers to a dynamic network of information, people and ideas, Bloomberg quickly and accurately delivers business and financial information, news and insight around the world Americas +1 212 318 2000 EMEA +44 20 7330 7500 Asia Pacific +65 6212 1000 LIVE NOW UK Chancellor Healey Delivers Budget Speech",
     "source": "彭博社最新报道",
     "sourceId": "folo-ai-list-70844804758158336",
     "category": "politics",
@@ -28,14 +28,14 @@
     "weightedScore": 50,
     "scoreReasoning": "Scoring failed, using default values.",
     "summary": "Kyiv Allies See War Head Into 2027 After Putin Met US Envoys (www.bloomberg.com) 09-08",
-    "contentDepth": 86,
-    "contentSource": "summary"
+    "contentDepth": 1015,
+    "contentSource": "page"
   },
   {
     "id": "folo-1280833631102713885",
     "title": "波士顿科学、史赛克因网络攻击余波股价下跌",
     "url": "https://www.bloomberg.com/news/articles/2026-09-08/boston-scientific-unlikely-to-meet-forecasts-after-cyber-attack-mtsjf03g",
-    "content": "Boston Scientific, Stryker Drop on Fallout From Cyber Attacks (www.bloomberg.com) 09-08",
+    "content": "Boston Scientific Corp. and Stryker Corp. shares fell after the medical device companies said they are dealing with the repercussions of separate cyber attacks that curtailed their ability to get products to customers and dented sales, with damage that could last for months. Skip to content Bloomberg the Company & Its Products The Company & its Products Bloomberg Terminal Demo Request Bloomberg Anywhere Remote Login Bloomberg Anywhere Login Bloomberg Customer Support Customer Support Bloomberg Connecting decision makers to a dynamic network of information, people and ideas, Bloomberg quickly and accurately delivers business and financial information, news and insight around the world Americas +1 212 318 2000 EMEA +44 20 7330 7500 Asia Pacific +65 6212 1000 Connecting decision makers to a dynamic network of information, people and ideas, Bloomberg quickly and accurately delivers business and financial information, news and insight around the world Americas +1 212 318 2000 EMEA +44 20 7330 7500 Asia Pacific +65 6212 1000 LIVE NOW UK Chancellor Healey Delivers Budget Speech",
     "source": "彭博社最新报道",
     "sourceId": "folo-ai-list-70844804758158336",
     "category": "investment",
@@ -60,8 +60,8 @@
     "weightedScore": 50,
     "scoreReasoning": "Scoring failed, using default values.",
     "summary": "Boston Scientific, Stryker Drop on Fallout From Cyber Attacks (www.bloomberg.com) 09-08",
-    "contentDepth": 87,
-    "contentSource": "summary"
+    "contentDepth": 1087,
+    "contentSource": "page"
   },
   {
     "id": "folo-1280763345472774145",
@@ -131,7 +131,7 @@
     "id": "folo-1280768456618160138",
     "title": "有那种 skill 或者什么 ai 工具对代码仓进行建立索引",
     "url": "https://www.v2ex.com/t/1240528#reply0",
-    "content": "今天本来想让根据代码仓，代码可以建立那个索引或者知识库什么，但是想看看开源社区有已经有这类产品了吗？ 简单搜索了下有 ai-ready, reposummary 这种，想问下大家都用什么？ 多人一起开发\n可以试试更新新的代码，建立新的索引\n询问/新增功能又可以直接用索引/知识库…",
+    "content": "程序员 - @Gcourage - 今天本来想让根据代码仓，代码可以建立那个索引或者知识库什么，但是想看看开源社区有已经有这类产品了吗？简单搜索了下有 ai-ready, reposummary 这种，想问下大家都用什么？1. This topic created in 49 days ago, the information mentioned may be changed or developed. 今天本来想让根据代码仓，代码可以建立那个索引或者知识库什么，但是想看看开源社区有已经有这类产品了吗？ 简单搜索了下有 ai-ready, reposummary 这种，想问下大家都用什么？ 多人一起开发 可以试试更新新的代码，建立新的索引 询问/新增功能又可以直接用索引/知识库，能够快速生成按照仓代码结构的的代码 不称手不行， 我是自己让 ai 写的 skill ，很难说通用，但自己用着好使， 一个是提炼知识库用于重写, 一个是提炼文档用于交付，",
     "source": "V2EX - 技术",
     "sourceId": "folo-ai-list-54831913290792960",
     "category": "software",
@@ -156,14 +156,14 @@
     "weightedScore": 38,
     "scoreReasoning": "Scoring failed, using default values.",
     "summary": "今天本来想让根据代码仓，代码可以建立那个索引或者知识库什么，但是想看看开源社区有已经有这类产品了吗？ 简单搜索了下有 ai-ready, reposummary 这种，想问下大家都用什么？ 多人一起开发\n可以试试更新新的代码，建立新的索引\n询问/新增功能又可以直接用索引/知识库…",
-    "contentDepth": 140,
-    "contentSource": "summary"
+    "contentDepth": 429,
+    "contentSource": "page"
   },
   {
     "id": "folo-1280833631102713886",
     "title": "英国被警告称人工智能可能操纵电力市场",
     "url": "https://www.bloomberg.com/news/articles/2026-09-08/uk-warned-about-risk-of-ai-gaming-the-power-market",
-    "content": "UK Warned About Risk of AI Gaming the Power Market (www.bloomberg.com) 09-08",
+    "content": "UK regulators should be on high alert for AI-powered algorithms gaming the electricity market as an increasing number of consumers turn to tech companies to maximize the value of their energy consumption, according to a report published by the British government Tuesday. Skip to content Bloomberg the Company & Its Products The Company & its Products Bloomberg Terminal Demo Request Bloomberg Anywhere Remote Login Bloomberg Anywhere Login Bloomberg Customer Support Customer Support Bloomberg Connecting decision makers to a dynamic network of information, people and ideas, Bloomberg quickly and accurately delivers business and financial information, news and insight around the world Americas +1 212 318 2000 EMEA +44 20 7330 7500 Asia Pacific +65 6212 1000 Connecting decision makers to a dynamic network of information, people and ideas, Bloomberg quickly and accurately delivers business and financial information, news and insight around the world Americas +1 212 318 2000 EMEA +44 20 7330 7500 Asia Pacific +65 6212 1000 LIVE NOW UK Chancellor Healey Delivers Budget Speech",
     "source": "彭博社最新报道",
     "sourceId": "folo-ai-list-70844804758158336",
     "category": "business",
@@ -188,8 +188,8 @@
     "weightedScore": 50,
     "scoreReasoning": "Scoring failed, using default values.",
     "summary": "UK Warned About Risk of AI Gaming the Power Market (www.bloomberg.com) 09-08",
-    "contentDepth": 76,
-    "contentSource": "summary"
+    "contentDepth": 1083,
+    "contentSource": "page"
   },
   {
     "id": "folo-1280833631102713887",
@@ -579,7 +579,7 @@
     "id": "folo-1280662192667938816",
     "title": "Google DeepMind Releases AlphaGenome Atlas",
     "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphagenome-atlas/",
-    "content": "We’re introducing AlphaGenome Atlas, a database predicting the effects of every possible single nucleotide variant in the human genome. Back Innovation & AI See all in Innovation & AI Models & Research Google DeepMind Google Research Google Labs Gemini models Quantum computing See all Products Developer tools Gemini app Gemini Notebook See all Infrastructure & cloud Global network Google Cloud See all Technology Safety & Security Health See all Learn more: Google DeepMind blog Google Research blog Google Developers blog Google Cloud blog Back Products & platforms See all in Products & platforms Products Search Maps Chrome Google Health Google Workspace Learning & Education Shopping See all Platforms Android Google Play Wear OS See all Devices Pixel Google Nest Fitbit Chromebooks See all Learn more: Google Ads & Commerce blog Waze blog Back Company news See all in Company news Outreach & initiatives Creating opportunity Safety & security Google.org Public policy Sustainability Health See all Leadership Sundar Pichai, CEO More authors See all Inside Google Around the globe Life at Google See all Learn more: Google Security blog Innovation & AI Innovation & AI See all in Innovation & AI Models & Research Google DeepMind Google Research Google Labs Gemini models Quantum computing See all Products Developer tools Gemini app Gemini Notebook See all Infrastructure & cloud Global network Google Cloud See all Technology Safety & Security Health See all Learn more: Google DeepMind blog Google Research blog Google Developers blog Google Cloud blog",
+    "content": "We’re introducing AlphaGenome Atlas, a database predicting the effects of every possible single nucleotide variant in the human genome. \"}@property --border-mask-color{inherits:false;initial-value:transparent;syntax:\" \"}@property --btn-bg-color{inherits:false;initial-value:transparent;syntax:\" \"}@property --card-draw-percent{inherits:false;initial-value:.1%;syntax:\" \"}@property --card-border-gradient-angle{inherits:false;initial-value:83deg;syntax:\" \"}@property --gradient-angle{inherits:false;initial-value:145deg;syntax:\" \"}@property --card-color-1{inherits:false;initial-value:#4285f4;syntax:\" \"}@property --card-color-2{inherits:false;initial-value:#ea4335;syntax:\" \"}@property --card-color-3{inherits:false;initial-value:#fbbc04;syntax:\" \"}@property --card-color-4{inherits:false;initial-value:#34a853;syntax:\" \"}@layer components{.uni-dynamic-iframe{--dynamic-iframe-bg:var(--bg-surfaces-secondary);--dynamic-iframe-radius:var(--radius-main);--dynamic-iframe-border:1px solid var(--border-default)}.uni-dynamic-iframe iframe{border:none;height:100%;width:100%}.uni-dynamic-iframe .uni-shape-spinner{height:var(--spinner-size);margin:auto;width:var(--spinner-size)}.uni-dynamic-iframe .uni-shape-spinner~iframe{opacity:0}.uni-dynamic-iframe__aspect-ratio{background:var(--dynamic-iframe-bg);border:var(--dynamic-iframe-border);border-radius:0;overflow:hidden;position:relative;width:100%}@media(min-width:1441px){.uni-dynamic-iframe__aspect-ratio{border-radius:var(--dynamic-iframe-radius)}}.uni-dynamic-iframe__aspect-ratio:before{aspect-ratio:9/16;content:\"\";display:block;height:100%}@med",
     "source": "Hacker News - utiiiD",
     "sourceId": "folo-ai-list-52325519371718656",
     "category": "software",
@@ -604,14 +604,14 @@
     "weightedScore": 38,
     "scoreReasoning": "Scoring failed, using default values.",
     "summary": "Comments on Hacker News | Source",
-    "contentDepth": 1562,
+    "contentDepth": 1600,
     "contentSource": "page"
   },
   {
     "id": "folo-1280783030096416778",
     "title": "Benchmarking Qwen3.8 27B quantizations: 4-bit holds up, 1-bit collapses",
     "url": "https://quesma.com/blog/qwen38-27b-quantizations-benchmarked/",
-    "content": "I test Unsloth GGUFs of Qwen3.8 27B (Q4_K_M, UD-Q2_K_XL, UD-IQ1_S) with llama.cpp on GPQA Diamond, IFBench, Terminal-Bench 2.1. Q4_K_M matches BF16 abd fits an RTX 4090. How it works Benchmarks Blog About us Token economics Talk to the founder Understand what your coding agents actually do. [email&#160;protected] © 2026Quesma Inc. Explore Home Benchmarks Token economics Privacy Policy Company Blog About us Contact Media Kit Connect GitHub GitHub LinkedIn X x.com",
+    "content": "I test Unsloth GGUFs of Qwen3.8 27B (Q4_K_M, UD-Q2_K_XL, UD-IQ1_S) with llama.cpp on GPQA Diamond, IFBench, Terminal-Bench 2.1. Q4_K_M matches BF16 and fits an RTX 4090. Product Blog Benchmarks About us Token economics Talk to the founder Understand what your coding agents actually do. [email&#160;protected] © 2026 Quesma · Company details Explore Product Benchmarks Token economics Blog Company About us Contact Company details Media Kit Privacy Policy Connect GitHub GitHub LinkedIn X x.com",
     "source": "Hacker News - stared",
     "sourceId": "folo-ai-list-52325519371718656",
     "category": "tech",
@@ -636,7 +636,7 @@
     "weightedScore": 38,
     "scoreReasoning": "Scoring failed, using default values.",
     "summary": "Comments on Hacker News | Source",
-    "contentDepth": 466,
+    "contentDepth": 494,
     "contentSource": "page",
     "imageUrl": "https://quesma.com/_astro/hf_unsloth_qwen38_27b_choices.OSlYkgGR_2lHFg.webp"
   }
