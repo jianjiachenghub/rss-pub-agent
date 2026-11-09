@@ -1,0 +1,895 @@
+[
+  {
+    "id": "folo-1369215144017448964",
+    "title": "I'm not a fan of Deno's security model (2024)",
+    "url": "https://goldstein.lol/posts/deno-security/",
+    "content": "Points: 76 Comments on Hacker News | Source",
+    "source": "Hacker News",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-11-08T14:42:38.945Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "not-fan-deno-security-model-2024",
+    "normalizedTitle": "i m not a fan of deno s security model 2024",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News"
+    ],
+    "preFilterScore": -45.205851041055
+  },
+  {
+    "id": "folo-1369133988127457280",
+    "title": "哈卡比·桑德斯规划2028年竞选之路，将特朗普白宫经历与信仰、健康相结合",
+    "url": "https://www.bloomberg.com/news/features/2026-11-08/huckabee-sanders-charts-2028-path-blends-trump-white-house-with-faith-health",
+    "content": "Huckabee Sanders Charts 2028 Path, Blends Trump White House With Faith, Health (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T14:39:44.234Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "哈卡比·桑德斯规划2028年竞选之路-将特朗普白宫经历与信仰-健康相结合",
+    "normalizedTitle": "哈卡比·桑德斯规划2028年竞选之路 将特朗普白宫经历与信仰 健康相结合",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 105.794148784234
+  },
+  {
+    "id": "folo-1369073481399853056",
+    "title": "各国排放量的对比情况",
+    "url": "https://www.ft.com/content/9dfb0201-ef77-4c05-93cd-1e277c7017cf?syn-25a6b1a6=1",
+    "content": "How each country’s emissions compare (www.ft.com) 11-08",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-11-08T14:39:44.160Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "各国排放量的对比情况",
+    "normalizedTitle": "各国排放量的对比情况",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 56.79414878416
+  },
+  {
+    "id": "folo-1369073481399853057",
+    "title": "都柏林推出统一爱尔兰的“蓝图”",
+    "url": "https://www.ft.com/content/e372642c-81a5-4098-8fdf-d118d22fa896?syn-25a6b1a6=1",
+    "content": "Dublin launches ‘blueprint’ for united Ireland (www.ft.com) 11-08",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-11-08T14:39:44.131Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "都柏林推出统一爱尔兰的“蓝图”",
+    "normalizedTitle": "都柏林推出统一爱尔兰的“蓝图”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 66.794148784131
+  },
+  {
+    "id": "folo-1369073481399853058",
+    "title": "英国文化大臣丽莎·南迪质疑重新加入欧盟是否是“我们能做出的选择”",
+    "url": "https://www.ft.com/content/1401fe6f-52a2-4639-bed3-67cc828085f1?syn-25a6b1a6=1",
+    "content": "UK culture secretary Lisa Nandy questions whether rejoining EU is a ‘choice we have’ (www.ft.com) 11-08",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-11-08T14:39:44.099Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "英国文化大臣丽莎·南迪质疑重新加入欧盟是否是“我们能做出的选择”",
+    "normalizedTitle": "英国文化大臣丽莎·南迪质疑重新加入欧盟是否是“我们能做出的选择”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 104.794148784099
+  },
+  {
+    "id": "folo-1369133988144234496",
+    "title": "特朗普时代倒计时开始，华尔街竞相追逐巨额交易",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-08/wall-street-races-for-megadeals-as-countdown-begins-on-trump-era",
+    "content": "Wall Street Races for Megadeals as Countdown Begins on Trump Era (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T14:23:48.017Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "特朗普时代倒计时开始-华尔街竞相追逐巨额交易",
+    "normalizedTitle": "特朗普时代倒计时开始 华尔街竞相追逐巨额交易",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.794147828017
+  },
+  {
+    "id": "folo-1369073481399853059",
+    "title": "红杉资本的新任高管们彻底清除了博塔时代的最后残余",
+    "url": "https://www.ft.com/content/abf66424-1738-4c1b-9d6b-a868be30b474?syn-25a6b1a6=1",
+    "content": "Sequoia’s new chiefs sweep away last remnants of Botha era (www.ft.com) 11-08",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-11-08T14:23:47.954Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "红杉资本的新任高管们彻底清除了博塔时代的最后残余",
+    "normalizedTitle": "红杉资本的新任高管们彻底清除了博塔时代的最后残余",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 78.794147827954
+  },
+  {
+    "id": "folo-1369043412803665920",
+    "title": "民主党大获全胜，拉丁美洲各地与特朗普有关的交易面临考验",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-08/democratic-sweep-tests-trump-linked-trades-across-latin-america",
+    "content": "Democratic Sweep Tests Trump-Linked Trades Across Latin America (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:51:48.069Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "民主党大获全胜-拉丁美洲各地与特朗普有关的交易面临考验",
+    "normalizedTitle": "民主党大获全胜 拉丁美洲各地与特朗普有关的交易面临考验",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.794145908069
+  },
+  {
+    "id": "folo-1369040265850925061",
+    "title": "分析一个 macos 的文件管理器",
+    "url": "https://www.v2ex.com/t/1255391#reply0",
+    "content": "开源免费，自己做的 之前用 qspace 感觉太重了，而且收费，参考的做了一个，性能和大小感觉都不错 希望大家提出建议 https://liceal.github.io/maple/ https://github.com/liceal/maple",
+    "source": "V2EX - 技术 - liceal",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-11-08T13:42:54.777Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "分析一个-macos-的文件管理器",
+    "normalizedTitle": "分析一个 macos 的文件管理器",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - liceal"
+    ],
+    "preFilterScore": 34.794145374777
+  },
+  {
+    "id": "folo-1369531588685103107",
+    "title": "2026 年 10 月海外短剧百强榜：中国厂商占 82 席，下载收入前三均为中国应用",
+    "url": "https://readhub.cn/topic/8xsknqe0Bmh",
+    "content": "今年 10 月海外短剧百强榜中 82 部作品主投平台为中国厂商，下载与收入榜前三均为中国应用。2026 年 1 至 9 月下载榜前三分别为昆仑万维旗下 FreeReels、中文在线参股枫叶互动旗下 ReelShort、麦芽旗下 NetShort，收入榜前三为点众旗下…",
+    "source": "Readhub - 每日早报 - 快科技",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:25:15.383Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "2026-月海外短剧百强榜-中国厂商占-下载收入前三均为中国应用",
+    "normalizedTitle": "2026 年 10 月海外短剧百强榜 中国厂商占 82 席 下载收入前三均为中国应用",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 快科技"
+    ],
+    "preFilterScore": 135.794144315383
+  },
+  {
+    "id": "folo-1369043412803665922",
+    "title": "选举干预并非凭空消失",
+    "url": "https://www.bloomberg.com/opinion/articles/2026-11-08/election-interference-didn-t-simply-disappear-on-its-own",
+    "content": "Election Interference Didn't Simply Disappear on Its Own (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-11-08T13:20:58.729Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "选举干预并非凭空消失",
+    "normalizedTitle": "选举干预并非凭空消失",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 83.794144058729
+  },
+  {
+    "id": "folo-1369043412803665923",
+    "title": "洛杉矶新任市长将让“民主社会主义者联盟”（DSA）的治理模式在市政厅接受考验",
+    "url": "https://www.bloomberg.com/opinion/articles/2026-11-08/la-s-new-mayor-will-put-dsa-governance-to-the-city-hall-test",
+    "content": "LA's New Mayor Will Put DSA Governance to the City Hall Test (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:20:58.726Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "洛杉矶新任市长将让“民主社会主义者联盟”-dsa-的治理模式在市政厅接受考验",
+    "normalizedTitle": "洛杉矶新任市长将让“民主社会主义者联盟” dsa 的治理模式在市政厅接受考验",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.794144058726
+  },
+  {
+    "id": "folo-1369043412803665924",
+    "title": "特朗普仍能改变世界的五种方式",
+    "url": "https://www.bloomberg.com/opinion/features/2026-11-08/five-ways-trump-can-still-change-the-world",
+    "content": "Five Ways Trump Can Still Change the World (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:20:58.722Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "特朗普仍能改变世界的五种方式",
+    "normalizedTitle": "特朗普仍能改变世界的五种方式",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 69.794144058722
+  },
+  {
+    "id": "folo-1369043412803665925",
+    "title": "民主需要容纳宗教差异的空间",
+    "url": "https://www.bloomberg.com/opinion/articles/2026-11-08/democracy-needs-room-for-religious-difference",
+    "content": "Democracy Needs Room for Religious Difference (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:20:58.719Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "民主需要容纳宗教差异的空间",
+    "normalizedTitle": "民主需要容纳宗教差异的空间",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 72.794144058719
+  },
+  {
+    "id": "folo-1369043412803665926",
+    "title": "“蓝色浪潮”？这次中期选举的意义远不止于那些拙劣的比喻",
+    "url": "https://www.bloomberg.com/opinion/newsletters/2026-11-08/blue-wave-these-midterms-were-bigger-than-bad-metaphors",
+    "content": "Blue Wave? These Midterms Were Bigger Than Bad Metaphors (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:20:58.715Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "“蓝色浪潮”-这次中期选举的意义远不止于那些拙劣的比喻",
+    "normalizedTitle": "“蓝色浪潮” 这次中期选举的意义远不止于那些拙劣的比喻",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 83.794144058715
+  },
+  {
+    "id": "folo-1369043412803665927",
+    "title": "巴尔的摩皮尔博物馆设想拆除琼斯福尔斯高速公路",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-11-08/baltimore-s-peale-museum-imagines-tearing-down-jones-falls-expressway",
+    "content": "Baltimore's Peale Museum Imagines Tearing Down Jones Falls Expressway (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:20:58.712Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "巴尔的摩皮尔博物馆设想拆除琼斯福尔斯高速公路",
+    "normalizedTitle": "巴尔的摩皮尔博物馆设想拆除琼斯福尔斯高速公路",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 96.79414405871199
+  },
+  {
+    "id": "folo-1369043412803665928",
+    "title": "埃尔多安出席阿塞拜疆胜利庆典，标志着两国关系开始回暖",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-08/erdogan-joins-azerbaijan-victory-celebrations-in-sign-of-thaw",
+    "content": "Erdogan Joins Azerbaijan Victory Celebration in Sign of Thaw (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:20:58.705Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "埃尔多安出席阿塞拜疆胜利庆典-标志着两国关系开始回暖",
+    "normalizedTitle": "埃尔多安出席阿塞拜疆胜利庆典 标志着两国关系开始回暖",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.794144058705
+  },
+  {
+    "id": "folo-1368982815797862400",
+    "title": "中期选举惨败后，共和党因腐败指控引发的内讧愈演愈烈",
+    "url": "https://www.ft.com/content/66e9ca46-d1ea-473c-b8d6-06ba1dfc9e76?syn-25a6b1a6=1",
+    "content": "Republican infighting mounts over corruption claims after midterms wipeout (www.ft.com) 11-08",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:20:58.630Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "中期选举惨败后-共和党因腐败指控引发的内讧愈演愈烈",
+    "normalizedTitle": "中期选举惨败后 共和党因腐败指控引发的内讧愈演愈烈",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 94.79414405863
+  },
+  {
+    "id": "folo-1368982815797862402",
+    "title": "数据揭示了英国福利政策中未言明的一面",
+    "url": "https://www.ft.com/content/62bc1938-d7ea-4be0-a5de-ec9735343009?syn-25a6b1a6=1",
+    "content": "Data says the unsaid about British welfare politics (www.ft.com) 11-08",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "politics",
+    "publishedAt": "2026-11-08T12:32:53.313Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "数据揭示了英国福利政策中未言明的一面",
+    "normalizedTitle": "数据揭示了英国福利政策中未言明的一面",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 71.794141173313
+  },
+  {
+    "id": "folo-1368952790604333056",
+    "title": "据《金融时报》报道，Anthropic以34亿美元达成协议，为人工智能数据中心采购电力",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-08/anthropic-buys-power-for-ai-data-centres-in-3-4b-deal-ft-says",
+    "content": "Anthropic Buys Power for AI Data Centres in 3.4B Deal, FT Says (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-11-08T12:03:53.483Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "金融时报-anthropic以34亿美元达成协议-为人工智能数据中心采购电力",
+    "normalizedTitle": "据 金融时报 报道 anthropic以34亿美元达成协议 为人工智能数据中心采购电力",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 89.794139433483
+  },
+  {
+    "id": "folo-1368892656297349127",
+    "title": "google-deepmind/mujoco",
+    "url": "https://github.com/google-deepmind/mujoco",
+    "content": "MuJoCo is a general-purpose physics simulator designed for simulating multi-joint dynamics with contact. Developed by Google DeepMind, the software is implemented in C++.",
+    "source": "Trending repositories on GitHub today · GitHub - google-deepmind",
+    "sourceId": "folo-ai-list-41461870197170196",
+    "category": "software",
+    "publishedAt": "2026-11-08T11:56:14.373Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "google-deepmind-mujoco",
+    "normalizedTitle": "google-deepmind mujoco",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Trending repositories on GitHub today · GitHub - google-deepmind"
+    ],
+    "preFilterScore": 171.794138974373
+  },
+  {
+    "id": "folo-1368861219905093633",
+    "title": "AI的碳排放和能耗是多少？关于Claude、DeepSeek和OpenAI，我们了解什么",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-08/what-are-ai-s-emissions-energy-use-what-we-know-about-claude-deepseek-openai",
+    "content": "The provided material consists solely of a headline and publication timestamp from Bloomberg, indicating that the original article addresses the carbon emissions and energy consumption of AI models, specifically Claude, DeepSeek, and OpenAI. No detailed analysis, statistics, or factual content regarding these companies’ environmental impacts is included in the excerpt.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-11-08T10:56:56.205Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "ai的碳排放和能耗是多少-关于claude-deepseek和openai-我们了解什么",
+    "normalizedTitle": "ai的碳排放和能耗是多少 关于claude deepseek和openai 我们了解什么",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 372.794135416205
+  },
+  {
+    "id": "folo-1368861219905093635",
+    "title": "欧盟即将达成协议，在英国脱欧后将英国碳市场与欧盟市场对接",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-08/eu-close-to-deal-to-link-uk-carbon-market-after-brexit-split",
+    "content": "EU Close to Deal to Link UK Carbon Market After Brexit Split (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-11-08T10:56:56.198Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "欧盟即将达成协议-在英国脱欧后将英国碳市场与欧盟市场对接",
+    "normalizedTitle": "欧盟即将达成协议 在英国脱欧后将英国碳市场与欧盟市场对接",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.794135416198
+  },
+  {
+    "id": "folo-1369531588685103109",
+    "title": "中国移动与智谱（Z.ai）正式签署合作协议",
+    "url": "https://readhub.cn/topic/8xtCJOqCUhs",
+    "content": "中国移动与智谱正式签署合作协议，双方围绕国产算力、大模型服务和 AI 商业化展开深度合作，智谱 GLM 系列模型将接入移动云 MaaS 平台，合作覆盖从底层算力供给、模型服务到商业化分发的完整产业链。 媒体报道\n中国移动与智谱正式签署合作协议\t同花顺财经\n中国移动与智谱达成战略合作，涉…",
+    "source": "Readhub - 每日早报 - 财联社",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "ai",
+    "publishedAt": "2026-11-08T10:20:53.995Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "中国移动与智谱-正式签署合作协议",
+    "normalizedTitle": "中国移动与智谱 z ai 正式签署合作协议",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 财联社"
+    ],
+    "preFilterScore": 145.794133253995
+  },
+  {
+    "id": "folo-1368781885081137157",
+    "title": "感觉被背刺： VSCode Remote SSH 远程服务器可以反向调用本地命令",
+    "url": "https://www.v2ex.com/t/1255361#reply0",
+    "content": "一直用 VSCode Remote SSH 连接服务器做开发，不同服务器承当不同任务，比如 AI YOLO 模式、运行一些不太信任的开源项目等。 原本觉得这样挺安全的，即使出了什么问题，最多也就是一台服务器被搞坏，直接删掉就行，不会影响到本地 Mac 上的重要文件和项目。\n\n觉得自…",
+    "source": "V2EX - 技术 - 0x535",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-11-08T09:22:45.340Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "感觉被背刺-vscode-remote-ssh-远程服务器可以反向调用本地命令",
+    "normalizedTitle": "感觉被背刺 vscode remote ssh 远程服务器可以反向调用本地命令",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - 0x535"
+    ],
+    "preFilterScore": 53.79412976534
+  },
+  {
+    "id": "folo-1368993633159536640",
+    "title": "“厉娜，涨了200亿”",
+    "url": "https://www.36kr.com/p/4060850581886088",
+    "content": "Mango Chao Media's market cap surged by 20 billion yuan, hitting a daily limit up, driven by the viral success of the variety show \"Reunion.\" The program’s emotional appeal triggered a nationwide trend, causing a temporary server crash and spiking viewer engagement. While this stock gain contrasts with a broader tech sector correction, the company's recent financial reports show a significant profit decline due to high content costs and reduced membership revenue. Investors view this surge as emotion-driven, with uncertain long-term sustainability amidst a shift toward cost-effective content consumption.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "business",
+    "publishedAt": "2026-11-08T08:43:53.063Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "“厉娜-涨了200亿”",
+    "normalizedTitle": "“厉娜 涨了200亿”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 601.794127433063
+  },
+  {
+    "id": "folo-1369531588685103111",
+    "title": "字节跳动加码拉美算力，拟扩大巴西数据中心项目",
+    "url": "https://readhub.cn/topic/8xqrbQDGFSz",
+    "content": "字节跳动正考虑扩大其在巴西东北部塞阿拉州佩森港的数据中心项目，目前正寻找开发商推进该项目二期工程，该项目可享受数据出口方面的税收优惠。此次扩建规模将超过当地已有的投资 100 亿美元、装机容量 300 兆瓦的在建项目，同时字节跳动还在初步洽谈佩森港之外一个规模相近…",
+    "source": "Readhub - 每日早报 - 格隆汇",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "software",
+    "publishedAt": "2026-11-08T07:20:53.263Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "字节跳动加码拉美算力-拟扩大巴西数据中心项目",
+    "normalizedTitle": "字节跳动加码拉美算力 拟扩大巴西数据中心项目",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 格隆汇"
+    ],
+    "preFilterScore": 134.794122453263
+  },
+  {
+    "id": "folo-1368920256428302336",
+    "title": "九成代码AI写，谁来审？Claude Code亮出6道关卡！",
+    "url": "https://www.36kr.com/p/4060672855757954",
+    "content": "Claude Code uses an AI-assisted, six-layer code review pipeline to manage surging AI-generated code, reducing rollbacks by over 40% compared to a doubled PR volume. This system integrates automated tests, independent AI review, security checks, and manual risk-based approvals. It mitigates AI review limitations through strict iteration limits and feature-flag releases. A dedicated feedback loop continuously validates detection accuracy, ensuring that human responsibility remains focused on high-risk judgments and accountability rather than line-by-line inspection.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "software",
+    "publishedAt": "2026-11-08T07:20:37.387Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "九成代码ai写-谁来审-claude-code亮出6道关卡",
+    "normalizedTitle": "九成代码ai写 谁来审 claude code亮出6道关卡",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 571.794122437387
+  },
+  {
+    "id": "folo-1368526454517587971",
+    "title": "加密货币行业正为因与特朗普的关系而面临的清算做准备",
+    "url": "https://www.ft.com/content/f1b98a61-4103-447c-bb9a-3dccc0819f61?syn-25a6b1a6=1",
+    "content": "Crypto industry braces for reckoning over Trump ties (www.ft.com) 11-08",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "investment",
+    "publishedAt": "2026-11-08T05:23:54.107Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "加密货币行业正为因与特朗普的关系而面临的清算做准备",
+    "normalizedTitle": "加密货币行业正为因与特朗普的关系而面临的清算做准备",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 72.794115434107
+  },
+  {
+    "id": "folo-1368509979090235392",
+    "title": "卖软件这个事情在未来可能是伪命题了",
+    "url": "https://www.v2ex.com/t/1255327#reply3",
+    "content": "刷到孟岩关于 AI 做软件开发的一个观点，随着 AI 能力的增强，未来人人都能通过嘴炮来做个 app 覆盖自己日常的需求，而不用等到大公司为了符合大多数人群而做的一个通用版本。这意味着，想通过做 app 来获得收益变得更难。 大家认可这个观点吗，产品经理，程序员…",
+    "source": "V2EX - 技术 - fusae",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-11-08T05:19:45.775Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "卖软件这个事情在未来可能是伪命题了",
+    "normalizedTitle": "卖软件这个事情在未来可能是伪命题了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - fusae"
+    ],
+    "preFilterScore": 43.794115185775
+  },
+  {
+    "id": "folo-1368673204876271616",
+    "title": "百度第三次改搜索框",
+    "url": "https://www.36kr.com/p/4060419503921026",
+    "content": "Baidu’s third search redesign redefines its platform from query-based linking to task-based AI delivery, generating complete solutions like itineraries or financial alerts. This shift addresses declining user engagement and ad revenue amid AI competition. Baidu simultaneously prices its search AI API at 4.9 yuan per thousand calls, undercutting rivals to capture developer ecosystem and data feedback. Unlike Google’s stable growth, Baidu faces urgent monetization pressure, necessitating a transition from advertising dependency to an infrastructure-driven model. This strategic pivot reflects a broader industry challenge where AI search reduces traditional traffic value.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "business",
+    "publishedAt": "2026-11-08T04:05:08.879Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "百度第三次改搜索框",
+    "normalizedTitle": "百度第三次改搜索框",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 601.794110708879
+  },
+  {
+    "id": "folo-1368562307176521728",
+    "title": "爆火的《持械入宋》里，AI 找到了爱它的观众",
+    "url": "https://www.36kr.com/p/4060438177698692",
+    "content": "几公里之外，正在宋代城墙上巡逻的将领，警惕地看着可能射来的弓箭，但他最后还是被击倒了——他防不住子弹。  如果是古装片，这样的剧情很离谱，但告诉你这是一部现代特种兵穿越到宋朝、所有武器装备也一同穿越，是不是显得合理很多，这就是今天登上热搜的《持械入宋》。 \n\n《持械入…",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "social",
+    "publishedAt": "2026-11-08T04:01:16.992Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "爆火的-持械入宋-找到了爱它的观众",
+    "normalizedTitle": "爆火的 持械入宋 里 ai 找到了爱它的观众",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 136.794110476992
+  },
+  {
+    "id": "folo-1368419113268949000",
+    "title": "写了个开源工具：手机照片视频无损搬到电脑，局域网直传， PC 不装任何客户端",
+    "url": "https://www.v2ex.com/t/1255317#reply0",
+    "content": "写了个工具解决自己的痛点，开源出来给大家用，求轻喷、求反馈。 GitHub： https://github.com/malatomato1989/photosmove\n\n官网：https://www.photosmove.com\n\nGoogle Play：搜索 PhotosMove…",
+    "source": "V2EX - 技术 - tushushare",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-11-08T03:53:54.350Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "写了个开源工具-手机照片视频无损搬到电脑-局域网直传-不装任何客户端",
+    "normalizedTitle": "写了个开源工具 手机照片视频无损搬到电脑 局域网直传 pc 不装任何客户端",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - tushushare"
+    ],
+    "preFilterScore": 53.79411003435
+  },
+  {
+    "id": "folo-1368434540959162368",
+    "title": "印尼总统顾问称，MSCI下调评级的威胁“有些过分”",
+    "url": "https://www.ft.com/content/32c04cee-3f49-4971-a72d-391ad52e8f58?syn-25a6b1a6=1",
+    "content": "An adviser to the Indonesian president characterized MSCI’s threat to downgrade Indonesia’s market classification as excessive.",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "business",
+    "publishedAt": "2026-11-08T03:33:55.994Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "印尼总统顾问称-msci下调评级的威胁“有些过分”",
+    "normalizedTitle": "印尼总统顾问称 msci下调评级的威胁“有些过分”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 128.794108835994
+  },
+  {
+    "id": "folo-1368329519512956933",
+    "title": "现在 ai agent 开发都用什么框架",
+    "url": "https://www.v2ex.com/t/1255302#reply0",
+    "content": "现在背景下，agent 开发好像挺热，都用什么框架啊，不要跟我说自己手搓，不要说用 langgraph，那么重你确定企业都用？",
+    "source": "V2EX - 技术 - fxjson",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-11-08T02:23:05.631Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "agent-开发都用什么框架",
+    "normalizedTitle": "现在 ai agent 开发都用什么框架",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - fxjson"
+    ],
+    "preFilterScore": -25.205895414369
+  },
+  {
+    "id": "folo-1368454690798231553",
+    "title": "一斤价格“堪比十斤猪肉”，疯涨的开心果让我不开心了",
+    "url": "https://www.36kr.com/p/4060416568529798",
+    "content": "Pistachio prices in China have surged significantly due to supply disruptions in major importing regions like California and Iran. This scarcity, combined with a robust health narrative and a viral \"light luxury\" aesthetic, has transformed the nut from a seasonal treat into a trendy ingredient. Widely adopted in desserts, beverages, and retail products, pistachios now drive premium pricing. Consequently, scalpers exploit limited stock at major retailers, while consumers willingly pay higher prices for the associated perceived elegance and health benefits.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "ai",
+    "publishedAt": "2026-11-08T01:19:03.147Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "一斤价格“堪比十斤猪肉”-疯涨的开心果让我不开心了",
+    "normalizedTitle": "一斤价格“堪比十斤猪肉” 疯涨的开心果让我不开心了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 562.794100743147
+  },
+  {
+    "id": "folo-1368289765580791808",
+    "title": "专访《持械入宋》主创 ：非科班，无投流，草根团队如何做出120亿品质爆款？",
+    "url": "https://www.36kr.com/p/4060386455443330",
+    "content": "The non-professional team behind the historical short drama *Holding Weapons into Song* achieved a 12 billion playback milestone despite having zero paid promotion and no traditional film background. Composed of six remote workers, including a ride-hailing driver and a stay-at-home mom, the team focused on rigorous historical accuracy and high-quality storytelling rather than marketing. Their success, which attracted media praise for maintaining standards despite AI's lower costs, validates that detailed narrative craftsmanship and audience engagement are more critical to viral success than technical expertise or advertising spend.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "business",
+    "publishedAt": "2026-11-08T01:12:08.662Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "持械入宋-非科班-无投流-草根团队如何做出120亿品质爆款",
+    "normalizedTitle": "专访 持械入宋 主创 非科班 无投流 草根团队如何做出120亿品质爆款",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 601.794100328662
+  },
+  {
+    "id": "folo-1368289765580791809",
+    "title": "乌兰察布，才是AI数据中心的正确答案？",
+    "url": "https://www.36kr.com/p/4059436619846784",
+    "content": "Ulanqab, Inner Mongolia, emerges as a viable solution for AI data centers, overcoming the grid and water constraints plaguing the United States. While American data center expansion drives soaring electricity prices and faces significant local opposition, China leverages Inner Mongolia’s excess renewable energy and low population density. By utilizing natural cooling, waste heat recovery, and a centralized power grid, Ulanqab’s facilities achieve high efficiency while keeping resident electricity costs stable. This model effectively addresses the resource bottlenecks limiting US infrastructure growth.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "ai",
+    "publishedAt": "2026-11-08T00:09:20.121Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "乌兰察布-才是ai数据中心的正确答案",
+    "normalizedTitle": "乌兰察布 才是ai数据中心的正确答案",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 601.794096560121
+  },
+  {
+    "id": "folo-1368309811267014656",
+    "title": "2026-11-08 Hacker News Top Stories",
+    "url": "https://supertechfans.com/cn/post/2026-11-08-HackerNews/",
+    "content": "This compilation of Hacker News stories highlights ten key topics: Mitchell Hashimoto released libghostty-vt 1.0, a stable terminal emulation library. A fan project successfully ported *Need for Speed: Underground 2* to WebAssembly for browser play. Hightouch demonstrated cost-effective LLM identity resolution, while Eighth Rank analyzed macOS’s local family relationship classifiers. Other news includes Ajeya Cotra’s analysis of AI research acceleration, Bloomberg reports on Anthropic’s potential $1.1 trillion IPO valuation, and Asahi Linux 7.3 expanding M3 Mac support. Additionally, pwn.ai detailed a specific Firecracker VM escape, a satirical \"Upload Your RAM\" site gained attention, and Kevin Boone published UEFI programming tutorials.",
+    "source": "HackerNews每日摘要 on SuperTechFans",
+    "sourceId": "folo-ai-list-41359648684677132",
+    "category": "software",
+    "publishedAt": "2026-11-07T23:33:21.743Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "2026-11-08-hacker-news-top-stories",
+    "normalizedTitle": "2026-11-08 hacker news top stories",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "HackerNews每日摘要 on SuperTechFans"
+    ],
+    "preFilterScore": 601.794094401743
+  },
+  {
+    "id": "folo-1368142498970480670",
+    "title": "微软壁纸应用已经被垃圾 AI 生图夺舍，可见 AI 时代也不能有更好的软件用户体验",
+    "url": "https://www.v2ex.com/t/1255289#reply0",
+    "content": "微软壁纸可以每天更新壁纸原本还觉得挺好用的。今天发现居然完全变成 AI 生图的链接入口，只能管理 AI 生成的图片。一个壁纸应用居然连切换壁纸的功能都没有，纯纯的垃圾。 程序员失业也挺好的，最少不用面对这些傻叉产品需求了。",
+    "source": "V2EX - 技术 - iamdhj",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-11-07T23:09:49.666Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "微软壁纸应用已经被垃圾-生图夺舍-时代也不能有更好的软件用户体验",
+    "normalizedTitle": "微软壁纸应用已经被垃圾 ai 生图夺舍 可见 ai 时代也不能有更好的软件用户体验",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - iamdhj"
+    ],
+    "preFilterScore": 22.794092989666
+  },
+  {
+    "id": "folo-1368093811707756544",
+    "title": "多名参议院共和党人呼吁推迟领导层选举",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-07/several-senate-republicans-call-for-delaying-leadership-election",
+    "content": "Several Senate Republicans Call for Delaying Leadership Election (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-11-07T21:30:51.674Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "多名参议院共和党人呼吁推迟领导层选举",
+    "normalizedTitle": "多名参议院共和党人呼吁推迟领导层选举",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.794087051674
+  },
+  {
+    "id": "folo-1368093811707756546",
+    "title": "巴拉圭总统佩尼亚被罢免后被指控犯有罪行",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-06/paraguay-senators-remove-pena-from-office-after-bank-scandal",
+    "content": "Paraguay President Peña Charged With Crimes After Ouster (www.bloomberg.com) 11-07",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-11-07T21:14:46.874Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "巴拉圭总统佩尼亚被罢免后被指控犯有罪行",
+    "normalizedTitle": "巴拉圭总统佩尼亚被罢免后被指控犯有罪行",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 83.794086086874
+  },
+  {
+    "id": "folo-1368001623002988546",
+    "title": "Meta发售250亿美元债券，凸显科技行业债务格局的变化",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-07/meta-s-bond-sale-shows-new-reality-for-tech-debt-credit-weekly",
+    "content": "Meta issued $25 billion in bonds, a transaction that underscores significant shifts in the broader technology sector’s debt market dynamics.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-11-07T20:11:48.545Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "meta发售250亿美元债券-凸显科技行业债务格局的变化",
+    "normalizedTitle": "meta发售250亿美元债券 凸显科技行业债务格局的变化",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 141.794082308545
+  },
+  {
+    "id": "folo-1369531588685103113",
+    "title": "比尔盖茨谈亿万富翁税：贫富差距不能指望靠慈善捐赠解决",
+    "url": "https://readhub.cn/topic/8xrZuiobb00",
+    "content": "Bill Gates advocates for a progressive \"billionaire tax\" to address widening wealth inequality driven by AI. He argues that charity cannot substitute for robust public policy, as extreme wealth concentration persists, with the top 1% owning half of US stock assets. Gates suggests specific measures, including taxing AI token consumption and industrial robots, to offset employment displacement and correct distributional imbalances caused by technological automation, thereby safeguarding social equity.",
+    "source": "Readhub - 每日早报 - 快科技",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "politics",
+    "publishedAt": "2026-11-07T19:14:21.244Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "比尔盖茨谈亿万富翁税-贫富差距不能指望靠慈善捐赠解决",
+    "normalizedTitle": "比尔盖茨谈亿万富翁税 贫富差距不能指望靠慈善捐赠解决",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 快科技"
+    ],
+    "preFilterScore": 505.794078861244
+  },
+  {
+    "id": "folo-1367911295495454721",
+    "title": "随着数据中心抗议活动的蔓延，欧洲各地掀起反人工智能浪潮",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-07/ai-backlash-spreads-across-europe-with-data-center-protests",
+    "content": "AI Backlash Spreads Across Europe With Data Center Protests (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-11-07T18:52:46.128Z",
+    "fetchedAt": "2026-11-08T23:58:17.287Z",
+    "eventKey": "随着数据中心抗议活动的蔓延-欧洲各地掀起反人工智能浪潮",
+    "normalizedTitle": "随着数据中心抗议活动的蔓延 欧洲各地掀起反人工智能浪潮",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 86.794077566128
+  },
+  {
+    "id": "folo-1367885809008541697",
+    "title": "“食人魔”摩西落网，“15年间杀害并食用38人” | 原文",
+    "url": "https://t.me/wxbyg/8575",
+    "content": "Uganda’s military announced the arrest of Muzuriki Moses, who is accused of murdering and consuming 38 people over 15 years. General Muhoozi Kainerugaba revealed that security forces captured Moses, who allegedly committed crimes in Masaka, Ibanda, and Kazo between 2010 and 2025. The arrest has renewed public attention to a decade-old series of homicides. Authorities plan to hold a public trial and seek the death penalty for the suspect.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-11-07T18:12:00.036Z",
+    "fetchedAt": "2026-11-08T23:58:17.287Z",
+    "eventKey": "“食人魔”摩西落网-“15年间杀害并食用38人”",
+    "normalizedTitle": "“食人魔”摩西落网 “15年间杀害并食用38人” 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 352.794075120036
+  },
+  {
+    "id": "folo-1368509979090235410",
+    "title": "寻找一个 ai 开发的底盘框架。",
+    "url": "https://www.v2ex.com/t/1255281#reply2",
+    "content": "用了几年的 directus ，现在也要收费才能解锁能力了。只有 25 Collections ，ai 写一些复杂的可能会碰上限，约束着写一些 crud 的应用没啥问题。 然后看了 supabase ，能力限制基本很少，收费的更多的是资源，正在转。\n\n那么大伙是怎么选框架的？直接让…",
+    "source": "V2EX - 技术 - mushokumunou",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-11-07T16:32:07.447Z",
+    "fetchedAt": "2026-11-08T23:58:17.287Z",
+    "eventKey": "寻找一个-开发的底盘框架",
+    "normalizedTitle": "寻找一个 ai 开发的底盘框架",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - mushokumunou"
+    ],
+    "preFilterScore": 53.794069127447
+  }
+]

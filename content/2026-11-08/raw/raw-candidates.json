@@ -1,0 +1,939 @@
+[
+  {
+    "id": "folo-1369215144017448964",
+    "title": "I'm not a fan of Deno's security model (2024)",
+    "url": "https://goldstein.lol/posts/deno-security/",
+    "content": "Points: 76 Comments on Hacker News | Source",
+    "source": "Hacker News",
+    "sourceId": "folo-ai-list-52325519371718656",
+    "category": "tech",
+    "publishedAt": "2026-11-08T14:42:38.945Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "not-fan-deno-security-model-2024",
+    "normalizedTitle": "i m not a fan of deno s security model 2024",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Hacker News"
+    ],
+    "preFilterScore": -45.205851041055
+  },
+  {
+    "id": "folo-1369133988127457280",
+    "title": "哈卡比·桑德斯规划2028年竞选之路，将特朗普白宫经历与信仰、健康相结合",
+    "url": "https://www.bloomberg.com/news/features/2026-11-08/huckabee-sanders-charts-2028-path-blends-trump-white-house-with-faith-health",
+    "content": "Huckabee Sanders Charts 2028 Path, Blends Trump White House With Faith, Health (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T14:39:44.234Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "哈卡比·桑德斯规划2028年竞选之路-将特朗普白宫经历与信仰-健康相结合",
+    "normalizedTitle": "哈卡比·桑德斯规划2028年竞选之路 将特朗普白宫经历与信仰 健康相结合",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 105.794148784234
+  },
+  {
+    "id": "folo-1369073481399853056",
+    "title": "各国排放量的对比情况",
+    "url": "https://www.ft.com/content/9dfb0201-ef77-4c05-93cd-1e277c7017cf?syn-25a6b1a6=1",
+    "content": "How each country’s emissions compare (www.ft.com) 11-08",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-11-08T14:39:44.160Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "各国排放量的对比情况",
+    "normalizedTitle": "各国排放量的对比情况",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 56.79414878416
+  },
+  {
+    "id": "folo-1369073481399853057",
+    "title": "都柏林推出统一爱尔兰的“蓝图”",
+    "url": "https://www.ft.com/content/e372642c-81a5-4098-8fdf-d118d22fa896?syn-25a6b1a6=1",
+    "content": "Dublin launches ‘blueprint’ for united Ireland (www.ft.com) 11-08",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-11-08T14:39:44.131Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "都柏林推出统一爱尔兰的“蓝图”",
+    "normalizedTitle": "都柏林推出统一爱尔兰的“蓝图”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 66.794148784131
+  },
+  {
+    "id": "folo-1369073481399853058",
+    "title": "英国文化大臣丽莎·南迪质疑重新加入欧盟是否是“我们能做出的选择”",
+    "url": "https://www.ft.com/content/1401fe6f-52a2-4639-bed3-67cc828085f1?syn-25a6b1a6=1",
+    "content": "UK culture secretary Lisa Nandy questions whether rejoining EU is a ‘choice we have’ (www.ft.com) 11-08",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-11-08T14:39:44.099Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "英国文化大臣丽莎·南迪质疑重新加入欧盟是否是“我们能做出的选择”",
+    "normalizedTitle": "英国文化大臣丽莎·南迪质疑重新加入欧盟是否是“我们能做出的选择”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 104.794148784099
+  },
+  {
+    "id": "folo-1369133988144234496",
+    "title": "特朗普时代倒计时开始，华尔街竞相追逐巨额交易",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-08/wall-street-races-for-megadeals-as-countdown-begins-on-trump-era",
+    "content": "Wall Street Races for Megadeals as Countdown Begins on Trump Era (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T14:23:48.017Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "特朗普时代倒计时开始-华尔街竞相追逐巨额交易",
+    "normalizedTitle": "特朗普时代倒计时开始 华尔街竞相追逐巨额交易",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.794147828017
+  },
+  {
+    "id": "folo-1369073481399853059",
+    "title": "红杉资本的新任高管们彻底清除了博塔时代的最后残余",
+    "url": "https://www.ft.com/content/abf66424-1738-4c1b-9d6b-a868be30b474?syn-25a6b1a6=1",
+    "content": "Sequoia’s new chiefs sweep away last remnants of Botha era (www.ft.com) 11-08",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-11-08T14:23:47.954Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "红杉资本的新任高管们彻底清除了博塔时代的最后残余",
+    "normalizedTitle": "红杉资本的新任高管们彻底清除了博塔时代的最后残余",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 78.794147827954
+  },
+  {
+    "id": "folo-1369330719708319744",
+    "title": "台湾“九合一”选举：四成“陆配”参选遭剔除，身分“法理死结”如何困住参政之路？",
+    "url": "https://www.bbc.com/zhongwen/articles/cm4g1ynq5n5jo/simp#5",
+    "content": "<div></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/d87a/live/b52594a0-d676-11f1-b441-2b33b063138f.png\" alt=\"参选竹北市市长的前民众党立委李贞秀\" width=\"1580\" height=\"888\"><p><span>图像来源，</span><span>BBC Chinese/Joy Chang</span></p></div><span>参选竹北市市长的前民众党立委李贞秀，是其中一位不符资格的陆配。</span></div><section><strong id=\"user-content-article-byline\">Article Information</strong><ul><li><ul><li><span><span>Author, </span><span>潘柏林</span></span></li><li><span><span>Role,  </span><span>BBC中文特约记者</span></span><span></span></li><li><span><span>Reporting from,  </span><span>台北</span></span></li></ul></li><li><div><span>Published </span>2026年11月2日</div></li><li><div><span>阅读时间: 4 分钟</span></div></li></ul></section><div><p>台湾下月举行“九合一”地方选举，今年有25位“陆配”参选，当中逾4成参选人不符“除籍满10年”的参选资格，令参选人数减少至14人，较上届19位参选陆配更少。</p></div><div><p>参选竹北市市长的前民众党立委李贞秀，是其中一位不符资格的陆配，她向法院声请保留参选资格，法官在10月22日驳回声请，但同时表明相关议题尚须经繁琐的证据调查，为后续法律争议留下悬念。</p></div><div><p>“除籍满10年”如何计算，成为这届选举多位陆配被剔除参选资格的争议焦点。BBC中文核对各县市选委会官网资料，新竹县以外，台北市、台中市和花莲县都有陆配不符“除籍10年”的例子。</p></div><div><p>有学者分析，陆配参选门槛随两岸情势和台湾政党轮替变化，本届选举民进党政府采取严格审查，打击陆配参与公共事务和从政的意愿，让陆配群体更多只在台湾过“社会生活”。</p></div><div><h2 tabindex=\"-1\" id=\"user-content-法庭裁决仍留下悬念\">法庭裁决仍留下悬念</h2></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/bad8/live/7cb56890-d674-11f1-80af-4d73e0368a69.png\" alt=\"李贞秀月前登记参选竹北市长\" width=\"1656\" height=\"931\"><p><span>图像来源，</span><span>Facebook/李貞秀</span></p></div><span>李贞秀月前登记参选竹北市长</span></div><div><p>“陆配”是台湾普遍对中国大陆籍配偶的简称，近年也被称为“中配”或“中国婚姻移民”。目前近37万名陆配在台湾，其中约14.8万人已取得中华民国身份证。</p></div><section><div id=\"user-content-dotcom-mpu\"></div></section><div><p>李贞秀因不获批参选竹北市市长，早前向台北高等行政法院提出声请，要求保留参选资格。</p></div><div><p>法院在10月22日驳回声请，法官指李贞秀于1999年12月首次在台湾设立户籍，至2025年3月才补缴大陆户籍注销证明，因为除籍未满10年，被取消参选资格，形容“以现有事证，于法尚有据”。至于陆委会是否增加法律所无之限制，以及原处分是否违反比例原则等，法官认为尚须经过繁琐的调查程序。</p></div><div><p>李贞秀对裁决深感遗憾，决定放弃抗告。她强调法律不应因人而异，不能因为无法选择的出生背景，将特定族群当成二等公民。</p></div><section><div><a href=\"#end-of-recommendations\" target=\"_blank\">Skip 热读 and continue reading</a><div><strong><span><span><span id=\"user-content-recommendations-heading\">热读</span></span></span></strong></div><ul><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/9d77/live/6acdd880-db5e-11f1-b441-2b33b063138f.jpg\" alt=\"波蘭克拉科夫中央市集廣場外圍悼念群眾在警察封鎖線外留下蠟燭與鮮花，一名警員在封鎖線後站崗（8/11/2026）\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/c64g1n74j259o/simp\" target=\"_blank\">波兰克拉科夫“极右翼”枪击案致六人死亡 我们所知多少</a></div></div></div></li><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/79bc/live/19d4a530-d90b-11f1-93e1-3b657b665bcf.jpg\" alt=\"Labubu的超級粉絲Ensito與一個亮綠色的Labubu娃娃合影，笑容燦爛。 Ensito戴著特製的尖刺假牙，模仿Labubu的笑容。\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/c6r7yg9xkdy8o/simp\" target=\"_blank\">销量急挫，Labubu热潮正在退烧吗？</a></div></div></div></li><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/44f1/live/699ff730-daab-11f1-93e1-3b657b665bcf.jpg\" alt=\"米歇爾·巴尼耶在巴黎接受BBC連線專訪（2026年11月8日播出）\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/c9rkyg7728vxo/simp\" target=\"_blank\">原欧盟脱欧谈判代表巴尼耶BBC受访：单一市场协议英国不能“挑肥拣瘦”</a></div></div></div></li><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/744d/live/a1131d00-d8e9-11f1-8a29-751f921d505b.jpg\" alt=\"一个人手里拿着一台手机，在看中共大会\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/c6gm0rdzm0rdo/simp\" target=\"_blank\">从蔡康永、《VIVANT》到姆巴佩：北京为何区别处理“辱华”事件？</a></div></div></div></li></ul><p tabindex=\"-1\" id=\"user-content-end-of-recommendations\">End of 热读</p></div></section><div><p>台湾律师庄秀铭曾担任地方法院法官，他向BBC中文表示，李贞秀声请保留参选资格，是属于处理紧急状态的诉讼，声请人必须有十分明显证据说服法官，才会获批。</p></div><div><p>台湾政治大学法学院副教授林佳和向BBC中文表示，这次裁决“暂时先避开”《国籍法》的争论，相关争议的法律诉讼空间依旧，包括行政诉讼、最高行政法院的上诉审，日后亦可能变成宪法争议，进入宪法诉讼。</p></div><section><div><a href=\"#end-of-article-links-block\" target=\"_blank\">Skip content and continue reading</a><div><ul><li><div><a href=\"https://www.bbc.com/zhongwen/articles/c1evyz9qxvjo/trad\" target=\"_blank\">台湾首位“陆配”立委李贞秀：效忠哪一国？<svg viewBox=\"0 0 32 32\" width=\"12\" height=\"12\"><path d=\"M21.6 14.3L5.5 31h6.4l14.6-15L11.9 1H5.5l16.1 16.7v-3.4z\"></path></svg></a>2026年1月30日</div></li><li><div><a href=\"https://www.bbc.com/zhongwen/articles/c77gr3163dxo/trad\" target=\"_blank\">台湾收紧陆配参选资格：“设籍满十年”改为“除籍满十年”意味什么？<svg viewBox=\"0 0 32 32\" width=\"12\" height=\"12\"><path d=\"M21.6 14.3L5.5 31h6.4l14.6-15L11.9 1H5.5l16.1 16.7v-3.4z\"></path></svg></a>2026年7月23日</div></li></ul></div><p tabindex=\"-1\" id=\"user-content-end-of-article-links-block\">End of content</p></div></section><div><h2 tabindex=\"-1\" id=\"user-content-四成陆配被剔除涉及多个县市\">四成陆配被剔除、涉及多个县市</h2></div><div><p>李贞秀不是唯一被取消参选资格的陆配。</p></div><div><p>台湾陆委会副主委梁文杰在10月1日表示，经初步查证，今年25位参选的陆配，有4人没有缴交丧失中国大陆户籍证明；另外有7人有缴交证明，但除籍未满10年。</p></div><div><p>换言之，本届选举多达4成陆配参选人不符合资格。</p></div><div><p>台湾中央选举委员会回覆BBC中文查询，确认九合一选举有11位陆配不符候选人资格，当中包括参选直辖市议员1人、乡镇市长1人、村里长9人。另外14位陆配已缴附丧失原籍证明满10年，符合参选资格，包括参选县议员2人、乡镇市民代表2人、村里长10人。</p></div><div><p>资料显示，上届九合一选举共有19位陆配参选，本届则仅有14人符合资格，减少了5人。</p></div><div><p>目前已知台北市议员参选人游智彬、花莲县富里乡学田村村长参选人赖汶佑、台中和台北各有一名里长参选人，均因为提交除籍证明未满10年，无法登记参选。</p></div><div><p>国台办发言人张晗今年7月回应陆配参选争议，她指出大陆和台湾同属一个中国，两岸同胞是一家人，根本不存在所谓“国籍”问题，批评民进党肆意打压欺凌陆配群体，变本加厉限缩他们在台湾的参政权利。</p></div><div><p>梁文杰在10月22日称，曾在中国设籍的人士，来台后没有完成身分转换的必备程序，“是他们没有取得（参选）资格，不是我们把他的资格取消，这个是有差别的”。</p></div><div><p>国立台北大学公共行政暨政策学系刘嘉薇教授向BBC中文表示，执政民进党在两岸政策采取抗中保台态度，影响对陆配参选标准渐趋严格，“即使她已经成为台湾人的配偶，还是比较不相信她们能够去保卫台湾的国家安全。”</p></div><div><div><div><div><strong>你的器材不支持播放多媒体材料</strong></div><span>Play video, \"延宕20年清查雙重身分  台灣限期要求陸配補件「大陸除籍證明」引起恐慌\", 节目全长 8,33</span><div><svg viewBox=\"0 0 12 12\" width=\"12\" height=\"12\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\"><path d=\"M.5.6h12v12H.5z\"></path><path fill=\"currentColor\" d=\"M2.144.96v11.28l8.712-5.64z\"></path></g></svg></div>08:33<div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/images/ic/512xn/p0l7x6dm.jpg\" alt=\"\"></div></div></div><span>延宕20年清查双重身分  台湾限期要求陆配补件“大陆除籍证明”引起恐慌</span></div><div><h2 tabindex=\"-1\" id=\"user-content-陆委会核释除籍满十年成参选门槛\">陆委会核释：“除籍满十年”成参选门槛</h2></div><div><p>陆配参选资格争议，源于各方对《台湾地区与大陆地区人民关系条例》（简称两岸条例）第21条的诠释差异。</p></div><div><p>根据《两岸条例》第21条，以往大陆地区人民“在台湾地区设有户籍满十年”，便可以登记为公职候选人。</p></div><div><p>到今年4月，陆委会发布解释令函，核释《两岸条例》第21条，指出中国大陆人民申请定居，未向主管机关提出丧失原籍证明文件前，因尚兼具中国大陆人民身分，无从解释其已完成两岸身分转换，“在身分转换过渡期间，依法无从主张已具有完整且稳定之台湾人民身分并享有相关权利”。</p></div><div><p>随后中选会在7月宣布，陆配未来若申请登记为候选人，要缴交“丧失原籍证明”满十年，才符合“在台湾设籍满10年”的参选资格。当时中选会主委游盈隆强调，这是单纯的行政作业程序，“没有什么这些复杂的政治考量在里面”。</p></div><div><p>对部分已在台设籍多年，但尚未取消中国户籍满10年的陆配，根据最新核释便不符参选资格，例如李贞秀于2024年立委选举前后，仍持有中国大陆户籍，直至2025年3月才补缴“丧失原籍证明”。</p></div><div><p>法律学者林佳和指出，陆籍参选争议关键，在于台湾政府如何认定大陆地区人民的国籍及法律身分。</p></div><div><p>他表示，《两岸人民关系条例》最早的立法思路，一方面不承认中华人民共和国存在，将大陆地区人民视为特殊的“本国人”，立法者加上特殊要件，要求大陆地区人民在台设籍满10年，才可参选公职。</p></div><div><p>但蔡英文在执政最后一年，行政院在2023年5月通令各部会，停止适用或不再援用“大陆地区人民亦为中华民国人民”等相关函释，并指出中国大陆人民不具中华民国国籍。</p></div><div><p>林佳和指出，赖清德政府进一步延续这一立场，包括透过核释《两岸条例》第21条，要求当事人缴交丧失中国大陆户籍证明后，才开始计算参选所需的“在台设籍10年”年限。</p></div><div><p>政治学者刘嘉薇认为，在严格审查下，实际效果是降低陆配的参选意愿。“他（陆配）好像只能在台湾过一种社会的生活，可是政治的生活，是没有办法去参选的。对于他融入台湾社会，其实是会有影响。”</p></div><div><div><div><div><strong>你的器材不支持播放多媒体材料</strong></div><span>Play video, \"兩岸緊張關係下，夾在中間的「陸配」子女如何和家庭、和自己和解？\", 节目全长 16,23</span><div><svg viewBox=\"0 0 12 12\" width=\"12\" height=\"12\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\"><path d=\"M.5.6h12v12H.5z\"></path><path fill=\"currentColor\" d=\"M2.144.96v11.28l8.712-5.64z\"></path></g></svg></div>16:23<div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/images/ic/512xn/p0lgswzr.jpg\" alt=\"\"></div></div></div><span>两岸紧张关系下，夹在中间的“陆配”子女如何和家庭、和自己和解？</span></div><div><h2 tabindex=\"-1\" id=\"user-content-放弃中国国籍为何成难题\">放弃中国国籍，为何成难题？</h2></div><div><p>陆配除了在参选时要符合放弃中国户籍满10年条件，当选后一年内亦要放弃中国国籍。</p></div><div><p>根据台湾《国籍法》第20条第4项规定，中华民国国民兼具“外国国籍”者，拟任公职时应于就职前办理放弃外国国籍，并于就职之日起一年内，完成丧失该国国籍及取得证明文件。若届期未完成，应予免职。</p></div><div><p>台湾内政部在2026年4月1日重申，原中国大陆人民取得台湾身分后，当选公职仍须遵守《国籍法》第20条，意味陆配需放弃中国国籍。</p></div><div><p>不过，陆配实际要放弃国籍难度极高。中国大陆法律规定，必须定居外国才能申请放弃国籍，在当下两岸形势下，北京当局并不视台湾为一个“国家”。</p></div><div><p>前花莲县富里乡学田村村长邓万华，因未放弃中国国籍，去年8月遭富里乡公所解除职务，成为全台首位因国籍问题被解职的陆配村里长。邓万华表示，曾请在中国的家人帮忙询问放弃国籍，结果被任职公安局的同学臭骂了一通。</p></div><div><p>台湾中研院法律学研究所研究员苏彦图曾对BBC中文指出，“中国绝对不承认台湾是一个国家，不可能因为你已经移民到台湾，就允许你放弃国籍。”</p></div><div><p>学者林佳和指出，陆配即便放弃中国国籍，也引起不少国安疑虑，例如有人主张应剥夺或一定期间限制其狭义的公民权，包括选举权或被选举权。他不完全赞同有关主张，“因为这是个重要的人权议题，不应该一概而论地对陆配有比一般外国人归化后更加严格的限制。”</p></div><div><p>林佳和认为，应在国家安全的脉络下，依据个案具体情况去处理，而非过度形式主义的以期间长短来决定其权利。</p></div>",
+    "source": "BBC News 中文",
+    "sourceId": "feedx-bbc",
+    "category": "politics",
+    "publishedAt": "2026-11-08T14:13:02.257Z",
+    "fetchedAt": "2026-11-08T23:58:27.359Z"
+  },
+  {
+    "id": "folo-1369043412803665920",
+    "title": "民主党大获全胜，拉丁美洲各地与特朗普有关的交易面临考验",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-08/democratic-sweep-tests-trump-linked-trades-across-latin-america",
+    "content": "Democratic Sweep Tests Trump-Linked Trades Across Latin America (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:51:48.069Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "民主党大获全胜-拉丁美洲各地与特朗普有关的交易面临考验",
+    "normalizedTitle": "民主党大获全胜 拉丁美洲各地与特朗普有关的交易面临考验",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 90.794145908069
+  },
+  {
+    "id": "folo-1369040265850925061",
+    "title": "分析一个 macos 的文件管理器",
+    "url": "https://www.v2ex.com/t/1255391#reply0",
+    "content": "开源免费，自己做的 之前用 qspace 感觉太重了，而且收费，参考的做了一个，性能和大小感觉都不错 希望大家提出建议 https://liceal.github.io/maple/ https://github.com/liceal/maple",
+    "source": "V2EX - 技术 - liceal",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-11-08T13:42:54.777Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "分析一个-macos-的文件管理器",
+    "normalizedTitle": "分析一个 macos 的文件管理器",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - liceal"
+    ],
+    "preFilterScore": 34.794145374777
+  },
+  {
+    "id": "folo-1369531588685103107",
+    "title": "2026 年 10 月海外短剧百强榜：中国厂商占 82 席，下载收入前三均为中国应用",
+    "url": "https://readhub.cn/topic/8xsknqe0Bmh",
+    "content": "今年 10 月海外短剧百强榜中 82 部作品主投平台为中国厂商，下载与收入榜前三均为中国应用。2026 年 1 至 9 月下载榜前三分别为昆仑万维旗下 FreeReels、中文在线参股枫叶互动旗下 ReelShort、麦芽旗下 NetShort，收入榜前三为点众旗下…",
+    "source": "Readhub - 每日早报 - 快科技",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:25:15.383Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "2026-月海外短剧百强榜-中国厂商占-下载收入前三均为中国应用",
+    "normalizedTitle": "2026 年 10 月海外短剧百强榜 中国厂商占 82 席 下载收入前三均为中国应用",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 快科技"
+    ],
+    "preFilterScore": 135.794144315383
+  },
+  {
+    "id": "folo-1369043412803665922",
+    "title": "选举干预并非凭空消失",
+    "url": "https://www.bloomberg.com/opinion/articles/2026-11-08/election-interference-didn-t-simply-disappear-on-its-own",
+    "content": "Election Interference Didn't Simply Disappear on Its Own (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-11-08T13:20:58.729Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "选举干预并非凭空消失",
+    "normalizedTitle": "选举干预并非凭空消失",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 83.794144058729
+  },
+  {
+    "id": "folo-1369043412803665923",
+    "title": "洛杉矶新任市长将让“民主社会主义者联盟”（DSA）的治理模式在市政厅接受考验",
+    "url": "https://www.bloomberg.com/opinion/articles/2026-11-08/la-s-new-mayor-will-put-dsa-governance-to-the-city-hall-test",
+    "content": "LA's New Mayor Will Put DSA Governance to the City Hall Test (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:20:58.726Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "洛杉矶新任市长将让“民主社会主义者联盟”-dsa-的治理模式在市政厅接受考验",
+    "normalizedTitle": "洛杉矶新任市长将让“民主社会主义者联盟” dsa 的治理模式在市政厅接受考验",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.794144058726
+  },
+  {
+    "id": "folo-1369043412803665924",
+    "title": "特朗普仍能改变世界的五种方式",
+    "url": "https://www.bloomberg.com/opinion/features/2026-11-08/five-ways-trump-can-still-change-the-world",
+    "content": "Five Ways Trump Can Still Change the World (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:20:58.722Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "特朗普仍能改变世界的五种方式",
+    "normalizedTitle": "特朗普仍能改变世界的五种方式",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 69.794144058722
+  },
+  {
+    "id": "folo-1369043412803665925",
+    "title": "民主需要容纳宗教差异的空间",
+    "url": "https://www.bloomberg.com/opinion/articles/2026-11-08/democracy-needs-room-for-religious-difference",
+    "content": "Democracy Needs Room for Religious Difference (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:20:58.719Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "民主需要容纳宗教差异的空间",
+    "normalizedTitle": "民主需要容纳宗教差异的空间",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 72.794144058719
+  },
+  {
+    "id": "folo-1369043412803665926",
+    "title": "“蓝色浪潮”？这次中期选举的意义远不止于那些拙劣的比喻",
+    "url": "https://www.bloomberg.com/opinion/newsletters/2026-11-08/blue-wave-these-midterms-were-bigger-than-bad-metaphors",
+    "content": "Blue Wave? These Midterms Were Bigger Than Bad Metaphors (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:20:58.715Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "“蓝色浪潮”-这次中期选举的意义远不止于那些拙劣的比喻",
+    "normalizedTitle": "“蓝色浪潮” 这次中期选举的意义远不止于那些拙劣的比喻",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 83.794144058715
+  },
+  {
+    "id": "folo-1369043412803665927",
+    "title": "巴尔的摩皮尔博物馆设想拆除琼斯福尔斯高速公路",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-11-08/baltimore-s-peale-museum-imagines-tearing-down-jones-falls-expressway",
+    "content": "Baltimore's Peale Museum Imagines Tearing Down Jones Falls Expressway (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:20:58.712Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "巴尔的摩皮尔博物馆设想拆除琼斯福尔斯高速公路",
+    "normalizedTitle": "巴尔的摩皮尔博物馆设想拆除琼斯福尔斯高速公路",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 96.79414405871199
+  },
+  {
+    "id": "folo-1369043412803665928",
+    "title": "埃尔多安出席阿塞拜疆胜利庆典，标志着两国关系开始回暖",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-08/erdogan-joins-azerbaijan-victory-celebrations-in-sign-of-thaw",
+    "content": "Erdogan Joins Azerbaijan Victory Celebration in Sign of Thaw (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:20:58.705Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "埃尔多安出席阿塞拜疆胜利庆典-标志着两国关系开始回暖",
+    "normalizedTitle": "埃尔多安出席阿塞拜疆胜利庆典 标志着两国关系开始回暖",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.794144058705
+  },
+  {
+    "id": "folo-1368982815797862400",
+    "title": "中期选举惨败后，共和党因腐败指控引发的内讧愈演愈烈",
+    "url": "https://www.ft.com/content/66e9ca46-d1ea-473c-b8d6-06ba1dfc9e76?syn-25a6b1a6=1",
+    "content": "Republican infighting mounts over corruption claims after midterms wipeout (www.ft.com) 11-08",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "tech",
+    "publishedAt": "2026-11-08T13:20:58.630Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "中期选举惨败后-共和党因腐败指控引发的内讧愈演愈烈",
+    "normalizedTitle": "中期选举惨败后 共和党因腐败指控引发的内讧愈演愈烈",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 94.79414405863
+  },
+  {
+    "id": "folo-1368982815797862402",
+    "title": "数据揭示了英国福利政策中未言明的一面",
+    "url": "https://www.ft.com/content/62bc1938-d7ea-4be0-a5de-ec9735343009?syn-25a6b1a6=1",
+    "content": "Data says the unsaid about British welfare politics (www.ft.com) 11-08",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "politics",
+    "publishedAt": "2026-11-08T12:32:53.313Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "数据揭示了英国福利政策中未言明的一面",
+    "normalizedTitle": "数据揭示了英国福利政策中未言明的一面",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 71.794141173313
+  },
+  {
+    "id": "folo-1368952790604333056",
+    "title": "据《金融时报》报道，Anthropic以34亿美元达成协议，为人工智能数据中心采购电力",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-08/anthropic-buys-power-for-ai-data-centres-in-3-4b-deal-ft-says",
+    "content": "Anthropic Buys Power for AI Data Centres in 3.4B Deal, FT Says (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-11-08T12:03:53.483Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "金融时报-anthropic以34亿美元达成协议-为人工智能数据中心采购电力",
+    "normalizedTitle": "据 金融时报 报道 anthropic以34亿美元达成协议 为人工智能数据中心采购电力",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 89.794139433483
+  },
+  {
+    "id": "folo-1368892656297349127",
+    "title": "google-deepmind/mujoco",
+    "url": "https://github.com/google-deepmind/mujoco",
+    "content": "MuJoCo is a general-purpose physics simulator designed for simulating multi-joint dynamics with contact. Developed by Google DeepMind, the software is implemented in C++.",
+    "source": "Trending repositories on GitHub today · GitHub - google-deepmind",
+    "sourceId": "folo-ai-list-41461870197170196",
+    "category": "software",
+    "publishedAt": "2026-11-08T11:56:14.373Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "google-deepmind-mujoco",
+    "normalizedTitle": "google-deepmind mujoco",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Trending repositories on GitHub today · GitHub - google-deepmind"
+    ],
+    "preFilterScore": 171.794138974373
+  },
+  {
+    "id": "folo-1368861219905093633",
+    "title": "AI的碳排放和能耗是多少？关于Claude、DeepSeek和OpenAI，我们了解什么",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-08/what-are-ai-s-emissions-energy-use-what-we-know-about-claude-deepseek-openai",
+    "content": "The provided material consists solely of a headline and publication timestamp from Bloomberg, indicating that the original article addresses the carbon emissions and energy consumption of AI models, specifically Claude, DeepSeek, and OpenAI. No detailed analysis, statistics, or factual content regarding these companies’ environmental impacts is included in the excerpt.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-11-08T10:56:56.205Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "ai的碳排放和能耗是多少-关于claude-deepseek和openai-我们了解什么",
+    "normalizedTitle": "ai的碳排放和能耗是多少 关于claude deepseek和openai 我们了解什么",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 372.794135416205
+  },
+  {
+    "id": "folo-1368861219905093635",
+    "title": "欧盟即将达成协议，在英国脱欧后将英国碳市场与欧盟市场对接",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-08/eu-close-to-deal-to-link-uk-carbon-market-after-brexit-split",
+    "content": "EU Close to Deal to Link UK Carbon Market After Brexit Split (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "business",
+    "publishedAt": "2026-11-08T10:56:56.198Z",
+    "fetchedAt": "2026-11-08T23:58:09.062Z",
+    "eventKey": "欧盟即将达成协议-在英国脱欧后将英国碳市场与欧盟市场对接",
+    "normalizedTitle": "欧盟即将达成协议 在英国脱欧后将英国碳市场与欧盟市场对接",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 87.794135416198
+  },
+  {
+    "id": "folo-1369531588685103109",
+    "title": "中国移动与智谱（Z.ai）正式签署合作协议",
+    "url": "https://readhub.cn/topic/8xtCJOqCUhs",
+    "content": "中国移动与智谱正式签署合作协议，双方围绕国产算力、大模型服务和 AI 商业化展开深度合作，智谱 GLM 系列模型将接入移动云 MaaS 平台，合作覆盖从底层算力供给、模型服务到商业化分发的完整产业链。 媒体报道\n中国移动与智谱正式签署合作协议\t同花顺财经\n中国移动与智谱达成战略合作，涉…",
+    "source": "Readhub - 每日早报 - 财联社",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "ai",
+    "publishedAt": "2026-11-08T10:20:53.995Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "中国移动与智谱-正式签署合作协议",
+    "normalizedTitle": "中国移动与智谱 z ai 正式签署合作协议",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 财联社"
+    ],
+    "preFilterScore": 145.794133253995
+  },
+  {
+    "id": "folo-1369019779360133121",
+    "title": "美国中期选举：共和党失去两院，对华政策与对台军售会转向吗？",
+    "url": "https://www.bbc.com/zhongwen/articles/cqr7ydkrnpxno/simp#1",
+    "content": "<div></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/f64c/live/aa7ca7c0-b8ba-11f1-b6e4-571e60ca6955.jpg\" alt=\"2026年9月24日，美国总统特朗普与中国国家主席习近平在美国华盛顿特区的白宫一同漫步。\" width=\"2379\" height=\"1338\"><p><span>图像来源，</span><span>Reuters</span></p></div><span>学者向BBC中文分析，会谈最重要的成就在于展示两国关系“正面友好的氛围和形象”。</span></div><section><strong id=\"user-content-article-byline\">Article Information</strong><ul><li><ul><li><span><span>Author, </span><span>吕嘉鸿</span></span></li><li><span><span>Role,  </span><span>BBC 中文记者</span></span></li></ul></li><li><div><span>Published </span>2026年11月6日</div></li><li><div><span>阅读时间: 4 分钟</span></div></li></ul></section><div><p>美国中期选举结果出炉，民主党在参众两院同时翻盘，共和党总统特朗普（Donald Trump，又译川普）的第二任期后半段将在“跛脚”状态下展开。这场选举不只改变华盛顿的权力版图，也可能牵动美中关系与台湾议题的走向。</p></div><div><p>时机尤其敏感。11月18至19日，亚太经合组织（APEC）领导人峰会将在深圳举行；12月中，特朗普与习近平还可能在迈阿密G20峰会再度会面。价值140亿美元的对台军售案正卡在特朗普手中，他今年5月曾公开称这笔军售是“很好的谈判筹码”。民主党掌控国会后，出口管制、晶片限制与军售节奏会否出现新的拉锯，成为观察焦点。</p></div><div><p>多位专家向BBC中文分析，美国两党在对华问题上的共识深厚，总统仍是政策主导者，大方向不会因国会易主而改变；真正的变化在于监督力度，民主党将透过听证会、传票、《国防授权法》与拨款法案，严格审视特朗普与北京达成的贸易休战。</p></div><div><p>与此同时，多位长期支持台湾的共和党“台湾连线”议员落马，也意味着台北必须重新经营与新生代民主党议员的关系。</p></div><section><div><a href=\"#end-of-article-links-block\" target=\"_blank\">Skip content and continue reading</a><div><ul><li><div><a href=\"https://www.bbc.com/zhongwen/articles/ckreyrxvg3xyo/trad\" target=\"_blank\">美国中期选举结果对中国和世界各国意味着什么？<svg viewBox=\"0 0 32 32\" width=\"12\" height=\"12\"><path d=\"M21.6 14.3L5.5 31h6.4l14.6-15L11.9 1H5.5l16.1 16.7v-3.4z\"></path></svg></a>2026年11月4日</div></li><li><div><a href=\"https://www.bbc.com/zhongwen/articles/c6pwg52xjp8jo/trad\" target=\"_blank\">“特习会”后两架美国 F-16V 抵台 “虽迟但到”的时机与信号<svg viewBox=\"0 0 32 32\" width=\"12\" height=\"12\"><path d=\"M21.6 14.3L5.5 31h6.4l14.6-15L11.9 1H5.5l16.1 16.7v-3.4z\"></path></svg></a>2026年10月5日</div></li><li><div><a href=\"https://www.bbc.com/zhongwen/articles/c30j26p3l9no/trad\" target=\"_blank\">详解美国破纪录对台军售：价值111亿美元的非对称式防御蓝图<svg viewBox=\"0 0 32 32\" width=\"12\" height=\"12\"><path d=\"M21.6 14.3L5.5 31h6.4l14.6-15L11.9 1H5.5l16.1 16.7v-3.4z\"></path></svg></a>2025年12月19日</div></li></ul></div><p tabindex=\"-1\" id=\"user-content-end-of-article-links-block\">End of content</p></div></section><div><h2 tabindex=\"-1\" id=\"user-content-政策不会改变监督会变强\">“政策不会改变，监督会变强”</h2></div><div><p>美国智库太平洋论坛（Pacific Forum）兼任研究员蓝若思（Elizabeth Larus）向BBC中文表示，无论国会由哪个党派掌握多数，美国对台湾的支持及对华政策都不会改变，两党都会试图推动特朗普批准桌上那笔140亿美元的对台军售案。</p></div><section><div id=\"user-content-dotcom-mpu\"></div></section><div><p>“自1979年以来，每一任美国总统都维持了《台湾关系法》、‘六项保证’以及美国的‘一个中国’政策，这些都不会因为民主党掌控国会而改变。”她说。</p></div><div><p>美国智库德国马歇尔基金会（German Marshall Fund, GMF）亚洲计画主任葛来仪（Bonnie Glaser）预测，民主党将掌控拨款程序与参议院议程，很可能在《国防授权法》（NDAA）与拨款法案中加入多项要求：加速交付已核准的对台武器、新的对外军售（FMS）案件通报、对台使用外国军事融资（FMF），以及台湾安全合作倡议（Taiwan Security Cooperation Initiative）资金。《六项保证法案》（Six Assurances Act）也可能获得更多推进动能。</p></div><div><p>葛来仪还指出，民主党大胜后，美国可能加强对中国取得先进晶片的限制，《安全晶片法案》（Safe Chips Act）有机会通过。但特朗普拥有否决权，民主党票数不足以推翻，除非部分共和党议员倒戈支持。</p></div><section><div><a href=\"#end-of-recommendations\" target=\"_blank\">Skip 热读 and continue reading</a><div><strong><span><span><span id=\"user-content-recommendations-heading\">热读</span></span></span></strong></div><ul><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/a1f0/live/a16d9f40-db3d-11f1-a701-fddedf244c16.jpg\" alt=\"波蘭克拉科夫中央市集廣場附近警車封鎖街道，手持輕機槍的蒙面警員站崗戒備，警車藍色警示燈在黑夜中閃爍（7/11/2026）\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/c64g1n74j259o/simp\" target=\"_blank\">波兰克拉科夫“极右翼”枪击案致六人死亡 我们所知多少</a></div></div></div></li><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/79bc/live/19d4a530-d90b-11f1-93e1-3b657b665bcf.jpg\" alt=\"Labubu的超級粉絲Ensito與一個亮綠色的Labubu娃娃合影，笑容燦爛。 Ensito戴著特製的尖刺假牙，模仿Labubu的笑容。\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/c6r7yg9xkdy8o/simp\" target=\"_blank\">销量急挫，Labubu热潮正在退烧吗？</a></div></div></div></li><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/f64c/live/aa7ca7c0-b8ba-11f1-b6e4-571e60ca6955.jpg\" alt=\"2026年9月24日，美国总统特朗普与中国国家主席习近平在美国华盛顿特区的白宫一同漫步。\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/cqr7ydkrnpxno/simp\" target=\"_blank\">美国中期选举：共和党失去两院，对华政策与对台军售会转向吗？</a></div></div></div></li><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/744d/live/a1131d00-d8e9-11f1-8a29-751f921d505b.jpg\" alt=\"一个人手里拿着一台手机，在看中共大会\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/c6gm0rdzm0rdo/simp\" target=\"_blank\">从蔡康永、《VIVANT》到姆巴佩：北京为何区别处理“辱华”事件？</a></div></div></div></li></ul><p tabindex=\"-1\" id=\"user-content-end-of-recommendations\">End of 热读</p></div></section><div><p>新加坡南洋理工大学公共政策与全球事务副教授骆明辉（Dylan Loh）对BBC中文表示：“美国对中国存在广泛共识，整体关系的塑造仍主要由总统主导。”</p></div><div><p>新加坡独立分析师邓铭杰也不认为民主党大胜会带来更温和的对华政策。两大党在出口管制、晶片限制与供应链措施上立场一致，实际变化在于监督力度：民主党将透过听证会与传票，严格审视贸易休战和“建设性战略稳定”框架。</p></div><div><div><div><a href=\"#end-of-youtube-content\" aria-describedby=\"user-content-_R_2q1gplalr6_\" target=\"_blank\"><span>跳过 YouTube 帖子</span></a><div><div id=\"user-content-consentBanner-GZd5TX7axHc\"><strong>允许Google YouTube内容</strong><p>此文包含Google YouTube提供的内容。由于这些内容会使用曲奇或小甜饼等科技，我们在加载任何内容前会寻求您的认可。  您可能在给与许可前愿意阅读Google YouTube<a href=\"https://policies.google.com/technologies/cookies\" aria-label=\"小甜饼政策, 外部\" target=\"_blank\">小甜饼政策</a>和<a href=\"https://policies.google.com/privacy\" aria-label=\"隐私政策, 外部\" target=\"_blank\">隐私政策</a>。 希望阅读上述内容，请点击“接受并继续”。</p>Accept and continue</div>告知: BBC 不对外来网站内容负责 YouTube 内容可能含有广告</div><p tabindex=\"-1\" id=\"user-content-end-of-youtube-content\">结尾 YouTube 帖子</p></div><div><p>无内容</p><a href=\"https://www.youtube.com/watch?v=GZd5TX7axHc\" aria-label=\"继续浏览 YouTube, 外部链接\" target=\"_blank\">继续浏览 YouTube</a>BBC对外部网站内容不负责任。</div></div></div><div><h2 tabindex=\"-1\" id=\"user-content-北京把眼光放到特朗普之后\">北京：把眼光放到特朗普之后</h2></div><div><p>中国近年对特朗普的战略，核心是“以经贸换稳定、以个人关系控风险”。第一任期时，北京透过贸易谈判与大规模采购美国农产品，换取特朗普在台海议题上的相对克制。</p></div><div><p>专家认为，第二任期北京更进一步，把对台军售直接纳入美中高层谈判，并以贸易休战、稀土与供应链议题作为杠杆，试图让特朗普把台湾问题“交易化”。</p></div><div><p>习近平多次强调台湾是“最重要议题”，并在此前的峰会上要求美方明确反对台湾独立，同时暗示稳定关系取决于限制对台支持。北京判断特朗普重视交易成果多于长期承诺，因此采取“耐心施压、避免正面冲突”的策略，等待他任期内的窗口，同时为“后特朗普”时期预做准备。</p></div><div><p>至于中期选举本身，骆明辉认为，北京自然会关注结果，但不会过度在意谁胜谁负：无论牌局如何发展，中南海都会积极规划，并把战略目光放在特朗普任期结束之后。</p></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/51b4/live/544d06b0-d8f4-11f1-a701-fddedf244c16.jpg\" alt=\"F-16V 战机 \" width=\"800\" height=\"500\"><p><span>图像来源，</span><span>Getty Images</span></p></div><span>台湾向美国订购的 66 架 F-16V 战机中，首批 2 架在10月2日抵台。这是台湾自1990 年代以来首次采购新战机，也是这笔延宕多年的军售案首度有实机落地。</span></div><div><h2 tabindex=\"-1\" id=\"user-content-140亿美元军售案两场峰会是关键节点\">140亿美元军售案：两场峰会是关键节点</h2></div><div><p>特朗普任内的对台军售呈现“先放后卡”的节奏。第一任期他多次批准军售，规模与频率高于前任，涵盖战机、坦克与导弹系统，并强化高层军事交流；2025年12月，他更批准约111亿美元的大规模军售案，创下纪录。</p></div><div><p>转折出现在2026年初。涉及爱国者导弹、雷达与指挥系统、用于台湾“T-Dome”防空体系的140亿美元新案被长期搁置，特朗普在与习近平会谈后持续延迟。</p></div><div><p>美国前外交官、捍卫民主基金会（Foundation for Defense of Democracies, FDD）中国项目主任辛格顿（Craig Singleton）本周在</p></div><div><p>《纽约时报》投书</p></div><div><p>警告，延迟对台军售正在制造“危险的误解”，“今天为避免摩擦而搁置，可能为明天更危险的对抗创造条件”。他认为，数十年来美中靠精心拿捏的语言和战略模糊处理台湾问题，但如今习近平可能将延迟军售解读为华盛顿默认“稳定美中关系取决于限制对台支持”的前提。军售拖得越久，北京越可能把未来任何推进视为背叛，反而引发特朗普试图避免的不稳定。</p></div><div><p>除了军售，美台在情报分享、联合演训、不对称战力与无人机上的合作仍在持续，但节奏受白宫与北京谈判牵制。</p></div><div><p>第一个观察点，邓铭杰向BBC中文透露，有美国官员早前表示，此案被“拆包”成较小规模方案的机率已大幅上升；布鲁金斯学会的何瑞恩（Ryan Hass）也预期，APEC与G20之后会出现较小规模的军售案。</p></div><div><p>年底的《国防授权法》是第二个观察点。参议院版本加入了对台战争储备库存，并将台湾纳入涵盖菲律宾的更广泛“第一岛链”倡议。邓铭杰认为，这些条款能否在最终版本中保留，值得关注。</p></div><div><p>第三则是政治修辞。特朗普今年5月曾说他“不希望有人走向独立”，若类似表述出现在深圳或迈阿密峰会的书面声明中，将是真正的转变。</p></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/fd57/live/8fea3260-b8ce-11f1-bc1f-3f186ca4140c.jpg\" alt=\"北京某报摊上摆放的一份报纸头版，上面是习近平（左）与特朗普（右）9月24日在美国白宫椭圆形办公室内握手的合照，照片上方标题《实现中华民族伟大复兴》（25/9/2026）\" width=\"2048\" height=\"1152\"><p><span>图像来源，</span><span>AFP via Getty Images</span></p></div></div><div><h2 tabindex=\"-1\" id=\"user-content-台湾连线议员落马台北须重建关系网\">“台湾连线”议员落马，台北须重建关系网</h2></div><div><p>此次选举中，多位“台湾连线”的共和党议员遭淘汰。这些友台议员长期推动对台军售、加强军事合作并监督行政部门，每年都有成员拜访台湾；取而代之的，是许多首次进入众议院的年轻民主党人，他们对台湾乃至中国事务是否熟悉，都是问号。</p></div><div><p>台美关系研究社群“美国台湾观测站”<a href=\"https://www.facebook.com/ustaiwanwatch/?locale=zh_HK\" aria-label=\"分析指出, 外部\" target=\"_blank\">分析指出</a>，胜选的新生代议员多数对国际议题鲜少着墨，或强调外交优先、减少军事干预，民主党内年轻“进步派”是否会走更多元的外交路线，值得观察。</p></div><div><p>蓝若思则提醒另一层矛盾：特朗普呼吁增加支出以重建美国海军，应对中国海军的扩张；但民主党更关注“奶油”而非“枪砲”，民主党主导的国会将优先扩大医疗补助与气候政策等福利支出，进而压缩国防预算，使军事科技投资更难推动。</p></div><div><p>“美国台湾观测站”也分析，从历史经验看，历届总统任期最后几年常把重心转向海外事务，白宫自今年4月起已开始盘点移民、关税、住房等不需国会的行动，特朗普更自称“否决先生”（Mr. Veto）。外交仍主要由行政权主导，因此即便特朗普“跛脚”，对台美关系影响有限。</p></div><div><p>台湾国防安全研究院助理研究员钟志东早前在台北一场会议上提出类似判断：当前的中美关系可用“短多长空”理解。他强调，台美关系必须放在中美关系的整体结构中看待，1979年美国即便需要联合北京抗衡苏联，也未接受停止对台军售的要求；在中美战略竞争持续升温的今天，美国在此议题上让步的空间反而更低。即使短期内不会宣布大手笔军售，也不代表美国正在台湾议题上向中国妥协。</p></div><div><p>中期选举改变的是华盛顿由谁来提问，但关于台湾的最终答案，仍掌握在特朗普手中。邓铭杰向BBC中文强调，台湾最大的风险在于优先顺序的落差：北京几乎把台湾置于一切之上，而特朗普同时在处理贸易、稀土与其他议题。</p></div><div><p>接下来，台北必须同时与新国会和白宫打交道。在岛内“疑美论”不断发酵的背景下，不同政党对美国的期待本就分歧，华盛顿的权力重组，只会让台北的说服工作更加复杂。</p></div>",
+    "source": "BBC News 中文",
+    "sourceId": "feedx-bbc",
+    "category": "politics",
+    "publishedAt": "2026-11-08T10:13:02.653Z",
+    "fetchedAt": "2026-11-08T23:58:27.359Z"
+  },
+  {
+    "id": "folo-1369019779360133120",
+    "title": "黄之锋勾结罪国安案：重判10年，料出狱已届40岁",
+    "url": "https://www.bbc.com/zhongwen/articles/cm5ynepe9578o/simp#2",
+    "content": "<div></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/9d27/live/882ecf10-d848-11f1-b870-55415e6a9944.jpg\" alt=\"香港民主派活动人士黄之锋\" width=\"1024\" height=\"576\"><p><span>图像来源，</span><span>Getty Images</span></p></div><span>黄之锋自24岁被还押，刚在10月于狱中渡过30岁生日。</span></div><section><strong id=\"user-content-article-byline\">Article Information</strong><ul><li><ul><li><span><span>Author, </span><span>余美霞、叶靖斯、郑佩珊</span></span></li><li><span><span>Role,  </span><span>BBC中文记者</span></span><span></span></li><li><span><span>Reporting from,  </span><span>香港</span></span></li></ul></li><li><div><span>Published </span>2026年11月5日</div></li><li><div><span>阅读时间: 7 分钟</span></div></li></ul></section><div><p>香港民主派活动人士黄之锋被控告中国《香港国安法》下的“串谋勾结外国势力危害国家安全”罪，星期四（11月5日）于香港高等法院被判囚10年。</p></div><div><p>上个月刚满30岁的黄之锋，自2020年底起因不同案件入狱，至今身在狱中超过六年。</p></div><div><p>他正就<a href=\"/zhongwen/articles/c5yxl30rg5no/trad\" target=\"_blank\">“民主派初选47人案”</a>服刑，原有望于2027年1月获释。新增的10年刑期，其中2个月2日与“47人案”同期执行；预料他须服刑到2036年，出狱时或已年届40岁。</p></div><div><p>这是继<a href=\"/zhongwen/articles/cr450w2v112o/trad\" target=\"_blank\">壹传媒创办人黎智英</a>后，第二宗在香港被起诉“勾结外国势力”罪的案件，也是黄之锋第二宗涉及《香港国安法》相关的案件。港府表示欢迎法庭的重判。</p></div><div><p>国际特赦组织批评，当局在黄之锋原定刑期获释前数月才新增定罪，“手法残酷”。有法律学者分析，案件反映国安法控罪或可被“反复动用”，令特定政治犯持续留在狱中。</p></div><section><div id=\"user-content-dotcom-mpu\"></div></section><div><p>英国外交部回覆BBC中文查询时称，最新判决说明《香港国安法》被用于针对行使政治表达权利的人。</p></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/e806/live/051f5df0-d849-11f1-b870-55415e6a9944.jpg\" alt=\"2019年9月17日，黄之锋抵达美国华盛顿特区国会山，出席美国国会及行政当局中国委员会（Congressional-Executive Commission on China）的听证会并发表讲话。\" width=\"1024\" height=\"576\"><p><span>图像来源，</span><span>Getty Images</span></p></div><span>案情指，黄之锋在《国安法》生效前已展开“国际线”，多次参与国际游说要求外国制裁香港、中国。</span></div><div><div><div><a href=\"#end-of-youtube-content\" aria-describedby=\"user-content-_R_5hlgplalr6_\" target=\"_blank\"><span>跳过 YouTube 帖子</span></a><div><div id=\"user-content-consentBanner-IWks7hTaYvQ\"><strong>允许Google YouTube内容</strong><p>此文包含Google YouTube提供的内容。由于这些内容会使用曲奇或小甜饼等科技，我们在加载任何内容前会寻求您的认可。  您可能在给与许可前愿意阅读Google YouTube<a href=\"https://policies.google.com/technologies/cookies\" aria-label=\"小甜饼政策, 外部\" target=\"_blank\">小甜饼政策</a>和<a href=\"https://policies.google.com/privacy\" aria-label=\"隐私政策, 外部\" target=\"_blank\">隐私政策</a>。 希望阅读上述内容，请点击“接受并继续”。</p>Accept and continue</div>告知: BBC 不对外来网站内容负责 YouTube 内容可能含有广告</div><p tabindex=\"-1\" id=\"user-content-end-of-youtube-content\">结尾 YouTube 帖子</p></div><div><p>无内容</p><a href=\"https://www.youtube.com/watch?v=IWks7hTaYvQ\" aria-label=\"继续浏览 YouTube, 外部链接\" target=\"_blank\">继续浏览 YouTube</a>BBC对外部网站内容不负责任。</div></div></div><section><div><a href=\"#end-of-article-links-block\" target=\"_blank\">Skip content and continue reading</a><div><ul><li><div><a href=\"https://www.bbc.com/zhongwen/articles/cj4j8n42r51o/trad\" target=\"_blank\">黄之锋：从学运领袖到国安法囚犯，重获自由未有期<svg viewBox=\"0 0 32 32\" width=\"12\" height=\"12\"><path d=\"M21.6 14.3L5.5 31h6.4l14.6-15L11.9 1H5.5l16.1 16.7v-3.4z\"></path></svg></a>2026年9月2日</div></li><li><div><a href=\"https://www.bbc.com/zhongwen/trad/world-49735718\" target=\"_blank\">《香港人权与民主法案》：黄之锋、何韵诗能否成功游说美国<svg viewBox=\"0 0 32 32\" width=\"12\" height=\"12\"><path d=\"M21.6 14.3L5.5 31h6.4l14.6-15L11.9 1H5.5l16.1 16.7v-3.4z\"></path></svg></a>2019年9月17日</div></li><li><div><a href=\"https://www.bbc.com/zhongwen/trad/chinese-news-54566737\" target=\"_blank\">香港《国安法》：沿袭自英国的刑事司法流程怎么走？<svg viewBox=\"0 0 32 32\" width=\"12\" height=\"12\"><path d=\"M21.6 14.3L5.5 31h6.4l14.6-15L11.9 1H5.5l16.1 16.7v-3.4z\"></path></svg></a>2024年5月28日</div></li></ul></div><p tabindex=\"-1\" id=\"user-content-end-of-article-links-block\">End of content</p></div></section><div><h2 tabindex=\"-1\" id=\"user-content-黄之锋闻判后低头旁听者哭泣\">黄之锋闻判后低头、旁听者哭泣</h2></div><div><p>BBC中文记者现场所见，在正式宣判前，黄之锋到庭。</p></div><div><p>黄之锋身穿深蓝色长袖裇衫及卡其色长裤、戴黑框眼镜，较以往瘦削，面有须根，出庭时向旁听席点头，没有微笑，他不时细望旁听席的人士，然后微微点头打招呼。有旁听人士轮流进场换人，与黄之锋短暂打招呼后离去。</p></div><section><div><a href=\"#end-of-recommendations\" target=\"_blank\">Skip 热读 and continue reading</a><div><strong><span><span><span id=\"user-content-recommendations-heading\">热读</span></span></span></strong></div><ul><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/a1f0/live/a16d9f40-db3d-11f1-a701-fddedf244c16.jpg\" alt=\"波蘭克拉科夫中央市集廣場附近警車封鎖街道，手持輕機槍的蒙面警員站崗戒備，警車藍色警示燈在黑夜中閃爍（7/11/2026）\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/c64g1n74j259o/simp\" target=\"_blank\">波兰克拉科夫“极右翼”枪击案致六人死亡 我们所知多少</a></div></div></div></li><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/79bc/live/19d4a530-d90b-11f1-93e1-3b657b665bcf.jpg\" alt=\"Labubu的超級粉絲Ensito與一個亮綠色的Labubu娃娃合影，笑容燦爛。 Ensito戴著特製的尖刺假牙，模仿Labubu的笑容。\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/c6r7yg9xkdy8o/simp\" target=\"_blank\">销量急挫，Labubu热潮正在退烧吗？</a></div></div></div></li><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/f64c/live/aa7ca7c0-b8ba-11f1-b6e4-571e60ca6955.jpg\" alt=\"2026年9月24日，美国总统特朗普与中国国家主席习近平在美国华盛顿特区的白宫一同漫步。\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/cqr7ydkrnpxno/simp\" target=\"_blank\">美国中期选举：共和党失去两院，对华政策与对台军售会转向吗？</a></div></div></div></li><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/744d/live/a1131d00-d8e9-11f1-8a29-751f921d505b.jpg\" alt=\"一个人手里拿着一台手机，在看中共大会\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/c6gm0rdzm0rdo/simp\" target=\"_blank\">从蔡康永、《VIVANT》到姆巴佩：北京为何区别处理“辱华”事件？</a></div></div></div></li></ul><p tabindex=\"-1\" id=\"user-content-end-of-recommendations\">End of 热读</p></div></section><div><p>正庭公众席全满，旁听者包括：戴着黑色口罩的学民思潮前成员钱诗文、社运人士雷玉莲、前社民连成员黄浩铭、前民阵召集人陈皓桓、“47人案”获释者岑子杰，以及多国领事人员。</p></div><div><p>主审法官谭耀豪在判刑前，先交代判刑理由。在宣读判刑理由时，黄之锋戴着耳机不时手记笔记。最终判囚10年，黄之锋闻讯后平静低头。</p></div><div><p>有旁听人士向黄之锋挥手，并说“等你出来”，钱诗文与友人相拥哭泣；散庭后，有旁听人士一向走上前欲与黄之锋握手，被黄叫停。</p></div><div><p>香港民主党前创党成员、社运人士曾健成（阿牛）在判决后对BBC中文说，在《国安法》下看不到轻判，黄之锋如今要到40岁才得到自由，他感到相当难过、无奈，并反问“人生有多少个十年”。他隔空向黄之锋喊话：“辛苦你了之锋，顶住，希望你捱得过。”</p></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/4822/live/7dc579d0-d8b5-11f1-b441-2b33b063138f.png\" alt=\"公众人士排队进入高等法院旁听黄之锋涉国安案件判刑，现场有多名警员戒备。\" width=\"1449\" height=\"962\"><p><span>图像来源，</span><span>Reuters</span></p></div><span>公众人士排队进入高等法院旁听黄之锋涉国安案件判刑，现场有多名警员戒备。</span></div><div><h2 tabindex=\"-1\" id=\"user-content-官裁案件属罪行重大\">官裁案件属“罪行重大”</h2></div><div><p>根据《香港国安法》，量刑分为两级，“勾结”罪可囚3年以上至10年以下，“罪行重大”者可判囚10年以上至无期徒刑。</p></div><div><p>法庭强调，国安法不具追溯力，被告被定罪基于法例实施后的行为；惟量刑时可将法例生效前的行为及活动作为其犯案背景的一部分来考虑，以评估罪行的严重性及程度。</p></div><div><p>早前一辩方资深大律师陈政龙在书面陈词中提出，本案不属“罪行重大”。辩方指，黄之锋并不回避本案属非常严重罪行的事实，但请法庭不要裁定本案为“罪行重大”。</p></div><div><p>辩方律师提出，黄之锋在国安法生效参与串谋的程度有限，角色属次要；与黎智英案比较本案情节较轻，涉及的外国政府、人物及平台内容也有实质分别。</p></div><div><p>另外，辩方也望法庭考虑黄之锋在最早期已认罪、连同其他案件已羁押近6年；他的个人背景品格、检控延近5年、整体刑期原则等。</p></div><div><p>辩方望法庭以低一级、接近 10 年监禁作为量刑起点来判决。</p></div><div><p>不过法官仍认为，被告人所犯的罪行属“罪行重大”，理由包括：</p></div><div><ul><li>案发时，香港面临社会动荡及暴动的严重影响，国家安全及法治方面亦承受极高风险；</li><li>被告与其有联系的人士透过社交媒体帐户，经由西方主流新闻媒体或机构继续传播相关呼吁，涵盖本地及国际受众；</li><li>被告与罗冠聪等人在国安法实施后，刻意调整各自的角色，同样关键；被告知悉罗冠聪持续在海外呼吁的行为，并发布讯息和文章声援；</li><li>二人曾促成外国及外国实体实施制裁和不利措施，在当时地缘政治的氛围下，他们持续呼吁有可能令该等制裁及不利措施得以落实；</li><li>相关制裁及敌对措施严重影响及危害国家安全。</li></ul></div><div><h2 tabindex=\"-1\" id=\"user-content-量刑起点原定为13年\">量刑起点原定为13年</h2></div><div><p>针对量刑起点，辩方曾提出参考吕世瑜、马俊文和黎智英案。</p></div><div><p>法官则认为黄之锋与罗冠聪在本案与黎智英相似，均站在最前线，是主谋，情节严重。综合本案所有情况，以13年监禁作为量刑起点，基于被告人的认罪答辩和求情，将量刑起点下调 3 年，判处监禁 10 年；即《国安法》第二十九条下属“罪行重大”所须判处的最低刑期。</p></div><div><p>黄之锋正就“民主派初选47人案”服刑，原有望于2027年1月获释。新增的10年刑期，其中2个月2日与“47人案”同期执行。</p></div><iframe src=\"https://www.bbc.comhttps://flo.uri.sh/visualisation/30546341/embed?auto=1\" id=\"user-content-flourish-id-ace0de6c\" height=\"575\" width=\"700\" title=\"Interactive or visual content\"></iframe><div><h2 tabindex=\"-1\" id=\"user-content-学者国安法控罪可被反复动用\">学者：国安法控罪可被“反复动用”</h2></div><div><p>美国乔治城大学亚洲法律中心（Georgetown Center for Asian Law）高级研究员黎恩灏分析，从技术层面而言，若无新控罪，黄之锋原本望于明年初获释，故新增控罪客观上提供方式，“令黄之锋在更长时间无法重返公众视野”。</p></div><div><p>他表示，案件程序令人忧虑，一方面反映香港政府急于把刑事检控武器化，若政府认为有需要，国安法控罪便可以被“反复动用”，令特定政治犯持续留在狱中。</p></div><div><p>另一方面，控方就此案提出多项指控均涉及国安法生效前的行为，政府不惜牺牲正当程序原则，以追溯方式将政治犯的行为刑事化。</p></div><div><p>国际特赦组织亚太区副总监白舒然（Sarah Brooks）表示，最新的国安定罪，在黄之锋原定刑期获释前数月降临，形容“手法残酷，甚至可能是蓄意为之”，又指判刑提醒香港的《国安法》已沦为惩罚异见的工具，而非真正保障国家安全的手段。</p></div><div><p>她呼吁香港当局撤销黄之锋的定罪，并废除或修订所有违反香港国际人权义务的法例。</p></div><div><p>民间组织“香港监察”（Hong Kong Watch）亦表示，香港政府应立即无条件释放黄之锋。</p></div><div><p>英国外交部一位发言人对BBC中文称：“对黄之锋的判决清楚地表明，《国家安全法》正被用于针对因政治表达和参与而行使权利的个人。”</p></div><div><p>“我们呼吁立即停止所有针对根据《国家安全法》被起诉人士的不公正检控，并敦促中国及香港当局履行1984年《中英联合声明》所保障的香港民众应享有的权利与自由。”</p></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/5907/live/c83dcef0-d8ff-11f1-a701-fddedf244c16.jpg\" alt=\"前学民思潮成员钱诗文及Louis旁听后离开。\" width=\"3520\" height=\"1980\"><p><span>图像来源，</span><span>BBC NEWS CHINESE</span></p></div><span>前学民思潮成员钱诗文及Louis旁听后离开。</span></div><div><h2 tabindex=\"-1\" id=\"user-content-港府欢迎重判起诉没有任何拖延\">港府欢迎重判：“起诉没有任何拖延”</h2></div><div><p>香港警务处国安处总警司李桂华表示，欢迎法庭“重判黄之锋”，形容刑期合适，但会再与律政司商讨有否进一步行动。</p></div><div><p>李桂华表示，黄之锋未成年已经参与社运，18岁开始涉及不同罪行，包括触犯两项国安法、2019年6月包围警总及藐视法庭个案，形容他是“犯案纍纍”，“连法庭都不放在眼内”。他称，希望黄之锋反省对国家及香港做过的错事，培养守法精神及认识国家。</p></div><div><p>被问到案情背景为何涉及2016年事件、案发于2020年却延至2025年才起诉，李桂华引述法官指，2016年的资料对案件背景有作用，在2023年才根据报调查案件，两年后律政司指示送上法院，“时间合适，并没有任何拖延”。</p></div><div><p>有媒体引述黄之锋的求情信，指被捕时曾被执法人员称为“敌人”，李桂华回应称，他个人并没有将其视为“敌人”。</p></div><div><p>被问到Netflix仍上架黄之锋纪录片是否合法、能否在香港播放，李桂华表示，关注片中是否涉及煽动性内容，目前不能公开讨论。</p></div><div><p>行政长官李家超则形容，黄之锋、罗冠聪等人“是破坏香港繁荣稳定其中的祸首”，在《香港国安法》实施后“仍毫无悔改之意，肆无忌惮地继续充当外国和境外势力的代理人”，“祸港卖港、怙恶不悛”。</p></div><div><p>特区政府发言人表示，法庭对黄之锋予以重判，“彻底打破危害国家安全分子披着所谓‘国际线’或‘国际倡议’外衣便能逃避法律追责的幻想”；法庭判刑时详列理由，体现了黄之锋“是在公平公开的司法程序下被判刑”。</p></div><div><p>中国外交部发言人郭嘉昆表示，中国中央政府坚定支持香港，依法维护国安。“有关方面应切实尊重中国主权，尊重香港法制，停止就特区司法案件审理发表不负责任的言论，干预香港司法，干涉中国内政。”</p></div><div><h2 tabindex=\"-1\" id=\"user-content-旁听人士不应只是政治犯承担\">旁听人士：“不应只是政治犯承担”</h2></div><div><p>在判刑的早上，香港高等法院外约有50人排队。</p></div><div><p>前学民思潮成员Louis Lee在判刑前表示，希望黄之锋能尽快获释，早日与家人、朋友会面，“过一个他so called本来的生活”。他表示，上月底曾到监狱探望黄之锋，其“状态OK”，对世界有好奇，期待收到朋友的信件，但也担心刑期。</p></div><div><p>旁听人士、家庭主妇黄小姐对BBC中文说，她早于周二下午已到法院外排队。</p></div><div><p>她身穿写有“在颓垣中创造希望”字样的上衣，表示自己“看着黄之锋成长”，“十几岁已经振振有词，很有自己想法、有香港的大局观……他会为香港未来、人权、学运行一条很艰难的路，甚至有机会令自己身陷囹圄。”</p></div><div><p>她称，不敢预期结果，仅望可公平公开审讯。“无论什么结果都好，香港人愿意一起承担和承受，不应只是政治犯去承担罪名。”</p></div><div><p>宣判后，黄小姐表示“无罪就是一天冤狱都不应该坐”，又说希望大家除了流泪，还能保持希望和坚强。</p></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/3d75/live/ab0adc30-d8b2-11f1-b928-3f1336832012.jpg\" alt=\"2026年11月5日，在香港高等法院，家庭主妇黄小姐身穿写有“在颓垣中创造希望”字样的上衣，她手持旁听筹号，早于周二下午已到法院外排队。\" width=\"1408\" height=\"793\"><p><span>图像来源，</span><span>BBC NEWS CHINESE</span></p></div><span>家庭主妇黄小姐手持旁听筹号，她早于周二下午已到法院外排队。</span></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/b055/live/8e4d9cc0-d8b4-11f1-a701-fddedf244c16.jpg\" alt=\"2026年11月5日，在香港高等法院，一名支持者举着一张写有黄之锋（Joshua Wong）中文名字的纸张。\" width=\"1024\" height=\"683\"><p><span>图像来源，</span><span>Getty Images</span></p></div><span>社运人士雷玉莲等人亦有排队旁听，她举着“金心”以及“黄之锋”名字的纸张，表达支持。</span></div><div><h2 tabindex=\"-1\" id=\"user-content-黄之锋亲撰求情信\">黄之锋亲撰求情信</h2></div><div><p>在判刑之际，黄之锋给法庭的求情信曝光。</p></div><div><p>本地媒体《<a href=\"https://thewitnesshk.com/%e9%bb%83%e4%b9%8b%e9%8b%92%e6%a1%88-%e9%bb%83%e8%a6%aa%e6%92%b0%e6%b1%82%e6%83%85%e4%bf%a1%e5%85%a8%e7%9b%a4%e6%8e%a5%e5%8f%97%e5%be%8c%e6%9e%9c%e7%b5%95%e4%b8%8d%e6%8e%a8%e8%ab%89-%e7%9b%bc%e5%87%ba/\" aria-label=\"法庭线, 外部\" target=\"_blank\">法庭线</a>》取得黄之锋的中英文版本求情信，两份信函内容有所差异。</p></div><div><p>在英文的求情信中，黄之锋表示，在原定出狱日期不足六个月之际面对判刑，“那种感觉几乎仿佛又回到了起点。”</p></div><div><p>他重申，其政治参与从来不是出于仇恨，对中国政府或香港政府并无怨恨；从未主张香港独立、鼓吹“中国崩溃”（collapse of China）或政权更替，亦从未接受任何外国资金资助，或花费金钱聘请外国政治顾问。</p></div><div><p>黄之锋提及选择认罪，也无意为其行为寻找藉口。他称，在国安法实施后，已意识直接倡议制裁属违法，故立即停止相关言论及行为；惟当时认为转载他人帖文，或呼吁外国企业基于其自身商业判断停止向香港警方供货，与直接倡议制裁有所不同，后来才明白判断错误。</p></div><div><div><div><div><strong>你的器材不支持播放多媒体材料</strong></div><span>Play video, \"前學民思潮成員與黃之鋒的隔空對話\", 节目全长 2,15</span><div><svg viewBox=\"0 0 12 12\" width=\"12\" height=\"12\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\"><path d=\"M.5.6h12v12H.5z\"></path><path fill=\"currentColor\" d=\"M2.144.96v11.28l8.712-5.64z\"></path></g></svg></div>02:15<div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/images/ic/512xn/p0plgjps.jpg\" alt=\"\"></div></div></div><span>前学民思潮成员与黄之锋的隔空对话</span></div><div><div><div><div><strong>你的器材不支持播放多媒体材料</strong></div><span>Play video, \"黃之鋒給「前戰友」的信\", 节目全长 2,55</span><div><svg viewBox=\"0 0 12 12\" width=\"12\" height=\"12\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\"><path d=\"M.5.6h12v12H.5z\"></path><path fill=\"currentColor\" d=\"M2.144.96v11.28l8.712-5.64z\"></path></g></svg></div>02:55<div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/images/ic/512xn/p0plgkk3.jpg\" alt=\"\"></div></div></div><span>黄之锋给“前战友”的信</span></div><section><div><a href=\"#end-of-article-links-block\" target=\"_blank\">Skip content and continue reading</a><div><div><a href=\"https://www.bbc.com/zhongwen/articles/c6zxz94yzngpo/trad\" target=\"_blank\">他们在等西西弗斯：黄之锋身后，那些写信和探监的前战友<svg viewBox=\"0 0 32 32\" width=\"12\" height=\"12\"><path d=\"M21.6 14.3L5.5 31h6.4l14.6-15L11.9 1H5.5l16.1 16.7v-3.4z\"></path></svg></a>2026年11月5日</div></div><p tabindex=\"-1\" id=\"user-content-end-of-article-links-block\">End of content</p></div></section><div><h2 tabindex=\"-1\" id=\"user-content-案情及求情\">案情及求情</h2></div><div><p>根据《香港国安法》，“勾结”罪可囚3年以上至10年以下，“罪行重大”者可判囚10年以上至无期徒刑。</p></div><div><p>控罪指，黄之锋于2020年7月1日至2020年11月23日，在香港与罗冠聪及其他身分不详的人一同串谋，请求外国或境外机构、组织、人员，对香港或中国进行制裁、封锁或采取其他敌对行动。</p></div><div><p>控方案情指，黄之锋与“香港众志”创党主席罗冠聪早在2016年达成串谋，透过国际游说（international lobbying）达到“民主自决”主张。</p></div><div><p>案情指二人在《香港国安法》生效前已展开“国际线”，要求外国制裁香港、中国，包括多次参与国际游说，并出席欧洲议会人权小组委员会。二人在美国期间又会晤当地政要，如时任美国众议院少数党领袖佩洛西（Nancy Pelosi，裴洛西）、时任参议员卢比奥（Marco Rubio，鲁比奥／鲁比欧）等。二人被指推动<a href=\"/zhongwen/trad/world-49835074\" target=\"_blank\">《香港人权与民主法案》</a>。</p></div><div><p>该法案于2019年11月27日生效，授权美国政府可制裁侵害香港人权的个人与组织，并要求美国国务院每年审查香港是否仍拥有足够自治、符合获得贸易特殊地位的资格。</p></div><div><p>除实体会面外，案情指黄之锋与罗冠聪曾推动多个国际联署，要求外国制裁港府并就国安法施压，包括要求美国等停止向香港警察供应装备。美国于2019年10月至11月通过法案，限制向香港供应催泪弹或人群管制相关技术的装备。</p></div><div><p>《香港国安法》于2020年6月30日深夜生效，“香港众志”同日解散及停止运作，罗冠聪离港。</p></div><div><p>案情指，二人在《香港国安法》生效后没改变共同目的（common intention），继续参与“国际线” 。其中黄之锋在 Facebook 发帖表示不会删除旧帖文、不会放弃其政治立场和意见、不会放弃打“国际线”，并会继续寻求国际社会支持。</p></div><div><p><a href=\"/zhongwen/articles/c787ydn2wexo/trad\" target=\"_blank\">2025年6月6日早上</a>，黄之锋在赤柱监狱被捕。<a href=\"/zhongwen/articles/cly7r8yrxe5o/trad\" target=\"_blank\">他于2026年9月2日认罪</a>。</p></div><div><p>辩方陈政龙资深大律师求情时指，黄之锋自24岁开始还押，在狱中近六年间，已充分反思其行为和路向。辩方又指，黄于狱中并无浪费时间。他阅读超过100本书籍，又持正面的态度，期望有一天获释后可以照顾年迈家人。</p></div><section><div><a href=\"#end-of-article-links-block\" target=\"_blank\">Skip content and continue reading</a><div><ul><li><div><a href=\"https://www.bbc.com/zhongwen/trad/chinese-news-67656870\" target=\"_blank\">周庭弃保流亡后接受BBC采访 称香港已成“恐惧之地”<svg viewBox=\"0 0 32 32\" width=\"12\" height=\"12\"><path d=\"M21.6 14.3L5.5 31h6.4l14.6-15L11.9 1H5.5l16.1 16.7v-3.4z\"></path></svg></a>2023年12月8日</div></li><li><div><a href=\"https://www.bbc.com/zhongwen/articles/cvg0lqw9gq5o/trad\" target=\"_blank\">罗冠聪入境新加坡被拒：“有风险，很难看，但并非最坏结果”<svg viewBox=\"0 0 32 32\" width=\"12\" height=\"12\"><path d=\"M21.6 14.3L5.5 31h6.4l14.6-15L11.9 1H5.5l16.1 16.7v-3.4z\"></path></svg></a>2025年9月30日</div></li><li><div><a href=\"https://www.bbc.com/zhongwen/articles/c70gzyjnj44o/trad\" target=\"_blank\">香港“47人案”前议员胡志伟获准如常逗留英国 向BBC中文谈伦敦机场风波<svg viewBox=\"0 0 32 32\" width=\"12\" height=\"12\"><path d=\"M21.6 14.3L5.5 31h6.4l14.6-15L11.9 1H5.5l16.1 16.7v-3.4z\"></path></svg></a>2026年7月28日</div></li></ul></div><p tabindex=\"-1\" id=\"user-content-end-of-article-links-block\">End of content</p></div></section><div><h2 tabindex=\"-1\" id=\"user-content-从学运领袖到国安囚犯\">从学运领袖到国安囚犯</h2></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/d5b5/live/41382700-d848-11f1-b870-55415e6a9944.jpg\" alt=\"2019年6月19日，22岁的政治人物兼学生运动人士黄之锋在香港政府总部附近留影。\" width=\"1024\" height=\"576\"><p><span>图像来源，</span><span>Getty Images</span></p></div><span>黄之锋人生过半时间都投身香港社运。</span></div><div><p>10月份刚满30岁的黄之锋，人生过半时间都在投身香港社运。</p></div><div><p>2011年，香港政府正打算在中小学推行“国民教育”政策，计划将“德育及国民教育科”设定为必修课。只有14岁的黄之锋与其他中学生自发成立香港首个中学生政团“学民思潮”。</p></div><div><p>2012年，他发起“反国教运动”，组织约12万人在香港政府总部外集会，<a href=\"/zhongwen/trad/chinese_news/2012/09/120908_hk_education\" target=\"_blank\">最终成功迫使政府暂时搁置政策</a>。</p></div><div><p>“反国教运动”成功之后，他并未沉寂下来。2014年，黄之锋与其他学运领袖在雨伞运动前夕，号召示威者冲入俗称“公民广场”的香港政府总部东翼前地，触发雨伞运动。当年，<a href=\"/zhongwen/trad/china/2014/10/141009_time_joshua_wong\" target=\"_blank\">他登上美国《时代》杂志亚洲版的封面</a>，标题为“抗争的面孔”，他亦被选为全球25位最具影响力的少年。</p></div><div><p>2016年，<a href=\"/zhongwen/trad/china/2016/03/160320_hongkong_activists_scholarism\" target=\"_blank\">学民思潮停运</a>。黄之锋20岁，与罗冠聪等人<a href=\"/zhongwen/trad/china/2016/04/160410_hongkong_joshua_wong_demosisto\" target=\"_blank\">成立政党“香港众志”</a>。黄担任该政党的秘书长。此举标志着他从学运领袖转型成为政治人物。</p></div><div><p>2019年区议会选举，黄之锋计划参选，但因其“鼓吹或推动民主自决”<a href=\"/zhongwen/trad/chinese-news-50217675\" target=\"_blank\">被指选举提名无效</a>。2020年，反修例运动爆发后，黄之锋参与民主派初选，在九龙东以高票数“出线”，随后宣布参与当年的立法会选举，<a href=\"/zhongwen/trad/chinese-news-53592269\" target=\"_blank\">但参选资格及后被取消</a>。</p></div><div><p>在2020年中国颁布《香港国安法》前夕，黄之锋及多名香港众志成员辞任职务，<a href=\"/zhongwen/trad/chinese-news-53234812\" target=\"_blank\">该政党亦宣告解散</a>。</p></div><div><p>在北京当局眼中，黄之锋长期以来被视为是“反中乱港”分子。据报，国务院港澳办主任夏宝龙亦曾在2021年出席研讨会时，<a href=\"/zhongwen/trad/chinese-news-56251975\" target=\"_blank\">点名黎智英、戴耀廷、黄之锋为“反中乱港分子当中的极端恶劣者”</a>。</p></div><div><p>被指涉案的<a href=\"/zhongwen/trad/chinese-news-53498725\" target=\"_blank\">罗冠聪</a>于《国安法》生效前离开香港，目前获英国政治庇护。</p></div><div><p><a href=\"/zhongwen/trad/chinese-news-66094657\" target=\"_blank\">2023年7月</a>，罗冠聪被香港国安警察以涉嫌“煽动分裂国家罪”及“勾结外国或者境外势力危害国家安全罪”，悬红100万港元（12.76万美元；85.75万元人民币；403.68万元新台币）通缉。</p></div>",
+    "source": "BBC News 中文",
+    "sourceId": "feedx-bbc",
+    "category": "politics",
+    "publishedAt": "2026-11-08T10:13:02.357Z",
+    "fetchedAt": "2026-11-08T23:58:27.359Z"
+  },
+  {
+    "id": "folo-1368781885081137157",
+    "title": "感觉被背刺： VSCode Remote SSH 远程服务器可以反向调用本地命令",
+    "url": "https://www.v2ex.com/t/1255361#reply0",
+    "content": "一直用 VSCode Remote SSH 连接服务器做开发，不同服务器承当不同任务，比如 AI YOLO 模式、运行一些不太信任的开源项目等。 原本觉得这样挺安全的，即使出了什么问题，最多也就是一台服务器被搞坏，直接删掉就行，不会影响到本地 Mac 上的重要文件和项目。\n\n觉得自…",
+    "source": "V2EX - 技术 - 0x535",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-11-08T09:22:45.340Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "感觉被背刺-vscode-remote-ssh-远程服务器可以反向调用本地命令",
+    "normalizedTitle": "感觉被背刺 vscode remote ssh 远程服务器可以反向调用本地命令",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - 0x535"
+    ],
+    "preFilterScore": 53.79412976534
+  },
+  {
+    "id": "folo-1368993633159536640",
+    "title": "“厉娜，涨了200亿”",
+    "url": "https://www.36kr.com/p/4060850581886088",
+    "content": "Mango Chao Media's market cap surged by 20 billion yuan, hitting a daily limit up, driven by the viral success of the variety show \"Reunion.\" The program’s emotional appeal triggered a nationwide trend, causing a temporary server crash and spiking viewer engagement. While this stock gain contrasts with a broader tech sector correction, the company's recent financial reports show a significant profit decline due to high content costs and reduced membership revenue. Investors view this surge as emotion-driven, with uncertain long-term sustainability amidst a shift toward cost-effective content consumption.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "business",
+    "publishedAt": "2026-11-08T08:43:53.063Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "“厉娜-涨了200亿”",
+    "normalizedTitle": "“厉娜 涨了200亿”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 601.794127433063
+  },
+  {
+    "id": "folo-1368705957608984576",
+    "title": "澳门国安首案宣判：区锦新颠覆罪成囚12年半，妻子斥“莫须有迫害”",
+    "url": "https://www.bbc.com/zhongwen/articles/cw62yyejjrlro/simp#2",
+    "content": "<div></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/8f03/live/0c223c70-d999-11f1-b614-f344ce7a9035.jpg\" alt=\"澳门民主派领袖区锦新\" width=\"1582\" height=\"890\"><p><span>图像来源，</span><span>PROVIDED</span></p></div></div><div><span>Published </span>2026年11月6日</div><div><span>阅读时间: 5 分钟</span></div><div><p>星期五（11月6日），澳门完成史上首宗国安审判。民主派领袖、前立法会议员区锦新被控“颠覆国家政权”等罪名，于初级法院被判囚12年6个月。</p></div><div><p>现年69岁的他预料须服刑到2039年，出狱时已年届82岁。根据澳门《刑法典》规定， 服刑至三分之二可申请假释。</p></div><div><p>判决后，区锦新妻子郑妙珊表示裁决不可接受，她发公开信指区案是政治审判，“是人格羞辱的莫须有迫害”。家属曾表示，接近一年都无法探望区锦新。</p></div><div><p>这是澳门首宗国安案，案件过程并不公开，区锦新由“指派律师”辩护，审理法官及律师身份不明。从预审、开审到宣判，外界只能从政府新闻稿得知消息。</p></div><div><p>澳门政府<a href=\"https://www.gcs.gov.mo/detail/zh-hant/N26KFR150n\" aria-label=\"表示, 外部\" target=\"_blank\">表示</a>尊重并支持法院裁决，指维护国安、捍卫法治的立场坚定不移。中国外交部发言人表示，中央政府坚定支持澳门依法惩治危害国安的行为。</p></div><section><div id=\"user-content-dotcom-mpu\"></div></section><div><p>区锦新的海外法律代表批评这是“一场虚假的审判”，强调区是葡萄牙公民，葡萄牙政府和欧盟应努力让他离开澳门。</p></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/7bfa/live/8096bc00-d996-11f1-a701-fddedf244c16.jpg\" alt=\"区锦新妻子郑妙珊公开信\" width=\"1542\" height=\"2048\"><p><span>图像来源，</span><span>PROVIDED</span></p></div><span>区锦新妻子郑妙珊发公开信，指区案是政治审判，“是人格羞辱的莫须有迫害”。</span></div><div><h2 tabindex=\"-1\" id=\"user-content-被起诉七罪两罪脱\">被起诉七罪、两罪脱</h2></div><div><p>初级法院就区案作出裁决，区锦新四罪名成立，另有一罪名不作单独处罚：</p></div><div><ul><li>一项“颠覆国家政权罪”</li><li>两项“与境外组织联系危害国家安全”罪</li><li>一项“违反保密”罪</li></ul></div><div><p>根据法院<a href=\"https://www.court.gov.mo/zh/subpage/news?id=3619\" aria-label=\"裁决, 外部\" target=\"_blank\">裁决</a>，在7月2日的预审中，区锦新原被起诉七宗罪：三项“颠覆国家政权罪”、三项“与境外组织联系危害国家安全”罪，以及《刑法典》下一项“违反保密”罪。</p></div><section><div><a href=\"#end-of-recommendations\" target=\"_blank\">Skip 热读 and continue reading</a><div><strong><span><span><span id=\"user-content-recommendations-heading\">热读</span></span></span></strong></div><ul><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/f64c/live/aa7ca7c0-b8ba-11f1-b6e4-571e60ca6955.jpg\" alt=\"2026年9月24日，美国总统特朗普与中国国家主席习近平在美国华盛顿特区的白宫一同漫步。\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/cqr7ydkrnpxno/simp\" target=\"_blank\">美国中期选举：共和党失去两院，对华政策与对台军售会转向吗？</a></div></div></div></li><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/3538/live/e551bd50-d862-11f1-85ab-b3cc3b5498c6.jpg\" alt=\"在斯德哥尔摩 Odengatan 的一家 ICA 超市，一名员工正在清理断电的冷冻柜。\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/c6d7qqe9ngeyo/simp\" target=\"_blank\">法国血库冷藏设备遭骇客攻击　幕后黑手众说纷纭</a></div></div></div></li><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/744d/live/a1131d00-d8e9-11f1-8a29-751f921d505b.jpg\" alt=\"一个人手里拿着一台手机，在看中共大会\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/c6gm0rdzm0rdo/simp\" target=\"_blank\">从蔡康永、《VIVANT》到姆巴佩：北京为何区别处理“辱华”事件？</a></div></div></div></li><li><div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/660/cpsprodpb/15a5/live/b3175d90-d493-11f1-93e1-3b657b665bcf.png\" alt=\"新闻主播戈兰·埃罗尔（Goran Eror）穿着深色西装，系着红色领带，坐在蓝色背景前，直视镜头播报新闻。\"></div></div><div><div><a href=\"https://www.bbc.com/zhongwen/articles/cmed33yn48gdo/simp\" target=\"_blank\">塞尔维亚电视台为何在节目中就“多年来的片面报道”道歉？</a></div></div></div></li></ul><p tabindex=\"-1\" id=\"user-content-end-of-recommendations\">End of 热读</p></div></section><div><p>法院在新闻稿指出，由于区锦新“没有自行聘请律师”，由法院“指派律师”辩护。法院称，“律师与紧密沟通、联系”。</p></div><div><p>整合法院裁决，区锦新违反《国安法》的行为有二：</p></div><div><ul><li>长期亲身协助和配合境外组织，收集、预备，及散布充斥颠覆国家政权的政治主张以及虚假歪曲的图片及资讯，藉此勾连境外组织煽动仇恨，意图推翻中国根本制度。相关行为在2023年国安法修订生效后仍然持续。</li><li>在2023至2024年间，先后与多个境外组织勾连，亲身协助其收集虚假且歪曲消息、合谋散布，意图使外国作出针对中国及澳门的敌对行动、引发仇恨，以及破坏澳门特首选举。</li></ul></div><div><p>就行为一，法庭指出，区锦新各干犯“颠覆国家政权罪”及“与境外组织联系危害国家安全”罪，但因两罪存在表面竞合关系，以较重罪的“颠覆国家政权罪”作处罚。</p></div><div><p>就行为二，区锦新被起诉两项“颠覆国家政权罪”及两项“与境外组织联系危害国家安全”罪。法庭指出，因嫌犯行为是否达至“推翻、破坏程度”的要求存在疑问，“颠覆国家政权罪”罪名不成立。但就“与境外组织联系危害国家安全”罪则完全符合犯罪构成要件，两项罪名均成立。</p></div><div><p>另外就《刑法典》下“违反保密罪”一罪，法庭指于2021年身为时任立法会议员期间，区锦新把立法会有关赌牌续期闭门会议的秘密内容向境外组织泄漏，认定该罪罪成。</p></div><div><p>法院称在庭审中，区锦新对大部分基础事实无异议，承认勾结和串通多个境外组织的事实行为构成犯罪，并“认同辩护律师为其辩护的意见”。</p></div><div><p>法院作出判案理由，指出尽管区为初犯，且承认相当部分的犯罪事实，“惟其故意程度极高，有关犯罪的不法性程度及可能造成的后果均十分严重”。</p></div><div><p>判决如下：</p></div><div><ul><li>“颠覆国家政权罪”判囚11年3个月</li><li>两项“与境外组织联系危害国家安全罪”各判囚3年9个月</li><li>“违反保密罪”判囚9个月</li></ul></div><div><p>最后经合议，法庭决定判处区锦新单一刑罚12年6个月。</p></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/3eaf/live/b9a14360-d984-11f1-9367-d509fddfe31c.jpg\" alt=\"2026年9月16日，澳门治安警察警员在初级法院外戒备。\" width=\"1016\" height=\"571\"><p><span>图像来源，</span><span>Getty Images</span></p></div><span>2026年9月16日，区锦新案开审，澳门治安警察警员在初级法院外戒备。</span></div><div><h2 tabindex=\"-1\" id=\"user-content-家属无法探望妻子发公开信斥迫害\">家属无法探望，妻子发公开信斥“迫害”</h2></div><div><p>在判决后，区锦新妻子郑妙珊发公开信。她表示从闭门审讯到公开宣判，“是政治审判”，“是人格羞辱的莫须有迫害”。</p></div><div><p>她表示作为家属，只望往后能够得到当局允许，能“不附加条件”地跟获得丈夫书信和定期探访的权利，“至于其他，相信一切主观愿望只会换来更大的失望，是故不想多想亦无谓多讲”。</p></div><div><p>区锦新女儿区翰怡则向BBC中文表示，对判决“深感悲痛和愤慨”。她形容其父亲是一位爱好和平的人、慈爱的父亲。</p></div><div><p>“他毕生致力于服务澳门人民。几十年来，他一直为民主挺身而出，为社区争取权益，帮助那些需要帮助的人。想到他要因为一些不该被视为犯罪的行为而身陷囹圄12年半，我简直无法忍受。”</p></div><div><p>区翰怡表示，希望澳门人记住父亲的正直、勇气、慈悲和为澳门人所作出贡献。她呼吁葡萄牙政府和欧盟采取行动，尽一切可能确保他返回葡萄牙。</p></div><div><p>区锦新拥有葡萄牙国籍。他被羁押以来，外界、甚至家属均难以接触他。</p></div><div><p>今年7月，区锦新羁押满一年前夕，其女儿区翰怡曾向葡新社表示，过去一年家人无法探望，只能透过当局安排的社工了解情况。“（社工）只说他吃得好，一切都好。”</p></div><div><p>区锦新获法院分发“指派律师”后，区翰怡说家人亦不知道该律师身份：“无论我们发送多少封电子邮件、联系哪个部门，他们都置之不理。”</p></div><div><p>法院则在新闻稿中，称指定代表律师与区有“紧密沟通、联系”，法庭亦依法批准家属定期探视嫌犯的申请。</p></div><div><p>区锦新的海外法律代表迈克尔·波拉克（Michael Polak）在判刑后发声明，批评这是“一场虚假的审判”，形容区被定罪心不仅令澳门蒙羞，也将影响国际社会从法治角度对澳门的看法。</p></div><div><p>他指出，区锦新不应该仅因为他的“非暴力信仰”被拘捕。波拉克又强调区是葡萄牙公民，葡萄牙政府和欧盟应当努力让他离开澳门，“而不是让他因莫须有的罪名在狱中度过十余年 。”</p></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/bf32/live/ca255260-d9a9-11f1-93e1-3b657b665bcf.jpg\" alt=\"2026年11月6日11时15分，一辆似疑载有区锦新的囚车驶离澳门西湾初级法院。\" width=\"1024\" height=\"683\"><p><span>图像来源，</span><span>Getty Images</span></p></div><span>2026年11月6日11时15分，一辆似疑载有区锦新的囚车驶离澳门西湾初级法院。</span></div><div><h2 tabindex=\"-1\" id=\"user-content-突发的公开宣判\">突发的“公开宣判”</h2></div><div><p>据在场媒体表示，一辆疑似押送区锦新的囚车于上午11时15分驶离初级法院。</p></div><div><p>在法院外，道路被封，现场有大量保安和警察看守。法院对出空地设有传媒区，大批无法进入法院的传媒只能在此等候，现场约有20人。</p></div><div><p>是次宣判消息公布来得突然。11月5日初级法院于下午3点发<a href=\"https://www.gov.mo/zh-hant/news/1279704/\" aria-label=\"新闻稿, 外部\" target=\"_blank\">新闻稿</a>，表示区案将于明早10点公开宣判。欲旁听的公众及传媒须分别在4点起到法院及新闻局的线上系统登记。</p></div><div><p>但有市民发文表示，4点02分左右到达法院，已有职员表示“已经取完筹，额满了”。当局没透露旁听席数量为何。另据BBC中文了解，有本地媒体表示成功在新闻局系统登记后，获告知“没有足够的位置”无法旁听。</p></div><div><p>今早新闻局向现场媒体确认，只得四间传媒出席旁听，包括澳门广播电视中文及葡文台、澳门日报及大众报。BBC中文联系新闻局确认消息，截至发稿前未有回覆。</p></div><div><p>法院判决后指，“数十名市民、传媒以及嫌犯家属出席了今天的公开宣判”。惟在场记者所见，现场仅有零星做运动的市民及多名便衣警员。</p></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/78db/live/67d56be0-d9a4-11f1-a701-fddedf244c16.jpg\" alt=\"法院外，道路被封，现场有大量保安和警察看守。法院对出空地设有传媒区，大批无法进入法院的传媒只能在此等候，现场约有20人。\n\" width=\"2048\" height=\"1152\"><p><span>图像来源，</span><span>PROVIDED</span></p></div><span>法院外，道路被封，现场有大量保安和警察看守。法院对出空地设有传媒区，大批无法进入法院的传媒只能在此等候。</span></div><div><h2 tabindex=\"-1\" id=\"user-content-律师澳门用手榴弹打蚊子\">律师：“澳门用手榴弹打蚊子”</h2></div><div><p>曾在澳门执业多年的葡裔律师何睿智（Jorge Menezes）向BBC中文指出，澳门当局透过刑期传递讯息：“澳门社会必须受到震慑、外界必须看到一个可以交代的结果，以及当局想像中的北京。”</p></div><div><p>在他看来，审判同时反映当局的软弱，“一个有自信的政府，根本会把这种虚构出来的威胁当作笑话。澳门如今却是在用手榴弹打蚊子。”</p></div><div><p>对于区锦新或在狱中渡过余生，何睿智认为这是当局“刻意采取的手段”：“对待一个人的方式越不人道，对其他人的警告就越强烈”。</p></div><div><p>多年研究澳门政治的学者余永逸博士则向BBC中文分析，区案是政府划出“清楚红线”的基准：“澳门居民可以做什么、不可以做什么，有什么是不能接受”。</p></div><div><p>至于判决对社会的影响，余永逸认为自2021年立法会候选人遭集体DQ事件后，市民已目睹澳门变成“自我审查”、“不能够表达意见”的社会，今日判决未必再对社会带来多大冲击。</p></div><div><p>但在司法层面上，他担忧此做法日后或延伸至其他法律——甚至供香港效仿。</p></div><div><p>何睿智持相同看法。他同意判决象征的政治界线非常明确：不要与境外人士谈论澳门政治，服从权威，不得批评北京。</p></div><div><p>他强调，目前判决内容依然含糊，没有点名任何“敌对外部组织”，亦无列出具体的“虚假信息”或出版物，而这是当局“刻意为之”——“模糊的界线会促使人们为了自保而选择退缩，在此之后，威胁本身就会发挥作用，进而引发自我审查。”</p></div><div><p>人权观察亚洲区副主任王松莲（Maya Wang）<a href=\"https://www.hrw.org/zh-hant/news/2025/08/06/macao-ex-lawmaker-held-on-national-security-charge?ref=theinitium.com\" aria-label=\"表示, 外部\" target=\"_blank\">表示</a>，国安定罪向澳门“所有以和平方式提出批评的人士发出了令人不寒而栗的信号”。</p></div><div><p>她指出，区案司法程序存在“严重违反正当程序和公平审判权利的问题”，呼吁葡萄牙、欧盟及其他相关国家政府应强烈要求当局立即无条件释放区锦新。</p></div><div><p>中联办发言人对裁决<a href=\"https://www.tdm.com.mo/zh-hant/news-detail/1258038?isvideo=false&#x26;lang=zh-hant&#x26;shortvideo=0&#x26;category=all\" aria-label=\"表示, 外部\" target=\"_blank\">表示</a>坚决支持。其指澳门首宗国安案件的宣判有力表明，“国家安全底线不容触碰，澳门的法治精神不容挑战”。</p></div><div><div><img src=\"https://images.weserv.nl/?url=ichef.bbci.co.uk/ace/ws/640/cpsprodpb/7b64/live/bd715e30-d984-11f1-9367-d509fddfe31c.jpg\" alt=\"2017年9月17日，澳门市民在澳门提督街观看立法会选举海报。 \" width=\"819\" height=\"460\"><p><span>图像来源，</span><span>Getty Images</span></p></div><span>2017年，为区锦新（左）最后一届参选立法会。</span></div><div><h2 tabindex=\"-1\" id=\"user-content-从小学老师到逾20年议员\">从小学老师到逾20年议员</h2></div><div><p>区锦新原是一名小学老师。在1989年六四事件发生后，与吴国昌等人筹组“澳门民主发展联委会”，提出“回应中国民主运动、推动澳门民主发展”，成为澳门此后30年“六四烛光晚会”的组织者。</p></div><div><p>他自1993年起担任澳门市政议员，在1999年主权移交后与吴国昌相继成为立法会议员；连同于2016年当选的苏嘉豪，成为立法会内唯一三名民主派议员。</p></div><div><p>2021年，担任超过20年议员的区锦新宣布不再寻求连任。拍档吴国昌与苏嘉豪则于同年被撤销参选资格。澳门特区终审法院驳回吴苏二人上诉，理由是组织六四悼念属“诽谤”中国政府、可视为不拥护澳门《基本法》。民联会后因压力于2023年解散。</p></div><div><p>不过，区锦新在卸任议员后，仍常在Facebook和媒体采访中评论时政。他最后一则Facebook帖文写在被捕当日，评论澳门第四条与氹仔的跨海大桥。</p></div><div><p>2025年7月30日，拥有葡国籍的区锦新被捕后，欧盟对外行动署<a href=\"https://www.eeas.europa.eu/eeas/macao-statement-spokesperson-arrest-au-kam-san_en\" aria-label=\"谴责, 外部\" target=\"_blank\">谴责</a>中方抓捕欧洲公民，形容事情的发展加剧了人们对澳门“政治多元化和言论自由持续受到侵蚀的担忧”。</p></div><div><p>中国外交部驻澳门公署其后批评欧盟“蓄意攻击澳门法治、粗暴干涉澳门事务和中国内政”，“敦促欧盟立即停止对澳门事务说三道四、无端指责，立即停止干预澳门事务和中国内政”。</p></div><div><p>2025年9月，葡萄牙总理蒙特内格罗（Luís Montenegro） <a href=\"https://www.tdm.com.mo/zh-hant/news-detail/1126161?isvideo=true&#x26;lang=zh-hant&#x26;shortvideo=0&#x26;category=all\" aria-label=\"访问, 外部\" target=\"_blank\">访问</a>澳门，当时蒙特内格罗向葡语记者表示，二人没有谈及区锦新案，又称处理此案需要“必要的谨慎”及“某种程度低调”，但他保证没有遗忘此事。</p></div>",
+    "source": "BBC News 中文",
+    "sourceId": "feedx-bbc",
+    "category": "politics",
+    "publishedAt": "2026-11-08T07:43:02.177Z",
+    "fetchedAt": "2026-11-08T23:58:27.359Z"
+  },
+  {
+    "id": "folo-1369531588685103111",
+    "title": "字节跳动加码拉美算力，拟扩大巴西数据中心项目",
+    "url": "https://readhub.cn/topic/8xqrbQDGFSz",
+    "content": "字节跳动正考虑扩大其在巴西东北部塞阿拉州佩森港的数据中心项目，目前正寻找开发商推进该项目二期工程，该项目可享受数据出口方面的税收优惠。此次扩建规模将超过当地已有的投资 100 亿美元、装机容量 300 兆瓦的在建项目，同时字节跳动还在初步洽谈佩森港之外一个规模相近…",
+    "source": "Readhub - 每日早报 - 格隆汇",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "software",
+    "publishedAt": "2026-11-08T07:20:53.263Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "字节跳动加码拉美算力-拟扩大巴西数据中心项目",
+    "normalizedTitle": "字节跳动加码拉美算力 拟扩大巴西数据中心项目",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 格隆汇"
+    ],
+    "preFilterScore": 134.794122453263
+  },
+  {
+    "id": "folo-1368920256428302336",
+    "title": "九成代码AI写，谁来审？Claude Code亮出6道关卡！",
+    "url": "https://www.36kr.com/p/4060672855757954",
+    "content": "Claude Code uses an AI-assisted, six-layer code review pipeline to manage surging AI-generated code, reducing rollbacks by over 40% compared to a doubled PR volume. This system integrates automated tests, independent AI review, security checks, and manual risk-based approvals. It mitigates AI review limitations through strict iteration limits and feature-flag releases. A dedicated feedback loop continuously validates detection accuracy, ensuring that human responsibility remains focused on high-risk judgments and accountability rather than line-by-line inspection.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "software",
+    "publishedAt": "2026-11-08T07:20:37.387Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "九成代码ai写-谁来审-claude-code亮出6道关卡",
+    "normalizedTitle": "九成代码ai写 谁来审 claude code亮出6道关卡",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 571.794122437387
+  },
+  {
+    "id": "folo-1368526454517587971",
+    "title": "加密货币行业正为因与特朗普的关系而面临的清算做准备",
+    "url": "https://www.ft.com/content/f1b98a61-4103-447c-bb9a-3dccc0819f61?syn-25a6b1a6=1",
+    "content": "Crypto industry braces for reckoning over Trump ties (www.ft.com) 11-08",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "investment",
+    "publishedAt": "2026-11-08T05:23:54.107Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "加密货币行业正为因与特朗普的关系而面临的清算做准备",
+    "normalizedTitle": "加密货币行业正为因与特朗普的关系而面临的清算做准备",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 72.794115434107
+  },
+  {
+    "id": "folo-1368509979090235392",
+    "title": "卖软件这个事情在未来可能是伪命题了",
+    "url": "https://www.v2ex.com/t/1255327#reply3",
+    "content": "刷到孟岩关于 AI 做软件开发的一个观点，随着 AI 能力的增强，未来人人都能通过嘴炮来做个 app 覆盖自己日常的需求，而不用等到大公司为了符合大多数人群而做的一个通用版本。这意味着，想通过做 app 来获得收益变得更难。 大家认可这个观点吗，产品经理，程序员…",
+    "source": "V2EX - 技术 - fusae",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-11-08T05:19:45.775Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "卖软件这个事情在未来可能是伪命题了",
+    "normalizedTitle": "卖软件这个事情在未来可能是伪命题了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - fusae"
+    ],
+    "preFilterScore": 43.794115185775
+  },
+  {
+    "id": "folo-1368673204876271616",
+    "title": "百度第三次改搜索框",
+    "url": "https://www.36kr.com/p/4060419503921026",
+    "content": "Baidu’s third search redesign redefines its platform from query-based linking to task-based AI delivery, generating complete solutions like itineraries or financial alerts. This shift addresses declining user engagement and ad revenue amid AI competition. Baidu simultaneously prices its search AI API at 4.9 yuan per thousand calls, undercutting rivals to capture developer ecosystem and data feedback. Unlike Google’s stable growth, Baidu faces urgent monetization pressure, necessitating a transition from advertising dependency to an infrastructure-driven model. This strategic pivot reflects a broader industry challenge where AI search reduces traditional traffic value.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "business",
+    "publishedAt": "2026-11-08T04:05:08.879Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "百度第三次改搜索框",
+    "normalizedTitle": "百度第三次改搜索框",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 601.794110708879
+  },
+  {
+    "id": "folo-1368562307176521728",
+    "title": "爆火的《持械入宋》里，AI 找到了爱它的观众",
+    "url": "https://www.36kr.com/p/4060438177698692",
+    "content": "几公里之外，正在宋代城墙上巡逻的将领，警惕地看着可能射来的弓箭，但他最后还是被击倒了——他防不住子弹。  如果是古装片，这样的剧情很离谱，但告诉你这是一部现代特种兵穿越到宋朝、所有武器装备也一同穿越，是不是显得合理很多，这就是今天登上热搜的《持械入宋》。 \n\n《持械入…",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "social",
+    "publishedAt": "2026-11-08T04:01:16.992Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "爆火的-持械入宋-找到了爱它的观众",
+    "normalizedTitle": "爆火的 持械入宋 里 ai 找到了爱它的观众",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 136.794110476992
+  },
+  {
+    "id": "folo-1368419113268949000",
+    "title": "写了个开源工具：手机照片视频无损搬到电脑，局域网直传， PC 不装任何客户端",
+    "url": "https://www.v2ex.com/t/1255317#reply0",
+    "content": "写了个工具解决自己的痛点，开源出来给大家用，求轻喷、求反馈。 GitHub： https://github.com/malatomato1989/photosmove\n\n官网：https://www.photosmove.com\n\nGoogle Play：搜索 PhotosMove…",
+    "source": "V2EX - 技术 - tushushare",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-11-08T03:53:54.350Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "写了个开源工具-手机照片视频无损搬到电脑-局域网直传-不装任何客户端",
+    "normalizedTitle": "写了个开源工具 手机照片视频无损搬到电脑 局域网直传 pc 不装任何客户端",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - tushushare"
+    ],
+    "preFilterScore": 53.79411003435
+  },
+  {
+    "id": "folo-1368434540959162368",
+    "title": "印尼总统顾问称，MSCI下调评级的威胁“有些过分”",
+    "url": "https://www.ft.com/content/32c04cee-3f49-4971-a72d-391ad52e8f58?syn-25a6b1a6=1",
+    "content": "An adviser to the Indonesian president characterized MSCI’s threat to downgrade Indonesia’s market classification as excessive.",
+    "source": "金融时报",
+    "sourceId": "folo-ai-list-41446022334078980",
+    "category": "business",
+    "publishedAt": "2026-11-08T03:33:55.994Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "印尼总统顾问称-msci下调评级的威胁“有些过分”",
+    "normalizedTitle": "印尼总统顾问称 msci下调评级的威胁“有些过分”",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "金融时报"
+    ],
+    "preFilterScore": 128.794108835994
+  },
+  {
+    "id": "folo-1368329519512956933",
+    "title": "现在 ai agent 开发都用什么框架",
+    "url": "https://www.v2ex.com/t/1255302#reply0",
+    "content": "现在背景下，agent 开发好像挺热，都用什么框架啊，不要跟我说自己手搓，不要说用 langgraph，那么重你确定企业都用？",
+    "source": "V2EX - 技术 - fxjson",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-11-08T02:23:05.631Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "agent-开发都用什么框架",
+    "normalizedTitle": "现在 ai agent 开发都用什么框架",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - fxjson"
+    ],
+    "preFilterScore": -25.205895414369
+  },
+  {
+    "id": "folo-1368454690798231553",
+    "title": "一斤价格“堪比十斤猪肉”，疯涨的开心果让我不开心了",
+    "url": "https://www.36kr.com/p/4060416568529798",
+    "content": "Pistachio prices in China have surged significantly due to supply disruptions in major importing regions like California and Iran. This scarcity, combined with a robust health narrative and a viral \"light luxury\" aesthetic, has transformed the nut from a seasonal treat into a trendy ingredient. Widely adopted in desserts, beverages, and retail products, pistachios now drive premium pricing. Consequently, scalpers exploit limited stock at major retailers, while consumers willingly pay higher prices for the associated perceived elegance and health benefits.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "ai",
+    "publishedAt": "2026-11-08T01:19:03.147Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "一斤价格“堪比十斤猪肉”-疯涨的开心果让我不开心了",
+    "normalizedTitle": "一斤价格“堪比十斤猪肉” 疯涨的开心果让我不开心了",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 562.794100743147
+  },
+  {
+    "id": "folo-1368289765580791808",
+    "title": "专访《持械入宋》主创 ：非科班，无投流，草根团队如何做出120亿品质爆款？",
+    "url": "https://www.36kr.com/p/4060386455443330",
+    "content": "The non-professional team behind the historical short drama *Holding Weapons into Song* achieved a 12 billion playback milestone despite having zero paid promotion and no traditional film background. Composed of six remote workers, including a ride-hailing driver and a stay-at-home mom, the team focused on rigorous historical accuracy and high-quality storytelling rather than marketing. Their success, which attracted media praise for maintaining standards despite AI's lower costs, validates that detailed narrative craftsmanship and audience engagement are more critical to viral success than technical expertise or advertising spend.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "business",
+    "publishedAt": "2026-11-08T01:12:08.662Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "持械入宋-非科班-无投流-草根团队如何做出120亿品质爆款",
+    "normalizedTitle": "专访 持械入宋 主创 非科班 无投流 草根团队如何做出120亿品质爆款",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 601.794100328662
+  },
+  {
+    "id": "folo-1368289765580791809",
+    "title": "乌兰察布，才是AI数据中心的正确答案？",
+    "url": "https://www.36kr.com/p/4059436619846784",
+    "content": "Ulanqab, Inner Mongolia, emerges as a viable solution for AI data centers, overcoming the grid and water constraints plaguing the United States. While American data center expansion drives soaring electricity prices and faces significant local opposition, China leverages Inner Mongolia’s excess renewable energy and low population density. By utilizing natural cooling, waste heat recovery, and a centralized power grid, Ulanqab’s facilities achieve high efficiency while keeping resident electricity costs stable. This model effectively addresses the resource bottlenecks limiting US infrastructure growth.",
+    "source": "36氪 - 24小时热榜",
+    "sourceId": "folo-ai-list-41489882518602759",
+    "category": "ai",
+    "publishedAt": "2026-11-08T00:09:20.121Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "乌兰察布-才是ai数据中心的正确答案",
+    "normalizedTitle": "乌兰察布 才是ai数据中心的正确答案",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "36氪 - 24小时热榜"
+    ],
+    "preFilterScore": 601.794096560121
+  },
+  {
+    "id": "folo-1368309811267014656",
+    "title": "2026-11-08 Hacker News Top Stories",
+    "url": "https://supertechfans.com/cn/post/2026-11-08-HackerNews/",
+    "content": "This compilation of Hacker News stories highlights ten key topics: Mitchell Hashimoto released libghostty-vt 1.0, a stable terminal emulation library. A fan project successfully ported *Need for Speed: Underground 2* to WebAssembly for browser play. Hightouch demonstrated cost-effective LLM identity resolution, while Eighth Rank analyzed macOS’s local family relationship classifiers. Other news includes Ajeya Cotra’s analysis of AI research acceleration, Bloomberg reports on Anthropic’s potential $1.1 trillion IPO valuation, and Asahi Linux 7.3 expanding M3 Mac support. Additionally, pwn.ai detailed a specific Firecracker VM escape, a satirical \"Upload Your RAM\" site gained attention, and Kevin Boone published UEFI programming tutorials.",
+    "source": "HackerNews每日摘要 on SuperTechFans",
+    "sourceId": "folo-ai-list-41359648684677132",
+    "category": "software",
+    "publishedAt": "2026-11-07T23:33:21.743Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "2026-11-08-hacker-news-top-stories",
+    "normalizedTitle": "2026-11-08 hacker news top stories",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "HackerNews每日摘要 on SuperTechFans"
+    ],
+    "preFilterScore": 601.794094401743
+  },
+  {
+    "id": "folo-1368142498970480670",
+    "title": "微软壁纸应用已经被垃圾 AI 生图夺舍，可见 AI 时代也不能有更好的软件用户体验",
+    "url": "https://www.v2ex.com/t/1255289#reply0",
+    "content": "微软壁纸可以每天更新壁纸原本还觉得挺好用的。今天发现居然完全变成 AI 生图的链接入口，只能管理 AI 生成的图片。一个壁纸应用居然连切换壁纸的功能都没有，纯纯的垃圾。 程序员失业也挺好的，最少不用面对这些傻叉产品需求了。",
+    "source": "V2EX - 技术 - iamdhj",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "ai",
+    "publishedAt": "2026-11-07T23:09:49.666Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "微软壁纸应用已经被垃圾-生图夺舍-时代也不能有更好的软件用户体验",
+    "normalizedTitle": "微软壁纸应用已经被垃圾 ai 生图夺舍 可见 ai 时代也不能有更好的软件用户体验",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - iamdhj"
+    ],
+    "preFilterScore": 22.794092989666
+  },
+  {
+    "id": "folo-1368093811707756544",
+    "title": "多名参议院共和党人呼吁推迟领导层选举",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-07/several-senate-republicans-call-for-delaying-leadership-election",
+    "content": "Several Senate Republicans Call for Delaying Leadership Election (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "politics",
+    "publishedAt": "2026-11-07T21:30:51.674Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "多名参议院共和党人呼吁推迟领导层选举",
+    "normalizedTitle": "多名参议院共和党人呼吁推迟领导层选举",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 91.794087051674
+  },
+  {
+    "id": "folo-1368093811707756546",
+    "title": "巴拉圭总统佩尼亚被罢免后被指控犯有罪行",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-06/paraguay-senators-remove-pena-from-office-after-bank-scandal",
+    "content": "Paraguay President Peña Charged With Crimes After Ouster (www.bloomberg.com) 11-07",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-11-07T21:14:46.874Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "巴拉圭总统佩尼亚被罢免后被指控犯有罪行",
+    "normalizedTitle": "巴拉圭总统佩尼亚被罢免后被指控犯有罪行",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 83.794086086874
+  },
+  {
+    "id": "folo-1368001623002988546",
+    "title": "Meta发售250亿美元债券，凸显科技行业债务格局的变化",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-07/meta-s-bond-sale-shows-new-reality-for-tech-debt-credit-weekly",
+    "content": "Meta issued $25 billion in bonds, a transaction that underscores significant shifts in the broader technology sector’s debt market dynamics.",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "investment",
+    "publishedAt": "2026-11-07T20:11:48.545Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "meta发售250亿美元债券-凸显科技行业债务格局的变化",
+    "normalizedTitle": "meta发售250亿美元债券 凸显科技行业债务格局的变化",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 141.794082308545
+  },
+  {
+    "id": "folo-1369531588685103113",
+    "title": "比尔盖茨谈亿万富翁税：贫富差距不能指望靠慈善捐赠解决",
+    "url": "https://readhub.cn/topic/8xrZuiobb00",
+    "content": "Bill Gates advocates for a progressive \"billionaire tax\" to address widening wealth inequality driven by AI. He argues that charity cannot substitute for robust public policy, as extreme wealth concentration persists, with the top 1% owning half of US stock assets. Gates suggests specific measures, including taxing AI token consumption and industrial robots, to offset employment displacement and correct distributional imbalances caused by technological automation, thereby safeguarding social equity.",
+    "source": "Readhub - 每日早报 - 快科技",
+    "sourceId": "folo-ai-list-52347176714948614",
+    "category": "politics",
+    "publishedAt": "2026-11-07T19:14:21.244Z",
+    "fetchedAt": "2026-11-08T23:58:11.721Z",
+    "eventKey": "比尔盖茨谈亿万富翁税-贫富差距不能指望靠慈善捐赠解决",
+    "normalizedTitle": "比尔盖茨谈亿万富翁税 贫富差距不能指望靠慈善捐赠解决",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "Readhub - 每日早报 - 快科技"
+    ],
+    "preFilterScore": 505.794078861244
+  },
+  {
+    "id": "folo-1367911295495454721",
+    "title": "随着数据中心抗议活动的蔓延，欧洲各地掀起反人工智能浪潮",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-07/ai-backlash-spreads-across-europe-with-data-center-protests",
+    "content": "AI Backlash Spreads Across Europe With Data Center Protests (www.bloomberg.com) 11-08",
+    "source": "彭博社最新报道",
+    "sourceId": "folo-ai-list-70844804758158336",
+    "category": "ai",
+    "publishedAt": "2026-11-07T18:52:46.128Z",
+    "fetchedAt": "2026-11-08T23:58:17.287Z",
+    "eventKey": "随着数据中心抗议活动的蔓延-欧洲各地掀起反人工智能浪潮",
+    "normalizedTitle": "随着数据中心抗议活动的蔓延 欧洲各地掀起反人工智能浪潮",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "彭博社最新报道"
+    ],
+    "preFilterScore": 86.794077566128
+  },
+  {
+    "id": "folo-1367885809008541697",
+    "title": "“食人魔”摩西落网，“15年间杀害并食用38人” | 原文",
+    "url": "https://t.me/wxbyg/8575",
+    "content": "Uganda’s military announced the arrest of Muzuriki Moses, who is accused of murdering and consuming 38 people over 15 years. General Muhoozi Kainerugaba revealed that security forces captured Moses, who allegedly committed crimes in Masaka, Ibanda, and Kazo between 2010 and 2025. The arrest has renewed public attention to a decade-old series of homicides. Authorities plan to hold a public trial and seek the death penalty for the suspect.",
+    "source": "微信搬运工 - Telegram Channel",
+    "sourceId": "folo-ai-list-53366652701156355",
+    "category": "social",
+    "publishedAt": "2026-11-07T18:12:00.036Z",
+    "fetchedAt": "2026-11-08T23:58:17.287Z",
+    "eventKey": "“食人魔”摩西落网-“15年间杀害并食用38人”",
+    "normalizedTitle": "“食人魔”摩西落网 “15年间杀害并食用38人” 原文",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "微信搬运工 - Telegram Channel"
+    ],
+    "preFilterScore": 352.794075120036
+  },
+  {
+    "id": "folo-1368509979090235410",
+    "title": "寻找一个 ai 开发的底盘框架。",
+    "url": "https://www.v2ex.com/t/1255281#reply2",
+    "content": "用了几年的 directus ，现在也要收费才能解锁能力了。只有 25 Collections ，ai 写一些复杂的可能会碰上限，约束着写一些 crud 的应用没啥问题。 然后看了 supabase ，能力限制基本很少，收费的更多的是资源，正在转。\n\n那么大伙是怎么选框架的？直接让…",
+    "source": "V2EX - 技术 - mushokumunou",
+    "sourceId": "folo-ai-list-54831913290792960",
+    "category": "software",
+    "publishedAt": "2026-11-07T16:32:07.447Z",
+    "fetchedAt": "2026-11-08T23:58:17.287Z",
+    "eventKey": "寻找一个-开发的底盘框架",
+    "normalizedTitle": "寻找一个 ai 开发的底盘框架",
+    "duplicateCount": 1,
+    "sourceCount": 1,
+    "representativeSources": [
+      "V2EX - 技术 - mushokumunou"
+    ],
+    "preFilterScore": 53.794069127447
+  }
+]
